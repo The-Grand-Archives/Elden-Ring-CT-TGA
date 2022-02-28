@@ -4,7 +4,7 @@
  - Full list of params
  - Character Flags: NoDead, NoStaminConsumption, NoFPConsumption, NoDead, NoGoodsConsume
  
- ### v0.1 02/26/2022:
+### v0.1 02/26/2022:
  - Stats, Attributes, WIP PlayerParam
  - AddSoul, ItemGib, ItemDrop
  - Custom FPS Limit
