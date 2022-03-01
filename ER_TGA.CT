@@ -2,8 +2,25 @@
 <CheatTable CheatEngineTableVersion="42">
   <CheatEntries>
     <CheatEntry>
+      <ID>1337191903</ID>
+      <Description>"&lt; Enable this if you use start_protected_game.exe"</Description>
+      <Color>FF8000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+OpenProcess("start_protected_game.exe")
+{$asm}
+define(eldenring.exe,start_protected_game.exe)
+registerSymbol(eldenring.exe)
+[DISABLE]
+unregisterSymbol(eldenring.exe)
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
       <ID>1337192508</ID>
-      <Description>"Open - The Grand Archives v0.1 - Elden Ring v1.02.1"</Description>
+      <Description>"Open - The Grand Archives v0.2.2 - Elden Ring v1.02.1"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
@@ -42023,4 +42040,5 @@ db 00
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <UserdefinedSymbols/>
 </CheatTable>

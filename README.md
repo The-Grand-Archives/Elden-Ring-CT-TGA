@@ -14,13 +14,14 @@ Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releas
 Game: App ver. 1.2.1
 
 ### Changelog
-### v0.2 02/28/2022:
+### v0.2.2 03/01/2022:
  - Helpers: Weapon, Protector, Accessory, Goods, Bullet, SpEffectParam, Magic
  - Full list of params
  - Character Flags: NoDead, NoStaminConsumption, NoFPConsumption, NoDead, NoGoodsConsume
  - Stats, Attributes, WIP PlayerParam
  - AddSoul, ItemGib, ItemDrop
  - Custom FPS Limit
+ - Added script to use the table with eldenring.exe renamed to start_protected_game.exe
 #### For previous changelogs check the [full changelog](/CHANGELOG.md)
 
 ## Credits
