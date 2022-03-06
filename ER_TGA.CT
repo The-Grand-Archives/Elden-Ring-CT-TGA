@@ -2615,12 +2615,12 @@ if not syntaxcheck then disableMemrec(memrec) end
 aobscanmodule(ItemGib_Call,eldenring.exe,40 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 B0 48 81 EC 50 01 00 00 48 C7 45 C0 FE FF FF FF)
 alloc(ItemGib,$1000,eldenring.exe)
 alloc(ItemGibData,$100)
-label(ItemGibArray)
+alloc(ItemGibArray,$1000)
 registerSymbol(ItemGib)
 registerSymbol(ItemGibArray)
 
 ItemGib:
-lea r12,[ItemGibArray]
+mov r12,ItemGibArray
 call ItemGib_Insert
 ItemGib_end:
 ret
@@ -2629,7 +2629,8 @@ ItemGib_Insert:
 mov eax,[r12]
 test eax,eax
 je short ItemGib_Insert_end
-lea r11,[ItemGibData+20]
+mov r10,ItemGibData
+lea r11,[r10+20]
 mov [r11+04],eax
 mov eax,[r12+04]
 mov [r11+08],eax
@@ -2650,9 +2651,10 @@ ret
 
 ItemGib_Main:
 sub rsp,48
-lea r8,[ItemGibData]
-lea rdx,[ItemGibData+20]
-mov rcx,[MapItemMan]
+mov r8,ItemGibData
+lea rdx,[r8+20]
+mov r10,MapItemMan
+mov rcx,[r10]
 mov [rdx],01
 call ItemGib_Call
 add rsp,48
