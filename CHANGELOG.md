@@ -1,4 +1,8 @@
 # Changelog
+### v0.3.1 03/06/2022
+ - ItemGib adjusted to hopefully fix MassItemGib related crashes
+ - MassItemGib expanded
+
 ### v0.3 03/05/2022
  - PlayerParam updated
  - ChrAsm (dec), ChrAsm 2 (hex)
