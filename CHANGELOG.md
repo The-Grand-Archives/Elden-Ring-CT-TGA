@@ -1,4 +1,13 @@
 # Changelog
+### v0.4.0 03/17/2022
+ - AOBs fixed for latest update (v1.03.0)
+ - ReinforceLv, Rune Arc, Character Type, TeamType, ClearCount added under Stastitics
+ - Resistances, EquipMagicData, GestureGameData,SpecialEffects>Active Effects added under Hero
+ - Warp function adjusted to work with the same IDs as Last Grace, dropdowns with names have been added as well
+ - Igromanru's Param Patcher v2 ported, Param Classes are still WIP and may not work as expected
+ - New scripts: Unlock All Regular Gestures, Upgrades Need No Materials, Custom FOV
+ - Easier to use Helpers are now available
+
 ### v0.3.1 03/06/2022
  - ItemGib adjusted to hopefully fix MassItemGib related crashes
  - MassItemGib expanded
