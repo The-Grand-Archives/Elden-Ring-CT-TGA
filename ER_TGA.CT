@@ -5,7 +5,6 @@
       <ID>1337192508</ID>
       <Description>"Open - The Grand Archives v0.4.0 - Elden Ring v1.03.0"</Description>
       <Options moHideChildren="1"/>
-      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 {$lua}
@@ -556,7 +555,6 @@ unregisterSymbol(CSFD4VirtualMemoryFlag)
         <CheatEntry>
           <ID>1337099162</ID>
           <Description>"Table Info (FAQ)"</Description>
-          <LastState/>
           <Color>FF8000</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{$lua}
@@ -623,13 +621,11 @@ Relinquished001, sfix, Silence
           <ID>1337192533</ID>
           <Description>"Statistics"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1337196696</ID>
               <Description>"Character"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -796,7 +792,6 @@ Relinquished001, sfix, Silence
               <ID>1337196695</ID>
               <Description>"Misc"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -837,14 +832,12 @@ Relinquished001, sfix, Silence
           <ID>1337192616</ID>
           <Description>"Hero"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1337192538</ID>
               <Description>"Stats"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -979,7 +972,6 @@ Relinquished001, sfix, Silence
               <ID>1337192617</ID>
               <Description>"Attributes"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -1099,7 +1091,6 @@ Relinquished001, sfix, Silence
               <ID>1337196742</ID>
               <Description>"Resistances"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -1304,7 +1295,6 @@ Relinquished001, sfix, Silence
               <ID>1337193063</ID>
               <Description>"ChrAsm"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -1417,7 +1407,6 @@ Relinquished001, sfix, Silence
                   <ID>1337193071</ID>
                   <Description>"Unk"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -1567,7 +1556,6 @@ Relinquished001, sfix, Silence
                     <CheatEntry>
                       <ID>1337193084</ID>
                       <Description>"--"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <GroupHeader>1</GroupHeader>
                     </CheatEntry>
                     <CheatEntry>
@@ -1633,7 +1621,6 @@ Relinquished001, sfix, Silence
                     <CheatEntry>
                       <ID>1337193090</ID>
                       <Description>"--"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <GroupHeader>1</GroupHeader>
                     </CheatEntry>
                     <CheatEntry>
@@ -1950,7 +1937,6 @@ Relinquished001, sfix, Silence
               <ID>1337193120</ID>
               <Description>"ChrAsm 2"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -2227,7 +2213,6 @@ Relinquished001, sfix, Silence
               <ID>1337193397</ID>
               <Description>"EquipMagicData"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -2418,13 +2403,11 @@ Relinquished001, sfix, Silence
               <ID>1337193447</ID>
               <Description>"GestureGameData"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1337193498</ID>
                   <Description>"Unlock All Regular Gestures"</Description>
-                  <LastState/>
                   <Color>FF8000</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -2494,7 +2477,6 @@ disableMemrec(memrec)
                 <CheatEntry>
                   <ID>1337193518</ID>
                   <Description>"Unlock Cut Gestures"</Description>
-                  <LastState/>
                   <Color>0000C8</Color>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
@@ -3469,7 +3451,6 @@ disableMemrec(memrec)
               <ID>1337191913</ID>
               <Description>"GameData"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -3498,7 +3479,6 @@ disableMemrec(memrec)
               <ID>1337191981</ID>
               <Description>"PlayerParam"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -3897,7 +3877,6 @@ disableMemrec(memrec)
               <ID>1337193261</ID>
               <Description>"Face Data (WIP)"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -4008,7 +3987,6 @@ disableMemrec(memrec)
               <ID>1337193057</ID>
               <Description>"Character Flags"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -4105,13 +4083,11 @@ disableMemrec(memrec)
               <ID>1337193589</ID>
               <Description>"SpecialEffect"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1337193519</ID>
                   <Description>"Active Effects"</Description>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
@@ -4834,7 +4810,6 @@ disableMemrec(memrec)
               <ID>1337193233</ID>
               <Description>"Animation"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -4873,21 +4848,18 @@ disableMemrec(memrec)
           <ID>1337192509</ID>
           <Description>"Scripts"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1337192628</ID>
               <Description>"Build Creation"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1337192510</ID>
                   <Description>"AddSoul"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>//Author: inuNorii
 [ENABLE]
@@ -4928,7 +4900,6 @@ unregisterSymbol(AddSoulData)
                     <CheatEntry>
                       <ID>1337192512</ID>
                       <Description>" &gt; Give Runes"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 createthread(AddSoul)
@@ -4944,7 +4915,6 @@ if not syntaxcheck then disableMemrec(memrec) end
                   <ID>1337193276</ID>
                   <Description>"ItemGib"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 aobscanmodule(ItemGib_AOB,eldenring.exe,8B 02 83 F8 0A)
@@ -4974,10 +4944,10 @@ mov eax,[r12+0C]
 mov [r11+10],eax
 cmp [r12+00],02FAF080
 jnl short ItemGib_Insert_01
-mov eax,[r12+08]
-add [r11+04],ax
-mov eax,[r12+0A]
-add [r11+04],ax
+movzx eax,word ptr [r12+08]
+add [r11+04],eax
+movzx eax,word ptr [r12+0A]
+add [r11+04],eax
 ItemGib_Insert_01:
 call ItemGib_Main
 add r12,10
@@ -5062,7 +5032,6 @@ unregisterSymbol(ItemGibArray)
                     <CheatEntry>
                       <ID>1337193282</ID>
                       <Description>"&gt; Spawn Item"</Description>
-                      <LastState/>
                       <Color>FF8000</Color>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
@@ -5077,28 +5046,24 @@ if not syntaxcheck then disableMemrec(memrec) end
                       <ID>1337193283</ID>
                       <Description>"MassItemGib WIP"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState Value="" RealAddress="00000000"/>
                       <Color>C0C0C0</Color>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
                         <CheatEntry>
                           <ID>1337193320</ID>
                           <Description>"There might be invalid items in these, testing has not been done yet"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <Color>0000FF</Color>
                           <GroupHeader>1</GroupHeader>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337193321</ID>
                           <Description>"Use at your own risk!"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <Color>0000FF</Color>
                           <GroupHeader>1</GroupHeader>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337193284</ID>
                           <Description>"Give all weapons"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -5312,6 +5277,7 @@ dd 00F61FD0 00000001 00000000 FFFFFFFF // Inquisitor's Girandole
 dd 00F646E0 00000001 00000000 FFFFFFFF // Spiked Spear
 dd 00F66DF0 00000001 00000000 FFFFFFFF // Iron Spear
 dd 00F69500 00000001 00000000 FFFFFFFF // Rotten Crystal Spear
+dd 01038D50 00000001 00000000 FFFFFFFF // Mohgwyn's Sacred Spear
 // Great Spears
 dd 01038D50 00000001 00000000 FFFFFFFF // Mohgwyn's Sacred Spear
 dd 0103B460 00000001 00000000 FFFFFFFF // Siluria's Tree
@@ -5907,7 +5873,6 @@ dd 00000000 00000000 00000000 FFFFFFFF
                         <CheatEntry>
                           <ID>1337193285</ID>
                           <Description>"Give all projectiles x99"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -6055,7 +6020,6 @@ dd 00000000 00000000 00000000 FFFFFFFF
                         <CheatEntry>
                           <ID>1337193322</ID>
                           <Description>"Give all protectors"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -7227,7 +7191,6 @@ dd 00000000 00000000 00000000 FFFFFFFF
                         <CheatEntry>
                           <ID>1337193323</ID>
                           <Description>"Give all accessories"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -7475,14 +7438,12 @@ dd 00000000 00000000 00000000 FFFFFFFF
                         <CheatEntry>
                           <ID>1337193324</ID>
                           <Description>"Goods"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <Color>C0C0C0</Color>
                           <GroupHeader>1</GroupHeader>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337193325</ID>
                           <Description>"Give all ashes"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -7626,7 +7587,6 @@ dd 00000000 00000000 00000000 FFFFFFFF
                         <CheatEntry>
                           <ID>1337193327</ID>
                           <Description>"Give all sorceries"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -7783,7 +7743,6 @@ dd 00000000 00000000 00000000 FFFFFFFF
                         <CheatEntry>
                           <ID>1337193326</ID>
                           <Description>"Give all incantations"</Description>
-                          <LastState/>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
 ItemGibArray:
@@ -8007,7 +7966,6 @@ dd 00000000 00000000 00000000 FFFFFFFF
                   <ID>1337193271</ID>
                   <Description>"Warp"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>//Author: Coinsworth
 [ENABLE]
@@ -8048,7 +8006,6 @@ unregistersymbol(WarpLocation)
                     <CheatEntry>
                       <ID>1337193273</ID>
                       <Description>"&gt; Warp"</Description>
-                      <LastState/>
                       <Color>FF8000</Color>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
@@ -8064,7 +8021,6 @@ if not syntaxcheck then disableMemrec(memrec) end
                 <CheatEntry>
                   <ID>1337196757</ID>
                   <Description>"Unlock All Regular Gestures"</Description>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 [[[GameDataMan]+08]+8B8]+08:
@@ -8126,7 +8082,6 @@ disableMemrec(memrec)
                 <CheatEntry>
                   <ID>1337190285</ID>
                   <Description>"Upgrades Need No Materials"</Description>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>{
 	Author: Gáté
@@ -8148,14 +8103,12 @@ paramUtils:restore("UpgradeCost")
               <ID>1337196759</ID>
               <Description>"QoL"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1337192534</ID>
                   <Description>"Custom FPS Limit"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 [CSFlipper]+2CC:
@@ -8209,7 +8162,6 @@ db 00
                 <CheatEntry>
                   <ID>1337190293</ID>
                   <Description>"Custom FOV"</Description>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>//Author: inuNorii
 //Fov edit via LockCamParam
@@ -8229,21 +8181,18 @@ paramUtils:restore("CustomFov")
               <ID>1337192769</ID>
               <Description>"Helpers"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1337193793</ID>
                   <Description>"ID Helpers"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
                     <CheatEntry>
                       <ID>1337072929</ID>
                       <Description>"EquipParamWeapon"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(EquipParamWeaponHelper,8)
@@ -11241,7 +11190,6 @@ unregistersymbol(EquipParamWeaponHelper)
                         <CheatEntry>
                           <ID>1337072931</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -13930,7 +13878,6 @@ unregistersymbol(EquipParamWeaponHelper)
                       <ID>1337076834</ID>
                       <Description>"EquipParamProtector"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(EquipParamProtectorHelper,8)
@@ -14608,7 +14555,6 @@ unregistersymbol(EquipParamProtectorHelper)
                         <CheatEntry>
                           <ID>1337076836</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -15526,7 +15472,6 @@ unregistersymbol(EquipParamProtectorHelper)
                               <ID>1337032917</ID>
                               <Description>"Model Masks"</Description>
                               <Options moHideChildren="1"/>
-                              <LastState Value="" RealAddress="00000130"/>
                               <ShowAsHex>1</ShowAsHex>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>Array of byte</VariableType>
@@ -16229,7 +16174,6 @@ unregistersymbol(EquipParamProtectorHelper)
                       <ID>1337076593</ID>
                       <Description>"EquipParamAccessory"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(EquipParamAccessoryHelper,8)
@@ -16371,7 +16315,6 @@ unregistersymbol(EquipParamAccessoryHelper)
                         <CheatEntry>
                           <ID>1337076595</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -16758,7 +16701,6 @@ unregistersymbol(EquipParamAccessoryHelper)
                       <ID>1337077321</ID>
                       <Description>"EquipParamGoods"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(EquipParamGoodsHelper,8)
@@ -18585,7 +18527,6 @@ unregistersymbol(EquipParamGoodsHelper)
                         <CheatEntry>
                           <ID>1337077323</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -19670,7 +19611,6 @@ unregistersymbol(EquipParamGoodsHelper)
                       <ID>1337072909</ID>
                       <Description>"Magic"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(MagicHelper,8)
@@ -19947,7 +19887,6 @@ unregistersymbol(MagicHelper)
                         <CheatEntry>
                           <ID>1337193653</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -20820,7 +20759,6 @@ unregistersymbol(MagicHelper)
                       <ID>1337076216</ID>
                       <Description>"Bullet"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(BulletHelper,8)
@@ -28187,7 +28125,6 @@ unregistersymbol(BulletHelper)
                         <CheatEntry>
                           <ID>1337076218</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -29096,7 +29033,6 @@ unregistersymbol(BulletHelper)
                       <ID>1337072903</ID>
                       <Description>"SpEffectParam"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(SpEffectParamHelper,8)
@@ -37461,7 +37397,6 @@ unregistersymbol(SpEffectParamHelper)
                         <CheatEntry>
                           <ID>1337072905</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -40129,7 +40064,6 @@ unregistersymbol(SpEffectParamHelper)
                       <ID>1337196094</ID>
                       <Description>"ReinforceParamWeapon"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(ReinforceParamWeaponHelper,8)
@@ -41003,7 +40937,6 @@ unregistersymbol(ReinforceParamWeaponHelper)
                         <CheatEntry>
                           <ID>1337160550</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -41292,7 +41225,6 @@ unregistersymbol(ReinforceParamWeaponHelper)
                       <ID>1337072914</ID>
                       <Description>"AtkParam_Pc"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 alloc(AtkParam_PcHelper,8)
@@ -48668,7 +48600,6 @@ unregistersymbol(AtkParam_PcHelper)
                         <CheatEntry>
                           <ID>1337072916</ID>
                           <Description>"Start"</Description>
-                          <LastState Value="" RealAddress="00000000"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -50073,7 +50004,6 @@ unregistersymbol(AtkParam_PcHelper)
                 <CheatEntry>
                   <ID>1337196756</ID>
                   <Description>"Note: Last x Highlighted helpers currently don't work in simple view"</Description>
-                  <LastState Value="" RealAddress="00000000"/>
                   <Color>FF8000</Color>
                   <GroupHeader>1</GroupHeader>
                 </CheatEntry>
@@ -50081,7 +50011,6 @@ unregistersymbol(AtkParam_PcHelper)
                   <ID>1337194448</ID>
                   <Description>"Last Weapon Highlighted"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>// Author: inuNorii
 [ENABLE]
@@ -50113,7 +50042,6 @@ dealloc(newmem)
                     <CheatEntry>
                       <ID>1337193796</ID>
                       <Description>"Start"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Array of byte</VariableType>
@@ -52778,7 +52706,6 @@ dealloc(newmem)
                   <ID>1337194062</ID>
                   <Description>"Last Protector Highlighted"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>// Author: inuNorii
 [ENABLE]
@@ -52810,7 +52737,6 @@ dealloc(newmem)
                     <CheatEntry>
                       <ID>1337194064</ID>
                       <Description>"Start"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Array of byte</VariableType>
@@ -53725,7 +53651,6 @@ dealloc(newmem)
                           <ID>1337194186</ID>
                           <Description>"Model Masks"</Description>
                           <Options moHideChildren="1"/>
-                          <LastState Value="" RealAddress="00000132"/>
                           <ShowAsHex>1</ShowAsHex>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
@@ -54428,7 +54353,6 @@ dealloc(newmem)
                   <ID>1337194453</ID>
                   <Description>"Last Goods Highlighted"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>// Author: inuNorii
 [ENABLE]
@@ -54462,7 +54386,6 @@ dealloc(newmem)
                     <CheatEntry>
                       <ID>1337194500</ID>
                       <Description>"Start"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Array of byte</VariableType>
@@ -55544,7 +55467,6 @@ dealloc(newmem)
                   <ID>1337194451</ID>
                   <Description>"Last Accessory Highlighted"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>// Author: inuNorii
 [ENABLE]
@@ -55576,7 +55498,6 @@ dealloc(newmem)
                     <CheatEntry>
                       <ID>1337194452</ID>
                       <Description>"Start"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Array of byte</VariableType>
@@ -55952,7 +55873,6 @@ dealloc(newmem)
                   <ID>1337194616</ID>
                   <Description>"Currently Equipped Magic"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>// Author : inuNorii
 [ENABLE]
@@ -55985,7 +55905,6 @@ dealloc(newmem)
                     <CheatEntry>
                       <ID>1337194617</ID>
                       <Description>"Start"</Description>
-                      <LastState Value="" RealAddress="00000000"/>
                       <ShowAsHex>1</ShowAsHex>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Array of byte</VariableType>
@@ -56856,7 +56775,6 @@ dealloc(newmem)
             <CheatEntry>
               <ID>1337192631</ID>
               <Description>"Cheats"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <Color>C0C0C0</Color>
               <GroupHeader>1</GroupHeader>
             </CheatEntry>
@@ -56864,14 +56782,12 @@ dealloc(newmem)
               <ID>1337192630</ID>
               <Description>"Misc"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>1337192502</ID>
                   <Description>"ItemDrop"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>//Author: inuNorii
 [ENABLE]
@@ -56940,7 +56856,6 @@ unregisterSymbol(ItemDropData)
                     <CheatEntry>
                       <ID>1337192507</ID>
                       <Description>"&gt; Spawn Item"</Description>
-                      <LastState/>
                       <Color>FF8000</Color>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
@@ -56961,7 +56876,6 @@ if not syntaxcheck then disableMemrec(memrec) end
           <ID>1337192870</ID>
           <Description>"Params"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
@@ -56995,7 +56909,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192873</ID>
               <Description>"EquipParamWeapon"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57011,7 +56924,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192874</ID>
               <Description>"EquipParamProtector"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57027,7 +56939,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192875</ID>
               <Description>"EquipParamAccessory"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57043,7 +56954,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192876</ID>
               <Description>"EquipParamGoods"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57059,7 +56969,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192877</ID>
               <Description>"ReinforceParamWeapon"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57075,7 +56984,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192878</ID>
               <Description>"ReinforceParamProtector"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57091,7 +56999,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192879</ID>
               <Description>"NpcParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57107,7 +57014,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192880</ID>
               <Description>"AtkParam_Npc"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57123,7 +57029,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192881</ID>
               <Description>"AtkParam_Pc"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57139,7 +57044,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192882</ID>
               <Description>"NpcThinkParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57155,7 +57059,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192883</ID>
               <Description>"Bullet"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57171,7 +57074,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192884</ID>
               <Description>"BulletCreateLimitParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57187,7 +57089,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192885</ID>
               <Description>"BehaviorParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57203,7 +57104,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192886</ID>
               <Description>"BehaviorParam_PC"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57219,7 +57119,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192887</ID>
               <Description>"Magic"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57235,7 +57134,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192888</ID>
               <Description>"SpEffectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57251,7 +57149,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192889</ID>
               <Description>"SpEffectVfxParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57267,7 +57164,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192890</ID>
               <Description>"SpEffectSetParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57283,7 +57179,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192891</ID>
               <Description>"TalkParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57299,7 +57194,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192892</ID>
               <Description>"MenuColorTableParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57315,7 +57209,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192893</ID>
               <Description>"ItemLotParam_enemy"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57331,7 +57224,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192894</ID>
               <Description>"ItemLotParam_map"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57347,7 +57239,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192895</ID>
               <Description>"MoveParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57363,7 +57254,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192896</ID>
               <Description>"CharaInitParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57379,7 +57269,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192897</ID>
               <Description>"EquipMtrlSetParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57395,7 +57284,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192898</ID>
               <Description>"FaceParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57411,7 +57299,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192899</ID>
               <Description>"FaceRangeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57427,7 +57314,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192900</ID>
               <Description>"ShopLineupParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57443,7 +57329,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192901</ID>
               <Description>"ShopLineupParam_Recipe"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57459,7 +57344,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192902</ID>
               <Description>"GameAreaParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57475,7 +57359,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192903</ID>
               <Description>"CalcCorrectGraph"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57491,7 +57374,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192904</ID>
               <Description>"LockCamParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57507,7 +57389,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192905</ID>
               <Description>"ObjActParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57523,7 +57404,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192906</ID>
               <Description>"HitMtrlParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57539,7 +57419,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192907</ID>
               <Description>"KnockBackParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57555,7 +57434,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192908</ID>
               <Description>"DecalParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57571,7 +57449,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192909</ID>
               <Description>"ActionButtonParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57587,7 +57464,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192910</ID>
               <Description>"AiSoundParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57603,7 +57479,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192911</ID>
               <Description>"PlayRegionParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57619,7 +57494,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192912</ID>
               <Description>"NetworkAreaParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57635,7 +57509,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192913</ID>
               <Description>"NetworkParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57651,7 +57524,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192914</ID>
               <Description>"NetworkMsgParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57667,7 +57539,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192915</ID>
               <Description>"BudgetParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57683,7 +57554,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192916</ID>
               <Description>"BonfireWarpParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57699,7 +57569,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192917</ID>
               <Description>"BonfireWarpTabParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57715,7 +57584,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192918</ID>
               <Description>"BonfireWarpSubCategoryParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57731,7 +57599,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192919</ID>
               <Description>"MenuPropertySpecParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57747,7 +57614,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192920</ID>
               <Description>"MenuPropertyLayoutParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57763,7 +57629,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192921</ID>
               <Description>"MenuValueTableParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57779,7 +57644,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192922</ID>
               <Description>"Ceremony"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57795,7 +57659,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192923</ID>
               <Description>"PhantomParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57811,7 +57674,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192924</ID>
               <Description>"CharMakeMenuTopParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57827,7 +57689,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192925</ID>
               <Description>"CharMakeMenuListItemParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57843,7 +57704,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192926</ID>
               <Description>"HitEffectSfxConceptParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57859,7 +57719,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192927</ID>
               <Description>"HitEffectSfxParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57875,7 +57734,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192928</ID>
               <Description>"WepAbsorpPosParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57891,7 +57749,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192929</ID>
               <Description>"ToughnessParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57907,7 +57764,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192930</ID>
               <Description>"SeMaterialConvertParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57923,7 +57779,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192931</ID>
               <Description>"ThrowDirectionSfxParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57939,7 +57794,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192932</ID>
               <Description>"DirectionCameraParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57955,7 +57809,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192933</ID>
               <Description>"RoleParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57971,7 +57824,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192934</ID>
               <Description>"WaypointParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -57987,7 +57839,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192935</ID>
               <Description>"ThrowParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58003,7 +57854,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192936</ID>
               <Description>"GrassTypeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58019,7 +57869,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192937</ID>
               <Description>"GrassTypeParam_Lv1"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58035,7 +57884,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192938</ID>
               <Description>"GrassTypeParam_Lv2"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58051,7 +57899,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192939</ID>
               <Description>"GrassLodRangeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58067,7 +57914,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192940</ID>
               <Description>"NpcAiActionParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58083,7 +57929,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192941</ID>
               <Description>"PartsDrawParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58099,7 +57944,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192942</ID>
               <Description>"AssetEnvironmentGeometryParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58115,7 +57959,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192943</ID>
               <Description>"AssetModelSfxParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58131,7 +57974,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192944</ID>
               <Description>"AssetMaterialSfxParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58147,7 +57989,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192945</ID>
               <Description>"AttackElementCorrectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58163,7 +58004,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192946</ID>
               <Description>"FootSfxParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58179,7 +58019,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192947</ID>
               <Description>"MaterialExParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58195,7 +58034,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192948</ID>
               <Description>"HPEstusFlaskRecoveryParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58211,7 +58049,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192949</ID>
               <Description>"MPEstusFlaskRecoveryParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58227,7 +58064,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192950</ID>
               <Description>"MultiPlayCorrectionParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58243,7 +58079,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192951</ID>
               <Description>"MenuOffscrRendParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58259,7 +58094,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192952</ID>
               <Description>"ClearCountCorrectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58275,7 +58109,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192953</ID>
               <Description>"MapMimicryEstablishmentParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58291,7 +58124,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192954</ID>
               <Description>"WetAspectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58307,7 +58139,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192955</ID>
               <Description>"SwordArtsParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58323,7 +58154,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192956</ID>
               <Description>"KnowledgeLoadScreenItemParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58339,7 +58169,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192957</ID>
               <Description>"MultiHPEstusFlaskBonusParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58355,7 +58184,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192958</ID>
               <Description>"MultiMPEstusFlaskBonusParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58371,7 +58199,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192959</ID>
               <Description>"MultiSoulBonusRateParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58387,7 +58214,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192960</ID>
               <Description>"WorldMapPointParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58403,7 +58229,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192961</ID>
               <Description>"WorldMapPieceParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58419,7 +58244,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192962</ID>
               <Description>"WorldMapLegacyConvParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58435,7 +58259,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192963</ID>
               <Description>"WorldMapPlaceNameParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58451,7 +58274,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192964</ID>
               <Description>"ChrModelParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58467,7 +58289,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192965</ID>
               <Description>"LoadBalancerParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58483,7 +58304,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192966</ID>
               <Description>"LoadBalancerDrawDistScaleParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58499,7 +58319,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192967</ID>
               <Description>"LoadBalancerDrawDistScaleParam_ps4"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58515,7 +58334,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192968</ID>
               <Description>"LoadBalancerDrawDistScaleParam_ps5"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58531,7 +58349,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192969</ID>
               <Description>"LoadBalancerDrawDistScaleParam_xb1"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58547,7 +58364,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192970</ID>
               <Description>"LoadBalancerDrawDistScaleParam_xb1x"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58563,7 +58379,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192971</ID>
               <Description>"LoadBalancerDrawDistScaleParam_xss"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58579,7 +58394,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192972</ID>
               <Description>"LoadBalancerDrawDistScaleParam_xsx"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58595,7 +58409,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192973</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_win64"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58611,7 +58424,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192974</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_ps4"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58627,7 +58439,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192975</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_ps5"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58643,7 +58454,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192976</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_xb1"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58659,7 +58469,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192977</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_xb1x"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58675,7 +58484,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192978</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_xss"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58691,7 +58499,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192979</ID>
               <Description>"LoadBalancerNewDrawDistScaleParam_xsx"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58707,7 +58514,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192980</ID>
               <Description>"WwiseValueToStrParam_Switch_AttackType"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58723,7 +58529,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192981</ID>
               <Description>"WwiseValueToStrParam_Switch_DamageAmount"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58739,7 +58544,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192982</ID>
               <Description>"WwiseValueToStrParam_Switch_DeffensiveMaterial"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58755,7 +58559,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192983</ID>
               <Description>"WwiseValueToStrParam_Switch_HitStop"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58771,7 +58574,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192984</ID>
               <Description>"WwiseValueToStrParam_Switch_OffensiveMaterial"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58787,7 +58589,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192985</ID>
               <Description>"WwiseValueToStrParam_Switch_GrassHitType"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58803,7 +58604,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192986</ID>
               <Description>"WwiseValueToStrParam_Switch_PlayerShoes"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58819,7 +58619,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192987</ID>
               <Description>"WwiseValueToStrParam_Switch_PlayerEquipmentTops"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58835,7 +58634,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192988</ID>
               <Description>"WwiseValueToStrParam_Switch_PlayerEquipmentBottoms"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58851,7 +58649,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192989</ID>
               <Description>"WwiseValueToStrParam_Switch_PlayerVoiceType"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58867,7 +58664,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192990</ID>
               <Description>"WwiseValueToStrParam_Switch_AttackStrength"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58883,7 +58679,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192991</ID>
               <Description>"WwiseValueToStrParam_EnvPlaceType"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58899,7 +58694,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192992</ID>
               <Description>"WeatherParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58915,7 +58709,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192993</ID>
               <Description>"WeatherLotParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58931,7 +58724,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192994</ID>
               <Description>"WeatherAssetCreateParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58947,7 +58739,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192995</ID>
               <Description>"WeatherAssetReplaceParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58963,7 +58754,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192996</ID>
               <Description>"SpeedtreeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58979,7 +58769,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192997</ID>
               <Description>"RideParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -58995,7 +58784,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192998</ID>
               <Description>"SeActivationRangeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59011,7 +58799,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192999</ID>
               <Description>"RollingObjLotParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59027,7 +58814,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193000</ID>
               <Description>"NpcAiBehaviorProbability"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59043,7 +58829,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193001</ID>
               <Description>"BuddyParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59059,7 +58844,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193002</ID>
               <Description>"GparamRefSettings"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59075,7 +58859,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193003</ID>
               <Description>"RandomAppearParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59091,7 +58874,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193004</ID>
               <Description>"MapGridCreateHeightLimitInfoParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59107,7 +58889,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193005</ID>
               <Description>"EnvObjLotParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59123,7 +58904,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193006</ID>
               <Description>"MapDefaultInfoParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59139,7 +58919,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193007</ID>
               <Description>"BuddyStoneParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59155,7 +58934,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193008</ID>
               <Description>"LegacyDistantViewPartsReplaceParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59171,7 +58949,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193009</ID>
               <Description>"SoundCommonIngameParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59187,7 +58964,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193010</ID>
               <Description>"SoundAutoEnvSoundGroupParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59203,7 +58979,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193011</ID>
               <Description>"SoundAutoReverbEvaluationDistParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59219,7 +58994,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193012</ID>
               <Description>"SoundAutoReverbSelectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59235,7 +59009,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193013</ID>
               <Description>"EnemyCommonParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59251,7 +59024,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193014</ID>
               <Description>"GameSystemCommonParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59267,7 +59039,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193015</ID>
               <Description>"GraphicsCommonParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59283,7 +59054,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192520</ID>
               <Description>"MenuCommonParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59299,7 +59069,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193016</ID>
               <Description>"PlayerCommonParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59315,7 +59084,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193017</ID>
               <Description>"CutsceneGparamWeatherParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59331,7 +59099,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193018</ID>
               <Description>"CutsceneGparamTimeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59347,7 +59114,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193019</ID>
               <Description>"CutsceneTimezoneConvertParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59363,7 +59129,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193020</ID>
               <Description>"CutsceneWeatherOverrideGparamConvertParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59379,7 +59144,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337192514</ID>
               <Description>"SoundCutsceneParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59395,7 +59159,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193021</ID>
               <Description>"ChrActivateConditionParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59411,7 +59174,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193022</ID>
               <Description>"CutsceneMapIdParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59427,7 +59189,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193023</ID>
               <Description>"CutSceneTextureLoadParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59443,7 +59204,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193024</ID>
               <Description>"GestureParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59459,7 +59219,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193025</ID>
               <Description>"EquipParamGem"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59475,7 +59234,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193026</ID>
               <Description>"EquipParamCustomWeapon"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59491,7 +59249,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193027</ID>
               <Description>"GraphicsConfig"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59507,7 +59264,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193028</ID>
               <Description>"SoundChrPhysicsSeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59523,7 +59279,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193029</ID>
               <Description>"FeTextEffectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59539,7 +59294,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193030</ID>
               <Description>"CoolTimeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59555,7 +59309,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193031</ID>
               <Description>"WhiteSignCoolTimeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59571,7 +59324,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193032</ID>
               <Description>"MapPieceTexParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59587,7 +59339,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193033</ID>
               <Description>"MapNameTexParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59603,7 +59354,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193034</ID>
               <Description>"WeatherLotTexParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59619,7 +59369,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193035</ID>
               <Description>"KeyAssignParam_TypeA"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59635,7 +59384,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193036</ID>
               <Description>"KeyAssignParam_TypeB"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59651,7 +59399,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193037</ID>
               <Description>"KeyAssignParam_TypeC"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59667,7 +59414,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193038</ID>
               <Description>"MapGdRegionInfoParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59683,7 +59429,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193039</ID>
               <Description>"MapGdRegionDrawParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59699,7 +59444,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193040</ID>
               <Description>"KeyAssignMenuItemParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59715,7 +59459,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193041</ID>
               <Description>"SoundAssetSoundObjEnableDistParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59731,7 +59474,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193042</ID>
               <Description>"SignPuddleParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59747,7 +59489,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193043</ID>
               <Description>"AutoCreateEnvSoundParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59763,7 +59504,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193044</ID>
               <Description>"WwiseValueToStrParam_BgmBossChrIdConv"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59779,7 +59519,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193045</ID>
               <Description>"ResistCorrectParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59795,7 +59534,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193046</ID>
               <Description>"PostureControlParam_WepRight"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59811,7 +59549,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193047</ID>
               <Description>"PostureControlParam_WepLeft"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59827,7 +59564,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193048</ID>
               <Description>"PostureControlParam_Gender"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59843,7 +59579,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193049</ID>
               <Description>"PostureControlParam_Pro"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59859,7 +59594,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193050</ID>
               <Description>"RuntimeBoneControlParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59875,7 +59609,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193051</ID>
               <Description>"TutorialParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59891,7 +59624,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193052</ID>
               <Description>"BaseChrSelectMenuParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59907,7 +59639,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193053</ID>
               <Description>"MimicryEstablishmentTexParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59923,7 +59654,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193054</ID>
               <Description>"SfxBlockResShareParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59939,7 +59669,6 @@ if not syntaxcheck then disableMemrec(memrec) end
             <CheatEntry>
               <ID>1337193055</ID>
               <Description>"HitEffectSeParam"</Description>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
@@ -59958,21 +59687,18 @@ if not syntaxcheck then disableMemrec(memrec) end
           <ID>1337077875</ID>
           <Description>"Param Mods"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1337193446</ID>
               <Description>"Dependencies"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <Color>C0C0C0</Color>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
                   <ID>251</ID>
                   <Description>"ParamUtils"</Description>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 {$lua}
@@ -60548,7 +60274,6 @@ createNativeThread(disableRecord, 252) --Disable PP classes
                   <ID>252</ID>
                   <Description>"BaseParamClass"</Description>
                   <Options moActivateChildrenAsWell="1"/>
-                  <LastState/>
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>[ENABLE]
 {$lua}
@@ -60711,7 +60436,6 @@ end
                     <CheatEntry>
                       <ID>1337193336</ID>
                       <Description>"ActionButtonParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -60808,7 +60532,6 @@ end
                     <CheatEntry>
                       <ID>1337193337</ID>
                       <Description>"AttackElementCorrectParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -60935,7 +60658,6 @@ end
                     <CheatEntry>
                       <ID>1337193338</ID>
                       <Description>"AiSoundParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -60988,7 +60710,6 @@ end
                     <CheatEntry>
                       <ID>1337193339</ID>
                       <Description>"AtkParam_Npc"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -61292,7 +61013,6 @@ end
                       <ID>1337193340</ID>
                       <Description>"AtkParam_Pc"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -61605,7 +61325,6 @@ if syntaxcheck then return end
                       <ID>1337193341</ID>
                       <Description>"BehaviorParam_PC"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -61680,7 +61399,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193342</ID>
                       <Description>"BonfireWarpParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -61766,7 +61484,6 @@ end
                       <ID>1337193343</ID>
                       <Description>"Bullet"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -62164,7 +61881,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193344</ID>
                       <Description>"CalcCorrectGraph"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -62265,7 +61981,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193345</ID>
                       <Description>"Ceremony"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -62324,7 +62039,6 @@ end
                     <CheatEntry>
                       <ID>1337193346</ID>
                       <Description>"CharaInitParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -63014,7 +62728,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193347</ID>
                       <Description>"ClearCountCorrectParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -63123,7 +62836,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193348</ID>
                       <Description>"DecalParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -63408,7 +63120,6 @@ end
                     <CheatEntry>
                       <ID>1337193349</ID>
                       <Description>"EquipMtrlSetParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -63471,7 +63182,6 @@ end
                     <CheatEntry>
                       <ID>1337193350</ID>
                       <Description>"EquipParamAccessory"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -63596,7 +63306,6 @@ if syntaxcheck then return end
                       <ID>1337193351</ID>
                       <Description>"EquipParamGoods"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -63830,7 +63539,6 @@ if syntaxcheck then return end
                       <ID>1337193352</ID>
                       <Description>"EquipParamProtector"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -64664,7 +64372,6 @@ if syntaxcheck then return end
                       <ID>1337193353</ID>
                       <Description>"EquipParamWeapon"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -65298,7 +65005,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193354</ID>
                       <Description>"HitEffectSfxParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -65383,7 +65089,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193355</ID>
                       <Description>"HitMtrlParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -65516,7 +65221,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193356</ID>
                       <Description>"ItemLotParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -65637,7 +65341,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193357</ID>
                       <Description>"LockCamParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -65730,7 +65433,6 @@ end
                     <CheatEntry>
                       <ID>1337193358</ID>
                       <Description>"LodParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -65807,7 +65509,6 @@ end
                       <ID>1337193359</ID>
                       <Description>"Magic"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -66242,7 +65943,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193360</ID>
                       <Description>"MapMimicryEstablishmentParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -66313,7 +66013,6 @@ end
                     <CheatEntry>
                       <ID>1337193361</ID>
                       <Description>"NetworkAreaParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -66336,7 +66035,6 @@ end
                     <CheatEntry>
                       <ID>1337193362</ID>
                       <Description>"PlayRegionParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -66359,7 +66057,6 @@ end
                     <CheatEntry>
                       <ID>1337193363</ID>
                       <Description>"NpcParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -67415,7 +67112,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193364</ID>
                       <Description>"ObjActParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -67512,7 +67208,6 @@ end
                     <CheatEntry>
                       <ID>1337193365</ID>
                       <Description>"ObjectParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -67547,7 +67242,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193366</ID>
                       <Description>"PhantomParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -67672,7 +67366,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193367</ID>
                       <Description>"ReinforceParamWeapon"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -67827,7 +67520,6 @@ end
                     <CheatEntry>
                       <ID>1337193368</ID>
                       <Description>"RoleParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -67960,7 +67652,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193369</ID>
                       <Description>"ShopLineupParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -68064,7 +67755,6 @@ if syntaxcheck then return end
                       <ID>1337193370</ID>
                       <Description>"SpEffectParam"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69095,7 +68785,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193371</ID>
                       <Description>"SpEffectVfxParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69380,7 +69069,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193372</ID>
                       <Description>"SwordArtsParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69424,7 +69112,6 @@ if syntaxcheck then return end
                       <ID>1337193373</ID>
                       <Description>"ThrowParam"</Description>
                       <Options moHideChildren="1"/>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69543,7 +69230,6 @@ if syntaxcheck then return end
                     <CheatEntry>
                       <ID>1337193374</ID>
                       <Description>"UpperArmParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69646,7 +69332,6 @@ end
                     <CheatEntry>
                       <ID>1337193375</ID>
                       <Description>"WetAspectParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69709,7 +69394,6 @@ end
                     <CheatEntry>
                       <ID>1337193376</ID>
                       <Description>"CoolTimeParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69732,7 +69416,6 @@ end
                     <CheatEntry>
                       <ID>1337193377</ID>
                       <Description>"WhiteSignCoolTimeParam"</Description>
-                      <LastState/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
 {$lua}
@@ -69759,7 +69442,6 @@ end
             <CheatEntry>
               <ID>1337018816</ID>
               <Description>"Discardable items"</Description>
-              <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>//Author: inuNorii
 //Allow discarding any items
@@ -69790,14 +69472,12 @@ paramUtils:restore("discardableItems")
           <ID>1337196147</ID>
           <Description>"Special Params"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1337196542</ID>
               <Description>"GameSystemCommonParam"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <ShowAsSigned>0</ShowAsSigned>
               <GroupHeader>1</GroupHeader>
               <Address>SoloParamRepository</Address>
@@ -70883,14 +70563,12 @@ paramUtils:restore("discardableItems")
           <ID>1337193287</ID>
           <Description>"Debug Stuff"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1337096516</ID>
               <Description>"Damage management | ダメージ管理"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -71020,7 +70698,6 @@ paramUtils:restore("discardableItems")
                   <ID>1337096535</ID>
                   <Description>"Generated damage list | 発生ダメージ一覧"</Description>
                   <Options moHideChildren="1"/>
-                  <LastState Value="" RealAddress="00000000"/>
                   <Color>C0C0C0</Color>
                   <GroupHeader>1</GroupHeader>
                   <CheatEntries>
@@ -71041,7 +70718,6 @@ paramUtils:restore("discardableItems")
           <ID>1337192532</ID>
           <Description>"Misc/WIP"</Description>
           <Options moHideChildren="1"/>
-          <LastState Value="" RealAddress="00000000"/>
           <Color>C0C0C0</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
@@ -71049,7 +70725,6 @@ paramUtils:restore("discardableItems")
               <ID>1337192766</ID>
               <Description>"Dropdowns"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -71252,6 +70927,7 @@ paramUtils:restore("discardableItems")
 00F646E0:Spiked Spear
 00F66DF0:Iron Spear
 00F69500:Rotten Crystal Spear
+01038D50:Mohgwyn's Sacred Spear
 0103B460:Siluria's Tree
 0103DB70:Serpent-Hunter
 01042990:Vyke's War Spear
@@ -74025,7 +73701,6 @@ ID:NAME
 80014C08:Ash of War: White Shadow's Lure
 FFFFFFFF:None
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74046,7 +73721,6 @@ FFFFFFFF:None
 1100:Blood
 1200:Occult
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74080,7 +73754,6 @@ FFFFFFFF:None
 24:+24
 25:+25
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74180,7 +73853,6 @@ FFFFFFFF:None
 80013948:Raptor of the Mists
 80014C08:White Shadow's Lure
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74255,7 +73927,7 @@ FFFFFFFF:None
 13002957:[Crumbling Farum Azula] Dragon Temple Transept
 13002958:[Crumbling Farum Azula] Dragon Temple Lift
 13002959:[Crumbling Farum Azula] Dragon Temple Rooftop
-13001960:[Crumbling Farum Azula] Beside the Great Bridge
+13002960:[Crumbling Farum Azula] Beside the Great Bridge
 14002950:[Academy of Raya Lucaria] Raya Lucaria Grand Library
 14002951:[Academy of Raya Lucaria] Debate Parlor
 14002952:[Academy of Raya Lucaria] Church of the Cuckoo
@@ -74274,9 +73946,9 @@ FFFFFFFF:None
 16002952:[Volcano Manor] Volcano Manor
 16002953:[Volcano Manor] Prison Town Church
 16002954:[Volcano Manor] Guest Hall
-16001960:[Volcano Manor] Audience Pathway
-16001962:[Volcano Manor] Abductor Virgin
-16001964:[Volcano Manor] Subterranean Inquisition Chamber
+16002960:[Volcano Manor] Audience Pathway
+16002962:[Volcano Manor] Abductor Virgin
+16002964:[Volcano Manor] Subterranean Inquisition Chamber
 18002950:[Stranded Graveyard] Cave of Knowledge
 18002951:[Stranded Graveyard] Stranded Graveyard
 19002950:[Stone Platform] Fractured Marika
@@ -74505,7 +74177,6 @@ FFFFFFFF:None
 1054532950:[Flame Peak] Forge of the Giants
 1054552950:[Mountaintops of the Giants] First Church of Marika
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74685,7 +74356,6 @@ FFFFFFFF:None
 7900:Fire's Deadly Sin
 7903:Golden Lightning Fortification
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74695,7 +74365,6 @@ FFFFFFFF:None
                   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
 1:On
 </DropDownList>
-                  <LastState Value="" RealAddress="00000000"/>
                   <GroupHeader>1</GroupHeader>
                   <Address/>
                 </CheatEntry>
@@ -74705,7 +74374,6 @@ FFFFFFFF:None
               <ID>1337192525</ID>
               <Description>"Bases"</Description>
               <Options moHideChildren="1"/>
-              <LastState Value="" RealAddress="00000000"/>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
                 <CheatEntry>
@@ -74827,5 +74495,4 @@ FFFFFFFF:None
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
 </CheatTable>
