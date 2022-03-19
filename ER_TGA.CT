@@ -4000,7 +4000,7 @@ disableMemrec(memrec)
                   <ShowAsBinary>0</ShowAsBinary>
                   <Address>WorldChrMan</Address>
                   <Offsets>
-                    <Offset>197</Offset>
+                    <Offset>19B</Offset>
                     <Offset>0</Offset>
                     <Offset>190</Offset>
                     <Offset>0*10</Offset>
@@ -4018,7 +4018,7 @@ disableMemrec(memrec)
                   <ShowAsBinary>0</ShowAsBinary>
                   <Address>WorldChrMan</Address>
                   <Offsets>
-                    <Offset>197</Offset>
+                    <Offset>19B</Offset>
                     <Offset>0</Offset>
                     <Offset>190</Offset>
                     <Offset>0*10</Offset>
@@ -4036,7 +4036,7 @@ disableMemrec(memrec)
                   <ShowAsBinary>0</ShowAsBinary>
                   <Address>WorldChrMan</Address>
                   <Offsets>
-                    <Offset>197</Offset>
+                    <Offset>19B</Offset>
                     <Offset>0</Offset>
                     <Offset>190</Offset>
                     <Offset>0*10</Offset>
@@ -4054,7 +4054,7 @@ disableMemrec(memrec)
                   <ShowAsBinary>0</ShowAsBinary>
                   <Address>WorldChrMan</Address>
                   <Offsets>
-                    <Offset>197</Offset>
+                    <Offset>19B</Offset>
                     <Offset>0</Offset>
                     <Offset>190</Offset>
                     <Offset>0*10</Offset>
