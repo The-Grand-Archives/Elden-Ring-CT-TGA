@@ -1,7 +1,12 @@
 # Changelog
+### v0.4.1 03/19/2022
+ - Fixed some Warp IDs
+ - Fixed ItemGib issues: Bloodhound Claws not taking enhancements, Mohgwyn's Sacred Spear missing
+ - Fixed Hero>Stats
+
 ### v0.4.0 03/17/2022
  - AOBs fixed for latest update (v1.03.0)
- - ReinforceLv, Rune Arc, Character Type, TeamType, ClearCount added under Stastitics
+ - ReinforceLv, Rune Arc, Character Type, Team Type, ClearCount added under Statitics
  - Resistances, EquipMagicData, GestureGameData,SpecialEffects>Active Effects added under Hero
  - Warp function adjusted to work with the same IDs as Last Grace, dropdowns with names have been added as well
  - Igromanru's Param Patcher v2 ported, Param Classes are still WIP and may not work as expected
