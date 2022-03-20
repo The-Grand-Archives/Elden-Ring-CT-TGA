@@ -70794,6 +70794,7 @@ paramUtils:restore("discardableItems")
 002ED830:Alabaster Lord's Sword
 002EFF40:Banished Knight's Greatsword
 002F2650:Dark Moon Greatsword
+002F4D60:Sacred Relic Sword
 002FC290:Helphen's Steeple
 002FE9A0:Blasphemous Blade
 003010B0:Marais Executioner's Sword
@@ -71136,6 +71137,7 @@ paramUtils:restore("discardableItems")
 029F6300:Hand Ballista
 029F8A10:Jar Cannon
 02FAF080:Arrow
+02FB1790:Fire Arrow
 02FB3EA0:Serpent Arrow
 02FB65B0:Bone Arrow (Fletched)
 02FB8CC0:St. Trina's Arrow
@@ -71194,6 +71196,7 @@ paramUtils:restore("discardableItems")
 0328B740:Ballista Bolt
 03290560:Explosive Greatbolt
 03292C70:Bone Ballista Bolt
+0328DE50:Lightning Greatbolt
 10009C40:Iron Helmet
 10009CA4:Scale Armor
 10009D08:Iron Gauntlets
