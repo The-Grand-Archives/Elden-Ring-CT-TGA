@@ -14,6 +14,19 @@ OpenProcess("eldenring.exe")
 --prevent clicking on sort buttons
 --getAddressList().Control[1].OnSectionClick = nil
 
+helperUpdateTimer = createTimer(getMainForm())
+helperUpdateTimer.Interval = 1000
+helperUpdateTimer.OnTimer = function(timer)
+  local paramTable = ParamUtils['masterParamTable']
+  for param in pairs(paramTable) do
+      local paramHelperId = readInteger(param .. "Helper")
+      if paramHelperId ~= nil then
+          local paramHelperAddress = ParamUtils:getIdAddressInParam(param, paramHelperId)
+          writePointer(param .. "Helper+8", paramHelperAddress)
+      end
+  end
+end
+
 autoAssemble([[
 aobscanmodule(Finder,eldenring.exe,48 8B 05 ?? ?? ?? ?? 48 85 C0 74 05 48 8B 40 58 C3 C3)
 registersymbol(Finder)
@@ -533,6 +546,7 @@ memoryrecord_freeze(getAddressList().getMemoryRecordByID(251))
 {$lua}
 if syntaxcheck then return end
 memoryrecord_unfreeze(getAddressList().getMemoryRecordByID(251))
+helperUpdateTimer.destroy()
 {$asm}
 unregisterSymbol(GameDataMan)
 unregisterSymbol(WorldChrMan)
@@ -8209,7 +8223,7 @@ paramUtils:restore("CustomFov")
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(EquipParamWeaponHelper,8)
+alloc(EquipParamWeaponHelper,16)
 registersymbol(EquipParamWeaponHelper)
 
 EquipParamWeaponHelper:
@@ -11208,12 +11222,9 @@ unregistersymbol(EquipParamWeaponHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>EquipParamWeaponHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("EquipParamWeaponHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>88</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -13894,7 +13905,7 @@ unregistersymbol(EquipParamWeaponHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(EquipParamProtectorHelper,8)
+alloc(EquipParamProtectorHelper,16)
 registersymbol(EquipParamProtectorHelper)
 
 EquipParamProtectorHelper:
@@ -14573,12 +14584,9 @@ unregistersymbol(EquipParamProtectorHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>EquipParamProtectorHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("EquipParamProtectorHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>D0</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -16190,7 +16198,7 @@ unregistersymbol(EquipParamProtectorHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(EquipParamAccessoryHelper,8)
+alloc(EquipParamAccessoryHelper,16)
 registersymbol(EquipParamAccessoryHelper)
 
 EquipParamAccessoryHelper:
@@ -16333,12 +16341,9 @@ unregistersymbol(EquipParamAccessoryHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>EquipParamAccessoryHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("EquipParamAccessoryHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>118</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -16717,7 +16722,7 @@ unregistersymbol(EquipParamAccessoryHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(EquipParamGoodsHelper,8)
+alloc(EquipParamGoodsHelper,16)
 registersymbol(EquipParamGoodsHelper)
 
 EquipParamGoodsHelper:
@@ -18545,12 +18550,9 @@ unregistersymbol(EquipParamGoodsHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>EquipParamGoodsHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("EquipParamGoodsHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>160</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -19627,11 +19629,11 @@ unregistersymbol(EquipParamGoodsHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(MagicHelper,8)
+alloc(MagicHelper,16)
 registersymbol(MagicHelper)
 
 MagicHelper:
-dq 00000000000017F8
+dq 0000000000000FA0
 
 [DISABLE]
 dealloc(MagicHelper)
@@ -19905,12 +19907,9 @@ unregistersymbol(MagicHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>MagicHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("MagicHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>478</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -20775,7 +20774,7 @@ unregistersymbol(MagicHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(BulletHelper,8)
+alloc(BulletHelper,16)
 registersymbol(BulletHelper)
 
 BulletHelper:
@@ -28143,12 +28142,9 @@ unregistersymbol(BulletHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>BlletHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("BulletHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>358</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -29049,7 +29045,7 @@ unregistersymbol(BulletHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(SpEffectParamHelper,8)
+alloc(SpEffectParamHelper,16)
 registersymbol(SpEffectParamHelper)
 
 SpEffectParamHelper:
@@ -37415,12 +37411,9 @@ unregistersymbol(SpEffectParamHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>SpEffectParamHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("SpEffectParamHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>4C0</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -40080,7 +40073,7 @@ unregistersymbol(SpEffectParamHelper)
                       <Options moHideChildren="1"/>
                       <VariableType>Auto Assembler Script</VariableType>
                       <AssemblerScript>[ENABLE]
-alloc(ReinforceParamWeaponHelper,8)
+alloc(ReinforceParamWeaponHelper,16)
 registersymbol(ReinforceParamWeaponHelper)
 ReinforceParamWeaponHelper:
 dq 0000000000004FF0
@@ -40955,12 +40948,9 @@ unregistersymbol(ReinforceParamWeaponHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>ReinforceParamWeaponHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("ReinforceParamWeaponHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>1A8</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -48618,12 +48608,9 @@ unregistersymbol(AtkParam_PcHelper)
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Array of byte</VariableType>
                           <ByteLength>0</ByteLength>
-                          <Address>SoloParamRepository</Address>
+                          <Address>AtkParamPcHelper+8</Address>
                           <Offsets>
-                            <Offset>readInteger("AtkParam_PcHelper") or 0</Offset>
-                            <Offset>80</Offset>
-                            <Offset>80</Offset>
-                            <Offset>2C8</Offset>
+                            <Offset>0</Offset>
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
@@ -60264,6 +60251,7 @@ local function enableRecord(thread, id)
   else
     print("Record with ID "..id.." doesn't exists")
   end
+  ParamUtils:paramIndexer()
 end
 createNativeThread(enableRecord, 252) --Enable PP classes
 [DISABLE]
