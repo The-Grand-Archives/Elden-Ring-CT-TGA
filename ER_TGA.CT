@@ -710,6 +710,27 @@ Relinquished001, sfix, Silence
                   </Offsets>
                 </CheatEntry>
                 <CheatEntry>
+                  <ID>1337197114</ID>
+                  <Description>"Great Rune"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">00000000:None
+B00000BF:Godrick's Great Rune
+B00000C2:Rykard's Great RUne
+B00000C0:Radahn's Great RUne
+B00000C1:Morgott's Great RUne
+B00000C3:Mohg's Great Rune
+B00000C4:Malenia's Great Rune
+</DropDownList>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>0000C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>520+88</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
                   <ID>362</ID>
                   <Description>"Rune Arc"</Description>
                   <DropDownListLink>ON_OFF</DropDownListLink>
