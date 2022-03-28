@@ -62018,6 +62018,124 @@ end
 </AssemblerScript>
                     </CheatEntry>
                     <CheatEntry>
+                      <ID>0</ID>
+                      <Description>"BuddyParam"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--[[START BuddyParam class]]--
+BuddyParam = BaseParamClass:new()
+
+function BuddyParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("BuddyParam", uuid, id, address)
+	return o
+end
+
+function BuddyParam:Unk0(value)
+    self:patch4Byte(0x0, value)
+end
+
+function BuddyParam:goodsId(value)
+    self:patch4Byte(0x4, value)
+end
+
+function BuddyParam:npcParamId(value)
+    self:patch4Byte(0x8, value)
+end
+
+function BuddyParam:npcThinkParamId(value)
+    self:patch4Byte(0xC, value)
+end
+
+function BuddyParam:Unk1(value)
+    self:patch4Byte(0x10, value)
+end
+
+function BuddyParam:Unk2(value)
+    self:patch4Byte(0x14, value)
+end
+
+function BuddyParam:spawnOffsetX(value)
+    self:patchFloat(0x18, value)
+end
+
+function BuddyParam:spawnOffsetY(value)
+    self:patchFloat(0x1C, value)
+end
+
+function BuddyParam:spawnOffsetZ(value)
+    self:patchFloat(0x20, value)
+end
+
+function BuddyParam:spawnOffsetR(value)
+    self:patchFloat(0x24, value)
+end
+
+function BuddyParam:reinforceSpEffect(value)
+    self:patch4Byte(0x28, value)
+end
+
+function BuddyParam:reinforceSpEffect1(value)
+    self:patch4Byte(0x2C, value)
+end
+
+function BuddyParam:reinforceSpEffect2(value)
+    self:patch4Byte(0x30, value)
+end
+
+function BuddyParam:reinforceSpEffect3(value)
+    self:patch4Byte(0x34, value)
+end
+
+function BuddyParam:reinforceSpEffect4(value)
+    self:patch4Byte(0x38, value)
+end
+
+function BuddyParam:reinforceSpEffect5(value)
+    self:patch4Byte(0x3C, value)
+end
+
+function BuddyParam:reinforceSpEffect6(value)
+    self:patch4Byte(0x40, value)
+end
+
+function BuddyParam:reinforceSpEffect7(value)
+    self:patch4Byte(0x44, value)
+end
+
+function BuddyParam:reinforceSpEffect8(value)
+    self:patch4Byte(0x48, value)
+end
+
+function BuddyParam:reinforceSpEffect9(value)
+    self:patch4Byte(0x4C, value)
+end
+
+function BuddyParam:reinforceSpEffect10(value)
+    self:patch4Byte(0x50, value)
+end
+
+function BuddyParam:Unk3(value)
+    self:patch4Byte(0x54, value)
+end
+
+function BuddyParam:charaInitId(value)
+    self:patch4Byte(0x58, value)
+end
+
+function BuddyParam:Unk4(value)
+    self:patch4Byte(0x5C, value)
+end
+
+[DISABLE]
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
                       <ID>1337193343</ID>
                       <Description>"Bullet"</Description>
                       <Options moHideChildren="1"/>
@@ -67647,6 +67765,34 @@ if syntaxcheck then return end
 </AssemblerScript>
                     </CheatEntry>
                     <CheatEntry>
+                      <ID>1337200254</ID>
+                      <Description>"NpcThinkParam"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START NpcThinkParam class]]--
+NpcThinkParam = BaseParamClass:new()
+
+function NpcThinkParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("NpcThinkParam", uuid, id, address)
+	return o
+end
+
+--[[END NpcThinkParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
                       <ID>1337193364</ID>
                       <Description>"ObjActParam"</Description>
                       <VariableType>Auto Assembler Script</VariableType>
@@ -70001,6 +70147,188 @@ goods:patchAllBinary(0x49,1,3)
 {$lua}
 if syntaxcheck then return end
 paramUtils:restore("discardableItems")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337197122</ID>
+              <Description>"Blaidd the Half-Wolf Spirit Ash"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>//Author: inuNorii
+//Replaces Banished Knight Engvall with Blaid the Half-Wolf
+//All text is replaced as well except for full description (GoodsCaption)
+define(GoodsName,[[[MsgRepository]+08]+00]+50)
+define(GoodsInfo,[[[MsgRepository]+08]+00]+A0)
+define(SummonName,[[[MsgRepository]+08]+00]+170)
+define(Blaidd,'Blaidd the Half-Wolf')
+define(Engvall,'Banished Knight Engvall')
+[ENABLE]
+// Goods Name
+[GoodsName]+132D4:
+dw Blaidd,0
+[GoodsName]+13304:
+dw Blaidd,' +1',0
+[GoodsName]+1333A:
+dw Blaidd,' +2',0
+[GoodsName]+13370:
+dw Blaidd,' +3',0
+[GoodsName]+133A6:
+dw Blaidd,' +4',0
+[GoodsName]+133DC:
+dw Blaidd,' +5',0
+[GoodsName]+13412:
+dw Blaidd,' +6',0
+[GoodsName]+13448:
+dw Blaidd,' +7',0
+[GoodsName]+1347E:
+dw Blaidd,' +8',0
+[GoodsName]+134B4:
+dw Blaidd,' +9',0
+[GoodsName]+134EA:
+dw Blaidd,' +10',0
+// Goods Info
+[GoodsInfo]+1C656:
+dw Blaidd,0
+[GoodsInfo]+1C6AA:
+dw Blaidd,0
+[GoodsInfo]+1C6FE:
+dw Blaidd,0
+[GoodsInfo]+1C752:
+dw Blaidd,0
+[GoodsInfo]+1C7A6:
+dw Blaidd,0
+[GoodsInfo]+1C7FA:
+dw Blaidd,0
+[GoodsInfo]+1C84E:
+dw Blaidd,0
+[GoodsInfo]+1C8A2:
+dw Blaidd,0
+[GoodsInfo]+1C8F6:
+dw Blaidd,0
+[GoodsInfo]+1C94A:
+dw Blaidd,0
+[GoodsInfo]+1C99E:
+dw Blaidd,0
+// Summon Name
+[SummonName]+447E:
+dw Blaidd,0
+[SummonName]+44AE:
+dw Blaidd,0
+[SummonName]+44DE:
+dw Blaidd,0
+[SummonName]+450E:
+dw Blaidd,0
+[SummonName]+453E:
+dw Blaidd,0
+[SummonName]+456E:
+dw Blaidd,0
+[SummonName]+459E:
+dw Blaidd,0
+[SummonName]+45CE:
+dw Blaidd,0
+[SummonName]+45FE:
+dw Blaidd,0
+[SummonName]+462E:
+dw Blaidd,0
+[SummonName]+465E:
+dw Blaidd,0
+{$lua}
+if syntaxcheck then return end
+local buddy = BuddyParam:new("blaiddSummon",20200000)
+buddy:npcParamId(20109110)
+buddy:npcThinkParamId(20108000)
+
+local npc = NpcParam:new("blaiddSummon",20109110)
+npc:patchByte(0x133,47) -- TeamType
+npc:patch4Byte(0x54,5130) -- SpEffectID2
+npc:patch4Byte(0x5C,4302) -- SpEffectID4
+npc:patch4Byte(0x60,295000) -- SpEffectID5
+npc:patch4Byte(0x64,296000) -- SpEffectID6
+npc:patch4Byte(0x68,297000) -- SpEffectID7
+
+local goods = {
+  202000, 202001, 202002, 202003, 202004, 202005,
+  202006, 202007, 202008, 202009, 202010
+}
+for i,id in ipairs(goods) do
+local goods = EquipParamGoods:new("blaiddSummon",id)
+goods:patch2Byte(0x30,104)
+goods:patch2Byte(0x80,-1)
+end
+
+[DISABLE]
+{$asm}
+// Goods Name
+[GoodsName]+132D4:
+dw Engvall,0
+[GoodsName]+13304:
+dw Engvall,' +1',0
+[GoodsName]+1333A:
+dw Engvall,' +2',0
+[GoodsName]+13370:
+dw Engvall,' +3',0
+[GoodsName]+133A6:
+dw Engvall,' +4',0
+[GoodsName]+133DC:
+dw Engvall,' +5',0
+[GoodsName]+13412:
+dw Engvall,' +6',0
+[GoodsName]+13448:
+dw Engvall,' +7',0
+[GoodsName]+1347E:
+dw Engvall,' +8',0
+[GoodsName]+134B4:
+dw Engvall,' +9',0
+[GoodsName]+134EA:
+dw Engvall,' +10',0
+// Goods Info
+[GoodsInfo]+1C656:
+dw Engvall,0
+[GoodsInfo]+1C6AA:
+dw Engvall,0
+[GoodsInfo]+1C6FE:
+dw Engvall,0
+[GoodsInfo]+1C752:
+dw Engvall,0
+[GoodsInfo]+1C7A6:
+dw Engvall,0
+[GoodsInfo]+1C7FA:
+dw Engvall,0
+[GoodsInfo]+1C84E:
+dw Engvall,0
+[GoodsInfo]+1C8A2:
+dw Engvall,0
+[GoodsInfo]+1C8F6:
+dw Engvall,0
+[GoodsInfo]+1C94A:
+dw Engvall,0
+[GoodsInfo]+1C99E:
+dw Engvall,0
+// Summon Name
+[SummonName]+447E:
+dw Engvall,0
+[SummonName]+44AE:
+dw Engvall,0
+[SummonName]+44DE:
+dw Engvall,0
+[SummonName]+450E:
+dw Engvall,0
+[SummonName]+453E:
+dw Engvall,0
+[SummonName]+456E:
+dw Engvall,0
+[SummonName]+459E:
+dw Engvall,0
+[SummonName]+45CE:
+dw Engvall,0
+[SummonName]+45FE:
+dw Engvall,0
+[SummonName]+462E:
+dw Engvall,0
+[SummonName]+465E:
+dw Engvall,0
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("blaiddSummon")
 </AssemblerScript>
             </CheatEntry>
           </CheatEntries>
