@@ -5078,12 +5078,93 @@ if not syntaxcheck then disableMemrec(memrec) end
 </AssemblerScript>
                     </CheatEntry>
                     <CheatEntry>
+                      <ID>1337201741</ID>
+                      <Description>"Details"</Description>
+                      <Options moHideChildren="1"/>
+                      <Color>C0C0C0</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337201742</ID>
+                          <Description>"ItemID"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>ItemGibArray+00</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337201743</ID>
+                          <Description>"EquipID"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>28</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>ItemGibArray+00</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337201744</ID>
+                          <Description>"EquipType"</Description>
+                          <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:Weapon
+1:Protector
+2:Accessory
+4:Goods
+8:Gem
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>4</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>ItemGibArray+03</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337201745</ID>
+                          <Description>"Quantity"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>ItemGibArray+04</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337201746</ID>
+                          <Description>"Upgrade"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>ItemGibArray+08</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337201747</ID>
+                          <Description>"Reinforcement Level"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>2 Bytes</VariableType>
+                          <Address>ItemGibArray+0A</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337201748</ID>
+                          <Description>"Ash of War"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>ItemGibArray+0C</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
                       <ID>1337193283</ID>
                       <Description>"MassItemGib WIP"</Description>
                       <Options moHideChildren="1"/>
                       <Color>C0C0C0</Color>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337212441</ID>
+                          <Description>"Spawning more items than you can hold in your storage might crash the game"</Description>
+                          <Color>0000FF</Color>
+                          <GroupHeader>1</GroupHeader>
+                        </CheatEntry>
                         <CheatEntry>
                           <ID>1337193320</ID>
                           <Description>"There might be invalid items in these, testing has not been done yet"</Description>
@@ -7969,6 +8050,131 @@ if not syntaxcheck then disableMemrec(memrec) end
 {$asm}
 [DISABLE]
 ItemGibArray+10:
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337212440</ID>
+                          <Description>"Give all bell bearings"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>{
+    Author: Apricus
+    Description: Spawns all bell bearings
+}
+
+[ENABLE]
+ItemGibArray:
+dd 400022CE 00000001 00000000 FFFFFFFF // Pidia's Bell Bearing
+dd 400022CF 00000001 00000000 FFFFFFFF // Seluvis's Bell Bearing
+dd 400022D0 00000001 00000000 FFFFFFFF // Patches' Bell Bearing
+dd 400022D1 00000001 00000000 FFFFFFFF // Sellen's Bell Bearing
+dd 400022D3 00000001 00000000 FFFFFFFF // D's Bell Bearing
+dd 400022D4 00000001 00000000 FFFFFFFF // Bernahl's Bell Bearing
+dd 400022D5 00000001 00000000 FFFFFFFF // Miriel's Bell Bearing
+dd 400022D6 00000001 00000000 FFFFFFFF // Gostoc's Bell Bearing
+dd 400022D7 00000001 00000000 FFFFFFFF // Thops's Bell Bearing
+dd 400022D8 00000001 00000000 FFFFFFFF // Kalé's Bell Bearing
+dd 400022D9 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [1]
+dd 400022DA 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [2]
+dd 400022DB 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [3]
+dd 400022DC 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [4]
+dd 400022DD 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [5]
+dd 400022DE 00000001 00000000 FFFFFFFF // Isolated Merchant's Bell Bearing [1]
+dd 400022DF 00000001 00000000 FFFFFFFF // Isolated Merchant's Bell Bearing [2]
+dd 400022E0 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [6]
+dd 400022E1 00000001 00000000 FFFFFFFF // Hermit Merchant's Bell Bearing [1]
+dd 400022E2 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [7]
+dd 400022E3 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [8]
+dd 400022E4 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [9]
+dd 400022E5 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [10]
+dd 400022E6 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [11]
+dd 400022E7 00000001 00000000 FFFFFFFF // Isolated Merchant's Bell Bearing [3]
+dd 400022E8 00000001 00000000 FFFFFFFF // Hermit Merchant's Bell Bearing [2]
+dd 400022E9 00000001 00000000 FFFFFFFF // Abandoned Merchant's Bell Bearing
+dd 400022EA 00000001 00000000 FFFFFFFF // Hermit Merchant's Bell Bearing [3]
+dd 400022EB 00000001 00000000 FFFFFFFF // Imprisoned Merchant's Bell Bearing
+dd 400022EC 00000001 00000000 FFFFFFFF // Iji's Bell Bearing
+dd 400022ED 00000001 00000000 FFFFFFFF // Rogier's Bell Bearing
+dd 400022EE 00000001 00000000 FFFFFFFF // Blackguard's Bell Bearing
+dd 400022EF 00000001 00000000 FFFFFFFF // Corhyn's Bell Bearing
+dd 400022F0 00000001 00000000 FFFFFFFF // Gowry's Bell Bearing
+dd 400022F1 00000001 00000000 FFFFFFFF // Bone Peddler's Bell Bearing
+dd 400022F2 00000001 00000000 FFFFFFFF // Meat Peddler's Bell Bearing
+dd 400022F3 00000001 00000000 FFFFFFFF // Medicine Peddler's Bell Bearing
+dd 400022F4 00000001 00000000 FFFFFFFF // Gravity Stone Peddler's Bell Bearing
+dd 400022F7 00000001 00000000 FFFFFFFF // Smithing-Stone Miner's Bell Bearing [1]
+dd 400022F8 00000001 00000000 FFFFFFFF // Smithing-Stone Miner's Bell Bearing [2]
+dd 400022F9 00000001 00000000 FFFFFFFF // Smithing-Stone Miner's Bell Bearing [3]
+dd 400022FA 00000001 00000000 FFFFFFFF // Smithing-Stone Miner's Bell Bearing [4]
+dd 400022FB 00000001 00000000 FFFFFFFF // Somberstone Miner's Bell Bearing [1]
+dd 400022FC 00000001 00000000 FFFFFFFF // Somberstone Miner's Bell Bearing [2]
+dd 400022FD 00000001 00000000 FFFFFFFF // Somberstone Miner's Bell Bearing [3]
+dd 400022FE 00000001 00000000 FFFFFFFF // Somberstone Miner's Bell Bearing [4]
+dd 400022FF 00000001 00000000 FFFFFFFF // Somberstone Miner's Bell Bearing [5]
+dd 40002300 00000001 00000000 FFFFFFFF // Glovewort Picker's Bell Bearing [1]
+dd 40002301 00000001 00000000 FFFFFFFF // Glovewort Picker's Bell Bearing [2]
+dd 40002302 00000001 00000000 FFFFFFFF // Glovewort Picker's Bell Bearing [3]
+dd 40002303 00000001 00000000 FFFFFFFF // Ghost-Glovewort Picker's Bell Bearing [1]
+dd 40002304 00000001 00000000 FFFFFFFF // Ghost-Glovewort Picker's Bell Bearing [2]
+dd 40002305 00000001 00000000 FFFFFFFF // Ghost-Glovewort Picker's Bell Bearing [3]
+
+createthread(ItemGib)
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+{$asm}
+[DISABLE]
+ItemGibArray+10:
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
@@ -71419,6 +71625,1069 @@ paramUtils:restore("blaiddSummon")
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+1C8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337201764</ID>
+          <Description>"Event Flags"</Description>
+          <Options moHideChildren="1"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337212439</ID>
+              <Description>"Whetblades"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337211475</ID>
+                  <Description>""</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212405</ID>
+                  <Description>"Upgrade - Standard 1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>808080</Color>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>79E</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212406</ID>
+                  <Description>""</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212408</ID>
+                  <Description>"Iron Whetblade (Heavy)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>79F</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212409</ID>
+                  <Description>"Iron Whetblade (Keen)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A0</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212410</ID>
+                  <Description>"Iron Whetblade (Quality)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A1</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212411</ID>
+                  <Description>""</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212412</ID>
+                  <Description>"Red-Hot Whetblade (Fire)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A3</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212413</ID>
+                  <Description>"Red-Hot Whetblade (Flame Art)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A4</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212414</ID>
+                  <Description>""</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212415</ID>
+                  <Description>"Sanctified Whetblade (Lightning)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A5</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212416</ID>
+                  <Description>"Sanctified Whetblade (Sacred)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A6</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212417</ID>
+                  <Description>""</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212419</ID>
+                  <Description>"Glintstone Whetblade (Magic)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A8</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212420</ID>
+                  <Description>"Glintstone Whetblade (Frost)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7A9</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212421</ID>
+                  <Description>""</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212422</ID>
+                  <Description>"Black Whetblade (Poison)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7AA</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212423</ID>
+                  <Description>"Black Whetblade (Blood)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7AB</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212424</ID>
+                  <Description>"Black Whetblade (Occult)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>7AD</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337208669</ID>
+              <Description>"Cookbooks"</Description>
+              <Options moHideChildren="1" moRecursiveSetValue="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337208670</ID>
+                  <Description>"Missionary's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>899</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208671</ID>
+                  <Description>"Missionary's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>898</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208672</ID>
+                  <Description>"Missionary's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>89E</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208673</ID>
+                  <Description>"Missionary's Cookbook [4]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>89D</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208674</ID>
+                  <Description>"Missionary's Cookbook [5]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>89B</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208675</ID>
+                  <Description>"Missionary's Cookbook [6]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>85D</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208676</ID>
+                  <Description>"Missionary's Cookbook [7]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8E6</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208677</ID>
+                  <Description>"Nomadic warrior's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>84D</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208678</ID>
+                  <Description>"Nomadic warrior's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>85A</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208679</ID>
+                  <Description>"Nomadic Warrior's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>84E</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208680</ID>
+                  <Description>"Nomadic Warrior's Cookbook [4]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8B1</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208681</ID>
+                  <Description>"Nomadic Warrior's Cookbook [5]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8B4</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208682</ID>
+                  <Description>"Nomadic Warrior's Cookbook [6]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>84F</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208683</ID>
+                  <Description>"Nomadic Warrior's Cookbook [7]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>853</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208684</ID>
+                  <Description>"Nomadic Warrior's Cookbook [8]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8BB</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208685</ID>
+                  <Description>"Nomadic Warrior's Cookbook [9]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>882</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208686</ID>
+                  <Description>"Nomadic Warrior's Cookbook [10]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>850</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208687</ID>
+                  <Description>"Nomadic Warrior's Cookbook [11]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>868</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208688</ID>
+                  <Description>"Nomadic Warrior's Cookbook [12]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>854</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208689</ID>
+                  <Description>"Nomadic Warrior's Cookbook [13]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>857</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208690</ID>
+                  <Description>"Nomadic Warrior's Cookbook [14]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8B9</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208691</ID>
+                  <Description>"Nomadic Warrior's Cookbook [15]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8BD</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208692</ID>
+                  <Description>"Nomadic Warrior's Cookbook [16]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>871</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208693</ID>
+                  <Description>"Nomadic Warrior's Cookbook [17]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>859</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208694</ID>
+                  <Description>"Nomadic Warrior's Cookbook [18]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>86E</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208695</ID>
+                  <Description>"Nomadic Warrior's Cookbook [19]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>855</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208696</ID>
+                  <Description>"Nomadic Warrior's Cookbook [20]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>869</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208697</ID>
+                  <Description>"Nomadic Warrior's Cookbook [21]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>85C</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208698</ID>
+                  <Description>"Nomadic Warrior's Cookbook [22]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8BC</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208699</ID>
+                  <Description>"Nomadic Warrior's Cookbook [23]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>858</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208700</ID>
+                  <Description>"Nomadic Warrior's Cookbook [24]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8BE</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208701</ID>
+                  <Description>"Armorer's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>866</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208702</ID>
+                  <Description>"Armorer's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>867</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208703</ID>
+                  <Description>"Armorer's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>870</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208704</ID>
+                  <Description>"Armorer's Cookbook [4]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>86D</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208705</ID>
+                  <Description>"Armorer's Cookbook [5]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>873</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208706</ID>
+                  <Description>"Armorer's Cookbook [6]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>872</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208707</ID>
+                  <Description>"Armorer's Cookbook [7]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>86C</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208708</ID>
+                  <Description>"Ancient Dragon Apostle's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8CA</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208709</ID>
+                  <Description>"Ancient Dragon Apostle's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8CB</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208710</ID>
+                  <Description>"Ancient Dragon Apostle's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8CD</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208711</ID>
+                  <Description>"Ancient Dragon Apostle's Cookbook [4]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8CC</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208712</ID>
+                  <Description>"Fevor's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8E3</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208713</ID>
+                  <Description>"Fevor's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8E5</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208714</ID>
+                  <Description>"Fevor's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8E4</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208715</ID>
+                  <Description>"Perfumer's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8B6</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208716</ID>
+                  <Description>"Perfumer's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8B7</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208717</ID>
+                  <Description>"Perfumer's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8B8</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208718</ID>
+                  <Description>"Perfumer's Cookbook [4]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8C0</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208719</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>880</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208720</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>885</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208721</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [3]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>889</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208722</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [4]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>87F</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208723</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [5]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>881</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208724</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [6]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>3</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>886</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208725</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [7]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>1</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>887</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208726</ID>
+                  <Description>"Glintstone Craftsman's Cookbook [8]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>884</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208727</ID>
+                  <Description>"Frenzied's Cookbook [1]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>7</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8FC</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337208728</ID>
+                  <Description>"Frenzied's Cookbook [2]"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>5</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>CSFD4VirtualMemoryFlag</Address>
+                  <Offsets>
+                    <Offset>8FD</Offset>
+                    <Offset>28</Offset>
+                  </Offsets>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
