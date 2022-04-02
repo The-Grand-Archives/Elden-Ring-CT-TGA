@@ -74086,8 +74086,6 @@ paramUtils:restore("blaiddSummon")
 200017CA:Host's Trick-Mirror
 200017D4:Entwining Umbilical Cord
 200017DE:Ancestral Spirit's Horn
-Goods:
-ID:NAME
 40000064:Tarnished's Furled Finger
 40000065:Duelist's Furled Finger
 40000066:Bloody Finger
@@ -74439,25 +74437,6 @@ ID:NAME
 4000201F:Rogier's Letter
 40002134:Crafting Kit
 4000218E:Whetstone Knife
-40002198:Map: Limgrave, West
-40002199:Map: Weeping Peninsula
-4000219A:Map: Limgrave, East
-4000219B:Map: Liurnia, East
-4000219C:Map: Liurnia, North
-4000219D:Map: Liurnia, West
-4000219E:Map: Altus Plateau
-4000219F:Map: Leyndell, Royal Capital
-400021A0:Map: Mt. Gelmir
-400021A1:Map: Caelid
-400021A2:Map: Dragonbarrow
-400021A3:Map: Mountaintops of the Giants, West
-400021A4:Map: Mountaintops of the Giants, East
-400021A5:Map: Ainsel River
-400021A6:Map: Lake of Rot
-400021A7:Map: Siofra River
-400021A8:Map: Mohgwyn Palace
-400021A9:Map: Deeproot Depths
-400021AA:Map: Consecrated Snowfield
 400021D4:Mirage Riddle
 400021FC:Note: Hidden Cave
 400021FD:Note: Imp Shades
@@ -74558,11 +74537,6 @@ ID:NAME
 40002303:Ghost-Glovewort Picker's Bell Bearing [1]
 40002304:Ghost-Glovewort Picker's Bell Bearing [2]
 40002305:Ghost-Glovewort Picker's Bell Bearing [3]
-4000230A:Iron Whetblade
-4000230B:Red-Hot Whetblade
-4000230C:Sanctified Whetblade
-4000230D:Glintstone Whetblade
-4000230E:Black Whetblade
 4000230F:Unalloyed Gold Needle
 40002310:Unalloyed Gold Needle
 40002311:Valkyrie's Prosthesis
@@ -74656,71 +74630,6 @@ ID:NAME
 400023B2:About Dodging
 400023B4:About Wielding Armaments
 400023EB:About Multiplayer
-40002454:Nomadic Warrior's Cookbook [1]
-40002455:Nomadic Warrior's Cookbook [3]
-40002456:Nomadic Warrior's Cookbook [6]
-40002457:Nomadic Warrior's Cookbook [10]
-40002458:Fugitive Warrior's Recipe [5]
-40002459:Nomadic Warrior's Cookbook [7]
-4000245A:Nomadic Warrior's Cookbook [12]
-4000245B:Nomadic Warrior's Cookbook [19]
-4000245C:Nomadic Warrior's Cookbook [13]
-4000245D:Nomadic Warrior's Cookbook [23]
-4000245E:Nomadic Warrior's Cookbook [17]
-4000245F:Nomadic Warrior's Cookbook [2]
-40002460:Nomadic Warrior's Cookbook [21]
-40002461:Missionary's Cookbook [6]
-40002468:Armorer's Cookbook [1]
-40002469:Armorer's Cookbook [2]
-4000246A:Nomadic Warrior's Cookbook [11]
-4000246B:Nomadic Warrior's Cookbook [20]
-4000246C:Armorer's Cookbook (5)
-4000246D:Armorer's Cookbook [7]
-4000246E:Armorer's Cookbook [4]
-4000246F:Nomadic Warrior's Cookbook [18]
-40002470:Armorer's Cookbook [3]
-40002471:Nomadic Warrior's Cookbook [16]
-40002472:Armorer's Cookbook [6]
-40002473:Armorer's Cookbook [5]
-4000247C:Glintstone Craftsman's Cookbook [4]
-4000247D:Glintstone Craftsman's Cookbook [1]
-4000247E:Glintstone Craftsman's Cookbook [5]
-4000247F:Nomadic Warrior's Cookbook [9]
-40002480:Glintstone Craftsman's Cookbook [8]
-40002481:Glintstone Craftsman's Cookbook [2]
-40002482:Glintstone Craftsman's Cookbook [6]
-40002483:Glintstone Craftsman's Cookbook [7]
-40002484:Glintstone Craftsman's Cookbook [3]
-40002490:Missionary's Cookbook [2]
-40002491:Missionary's Cookbook [1]
-40002492:Missionary's Cookbook (3)
-40002493:Missionary's Cookbook [5]
-40002494:Missionary's Cookbook [4]
-40002495:Missionary's Cookbook [3]
-400024A4:Nomadic Warrior's Cookbook [4]
-400024A5:Perfumer's Cookbook (1)
-400024A6:Perfumer's Cookbook (2)
-400024A7:Nomadic Warrior's Cookbook [5]
-400024A8:Perfumer's Cookbook [1]
-400024A9:Perfumer's Cookbook [2]
-400024AA:Perfumer's Cookbook [3]
-400024AB:Nomadic Warrior's Cookbook [14]
-400024AC:Nomadic Warrior's Cookbook [8]
-400024AD:Nomadic Warrior's Cookbook [22]
-400024AE:Nomadic Warrior's Cookbook [15]
-400024AF:Nomadic Warrior's Cookbook [24]
-400024B0:Perfumer's Cookbook [4]
-400024B1:Perfumer's Cookbook (13)
-400024B8:Ancient Dragon Apostle's Cookbook [1]
-400024B9:Ancient Dragon Apostle's Cookbook [2]
-400024BA:Ancient Dragon Apostle's Cookbook [4]
-400024BB:Ancient Dragon Apostle's Cookbook [3]
-400024CC:Fevor's Cookbook [1]
-400024CD:Fevor's Cookbook [3]
-400024CE:Fevor's Cookbook [2]
-400024CF:Missionary's Cookbook [7]
-4.00E+05:Frenzied's Cookbook [1]
-4.00E+06:Frenzied's Cookbook [2]
 4000251C:Cracked Pot
 4000251D:Ritual Pot
 40002526:Perfume Bottle
@@ -74838,7 +74747,7 @@ ID:NAME
 400050CD:Tarnished Golden Sunflower
 400050D2:Herba
 400050D3:Arteria Leaf
-4.00E+11:Dewkissed Herba
+4000E011:Dewkissed Herba
 400050F0:Rowa Fruit
 400050F1:Golden Rowa
 400050F2:Rimed Rowa
