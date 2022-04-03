@@ -4850,12 +4850,36 @@ disableMemrec(memrec)
                 <CheatEntry>
                   <ID>240</ID>
                   <Description>"Idle Animation"</Description>
+                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">60060:Walk through mist
+63000:Load in area anim
+63010:Summon anim
+63020:Summon anim, stand up and raise fist
+63040:Summon anim, fade in
+63060:Summon anim, slowly rise
+63070:Summon anim, rise up with fist forward
+63080:T-pose
+63090:Summon anim, fade in with fist on chest
+</DropDownList>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>WorldChrMan</Address>
                   <Offsets>
                     <Offset>18</Offset>
                     <Offset>58</Offset>
+                    <Offset>190</Offset>
+                    <Offset>0*10</Offset>
+                    <Offset>B658</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212620</ID>
+                  <Description>"Current Animation"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>WorldChrMan</Address>
+                  <Offsets>
+                    <Offset>90</Offset>
+                    <Offset>80</Offset>
                     <Offset>190</Offset>
                     <Offset>0*10</Offset>
                     <Offset>B658</Offset>
