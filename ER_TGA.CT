@@ -59755,7 +59755,7 @@ if not syntaxcheck then disableMemrec(memrec) end
                 <Offset>0</Offset>
                 <Offset>80</Offset>
                 <Offset>80</Offset>
-                <Offset>26C8</Offset>
+                <Offset>27E8</Offset>
               </Offsets>
             </CheatEntry>
             <CheatEntry>
@@ -70540,7 +70540,93 @@ paramUtils:restore("blaiddSummon")
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
-              <ID>1337196542</ID>
+              <ID>1337212460</ID>
+              <Description>"EnemyCommonParam"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>SoloParamRepository</Address>
+              <Offsets>
+                <Offset>58</Offset>
+                <Offset>80</Offset>
+                <Offset>80</Offset>
+                <Offset>27E8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337212465</ID>
+                  <Description>"dummy8 reserved0"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>+00</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212466</ID>
+                  <Description>"soundTargetTryApproachTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212467</ID>
+                  <Description>"searchTargetTryApproachTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212468</ID>
+                  <Description>"memoryTargetTryApproachTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212469</ID>
+                  <Description>"dummy8 reserved5"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>40</ByteLength>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212470</ID>
+                  <Description>"activateChrByTime_PhantomId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212471</ID>
+                  <Description>"findUnfavorableFailedPointDist"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212472</ID>
+                  <Description>"findUnfavorableFailedPointHeight"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212473</ID>
+                  <Description>"dummy8 reserved18"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>184</ByteLength>
+                  <Address>+48</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337212474</ID>
               <Description>"GameSystemCommonParam"</Description>
               <Options moHideChildren="1"/>
               <ShowAsSigned>0</ShowAsSigned>
@@ -70554,1071 +70640,2971 @@ paramUtils:restore("blaiddSummon")
               </Offsets>
               <CheatEntries>
                 <CheatEntry>
-                  <ID>1337196390</ID>
-                  <Description>"Basic Toughness Durability Recover Time"</Description>
+                  <ID>1337212475</ID>
+                  <Description>"baseToughnessRecoverTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+00</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196544</ID>
-                  <Description>"Character Turning Animation Left (°90)"</Description>
+                  <ID>1337212476</ID>
+                  <Description>"chrEventTrun_byLeft90"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196545</ID>
-                  <Description>"Character Turning Animation Right (°90)"</Description>
+                  <ID>1337212477</ID>
+                  <Description>"chrEventTrun_byRight90"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196546</ID>
-                  <Description>"Character Turning Animation Left (°180)"</Description>
+                  <ID>1337212478</ID>
+                  <Description>"chrEventTrun_byLeft180"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196547</ID>
-                  <Description>"Character Turning Animation Right (°180)"</Description>
+                  <ID>1337212479</ID>
+                  <Description>"chrEventTrun_byRight180"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+10</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196548</ID>
-                  <Description>"Animation Start Angle (°90)"</Description>
+                  <ID>1337212480</ID>
+                  <Description>"chrEventTrun_90TurnStartAngle"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+14</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196549</ID>
-                  <Description>"Animation Start Angle (°180)"</Description>
+                  <ID>1337212481</ID>
+                  <Description>"chrEventTrun_180TurnStartAngle"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+16</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196550</ID>
-                  <Description>"Debt ItemId"</Description>
+                  <ID>1337212482</ID>
+                  <Description>"stealthAtkDamageRate"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Float</VariableType>
                   <Address>+18</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196551</ID>
-                  <Description>"Shield Repel Damage Cut Rate"</Description>
+                  <ID>1337212483</ID>
+                  <Description>"flickDamageCutRateSuccessGurad"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196552</ID>
-                  <Description>"Npc Talk Anim Playback Angle1"</Description>
+                  <ID>1337212484</ID>
+                  <Description>"npcTalkAnimBeginDiffAngle"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+20</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196553</ID>
-                  <Description>"Npc Talk Anim Playback Angle2"</Description>
+                  <ID>1337212485</ID>
+                  <Description>"npcTalkAnimEndDiffAngle"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+24</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196554</ID>
-                  <Description>"cult_Arbitrary SpEffectId"</Description>
+                  <ID>1337212486</ID>
+                  <Description>"sleepCollectorItemActionButtonParamId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+28</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196555</ID>
-                  <Description>"cult_lvlUp SpEffectId"</Description>
+                  <ID>1337212487</ID>
+                  <Description>"allowUseBuddyItem_sfxInterval"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Float</VariableType>
                   <Address>+2C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196556</ID>
-                  <Description>"cult_Swing SpEffectId"</Description>
+                  <ID>1337212488</ID>
+                  <Description>"allowUseBuddyItem_sfxDmyPolyId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+30</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196557</ID>
-                  <Description>"cult_HollowReset SpEffectId"</Description>
+                  <ID>1337212489</ID>
+                  <Description>"allowUseBuddyItem_sfxDmyPolyId_horse"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+34</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196558</ID>
-                  <Description>"cult_Atonement SpEffectId"</Description>
+                  <ID>1337212490</ID>
+                  <Description>"allowUseBuddyItem_sfxId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+38</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196559</ID>
-                  <Description>"cult_NpcSummon SpEffectId"</Description>
+                  <ID>1337212491</ID>
+                  <Description>"onBuddySummon_inActivateRange_sfxInterval"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Float</VariableType>
                   <Address>+3C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196560</ID>
-                  <Description>"cult_Bomb SpEffectId"</Description>
+                  <ID>1337212492</ID>
+                  <Description>"onBuddySummon_inActivateRange_sfxDmyPolyId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+40</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196561</ID>
-                  <Description>"cult_InvasionBan SpEffectId"</Description>
+                  <ID>1337212493</ID>
+                  <Description>"onBuddySummon_inActivateRange_sfxDmyPolyId_horse"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+44</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196562</ID>
-                  <Description>"LvLUp Ritual Sword Id"</Description>
+                  <ID>1337212494</ID>
+                  <Description>"onBuddySummon_inActivateRange_sfxId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+48</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196563</ID>
-                  <Description>"Swing Ritual Sword Id"</Description>
+                  <ID>1337212495</ID>
+                  <Description>"onBuddySummon_inActivateRange_spEffectId_pc"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+4C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196564</ID>
-                  <Description>"Hollow Reset Ritual Sword Id"</Description>
+                  <ID>1337212496</ID>
+                  <Description>"onBuddySummon_inWarnRange_spEffectId_pc"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+50</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196565</ID>
-                  <Description>"Atonement Ritual Sword Id"</Description>
+                  <ID>1337212497</ID>
+                  <Description>"onBuddySummon_atBuddyUnsummon_spEffectId_pc"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+54</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196566</ID>
-                  <Description>"NPC Summon Ritual Sword Id"</Description>
+                  <ID>1337212498</ID>
+                  <Description>"onBuddySummon_inWarnRange_spEffectId_buddy"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+58</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196567</ID>
-                  <Description>""</Description>
-                  <ShowAsHex>1</ShowAsHex>
+                  <ID>1337212499</ID>
+                  <Description>"morningIngameHour"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Byte</VariableType>
                   <Address>+5C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196568</ID>
-                  <Description>"Invasion Ban Ritual Sword Id"</Description>
+                  <ID>1337201536</ID>
+                  <Description>"morningIngameMinute"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201535</ID>
+                  <Description>"morningIngameSecond"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201534</ID>
+                  <Description>"noonIngameHour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212500</ID>
+                  <Description>"noonIngameMinute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
                   <Address>+60</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196569</ID>
-                  <Description>""</Description>
-                  <ShowAsHex>1</ShowAsHex>
+                  <ID>1337201539</ID>
+                  <Description>"noonIngameSecond"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Byte</VariableType>
+                  <Address>+61</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201538</ID>
+                  <Description>"nightIngameHour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+62</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201537</ID>
+                  <Description>"nightIngameMinute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+63</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212501</ID>
+                  <Description>"nightIngameSecond"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
                   <Address>+64</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196570</ID>
-                  <Description>""</Description>
-                  <ShowAsHex>1</ShowAsHex>
+                  <ID>1337201542</ID>
+                  <Description>"aiSightRateStart_Morning_Hour"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>Byte</VariableType>
+                  <Address>+65</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201541</ID>
+                  <Description>"aiSightRateStart_Morning_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+66</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201540</ID>
+                  <Description>"aiSightRateStart_Noon_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+67</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201549</ID>
+                  <Description>"aiSightRateStart_Noon_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201548</ID>
+                  <Description>"aiSightRateStart_Evening_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+69</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201547</ID>
+                  <Description>"aiSightRateStart_Evening_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201546</ID>
+                  <Description>"aiSightRateStart_Night_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212502</ID>
+                  <Description>"aiSightRateStart_Night_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
                   <Address>+6C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196571</ID>
-                  <Description>""</Description>
+                  <ID>1337201545</ID>
+                  <Description>"aiSightRateStart_Midnight_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201544</ID>
+                  <Description>"aiSightRateStart_Midnight_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201543</ID>
+                  <Description>"saLargeDamageHitSfx_Threshold"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212503</ID>
+                  <Description>"saLargeDamageHitSfx_SfxId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+70</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196572</ID>
-                  <Description>""</Description>
+                  <ID>1337212504</ID>
+                  <Description>"signCreatableDistFromSafePos"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+74</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196573</ID>
-                  <Description>""</Description>
+                  <ID>1337212505</ID>
+                  <Description>"guestResummonDist"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+78</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196574</ID>
-                  <Description>""</Description>
+                  <ID>1337212506</ID>
+                  <Description>"guestLeavingMessageDistMax"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+7C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196575</ID>
-                  <Description>""</Description>
+                  <ID>1337201550</ID>
+                  <Description>"guestLeavingMessageDistMin"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212507</ID>
+                  <Description>"guestLeaveSessionDist"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+84</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196576</ID>
-                  <Description>"EventFlagID [HollowReset]"</Description>
+                  <ID>1337212508</ID>
+                  <Description>"retryPointAreaRadius"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+88</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196577</ID>
-                  <Description>"EventFlagID [Ritual]"</Description>
+                  <ID>1337212509</ID>
+                  <Description>"sleepCollectorSpEffectId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+8C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196578</ID>
-                  <Description>"UnkSpEffectID"</Description>
+                  <ID>1337212510</ID>
+                  <Description>"recoverBelowMaxHpCompletionNoticeSpEffectId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+90</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196579</ID>
-                  <Description>"Estus Restore VfxID [HP]"</Description>
+                  <ID>1337212511</ID>
+                  <Description>"estusFlaskRecovery_AbsorptionProductionSfxId_byHp"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+94</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196580</ID>
-                  <Description>"Estus Restore VfxID [MP]"</Description>
+                  <ID>1337212512</ID>
+                  <Description>"estusFlaskRecovery_AbsorptionProductionSfxId_byMp"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+98</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196581</ID>
-                  <Description>"TearsOfDenial - SpEffectID"</Description>
+                  <ID>1337212513</ID>
+                  <Description>"respawnSpecialEffectActiveCheckerSpEffectId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+9C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196582</ID>
-                  <Description>""</Description>
+                  <ID>1337212514</ID>
+                  <Description>"onBuddySummon_inActivateRange_spEffectId_buddy"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+A0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196583</ID>
-                  <Description>""</Description>
+                  <ID>1337212515</ID>
+                  <Description>"estusFlaskRecovery_AddEstusTimeestusFlaskRecovery_AddEstusTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+A4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196584</ID>
-                  <Description>"MultiplayerBossSoulsRate"</Description>
+                  <ID>1337212516</ID>
+                  <Description>"defeatMultiModeEnemyOfSoulCorrectRate_byHost"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+A8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196585</ID>
-                  <Description>"MultiplayerSoulsRate"</Description>
+                  <ID>1337212517</ID>
+                  <Description>"defeatMultiModeEnemyOfSoulCorrectRate_byTeamGhost"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+AC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196586</ID>
-                  <Description>"MultiplayerBossSoulsRate2"</Description>
+                  <ID>1337212518</ID>
+                  <Description>"defeatMultiModeBossOfSoulCorrectRate_byHost"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+B0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196587</ID>
-                  <Description>"MultiplayerSoulsRate2"</Description>
+                  <ID>1337212519</ID>
+                  <Description>"defeatMultiModeBossOfSoulCorrectRate_byTeamGhost"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+B4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196588</ID>
-                  <Description>"ChrType Name Pos[Y]"</Description>
+                  <ID>1337212520</ID>
+                  <Description>"enemyHpGaugeScreenOffset_byUp"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+B8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196589</ID>
-                  <Description>""</Description>
+                  <ID>1337212521</ID>
+                  <Description>"playRegionCollectDist"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+BA</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196590</ID>
-                  <Description>"DmyPolyID"</Description>
+                  <ID>1337212522</ID>
+                  <Description>"enemyDetectionSpEffect_ShootBulletDummypolyId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+BC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196591</ID>
-                  <Description>"MaxEnemyNum"</Description>
+                  <ID>1337212523</ID>
+                  <Description>"bigRuneGreaterDemonBreakInGoodsNum"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+BE</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196592</ID>
-                  <Description>"MaxRange"</Description>
+                  <ID>1337212524</ID>
+                  <Description>"bigRuneGreaterDemonBreakInGoodsId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196593</ID>
-                  <Description>"BulletID1"</Description>
+                  <ID>1337212525</ID>
+                  <Description>"rideJumpRegionDefaultSfxId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+C4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196594</ID>
-                  <Description>""</Description>
+                  <ID>1337212526</ID>
+                  <Description>"saAttackRate_forVsRideAtk"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+C8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196595</ID>
-                  <Description>"BulletID3"</Description>
+                  <ID>1337212527</ID>
+                  <Description>"enemySpEffectIdAfterSleepCollectorItemLot"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+CC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196596</ID>
-                  <Description>"BulletID4"</Description>
+                  <ID>1337212528</ID>
+                  <Description>"afterEndingMapUid"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+D0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196597</ID>
-                  <Description>"BulletID5"</Description>
+                  <ID>1337212529</ID>
+                  <Description>"afterEndingReturnPointEntityId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+D4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196598</ID>
-                  <Description>"BulletID6"</Description>
+                  <ID>1337212530</ID>
+                  <Description>"enemyDetectionSpEffect_BulletId_byCoopRing_RedHunter"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+D8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196599</ID>
-                  <Description>"BulletID7"</Description>
+                  <ID>1337212531</ID>
+                  <Description>"enemyDetectionSpEffect_BulletId_byInvadeOrb_None"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+DC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196600</ID>
-                  <Description>"BulletID8"</Description>
+                  <ID>1337212532</ID>
+                  <Description>"tutorialFlagOnAccessDistView"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+E0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196601</ID>
-                  <Description>"BulletID9"</Description>
+                  <ID>1337212533</ID>
+                  <Description>"tutorialFlagOnAccessRetryPoint"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+E4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196602</ID>
-                  <Description>"BulletID10"</Description>
+                  <ID>1337212534</ID>
+                  <Description>"tutorialFlagOnGetGroupReward"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+E8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196603</ID>
-                  <Description>"BulletID11"</Description>
+                  <ID>1337212535</ID>
+                  <Description>"tutorialFlagOnEnterRideJumpRegion"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+EC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196604</ID>
-                  <Description>""</Description>
+                  <ID>1337212536</ID>
+                  <Description>"tutorialCheckRideJumpRegionExpandRange"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+F0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196605</ID>
-                  <Description>"BulletID13"</Description>
+                  <ID>1337212537</ID>
+                  <Description>"retryPointActivatedPcAnimId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196606</ID>
-                  <Description>"BulletID14"</Description>
+                  <ID>1337212538</ID>
+                  <Description>"retryPointActivatedDialogDelayTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+F8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196607</ID>
-                  <Description>"BulletID15"</Description>
+                  <ID>1337212539</ID>
+                  <Description>"retryPointActivatedDialogTextId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+FC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196608</ID>
-                  <Description>"BulletID16"</Description>
+                  <ID>1337212540</ID>
+                  <Description>"signPuddleOpenPcAnimId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+100</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196609</ID>
-                  <Description>""</Description>
+                  <ID>1337212541</ID>
+                  <Description>"signPuddleOpenDialogDelayTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+104</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196610</ID>
-                  <Description>"BulletID [Dead Again]"</Description>
+                  <ID>1337212542</ID>
+                  <Description>"activityOfDeadSpEffect_BulletId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+108</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196611</ID>
-                  <Description>"BehaviorType"</Description>
+                  <ID>1337212543</ID>
+                  <Description>"activityOfDeadSpEffect_ShootBulletDummypolyId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+10C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196612</ID>
-                  <Description>"ChrTransparency"</Description>
+                  <ID>1337212544</ID>
+                  <Description>"activityOfDeadSpEffect_DeadFadeOutTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+110</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196613</ID>
-                  <Description>"IgnoreThrowNetSyncTime [sec]"</Description>
+                  <ID>1337212545</ID>
+                  <Description>"ignorNetStateSyncTime_ForThrow"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+114</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196614</ID>
-                  <Description>""</Description>
+                  <ID>1337212546</ID>
+                  <Description>"netPenaltyPointLanDisconnect"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+118</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196615</ID>
-                  <Description>""</Description>
+                  <ID>1337212547</ID>
+                  <Description>"netPenaltyPointProfileSignout"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+11A</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196616</ID>
-                  <Description>"NetPenaltyCondition1"</Description>
+                  <ID>1337212548</ID>
+                  <Description>"netPenaltyPointReboot"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+11C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196617</ID>
-                  <Description>""</Description>
+                  <ID>1337212549</ID>
+                  <Description>"netPnaltyPointSuspend"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+11E</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196618</ID>
-                  <Description>"NetPenaltyTimer [sec]"</Description>
+                  <ID>1337212550</ID>
+                  <Description>"netPenaltyForgiveItemLimitTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+120</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196619</ID>
-                  <Description>"NetPenaltyCondition2"</Description>
+                  <ID>1337212551</ID>
+                  <Description>"netPenaltyPointThreshold"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+124</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196620</ID>
-                  <Description>"Invasion AFK Timer [sec]"</Description>
+                  <ID>1337212552</ID>
+                  <Description>"uncontrolledMoveThresholdTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+126</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196621</ID>
-                  <Description>"Entity_BulletID"</Description>
+                  <ID>1337212553</ID>
+                  <Description>"enemyDetectionSpEffect_BulletId_byNpcEnemy"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+128</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196622</ID>
-                  <Description>"SpEffectID [Dead Again]"</Description>
+                  <ID>1337212554</ID>
+                  <Description>"activityOfDeadTargetSearchSpEffect_OnHitSpEffect"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+12C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196623</ID>
-                  <Description>"Timer (sec) [Dead Again]"</Description>
+                  <ID>1337212555</ID>
+                  <Description>"activityOfDeadTargetSearchSpEffect_MaxLength"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+130</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196624</ID>
-                  <Description>"Frame Rate Value1"</Description>
+                  <ID>1337212556</ID>
+                  <Description>"sightRangeLowerPromiseRate"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+134</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196625</ID>
-                  <Description>"Frame Rate Value2"</Description>
+                  <ID>1337212557</ID>
+                  <Description>"saLargeDamageHitSfx_MinDamage"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
+                  <VariableType>2 Bytes</VariableType>
                   <Address>+138</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196626</ID>
-                  <Description>"AddSoloBreakInPoint Max"</Description>
+                  <ID>1337201551</ID>
+                  <Description>"saLargeDamageHitSfx_ForceDamage"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+13A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212558</ID>
+                  <Description>"soloBreakInMaxPoint"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+13C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196627</ID>
-                  <Description>"Talk Time [Global]"</Description>
+                  <ID>1337212559</ID>
+                  <Description>"npcTalkTimeOutThreshold"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+140</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196628</ID>
-                  <Description>"Server.UnkTimer1 [sec]"</Description>
+                  <ID>1337212560</ID>
+                  <Description>"sendPlayLogIntervalTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+144</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196629</ID>
-                  <Description>"Bullet Vfx Ctrl"</Description>
+                  <ID>1337212561</ID>
+                  <Description>"item370_MaxSfxNum"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
+                  <VariableType>Byte</VariableType>
                   <Address>+148</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196630</ID>
-                  <Description>"Host Weakness Compensation"</Description>
+                  <ID>1337201552</ID>
+                  <Description>"chrActivateDist_forLeavePC"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+149</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212562</ID>
+                  <Description>"summonDataCoopMatchingLevelUpperAbs"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+14A</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196631</ID>
-                  <Description>"Host Weakness Compensation"</Description>
+                  <ID>1337212563</ID>
+                  <Description>"summonDataCoopMatchingLevelUpperRel"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+14C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196632</ID>
-                  <Description>"Client/Host Weakness Compensation"</Description>
+                  <ID>1337212564</ID>
+                  <Description>"summonDataCoopMatchingWepLevelMul"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+14E</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196633</ID>
-                  <Description>"White Sign Value"</Description>
+                  <ID>1337212565</ID>
+                  <Description>"pickUpBerserkerSignSpEffectBulletId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+150</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196634</ID>
-                  <Description>"SpEffectID [Mound Maker]"</Description>
+                  <ID>1337212566</ID>
+                  <Description>"succeedBerserkerSelfKillingEffectId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+154</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196635</ID>
-                  <Description>"UndeadMatchType1_1"</Description>
+                  <ID>1337212567</ID>
+                  <Description>"machingLevelWhiteSignUpperRel"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+158</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196636</ID>
-                  <Description>"UndeadMatchType1_2"</Description>
+                  <ID>1337212568</ID>
+                  <Description>"machingLevelWhiteSignUpperAbs"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+159</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196637</ID>
-                  <Description>"UndeadMatchType2_1"</Description>
+                  <ID>1337212569</ID>
+                  <Description>"machingLevelRedSignUpperRel"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+15A</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196638</ID>
-                  <Description>"QuickMatchType2_1"</Description>
+                  <ID>1337212570</ID>
+                  <Description>"machingLevelRedSignUpperAbs"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+15B</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196639</ID>
-                  <Description>"QuickMatchDB.Type1_1"</Description>
+                  <ID>1337212571</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_0"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+15C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196640</ID>
-                  <Description>"QuickMatchDB.Type1_2"</Description>
+                  <ID>1337212572</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_1"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+15D</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196641</ID>
-                  <Description>"QuickMatchDB.Type1_3"</Description>
+                  <ID>1337212573</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_2"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+15E</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196642</ID>
-                  <Description>"QuickMatchDB.Type1_4"</Description>
+                  <ID>1337212574</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_3"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+15F</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196643</ID>
-                  <Description>"QuickMatchDB.Type1_5"</Description>
+                  <ID>1337212575</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_4"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+160</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196644</ID>
-                  <Description>"QuickMatchDB.Type1_6"</Description>
+                  <ID>1337212576</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_5"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+161</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196645</ID>
-                  <Description>"QuickMatchDB.Type1_7"</Description>
+                  <ID>1337212577</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_6"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+162</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196646</ID>
-                  <Description>"QuickMatchDB.Type1_8"</Description>
+                  <ID>1337212578</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_7"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+163</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196647</ID>
-                  <Description>"QuickMatchDB.Type1_9"</Description>
+                  <ID>1337212579</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_8"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+164</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196648</ID>
-                  <Description>"QuickMatchDB.Type1_10"</Description>
+                  <ID>1337212580</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_9"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+165</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196649</ID>
-                  <Description>"QuickMatchDB.Type1_11"</Description>
+                  <ID>1337212581</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_10"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+166</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196650</ID>
-                  <Description>"QuickMatchDB.Type2_1"</Description>
+                  <ID>1337212582</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_0"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+167</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196651</ID>
-                  <Description>"QuickMatchDB.Type2_2"</Description>
+                  <ID>1337212583</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_1"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+168</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196652</ID>
-                  <Description>"QuickMatchDB.Type2_3"</Description>
+                  <ID>1337212584</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_2"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+169</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196653</ID>
-                  <Description>"QuickMatchDB.Type2_4"</Description>
+                  <ID>1337212585</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_3"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+16A</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196654</ID>
-                  <Description>"QuickMatchDB.Type2_5"</Description>
+                  <ID>1337212586</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_4"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+16B</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196655</ID>
-                  <Description>"QuickMatchDB.Type2_6"</Description>
+                  <ID>1337212587</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_5"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+16C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196656</ID>
-                  <Description>"QuickMatchDB.Type2_7"</Description>
+                  <ID>1337212588</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_6"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+16D</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196657</ID>
-                  <Description>"QuickMatchDB.Type2_8"</Description>
+                  <ID>1337212589</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_7"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+16E</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196658</ID>
-                  <Description>"QuickMatchDB.Type2_9"</Description>
+                  <ID>1337212590</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_8"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+16F</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196659</ID>
-                  <Description>"QuickMatchDB.Type2_10"</Description>
+                  <ID>1337212591</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_9"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+170</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196660</ID>
-                  <Description>"QuickMatchDB.Type2_11"</Description>
+                  <ID>1337212592</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_10"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Byte</VariableType>
                   <Address>+171</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196661</ID>
-                  <Description>"Server.UnkTimer2 [sec]"</Description>
+                  <ID>1337201554</ID>
+                  <Description>"autoInvadePoint_generateDist"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+172</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201553</ID>
+                  <Description>"autoInvadePoint_cancelDist"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+173</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212593</ID>
+                  <Description>"sendGlobalEventLogIntervalTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+174</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196662</ID>
-                  <Description>"AddSoloBreakInPoint[White]"</Description>
+                  <ID>1337212594</ID>
+                  <Description>"addSoloBreakInPoint_White"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+178</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196663</ID>
-                  <Description>"AddSoloBreakInPoint[Red]"</Description>
+                  <ID>1337212595</ID>
+                  <Description>"addSoloBreakInPoint_Black"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+17A</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196664</ID>
-                  <Description>"AddSoloBreakInPoint[ForceJoin]"</Description>
+                  <ID>1337212596</ID>
+                  <Description>"addSoloBreakInPoint_ForceJoin"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+17C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196665</ID>
-                  <Description>"AddSoloBreakInPoint[Guardian]"</Description>
+                  <ID>1337212597</ID>
+                  <Description>"addSoloBreakInPoint_VisitorGuardian"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+17E</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196666</ID>
-                  <Description>"AddSoloBreakInPoint[RedHunter]"</Description>
+                  <ID>1337212598</ID>
+                  <Description>"addSoloBreakInPoint_VisitorRedHunter"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>2 Bytes</VariableType>
                   <Address>+180</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196667</ID>
-                  <Description>""</Description>
+                  <ID>1337212599</ID>
+                  <Description>"invincibleTimer_forNetPC_initSync"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>2 Bytes</VariableType>
+                  <VariableType>Byte</VariableType>
                   <Address>+182</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196668</ID>
-                  <Description>"Calc Correct Global Adjustment"</Description>
+                  <ID>1337201555</ID>
+                  <Description>"invincibleTimer_forNetPC"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+183</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212600</ID>
+                  <Description>"redHunter_HostBossAreaGetSoulRate"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+184</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196669</ID>
-                  <Description>"QuickMatchDB.Type13_1"</Description>
+                  <ID>1337212601</ID>
+                  <Description>"ghostFootprintDecalParamId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
+                  <VariableType>4 Bytes</VariableType>
                   <Address>+188</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196670</ID>
-                  <Description>"QuickMatchDB.Type13_2"</Description>
+                  <ID>1337212602</ID>
+                  <Description>"leaveAroundHostWarningTime"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+189</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196671</ID>
-                  <Description>"QuickMatchDB.Type13_3"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+18A</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196672</ID>
-                  <Description>"QuickMatchDB.Type13_4"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+18B</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196673</ID>
-                  <Description>"QuickMatchDB.Type13_5"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
+                  <VariableType>Float</VariableType>
                   <Address>+18C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196674</ID>
-                  <Description>"QuickMatchDB.Type13_6"</Description>
+                  <ID>1337212603</ID>
+                  <Description>"hostModeCostItemId"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+18D</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196675</ID>
-                  <Description>"QuickMatchDB.Type13_7"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+18E</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196676</ID>
-                  <Description>"QuickMatchDB.Type13_8"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+18F</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196677</ID>
-                  <Description>"QuickMatchDB.Type13_9"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
+                  <VariableType>4 Bytes</VariableType>
                   <Address>+190</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196678</ID>
-                  <Description>"QuickMatchDB.Type13_10"</Description>
+                  <ID>1337212604</ID>
+                  <Description>"aIJump_DecelerateParam"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+191</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196679</ID>
-                  <Description>"QuickMatchDB.Type13_11"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+192</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196680</ID>
-                  <Description>"QuickMatchType13_1"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
+                  <VariableType>Float</VariableType>
                   <Address>+194</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196681</ID>
-                  <Description>"QuickMatchType13_2"</Description>
-                  <ShowAsSigned>1</ShowAsSigned>
-                  <VariableType>Byte</VariableType>
-                  <Address>+195</Address>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337196682</ID>
-                  <Description>"Pvp Arena Time1_1"</Description>
+                  <ID>1337212605</ID>
+                  <Description>"buddyDisappearDelaySec"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+198</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196683</ID>
-                  <Description>"Pvp Arena Time1_2"</Description>
+                  <ID>1337212606</ID>
+                  <Description>"aIJump_AnimYMoveCorrectRate_onJumpOff"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+19C</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196684</ID>
-                  <Description>"Pvp Arena Time2_1"</Description>
+                  <ID>1337212607</ID>
+                  <Description>"stealthSystemSightRate_NotInStealthRigid_NotSightHide_StealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1A0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196685</ID>
-                  <Description>"Pvp Arena Time2_2"</Description>
+                  <ID>1337212608</ID>
+                  <Description>"stealthSystemSightRate_NotInStealthRigid_SightHide_NotStealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1A4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196686</ID>
-                  <Description>"Pvp Arena Time3_1"</Description>
+                  <ID>1337212609</ID>
+                  <Description>"stealthSystemSightRate_NotInStealthRigid_SightHide_StealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1A8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196687</ID>
-                  <Description>"Pvp Arena Time3_2"</Description>
+                  <ID>1337212610</ID>
+                  <Description>"stealthSystemSightRate_InStealthRigid_NotSightHide_NotStealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1AC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196688</ID>
-                  <Description>"Pvp Arena Time4_1"</Description>
+                  <ID>1337212611</ID>
+                  <Description>"stealthSystemSightRate_InStealthRigid_NotSightHide_StealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1B0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196689</ID>
-                  <Description>"Pvp Arena Time4_2"</Description>
+                  <ID>1337212612</ID>
+                  <Description>"stealthSystemSightRate_InStealthRigid_SightHide_NotStealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1B4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196690</ID>
-                  <Description>"Pvp Arena Time5_1"</Description>
+                  <ID>1337212613</ID>
+                  <Description>"stealthSystemSightRate_InStealthRigid_SightHide_StealthMode"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+1B8</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196691</ID>
-                  <Description>""</Description>
+                  <ID>1337212614</ID>
+                  <Description>"msbEventGeomTreasureInfo_actionButtonParamId_corpse"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+1BC</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196692</ID>
-                  <Description>""</Description>
+                  <ID>1337212615</ID>
+                  <Description>"msbEventGeomTreasureInfo_itemGetAnimId_corpse"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+1C0</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196693</ID>
-                  <Description>""</Description>
+                  <ID>1337212616</ID>
+                  <Description>"msbEventGeomTreasureInfo_actionButtonParamId_box"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+1C4</Address>
                 </CheatEntry>
                 <CheatEntry>
-                  <ID>1337196694</ID>
-                  <Description>"Summon Sign Parameter"</Description>
+                  <ID>1337212617</ID>
+                  <Description>"msbEventGeomTreasureInfo_itemGetAnimId_box"</Description>
                   <ShowAsSigned>1</ShowAsSigned>
                   <VariableType>4 Bytes</VariableType>
                   <Address>+1C8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201556</ID>
+                  <Description>"msbEventGeomTreasureInfo_actionButtonParamId_shine"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1CC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201557</ID>
+                  <Description>"msbEventGeomTreasureInfo_itemGetAnimId_shine"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201558</ID>
+                  <Description>"signPuddleAssetId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1D4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201559</ID>
+                  <Description>"signPuddleAppearDmypolyId0"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1D8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201560</ID>
+                  <Description>"signPuddleAppearDmypolyId1"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1DC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201561</ID>
+                  <Description>"signPuddleAppearDmypolyId2"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1E0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201562</ID>
+                  <Description>"signPuddleAppearDmypolyId3"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1E4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201563</ID>
+                  <Description>"fallDamageRate_forRidePC"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1E8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201564</ID>
+                  <Description>"fallDamageRate_forRideNPC"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1EC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201565</ID>
+                  <Description>"OldMonkOfYellow_CreateSignSpEffectId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1F0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201566</ID>
+                  <Description>"StragglerActivateDist"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1F4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201567</ID>
+                  <Description>"SpEffectId_EnableUseItem_StragglerActivate"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201568</ID>
+                  <Description>"SpEffectId_StragglerWakeUp"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1FC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201569</ID>
+                  <Description>"SpEffectId_StragglerTarget"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+200</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201570</ID>
+                  <Description>"SpEffectId_StragglerOppose"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+204</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201571</ID>
+                  <Description>"buddyWarp_TriggerTimeRayBlocked"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+208</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201572</ID>
+                  <Description>"buddyWarp_TriggerDistToPlayer"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201573</ID>
+                  <Description>"buddyWarp_ThresholdTimePathStacked"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+210</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201574</ID>
+                  <Description>"buddyWarp_ThresholdRangePathStacked"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+214</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201575</ID>
+                  <Description>"aiSightRate_morning"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+218</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201576</ID>
+                  <Description>"aiSightRate_noonA"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+21C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201577</ID>
+                  <Description>"buddyPassThroughTriggerTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+220</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201578</ID>
+                  <Description>"aiSightRate_evening"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+224</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201581</ID>
+                  <Description>"aiSightRate_night"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+228</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201580</ID>
+                  <Description>"aiSightRate_midnightA"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+22C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201579</ID>
+                  <Description>"dummy8 reserve4_2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+230</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201584</ID>
+                  <Description>"aiSightRate_sunloss_light"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+234</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201583</ID>
+                  <Description>"aiSightRate_sunloss_dark"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+238</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201582</ID>
+                  <Description>"aiSightRate_sunloss_veryDark"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+23C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201601</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_NotInStealthRigid_NotSightHide_StealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+240</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201585</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_NotInStealthRigid_SightHide_NotStealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+244</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201589</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_NotInStealthRigid_SightHide_StealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+248</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201588</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_InStealthRigid_NotSightHide_NotStealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201587</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_InStealthRigid_NotSightHide_StealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+250</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201586</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_InStealthRigid_SightHide_NotStealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+254</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201592</ID>
+                  <Description>"stealthSystemSightAngleReduceRate_InStealthRigid_SightHide_StealthMode"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+258</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201591</ID>
+                  <Description>"weatherLotConditionStart_Morning_Hour"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+25C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201604</ID>
+                  <Description>"weatherLotConditionStart_Morning_Minute"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+25D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201603</ID>
+                  <Description>"weatherLotConditionStart_Day_Hour"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+25E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201602</ID>
+                  <Description>"weatherLotConditionStart_Day_Minute"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+25F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201590</ID>
+                  <Description>"weatherLotConditionStart_Evening_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+260</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201607</ID>
+                  <Description>"weatherLotConditionStart_Evening_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+261</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201606</ID>
+                  <Description>"weatherLotConditionStart_Night_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+262</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201605</ID>
+                  <Description>"weatherLotConditionStart_Night_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+263</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201600</ID>
+                  <Description>"weatherLotConditionStart_DayBreak_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+264</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201610</ID>
+                  <Description>"weatherLotConditionStart_DayBreak_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+265</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201609</ID>
+                  <Description>"dummy8 weatherLotCondition_reserved"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+266</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201599</ID>
+                  <Description>"pclightScaleChangeStart_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+268</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201613</ID>
+                  <Description>"pclightScaleChangeStart_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+269</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201612</ID>
+                  <Description>"pclightScaleChangeEnd_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+26A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201611</ID>
+                  <Description>"pclightScaleChangeEnd_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+26B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201598</ID>
+                  <Description>"pclightScaleByTimezone"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+26C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201597</ID>
+                  <Description>"bigRuneGreaterDemon_SummonBuddySpecialEffectId_Buddy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+270</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201596</ID>
+                  <Description>"bigRuneGreaterDemon_SummonBuddySpecialEffectId_Pc"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+274</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201595</ID>
+                  <Description>"homeBonfireParamId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+278</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201594</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_11"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+27C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201616</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_12"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+27D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201615</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_13"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+27E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201614</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_14"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+27F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201593</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_15"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+280</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201626</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_16"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+281</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201625</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_17"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+282</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201624</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_18"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+283</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201623</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_19"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+284</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201622</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_20"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+285</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201621</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_21"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+286</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201620</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_22"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+287</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201619</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_23"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+288</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201618</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_24"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+289</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201617</ID>
+                  <Description>"machingWeaponLevelUpperWhiteSign_25"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201627</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_11"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201636</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_12"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201635</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_13"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201634</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_14"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201633</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_15"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+28F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201632</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_16"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+290</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201631</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_17"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+291</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201630</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_18"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+292</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201629</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_19"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+293</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201628</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_20"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+294</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201640</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_21"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+295</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201639</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_22"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+296</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201638</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_23"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+297</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201637</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_24"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+298</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201641</ID>
+                  <Description>"machingWeaponLevelUpperRedSign_25"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+299</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201642</ID>
+                  <Description>"menuTimezoneStart_Morning_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+29A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201644</ID>
+                  <Description>"menuTimezoneStart_Morning_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+29B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201643</ID>
+                  <Description>"menuTimezoneStart_Day1_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+29C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201656</ID>
+                  <Description>"menuTimezoneStart_Day1_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+29D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201655</ID>
+                  <Description>"menuTimezoneStart_Day2_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+29E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201654</ID>
+                  <Description>"menuTimezoneStart_Day2_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+29F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201653</ID>
+                  <Description>"menuTimezoneStart_Evening_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2A0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201659</ID>
+                  <Description>"menuTimezoneStart_Evening_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2A1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201658</ID>
+                  <Description>"menuTimezoneStart_Night_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2A2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201657</ID>
+                  <Description>"menuTimezoneStart_Night_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2A3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201652</ID>
+                  <Description>"menuTimezoneStart_Midnight_Hour"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2A4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201662</ID>
+                  <Description>"menuTimezoneStart_Midnight_Minute"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+2A5</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201661</ID>
+                  <Description>"remotePlayerThreatLvNotify_ThreatLv"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2A6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201651</ID>
+                  <Description>"remotePlayerThreatLvNotify_NotifyDist"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2A8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201650</ID>
+                  <Description>"remotePlayerThreatLvNotify_EndNotifyDist"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2AC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201649</ID>
+                  <Description>"worldMapPointDiscoveryExpandRange"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2B0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201648</ID>
+                  <Description>"worldMapPointReentryExpandRange"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201647</ID>
+                  <Description>"remotePlayerThreatLvNotify_NotifyTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201663</ID>
+                  <Description>"breakIn_A_rebreakInGoodsNum"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2BA</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201646</ID>
+                  <Description>"breakIn_A_rebreakInGoodsId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201645</ID>
+                  <Description>"rideJumpoff_SfxId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201670</ID>
+                  <Description>"rideJumpoff_SfxHeightOffset"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201669</ID>
+                  <Description>"rideJumpoff_SpEffectId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201668</ID>
+                  <Description>"rideJumpoff_SpEffectIdPc"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2CC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201667</ID>
+                  <Description>"unlockExchangeMenuEventFlagId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201666</ID>
+                  <Description>"unlockMessageMenuEventFlagId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2D4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201665</ID>
+                  <Description>"breakInOnce_A_rebreakInGoodsNum"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2D8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201676</ID>
+                  <Description>"breakIn_B_rebreakInGoodsNum"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+2DA</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201664</ID>
+                  <Description>"breakInOnce_A_rebreakInGoodsId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2DC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201672</ID>
+                  <Description>"breakIn_B_rebreakInGoodsId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2E0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201675</ID>
+                  <Description>"actionButtonInputCancelTime"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2E4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201674</ID>
+                  <Description>"blockClearBonusDelayTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2E8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201673</ID>
+                  <Description>"bonfireCheckEnemyRange"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2EC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337201677</ID>
+                  <Description>"dummy8 reserved_124"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>48</ByteLength>
+                  <Address>+2EC</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337212459</ID>
+              <Description>"GraphicsCommonParam"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>SoloParamRepository</Address>
+              <Offsets>
+                <Offset>58</Offset>
+                <Offset>80</Offset>
+                <Offset>80</Offset>
+                <Offset>2878</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>3613</ID>
+                  <Description>"hitBulletDecalOffset_HitIns"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212444</ID>
+                  <Description>"dummy8 reserved02"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>+04</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3614</ID>
+                  <Description>"charaWetDecalFadeRange"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212445</ID>
+                  <Description>"dummy8 reserved04"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>240</ByteLength>
+                  <Address>+10</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337212618</ID>
+              <Description>"MenuCommonParam"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>SoloParamRepository</Address>
+              <Offsets>
+                <Offset>58</Offset>
+                <Offset>80</Offset>
+                <Offset>80</Offset>
+                <Offset>28C0</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4290</ID>
+                  <Description>"soloPlayDeath_ToFadeOutTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4291</ID>
+                  <Description>"partyGhostDeath_ToFadeOutTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4292</ID>
+                  <Description>"playerMaxHpLimit"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4293</ID>
+                  <Description>"playerMaxMpLimit"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4294</ID>
+                  <Description>"playerMaxSpLimit"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4295</ID>
+                  <Description>"actionPanelChangeThreshold_Vel"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4296</ID>
+                  <Description>"actionPanelChangeThreshold_PassTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4297</ID>
+                  <Description>"kgIconVspace"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4298</ID>
+                  <Description>"worldMapCursorSelectRadius"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212446</ID>
+                  <Description>"dummy8 reserved8"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4299</ID>
+                  <Description>"decalPosOffsetX"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4300</ID>
+                  <Description>"decalPosOffsetY"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4301</ID>
+                  <Description>"targetStateSearchDurationTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4302</ID>
+                  <Description>"targetStateBattleDurationTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4303</ID>
+                  <Description>"worldMapCursorSpeed"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4304</ID>
+                  <Description>"worldMapCursorFirstDistance"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4305</ID>
+                  <Description>"worldMapCursorFirstDelay"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4306</ID>
+                  <Description>"worldMapCursorWaitTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4307</ID>
+                  <Description>"worldMapCursorSnapRadius"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4308</ID>
+                  <Description>"worldMapCursorSnapTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4309</ID>
+                  <Description>"itemGetLogAliveTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4310</ID>
+                  <Description>"playerMaxSaLimit"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4311</ID>
+                  <Description>"worldMap_IsChangeableLayerEventFlagId"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4312</ID>
+                  <Description>"worldMap_TravelMargin"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4313</ID>
+                  <Description>"systemAnnounceScrollBufferTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4314</ID>
+                  <Description>"systemAnnounceScrollSpeed"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4315</ID>
+                  <Description>"systemAnnounceNoScrollWaitTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4316</ID>
+                  <Description>"systemAnnounceScrollCount"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212447</ID>
+                  <Description>"dummy8 reserved17"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>3</ByteLength>
+                  <Address>+6D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4317</ID>
+                  <Description>"compassMemoDispDistance"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4318</ID>
+                  <Description>"compassBonfireDispDistance"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4319</ID>
+                  <Description>"markerGoalThreshold"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4320</ID>
+                  <Description>"svSliderStep"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4321</ID>
+                  <Description>"preOpeningMovie_WaitSec"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4322</ID>
+                  <Description>"kgIconScale"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+84</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4323</ID>
+                  <Description>"kgIconScale_forTable"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+88</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4324</ID>
+                  <Description>"kgIconVspace_forTable"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4325</ID>
+                  <Description>"kgIconScale_forConfig"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+90</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4326</ID>
+                  <Description>"kgIconVspace_forConfig"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4327</ID>
+                  <Description>"worldMap_SearchRadius"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+98</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4328</ID>
+                  <Description>"tutorialDisplayTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+9C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4329</ID>
+                  <Description>"compassFriendHostInnerDistance"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+A0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4330</ID>
+                  <Description>"compassEnemyHostInnerDistance"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+A4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4331</ID>
+                  <Description>"compassFriendGuestInnerDistance"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+A8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4332</ID>
+                  <Description>"cutsceneKeyGuideAliveTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+AC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4333</ID>
+                  <Description>"autoHideHpThresholdRatio"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+B0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4334</ID>
+                  <Description>"autoHideHpThresholdValue"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4335</ID>
+                  <Description>"autoHideMpThresholdRatio"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4336</ID>
+                  <Description>"autoHideMpThresholdValue"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4337</ID>
+                  <Description>"autoHideSpThresholdRatio"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4338</ID>
+                  <Description>"autoHideSpThresholdValue"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4339</ID>
+                  <Description>"worldMapZoomAnimationTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4340</ID>
+                  <Description>"worldMapIconScaleMin"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+CC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4341</ID>
+                  <Description>"worldMap_TravelMargin_Point"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4342</ID>
+                  <Description>"enemyTagSafeLeft"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+D4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4343</ID>
+                  <Description>"enemyTagSafeRight"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+D6</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4344</ID>
+                  <Description>"enemyTagSafeTop"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+D8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4345</ID>
+                  <Description>"enemyTagSafeBottom"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+DA</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4346</ID>
+                  <Description>"pcHorseHpRecoverDispThreshold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+DC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212448</ID>
+                  <Description>"dummy8 reserved33"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>32</ByteLength>
+                  <Address>+E0</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337212619</ID>
+              <Description>"PlayerCommonParam"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>SoloParamRepository</Address>
+              <Offsets>
+                <Offset>58</Offset>
+                <Offset>80</Offset>
+                <Offset>80</Offset>
+                <Offset>2908</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5536</ID>
+                  <Description>"playerFootEffect_bySFX"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5537</ID>
+                  <Description>"snipeModeDrawAlpha_FadeTime"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5538</ID>
+                  <Description>"toughnessRecoverCorrection"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5539</ID>
+                  <Description>"baseMagicSlotSize"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5540</ID>
+                  <Description>"baseAccSlotNum"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212452</ID>
+                  <Description>"dummy8 reserved02"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5541</ID>
+                  <Description>"animeID_DropItemPick"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5542</ID>
+                  <Description>"resistRecoverPoint_Sleep_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5543</ID>
+                  <Description>"flareOverrideHomingAngle"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5544</ID>
+                  <Description>"flareOverrideHomingStopRange"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5545</ID>
+                  <Description>"animeID_SleepCollectorItemPick"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+20</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5546</ID>
+                  <Description>"unlockEventFlagBaseId_forWepAttr"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5547</ID>
+                  <Description>"systemEnchant_BigRune"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+28</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5548</ID>
+                  <Description>"lowStatus_AtkPowDown"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5549</ID>
+                  <Description>"lowStatus_ConsumeStaminaRate"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5550</ID>
+                  <Description>"lowStatus_AtkGuardBreak"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5551</ID>
+                  <Description>"guardStatusCorrect_MaxStatusVal"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+36</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5552</ID>
+                  <Description>"unlockEventFlagStepNum_forWepAttr"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5553</ID>
+                  <Description>"retributionMagic_damageCountNum"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5554</ID>
+                  <Description>"retributionMagic_damageCountRemainTime"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5555</ID>
+                  <Description>"retributionMagic_burstDmypolyId"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+3E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5556</ID>
+                  <Description>"retributionMagic_burstMagicParamId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5557</ID>
+                  <Description>"chrAimCam_rideOffsetHeight"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212453</ID>
+                  <Description>"dummy8 reserved23"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5558</ID>
+                  <Description>"arrowCaseWepBindDmypolyId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+4C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5559</ID>
+                  <Description>"boltPouchWepBindDmypolyId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+50</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5560</ID>
+                  <Description>"estusFlaskAllocateRate"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+54</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212454</ID>
+                  <Description>"dummy8 reserved32"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+58</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5561</ID>
+                  <Description>"kickAcceptanceDeg"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5562</ID>
+                  <Description>"npcPlayerAnalogWeightRate_Light"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5B</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5563</ID>
+                  <Description>"npcPlayerAnalogWeightRate_Normal"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5564</ID>
+                  <Description>"npcPlayerAnalogWeightRate_Heavy"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5565</ID>
+                  <Description>"npcPlayerAnalogWeightRate_WeightOver"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5566</ID>
+                  <Description>"npcPlayerAnalogWeightRate_SuperLight"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+5F</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212455</ID>
+                  <Description>"dummy8 reserved45"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5567</ID>
+                  <Description>"clearCountCorrectBaseSpEffectId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5568</ID>
+                  <Description>"arrowBoltModelIdOffset"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+68</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5569</ID>
+                  <Description>"arrowBoltRemainingNumModelMaskThreshold1"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5570</ID>
+                  <Description>"arrowBoltRemainingNumModelMaskThreshold2"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+6D</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212456</ID>
+                  <Description>"dummy8 reserved27"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>+6E</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5571</ID>
+                  <Description>"resistRecoverPoint_Poision_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+70</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5572</ID>
+                  <Description>"resistRecoverPoint_Desease_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+74</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5573</ID>
+                  <Description>"resistRecoverPoint_Blood_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+78</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5574</ID>
+                  <Description>"resistRecoverPoint_Curse_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+7C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5575</ID>
+                  <Description>"resistRecoverPoint_Freeze_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5576</ID>
+                  <Description>"resistRecoverPoint_Poision_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+84</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5577</ID>
+                  <Description>"resistRecoverPoint_Desease_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+88</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5578</ID>
+                  <Description>"resistRecoverPoint_Blood_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5579</ID>
+                  <Description>"resistRecoverPoint_Curse_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+90</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5580</ID>
+                  <Description>"resistRecoverPoint_Freeze_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5581</ID>
+                  <Description>"requestTimeLeftBothHand"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+98</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5582</ID>
+                  <Description>"resistRecoverPoint_Madness_Player"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+9C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5583</ID>
+                  <Description>"animeID_MaterialItemPick"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+A0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5584</ID>
+                  <Description>"hpEstusFlaskAllocateRateForYellowMonk"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+A4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5585</ID>
+                  <Description>"hpEstusFlaskAllocateOffsetForYellowMonk"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+A8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5586</ID>
+                  <Description>"mpEstusFlaskAllocateRateForYellowMonk"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+AC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5587</ID>
+                  <Description>"mpEstusFlaskAllocateOffsetForYellowMonk"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+B0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5588</ID>
+                  <Description>"resistRecoverPoint_Sleep_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5589</ID>
+                  <Description>"resistRecoverPoint_Madness_Enemy"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5590</ID>
+                  <Description>"resistCurseItemId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5591</ID>
+                  <Description>"resistCurseItemMaxNum"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>+C0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212457</ID>
+                  <Description>"dummy8 reserved123"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>3</ByteLength>
+                  <Address>+C1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5592</ID>
+                  <Description>"resistCurseItemSpEffectBaseId"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5593</ID>
+                  <Description>"resistCurseItemLotParamId_map"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337212458</ID>
+                  <Description>"dummy8 reserved41"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>52</ByteLength>
+                  <Address>+CC</Address>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
