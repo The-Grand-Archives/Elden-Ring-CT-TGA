@@ -55,21 +55,21 @@ unregisterSymbol("CSFlipper")
 registerSymbol("CSFlipper", addr, true)
 
 autoAssemble([[
-aobscanmodule(Finder,eldenring.exe,E8 ???????? 4C 8B F8 48 85 C0 0F 84 ???????? 48 8B 0D)
+aobscanmodule(Finder,eldenring.exe,48 8B 05 ???????? 33 DB 48 89 74 24)
 registersymbol(Finder)
 ]])
 local addr = getAddress("Finder")
-addr = addr + readInteger(addr + 17) + 7
+addr = addr + readInteger(addr + 3) + 7
 unregisterSymbol("Finder")
 unregisterSymbol("CSMenuMan")
 registerSymbol("CSMenuMan", addr, true)
 
 autoAssemble([[
-aobscanmodule(Finder,eldenring.exe,48 8B 05 ?? ?? ?? ?? 48 85 C0 74 ?? 41 BE 01 00 00 00 44 89 74)
+aobscanmodule(Finder,eldenring.exe,48 83 3D ???????? 00 48 8B F9 0F 84 ???????? 48)
 registersymbol(Finder)
 ]])
 local addr = getAddress("Finder")
-addr = addr + readInteger(addr + 3) + 7
+addr = addr + readInteger(addr + 3) + 8
 unregisterSymbol("Finder")
 unregisterSymbol("CSLuaEventManager")
 registerSymbol("CSLuaEventManager", addr, true)
@@ -85,7 +85,7 @@ unregisterSymbol("MsgRepository")
 registerSymbol("MsgRepository", addr, true)
 
 autoAssemble([[
-aobscanmodule(Finder,eldenring.exe,48 8B 05 ???????? 80 B8 3C0D0000 0D 0F94 C0 C3)
+aobscanmodule(Finder,eldenring.exe,48 8B 05 ???????? 80 B8 ???????? 0D 0F94 C0 C3)
 registersymbol(Finder)
 ]])
 local addr = getAddress("Finder")
@@ -7359,7 +7359,7 @@ disableMemrec(memrec)
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>//Author: inuNorii
 [ENABLE]
-aobscanmodule(AddSoul_Call,eldenring.exe,44 8B 41 6C 45 33 D2 44 89 54 24 10 45 8D 0C 10 44 89 4C 24 08 45 85 C9)
+aobscanmodule(AddSoul_Call,eldenring.exe,44 8B 49 ?? 45 33 DB 44 89 5C 24)
 alloc(AddSoul,$100,eldenring.exe)
 registerSymbol(AddSoul)
 label(AddSoulData)
