@@ -9,9 +9,9 @@ Our community, make sure to read the rules carefully
 This table is not meant to be used online and you will most likely be banned if you attempt to do so.
 
 ## Latest Release
-Table: [v0.4.1](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)  
+Table: [v0.4.2](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)  
 Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
-Game: App ver. 1.03.1
+Game: App ver. 1.04
 
 ### Changelog
 ### v0.4.1 03/19/2022
