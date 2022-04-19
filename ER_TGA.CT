@@ -2480,8 +2480,8 @@ dd 0000008F // Triumphant Delight
 dd 00000091 // Fancy Spin
 dd 00000093 // Finger Snap
 dd 000000A1 // Dejection
-dd 000000B5 // Patches' Crouch
-dd 000000B7 // Crossed Legs
+//dd 000000B5 // Patches' Crouch
+[[[GameDataMan]+08]+8B8]+8C:dd 000000B7 // Crossed Legs
 dd 000000B9 // Rest
 dd 000000BB // Sitting Sideways
 dd 000000BD // Dozing Cross-Legged
@@ -2517,10 +2517,12 @@ disableMemrec(memrec)
                   <AssemblerScript>[ENABLE]
 [[[GameDataMan]+08]+8B8]+6C:
 dd 0000006F // The Carian Oath
+[[[GameDataMan]+08]+8B8]+88:
+dd 000000B5 // Patches' Crouch
 [[[GameDataMan]+08]+8B8]+A0:
 dd 000000C1 // Fetal Position
 [[[GameDataMan]+08]+8B8]+D0:
-dd 000000CC // ?GoodsName?
+dd 000000DD // ?GoodsName?
 
 {$lua}
 if syntaxcheck then return end
@@ -3017,6 +3019,7 @@ disableMemrec(memrec)
 181:Unlocked
 </DropDownList>
                   <ShowAsSigned>1</ShowAsSigned>
+                  <Color>0000C8</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>GameDataMan</Address>
                   <Offsets>
