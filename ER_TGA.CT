@@ -3483,6 +3483,361 @@ disableMemrec(memrec)
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
+              <ID>1337213275</ID>
+              <Description>"GestureEquipData"</Description>
+              <Options moHideChildren="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337213343</ID>
+                  <Description>"Gesture 1"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213350</ID>
+                  <Description>"Gesture 2"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>C</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213349</ID>
+                  <Description>"Gesture 3"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>10</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213348</ID>
+                  <Description>"Gesture 4"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>14</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213347</ID>
+                  <Description>"Gesture 5"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>18</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213346</ID>
+                  <Description>"Gesture 6"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>1C</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213345</ID>
+                  <Description>"Gesture 7"</Description>
+                  <DropDownListLink>GESTURE_ID</DropDownListLink>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>20</Offset>
+                    <Offset>5C8</Offset>
+                    <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337213406</ID>
+              <Description>"EquipItemData"</Description>
+              <Options moHideChildren="1"/>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <GroupHeader>1</GroupHeader>
+              <Address>GameDataMan</Address>
+              <Offsets>
+                <Offset>520</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337213403</ID>
+                  <Description>"ItemID 1"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+8*1</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337213404</ID>
+                      <Description>"ID"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>0</BitStart>
+                      <BitLength>28</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213405</ID>
+                      <Description>"Type"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>4</BitStart>
+                      <BitLength>4</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>+3</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213272</ID>
+                  <Description>"Idx 1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>+C*1</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337213396</ID>
+              <Description>"EquipInventoryData"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+alloc(EquipInventoryDataIdx,$10)
+registerSymbol(EquipInventoryDataIdx)
+
+EquipInventoryDataIdx:
+dd 00000000
+
+[DISABLE]
+dealloc(EquipInventoryDataIdx)
+unregisterSymbol(EquipInventoryDataIdx)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337213397</ID>
+                  <Description>"Start"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+writeInteger("EquipInventoryDataIdx",0)
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213401</ID>
+                  <Description>"&gt;"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+local Idx = readInteger("EquipInventoryDataIdx")+1
+writeInteger("EquipInventoryDataIdx",Idx)
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213398</ID>
+                  <Description>"&lt;"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+local Idx = readInteger("EquipInventoryDataIdx")-1
+if Idx &gt;= 0 then
+   writeInteger("EquipInventoryDataIdx",Idx)
+end
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213376</ID>
+                  <Description>"===== Inventory list ====="</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>0</ByteLength>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>readInteger("EquipInventoryDataIdx")*0x14</Offset>
+                    <Offset>10</Offset>
+                    <Offset>5B8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337213399</ID>
+                      <Description>"Idx"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>EquipInventoryDataIdx</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213379</ID>
+                      <Description>"GaItemHandle"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>1</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+00</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213382</ID>
+                      <Description>"Item"</Description>
+                      <DropDownListLink>ItemDropdown</DropDownListLink>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>1</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+04</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337213386</ID>
+                          <Description>"ItemId"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>+00</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337213400</ID>
+                          <Description>"EquipId"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>0</BitStart>
+                          <BitLength>28</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>+00</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337213387</ID>
+                          <Description>"Type"</Description>
+                          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Weapon
+1:Protector
+2:Accessory
+4:Goods
+8:Gem
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Binary</VariableType>
+                          <BitStart>4</BitStart>
+                          <BitLength>4</BitLength>
+                          <ShowAsBinary>0</ShowAsBinary>
+                          <Address>+03</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213381</ID>
+                      <Description>"Quantity"</Description>
+                      <ShowAsSigned>1</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+08</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213380</ID>
+                      <Description>"DispIdx"</Description>
+                      <ShowAsSigned>1</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+0C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213383</ID>
+                      <Description>""</Description>
+                      <ShowAsSigned>1</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213390</ID>
+                  <Description>"======================================"</Description>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213391</ID>
+                  <Description>"Inventory Num"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>420</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213394</ID>
+                  <Description>""</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>424</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213395</ID>
+                  <Description>""</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>488</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213392</ID>
+                  <Description>""</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameDataMan</Address>
+                  <Offsets>
+                    <Offset>48C</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
               <ID>1337191913</ID>
               <Description>"GameData"</Description>
               <Options moHideChildren="1"/>
@@ -3800,6 +4155,32 @@ disableMemrec(memrec)
                   <Offsets>
                     <Offset>90</Offset>
                     <Offset>08</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337052461</ID>
+                  <Description>"ChrType"</Description>
+                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:Host
+1:White Phantom
+2:Dark Spirit
+3:Ghost
+4:Ghost
+8:Hollow
+10:Transparent
+11:Invisible
+12:Dragon
+13:Arena
+16:Dark Spirit
+      
+</DropDownList>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>WorldChrMan</Address>
+                  <Offsets>
+                    <Offset>98</Offset>
+                    <Offset>570</Offset>
+                    <Offset>0*10</Offset>
+                    <Offset>B658</Offset>
                   </Offsets>
                 </CheatEntry>
                 <CheatEntry>
