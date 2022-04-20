@@ -3,7 +3,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>1337192508</ID>
-      <Description>"Open - The Grand Archives v0.4.1 - Elden Ring v1.03.1"</Description>
+      <Description>"Open - The Grand Archives v0.5.0 - Elden Ring v1.04"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]

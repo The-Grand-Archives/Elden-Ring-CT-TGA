@@ -1,4 +1,27 @@
 # Changelog
+### v0.5.0 04/20/2022
+ - Missing items fixed, cut content stripped
+ - Additional Grace ID names (by Careless Esper)
+ - Great Rune selection
+ - Param Patcher: BuddyParam class, Blaidd Spirit Ash
+ - MassItemGib: all ashes of war, all limited quantity craftables, all prattling pates, misc consumables (by The-Raid-Boss)
+ - MassItemGib: all bell bearings (by Apricus)
+ - Event Flags: Whetblades, Cookbooks, Graces, Maps (by Apricus)
+ - Maps, Whetblades, and Cookbooks removed from ItemGib dropdown
+ - Idle Animation IDs (summon anims, fog wall)
+ - Coordinates and Camera sections
+ - Last x highlighted helpers now use proper paramdefs
+ - ID Helpers now use proper paramdefs and rely on Param Patcher
+ - Complete FaceData header
+ - Budget inventory viewer (EquipInventoryData) and other misc stuff in Hero
+ - Npc Helpers added
+ - Toughness and SuperArmor info for player and NPCs
+ - ItemGib will now handle upgrade level in a better way
+ - MassItemGib crashes hopefully resolved
+
+ ### v0.4.2 04/19/2022
+ - Updated AOBs for v1.04
+ 
 ### v0.4.1 03/19/2022
  - Fixed some Warp IDs
  - Fixed ItemGib issues: Bloodhound Claws not taking enhancements, Mohgwyn's Sacred Spear missing
