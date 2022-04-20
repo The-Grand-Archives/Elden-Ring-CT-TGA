@@ -7415,49 +7415,101 @@ if not syntaxcheck then disableMemrec(memrec) end
                   <AssemblerScript>[ENABLE]
 aobscanmodule(ItemGib_AOB,eldenring.exe,8B 02 83 F8 0A)
 define(ItemGib_Call,ItemGib_AOB-52)
-alloc(ItemGib,$100,eldenring.exe)
+alloc(ItemGib,$300,eldenring.exe)
 label(ItemGibData)
 alloc(ItemGibArray,$2000)
-registerSymbol(ItemGib)
-registerSymbol(ItemGibArray)
 
 ItemGib:
-mov r12,ItemGibArray
+registerSymbol(ItemGib)
+test rcx,rcx
+jne short ItemGib_set
+mov rcx,ItemGibArray
+ItemGib_set:
+mov r12,rcx
 call ItemGib_Insert
-ItemGib_end:
 ret
 
 ItemGib_Insert:
 mov eax,[r12]
 test eax,eax
-je short ItemGib_Insert_end
+je ItemGib_Insert_end
 mov r10,ItemGibData
 lea r11,[r10+20]
+mov ecx,0000000A
+mov [r10+20],00
+ItemGib_Insert_Loop:
+mov eax,[r12]
+test eax,eax
+je short ItemGib_Insert_03
 mov [r11+04],eax
 mov eax,[r12+04]
 mov [r11+08],eax
 mov eax,[r12+0C]
 mov [r11+10],eax
-cmp [r12+00],02FAF080
-jnl short ItemGib_Insert_01
+cmp dword ptr [r12+00],02FAF080
+ja short ItemGib_Insert_01
+call ItemGib_WeaponCheck
 movzx eax,word ptr [r12+08]
 add [r11+04],eax
-movzx eax,word ptr [r12+0A]
-add [r11+04],eax
+mov [r11+08],00000001
+jmp short ItemGib_Insert_02
 ItemGib_Insert_01:
-call ItemGib_Main
+cmp dword ptr [r12+00],10000000 // Protector
+jl short ItemGib_Insert_02
+cmp dword ptr [r12+00],40000000 // Goods
+jg short ItemGib_Insert_02
+mov [r11+08],00000001
+ItemGib_Insert_02:
+add r11,10
 add r12,10
-jmp short ItemGib_Insert
+add [r10+20],01
+loop ItemGib_Insert_Loop
+ItemGib_Insert_03:
+call ItemGib_Main
+jmp ItemGib_Insert
 ItemGib_Insert_end:
+ret
+
+ItemGib_WeaponCheck:
+push ecx
+xor rcx,rcx
+mov edx,dword ptr [r11+04]
+movzx ebx,word ptr [r12+0A]
+{$luacode weapon_id=edx param_addr=rcx inputReinforceLv=ebx result=eax}
+local id_table = ParamUtils:getParamIdTable("EquipParamWeapon")
+if id_table[weapon_id] ~= nil then
+	param_addr = id_table[weapon_id]
+else
+    inputReinforceLv = 0
+end
+local playerReinforceLv = readInteger("[[GameDataMan]+08]+E2")
+local originEquipWep1 = readInteger(param_addr + 0x64)
+local originEquipWep16 = readInteger(param_addr + 0x250)
+
+if originEquipWep1 ~= 0xFFFFFFFF then
+	if inputReinforceLv &gt; 25 then
+        inputReinforceLv = playerReinforceLv
+    end
+	if originEquipWep16 == 0xFFFFFFFF then
+		result = math.floor((inputReinforceLv + 0.5) / 2.5)
+	else
+		result = inputReinforceLv
+	end
+else
+	result = 0
+end
+{$asm}
+add [r11+04],eax
+pop ecx
 ret
 
 ItemGib_Main:
 sub rsp,48
+xor r9d,r9d
 mov r8,ItemGibData
 lea rdx,[r8+20]
 mov r10,MapItemMan
 mov rcx,[r10]
-mov [rdx],01
 call ItemGib_Call
 add rsp,48
 ret
@@ -7466,11 +7518,25 @@ ItemGibData:
 dq 0000000000000000 0000000000000000
 dq 0000000000000000 0000000000000000
 dd 00000000
-dd 00000000 00000000 00000000 00000000
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
 
 ItemGibArray:
+registerSymbol(ItemGibArray)
 // ID       Quantity Upgrade  AshOfWar
-dd 000F4240 00000001 00000000 FFFFFFFF
+dd 000F4240 00000001 FFFF0000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
@@ -7479,7 +7545,7 @@ dd 00000000 00000000 00000000 FFFFFFFF
 
 [DISABLE]
 dealloc(ItemGib)
-dealloc(ItemGibData)
+dealloc(ItemGibArray)
 unregisterSymbol(ItemGib)
 unregisterSymbol(ItemGibArray)
 </AssemblerScript>
@@ -7510,9 +7576,9 @@ unregisterSymbol(ItemGibArray)
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337193280</ID>
-                      <Description>"Reinforcement Level"</Description>
+                      <Description>"Reinforcement Level (Regular | Somber)"</Description>
                       <DropDownListLink>ItemReinforceLv</DropDownListLink>
-                      <ShowAsSigned>0</ShowAsSigned>
+                      <ShowAsSigned>1</ShowAsSigned>
                       <VariableType>2 Bytes</VariableType>
                       <Address>ItemGibArray+0A</Address>
                     </CheatEntry>
@@ -7552,32 +7618,29 @@ if not syntaxcheck then disableMemrec(memrec) end
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>ItemGibArray+00</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>1337201743</ID>
-                          <Description>"EquipID"</Description>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Binary</VariableType>
-                          <BitStart>0</BitStart>
-                          <BitLength>28</BitLength>
-                          <ShowAsBinary>0</ShowAsBinary>
-                          <Address>ItemGibArray+00</Address>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>1337201744</ID>
-                          <Description>"EquipType"</Description>
-                          <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:Weapon
-1:Protector
-2:Accessory
-4:Goods
-8:Gem
-</DropDownList>
-                          <ShowAsSigned>0</ShowAsSigned>
-                          <VariableType>Binary</VariableType>
-                          <BitStart>4</BitStart>
-                          <BitLength>4</BitLength>
-                          <ShowAsBinary>0</ShowAsBinary>
-                          <Address>ItemGibArray+03</Address>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>1337201743</ID>
+                              <Description>"EquipID"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Binary</VariableType>
+                              <BitStart>0</BitStart>
+                              <BitLength>28</BitLength>
+                              <ShowAsBinary>0</ShowAsBinary>
+                              <Address>ItemGibArray+00</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337201744</ID>
+                              <Description>"EquipType"</Description>
+                              <DropDownListLink>ItemType</DropDownListLink>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>Binary</VariableType>
+                              <BitStart>4</BitStart>
+                              <BitLength>4</BitLength>
+                              <ShowAsBinary>0</ShowAsBinary>
+                              <Address>ItemGibArray+03</Address>
+                            </CheatEntry>
+                          </CheatEntries>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337201745</ID>
@@ -7615,844 +7678,451 @@ if not syntaxcheck then disableMemrec(memrec) end
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337193283</ID>
-                      <Description>"MassItemGib WIP"</Description>
+                      <Description>"MassItemGib"</Description>
                       <Options moHideChildren="1"/>
-                      <Color>C0C0C0</Color>
                       <GroupHeader>1</GroupHeader>
                       <CheatEntries>
-                        <CheatEntry>
-                          <ID>1337212441</ID>
-                          <Description>"Spawning more items than you can hold in your storage might crash the game"</Description>
-                          <Color>0000FF</Color>
-                          <GroupHeader>1</GroupHeader>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>1337193320</ID>
-                          <Description>"There might be invalid items in these, testing has not been done yet"</Description>
-                          <Color>0000FF</Color>
-                          <GroupHeader>1</GroupHeader>
-                        </CheatEntry>
-                        <CheatEntry>
-                          <ID>1337193321</ID>
-                          <Description>"Use at your own risk!"</Description>
-                          <Color>0000FF</Color>
-                          <GroupHeader>1</GroupHeader>
-                        </CheatEntry>
                         <CheatEntry>
                           <ID>1337193284</ID>
                           <Description>"Give all weapons"</Description>
                           <VariableType>Auto Assembler Script</VariableType>
                           <AssemblerScript>[ENABLE]
-ItemGibArray:
+alloc(MassItemGib_Weapon,$2000,eldenring.exe)
+createthread(MassItemGib_Weapon)
+
+MassItemGib_Weapon:
+sub rsp,28
+mov rcx,ItemGibArray_Weapon
+call ItemGib
+mov rax,MassItemGib_Weapon_Data
+mov dword ptr [rax],00000001
+add rsp,28
+ret
+
+MassItemGib_Weapon_Data:
+registerSymbol(MassItemGib_Weapon_Data)
+dd 00000000
+
+ItemGibArray_Weapon:
 // Daggers
-dd 000F4240 00000001 00000000 FFFFFFFF // Dagger
-dd 000F6950 00000001 00000000 FFFFFFFF // Black Knife
-dd 000F9060 00000001 00000000 FFFFFFFF // Parrying Dagger
-dd 000FB770 00000001 00000000 FFFFFFFF // Miséricorde
-dd 000FDE80 00000001 00000000 FFFFFFFF // Reduvia
-dd 00100590 00000001 00000000 FFFFFFFF // Crystal Knife
-dd 00102CA0 00000001 00000000 FFFFFFFF // Celebrant's Sickle
-dd 001053B0 00000001 00000000 FFFFFFFF // Glintstone Kris
-dd 00107AC0 00000001 00000000 FFFFFFFF // Scorpion's Stinger
-dd 0010A1D0 00000001 00000000 FFFFFFFF // Great Knife
-dd 0010C8E0 00000001 00000000 FFFFFFFF // Wakizashi
-dd 0010EFF0 00000001 00000000 FFFFFFFF // Cinquedea
-dd 00113E10 00000001 00000000 FFFFFFFF // Ivory Sickle
-dd 00116520 00000001 00000000 FFFFFFFF // Bloodstained Dagger
-dd 00118C30 00000001 00000000 FFFFFFFF // Erdsteel Dagger
-dd 0011B340 00000001 00000000 FFFFFFFF // Blade of Calling
+dd 000F4240 00000001 FFFF0000 FFFFFFFF // Dagger
+dd 000F6950 00000001 FFFF0000 FFFFFFFF // Black Knife
+dd 000F9060 00000001 FFFF0000 FFFFFFFF // Parrying Dagger
+dd 000FB770 00000001 FFFF0000 FFFFFFFF // Miséricorde
+dd 000FDE80 00000001 FFFF0000 FFFFFFFF // Reduvia
+dd 00100590 00000001 FFFF0000 FFFFFFFF // Crystal Knife
+dd 00102CA0 00000001 FFFF0000 FFFFFFFF // Celebrant's Sickle
+dd 001053B0 00000001 FFFF0000 FFFFFFFF // Glintstone Kris
+dd 00107AC0 00000001 FFFF0000 FFFFFFFF // Scorpion's Stinger
+dd 0010A1D0 00000001 FFFF0000 FFFFFFFF // Great Knife
+dd 0010C8E0 00000001 FFFF0000 FFFFFFFF // Wakizashi
+dd 0010EFF0 00000001 FFFF0000 FFFFFFFF // Cinquedea
+dd 00113E10 00000001 FFFF0000 FFFFFFFF // Ivory Sickle
+dd 00116520 00000001 FFFF0000 FFFFFFFF // Bloodstained Dagger
+dd 00118C30 00000001 FFFF0000 FFFFFFFF // Erdsteel Dagger
+dd 0011B340 00000001 FFFF0000 FFFFFFFF // Blade of Calling
 // Straight Swords
-dd 001E8480 00000001 00000000 FFFFFFFF // Longsword
-dd 001EAB90 00000001 00000000 FFFFFFFF // Short Sword
-dd 001ED2A0 00000001 00000000 FFFFFFFF // Broadsword
-dd 001F20C0 00000001 00000000 FFFFFFFF // Lordsworn's Straight Sword
-dd 001F47D0 00000001 00000000 FFFFFFFF // Weathered Straight Sword
-dd 001F6EE0 00000001 00000000 FFFFFFFF // Ornamental Straight Sword
-dd 001F95F0 00000001 00000000 FFFFFFFF // Golden Epitaph
-dd 001FBD00 00000001 00000000 FFFFFFFF // Nox Flowing Sword
-dd 001FE410 00000001 00000000 FFFFFFFF // Inseparable Sword
-dd 00203230 00000001 00000000 FFFFFFFF // Coded Sword
-dd 0020A760 00000001 00000000 FFFFFFFF // Sword of Night and Flame
-dd 0020CE70 00000001 00000000 FFFFFFFF // Crystal Sword
-dd 002143A0 00000001 00000000 FFFFFFFF // Carian Knight's Sword
-dd 00216AB0 00000001 00000000 FFFFFFFF // Sword of St. Trina
-dd 002191C0 00000001 00000000 FFFFFFFF // Miquellan Knight's Sword
-dd 0021B8D0 00000001 00000000 FFFFFFFF // Cane Sword
-dd 0021DFE0 00000001 00000000 FFFFFFFF // Regalia of Eochaid
-dd 002206F0 00000001 00000000 FFFFFFFF // Noble's Slender Sword
-dd 00222E00 00000001 00000000 FFFFFFFF // Warhawk's Talon
-dd 00225510 00000001 00000000 FFFFFFFF // Lazuli Glintstone Sword
-dd 00227C20 00000001 00000000 FFFFFFFF // Rotten Crystal Sword
+dd 001E8480 00000001 FFFF0000 FFFFFFFF // Longsword
+dd 001EAB90 00000001 FFFF0000 FFFFFFFF // Short Sword
+dd 001ED2A0 00000001 FFFF0000 FFFFFFFF // Broadsword
+dd 001F20C0 00000001 FFFF0000 FFFFFFFF // Lordsworn's Straight Sword
+dd 001F47D0 00000001 FFFF0000 FFFFFFFF // Weathered Straight Sword
+dd 001F6EE0 00000001 FFFF0000 FFFFFFFF // Ornamental Straight Sword
+dd 001F95F0 00000001 FFFF0000 FFFFFFFF // Golden Epitaph
+dd 001FBD00 00000001 FFFF0000 FFFFFFFF // Nox Flowing Sword
+dd 001FE410 00000001 FFFF0000 FFFFFFFF // Inseparable Sword
+dd 00203230 00000001 FFFF0000 FFFFFFFF // Coded Sword
+dd 0020A760 00000001 FFFF0000 FFFFFFFF // Sword of Night and Flame
+dd 0020CE70 00000001 FFFF0000 FFFFFFFF // Crystal Sword
+dd 002143A0 00000001 FFFF0000 FFFFFFFF // Carian Knight's Sword
+dd 00216AB0 00000001 FFFF0000 FFFFFFFF // Sword of St. Trina
+dd 002191C0 00000001 FFFF0000 FFFFFFFF // Miquellan Knight's Sword
+dd 0021B8D0 00000001 FFFF0000 FFFFFFFF // Cane Sword
+dd 0021DFE0 00000001 FFFF0000 FFFFFFFF // Regalia of Eochaid
+dd 002206F0 00000001 FFFF0000 FFFFFFFF // Noble's Slender Sword
+dd 00222E00 00000001 FFFF0000 FFFFFFFF // Warhawk's Talon
+dd 00225510 00000001 FFFF0000 FFFFFFFF // Lazuli Glintstone Sword
+dd 00227C20 00000001 FFFF0000 FFFFFFFF // Rotten Crystal Sword
 // Greatswords
-dd 002DC6C0 00000001 00000000 FFFFFFFF // Bastard Sword
-dd 002DEDD0 00000001 00000000 FFFFFFFF // Forked Greatsword
-dd 002E14E0 00000001 00000000 FFFFFFFF // Iron Greatsword
-dd 002E3BF0 00000001 00000000 FFFFFFFF // Lordsworn's Greatsword
-dd 002E6300 00000001 00000000 FFFFFFFF // Knight's Greatsword
-dd 002E8A10 00000001 00000000 FFFFFFFF // Flamberge
-dd 002EB120 00000001 00000000 FFFFFFFF // Ordovis's Greatsword
-dd 002ED830 00000001 00000000 FFFFFFFF // Alabaster Lord's Sword
-dd 002EFF40 00000001 00000000 FFFFFFFF // Banished Knight's Greatsword
-dd 002F2650 00000001 00000000 FFFFFFFF // Dark Moon Greatsword
-dd 002F4D60 00000001 00000000 FFFFFFFF // Sacred Relic Sword
-dd 002FC290 00000001 00000000 FFFFFFFF // Helphen's Steeple
-dd 002FE9A0 00000001 00000000 FFFFFFFF // Blasphemous Blade
-dd 003010B0 00000001 00000000 FFFFFFFF // Marais Executioner's Sword
-dd 003037C0 00000001 00000000 FFFFFFFF // Sword of Milos
-dd 00305ED0 00000001 00000000 FFFFFFFF // Golden Order Greatsword
-dd 003085E0 00000001 00000000 FFFFFFFF // Claymore
-dd 0030ACF0 00000001 00000000 FFFFFFFF // Gargoyle's Greatsword
-dd 0030D400 00000001 00000000 FFFFFFFF // Death's Poker
-dd 0030FB10 00000001 00000000 FFFFFFFF // Gargoyle's Blackblade
+dd 002DC6C0 00000001 FFFF0000 FFFFFFFF // Bastard Sword
+dd 002DEDD0 00000001 FFFF0000 FFFFFFFF // Forked Greatsword
+dd 002E14E0 00000001 FFFF0000 FFFFFFFF // Iron Greatsword
+dd 002E3BF0 00000001 FFFF0000 FFFFFFFF // Lordsworn's Greatsword
+dd 002E6300 00000001 FFFF0000 FFFFFFFF // Knight's Greatsword
+dd 002E8A10 00000001 FFFF0000 FFFFFFFF // Flamberge
+dd 002EB120 00000001 FFFF0000 FFFFFFFF // Ordovis's Greatsword
+dd 002ED830 00000001 FFFF0000 FFFFFFFF // Alabaster Lord's Sword
+dd 002EFF40 00000001 FFFF0000 FFFFFFFF // Banished Knight's Greatsword
+dd 002F2650 00000001 FFFF0000 FFFFFFFF // Dark Moon Greatsword
+dd 002F4D60 00000001 FFFF0000 FFFFFFFF // Sacred Relic Sword
+dd 002FC290 00000001 FFFF0000 FFFFFFFF // Helphen's Steeple
+dd 002FE9A0 00000001 FFFF0000 FFFFFFFF // Blasphemous Blade
+dd 003010B0 00000001 FFFF0000 FFFFFFFF // Marais Executioner's Sword
+dd 003037C0 00000001 FFFF0000 FFFFFFFF // Sword of Milos
+dd 00305ED0 00000001 FFFF0000 FFFFFFFF // Golden Order Greatsword
+dd 003085E0 00000001 FFFF0000 FFFFFFFF // Claymore
+dd 0030ACF0 00000001 FFFF0000 FFFFFFFF // Gargoyle's Greatsword
+dd 0030D400 00000001 FFFF0000 FFFFFFFF // Death's Poker
+dd 0030FB10 00000001 FFFF0000 FFFFFFFF // Gargoyle's Blackblade
 // Colossal Swords
-dd 003D0900 00000001 00000000 FFFFFFFF // Greatsword
-dd 003D3010 00000001 00000000 FFFFFFFF // Watchdog's Greatsword
-dd 003D5720 00000001 00000000 FFFFFFFF // Maliketh's Black Blade
-dd 003D7E30 00000001 00000000 FFFFFFFF // Troll's Golden Sword
-dd 003DA540 00000001 00000000 FFFFFFFF // Zweihander
-dd 003DCC50 00000001 00000000 FFFFFFFF // Starscourge Greatsword
-dd 003DF360 00000001 00000000 FFFFFFFF // Royal Greatsword
-dd 003E1A70 00000001 00000000 FFFFFFFF // Godslayer's Greatsword
-dd 003E4180 00000001 00000000 FFFFFFFF // Ruins Greatsword
-dd 003E8FA0 00000001 00000000 FFFFFFFF // Grafted Blade Greatsword
-dd 003EB6B0 00000001 00000000 FFFFFFFF // Troll Knight's Sword
+dd 003D0900 00000001 FFFF0000 FFFFFFFF // Greatsword
+dd 003D3010 00000001 FFFF0000 FFFFFFFF // Watchdog's Greatsword
+dd 003D5720 00000001 FFFF0000 FFFFFFFF // Maliketh's Black Blade
+dd 003D7E30 00000001 FFFF0000 FFFFFFFF // Troll's Golden Sword
+dd 003DA540 00000001 FFFF0000 FFFFFFFF // Zweihander
+dd 003DCC50 00000001 FFFF0000 FFFFFFFF // Starscourge Greatsword
+dd 003DF360 00000001 FFFF0000 FFFFFFFF // Royal Greatsword
+dd 003E1A70 00000001 FFFF0000 FFFFFFFF // Godslayer's Greatsword
+dd 003E4180 00000001 FFFF0000 FFFFFFFF // Ruins Greatsword
+dd 003E8FA0 00000001 FFFF0000 FFFFFFFF // Grafted Blade Greatsword
+dd 003EB6B0 00000001 FFFF0000 FFFFFFFF // Troll Knight's Sword
 // Thrusting Swords
-dd 004C4B40 00000001 00000000 FFFFFFFF // Estoc
-dd 004C7250 00000001 00000000 FFFFFFFF // Cleanrot Knight's Sword
-dd 004C9960 00000001 00000000 FFFFFFFF // Rapier
-dd 004CC070 00000001 00000000 FFFFFFFF // Rogier's Rapier
-dd 004CE780 00000001 00000000 FFFFFFFF // Antspur Rapier
-dd 004D0E90 00000001 00000000 FFFFFFFF // Frozen Needle
-dd 004D35A0 00000001 00000000 FFFFFFFF // Noble's Estoc
+dd 004C4B40 00000001 FFFF0000 FFFFFFFF // Estoc
+dd 004C7250 00000001 FFFF0000 FFFFFFFF // Cleanrot Knight's Sword
+dd 004C9960 00000001 FFFF0000 FFFFFFFF // Rapier
+dd 004CC070 00000001 FFFF0000 FFFFFFFF // Rogier's Rapier
+dd 004CE780 00000001 FFFF0000 FFFFFFFF // Antspur Rapier
+dd 004D0E90 00000001 FFFF0000 FFFFFFFF // Frozen Needle
+dd 004D35A0 00000001 FFFF0000 FFFFFFFF // Noble's Estoc
 // Heavy Thrusting Swords
-dd 005B8D80 00000001 00000000 FFFFFFFF // Bloody Helice
-dd 005BB490 00000001 00000000 FFFFFFFF // Godskin Stitcher
-dd 005BDBA0 00000001 00000000 FFFFFFFF // Great Épée
-dd 005C29C0 00000001 00000000 FFFFFFFF // Dragon King's Cragblade
+dd 005B8D80 00000001 FFFF0000 FFFFFFFF // Bloody Helice
+dd 005BB490 00000001 FFFF0000 FFFFFFFF // Godskin Stitcher
+dd 005BDBA0 00000001 FFFF0000 FFFFFFFF // Great Épée
+dd 005C29C0 00000001 FFFF0000 FFFFFFFF // Dragon King's Cragblade
 // Curved Swords
-dd 006ACFC0 00000001 00000000 FFFFFFFF // Falchion
-dd 006AF6D0 00000001 00000000 FFFFFFFF // Beastman's Curved Sword
-dd 006B1DE0 00000001 00000000 FFFFFFFF // Shotel
-dd 006B44F0 00000001 00000000 FFFFFFFF // Shamshir
-dd 006B6C00 00000001 00000000 FFFFFFFF // Bandit's Curved Sword
-dd 006B9310 00000001 00000000 FFFFFFFF // Magma Blade
-dd 006BBA20 00000001 00000000 FFFFFFFF // Flowing Curved Sword
-dd 006BE130 00000001 00000000 FFFFFFFF // Wing of Astel
-dd 006C0840 00000001 00000000 FFFFFFFF // Scavenger's Curved Sword
-dd 006C5660 00000001 00000000 FFFFFFFF // Eclipse Shotel
-dd 006C7D70 00000001 00000000 FFFFFFFF // Serpent-God's Curved Sword
-dd 006CA480 00000001 00000000 FFFFFFFF // Mantis Blade
-dd 006CF2A0 00000001 00000000 FFFFFFFF // Scimitar
-dd 006D19B0 00000001 00000000 FFFFFFFF // Grossmesser
+dd 006ACFC0 00000001 FFFF0000 FFFFFFFF // Falchion
+dd 006AF6D0 00000001 FFFF0000 FFFFFFFF // Beastman's Curved Sword
+dd 006B1DE0 00000001 FFFF0000 FFFFFFFF // Shotel
+dd 006B44F0 00000001 FFFF0000 FFFFFFFF // Shamshir
+dd 006B6C00 00000001 FFFF0000 FFFFFFFF // Bandit's Curved Sword
+dd 006B9310 00000001 FFFF0000 FFFFFFFF // Magma Blade
+dd 006BBA20 00000001 FFFF0000 FFFFFFFF // Flowing Curved Sword
+dd 006BE130 00000001 FFFF0000 FFFFFFFF // Wing of Astel
+dd 006C0840 00000001 FFFF0000 FFFFFFFF // Scavenger's Curved Sword
+dd 006C5660 00000001 FFFF0000 FFFFFFFF // Eclipse Shotel
+dd 006C7D70 00000001 FFFF0000 FFFFFFFF // Serpent-God's Curved Sword
+dd 006CA480 00000001 FFFF0000 FFFFFFFF // Mantis Blade
+dd 006CF2A0 00000001 FFFF0000 FFFFFFFF // Scimitar
+dd 006D19B0 00000001 FFFF0000 FFFFFFFF // Grossmesser
 // Curved Greatswords
-dd 007A3910 00000001 00000000 FFFFFFFF // Onyx Lord's Greatsword
-dd 007A6020 00000001 00000000 FFFFFFFF // Dismounter
-dd 007A8730 00000001 00000000 FFFFFFFF // Bloodhound's Fang
-dd 007AAE40 00000001 00000000 FFFFFFFF // Magma Wyrm's Scalesword
-dd 007AD550 00000001 00000000 FFFFFFFF // Zamor Curved Sword
-dd 007AFC60 00000001 00000000 FFFFFFFF // Omen Cleaver
-dd 007B2370 00000001 00000000 FFFFFFFF // Monk's Flameblade
-dd 007B4A80 00000001 00000000 FFFFFFFF // Beastman's Cleaver
-dd 007B98A0 00000001 00000000 FFFFFFFF // Morgott's Cursed Sword
+dd 007A3910 00000001 FFFF0000 FFFFFFFF // Onyx Lord's Greatsword
+dd 007A6020 00000001 FFFF0000 FFFFFFFF // Dismounter
+dd 007A8730 00000001 FFFF0000 FFFFFFFF // Bloodhound's Fang
+dd 007AAE40 00000001 FFFF0000 FFFFFFFF // Magma Wyrm's Scalesword
+dd 007AD550 00000001 FFFF0000 FFFFFFFF // Zamor Curved Sword
+dd 007AFC60 00000001 FFFF0000 FFFFFFFF // Omen Cleaver
+dd 007B2370 00000001 FFFF0000 FFFFFFFF // Monk's Flameblade
+dd 007B4A80 00000001 FFFF0000 FFFFFFFF // Beastman's Cleaver
+dd 007B98A0 00000001 FFFF0000 FFFFFFFF // Morgott's Cursed Sword
 // Katana
-dd 00895440 00000001 00000000 FFFFFFFF // Uchigatana
-dd 00897B50 00000001 00000000 FFFFFFFF // Nagakiba
-dd 0089A260 00000001 00000000 FFFFFFFF // Hand of Malenia
-dd 0089C970 00000001 00000000 FFFFFFFF // Meteoric Ore Blade
-dd 0089F080 00000001 00000000 FFFFFFFF // Rivers of Blood
-dd 008A3EA0 00000001 00000000 FFFFFFFF // Moonveil
-dd 008A65B0 00000001 00000000 FFFFFFFF // Dragonscale Blade
-dd 008A8CC0 00000001 00000000 FFFFFFFF // Serpentbone Blade
+dd 00895440 00000001 FFFF0000 FFFFFFFF // Uchigatana
+dd 00897B50 00000001 FFFF0000 FFFFFFFF // Nagakiba
+dd 0089A260 00000001 FFFF0000 FFFFFFFF // Hand of Malenia
+dd 0089C970 00000001 FFFF0000 FFFFFFFF // Meteoric Ore Blade
+dd 0089F080 00000001 FFFF0000 FFFFFFFF // Rivers of Blood
+dd 008A3EA0 00000001 FFFF0000 FFFFFFFF // Moonveil
+dd 008A65B0 00000001 FFFF0000 FFFFFFFF // Dragonscale Blade
+dd 008A8CC0 00000001 FFFF0000 FFFFFFFF // Serpentbone Blade
 // Twinblades
-dd 00989680 00000001 00000000 FFFFFFFF // Twinblade
-dd 0098BD90 00000001 00000000 FFFFFFFF // Godskin Peeler
-dd 00990BB0 00000001 00000000 FFFFFFFF // Twinned Knight Swords
-dd 009959D0 00000001 00000000 FFFFFFFF // Eleonora's Poleblade
-dd 0099CF00 00000001 00000000 FFFFFFFF // Gargoyle's Twinblade
-dd 0099F610 00000001 00000000 FFFFFFFF // Gargoyle's Black Blades
+dd 00989680 00000001 FFFF0000 FFFFFFFF // Twinblade
+dd 0098BD90 00000001 FFFF0000 FFFFFFFF // Godskin Peeler
+dd 00990BB0 00000001 FFFF0000 FFFFFFFF // Twinned Knight Swords
+dd 009959D0 00000001 FFFF0000 FFFFFFFF // Eleonora's Poleblade
+dd 0099CF00 00000001 FFFF0000 FFFFFFFF // Gargoyle's Twinblade
+dd 0099F610 00000001 FFFF0000 FFFFFFFF // Gargoyle's Black Blades
 // Hammers
-dd 00A7D8C0 00000001 00000000 FFFFFFFF // Mace
-dd 00A7FFD0 00000001 00000000 FFFFFFFF // Club
-dd 00A84DF0 00000001 00000000 FFFFFFFF // Curved Club
-dd 00A87500 00000001 00000000 FFFFFFFF // Warpick
-dd 00A89C10 00000001 00000000 FFFFFFFF // Morning Star
-dd 00A8C320 00000001 00000000 FFFFFFFF // Varré's Bouquet
-dd 00A8EA30 00000001 00000000 FFFFFFFF // Spiked Club
-dd 00A91140 00000001 00000000 FFFFFFFF // Hammer
-dd 00A93850 00000001 00000000 FFFFFFFF // Monk's Flamemace
-dd 00A95F60 00000001 00000000 FFFFFFFF // Envoy's Horn
-dd 00A98670 00000001 00000000 FFFFFFFF // Scepter of the All-Knowing
-dd 00A9AD80 00000001 00000000 FFFFFFFF // Nox Flowing Hammer
-dd 00A9D490 00000001 00000000 FFFFFFFF // Ringed Finger
-dd 00A9FBA0 00000001 00000000 FFFFFFFF // Stone Club
-dd 00AA22B0 00000001 00000000 FFFFFFFF // Marika's Hammer
+dd 00A7D8C0 00000001 FFFF0000 FFFFFFFF // Mace
+dd 00A7FFD0 00000001 FFFF0000 FFFFFFFF // Club
+dd 00A84DF0 00000001 FFFF0000 FFFFFFFF // Curved Club
+dd 00A87500 00000001 FFFF0000 FFFFFFFF // Warpick
+dd 00A89C10 00000001 FFFF0000 FFFFFFFF // Morning Star
+dd 00A8C320 00000001 FFFF0000 FFFFFFFF // Varré's Bouquet
+dd 00A8EA30 00000001 FFFF0000 FFFFFFFF // Spiked Club
+dd 00A91140 00000001 FFFF0000 FFFFFFFF // Hammer
+dd 00A93850 00000001 FFFF0000 FFFFFFFF // Monk's Flamemace
+dd 00A95F60 00000001 FFFF0000 FFFFFFFF // Envoy's Horn
+dd 00A98670 00000001 FFFF0000 FFFFFFFF // Scepter of the All-Knowing
+dd 00A9AD80 00000001 FFFF0000 FFFFFFFF // Nox Flowing Hammer
+dd 00A9D490 00000001 FFFF0000 FFFFFFFF // Ringed Finger
+dd 00A9FBA0 00000001 FFFF0000 FFFFFFFF // Stone Club
+dd 00AA22B0 00000001 FFFF0000 FFFFFFFF // Marika's Hammer
 // Great Hammers
-dd 00B71B00 00000001 00000000 FFFFFFFF // Large Club
-dd 00B74210 00000001 00000000 FFFFFFFF // Greathorn Hammer
-dd 00B76920 00000001 00000000 FFFFFFFF // Battle Hammer
-dd 00B80560 00000001 00000000 FFFFFFFF // Great Mace
-dd 00B85380 00000001 00000000 FFFFFFFF // Curved Great Club
-dd 00B916D0 00000001 00000000 FFFFFFFF // Celebrant's Skull
+dd 00B71B00 00000001 FFFF0000 FFFFFFFF // Large Club
+dd 00B74210 00000001 FFFF0000 FFFFFFFF // Greathorn Hammer
+dd 00B76920 00000001 FFFF0000 FFFFFFFF // Battle Hammer
+dd 00B80560 00000001 FFFF0000 FFFFFFFF // Great Mace
+dd 00B85380 00000001 FFFF0000 FFFFFFFF // Curved Great Club
+dd 00B916D0 00000001 FFFF0000 FFFFFFFF // Celebrant's Skull
 // Warhammers
-dd 00B93DE0 00000001 00000000 FFFFFFFF // Pickaxe
-dd 00B964F0 00000001 00000000 FFFFFFFF // Beastclaw Greathammer
-dd 00B98C00 00000001 00000000 FFFFFFFF // Envoy's Long Horn
-dd 00B9B310 00000001 00000000 FFFFFFFF // Cranial Vessel Candlestand
-dd 00B9DA20 00000001 00000000 FFFFFFFF // Great Stars
-dd 00BA0130 00000001 00000000 FFFFFFFF // Brick Hammer
-dd 00BA2840 00000001 00000000 FFFFFFFF // Devourer's Scepter
-dd 00BA4F50 00000001 00000000 FFFFFFFF // Rotten Battle Hammer
+dd 00B93DE0 00000001 FFFF0000 FFFFFFFF // Pickaxe
+dd 00B964F0 00000001 FFFF0000 FFFFFFFF // Beastclaw Greathammer
+dd 00B98C00 00000001 FFFF0000 FFFFFFFF // Envoy's Long Horn
+dd 00B9B310 00000001 FFFF0000 FFFFFFFF // Cranial Vessel Candlestand
+dd 00B9DA20 00000001 FFFF0000 FFFFFFFF // Great Stars
+dd 00BA0130 00000001 FFFF0000 FFFFFFFF // Brick Hammer
+dd 00BA2840 00000001 FFFF0000 FFFFFFFF // Devourer's Scepter
+dd 00BA4F50 00000001 FFFF0000 FFFFFFFF // Rotten Battle Hammer
 // Flails
-dd 00C65D40 00000001 00000000 FFFFFFFF // Nightrider Flail
-dd 00C68450 00000001 00000000 FFFFFFFF // Flail
-dd 00C6AB60 00000001 00000000 FFFFFFFF // Family Heads
-dd 00C6D270 00000001 00000000 FFFFFFFF // Bastard's Stars
-dd 00C6F980 00000001 00000000 FFFFFFFF // Chainlink Flail
+dd 00C65D40 00000001 FFFF0000 FFFFFFFF // Nightrider Flail
+dd 00C68450 00000001 FFFF0000 FFFFFFFF // Flail
+dd 00C6AB60 00000001 FFFF0000 FFFFFFFF // Family Heads
+dd 00C6D270 00000001 FFFF0000 FFFFFFFF // Bastard's Stars
+dd 00C6F980 00000001 FFFF0000 FFFFFFFF // Chainlink Flail
 // Axes
-dd 00D59F80 00000001 00000000 FFFFFFFF // Battle Axe
-dd 00D5C690 00000001 00000000 FFFFFFFF // Forked Hatchet
-dd 00D5EDA0 00000001 00000000 FFFFFFFF // Hand Axe
-dd 00D614B0 00000001 00000000 FFFFFFFF // Jawbone Axe
-dd 00D63BC0 00000001 00000000 FFFFFFFF // Iron Cleaver
-dd 00D662D0 00000001 00000000 FFFFFFFF // Ripple Blade
-dd 00D689E0 00000001 00000000 FFFFFFFF // Celebrant's Cleaver
-dd 00D6D800 00000001 00000000 FFFFFFFF // Icerind Hatchet
-dd 00D72620 00000001 00000000 FFFFFFFF // Highland Axe
-dd 00D74D30 00000001 00000000 FFFFFFFF // Sacrificial Axe
-dd 00D77440 00000001 00000000 FFFFFFFF // Rosus' Axe
-dd 00D7C260 00000001 00000000 FFFFFFFF // Stormhawk Axe
+dd 00D59F80 00000001 FFFF0000 FFFFFFFF // Battle Axe
+dd 00D5C690 00000001 FFFF0000 FFFFFFFF // Forked Hatchet
+dd 00D5EDA0 00000001 FFFF0000 FFFFFFFF // Hand Axe
+dd 00D614B0 00000001 FFFF0000 FFFFFFFF // Jawbone Axe
+dd 00D63BC0 00000001 FFFF0000 FFFFFFFF // Iron Cleaver
+dd 00D662D0 00000001 FFFF0000 FFFFFFFF // Ripple Blade
+dd 00D689E0 00000001 FFFF0000 FFFFFFFF // Celebrant's Cleaver
+dd 00D6D800 00000001 FFFF0000 FFFFFFFF // Icerind Hatchet
+dd 00D72620 00000001 FFFF0000 FFFFFFFF // Highland Axe
+dd 00D74D30 00000001 FFFF0000 FFFFFFFF // Sacrificial Axe
+dd 00D77440 00000001 FFFF0000 FFFFFFFF // Rosus' Axe
+dd 00D7C260 00000001 FFFF0000 FFFFFFFF // Stormhawk Axe
 // Greataxes
-dd 00E4E1C0 00000001 00000000 FFFFFFFF // Greataxe
-dd 00E508D0 00000001 00000000 FFFFFFFF // Warped Axe
-dd 00E52FE0 00000001 00000000 FFFFFFFF // Great Omenkiller Cleaver
-dd 00E556F0 00000001 00000000 FFFFFFFF // Crescent Moon Axe
-dd 00E57E00 00000001 00000000 FFFFFFFF // Axe of Godrick
-dd 00E5A510 00000001 00000000 FFFFFFFF // Longhaft Axe
-dd 00E5CC20 00000001 00000000 FFFFFFFF // Rusted Anchor
-dd 00E61A40 00000001 00000000 FFFFFFFF // Executioner's Greataxe
-dd 00E68F70 00000001 00000000 FFFFFFFF // Winged Greathorn
-dd 00E6B680 00000001 00000000 FFFFFFFF // Butchering Knife
-dd 00E6DD90 00000001 00000000 FFFFFFFF // Gargoyle's Great Axe
-dd 00E704A0 00000001 00000000 FFFFFFFF // Gargoyle's Black Axe
+dd 00E4E1C0 00000001 FFFF0000 FFFFFFFF // Greataxe
+dd 00E508D0 00000001 FFFF0000 FFFFFFFF // Warped Axe
+dd 00E52FE0 00000001 FFFF0000 FFFFFFFF // Great Omenkiller Cleaver
+dd 00E556F0 00000001 FFFF0000 FFFFFFFF // Crescent Moon Axe
+dd 00E57E00 00000001 FFFF0000 FFFFFFFF // Axe of Godrick
+dd 00E5A510 00000001 FFFF0000 FFFFFFFF // Longhaft Axe
+dd 00E5CC20 00000001 FFFF0000 FFFFFFFF // Rusted Anchor
+dd 00E61A40 00000001 FFFF0000 FFFFFFFF // Executioner's Greataxe
+dd 00E68F70 00000001 FFFF0000 FFFFFFFF // Winged Greathorn
+dd 00E6B680 00000001 FFFF0000 FFFFFFFF // Butchering Knife
+dd 00E6DD90 00000001 FFFF0000 FFFFFFFF // Gargoyle's Great Axe
+dd 00E704A0 00000001 FFFF0000 FFFFFFFF // Gargoyle's Black Axe
 // Spears
-dd 00F42400 00000001 00000000 FFFFFFFF // Short Spear
-dd 00F44B10 00000001 00000000 FFFFFFFF // Spear
-dd 00F47220 00000001 00000000 FFFFFFFF // Crystal Spear
-dd 00F49930 00000001 00000000 FFFFFFFF // Clayman's Harpoon
-dd 00F4C040 00000001 00000000 FFFFFFFF // Cleanrot Spear
-dd 00F4E750 00000001 00000000 FFFFFFFF // Partisan
-dd 00F50E60 00000001 00000000 FFFFFFFF // Celebrant's Rib-Rake
-dd 00F53570 00000001 00000000 FFFFFFFF // Pike
-dd 00F55C80 00000001 00000000 FFFFFFFF // Torchpole
-dd 00F58390 00000001 00000000 FFFFFFFF // Bolt of Gransax
-dd 00F5D1B0 00000001 00000000 FFFFFFFF // Cross-Naginata
-dd 00F5F8C0 00000001 00000000 FFFFFFFF // Death Ritual Spear
-dd 00F61FD0 00000001 00000000 FFFFFFFF // Inquisitor's Girandole
-dd 00F646E0 00000001 00000000 FFFFFFFF // Spiked Spear
-dd 00F66DF0 00000001 00000000 FFFFFFFF // Iron Spear
-dd 00F69500 00000001 00000000 FFFFFFFF // Rotten Crystal Spear
+dd 00F42400 00000001 FFFF0000 FFFFFFFF // Short Spear
+dd 00F44B10 00000001 FFFF0000 FFFFFFFF // Spear
+dd 00F47220 00000001 FFFF0000 FFFFFFFF // Crystal Spear
+dd 00F49930 00000001 FFFF0000 FFFFFFFF // Clayman's Harpoon
+dd 00F4C040 00000001 FFFF0000 FFFFFFFF // Cleanrot Spear
+dd 00F4E750 00000001 FFFF0000 FFFFFFFF // Partisan
+dd 00F50E60 00000001 FFFF0000 FFFFFFFF // Celebrant's Rib-Rake
+dd 00F53570 00000001 FFFF0000 FFFFFFFF // Pike
+dd 00F55C80 00000001 FFFF0000 FFFFFFFF // Torchpole
+dd 00F58390 00000001 FFFF0000 FFFFFFFF // Bolt of Gransax
+dd 00F5D1B0 00000001 FFFF0000 FFFFFFFF // Cross-Naginata
+dd 00F5F8C0 00000001 FFFF0000 FFFFFFFF // Death Ritual Spear
+dd 00F61FD0 00000001 FFFF0000 FFFFFFFF // Inquisitor's Girandole
+dd 00F646E0 00000001 FFFF0000 FFFFFFFF // Spiked Spear
+dd 00F66DF0 00000001 FFFF0000 FFFFFFFF // Iron Spear
+dd 00F69500 00000001 FFFF0000 FFFFFFFF // Rotten Crystal Spear
 // Great Spears
-dd 01038D50 00000001 00000000 FFFFFFFF // Mohgwyn's Sacred Spear
-dd 0103B460 00000001 00000000 FFFFFFFF // Siluria's Tree
-dd 0103DB70 00000001 00000000 FFFFFFFF // Serpent-Hunter
-dd 01042990 00000001 00000000 FFFFFFFF // Vyke's War Spear
-dd 010450A0 00000001 00000000 FFFFFFFF // Lance
-dd 010477B0 00000001 00000000 FFFFFFFF // Treespear
+dd 01038D50 00000001 FFFF0000 FFFFFFFF // Mohgwyn's Sacred Spear
+dd 0103B460 00000001 FFFF0000 FFFFFFFF // Siluria's Tree
+dd 0103DB70 00000001 FFFF0000 FFFFFFFF // Serpent-Hunter
+dd 01042990 00000001 FFFF0000 FFFFFFFF // Vyke's War Spear
+dd 010450A0 00000001 FFFF0000 FFFFFFFF // Lance
+dd 010477B0 00000001 FFFF0000 FFFFFFFF // Treespear
 // Halberds
-dd 0112A880 00000001 00000000 FFFFFFFF // Halberd
-dd 0112CF90 00000001 00000000 FFFFFFFF // Pest's Glaive
-dd 0112F6A0 00000001 00000000 FFFFFFFF // Lucerne
-dd 01131DB0 00000001 00000000 FFFFFFFF // Banished Knight's Halberd
-dd 011344C0 00000001 00000000 FFFFFFFF // Commander's Standard
-dd 01136BD0 00000001 00000000 FFFFFFFF // Nightrider Glaive
-dd 011392E0 00000001 00000000 FFFFFFFF // Ripple Crescent Halberd
-dd 0113B9F0 00000001 00000000 FFFFFFFF // Vulgar Militia Saw
-dd 0113E100 00000001 00000000 FFFFFFFF // Golden Halberd
-dd 01140810 00000001 00000000 FFFFFFFF // Glaive
-dd 01142F20 00000001 00000000 FFFFFFFF // Loretta's War Sickle
-dd 01145630 00000001 00000000 FFFFFFFF // Guardian's Swordspear
-dd 0114A450 00000001 00000000 FFFFFFFF // Vulgar Militia Shotel
-dd 0114CB60 00000001 00000000 FFFFFFFF // Dragon Halberd
-dd 0114F270 00000001 00000000 FFFFFFFF // Gargoyle's Halberd
-dd 01151980 00000001 00000000 FFFFFFFF // Gargoyle's Black Halberd
+dd 0112A880 00000001 FFFF0000 FFFFFFFF // Halberd
+dd 0112CF90 00000001 FFFF0000 FFFFFFFF // Pest's Glaive
+dd 0112F6A0 00000001 FFFF0000 FFFFFFFF // Lucerne
+dd 01131DB0 00000001 FFFF0000 FFFFFFFF // Banished Knight's Halberd
+dd 011344C0 00000001 FFFF0000 FFFFFFFF // Commander's Standard
+dd 01136BD0 00000001 FFFF0000 FFFFFFFF // Nightrider Glaive
+dd 011392E0 00000001 FFFF0000 FFFFFFFF // Ripple Crescent Halberd
+dd 0113B9F0 00000001 FFFF0000 FFFFFFFF // Vulgar Militia Saw
+dd 0113E100 00000001 FFFF0000 FFFFFFFF // Golden Halberd
+dd 01140810 00000001 FFFF0000 FFFFFFFF // Glaive
+dd 01142F20 00000001 FFFF0000 FFFFFFFF // Loretta's War Sickle
+dd 01145630 00000001 FFFF0000 FFFFFFFF // Guardian's Swordspear
+dd 0114A450 00000001 FFFF0000 FFFFFFFF // Vulgar Militia Shotel
+dd 0114CB60 00000001 FFFF0000 FFFFFFFF // Dragon Halberd
+dd 0114F270 00000001 FFFF0000 FFFFFFFF // Gargoyle's Halberd
+dd 01151980 00000001 FFFF0000 FFFFFFFF // Gargoyle's Black Halberd
 // Reapers
-dd 0121EAC0 00000001 00000000 FFFFFFFF // Scythe
-dd 012211D0 00000001 00000000 FFFFFFFF // Grave Scythe
-dd 012238E0 00000001 00000000 FFFFFFFF // Halo Scythe
-dd 0122D520 00000001 00000000 FFFFFFFF // Winged Scythe
+dd 0121EAC0 00000001 FFFF0000 FFFFFFFF // Scythe
+dd 012211D0 00000001 FFFF0000 FFFFFFFF // Grave Scythe
+dd 012238E0 00000001 FFFF0000 FFFFFFFF // Halo Scythe
+dd 0122D520 00000001 FFFF0000 FFFFFFFF // Winged Scythe
 // Whips
-dd 01312D00 00000001 00000000 FFFFFFFF // Whip
-dd 01317B20 00000001 00000000 FFFFFFFF // Thorned Whip
-dd 0131A230 00000001 00000000 FFFFFFFF // Magma Whip Candlestick
-dd 0131F050 00000001 00000000 FFFFFFFF // Hoslow's Petal Whip
-dd 01321760 00000001 00000000 FFFFFFFF // Giant's Red Braid
-dd 01323E70 00000001 00000000 FFFFFFFF // Urumi
+dd 01312D00 00000001 FFFF0000 FFFFFFFF // Whip
+dd 01317B20 00000001 FFFF0000 FFFFFFFF // Thorned Whip
+dd 0131A230 00000001 FFFF0000 FFFFFFFF // Magma Whip Candlestick
+dd 0131F050 00000001 FFFF0000 FFFFFFFF // Hoslow's Petal Whip
+dd 01321760 00000001 FFFF0000 FFFFFFFF // Giant's Red Braid
+dd 01323E70 00000001 FFFF0000 FFFFFFFF // Urumi
 // Fists
-dd 01406F40 00000001 00000000 FFFFFFFF // Caestus
-dd 01409650 00000001 00000000 FFFFFFFF // Spiked Caestus
-dd 014159A0 00000001 00000000 FFFFFFFF // Grafted Dragon
-dd 014180B0 00000001 00000000 FFFFFFFF // Iron Ball
-dd 0141A7C0 00000001 00000000 FFFFFFFF // Star Fist
-dd 0141F5E0 00000001 00000000 FFFFFFFF // Katar
-dd 01421CF0 00000001 00000000 FFFFFFFF // Clinging Bone
-dd 01424400 00000001 00000000 FFFFFFFF // Veteran's Prosthesis
-dd 01426B10 00000001 00000000 FFFFFFFF // Cipher Pata
+dd 01406F40 00000001 FFFF0000 FFFFFFFF // Caestus
+dd 01409650 00000001 FFFF0000 FFFFFFFF // Spiked Caestus
+dd 014159A0 00000001 FFFF0000 FFFFFFFF // Grafted Dragon
+dd 014180B0 00000001 FFFF0000 FFFFFFFF // Iron Ball
+dd 0141A7C0 00000001 FFFF0000 FFFFFFFF // Star Fist
+dd 0141F5E0 00000001 FFFF0000 FFFFFFFF // Katar
+dd 01421CF0 00000001 FFFF0000 FFFFFFFF // Clinging Bone
+dd 01424400 00000001 FFFF0000 FFFFFFFF // Veteran's Prosthesis
+dd 01426B10 00000001 FFFF0000 FFFFFFFF // Cipher Pata
 // Claws
-dd 014FB180 00000001 00000000 FFFFFFFF // Hookclaws
-dd 014FD890 00000001 00000000 FFFFFFFF // Venomous Fang
-dd 014FFFA0 00000001 00000000 FFFFFFFF // Bloodhound Claws
-dd 015026B0 00000001 00000000 FFFFFFFF // Raptor Talons
+dd 014FB180 00000001 FFFF0000 FFFFFFFF // Hookclaws
+dd 014FD890 00000001 FFFF0000 FFFFFFFF // Venomous Fang
+dd 014FFFA0 00000001 FFFF0000 FFFFFFFF // Bloodhound Claws
+dd 015026B0 00000001 FFFF0000 FFFFFFFF // Raptor Talons
 // Colossal Weapons
-dd 015EF3C0 00000001 00000000 FFFFFFFF // Prelate's Inferno Crozier
-dd 015F1AD0 00000001 00000000 FFFFFFFF // Watchdog's Staff
-dd 015F41E0 00000001 00000000 FFFFFFFF // Great Club
-dd 015F68F0 00000001 00000000 FFFFFFFF // Envoy's Greathorn
-dd 015F9000 00000001 00000000 FFFFFFFF // Duelist Greataxe
-dd 015FB710 00000001 00000000 FFFFFFFF // Axe of Godfrey
-dd 015FDE20 00000001 00000000 FFFFFFFF // Dragon Greatclaw
-dd 01600530 00000001 00000000 FFFFFFFF // Staff of the Avatar
-dd 01602C40 00000001 00000000 FFFFFFFF // Fallingstar Beast Jaw
-dd 01607A60 00000001 00000000 FFFFFFFF // Ghiza's Wheel
-dd 0160A170 00000001 00000000 FFFFFFFF // Giant-Crusher
-dd 0160C880 00000001 00000000 FFFFFFFF // Golem's Halberd
-dd 0160EF90 00000001 00000000 FFFFFFFF // Troll's Hammer
-dd 016116A0 00000001 00000000 FFFFFFFF // Rotten Staff
-dd 01613DB0 00000001 00000000 FFFFFFFF // Rotten Greataxe
+dd 015EF3C0 00000001 FFFF0000 FFFFFFFF // Prelate's Inferno Crozier
+dd 015F1AD0 00000001 FFFF0000 FFFFFFFF // Watchdog's Staff
+dd 015F41E0 00000001 FFFF0000 FFFFFFFF // Great Club
+dd 015F68F0 00000001 FFFF0000 FFFFFFFF // Envoy's Greathorn
+dd 015F9000 00000001 FFFF0000 FFFFFFFF // Duelist Greataxe
+dd 015FB710 00000001 FFFF0000 FFFFFFFF // Axe of Godfrey
+dd 015FDE20 00000001 FFFF0000 FFFFFFFF // Dragon Greatclaw
+dd 01600530 00000001 FFFF0000 FFFFFFFF // Staff of the Avatar
+dd 01602C40 00000001 FFFF0000 FFFFFFFF // Fallingstar Beast Jaw
+dd 01607A60 00000001 FFFF0000 FFFFFFFF // Ghiza's Wheel
+dd 0160A170 00000001 FFFF0000 FFFFFFFF // Giant-Crusher
+dd 0160C880 00000001 FFFF0000 FFFFFFFF // Golem's Halberd
+dd 0160EF90 00000001 FFFF0000 FFFFFFFF // Troll's Hammer
+dd 016116A0 00000001 FFFF0000 FFFFFFFF // Rotten Staff
+dd 01613DB0 00000001 FFFF0000 FFFFFFFF // Rotten Greataxe
 // Torches
-dd 016E3600 00000001 00000000 FFFFFFFF // Torch
-dd 016E8420 00000001 00000000 FFFFFFFF // Steel-Wire Torch
-dd 016ED240 00000001 00000000 FFFFFFFF // St. Trina's Torch
-dd 016EF950 00000001 00000000 FFFFFFFF // Ghostflame Torch
-dd 016F2060 00000001 00000000 FFFFFFFF // Beast-Repellent Torch
-dd 016F4770 00000001 00000000 FFFFFFFF // Sentry's Torch
+dd 016E3600 00000001 FFFF0000 FFFFFFFF // Torch
+dd 016E8420 00000001 FFFF0000 FFFFFFFF // Steel-Wire Torch
+dd 016ED240 00000001 FFFF0000 FFFFFFFF // St. Trina's Torch
+dd 016EF950 00000001 FFFF0000 FFFFFFFF // Ghostflame Torch
+dd 016F2060 00000001 FFFF0000 FFFFFFFF // Beast-Repellent Torch
+dd 016F4770 00000001 FFFF0000 FFFFFFFF // Sentry's Torch
 //Shields
-dd 01C9C380 00000001 00000000 FFFFFFFF // Buckler
-dd 01C9EA90 00000001 00000000 FFFFFFFF // Perfumer's Shield
-dd 01CA11A0 00000001 00000000 FFFFFFFF // Man-Serpent's Shield
-dd 01CA38B0 00000001 00000000 FFFFFFFF // Rickety Shield
-dd 01CA5FC0 00000001 00000000 FFFFFFFF // Pillory Shield
-dd 01CAADE0 00000001 00000000 FFFFFFFF // Beastman's Jar-Shield
-dd 01CAD4F0 00000001 00000000 FFFFFFFF // Red Thorn Roundshield
-dd 01CAFC00 00000001 00000000 FFFFFFFF // Scripture Wooden Shield
-dd 01CB2310 00000001 00000000 FFFFFFFF // Riveted Wooden Shield
-dd 01CB4A20 00000001 00000000 FFFFFFFF // Blue-White Wooden Shield
-dd 01CB7130 00000001 00000000 FFFFFFFF // Rift Shield
-dd 01CB9840 00000001 00000000 FFFFFFFF // Iron Roundshield
-dd 01CBBF50 00000001 00000000 FFFFFFFF // Gilded Iron Shield
-dd 01CBE660 00000001 00000000 FFFFFFFF // Ice Crest Shield
-dd 01CC0D70 00000001 00000000 FFFFFFFF // Smoldering Shield
-dd 01CCA9B0 00000001 00000000 FFFFFFFF // Spiralhorn Shield
-dd 01CCD0C0 00000001 00000000 FFFFFFFF // Coil Shield
-dd 01D905C0 00000001 00000000 FFFFFFFF // Kite Shield
-dd 01D92CD0 00000001 00000000 FFFFFFFF // Marred Leather Shield
-dd 01D953E0 00000001 00000000 FFFFFFFF // Marred Wooden Shield
-dd 01D97AF0 00000001 00000000 FFFFFFFF // Banished Knight's Shield
-dd 01D9A200 00000001 00000000 FFFFFFFF // Albinauric Shield
-dd 01D9C910 00000001 00000000 FFFFFFFF // Sun Realm Shield
-dd 01D9F020 00000001 00000000 FFFFFFFF // Silver Mirrorshield
-dd 01DA1730 00000001 00000000 FFFFFFFF // Round Shield
-dd 01DA3E40 00000001 00000000 FFFFFFFF // Scorpion Kite Shield
-dd 01DA6550 00000001 00000000 FFFFFFFF // Twinbird Kite Shield
-dd 01DA8C60 00000001 00000000 FFFFFFFF // Blue-Gold Kite Shield
-dd 01DB0190 00000001 00000000 FFFFFFFF // Brass Shield
-dd 01DB28A0 00000001 00000000 FFFFFFFF // Great Turtle Shell
-dd 01DB9DD0 00000001 00000000 FFFFFFFF // Shield of the Guilty
-dd 01DBEBF0 00000001 00000000 FFFFFFFF // Carian Knight's Shield
-dd 01DC8830 00000001 00000000 FFFFFFFF // Large Leather Shield
-dd 01DCAF40 00000001 00000000 FFFFFFFF // Horse Crest Wooden Shield
-dd 01DCD650 00000001 00000000 FFFFFFFF // Candletree Wooden Shield
-dd 01DCFD60 00000001 00000000 FFFFFFFF // Flame Crest Wooden Shield
-dd 01DD2470 00000001 00000000 FFFFFFFF // Hawk Crest Wooden Shield
-dd 01DD4B80 00000001 00000000 FFFFFFFF // Beast Crest Heater Shield
-dd 01DD7290 00000001 00000000 FFFFFFFF // Red Crest Heater Shield
-dd 01DD99A0 00000001 00000000 FFFFFFFF // Blue Crest Heater Shield
-dd 01DDC0B0 00000001 00000000 FFFFFFFF // Eclipse Crest Heater Shield
-dd 01DDE7C0 00000001 00000000 FFFFFFFF // Inverted Hawk Heater Shield
-dd 01DE0ED0 00000001 00000000 FFFFFFFF // Heater Shield
-dd 01DE35E0 00000001 00000000 FFFFFFFF // Black Leather Shield
+dd 01C9C380 00000001 FFFF0000 FFFFFFFF // Buckler
+dd 01C9EA90 00000001 FFFF0000 FFFFFFFF // Perfumer's Shield
+dd 01CA11A0 00000001 FFFF0000 FFFFFFFF // Man-Serpent's Shield
+dd 01CA38B0 00000001 FFFF0000 FFFFFFFF // Rickety Shield
+dd 01CA5FC0 00000001 FFFF0000 FFFFFFFF // Pillory Shield
+dd 01CAADE0 00000001 FFFF0000 FFFFFFFF // Beastman's Jar-Shield
+dd 01CAD4F0 00000001 FFFF0000 FFFFFFFF // Red Thorn Roundshield
+dd 01CAFC00 00000001 FFFF0000 FFFFFFFF // Scripture Wooden Shield
+dd 01CB2310 00000001 FFFF0000 FFFFFFFF // Riveted Wooden Shield
+dd 01CB4A20 00000001 FFFF0000 FFFFFFFF // Blue-White Wooden Shield
+dd 01CB7130 00000001 FFFF0000 FFFFFFFF // Rift Shield
+dd 01CB9840 00000001 FFFF0000 FFFFFFFF // Iron Roundshield
+dd 01CBBF50 00000001 FFFF0000 FFFFFFFF // Gilded Iron Shield
+dd 01CBE660 00000001 FFFF0000 FFFFFFFF // Ice Crest Shield
+dd 01CC0D70 00000001 FFFF0000 FFFFFFFF // Smoldering Shield
+dd 01CCA9B0 00000001 FFFF0000 FFFFFFFF // Spiralhorn Shield
+dd 01CCD0C0 00000001 FFFF0000 FFFFFFFF // Coil Shield
+dd 01D905C0 00000001 FFFF0000 FFFFFFFF // Kite Shield
+dd 01D92CD0 00000001 FFFF0000 FFFFFFFF // Marred Leather Shield
+dd 01D953E0 00000001 FFFF0000 FFFFFFFF // Marred Wooden Shield
+dd 01D97AF0 00000001 FFFF0000 FFFFFFFF // Banished Knight's Shield
+dd 01D9A200 00000001 FFFF0000 FFFFFFFF // Albinauric Shield
+dd 01D9C910 00000001 FFFF0000 FFFFFFFF // Sun Realm Shield
+dd 01D9F020 00000001 FFFF0000 FFFFFFFF // Silver Mirrorshield
+dd 01DA1730 00000001 FFFF0000 FFFFFFFF // Round Shield
+dd 01DA3E40 00000001 FFFF0000 FFFFFFFF // Scorpion Kite Shield
+dd 01DA6550 00000001 FFFF0000 FFFFFFFF // Twinbird Kite Shield
+dd 01DA8C60 00000001 FFFF0000 FFFFFFFF // Blue-Gold Kite Shield
+dd 01DB0190 00000001 FFFF0000 FFFFFFFF // Brass Shield
+dd 01DB28A0 00000001 FFFF0000 FFFFFFFF // Great Turtle Shell
+dd 01DB9DD0 00000001 FFFF0000 FFFFFFFF // Shield of the Guilty
+dd 01DBEBF0 00000001 FFFF0000 FFFFFFFF // Carian Knight's Shield
+dd 01DC8830 00000001 FFFF0000 FFFFFFFF // Large Leather Shield
+dd 01DCAF40 00000001 FFFF0000 FFFFFFFF // Horse Crest Wooden Shield
+dd 01DCD650 00000001 FFFF0000 FFFFFFFF // Candletree Wooden Shield
+dd 01DCFD60 00000001 FFFF0000 FFFFFFFF // Flame Crest Wooden Shield
+dd 01DD2470 00000001 FFFF0000 FFFFFFFF // Hawk Crest Wooden Shield
+dd 01DD4B80 00000001 FFFF0000 FFFFFFFF // Beast Crest Heater Shield
+dd 01DD7290 00000001 FFFF0000 FFFFFFFF // Red Crest Heater Shield
+dd 01DD99A0 00000001 FFFF0000 FFFFFFFF // Blue Crest Heater Shield
+dd 01DDC0B0 00000001 FFFF0000 FFFFFFFF // Eclipse Crest Heater Shield
+dd 01DDE7C0 00000001 FFFF0000 FFFFFFFF // Inverted Hawk Heater Shield
+dd 01DE0ED0 00000001 FFFF0000 FFFFFFFF // Heater Shield
+dd 01DE35E0 00000001 FFFF0000 FFFFFFFF // Black Leather Shield
 // Greatshields
-dd 01E84800 00000001 00000000 FFFFFFFF // Dragon Towershield
-dd 01E89620 00000001 00000000 FFFFFFFF // Distinguished Greatshield
-dd 01E8BD30 00000001 00000000 FFFFFFFF // Crucible Hornshield
-dd 01E8E440 00000001 00000000 FFFFFFFF // Dragonclaw Shield
-dd 01E90B50 00000001 00000000 FFFFFFFF // Briar Greatshield
-dd 01E98080 00000001 00000000 FFFFFFFF // Erdtree Greatshield
-dd 01E9A790 00000001 00000000 FFFFFFFF // Golden Beast Crest Shield
-dd 01EA1CC0 00000001 00000000 FFFFFFFF // Jellyfish Shield
-dd 01EA43D0 00000001 00000000 FFFFFFFF // Fingerprint Stone Shield
-dd 01EA6AE0 00000001 00000000 FFFFFFFF // Icon Shield
-dd 01EA91F0 00000001 00000000 FFFFFFFF // One-Eyed Shield
-dd 01EAB900 00000001 00000000 FFFFFFFF // Visage Shield
-dd 01EAE010 00000001 00000000 FFFFFFFF // Spiked Palisade Shield
-dd 01EB2E30 00000001 00000000 FFFFFFFF // Manor Towershield
-dd 01EB5540 00000001 00000000 FFFFFFFF // Crossed-Tree Towershield
-dd 01EB7C50 00000001 00000000 FFFFFFFF // Inverted Hawk Towershield
-dd 01EBA360 00000001 00000000 FFFFFFFF // Ant's Skull Plate
-dd 01EBCA70 00000001 00000000 FFFFFFFF // Redmane Greatshield
-dd 01EBF180 00000001 00000000 FFFFFFFF // Eclipse Crest Greatshield
-dd 01EC1890 00000001 00000000 FFFFFFFF // Cuckoo Greatshield
-dd 01EC3FA0 00000001 00000000 FFFFFFFF // Golden Greatshield
-dd 01EC66B0 00000001 00000000 FFFFFFFF // Gilded Greatshield
-dd 01EC8DC0 00000001 00000000 FFFFFFFF // Haligtree Crest Greatshield
-dd 01ECB4D0 00000001 00000000 FFFFFFFF // Wooden Greatshield
-dd 01ECDBE0 00000001 00000000 FFFFFFFF // Lordsworn's Shield
+dd 01E84800 00000001 FFFF0000 FFFFFFFF // Dragon Towershield
+dd 01E89620 00000001 FFFF0000 FFFFFFFF // Distinguished Greatshield
+dd 01E8BD30 00000001 FFFF0000 FFFFFFFF // Crucible Hornshield
+dd 01E8E440 00000001 FFFF0000 FFFFFFFF // Dragonclaw Shield
+dd 01E90B50 00000001 FFFF0000 FFFFFFFF // Briar Greatshield
+dd 01E98080 00000001 FFFF0000 FFFFFFFF // Erdtree Greatshield
+dd 01E9A790 00000001 FFFF0000 FFFFFFFF // Golden Beast Crest Shield
+dd 01EA1CC0 00000001 FFFF0000 FFFFFFFF // Jellyfish Shield
+dd 01EA43D0 00000001 FFFF0000 FFFFFFFF // Fingerprint Stone Shield
+dd 01EA6AE0 00000001 FFFF0000 FFFFFFFF // Icon Shield
+dd 01EA91F0 00000001 FFFF0000 FFFFFFFF // One-Eyed Shield
+dd 01EAB900 00000001 FFFF0000 FFFFFFFF // Visage Shield
+dd 01EAE010 00000001 FFFF0000 FFFFFFFF // Spiked Palisade Shield
+dd 01EB2E30 00000001 FFFF0000 FFFFFFFF // Manor Towershield
+dd 01EB5540 00000001 FFFF0000 FFFFFFFF // Crossed-Tree Towershield
+dd 01EB7C50 00000001 FFFF0000 FFFFFFFF // Inverted Hawk Towershield
+dd 01EBA360 00000001 FFFF0000 FFFFFFFF // Ant's Skull Plate
+dd 01EBCA70 00000001 FFFF0000 FFFFFFFF // Redmane Greatshield
+dd 01EBF180 00000001 FFFF0000 FFFFFFFF // Eclipse Crest Greatshield
+dd 01EC1890 00000001 FFFF0000 FFFFFFFF // Cuckoo Greatshield
+dd 01EC3FA0 00000001 FFFF0000 FFFFFFFF // Golden Greatshield
+dd 01EC66B0 00000001 FFFF0000 FFFFFFFF // Gilded Greatshield
+dd 01EC8DC0 00000001 FFFF0000 FFFFFFFF // Haligtree Crest Greatshield
+dd 01ECB4D0 00000001 FFFF0000 FFFFFFFF // Wooden Greatshield
+dd 01ECDBE0 00000001 FFFF0000 FFFFFFFF // Lordsworn's Shield
 // Staves
-dd 01F78A40 00000001 00000000 FFFFFFFF // Glintstone Staff
-dd 01F82680 00000001 00000000 FFFFFFFF // Crystal Staff
-dd 01F84D90 00000001 00000000 FFFFFFFF // Gelmir Glintstone Staff
-dd 01F874A0 00000001 00000000 FFFFFFFF // Demi-Human Queen's Staff
-dd 01F8E9D0 00000001 00000000 FFFFFFFF // Carian Regal Scepter
-dd 01F95F00 00000001 00000000 FFFFFFFF // Digger's Staff
-dd 01F98610 00000001 00000000 FFFFFFFF // Astrologer's Staff
-dd 01FA2250 00000001 00000000 FFFFFFFF // Carian Glintblade Staff
-dd 01FA4960 00000001 00000000 FFFFFFFF // Prince of Death's Staff
-dd 01FA7070 00000001 00000000 FFFFFFFF // Albinauric Staff
-dd 01FA9780 00000001 00000000 FFFFFFFF // Academy Glintstone Staff
-dd 01FABE90 00000001 00000000 FFFFFFFF // Carian Glintstone Staff
-dd 01FB0CB0 00000001 00000000 FFFFFFFF // Azur's Glintstone Staff
-dd 01FB33C0 00000001 00000000 FFFFFFFF // Lusat's Glintstone Staff
-dd 01FB5AD0 00000001 00000000 FFFFFFFF // Meteorite Staff
-dd 01FB81E0 00000001 00000000 FFFFFFFF // Staff of the Guilty
-dd 01FBA8F0 00000001 00000000 FFFFFFFF // Rotten Crystal Staff
-dd 01FBD000 00000001 00000000 FFFFFFFF // Staff of Loss
+dd 01F78A40 00000001 FFFF0000 FFFFFFFF // Glintstone Staff
+dd 01F82680 00000001 FFFF0000 FFFFFFFF // Crystal Staff
+dd 01F84D90 00000001 FFFF0000 FFFFFFFF // Gelmir Glintstone Staff
+dd 01F874A0 00000001 FFFF0000 FFFFFFFF // Demi-Human Queen's Staff
+dd 01F8E9D0 00000001 FFFF0000 FFFFFFFF // Carian Regal Scepter
+dd 01F95F00 00000001 FFFF0000 FFFFFFFF // Digger's Staff
+dd 01F98610 00000001 FFFF0000 FFFFFFFF // Astrologer's Staff
+dd 01FA2250 00000001 FFFF0000 FFFFFFFF // Carian Glintblade Staff
+dd 01FA4960 00000001 FFFF0000 FFFFFFFF // Prince of Death's Staff
+dd 01FA7070 00000001 FFFF0000 FFFFFFFF // Albinauric Staff
+dd 01FA9780 00000001 FFFF0000 FFFFFFFF // Academy Glintstone Staff
+dd 01FABE90 00000001 FFFF0000 FFFFFFFF // Carian Glintstone Staff
+dd 01FB0CB0 00000001 FFFF0000 FFFFFFFF // Azur's Glintstone Staff
+dd 01FB33C0 00000001 FFFF0000 FFFFFFFF // Lusat's Glintstone Staff
+dd 01FB5AD0 00000001 FFFF0000 FFFFFFFF // Meteorite Staff
+dd 01FB81E0 00000001 FFFF0000 FFFFFFFF // Staff of the Guilty
+dd 01FBA8F0 00000001 FFFF0000 FFFFFFFF // Rotten Crystal Staff
+dd 01FBD000 00000001 FFFF0000 FFFFFFFF // Staff of Loss
 // Seals
-dd 0206CC80 00000001 00000000 FFFFFFFF // Finger Seal
-dd 0206F390 00000001 00000000 FFFFFFFF // Godslayer's Seal
-dd 02071AA0 00000001 00000000 FFFFFFFF // Giant's Seal
-dd 020741B0 00000001 00000000 FFFFFFFF // Gravel Stone Seal
-dd 020768C0 00000001 00000000 FFFFFFFF // Clawmark Seal
-dd 0207B6E0 00000001 00000000 FFFFFFFF // Golden Order Seal
-dd 0207DDF0 00000001 00000000 FFFFFFFF // Erdtree Seal
-dd 02080500 00000001 00000000 FFFFFFFF // Dragon Communion Seal
-dd 02082C10 00000001 00000000 FFFFFFFF // Frenzied Flame Seal
+dd 0206CC80 00000001 FFFF0000 FFFFFFFF // Finger Seal
+dd 0206F390 00000001 FFFF0000 FFFFFFFF // Godslayer's Seal
+dd 02071AA0 00000001 FFFF0000 FFFFFFFF // Giant's Seal
+dd 020741B0 00000001 FFFF0000 FFFFFFFF // Gravel Stone Seal
+dd 020768C0 00000001 FFFF0000 FFFFFFFF // Clawmark Seal
+dd 0207B6E0 00000001 FFFF0000 FFFFFFFF // Golden Order Seal
+dd 0207DDF0 00000001 FFFF0000 FFFFFFFF // Erdtree Seal
+dd 02080500 00000001 FFFF0000 FFFFFFFF // Dragon Communion Seal
+dd 02082C10 00000001 FFFF0000 FFFFFFFF // Frenzied Flame Seal
 // Light Bows
-dd 02625A00 00000001 00000000 FFFFFFFF // Shortbow
-dd 02628110 00000001 00000000 FFFFFFFF // Misbegotten Shortbow
-dd 0262A820 00000001 00000000 FFFFFFFF // Red Branch Shortbow
-dd 0262CF30 00000001 00000000 FFFFFFFF // Harp Bow
-dd 02631D50 00000001 00000000 FFFFFFFF // Composite Bow
+dd 02625A00 00000001 FFFF0000 FFFFFFFF // Shortbow
+dd 02628110 00000001 FFFF0000 FFFFFFFF // Misbegotten Shortbow
+dd 0262A820 00000001 FFFF0000 FFFFFFFF // Red Branch Shortbow
+dd 0262CF30 00000001 FFFF0000 FFFFFFFF // Harp Bow
+dd 02631D50 00000001 FFFF0000 FFFFFFFF // Composite Bow
 // Bows
-dd 02719C40 00000001 00000000 FFFFFFFF // Longbow
-dd 0271C350 00000001 00000000 FFFFFFFF // Albinauric Bow
-dd 0271EA60 00000001 00000000 FFFFFFFF // Horn Bow
-dd 02721170 00000001 00000000 FFFFFFFF // Erdtree Bow
-dd 02723880 00000001 00000000 FFFFFFFF // Serpent Bow
-dd 027286A0 00000001 00000000 FFFFFFFF // Pulley Bow
-dd 0272ADB0 00000001 00000000 FFFFFFFF // Black Bow
+dd 02719C40 00000001 FFFF0000 FFFFFFFF // Longbow
+dd 0271C350 00000001 FFFF0000 FFFFFFFF // Albinauric Bow
+dd 0271EA60 00000001 FFFF0000 FFFFFFFF // Horn Bow
+dd 02721170 00000001 FFFF0000 FFFFFFFF // Erdtree Bow
+dd 02723880 00000001 FFFF0000 FFFFFFFF // Serpent Bow
+dd 027286A0 00000001 FFFF0000 FFFFFFFF // Pulley Bow
+dd 0272ADB0 00000001 FFFF0000 FFFFFFFF // Black Bow
 // Greatbows
-dd 0280DE80 00000001 00000000 FFFFFFFF // Lion Greatbow
-dd 02810590 00000001 00000000 FFFFFFFF // Golem Greatbow
-dd 028153B0 00000001 00000000 FFFFFFFF // Erdtree Greatbow
-dd 02817AC0 00000001 00000000 FFFFFFFF // Greatbow
+dd 0280DE80 00000001 FFFF0000 FFFFFFFF // Lion Greatbow
+dd 02810590 00000001 FFFF0000 FFFFFFFF // Golem Greatbow
+dd 028153B0 00000001 FFFF0000 FFFFFFFF // Erdtree Greatbow
+dd 02817AC0 00000001 FFFF0000 FFFFFFFF // Greatbow
 // Crossbows
-dd 029020C0 00000001 00000000 FFFFFFFF // Soldier's Crossbow
-dd 02906EE0 00000001 00000000 FFFFFFFF // Light Crossbow
-dd 029095F0 00000001 00000000 FFFFFFFF // Heavy Crossbow
-dd 0290E410 00000001 00000000 FFFFFFFF // Pulley Crossbow
-dd 02910B20 00000001 00000000 FFFFFFFF // Full Moon Crossbow
-dd 02915940 00000001 00000000 FFFFFFFF // Arbalest
-dd 0291CE70 00000001 00000000 FFFFFFFF // Crepus's Black-Key Crossbow
+dd 029020C0 00000001 FFFF0000 FFFFFFFF // Soldier's Crossbow
+dd 02906EE0 00000001 FFFF0000 FFFFFFFF // Light Crossbow
+dd 029095F0 00000001 FFFF0000 FFFFFFFF // Heavy Crossbow
+dd 0290E410 00000001 FFFF0000 FFFFFFFF // Pulley Crossbow
+dd 02910B20 00000001 FFFF0000 FFFFFFFF // Full Moon Crossbow
+dd 02915940 00000001 FFFF0000 FFFFFFFF // Arbalest
+dd 0291CE70 00000001 FFFF0000 FFFFFFFF // Crepus's Black-Key Crossbow
 // Ballistae
-dd 029F6300 00000001 00000000 FFFFFFFF // Hand Ballista
-dd 029F8A10 00000001 00000000 FFFFFFFF // Jar Cannon
+dd 029F6300 00000001 FFFF0000 FFFFFFFF // Hand Ballista
+dd 029F8A10 00000001 FFFF0000 FFFFFFFF // Jar Cannon
 dd 00000000 00000000 00000000 FFFFFFFF
 
-createthread(ItemGib)
 {$lua}
-if not syntaxcheck then disableMemrec(memrec) end
+if not syntaxcheck then disableMemrec(memrec, 'MassItemGib_Weapon_Data') end
 {$asm}
 [DISABLE]
-ItemGibArray+10:
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
-dd 00000000 00000000 00000000 FFFFFFFF
+dealloc(MassItemGib_Weapon)
+unregisterSymbol(MassItemGib_Weapon_Data)
 </AssemblerScript>
                         </CheatEntry>
                         <CheatEntry>
@@ -8986,7 +8656,7 @@ dd 100DE378 00000001 00000000 FFFFFFFF // Preceptor's Gloves
 dd 100DE3DC 00000001 00000000 FFFFFFFF // Preceptor's Trousers
 dd 100DE698 00000001 00000000 FFFFFFFF // Mask of Confidence
 dd 100DE6FC 00000001 00000000 FFFFFFFF // Preceptor's Long Gown (Altered)
-dd 100E09C0 00000001 00000000 FFFFFFFF // Grass Hair Ornament
+//dd 100E09C0 00000001 00000000 FFFFFFFF // Grass Hair Ornament
 dd 100E30D0 00000001 00000000 FFFFFFFF // Skeletal Mask
 dd 100E3134 00000001 00000000 FFFFFFFF // Raptor's Black Feathers
 dd 100E3198 00000001 00000000 FFFFFFFF // Bandit Manchettes
@@ -9892,7 +9562,7 @@ dd 200017AC 00000001 00000000 FFFFFFFF // Daedicar's Woe
 dd 200017B6 00000001 00000000 FFFFFFFF // Sacrificial Twig
 dd 200017C0 00000001 00000000 FFFFFFFF // Furled Finger's Trick-Mirror
 dd 200017CA 00000001 00000000 FFFFFFFF // Host's Trick-Mirror
-dd 200017D4 00000001 00000000 FFFFFFFF // Entwining Umbilical Cord
+//dd 200017D4 00000001 00000000 FFFFFFFF // Entwining Umbilical Cord
 dd 200017DE 00000001 00000000 FFFFFFFF // Ancestral Spirit's Horn
 dd 00000000 00000000 00000000 FFFFFFFF
 
@@ -10201,11 +9871,24 @@ dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
 dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
 </AssemblerScript>
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337193324</ID>
-                          <Description>"Goods"</Description>
+                          <Description>"-- Goods --"</Description>
                           <Color>C0C0C0</Color>
                           <GroupHeader>1</GroupHeader>
                         </CheatEntry>
@@ -10248,13 +9931,13 @@ dd 40000456 00000063 00000000 FFFFFFFF // Immunizing Cured Meat
 dd 4000046A 00000063 00000000 FFFFFFFF // Clarifying Cured Meat
 dd 40000474 00000063 00000000 FFFFFFFF // Dappled Cured Meat
 dd 400004BA 00000063 00000000 FFFFFFFF // Exalted Flesh
-dd 400004C4 00000063 00000000 FFFFFFFF // Deathsbane Jerky
+//dd 400004C4 00000063 00000000 FFFFFFFF // Deathsbane Jerky
 dd 400004D3 00000063 00000000 FFFFFFFF // Raw Meat Dumpling
 dd 4000051E 00000063 00000000 FFFFFFFF // Immunizing White Cured Meat
 dd 40000528 00000063 00000000 FFFFFFFF // Invigorating White Cured Meat
 dd 40000532 00000063 00000000 FFFFFFFF // Clarifying White Cured Meat
 dd 4000053C 00000063 00000000 FFFFFFFF // Dappled White Cured Meat
-dd 40000546 00000063 00000000 FFFFFFFF // Deathsbane White Jerky
+//dd 40000546 00000063 00000000 FFFFFFFF // Deathsbane White Jerky
 dd 4000047E 00000063 00000000 FFFFFFFF // Spellproof Dried Liver
 dd 40000488 00000063 00000000 FFFFFFFF // Fireproof Dried Liver
 dd 40000492 00000063 00000000 FFFFFFFF // Lightningproof Dried Liver
@@ -10296,10 +9979,10 @@ dd 400005FA 00000063 00000000 FFFFFFFF // Drawstring Holy Grease
 dd 40000604 00000063 00000000 FFFFFFFF // Drawstring Blood Grease
 dd 4000060E 00000063 00000000 FFFFFFFF // Drawstring Soporific Grease
 dd 40000618 00000063 00000000 FFFFFFFF // Drawstring Poison Grease
-dd 40000622 00000063 00000000 FFFFFFFF // Drawstring Freezing Grease
+//dd 40000622 00000063 00000000 FFFFFFFF // Drawstring Freezing Grease
 dd 40000636 00000063 00000000 FFFFFFFF // Drawstring Rot Grease
 dd 4000069A 00000063 00000000 FFFFFFFF // Shield Grease
-dd 40000CE4 00000063 00000000 FFFFFFFF // Holy Water Grease
+//dd 40000CE4 00000063 00000000 FFFFFFFF // Holy Water Grease
 dd 00000000 00000000 00000000 FFFFFFFF
 
 createthread(ItemGib)
