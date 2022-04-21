@@ -1,4 +1,6 @@
 # Changelog
+### v0.5.2 04/21/2022
+ - Removed Roped Freezing Pot
 ### v0.5.1 04/21/2022
  - Removed Miranda's Prayer
  - Fixed ItemGib reading Player ReinforceLv as int instead of byte

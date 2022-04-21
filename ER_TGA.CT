@@ -3,7 +3,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>1337192508</ID>
-      <Description>"Open - The Grand Archives v0.5.1 - Elden Ring v1.04"</Description>
+      <Description>"Open - The Grand Archives v0.5.2 - Elden Ring v1.04"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
@@ -10651,7 +10651,7 @@ dd 400001B8 00000063 00000000 FFFFFFFF // Roped Poison Pot
 dd 400001C2 00000063 00000000 FFFFFFFF // Roped Oil Pot
 dd 400001CC 00000063 00000000 FFFFFFFF // Roped Magic Pot
 dd 400001D6 00000063 00000000 FFFFFFFF // Roped Fly Pot
-dd 400001E0 00000063 00000000 FFFFFFFF // Roped Freezing Pot
+//dd 400001E0 00000063 00000000 FFFFFFFF // Roped Freezing Pot
 dd 400001EA 00000063 00000000 FFFFFFFF // Roped Volcano Pot
 dd 400001FE 00000063 00000000 FFFFFFFF // Roped Holy Water Pot
 dd 40000258 00000063 00000000 FFFFFFFF // Volcano Pot
@@ -95705,7 +95705,6 @@ if not syntaxcheck then disableMemrec(memrec) end
 400001C2:Roped Oil Pot
 400001CC:Roped Magic Pot
 400001D6:Roped Fly Pot
-400001E0:Roped Freezing Pot
 400001EA:Roped Volcano Pot
 400001FE:Roped Holy Water Pot
 40000258:Volcano Pot
