@@ -13,7 +13,7 @@ Table: [v0.5.0](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)
 Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
 Game: App ver. 1.04
 
-### Changelog
+## Changelog
 ### v0.5.0 04/20/2022
  - Updated AOBs for v1.04
  - Missing items fixed, cut content stripped
@@ -34,6 +34,11 @@ Game: App ver. 1.04
  - Toughness and SuperArmor info for player and NPCs
  - ItemGib will now handle upgrade level in a better way
  - MassItemGib crashes hopefully resolved
+ - Removed Miranda's Prayer
+ - Fixed ItemGib reading Player ReinforceLv as int instead of byte
+### v0.5.1 04/21/2022
+ - Removed Miranda's Prayer
+ - Fixed ItemGib reading Player ReinforceLv as int instead of byte
 #### For previous changelogs check the [full changelog](/CHANGELOG.md)
 
 ## Credits

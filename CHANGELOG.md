@@ -1,4 +1,8 @@
 # Changelog
+### v0.5.1 04/21/2022
+ - Removed Miranda's Prayer
+ - Fixed ItemGib reading Player ReinforceLv as int instead of byte
+
 ### v0.5.0 04/20/2022
  - Missing items fixed, cut content stripped
  - Additional Grace ID names (by Careless Esper)
