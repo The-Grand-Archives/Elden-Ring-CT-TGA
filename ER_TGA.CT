@@ -41760,14 +41760,6 @@ unregistersymbol(ReinforceParamWeaponHelper)
                           </Offsets>
                           <CheatEntries>
                             <CheatEntry>
-                              <ID>1337213544</ID>
-                              <Description>"reinforcementLevel"</Description>
-                              <ShowAsSigned>0</ShowAsSigned>
-                              <Color>0000FF</Color>
-                              <VariableType>Byte</VariableType>
-                              <Address>+57</Address>
-                            </CheatEntry>
-                            <CheatEntry>
                               <ID>1337199265</ID>
                               <Description>"physicsAtkRate"</Description>
                               <ShowAsSigned>0</ShowAsSigned>
@@ -94542,7 +94534,9 @@ if not syntaxcheck then disableMemrec(memrec) end
                 <CheatEntry>
                   <ID>1337213204</ID>
                   <Description>"ItemDropdown"</Description>
-                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">400007E4:Rainbow Stone
+                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">00000000:None
+10111700:Jar
+400007E4:Rainbow Stone
 000F4240:Dagger
 000F6950:Black Knife
 000F9060:Parrying Dagger
@@ -95429,7 +95423,6 @@ if not syntaxcheck then disableMemrec(memrec) end
 1010CD2C:Eye Surcoat
 1010D114:Tree Surcoat
 1010EFF0:Octopus Head
-10111700:Jar
 10113E10:Mushroom Head
 10113E74:Mushroom Body
 10113ED8:Mushroom Arms
