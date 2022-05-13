@@ -10788,6 +10788,66 @@ dd 00000000 00000000 00000000 FFFFFFFF
 </AssemblerScript>
                         </CheatEntry>
                         <CheatEntry>
+                          <ID>1337214552</ID>
+                          <Description>"Give all upgrade materials x999"</Description>
+                          <VariableType>Auto Assembler Script</VariableType>
+                          <AssemblerScript>[ENABLE]
+ItemGibArray:
+// Smithing Stone
+dd 40002774 000003E7 00000000 FFFFFFFF // Smithing Stone [1]
+dd 40002775 000003E7 00000000 FFFFFFFF // Smithing Stone [2]
+dd 40002776 000003E7 00000000 FFFFFFFF // Smithing Stone [3]
+dd 40002777 000003E7 00000000 FFFFFFFF // Smithing Stone [4]
+dd 40002778 000003E7 00000000 FFFFFFFF // Smithing Stone [5]
+dd 40002779 000003E7 00000000 FFFFFFFF // Smithing Stone [6]
+dd 4000277A 000003E7 00000000 FFFFFFFF // Smithing Stone [7]
+dd 4000277B 000003E7 00000000 FFFFFFFF // Smithing Stone [8]
+dd 4000279C 000003E7 00000000 FFFFFFFF // Ancient Dragon Smithing Stone
+// Somber Smithing Stone
+dd 400027B0 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [1]
+dd 400027B1 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [2]
+dd 400027B2 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [3]
+dd 400027B3 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [4]
+dd 400027B4 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [5]
+dd 400027B5 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [6]
+dd 400027B6 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [7]
+dd 400027B7 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [8]
+dd 400027B8 000003E7 00000000 FFFFFFFF // Somber Ancient Dragon Smithing Stone
+dd 400027D8 000003E7 00000000 FFFFFFFF // Somber Smithing Stone [9]
+// Grave Glovewort
+dd 40002A94 000003E7 00000000 FFFFFFFF // Grave Glovewort [1]
+dd 40002A95 000003E7 00000000 FFFFFFFF // Grave Glovewort [2]
+dd 40002A96 000003E7 00000000 FFFFFFFF // Grave Glovewort [3]
+dd 40002A97 000003E7 00000000 FFFFFFFF // Grave Glovewort [4]
+dd 40002A98 000003E7 00000000 FFFFFFFF // Grave Glovewort [5]
+dd 40002A99 000003E7 00000000 FFFFFFFF // Grave Glovewort [6]
+dd 40002A9A 000003E7 00000000 FFFFFFFF // Grave Glovewort [7]
+dd 40002A9B 000003E7 00000000 FFFFFFFF // Grave Glovewort [8]
+dd 40002A9C 000003E7 00000000 FFFFFFFF // Grave Glovewort [9]
+dd 40002A9D 000003E7 00000000 FFFFFFFF // Great Grave Glovewort
+// Ghost Glovewort
+dd 40002A9E 000003E7 00000000 FFFFFFFF // Ghost Glovewort [1]
+dd 40002A9F 000003E7 00000000 FFFFFFFF // Ghost Glovewort [2]
+dd 40002AA0 000003E7 00000000 FFFFFFFF // Ghost Glovewort [3]
+dd 40002AA1 000003E7 00000000 FFFFFFFF // Ghost Glovewort [4]
+dd 40002AA2 000003E7 00000000 FFFFFFFF // Ghost Glovewort [5]
+dd 40002AA3 000003E7 00000000 FFFFFFFF // Ghost Glovewort [6]
+dd 40002AA4 000003E7 00000000 FFFFFFFF // Ghost Glovewort [7]
+dd 40002AA5 000003E7 00000000 FFFFFFFF // Ghost Glovewort [8]
+dd 40002AA6 000003E7 00000000 FFFFFFFF // Ghost Glovewort [9]
+dd 40002AA7 000003E7 00000000 FFFFFFFF // Great Ghost Glovewort
+dd 00000000 00000000 00000000 FFFFFFFF
+
+createthread(ItemGib)
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+{$asm}
+[DISABLE]
+ItemGibArray+10:
+dd 00000000 00000000 00000000 FFFFFFFF
+</AssemblerScript>
+                        </CheatEntry>
+                        <CheatEntry>
                           <ID>1337197120</ID>
                           <Description>"Give all limited quantity craftables x99"</Description>
                           <VariableType>Auto Assembler Script</VariableType>
