@@ -89695,87 +89695,13 @@ paramUtils:restore("discardableItems")
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>//Author: inuNorii
 //Replaces Banished Knight Engvall with Blaid the Half-Wolf
-//All text is replaced as well except for full description (GoodsCaption)
-define(GoodsName,[[[MsgRepository]+08]+00]+50)
-define(GoodsInfo,[[[MsgRepository]+08]+00]+A0)
-define(SummonName,[[[MsgRepository]+08]+00]+170)
-define(Blaidd,'Blaidd the Half-Wolf')
-define(Engvall,'Banished Knight Engvall')
-[ENABLE]
-// Goods Name
-[GoodsName]+132D4:
-dw Blaidd,0
-[GoodsName]+13304:
-dw Blaidd,' +1',0
-[GoodsName]+1333A:
-dw Blaidd,' +2',0
-[GoodsName]+13370:
-dw Blaidd,' +3',0
-[GoodsName]+133A6:
-dw Blaidd,' +4',0
-[GoodsName]+133DC:
-dw Blaidd,' +5',0
-[GoodsName]+13412:
-dw Blaidd,' +6',0
-[GoodsName]+13448:
-dw Blaidd,' +7',0
-[GoodsName]+1347E:
-dw Blaidd,' +8',0
-[GoodsName]+134B4:
-dw Blaidd,' +9',0
-[GoodsName]+134EA:
-dw Blaidd,' +10',0
-// Goods Info
-[GoodsInfo]+1C656:
-dw Blaidd,0
-[GoodsInfo]+1C6AA:
-dw Blaidd,0
-[GoodsInfo]+1C6FE:
-dw Blaidd,0
-[GoodsInfo]+1C752:
-dw Blaidd,0
-[GoodsInfo]+1C7A6:
-dw Blaidd,0
-[GoodsInfo]+1C7FA:
-dw Blaidd,0
-[GoodsInfo]+1C84E:
-dw Blaidd,0
-[GoodsInfo]+1C8A2:
-dw Blaidd,0
-[GoodsInfo]+1C8F6:
-dw Blaidd,0
-[GoodsInfo]+1C94A:
-dw Blaidd,0
-[GoodsInfo]+1C99E:
-dw Blaidd,0
-// Summon Name
-[SummonName]+447E:
-dw Blaidd,0
-[SummonName]+44AE:
-dw Blaidd,0
-[SummonName]+44DE:
-dw Blaidd,0
-[SummonName]+450E:
-dw Blaidd,0
-[SummonName]+453E:
-dw Blaidd,0
-[SummonName]+456E:
-dw Blaidd,0
-[SummonName]+459E:
-dw Blaidd,0
-[SummonName]+45CE:
-dw Blaidd,0
-[SummonName]+45FE:
-dw Blaidd,0
-[SummonName]+462E:
-dw Blaidd,0
-[SummonName]+465E:
-dw Blaidd,0
 {$lua}
 if syntaxcheck then return end
+[ENABLE]
 local buddy = BuddyParam:new("blaiddSummon",20200000)
 buddy:npcParamId(20109110)
 buddy:npcThinkParamId(20108000)
+buddy:generateAnimId(20039)
 
 local npc = NpcParam:new("blaiddSummon",20109110)
 npc:patchByte(0x133,47) -- TeamType
@@ -89791,84 +89717,51 @@ local goods = {
 }
 for i,id in ipairs(goods) do
 local goods = EquipParamGoods:new("blaiddSummon",id)
-goods:patch2Byte(0x30,104)
-goods:patch2Byte(0x80,-1)
+goods:iconId(13170)
+goods:consumeMP(-1)
 end
 
 [DISABLE]
-{$asm}
-// Goods Name
-[GoodsName]+132D4:
-dw Engvall,0
-[GoodsName]+13304:
-dw Engvall,' +1',0
-[GoodsName]+1333A:
-dw Engvall,' +2',0
-[GoodsName]+13370:
-dw Engvall,' +3',0
-[GoodsName]+133A6:
-dw Engvall,' +4',0
-[GoodsName]+133DC:
-dw Engvall,' +5',0
-[GoodsName]+13412:
-dw Engvall,' +6',0
-[GoodsName]+13448:
-dw Engvall,' +7',0
-[GoodsName]+1347E:
-dw Engvall,' +8',0
-[GoodsName]+134B4:
-dw Engvall,' +9',0
-[GoodsName]+134EA:
-dw Engvall,' +10',0
-// Goods Info
-[GoodsInfo]+1C656:
-dw Engvall,0
-[GoodsInfo]+1C6AA:
-dw Engvall,0
-[GoodsInfo]+1C6FE:
-dw Engvall,0
-[GoodsInfo]+1C752:
-dw Engvall,0
-[GoodsInfo]+1C7A6:
-dw Engvall,0
-[GoodsInfo]+1C7FA:
-dw Engvall,0
-[GoodsInfo]+1C84E:
-dw Engvall,0
-[GoodsInfo]+1C8A2:
-dw Engvall,0
-[GoodsInfo]+1C8F6:
-dw Engvall,0
-[GoodsInfo]+1C94A:
-dw Engvall,0
-[GoodsInfo]+1C99E:
-dw Engvall,0
-// Summon Name
-[SummonName]+447E:
-dw Engvall,0
-[SummonName]+44AE:
-dw Engvall,0
-[SummonName]+44DE:
-dw Engvall,0
-[SummonName]+450E:
-dw Engvall,0
-[SummonName]+453E:
-dw Engvall,0
-[SummonName]+456E:
-dw Engvall,0
-[SummonName]+459E:
-dw Engvall,0
-[SummonName]+45CE:
-dw Engvall,0
-[SummonName]+45FE:
-dw Engvall,0
-[SummonName]+462E:
-dw Engvall,0
-[SummonName]+465E:
-dw Engvall,0
+paramUtils:restore("blaiddSummon")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337213421</ID>
+              <Description>"Deathblight Dagger"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function PatchDaggers(thread)
+  local idTable = paramUtils:getParamIdTable("EquipParamWeapon")
+  for id,address in pairs(idTable) do
+    local weapon = EquipParamWeapon:new("DeathblightDagger", nil, address)
+    local weaponCategory = weapon:readByte(0xE6)
+    if weaponCategory == 0 then
+	  weapon:residentSpEffectId2(70)
+    end
+  end
+end
+createNativeThread(PatchDaggers)
+
+[DISABLE]
+paramUtils:restore("DeathblightDagger")
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337215497</ID>
+              <Description>"Warp out of uncleared mini dungeons"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>//Author: inuNorii
+//Warp out of mini-dungeons without defeating its boss
 {$lua}
 if syntaxcheck then return end
-paramUtils:restore("blaiddSummon")
+[ENABLE]
+local effect = SpEffectParam:new("MiniDungeonWarp",4270)
+effect:stateInfo(0)
+
+[DISABLE]
+paramUtils:restore("MiniDungeonWarp")
 </AssemblerScript>
             </CheatEntry>
           </CheatEntries>
