@@ -6,26 +6,32 @@
       <Description>"Open - The Grand Archives v0.5.2 - Elden Ring v1.04"</Description>
       <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-{$lua}
+      <AssemblerScript>{$lua}
 if syntaxcheck then return end
+function enableRecord(thread, id)
+  local record = getAddressList().getMemoryRecordByID(id)
+  if(record ~= nil) then
+    sleep(500)
+    record.Active = true
+  else
+    print("Record with ID "..id.." doesn't exists")
+  end
+end
+
+function disableRecord(thread, id)
+  local record = getAddressList().getMemoryRecordByID(id)
+  if(record ~= nil) then
+    sleep(500)
+    record.Active = false
+  else
+    print("Record with ID "..id.." doesn't exists")
+  end
+end
+[ENABLE]
 OpenProcess("eldenring.exe")
 
 --prevent clicking on sort buttons
 --getAddressList().Control[1].OnSectionClick = nil
-
-helperUpdateTimer = createTimer(getMainForm())
-helperUpdateTimer.Interval = 1000
-helperUpdateTimer.OnTimer = function(timer)
-  local paramTable = ParamUtils['masterParamTable']
-  for param in pairs(paramTable) do
-      local paramHelperId = readInteger(param .. "Helper")
-      if paramHelperId ~= nil then
-          local paramHelperAddress = ParamUtils:getIdAddressInParam(param, paramHelperId)
-          writePointer(param .. "Helper+8", paramHelperAddress)
-      end
-  end
-end
 
 autoAssemble([[
 aobscanmodule(Finder,eldenring.exe,48 8B 05 ?? ?? ?? ?? 48 85 C0 74 05 48 8B 40 58 C3 C3)
@@ -540,12 +546,25 @@ end
 
 --[[END TGA helpers]]--
 
-memoryrecord_freeze(getAddressList().getMemoryRecordByID(251))
+createNativeThread(enableRecord, 251) --Enable ParamUtils
+
+helperUpdateTimer = createTimer(getMainForm())
+helperUpdateTimer.Interval = 1000
+helperUpdateTimer.OnTimer = function(timer)
+  if ParamUtils ~= nil then
+    local paramTable = ParamUtils['masterParamTable']
+    for param in pairs(paramTable) do
+        local paramHelperId = readInteger(param .. "Helper")
+        if paramHelperId ~= nil then
+            local paramHelperAddress = ParamUtils:getIdAddressInParam(param, paramHelperId)
+            writePointer(param .. "Helper+8", paramHelperAddress)
+        end
+    end
+  end
+end
 
 [DISABLE]
-{$lua}
-if syntaxcheck then return end
-memoryrecord_unfreeze(getAddressList().getMemoryRecordByID(251))
+createNativeThread(disableRecord, 251) --Disable ParamUtils
 helperUpdateTimer.destroy()
 {$asm}
 unregisterSymbol(GameDataMan)
@@ -74738,17 +74757,8 @@ end
 
 -- Creating an instance of ParamUtils
 paramUtils = ParamUtils:new()
+ParamUtils:paramIndexer()
 --[[END ParamUtils class]]--
-local function enableRecord(thread, id)
-  local record = getAddressList().getMemoryRecordByID(id)
-  if(record ~= nil) then
-    sleep(500)
-    record.Active = true
-  else
-    print("Record with ID "..id.." doesn't exists")
-  end
-  ParamUtils:paramIndexer()
-end
 createNativeThread(enableRecord, 252) --Enable PP classes
 [DISABLE]
 {$lua}
@@ -74756,15 +74766,6 @@ if syntaxcheck then return end
 paramUtils:restoreAllBackups()
 paramUtils:printAllOldBackups()
 paramUtils:destroy()
-local function disableRecord(thread, id)
-  local record = getAddressList().getMemoryRecordByID(id)
-  if(record ~= nil) then
-    sleep(500)
-    record.Active = false
-  else
-    print("Record with ID "..id.." doesn't exists")
-  end
-end
 createNativeThread(disableRecord, 252) --Disable PP classes
 </AssemblerScript>
                 </CheatEntry>
@@ -104082,5 +104083,4 @@ FFFFFFFF:None
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols/>
 </CheatTable>
