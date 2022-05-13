@@ -98992,6 +98992,278 @@ paramUtils:restore("blaiddSummon")
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
+              <ID>1337213581</ID>
+              <Description>"Teleport to Map-Relative Coordinates"</Description>
+              <Options moHideChildren="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Teleport to map-relative coordinates - by tremwil (minusone12)
+  Credits: Pav for map-relative coords and local coords pointers
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function getMapRelativeCoords(addr)
+    local pos = {
+        x = readFloat(addr or "[[WorldChrMan]+18468]+6B0"),
+        y = readFloat(addr and (addr .. "+4") or "[[WorldChrMan]+18468]+6B4"),
+        z = readFloat(addr and (addr .. "+8") or "[[WorldChrMan]+18468]+6B8"),
+        rad = readFloat(addr and (addr .. "+C") or "[[WorldChrMan]+18468]+6BC"),
+        map = readInteger(addr and (addr .. "+10") or "[[WorldChrMan]+18468]+6C0")
+    }
+    if (pos.x == nil) then return nil else return pos end
+end
+
+function getLocalCoords()
+    local pos = {
+        x = readFloat("[[[[WorldChrMan]+18468]+190]+68]+70"),
+        y = readFloat("[[[[WorldChrMan]+18468]+190]+68]+74"),
+        z = readFloat("[[[[WorldChrMan]+18468]+190]+68]+78")
+    }
+    if (pos.x == nil) then return nil else return pos end
+end
+
+function setLocalCoords(pos)
+    writeFloat("[[[[WorldChrMan]+18468]+190]+68]+70", pos.x)
+    writeFloat("[[[[WorldChrMan]+18468]+190]+68]+74", pos.y)
+    writeFloat("[[[[WorldChrMan]+18468]+190]+68]+78", pos.z)
+end
+
+function getMapInfo(map)
+    return {
+        id = (map &gt;&gt; 24) &amp; 0xff,
+        gridXNo = (map &gt;&gt; 16) &amp; 0xff,
+        gridZNo = (map &gt;&gt; 8) &amp; 0xff
+    }
+end
+
+-- Thank god for the ER paramdef leaker, would not have found this
+-- out otherwise
+function readWorldMapLegacyConvParam(addr)
+    return {
+        srcAreaNo  =  readByte(addr + 0x04),
+        srcGridXNo =  readByte(addr + 0x05),
+        srcGridZNo =  readByte(addr + 0x06),
+        srcPosX    = readFloat(addr + 0x08),
+        srcPosY    = readFloat(addr + 0x0C),
+        srcPosZ    = readFloat(addr + 0x10),
+        dstAreaNo  =  readByte(addr + 0x14),
+        dstGridXNo =  readByte(addr + 0x15),
+        dstGridZNo =  readByte(addr + 0x16),
+        dstPosX    = readFloat(addr + 0x18),
+        dstPosY    = readFloat(addr + 0x1C),
+        dstPosZ    = readFloat(addr + 0x20)
+    }
+end
+
+function getAbsoluteCoords(mapRelPos)
+    local minfo = getMapInfo(mapRelPos.map)
+     -- 3C = open world map, divided in 256x256 chunks.
+    if (minfo.id == 0x3C) then
+        return {
+            x = mapRelPos.x + 256 * minfo.gridXNo,
+            y = mapRelPos.y,
+            z = mapRelPos.z + 256 * minfo.gridZNo
+        }
+    end
+    -- Otherwise, search for ConvParam that maps our legacy dungeon map to the open world map
+    local worldMapLegacyConv = ParamUtils:getParamIdTable("WorldMapLegacyConvParam")
+    for id, addr in pairs(worldMapLegacyConv) do
+        local mapConv = readWorldMapLegacyConvParam(addr)
+        if (mapConv.srcAreaNo == minfo.id and
+            mapConv.dstAreaNo == 0x3C and
+            mapConv.srcGridXNo == minfo.gridXNo and -- These aren't really grid coords,  more like dungeon number for the same type
+            mapConv.srcGridZNo == minfo.gridZNo) then
+            -- Perform conversion to open world coords by rebasing to open world map origin
+            -- and adding the map chunk coords offset
+            return {
+                x = mapRelPos.x + mapConv.dstPosX - mapConv.srcPosX + mapConv.dstGridXNo * 256,
+                y = mapRelPos.y + mapConv.dstPosY - mapConv.srcPosY,
+                z = mapRelPos.z + mapConv.dstPosZ - mapConv.srcPosZ + mapConv.dstGridZNo * 256
+            }
+        end
+    end
+    return nil
+end
+
+function mapRelativeTeleport(tgtPos)
+    local currPos = getMapRelativeCoords(nil)
+    if (currPos == nil) then return end
+
+    local currAbsPos = getAbsoluteCoords(currPos)
+    if (currAbsPos == nil) then
+        print("Map relative TP error: No suitable WorldMapLegacyConvParam found for current map")
+        return
+    end
+    local tgtAbsPos = getAbsoluteCoords(tgtPos)
+    if (tgtAbsPos == nil) then
+        print("Map relative TP error: No suitable WorldMapLegacyConvParam found for target map")
+        return
+    end
+
+    local pos = getLocalCoords()
+    pos.x = pos.x + tgtAbsPos.x - currAbsPos.x
+    pos.y = pos.y + tgtAbsPos.y - currAbsPos.y
+    pos.z = pos.z + tgtAbsPos.z - currAbsPos.z
+    setLocalCoords(pos)
+end
+
+autoAssemble([[
+alloc(TargetCoords, 20, eldenring.exe)
+registersymbol(TargetCoords)
+]])
+
+[DISABLE]
+autoAssemble([[
+dealloc(TargetCoords)
+unregistersymbol(TargetCoords)
+]])
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337213582</ID>
+                  <Description>"Target Coords"</Description>
+                  <Options moManualExpandCollapse="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>20</ByteLength>
+                  <Address>TargetCoords</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337213583</ID>
+                      <Description>"X"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213584</ID>
+                      <Description>"Y"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213585</ID>
+                      <Description>"Z"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213562</ID>
+                      <Description>"Map ID"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213557</ID>
+                  <Description>"Current Map-Relative Coords"</Description>
+                  <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1"/>
+                  <ShowAsHex>1</ShowAsHex>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Array of byte</VariableType>
+                  <ByteLength>20</ByteLength>
+                  <Address>WorldChrMan</Address>
+                  <Offsets>
+                    <Offset>6B0</Offset>
+                    <Offset>18468</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337213558</ID>
+                      <Description>"X"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+0</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213559</ID>
+                      <Description>"Y"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213560</ID>
+                      <Description>"Z"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213569</ID>
+                      <Description>"Angle"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337213561</ID>
+                      <Description>"Map ID"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213586</ID>
+                  <Description>"&gt; Set Target to Current Position"</Description>
+                  <Color>FF8000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+disableMemrec(memrec)
+writeBytes("TargetCoords", readBytes("[[WorldChrMan]+18468]+6B0", 20, true))
+
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337215453</ID>
+                  <Description>"&gt; Teleport to Bloodstain"</Description>
+                  <Color>FF8000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+writeBytes("TargetCoords", readBytes("[[GameDataMan]+48]", 12, true))
+writeBytes("TargetCoords+10", readBytes("[[GameDataMan]+48]+38", 4, true))
+local tgtPos = getMapRelativeCoords("TargetCoords")
+if (tgtPos ~= nil) then
+    mapRelativeTeleport(tgtPos)
+end
+disableMemrec(memrec)
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337213607</ID>
+                  <Description>"&gt; Teleport"</Description>
+                  <Color>FF8000</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local tgtPos = getMapRelativeCoords("TargetCoords")
+if (tgtPos ~= nil) then
+    mapRelativeTeleport(tgtPos)
+end
+disableMemrec(memrec)
+[DISABLE]
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
               <ID>1337212709</ID>
               <Description>"Player Character"</Description>
               <Options moHideChildren="1"/>
