@@ -30,6 +30,21 @@ end
 [ENABLE]
 OpenProcess("eldenring.exe")
 
+--local table_ver = 0.052
+local game_ver = 0x1000400010000
+local ce_ver = 7.3
+
+if getFileVersion(enumModules()[1].PathToFile) ~= game_ver then
+	showMessage("Your version of Elden Ring might not be supported.")
+end
+
+if getCEVersion() &lt; ce_ver then
+	showMessage([[Your version of Cheat Engine is outdated.
+Some features will not work.
+
+You should update to at least 7.3 or newer.]])
+end
+
 --prevent clicking on sort buttons
 --getAddressList().Control[1].OnSectionClick = nil
 
