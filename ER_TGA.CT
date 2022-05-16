@@ -8,25 +8,6 @@
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{$lua}
 if syntaxcheck then return end
-function enableRecord(thread, id)
-  local record = getAddressList().getMemoryRecordByID(id)
-  if(record ~= nil) then
-    sleep(500)
-    record.Active = true
-  else
-    print("Record with ID "..id.." doesn't exists")
-  end
-end
-
-function disableRecord(thread, id)
-  local record = getAddressList().getMemoryRecordByID(id)
-  if(record ~= nil) then
-    sleep(500)
-    record.Active = false
-  else
-    print("Record with ID "..id.." doesn't exists")
-  end
-end
 [ENABLE]
 OpenProcess("eldenring.exe")
 
@@ -209,6 +190,26 @@ unregisterSymbol("CSFD4VirtualMemoryFlag")
 registerSymbol("CSFD4VirtualMemoryFlag", addr, true)
 
 --[[START TGA helpers]]--
+
+function enableRecord(id)
+  local record = getAddressList().getMemoryRecordByID(id)
+  if(record ~= nil) then
+    sleep(500)
+    record.Active = true
+  else
+    print("Record with ID "..id.." doesn't exist.")
+  end
+end
+
+function disableRecord(id)
+  local record = getAddressList().getMemoryRecordByID(id)
+  if(record ~= nil) then
+    sleep(500)
+    record.Active = false
+  else
+    print("Record with ID "..id.." doesn't exist.")
+  end
+end
 
 -- Disables memrec after specified amount of milliseconds
 -- or byte at given address becomes 1
@@ -561,25 +562,34 @@ end
 
 --[[END TGA helpers]]--
 
-createNativeThread(enableRecord, 251) --Enable ParamUtils
+synchronize(function()
+	  enableRecord(251) -- enable ParamUtils
+end)
 
 helperUpdateTimer = createTimer(getMainForm())
 helperUpdateTimer.Interval = 1000
 helperUpdateTimer.OnTimer = function(timer)
-  if ParamUtils ~= nil then
-    local paramTable = ParamUtils['masterParamTable']
-    for param in pairs(paramTable) do
-        local paramHelperId = readInteger(param .. "Helper")
-        if paramHelperId ~= nil then
-            local paramHelperAddress = ParamUtils:getIdAddressInParam(param, paramHelperId)
-            writePointer(param .. "Helper+8", paramHelperAddress)
+    checkSynchronize()
+    if paramUtils ~= nil then
+        local paramTable = paramUtils['masterParamTable']
+        for param in pairs(paramTable) do
+            local paramHelperId = readInteger(param .. "Helper")
+            if paramHelperId ~= nil then
+                local paramHelperAddress = paramUtils:getIdAddressInParam(param, paramHelperId)
+                writePointer(param .. "Helper+8", paramHelperAddress)
+            end
         end
+    else
+        synchronize(function()
+            enableRecord(251) -- ensure an instance of ParamUtils is enabled
+        end)
     end
-  end
 end
 
 [DISABLE]
-createNativeThread(disableRecord, 251) --Disable ParamUtils
+synchronize(function()
+    disableRecord(251) -- disable ParamUtils
+end)
 helperUpdateTimer.destroy()
 {$asm}
 unregisterSymbol(GameDataMan)
@@ -80410,16 +80420,21 @@ end
 
 -- Creating an instance of ParamUtils
 paramUtils = ParamUtils:new()
-ParamUtils:paramIndexer()
+paramUtils:paramIndexer()
 --[[END ParamUtils class]]--
-createNativeThread(enableRecord, 252) --Enable PP classes
+synchronize(function()
+	  enableRecord(252) -- Enable PP classes
+end)
 [DISABLE]
 {$lua}
 if syntaxcheck then return end
 paramUtils:restoreAllBackups()
 paramUtils:printAllOldBackups()
 paramUtils:destroy()
-createNativeThread(disableRecord, 252) --Disable PP classes
+paramUtils = nil
+synchronize(function()
+  	disableRecord(252) -- Disable PP classes
+end)
 </AssemblerScript>
                 </CheatEntry>
                 <CheatEntry>
