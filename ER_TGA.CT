@@ -11030,7 +11030,7 @@ dd 400022E2 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [7]
 dd 400022E3 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [8]
 dd 400022E4 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [9]
 dd 400022E5 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [10]
-dd 400022E6 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [11]
+//dd 400022E6 00000001 00000000 FFFFFFFF // Nomadic Merchant's Bell Bearing [11]
 dd 400022E7 00000001 00000000 FFFFFFFF // Isolated Merchant's Bell Bearing [3]
 dd 400022E8 00000001 00000000 FFFFFFFF // Hermit Merchant's Bell Bearing [2]
 dd 400022E9 00000001 00000000 FFFFFFFF // Abandoned Merchant's Bell Bearing
@@ -102901,7 +102901,6 @@ if not syntaxcheck then disableMemrec(memrec) end
 400022E3:Nomadic Merchant's Bell Bearing [8]
 400022E4:Nomadic Merchant's Bell Bearing [9]
 400022E5:Nomadic Merchant's Bell Bearing [10]
-400022E6:Nomadic Merchant's Bell Bearing [11]
 400022E7:Isolated Merchant's Bell Bearing [3]
 400022E8:Hermit Merchant's Bell Bearing [2]
 400022E9:Abandoned Merchant's Bell Bearing
