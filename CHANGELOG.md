@@ -1,6 +1,23 @@
 # Changelog
+### v0.6.0 06/06/2022
+ - Give all crafting materials x999 by Mar-Veloz
+ - Give all upgrade materials x999
+ - ParamUtils error spam should be gone, hopefully
+ - Add address based helpers and address finders
+ - Add TROPHY section with achievement unlocker
+ - Add Teleport to Map-Relative Coordinates by tremwil
+ - Add some ParamPatcher2 scripts, including Warp out of mini dungeons
+ - Add version check for game, CE, and cheat table
+ - Add some event flags and fix the names of some
+ - Add "Unlock all ..." scripts for event flags
+ - Add Draw Throw Area
+ - Add CSCRIPT - CE C scripting extensions by tremwil
+ - Add CParamUtils (C Param Patcher) by tremwil
+ - ItemGib now uses $ccode instead of $luacode
+ 
 ### v0.5.2 04/21/2022
  - Removed Roped Freezing Pot
+
 ### v0.5.1 04/21/2022
  - Removed Miranda's Prayer
  - Fixed ItemGib reading Player ReinforceLv as int instead of byte
