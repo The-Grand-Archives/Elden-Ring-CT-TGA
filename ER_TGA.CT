@@ -13794,8 +13794,7 @@ unregistersymbol(EquipParamWeaponHelper)
                             <CheatEntry>
                               <ID>1337198232</ID>
                               <Description>"swordArtsParamId"</Description>
-                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:None
-</DropDownList>
+                              <DropDownListLink>SWORD_ARTS_ID</DropDownListLink>
                               <ShowAsSigned>0</ShowAsSigned>
                               <VariableType>4 Bytes</VariableType>
                               <Address>+198</Address>
@@ -18156,6 +18155,7 @@ unregistersymbol(EquipParamGemHelper)
                             <CheatEntry>
                               <ID>1845</ID>
                               <Description>"swordArtsParamId"</Description>
+                              <DropDownListLink>SWORD_ARTS_ID</DropDownListLink>
                               <ShowAsSigned>1</ShowAsSigned>
                               <VariableType>4 Bytes</VariableType>
                               <Address>+18</Address>
@@ -38869,313 +38869,7 @@ unregistersymbol(SpEffectParamHelper)
                             <CheatEntry>
                               <ID>1337199034</ID>
                               <Description>"stateInfo"</Description>
-                              <DropDownList DisplayValueAsItem="1">0:Test
-1:? E
-1:Flame
-2:Poison
-3:Hill
-4:Corrosion
-5:Epidemic
-6:Bleeding
-8:Hidden figure
-9:Gravity user
-10:Abnormal state recovery [ poison ]
-11:Abnormal state recovery [ plague ]
-12:Abnormal state recovery [ bleeding ]
-13:Abnormal state recovery [ all-around ]
-14:Seoul Steel
-15:Zoom
-16:Warp
-17:Demon's Souls
-18:Black ghost dispel
-19:Strength ghost
-20:White hope
-21:Black hope
-22:Black ghosting
-23:Resuscitation
-24:Magic disabled
-25:Miracle motion extension
-26:Grindstone
-27:Asphyxia resuscitation
-28:Weapon enhancement (Magic Weapon)
-29:Protection shield (Magic Barrier)
-30:Thread covered
-31:[ System ] ghost Parham change
-32:Sleep paralysis
-33:Flies racketeering
-34:Flame Phantom _ first stage
-35:Flame Phantom _ the second stage
-36:Flame Phantom _ third stage
-37:Flame Phantom _ fourth stage
-38:Auditory hallucination
-39:Seoul coin
-40:Strong defense shield (Great Magic Barrier)
-41:Fire -resistant shield (Flash Sweat)
-42:HP recovery state (Light Heal)
-43:Force ghost of the first stage
-44:Force ghost of the second stage
-45:Force ghosted third stage
-46:Pheromone
-47:Cat landing (Fall Control)
-48:Pinch attack power up (Red Tearstone Ring)
-49:Pinch Def. (Blue Tearstone Ring)
-50:Rijenereito (Replenishment)
-51:Torch
-52:Weak Rijenereito (Weak Replenishment)
-54:Weak figure hidden (Silence)
-55:Tip blood character
-56:Hill Foot
-57:Kikoromo
-58:Point light source
-59:Blood character evaluation
-60:Weapon enhancement [ medium ] (Great Magic Weapon)
-61:Weapons Inc Large (Crystal Magic Weapon)
-62:Flame strengthening (Charcoal Pine Resin)
-63:Flame Inc Large (Fire Shield)
-64:Magic enhancement (Darkmoon Blade)
-65:Chimeric strengthening
-66:Dropped correction
-67:MP Rijenereito
-68:Weak MP Rijenereito (Black curse sfx?)
-69:When revival dead (Escape Death)
-70:Poison -resistant UP
-71:Magic power UP
-72:Magic defense UP
-73:Bleeding -resistant UP
-74:Plague -resistant UP
-75:Stamina recovery UP
-76:Seoul acquisition UP
-77:Flame -resistant UP
-78:Shield one step left foot of the king
-79:Shield two-step left foot of the king
-80:Shield three stages left foot of the king
-91:Shield one step right foot of the king
-92:Two-step right foot shield of the king
-93:3 shield stage right foot of the king
-94:Judge stomach bleeding
-95:Chameleon
-96:Dragon Head
-97:Gassmann
-98:Detection
-99:Wait cooperation
-100:Cooperation (Sfx similar to green sfx above bloodstain appears on body)
-101:Submit cooperation (Massive burst of green particles rising from body)
-102:Gravity (Tranquil Walk of Peace)
-103:Evil Eye
-104:State release [ waiting ] cooperation
-105:effect  Lv1
-106:effect  Lv2
-107:effect  Lv3
-108:Evil eye Lv1
-109:Evil Eye Lv2
-110:Counter
-111:Uetamago standby
-112:Uetamago
-113:Egghead standby
-114:Egghead
-115:Ultra-light travel
-116:Curse
-117:Mineralization
-118:Curse release
-119:Human nature damage
-120:Damage anime change _SA time limit
-121:Damage anime change _ Add
-122:Underwater behavior
-123:Weapon head
-124:Arms body
-125:Weapon hand
-126:Arms legs
-127:Sleep
-128:_ Mimic mimicry
-129:_ Mimic mimicry sleep
-130:_ Mimic normal
-131:Mimic _ usually sleep
-132:Fascination
-133:Blood character acquisition
-134:Force shockwave and smoke around body
-135:Lots of smoke around body and white sparks
-136:Crystallization
-137:Resonance Lv0
-138:Resonance Lv1
-139:Resonance Lv2
-140:Resonance Lv3
-141:Resonance Lv4
-142:Action ID specified
-143:Enemy _ immortality
-144:Enemy _ asphyxia
-145:St. attribute
-146:Systemic grindstone
-147:Light magic
-148:Relief request
-149:White relief
-150:Black relief
-151:Gold Pine Resin
-152:Rotten Pine Resin
-153:Sunlight Blade
-154:Lloyd's Talisman
-155:Wolf Ring
-156:Durability decrease invalid
-157:Estus Heal around body but white
-158:Magic Shield
-159:Ring of Sacrifice
-160:Rare Ring of Sacrifice
-161:Warp B
-162:Warp C
-163:Warp D
-164:Warp E
-165:Dark Sign
-166:Pledge destroyed
-167:Dragon Body
-168:Precision enhancement
-169:Resonance enhancement
-170:Karmic Justice
-171:Retributive justice explosion
-172:Sheath invincible 1
-173:Sheath invincible 2
-174:Sheath invincible 3
-175:Humanity revival
-176:Seoul coin ( immortality system)
-177:Seoul coin ( beast system)
-178:Chaneller's Trident
-179:Curse effect Lv1
-180:Curse effect Lv2
-181:Curse effect Lv3
-182:Curse effect Lv4
-183:SOS visible
-184:Invisible Weapon
-185:Eye of Death
-186:Flame kick
-187:Death of
-188:Bandits summons hope the forest
-189:Bandits territory of forest
-190:Ohaha brother summoned hope
-191:Ohahaototo territory
-192:Final Egghead stage
-193:Lifetime extension
-194:Magic number of uses up
-195:Dragon Newt Sign
-196:Dragon Eye
-197:Up counter
-198:The beat egg
-199:HP drain
-200:Power Within
-201:Vow of Silence
-202:Dragon roar
-203:Use magic number down
-204:Guard Inc Large
-205:[ DLC ] darkness strengthening
-206:Arena one-to-one [ small ] territory
-207:Arena 2 vs 2 [ small ] territory
-208:Arena Battle Royal [ small ] territory
-209:Arena one-to-one [ small ] summons hope A
-210:Arena one-to-one [ small ] summons hope B
-211:Arena 2 vs 2 [ small ] summons hope A1
-212:Arena 2 vs 2 [ small ] summons would like A2
-213:Arena 2 vs 2 [ small ] summons would like B1
-214:Arena 2 vs 2 [ small ] summons would like B2
-215:Arena Battle Royal [ small ] summons hope A
-216:Arena Battle Royal [ small ] summons hope B
-217:Arena Battle Royal [ small ] summons hope C
-218:Arena Battle Royal [ small ] summons hope D
-219:Arena one-to-one [ large ] territory
-220:Arena 2 vs 2 [ large ] territory
-221:Arena Battle Royal [ large ] territory
-222:Arena one-to-one [ large ] summons hope A
-223:Arena one-to-one [ large ] summons hope B
-224:Arena 2 vs 2 [ large ] summons hope A1
-225:Arena 2 vs 2 [ large ] summons would like A2
-226:Arena 2 vs 2 [ large ] summons would like B1
-227:Arena 2 vs 2 [ large ] summons would like B2
-228:Arena Battle Royal [ large ] summons hope A
-229:Arena Battle Royal [ large ] summons hope B
-230:Arena Battle Royal [ large ] summons hope C
-231:Arena Battle Royal [ large ] summons hope D
-232:Arena disabled item disabled
-233:Arena death
-234:1 in arena interim
-235:Arena NoDead
-236:1 in the arena the same rate
-237:Calamity Ring
-238:10 wins or more arena
-239:30 wins or more arena
-240:50 wins or more arena
-241:100 wins or more arena
-242:The maximum number ( Inhibited )
-252:effect 420
-253:effect 421
-259:effect 90
-260:Frostbite
-261:Leeches
-262:Remove Leeches
-266:effect 4050,4080
-267:effect 11800
-268:Frostbite Death?
-269:effect 1906
-275:Twinkling Dragon Head
-276:effect 3092
-277:Ember
-278:Being invaded
-280:Covenant Invasion Zone: Watchdogs of Farron
-281:Water/Swamp Slowdown
-282:HP/Resist Buff
-283:Tears of Denial?
-284:Warmth
-285:effect 29
-286:Overencumbered normal roll
-287:Overencumbered fat roll
-288:Aldrich's Ruby
-289:Aldrich's Sapphire
-290:Carthus Bloodring
-291:Carthus Milk Ring
-293:Repair
-294:Covenant Invasion: Aldrich Faithful
-295:Covenant Invasion Zone: Aldrich Faithful
-296:Turret
-297:Dead Again 2
-298:Dragonscale Ring
-299:Seed of a giant tree 3700
-300:Seed of a giant tree 3710
-301:Yellow cloud around chest
-302:Homeward DS3
-303:effect 10510-10516
-304:deep water slow walk
-305:deep water slow walk 2
-306:effect 12256-12258
-307:Old Wolf Curved Sword
-308:Old Wolf Curved Sword 2
-309:Old Wolf Curved Sword 3
-310:effect 11880,11881
-311:Ghoulish looking smoke on body
-312:effect 9130-9138
-313:effect 103540010
-314:effect 6900-6904
-315:Flynn's ring
-317:effect 3730
-318:effect Dead Again
-319:effect 4901
-320:Freeze self
-321:Hollowing Reversed Crash
-322:effect 139995
-323:effect 139990
-324:effect 440
-325:Iron Flesh purple (effect102430300)
-326:Reversal Ring
-327:Ember 3290,3293
-328:effect 107
-329:effect 130134131
-330:Covenant Invasion Zone: Spear of the Church
-331:effect 16188,16286
-332:effect 16189,16288
-333:Sacred Chime of Filianore
-334:Spear of the Church Boss
-335:effect 16555
-336:Riding
-357:Buddy
-406:White Cipher Ring
-407:Blue Cipher Ring
-436:Sleep
-437:Madness
-</DropDownList>
+                              <DropDownListLink>STATE_INFO</DropDownListLink>
                               <ShowAsSigned>0</ShowAsSigned>
                               <Color>0000FF</Color>
                               <VariableType>2 Bytes</VariableType>
@@ -60890,136 +60584,15 @@ unregistersymbol(BuddyParamHelper)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>1337199877</ID>
+                          <Description>"Name"</Description>
+                          <DropDownListLink>BUDDY_ID</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>BuddyParamHelper</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218229</ID>
                           <Description>"ID"</Description>
-                          <DropDownList>0:
-20000000:
-20100000:
-20200000:
-20300000:
-20300001:
-20400000:
-20500000:
-20600000:
-20600001:
-20700000:
-20700001:
-20800000:
-20900000:
-21000000:
-21100000:
-21100001:
-21200000:
-21200001:
-21300000:
-21400000:
-21400001:
-21400002:
-21400003:
-21500000:
-21500001:
-21500002:
-21500003:
-21600000:
-21700000:
-21800000:
-21900000:
-22000000:
-22100000:
-22200000:
-22200001:
-22300000:
-22400000:
-22500000:
-22500001:
-22600000:
-22600001:
-22700000:
-22800000:
-22900000:
-23000000:
-23000001:
-23100000:
-23200000:
-23200001:
-23200002:
-23300000:
-23300001:
-23300002:
-23310000:
-23310001:
-23310002:
-23310003:
-23320000:
-23320001:
-23320002:
-23320003:
-23320004:
-23400000:
-23400001:
-23400002:
-23400003:
-23400004:
-23500000:
-23600000:
-23700000:
-23800000:
-23900000:
-24000000:
-24000001:
-24000002:
-24000003:
-24000004:
-24100000:
-24200000:
-24200001:
-24200002:
-24300000:
-24400000:
-24400001:
-24400002:
-24500000:
-24500001:
-24500002:
-24500003:
-24500004:
-24600000:
-24600001:
-24600002:
-24700000:
-24800000:
-24800001:
-24800002:
-24800003:
-24800004:
-24900000:
-24900001:
-24900002:
-25000000:
-25000001:
-25100000:
-25100001:
-25100002:
-25200000:
-25200001:
-25300000:
-25300001:
-25400000:
-25400001:
-25400002:
-25400003:
-25400004:
-25500000:
-25500001:
-25500002:
-25500003:
-25600000:
-25700000:
-25800000:
-25900000:
-26000000:
-26100000:
-26200000:
-</DropDownList>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>8 Bytes</VariableType>
                           <Address>BuddyParamHelper</Address>
@@ -61275,250 +60848,15 @@ unregistersymbol(BuddyStoneParamHelper)
                       <CheatEntries>
                         <CheatEntry>
                           <ID>1337199881</ID>
+                          <Description>"Name"</Description>
+                          <DropDownListLink>BUDDY_STONE_ID</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>8 Bytes</VariableType>
+                          <Address>BuddyStoneParamHelper</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218230</ID>
                           <Description>"ID"</Description>
-                          <DropDownList>0:
-10000100:
-10000102:
-10000104:
-10000106:
-10000108:
-11000100:
-11000102:
-11000104:
-11000106:
-11050100:
-11050102:
-12010100:
-12010102:
-12010104:
-12010106:
-12010108:
-12010110:
-12020102:
-12020110:
-12020112:
-12020114:
-12020116:
-12020118:
-12030100:
-12030102:
-12030104:
-12030106:
-12030108:
-12040100:
-12050100:
-12050102:
-12050104:
-12070100:
-12070102:
-12080100:
-12090100:
-13000100:
-13000102:
-13000106:
-13000108:
-13000120:
-13000122:
-14000100:
-14000102:
-14000104:
-14000106:
-15000100:
-15000102:
-15000104:
-15000110:
-16000100:
-16000108:
-16000110:
-16000112:
-16000114:
-16000116:
-18000100:
-19000130:
-35000100:
-35000102:
-39200100:
-39200102:
-39200104:
-34130100:
-34140100:
-30000100:
-30010100:
-30020100:
-30010100:
-30040100:
-30050100:
-30030100:
-30060100:
-30070100:
-30080100:
-30090100:
-30100100:
-30110100:
-30120100:
-30130100:
-30140100:
-30150100:
-30160100:
-30170100:
-30180100:
-30190100:
-30200100:
-31000100:
-31010100:
-31020100:
-31030100:
-31150100:
-31170100:
-31040100:
-31050100:
-31060100:
-31070100:
-31090100:
-31100100:
-31110100:
-31120100:
-31180100:
-31190100:
-31190102:
-31200100:
-31210100:
-31220100:
-32000100:
-32010100:
-32020100:
-32040100:
-32050100:
-32070100:
-32080100:
-32110100:
-34120100:
-34120102:
-1041360100:
-1041380100:
-1042360100:
-1042370100:
-1042380100:
-1042390100:
-1043360100:
-1043380100:
-1044340106:
-1044350100:
-1044360100:
-1044360102:
-1045370100:
-1045370106:
-1045380100:
-1045390100:
-1046360100:
-1043300100:
-1043310100:
-1044330100:
-1044330102:
-1044340108:
-1043340100:
-1042340100:
-1043330102:
-1041330100:
-1042320102:
-1045330100:
-1038400100:
-1037420100:
-1039420100:
-1039410100:
-1038420100:
-1039440100:
-1037440100:
-1036440100:
-1034440100:
-1034450100:
-1036480100:
-1037490100:
-1034480100:
-1034480102:
-1038450100:
-1034500100:
-1036410100:
-1036500100:
-1033430100:
-1038480100:
-1033470100:
-1034420100:
-1035420100:
-1035500100:
-1035500102:
-1035500104:
-1035500106:
-1034420102:
-1035410100:
-1036510100:
-1037510100:
-1038510100:
-1039500100:
-1039540100:
-1040520100:
-1040530102:
-1041500100:
-1041510100:
-1041510102:
-1041510104:
-1041520100:
-1041530100:
-1041530102:
-1042540100:
-1042550100:
-1042500100:
-1042510100:
-1042520100:
-1044530100:
-1045520100:
-1036540100:
-1035530100:
-1037530100:
-1037540100:
-1038520100:
-1046380100:
-1046400100:
-1047400100:
-1047400102:
-1047380100:
-1047390100:
-1048370100:
-1048380100:
-1048390100:
-1048400100:
-1049360100:
-1049380100:
-1049390100:
-1049390102:
-1050400100:
-1051390100:
-1051360100:
-1051400100:
-1051430100:
-1052410100:
-1049520100:
-1049530100:
-1050540100:
-1050560100:
-1050570100:
-1054560100:
-1053560100:
-1052550100:
-1052560100:
-1052530100:
-1052530102:
-1051560100:
-1051570100:
-1051570102:
-1051570104:
-1049560100:
-1049560102:
-1049570100:
-1047550100:
-99020100:
-99020101:
-</DropDownList>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>8 Bytes</VariableType>
                           <Address>BuddyStoneParamHelper</Address>
@@ -62489,6 +61827,7 @@ unregistersymbol(SpEffectParamHelper_addr)
                             <CheatEntry>
                               <ID>1337214869</ID>
                               <Description>"stateInfo"</Description>
+                              <DropDownListLink>STATE_INFO</DropDownListLink>
                               <ShowAsSigned>0</ShowAsSigned>
                               <Color>0000FF</Color>
                               <VariableType>2 Bytes</VariableType>
@@ -69175,190 +68514,7 @@ dealloc(newmem)
                         <CheatEntry>
                           <ID>1337200928</ID>
                           <Description>"swordArtsParamId (Weapon Art)"</Description>
-                          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:None
-1:None
-10:Weapon Skill
-11:(Fists)
-60:Weapon Skill
-70:Weapon Skill
-80:Weapon Skill
-90:Parry (small)
-91:Parry (medium)
-92:Spell Parry
-93:Spell Parry
-99:Parry
-100:Quickstep (Dagger)
-101:Blind Spot
-102:Unleash Dragon
-103:Guiding Light
-104:Blind Spot
-105:Shieldsplitter
-106:Stance (Dagger)
-107:Crystal Blade
-108:Quickstep (Dagger)
-200:Stance (SS)
-201:Stomp (SS)
-202:Guiding Light (SS)
-203:Oath of Sunlight
-204:Sacred Lothric Light
-205:Stance (SS)
-206:Lion Stance
-207:Ember (SS)
-300:Stance (GS)
-301:Wrath of the Gods (GS)
-302:Ember (Firelink GS)
-303:Moonlight Vortex
-304:Stance of Judgement
-305:Sacred Light and Flame
-306:Wolf Sword
-307:Stomp (GS)
-308:Stomp (GS)
-309:Storm King
-310:Perseverance
-311:Elfriede's Blackflame
-312:Blade of Peril
-400:Stomp (UGS)
-401:Parry
-402:Charge (UGS)
-403:Profaned Flame
-404:Flame of Lorian
-405:Stomp (UGS)
-406:Stomp (UGS)
-407:Stomp (UGS)
-410:Ember (paired UGS)
-500:Stance (TS)
-501:Shield Splitter
-502:Ricard's Lunge and Press
-503:Quill Dart
-600:Spin Slash (CS)
-601:Crescent Blade
-602:Tornado
-603:Frost Blade
-604:Spin Slash (CS)
-605:Spin Slash (CS)
-606:Chained Dance
-607:Prying Wedge
-608:Spin Slash (CS)
-700:Spin Slash (CGS)
-701:Wolf Leap
-702:Spin Slash (CGS)
-703:Spin Slash (CGS)
-704:Sever
-800:Hold (Katana)
-801:Bloodlust
-802:Hold (Katana)
-803:Darkdrift
-804:Hold (Frayed Blade)
-900:Warcry (Axe)
-901:Sharpen (Axe)
-902:Fest Bell
-903:Quickstep (Axe)
-904:Warcry (Axe)
-1000:Warcry (GA)
-1002:Demonic Flare
-1003:Falling Bolt (GA)
-1004:Warcry (GA)
-1005:Sharp (GA)
-1006:Earthen Wrath
-1100:Perseverance (Hammer)
-1101:Warcry (Hammer)
-1102:Steady Chant (Hammer)
-1103:Galvanize
-1104:Breathe Fire
-1200:Perseverance (GH)
-1201:Molten Persverance
-1202:Kindled Flurry
-1203:Warcry (GH)
-1204:Morne's Rage
-1205:Spin Bash (GH)
-1206:Galvanize (GH)
-1207:Quake
-1208:Call to Stone
-1300:Charge (Spear)
-1301:Falling Bolt (Swordspear)
-1302:Pacify
-1303:Shield Splitter
-1304:Steady Chant
-1305:Unleash Dragon
-1306:Charge (Spear)
-1307:Charge (Spear)
-1308:Lightning Charge
-1309:Kindled Charge
-1310:Charge (Spear)
-1311:Spin Sweep (Spear)
-1312:Hurl Spear
-1313:Ember (Spear)
-1314:Lothric War Banner
-1400:Spin Sweep (Halberd)
-1401:Chain Spin
-1402:Champion's Charge
-1404:Punitive Flame
-1405:Warcry (Halberd)
-1406:Charge (Halberd)
-1407:Perseverance (Halberd)
-1408:Wind Wheel
-1409:Mad King's Folly
-1500:Neck Swipe
-1501:1501?
-1502:Frost
-1600:Impact
-1601:Flame Whip
-1700:Quickstep (Fists)
-1701:Flame Whirlwind
-1702:Lifedrain
-1703:Perseverance (Fists)
-1800:Leaping Slash
-1801:Quickstep (Claws)
-1802:Quickstep (Claws)
-1803:Raptor Flurry
-1900:Rapid Fire
-1901:Puncture
-1902:Pharis Triple-shot
-1903:Darkmoon Arrow
-1904:Unseen Arrow
-2000:Puncturing Arrow
-2001:Puncturing Arrow
-2002:Pierce Earth
-2101:Tackle
-2102:Quickstep (xbow)
-2103:Repeat Fire
-2200:Steady Chant
-2201:Steady Chant
-2202:Poison Spores
-2203:Steady Chant
-2204:Chant from the Depths
-2205:Feasting Branch
-2300:Unfaltering Prayer
-2301:Gentle Prayer
-2302:Combustion
-2303:Unfaltering Prayer (Saint's Talisman)
-2304:Unfaltering Prayer (Sunlight Talisman)
-2305:Awakening
-2306:Pray for Favor
-2400:Combustion
-2401:Parting Flame
-2500:Quickstep (twindagger)
-2600:Spin Slash (twinswords)
-2700:Spin Slash (twinblades)
-2701:Spin Slash ?
-2710:(Golden Dual Swords)
-2720:Dancer's Grace
-2800:Onislayer
-2900:Charge (twinspears)
-3000:Chain Spin ?
-3100:Spin Bash ?
-3200:Shield Bash (Shield)
-3201:Shield Strike
-3300:Shield Bash (GShield)
-3301:Moan
-3310:Stone Flesh
-3320:Wheel of Fate
-3321:Dragon Roar?
-3330:Lockout
-3400:Shield Bash?
-3401:Dragon Breath?
-65536:65536
-</DropDownList>
+                          <DropDownListLink>SWORD_ARTS_ID</DropDownListLink>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>4 Bytes</VariableType>
                           <Address>+198</Address>
@@ -104383,7 +103539,6 @@ if not syntaxcheck then disableMemrec(memrec) end
 FFFFFFFF:None
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213205</ID>
@@ -104403,7 +103558,6 @@ FFFFFFFF:None
 1200:Occult
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213206</ID>
@@ -104437,7 +103591,6 @@ FFFFFFFF:None
 25:+25 | +10
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213441</ID>
@@ -104536,7 +103689,6 @@ FFFFFFFF:None
 80014C08:White Shadow's Lure
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213388</ID>
@@ -104548,7 +103700,6 @@ FFFFFFFF:None
 8:Gem
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213442</ID>
@@ -104870,7 +104021,6 @@ FFFFFFFF:None
 1054552950:[Mountaintops of the Giants] First Church of Marika
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213545</ID>
@@ -104903,7 +104053,6 @@ FFFFFFFF:None
 25:+25
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213443</ID>
@@ -107883,7 +107032,6 @@ FFFFFFFF:None
 99060000:?WeaponName?
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213438</ID>
@@ -108543,7 +107691,6 @@ FFFFFFFF:None
 2030000:Lazuli Robe
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213437</ID>
@@ -108667,7 +107814,6 @@ FFFFFFFF:None
 999999999:?AccessoryName?
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213436</ID>
@@ -110478,7 +109624,6 @@ FFFFFFFF:None
 999999999:?GoodsName?
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213431</ID>
@@ -110657,7 +109802,6 @@ FFFFFFFF:None
 7903:Golden Lightning Fortification
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213444</ID>
@@ -110874,7 +110018,971 @@ FFFFFFFF:None
 85000:Ash of War: White Shadow's Lure
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337215552</ID>
+                  <Description>"SWORD_ARTS_ID"</Description>
+                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">-1:None
+0:?SwordArtName?
+1:?SwordArtName?
+10:No Skill
+100:Lion's Claw
+101:Impaling Thrust
+102:Piercing Fang
+103:Spinning Slash
+104:?SwordArtName?
+105:Charge Forth
+106:Stamp (Upward Cut)
+107:Stamp (Sweep)
+108:Blood Tax
+109:Repeating Thrust
+110:Wild Strikes
+111:Spinning Strikes
+112:Double Slash
+113:Prelate's Charge
+114:Unsheathe
+115:Square Off
+116:Giant Hunt
+117:Torch Attack
+118:Loretta's Slash
+119:Poison Moth Flight
+120:Spinning Weapon
+121:?SwordArtName?
+122:Storm Assault
+123:Stormcaller
+124:Sword Dance
+125:Spinning Chain
+200:Glintblade Phalanx
+201:Sacred Blade
+202:Ice Spear
+203:Glintstone Pebble
+204:Bloody Slash
+205:Lifesteal Fist
+207:Eruption
+208:Prayerful Strike
+209:Gravitas
+210:Storm Blade
+212:Earthshaker
+213:Golden Land
+214:Flaming Strike
+216:Thunderbolt
+217:Lightning Slash
+218:Carian Grandeur
+219:Carian Greatsword
+220:Vacuum Slice
+221:Black Flame Tornado
+222:Sacred Ring of Light
+223:Firebreather
+224:Blood Blade
+225:Phantom Slash
+226:Spectral Lance
+227:Chilling Mist
+228:Poisonous Mist
+300:Shield Bash
+301:Barricade Shield
+302:Parry
+303:Buckler Parry
+305:Carian Retaliation
+306:Storm Wall
+307:Golden Parry
+308:Shield Crash
+309:Thops's Barrier
+400:Through and Through
+401:Barrage
+402:Mighty Shot
+404:Enchanted Shot
+405:Sky Shot
+406:Rain of Arrows
+407:?SwordArtName?
+501:Hoarfrost Stomp
+502:Storm Stomp
+503:Kick
+504:Lightning Ram
+505:Flame of the Redmanes
+506:Ground Slam
+507:Golden Slam
+508:Waves of Darkness
+509:Hoarah Loux's Earthshaker
+600:Determination
+601:Royal Knight's Resolve
+602:Assassin's Gambit
+603:Golden Vow
+604:Sacred Order
+605:Shared Order
+606:Seppuku
+607:Cragblade
+650:Barbaric Roar
+651:War Cry
+652:Beast's Roar
+653:Troll's Roar
+654:Braggart's Roar
+700:Endure
+701:Vow of the Indomitable
+702:Holy Ground
+800:Quickstep
+801:Bloodhound's Step
+802:Raptor of the Mists
+850:White Shadow's Lure
+1000:Surge of Faith
+1001:Flame Spit
+1002:Tongues of Fire
+1003:Oracular Bubble
+1004:Bubble Shower
+1005:Great Oracular Bubble
+1006:Sea of Magma
+1007:Viper Bite
+1008:Moonlight Greatsword
+1009:Siluria's Woe
+1010:Rallying Standard
+1011:Bear Witness!
+1012:Eochaid's Dancing Blade
+1013:Soul Stifler
+1014:Taker's Flames
+1015:Shriek of Milos
+1016:Reduvia Blood Blade
+1017:Glintstone Dart
+1018:Flowing Form
+1019:Night-and-Flame Stance
+1020:Wave of Gold
+1021:Ruinous Ghostflame
+1022:Establish Order
+1023:Mists of Slumber
+1024:Spearcall Ritual
+1025:Wolf's Assault
+1026:Thundercloud Form
+1027:Cursed-Blood Slice
+1028:Waterfowl Dance
+1029:Gold Breaker
+1030:I Command Thee, Kneel!
+1031:Regal Roar
+1032:Starcaller Cry
+1033:Wave of Destruction
+1034:Bloodboon Ritual
+1035:Flowing Form
+1036:Blade of Death
+1037:Blade of Gold
+1038:Destined Death
+1039:Spinning Wheel
+1040:Alabaster Lords' Pull
+1041:Onyx Lords' Repulsion
+1042:Oath of Vengeance
+1043:Ice Lightning Sword
+1044:Regal Beastclaw
+1045:Flame Dance
+1046:Claw Flick
+1047:Nebula
+1048:Ghostflame Ignition
+1049:Ancient Lightning Spear
+1050:Frenzyflame Thrust
+1051:Miquella's Ring of Light
+1052:Golden Tempering
+1053:Last Rites
+1054:Unblockable Blade
+1055:Eochaid's Dancing Blade
+1165:?SwordArtName?
+1166:?SwordArtName?
+1167:Corpse Wax Cutter
+1168:Zamor Ice Storm
+1169:Radahn's Rain
+1170:The Queen's Black Flame
+1171:Dynast's Finesse
+1172:Magma Shower
+1173:Nebula
+1174:Death Flare
+1175:Bloodhound's Finesse
+1176:Magma Guillotine
+1177:Corpse Piler
+1178:Transient Moonlight
+1179:Bloodblade Dance
+1180:?SwordArtName?
+1181:?SwordArtName?
+1182:Knowledge Above All
+1183:Devourer of Worlds
+1184:Familal Rancor
+1185:Rosus's Summons
+1186:Thunderstorm
+1187:Sacred Phalanx
+1188:Great-Serpent Hunt
+1189:Angel's Wings
+1190:Storm Kick
+1191:Unblockable Blade
+1192:Sorcery of the Crozier
+1193:Erdtree Slam
+1194:Gravity Bolt
+1195:Fires of Slumber
+1196:Golden Retaliation
+1197:Contagious Fury
+1198:Ordovis's Vortex
+1199:Spinning Weapon
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>26</ID>
+                  <Description>"STATE_INFO"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Default / None
+1:None
+2:Poison
+3:Unk
+4:Durability Damage
+5:Scarlet Rot
+6:Hemorrhage
+7:Ghost
+8:Enemy Sight Reduction
+9:Tranquil Walk of Peace
+10:Remove Poison
+11:Remove Scarlet Rot
+12:Remove Hemorrhage
+13:Remove All Status
+14:Humanity Stolen
+15:Telescope
+16:Warp to Grace
+17:Revival
+19:Dispel Black Phantom
+22:Unk
+23:On Revive Magic
+24:Disables Spell Usage
+28:Right-hand Buff Vfx
+29:Body Buff Vfx
+31:Ghost Parameter Change
+32:Imiddle of Paralysis
+34:Giant Slime Freezing
+35:Unk
+36:Unk
+37:Unk
+39:Sound Feed
+40:Greater Body Buff Vfx
+41:Flash Sweat
+42:Hp Recovery
+43:Unk
+44:Unk
+45:Unk
+46:Modify Target Priority
+47:Disable Fall Damage
+48:Increase Damage
+49:Increase Defense
+50:Hp/fp/stamina Recovery
+52:Pledge Effect Test
+54:Modify Enemy Listen Reduction
+55:Hostdeath
+58:Point Light Source Equipped
+59:Your Message Was Rated
+60:Magic Buff Vfx
+61:Magic Weapon Buff Vfx
+62:Fire Weapon Buff Vfx
+64:Enchanted Weapon Buff Vfx
+65:Unk
+66:Modify Item Discovery
+69:Tears of Denial Vfx
+70:Is Dead Test Condition
+71:Spell Power Boost
+72:Unk
+73:Unk
+74:Unk
+75:Green Blossom Vfx""Unknown","78"
+76:Modify Rune Gain
+77:Unk
+78:Unk
+79:Unk
+91:Unk
+95:Applies Chamelon Effect
+96:Applies Dragon Form Effect
+98:Mp Detection
+99:Mp Wait for Cooperation
+100:Mp Cooperation
+101:Mp Cooperation Sent
+102:Wax Slow Down
+103:Used for Evil Eye Effect
+104:Mp Wait for Cooperation
+105:Mp Cooperation Lv 1
+106:Mp Cooperation Lv 2
+107:Mp Cooperation Lv 3
+108:Used for Evil Eye Effect (1)
+109:Used for Evil Eye Effect (2)
+110:Counter Damage
+112:1409f7282_hks
+113:Unk
+114:Unk
+115:Backstep Animation Change
+116:Blight
+117:Blight Instant Death Animation
+118:Disable Blight
+119:Unk
+120:Damage Level Change Before Poise Break
+121:Damage Level Change
+122:Unk
+123:Trigger on Roll (Head)
+124:Trigger on Roll (Body)
+125:Trigger on Roll (Hands)
+126:Trigger on Roll (Legs)
+127:Mimic Sleep
+128:Mimic Sleep
+130:Mimic Sleep
+131:Mimic Sleep
+132:Change Team Type
+133:Enable Developer Messages
+134:Iron Flesh
+135:Mimic Sleep
+136:Blight
+137:Resonancelvl 0
+138:Resonancelvl 1
+139:Resonancelvl 2
+140:Resonancelvl 3
+141:Resonancelvl 4
+142:Npc Behavior Id Change
+143:Character Respawn
+144:Unk
+145:Holy
+146:Restore Durability
+147:Cast Light
+148:Unk
+149:White Relief Magic
+150:Black Relief Magic
+151:Lightning Weapon Buff Vfx
+152:Enable Attack Effect Against Enemy
+153:Enable Attack Effect Against Player
+154:Block Estus Usage
+155:Modify Poise
+156:Disable Durability
+157:Transient Curse
+158:Left  Hand Buff Vfx
+159:Destroy Accessory but Save Runes
+160:Rare Ring of Sacrifice [ds1]
+161:Warp to Grace
+162:Warp to Grace
+163:Warp to Grace
+164:Warp to Grace
+165:Warp to Grace
+166:Pledge Discarded
+167:Dragon Change Vfx
+168:Bow Distance Change
+169:Unk
+170:Karmic Justice Counter
+171:Karmic Justice Used for Behavior Change
+173:Ritual
+174:Power of Evil Spirits
+175:Revival Production
+176:Aural Decoy
+177:Unk
+179:Deatheffectlv1
+180:Deatheffectlv2
+181:Deatheffectlv3
+182:Deatheffectlv4
+183:Bluesignvisualization
+184:Hide Weapon
+185:Unk
+186:Unk
+187:Unk
+188:Unk
+189:Unk
+190:Unk
+191:Unk
+192:Unk
+193:Modify Effect Duration
+194:Comparewith203
+195:Unk
+196:Ifworldchrmannull
+197:Enhance Thrusting Counter Attacks
+198:Cure Blight
+199:Apply Kill Effect
+200:Power Within Vfx
+201:Vowofsilencevisual
+202:Dragon Roar
+203:Comparewith194
+204:Great Magic Shield
+205:Holy Weapon Buff Vfx
+206:Unk
+207:Jailer Hp Drain
+213:Trigger on Enemy Backstab
+221:Unk
+222:Item Ban
+223:Unk
+224:Unk
+232:Disableuseatcoliseum
+237:Calamity Ring
+252:Oil
+253:Fire
+258:Unk
+259:Unk
+260:Frostbite
+261:Remove Effect if Torch in Hand
+262:Wormrecovery(Torch)
+264:Setcultbool
+266:Falldeathisdisabled
+267:Aivisualdistancechange
+269:Unk
+270:Unk
+271:Unk
+272:Unk
+275:Player Behavior Id Change
+276:Disable Frostbite
+277:Trigger Great Rune
+278:Disablespelleffect
+280:Watchdogtriggerforhost
+281:Wetsystemtrigger
+282:Npc Correction for Coop
+283:Tears of Denial Trigger
+284:Heal Spell
+285:Unk
+286:Weak Movement Slow
+287:Strong Movement Slow
+288:Trigger on Critical Hit (Hp)
+289:Trigger on Critical Hit (Fp)
+290:Extend Roll Invincibility
+291:Grants Roll Invisibility
+292:Repair1
+293:Change Durability
+294:Unk
+295:Unk
+296:Unk
+297:Not in Multiplayer Session
+298:Trigger on Player Backstab
+299:Enemies Attack Invaders
+300:Enemies Attack Invaders
+301:Law of Regression
+302:Warp to Grace
+303:Conditional 1
+304:Conditional 2
+305:Conditional 3
+306:Conditional 4
+307:Conditional 5
+308:Conditional 6
+309:Conditional 7
+310:Conditional 8
+311:Conditional 9
+312:Unk
+313:Seek Guidance
+314:Add Guard Stability
+315:Scale Attack Power With Equip Load
+316:Calccorrectgraph_33
+317:Revoke Online Penalty
+318:Dead Again
+319:Unk
+320:Unk
+321:Reverse Hollowing
+322:Chrasmstyle_hks_lefthand
+323:Chrasmstyle_hks_righthand
+324:Unk
+325:Wet Aspect Param
+326:Switch Animation Gender
+327:Ember
+328:Change Durability
+329:Getestuscharge
+330:Online Check, Reset Event Flag 2100
+331:Aiparam1
+332:Aiparam_effect16189
+333:Spell Enhance (+6 to Id)
+334:Bullet Behavior Id Change
+335:Trigger During Critical Hit
+336:Summon Torrent
+337:Unk
+338:Unk
+339:Reload
+342:Unk
+343:Unk
+344:Unk
+345:Unk
+346:Unk
+347:Unk
+348:Unk
+349:Unk
+350:Unk
+351:Unk
+352:Unk
+353:Unk
+354:Unk
+355:Unk
+356:Unk
+357:Spirit Summon
+358:Unk
+359:Unk
+360:Unk
+361:Unk
+362:Unk
+363:Unk
+364:Unk
+365:Unk
+366:Unk
+367:Enhance Critical Attacks
+368:Unk
+369:Unk
+371:Unk
+372:Unk
+373:Unk
+375:Unk
+376:Unk
+377:Unk
+378:Unk
+379:Trigger in Presence of Blood Loss
+380:Trigger in Presence of Rot
+381:Unk
+382:Unk
+383:Unk
+384:Unk
+385:Unk
+387:Unk
+388:Unk
+389:Unk
+390:Pacify Wild Animals
+391:Unk
+392:Unk
+393:Unk
+394:Unk
+395:Unk
+396:Unk
+397:Unk
+398:Gravity Pull Towards Caster
+399:Unk
+402:Unk
+403:Unk
+404:Unk
+405:Reveal Phantom Signs
+406:Request Friendly Phantom
+407:Answer Phantom Request
+408:Encourage Invasion
+409:Send Summon Sign to Pool
+410:Send Invasion Sign to Pool
+411:Unk
+412:Unk
+413:Unk
+414:Unk
+415:Unk
+416:Unk
+417:Unk
+418:Unk
+419:Unk
+421:Unk
+422:Unk
+423:Unk
+424:Unk
+425:Unk
+426:Unk
+427:Unk
+428:Unk
+429:Unk
+430:Unk
+431:Unk
+432:Unk
+435:Unk
+436:Sleep
+437:Madness
+438:Disable Sleep
+439:Disable Madness
+440:Purify Mohg's Curse
+441:Mohg's Great Rune
+442:Unk
+443:Unk
+445:Unk
+446:Unk
+447:Phantom Great Rune
+448:Heal Invader When Blessed Enemy Kills Player
+449:Malenia's Great Rune
+450:Reduce Headshot Impact
+452:Recovery Damage
+453:Unk
+454:Unk
+455:Unk
+456:Unk
+457:No Combat
+458:Attempt Invasion
+459:Unk
+460:Unk
+461:Unk
+462:Unk
+463:Unk
+465:Unk
+466:Trigger on Crouch
+467:Bulletbehavior
+468:Unk
+469:Unk
+1000:Skipspcategorycheck1
+1001:Skipspcategorycheck2
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>27</ID>
+                  <Description>"BUDDY_ID"</Description>
+                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:None / Default
+20000000:Black Knife Tiche
+20100000:Banished Knight Oleg
+20200000:Banished Knight Engvall
+20300000:Fanged Imps
+20300001:Fanged Imps
+20400000:Latenna the Albinauric
+20500000:Nomad
+20600000:Nightmaiden &amp; Swordstress
+20600001:Nightmaiden &amp; Swordstress
+20700000:Mimic Tear
+20700001:Mimic Tear
+20800000:Crystalian
+20900000:Ancestral Follower
+21000000:Winged Misbegotten
+21100000:Albinauric Ashes
+21100001:Albinauric Ashes
+21200000:Skeletal Militiaman
+21200001:Skeletal Militiaman
+21300000:Skeletal Bandit
+21400000:Oracle Envoy
+21400001:Oracle Envoy
+21400002:Oracle Envoy
+21400003:Oracle Envoy
+21500000:Putrid Corpse
+21500001:Putrid Corpse
+21500002:Putrid Corpse
+21500003:Putrid Corpse
+21600000:Depraved Perfumer
+21700000:Perfumer Tricia
+21800000:Glintstone Sorcerer
+21900000:Twinsage Sorcerer
+22000000:Page Ashes
+22100000:Battlemage Hugues
+22200000:Clayman
+22200001:Clayman
+22300000:Cleanrot Knight Finlay
+22400000:Kindred of Rot
+22500000:Marionette Soldier
+22500001:Marionette Soldier
+22600000:Avionette Soldier
+22600001:Avionette Soldier
+22700000:Fire Monk
+22800000:Blackflame Monk
+22900000:Man-serpent
+23000000:Azula Beastman
+23000001:Azula Beastman
+23100000:Kaiden Sellsword
+23200000:Lone Wolf
+23200001:Lone Wolf
+23200002:Lone Wolf
+23300000:Giant Rat
+23300001:Giant Rat
+23300002:Giant Rat
+23310000:Giant Rat - Additional Set 1
+23310001:Giant Rat - Additional Set 1
+23310002:Giant Rat - Additional Set 1
+23310003:Giant Rat - Additional Set 1
+23320000:Giant Rat - Additional Set 2
+23320001:Giant Rat - Additional Set 2
+23320002:Giant Rat - Additional Set 2
+23320003:Giant Rat - Additional Set 2
+23320004:Giant Rat - Additional Set 2
+23400000:Demi-human
+23400001:Demi-human
+23400002:Demi-human
+23400003:Demi-human
+23400004:Demi-human
+23500000:Rotten Stray
+23600000:Spirit Jellyfish
+23700000:Warhawk
+23800000:Stormhawk
+23900000:Bloodhound Knight Floh
+24000000:Wandering Noble
+24000001:Wandering Noble
+24000002:Wandering Noble
+24000003:Wandering Noble
+24000004:Wandering Noble
+24100000:Noble Sorcerer
+24200000:Vulgar Militia
+24200001:Vulgar Militia
+24200002:Vulgar Militia
+24300000:Mad Pumpkin Head
+24400000:Land Squirt
+24400001:Land Squirt
+24400002:Land Squirt
+24500000:Miranda Sprout
+24500001:Miranda Sprout
+24500002:Miranda Sprout
+24500003:Miranda Sprout
+24500004:Miranda Sprout
+24600000:Soldjars of Fortune
+24600001:Soldjars of Fortune
+24600002:Soldjars of Fortune
+24700000:Omenkiller
+24800000:Greatshield Soldier
+24800001:Greatshield Soldier
+24800002:Greatshield Soldier
+24800003:Greatshield Soldier
+24800004:Greatshield Soldier
+24900000:Archer
+24900001:Archer
+24900002:Archer
+25000000:Godrick Soldier
+25000001:Godrick Soldier
+25100000:Raya Lucaria Soldier
+25100001:Raya Lucaria Soldier
+25100002:Raya Lucaria Soldier
+25200000:Leyndell Soldier
+25200001:Leyndell Soldier
+25300000:Radahn Soldier
+25300001:Radahn Soldier
+25400000:Mausoleum Soldier
+25400001:Mausoleum Soldier
+25400002:Mausoleum Soldier
+25400003:Mausoleum Soldier
+25400004:Mausoleum Soldier
+25500000:Haligtree Soldier
+25500001:Haligtree Soldier
+25500002:Haligtree Soldier
+25500003:Haligtree Soldier
+25600000:Ancient Dragon Knight Kristoff
+25700000:Redmane Knight Ogha
+25800000:Lhutel the Headless
+25900000:Nepheli Loux Puppet
+26000000:Dung Eater Puppet
+26100000:Finger Maiden Therolina Puppet
+26200000:Dolores the Sleeping Arrow
+26300000:Jarwight Puppet
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>28</ID>
+                  <Description>"BUDDY_STONE_ID"</Description>
+                  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:None / Default
+10000100:Stormveil Castle
+10000102:Stormveil Castle
+10000104:Stormveil Castle
+10000106:Stormveil Castle
+10000108:Stormveil Castle
+11000100:Leyndell Royal Capital
+11000102:Leyndell Royal Capital
+11000104:Leyndell Royal Capital
+11000106:Leyndell Royal Capital
+11050100:Leyndell Ashen Capital
+11050102:Leyndell Ashen Capital
+12010100:Ainsel River
+12010102:Ainsel River
+12010104:Ainsel River
+12010106:Ainsel River
+12010108:Ainsel River
+12010110:Ainsel River
+12020102:Siofra River
+12020110:Siofra River
+12020112:Siofra River
+12020114:Siofra River
+12020116:Siofra River
+12020118:Siofra River
+12030100:Deeproot Depths
+12030102:Deeproot Depths
+12030104:Deeproot Depths
+12030106:Deeproot Depths
+12030108:Deeproot Depths
+12040100:Ainsel River Boss
+12050100:Mohgwyn Palace
+12050102:Mohgwyn Palace
+12050104:Mohgwyn Palace
+12070100:Siofra River Bank
+12070102:Siofra River Bank
+12080100:Siofra River Boss
+12090100:Nokron Eternal City Boss
+13000100:Crumbling Farum Azula
+13000102:Crumbling Farum Azula
+13000106:Crumbling Farum Azula
+13000108:Crumbling Farum Azula
+13000120:Crumbling Farum Azula
+13000122:Crumbling Farum Azula
+14000100:Academy of Raya Lucaria
+14000102:Academy of Raya Lucaria
+14000104:Academy of Raya Lucaria
+14000106:Academy of Raya Lucaria
+15000100:Miquella's Haligtree
+15000102:Miquella's Haligtree
+15000104:Miquella's Haligtree
+15000110:Miquella's Haligtree
+16000100:Volcano Manor
+16000108:Volcano Manor
+16000110:Volcano Manor
+16000112:Volcano Manor
+16000114:Volcano Manor
+16000116:Volcano Manor
+18000100:Stranded Graveyard
+19000130:Stone Platform
+30000100:Tombsward Catacombs
+30010100:Impaler's Catacombs
+30010100:Impaler's Catacombs
+30020100:Stormfoot Catacombs
+30030100:Road's End Catacombs
+30040100:Murkwater Catacombs
+30050100:Black Knife Catacombs
+30060100:Cliffbottom Catacombs
+30070100:Wyndham Catacombs
+30080100:Sainted Hero's Grave
+30090100:Gelmir Hero's Grave
+30100100:Auriza Hero's Grave
+30110100:Deathtouched Catacombs
+30120100:Unsightly Catacombs
+30130100:Auriza Side Tomb
+30140100:Minor Erdtree Catacombs
+30150100:Caelid Catacombs
+30160100:War-dead Catacombs
+30170100:Giant-conquering Hero's Grave
+30180100:Giants' Mountaintop Catacombs
+30190100:Consecrated Snowfield Catacombs
+30200100:Hidden Path to the Haligtree
+31000100:Murkwater Cave
+31010100:Earthbore Cave
+31020100:Tombsward Cave
+31030100:Groveside Cave
+31040100:Stillwater Cave
+31050100:Lakeside Crystal Cave
+31060100:Academy Crystal Cave
+31070100:Seethewater Cave
+31090100:Volcano Cave
+31100100:Dragonbarrow Cave
+31110100:Sellia Hideaway
+31120100:Cave of the Forlorn
+31150100:Coastal Cave
+31170100:Highroad Cave
+31180100:Perfumer's Grotto
+31190100:Sage's Cave
+31190102:Sage's Cave
+31200100:Abandoned Cave
+31210100:Gaol Cave
+31220100:Spiritcaller's Cave
+32000100:Morne Tunnel
+32010100:Limgrave Tunnels
+32020100:Raya Lucaria Crystal Tunnel
+32040100:Old Altus Tunnel
+32050100:Altus Tunnel
+32070100:Gael Tunnel
+32080100:Sellia Crystal Tunnel
+32110100:Yelough Anix Tunnel
+34120100:Divine Tower of West Altus
+34120102:Divine Tower of West Altus
+34130100:Divine Tower of Caelid
+34140100:Divine Tower of East Altus
+35000100:Subterranean Shunning-grounds
+35000102:Subterranean Shunning-grounds
+39200100:Ruin-strewn Precipice
+39200102:Ruin-strewn Precipice
+39200104:Ruin-strewn Precipice
+1033430100:Liurnia of the Lakes Minor Erdtree Road's End Catacombs Entrance
+1033470100:Liurnia of the Lakes the Four Belfries Giant's Caravan Below
+1034420100:Liurnia of the Lakes Village of the Albinaurics Moonlight Altar Moonfolk Ruins
+1034420102:Liurnia of the Lakes Village of the Albinaurics Moonlight Altar Moonfolk Ruins
+1034440100:Liurnia of the Lakes Temple Quarter
+1034450100:Liurnia of the Lakes Meeting Place Academy Crystal Cave Entrance
+1034480100:Liurnia of the Lakes Northern Liurnia Lake Shore Kingsrealm Ruins
+1034480102:Liurnia of the Lakes Northern Liurnia Lake Shore Kingsrealm Ruins
+1034500100:Liurnia of the Lakes Ranni's Rise Seluvis's Rise
+1035410100:Moonlight Altar Lunar Estate Ruins
+1035420100:Moonlight Altar Cathedral of Manus Celes
+1035500100:Liurnia of the Lakes Caria Manor
+1035500102:Liurnia of the Lakes Caria Manor
+1035500104:Liurnia of the Lakes Caria Manor
+1035500106:Liurnia of the Lakes Caria Manor
+1035530100:Mt. Gelmir Seethewater Terminus
+1036410100:Liurnia of the Lakes Slumbering Wolf's Shack Lakeside Crystal Cave Entrance
+1036440100:Liurnia of the Lakes Gate Town Southwest
+1036480100:Bellum Highway East Raya Lucaria Gate
+1036500100:Liurnia of the Lakes Behind Caria Manor Royal Grave Evergaol Part of Ravine
+1036510100:Altus Plateau Perfumer's Ruins Unsightly Catacombs Entrance
+1036540100:Mt. Gelmir Ninth Mt. Gelmir Campsite Road of Iniquity Volcano Manor Entrance
+1037420100:Liurnia of the Lakes Scenic Isle Laskyar Ruins
+1037440100:Liurnia of the Lakes Gate Town Southeast
+1037490100:Bellum Highway Church of Inhibition Southwest of Grand Lift of Dectus
+1037510100:Altus Plateau Abandoned Coffin Ruin-strewn Precipice Exit
+1037530100:Mt. Gelmir Primeval Sorcerer Azur Gelmir Hero's Grave Entrance
+1037540100:Mt. Gelmir Minor Erdtree Seethewater Cave Entrance
+1038400100:Liurnia of the Lakes Liurnia Lake Shore
+1038420100:Liurnia of the Lakes Highway Lookout Tower
+1038450100:Liurnia of the Lakes Artist's Shack Eastern Liurnia Lake Shore
+1038480100:Altus Plateau Erdtree-gazing Hill Lux Ruins
+1038510100:Altus Plateau Erdtree-gazing Hill Lux Ruins
+1038520100:Altus Plateau Wyndham Ruins Wyndham Catacombs Entrance
+1039410100:Liurnia of the Lakes Liurnia Highway South Purified Ruins Cliffbottom Catacombs Entrance
+1039420100:Liurnia of the Lakes Liurnia Highway North
+1039440100:Liurnia of the Lakes Jarburg Divine Tower of Liurnia Entrance
+1039500100:Altus Plateau Golden Lineage Evergaol
+1039540100:Altus Plateau Shaded Castle
+1040520100:Altus Plateau Forest-spanning Greatbridge St. Trina's Hideaway Sainted Hero's Grave Entrance
+1040530102:Altus Plateau Bower of Bounty Writheblood Ruins
+1041330100:Weeping Peninsula Fourth Church of Marika Witchbane Ruins
+1041360100:Limgrave Coastal Cave Entrance
+1041380100:Stormhill Stormhill Shack Stormveil Castle Entrance
+1041500100:Altus Plateau South of Tree Sentinel Duo
+1041510100:Altus Plateau Tree Sentinel Duo Perfumer's Grotto Entrance
+1041510102:Altus Plateau Tree Sentinel Duo Perfumer's Grotto Entrance
+1041510104:Altus Plateau Tree Sentinel Duo Perfumer's Grotto Entrance
+1041520100:Altus Plateau Rampartside Path Altus Tunnel Entrance
+1041530100:Altus Plateau Woodfolk Ruins Minor Erdtree
+1041530102:Altus Plateau Woodfolk Ruins Minor Erdtree
+1042320102:Weeping Peninsula Tower of Return
+1042340100:Weeping Peninsula Tombsward Ruins
+1042360100:Limgrave Church of Elleh Stranded Graveyard Exit
+1042370100:Limgrave Gatefront Stormhill Evergaol Groveside Cave Entrance Limgrave Tunnels Entrance
+1042380100:Stormhill Warmaster's Shack Stormgate
+1042390100:Stormhill North of Warmaster's Shack
+1042500100:Leyndell South of Outer Wall Phantom Tree
+1042510100:Leyndell Outer Wall Phantom Tree
+1042520100:Leyndell Southwest Outer Wall Battleground
+1042540100:Altus Plateau East Windmill Village Highway Lookout Tower
+1042550100:Altus Plateau Windmill Heights
+1043300100:Weeping Peninsula Morne Moangrave
+1043310100:Weeping Peninsula Castle Morne
+1043330102:Weeping Peninsula Minor Erdtree Tombsward Catacombs Entrance Morne Tunnel Entrance
+1043340100:Weeping Peninsula Church of Pilgrimage Demi-human Forest Ruins
+1043360100:Limgrave Dragon-burnt Ruins
+1043380100:Limgrave Murkwater Coast Murkwater Catacombs Entrance
+1044330100:Weeping Peninsula Minor Erdtree Tombsward Catacombs Entrance Morne Tunnel Entrance
+1044330102:Weeping Peninsula Castle Morne Rampart Ailing Village Outskirts
+1044340106:Weeping Peninsula Bridge of Sacrifice Forest Lookout Tower Earthbore Cave Entrance
+1044340108:Weeping Peninsula Bridge of Sacrifice Forest Lookout Tower Earthbore Cave Entrance
+1044350100:Limgrave Agheel Lake South Forlorn Hound Evergaol
+1044360100:Limgrave Waypoint Ruins
+1044360102:Limgrave Waypoint Ruins
+1044530100:Leyndell Minor Erdtree
+1045330100:Weeping Peninsula Beside the Crater-pocked Glade Oridys's Rise
+1045370100:Limgrave Siofra River Well Mistwood Ruins Minor Erdtree Nokron Entrance
+1045370106:Limgrave Siofra River Well Mistwood Ruins Minor Erdtree Nokron Entrance
+1045380100:Limgrave South of Summonwater Village
+1045390100:Limgrave Summonwater Village
+1045520100:Leyndell Capital Rampart Auriza Side Tomb Entrance
+1046360100:Limgrave Fort Haight
+1046380100:Limgrave Third Church of Marika Gaol Cave Exit
+1046400100:Caelid Smoldering Church Rotview Balcony
+1047380100:Caelid Fort Gael Caelid Waypoint Ruins Gaol Cave Entrance
+1047390100:Caelid Fort Gael North
+1047400100:Caelid Caelem Ruins Forsaken Ruins Minor Erdtree Minor Erdtree Catacombs Entrance
+1047400102:Caelid Caelem Ruins Forsaken Ruins Minor Erdtree Minor Erdtree Catacombs Entrance
+1047550100:Consecrated Snowfield Yelough Anix Ruins Yelough Anix Tunnel Entrance
+1048370100:Caelid Caelid Highway South
+1048380100:Caelid West Aeonia Swamp
+1048390100:Caelid Smoldering Wall Abandoned Cave Entrance
+1048400100:Caelid Deep Siofra Well Greyoll's Dragonbarrow Dragonbarrow West
+1049360100:Caelid Southwest of Caelid Highway South
+1049380100:Caelid East Aeonia Swamp
+1049390100:Caelid West Sellia Sellia Crystal Tunnel Entrance
+1049390102:Caelid West Sellia Sellia Crystal Tunnel Entrance
+1049520100:Mountaintops of the Giants Before Grand Lift of Rold
+1049530100:Mountaintops of the Giants West Zamor Ruins Grand Lift of Rold
+1049560100:Consecrated Snowfield Southeast of Ordina
+1049560102:Consecrated Snowfield Southeast of Ordina
+1049570100:Consecrated Snowfield East of Ordina
+1050400100:Greyoll's Dragonbarrow Dragonbarrow Fork
+1050540100:Mountaintops of the Giants North of Zamor Ruins
+1050560100:Mountaintops of the Giants Shack of the Lofty Consecrated Snowfield Minor Erdtree Albinauric Rise Cave of the Forlorn Entrance
+1050570100:Mountaintops of the Giants West of Castle Sol Consecrated Snowfield North of Minor Erdtree
+1051360100:Caelid Redmane Castle
+1051390100:Greyoll's Dragonbarrow Fort Faroth
+1051400100:Greyoll's Dragonbarrow Minor Erdtree Dragonbarrow Cave Entrance
+1051430100:Greyoll's Dragonbarrow Bestial Sanctum
+1051560100:Mountaintops of the Giants Ancient Snow Valley Ruins Stargazers' Ruins
+1051570100:Mountaintops of the Giants South Castle Sol Snow Valley Ruins Overlook
+1051570102:Mountaintops of the Giants South Castle Sol Snow Valley Ruins Overlook
+1051570104:Mountaintops of the Giants South Castle Sol Snow Valley Ruins Overlook
+1052410100:Greyoll's Dragonbarrow Southeast Farum Greatbridge Lenne's Rise
+1052530100:Mountaintops of the Giants Northwest Fire Giant Arena Foot of the Forge
+1052530102:Mountaintops of the Giants Northwest Fire Giant Arena Foot of the Forge
+1052550100:Mountaintops of the Giants Guardians' Garrison
+1052560100:Mountaintops of the Giants Whiteridge Road Minor Erdtree
+1053560100:Mountaintops of the Giants Southwest Freezing Lake Lord Contender's Evergaol Spiritcaller's Cave Entrance
+1054560100:Mountaintops of the Giants Southeast Freezing Lake
+99020100:Unk
+99020101:Unk
+99020102:Unk
+</DropDownList>
+                  <GroupHeader>1</GroupHeader>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213351</ID>
@@ -110933,7 +111041,6 @@ FFFFFFFF:None
 220:?GoodsName?
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337213453</ID>
@@ -110942,7 +111049,6 @@ FFFFFFFF:None
 1:On
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337214546</ID>
@@ -110951,7 +111057,6 @@ FFFFFFFF:None
 1:Enabled
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337214545</ID>
@@ -110960,7 +111065,6 @@ FFFFFFFF:None
 1:Unlocked
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337197037</ID>
@@ -110975,7 +111079,6 @@ FFFFFFFF:None
 17:Blue
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
                 <CheatEntry>
                   <ID>1337197036</ID>
@@ -110989,7 +111092,6 @@ FFFFFFFF:None
 0:None
 </DropDownList>
                   <GroupHeader>1</GroupHeader>
-                  <Address/>
                 </CheatEntry>
               </CheatEntries>
             </CheatEntry>
