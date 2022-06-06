@@ -4,7 +4,6 @@
     <CheatEntry>
       <ID>1337192508</ID>
       <Description>"Open - The Grand Archives v0.5.2 - Elden Ring v1.04"</Description>
-      <Options moHideChildren="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{$lua}
 if syntaxcheck then return end
@@ -100511,6 +100510,28 @@ if not syntaxcheck then disableMemrec(memrec) end
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218204</ID>
+                  <Description>"ThrowMan"</Description>
+                  <Options moHideChildren="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337218228</ID>
+                      <Description>"Draw Throw Area"</Description>
+                      <DropDownListLink>ON_OFF</DropDownListLink>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Binary</VariableType>
+                      <BitStart>6</BitStart>
+                      <BitLength>1</BitLength>
+                      <ShowAsBinary>0</ShowAsBinary>
+                      <Address>ThrowMan</Address>
+                      <Offsets>
+                        <Offset>E5</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
               </CheatEntries>
             </CheatEntry>
             <CheatEntry>
@@ -101211,6 +101232,446 @@ if not syntaxcheck then disableMemrec(memrec) end
                         <Offset>40</Offset>
                         <Offset>8</Offset>
                       </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218172</ID>
+                  <Description>"DLC"</Description>
+                  <Options moHideChildren="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337218173</ID>
+                      <Description>"0"</Description>
+                      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+                      <VariableType>Byte</VariableType>
+                      <Address>CsDlc</Address>
+                      <Offsets>
+                        <Offset>10</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218174</ID>
+                      <Description>"1"</Description>
+                      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+                      <VariableType>Byte</VariableType>
+                      <Address>CsDlc</Address>
+                      <Offsets>
+                        <Offset>11</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218175</ID>
+                      <Description>"2"</Description>
+                      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+                      <VariableType>Byte</VariableType>
+                      <Address>CsDlc</Address>
+                      <Offsets>
+                        <Offset>12</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218176</ID>
+                      <Description>"3"</Description>
+                      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+                      <VariableType>Byte</VariableType>
+                      <Address>CsDlc</Address>
+                      <Offsets>
+                        <Offset>13</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218177</ID>
+                      <Description>"...49"</Description>
+                      <Color>C0C0C0</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218167</ID>
+                  <Description>"USER MAN"</Description>
+                  <Color>C0C0C0</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218168</ID>
+                  <Description>"FrpgHavokMan"</Description>
+                  <Color>C0C0C0</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218169</ID>
+                  <Description>"FrpgPhysWorld"</Description>
+                  <Color>C0C0C0</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218170</ID>
+                  <Description>"LOCALIZE"</Description>
+                  <Color>C0C0C0</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337218143</ID>
+                  <Description>"WINDOW"</Description>
+                  <Options moHideChildren="1"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337218144</ID>
+                      <Description>"ScreenMode"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Window
+1:Fullscreen
+2:Borderless Windowed
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>CSWindow</Address>
+                      <Offsets>
+                        <Offset>E0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218146</ID>
+                      <Description>"Windowed Resolution"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">00001C200000320:800x450
+000024000000400:1024x576
+000028800000480:1152x648
+000002D000000500:1280x720
+000032A000005A0:1440x810
+0000038400000640:1600x900
+00003B100000690:1680x945
+0000043800000780:1920x1080
+000005A000000A00:2560x1440
+0000075800000C80:3200x1880
+0000087000000F00:3840x2160
+</DropDownList>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>8 Bytes</VariableType>
+                      <Address>CSWindow</Address>
+                      <Offsets>
+                        <Offset>C8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218178</ID>
+                      <Description>"Fullscreen Resolution"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">00001C200000320:800x450
+000024000000400:1024x576
+000028800000480:1152x648
+000002D000000500:1280x720
+000032A000005A0:1440x810
+0000038400000640:1600x900
+00003B100000690:1680x945
+0000043800000780:1920x1080
+000005A000000A00:2560x1440
+0000075800000C80:3200x1880
+0000087000000F00:3840x2160
+</DropDownList>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>8 Bytes</VariableType>
+                      <Address>CSWindow</Address>
+                      <Offsets>
+                        <Offset>D0</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218147</ID>
+                      <Description>"Borderless Windowed Resolution"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">00001C200000320:800x450
+000024000000400:1024x576
+000028800000480:1152x648
+000002D000000500:1280x720
+000032A000005A0:1440x810
+0000038400000640:1600x900
+00003B100000690:1680x945
+0000043800000780:1920x1080
+000005A000000A00:2560x1440
+0000075800000C80:3200x1880
+0000087000000F00:3840x2160
+</DropDownList>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>8 Bytes</VariableType>
+                      <Address>CSWindow</Address>
+                      <Offsets>
+                        <Offset>D8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>1337218148</ID>
+                      <Description>"GRAPHICSCONFIG"</Description>
+                      <Options moHideChildren="1"/>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>1337218149</ID>
+                          <Description>"Resolution-WindowScreenWidth | 画面解像度-ウインドウ width"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>C8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218150</ID>
+                          <Description>"Resolution-WindowScreenHeight | 画面解像度-ウインドウ height"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>CC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218151</ID>
+                          <Description>"Resolution-FullScreenWidth | 画面解像度-フルスクリーン width"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>D0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218152</ID>
+                          <Description>"Resolution-FullScreenHeight | 画面解像度-フルスクリーン height"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>D4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218183</ID>
+                          <Description>"Resolution-BorderlessWindowedWidth"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>D8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218184</ID>
+                          <Description>"Resolution-BorderlessWindowedHeight"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>DC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218153</ID>
+                          <Description>"Screen Mode | スクリーンモード"</Description>
+                          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Window
+1:Fullscreen
+2:Borderless Windowed
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>E0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218154</ID>
+                          <Description>"Auto-detect best rendering settings | 自動描画調整"</Description>
+                          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF
+1:ON
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>E4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218155</ID>
+                          <Description>"Quality Setting"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>E8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218156</ID>
+                          <Description>"Texture quality | テクスチャフィルタ品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>EC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218157</ID>
+                          <Description>"Antialiasing | アンチエイリアシング品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>F0</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218158</ID>
+                          <Description>"SSAO | SSAO品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>F4</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218159</ID>
+                          <Description>"Depth of field | DOF品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>F8</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218160</ID>
+                          <Description>"Motion blur | モーションブラー品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>FC</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218161</ID>
+                          <Description>"Shadow quality | シャドウ品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>100</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218162</ID>
+                          <Description>"Lighting quality | ライティング品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>104</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218163</ID>
+                          <Description>"Effects quality | エフェクト品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>108</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218164</ID>
+                          <Description>"Reflection quality | 反射品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>10C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218165</ID>
+                          <Description>"Water surface quality | 水面品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>110</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218166</ID>
+                          <Description>"Shader quality | シェーダー品質"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>114</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218179</ID>
+                          <Description>"Volumetric Quality"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>118</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218180</ID>
+                          <Description>""</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>11C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218181</ID>
+                          <Description>"Global Illumination Quality"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>120</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>1337218182</ID>
+                          <Description>"Grass Quality"</Description>
+                          <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>CSWindow</Address>
+                          <Offsets>
+                            <Offset>124</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -110657,4 +111118,5 @@ FFFFFFFF:None
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <UserdefinedSymbols/>
 </CheatTable>
