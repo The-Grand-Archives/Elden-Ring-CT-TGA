@@ -95305,7 +95305,7 @@ paramUtils:restore("MiniDungeonWarp")
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337208162</ID>
-                          <Description>"Minor Eerdtree Church"</Description>
+                          <Description>"Minor Erdtree Church"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
@@ -95945,7 +95945,7 @@ paramUtils:restore("MiniDungeonWarp")
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337208161</ID>
-                          <Description>"Minor Eerdtree Catacombs"</Description>
+                          <Description>"Minor Erdtree Catacombs"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>1</BitStart>
@@ -96064,7 +96064,7 @@ paramUtils:restore("MiniDungeonWarp")
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337208125</ID>
-                          <Description>"Heart of Aenoia"</Description>
+                          <Description>"Heart of Aeonia"</Description>
                           <ShowAsSigned>0</ShowAsSigned>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
@@ -96819,7 +96819,7 @@ paramUtils:restore("MiniDungeonWarp")
                         </CheatEntry>
                         <CheatEntry>
                           <ID>1337208154</ID>
-                          <Description>"Malenia, Godess of Rot"</Description>
+                          <Description>"Malenia, Goddess of Rot"</Description>
                           <VariableType>Binary</VariableType>
                           <BitStart>3</BitStart>
                           <BitLength>1</BitLength>
