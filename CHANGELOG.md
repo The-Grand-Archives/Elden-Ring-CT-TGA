@@ -1,4 +1,7 @@
 # Changelog
+### v0.6.1 06/07/2022
+ - Check if the user forgot to launch without EAC
+
 ### v0.6.0 06/06/2022
  - Give all crafting materials x999 by Mar-Veloz
  - Give all upgrade materials x999

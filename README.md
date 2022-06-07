@@ -9,11 +9,13 @@ Our community, make sure to read the rules carefully
 This table is not meant to be used online and you will most likely be banned if you attempt to do so.
 
 ## Latest Release
-Table: [v0.6.0](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)  
+Table: [v0.6.1](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)  
 Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
 Game: App ver. 1.04.1
 
 ## Changelog
+### v0.6.1 06/07/2022
+ - Check if the user forgot to launch without EAC
 ### v0.6.0 06/06/2022
  - Give all crafting materials x999 by Mar-Veloz
  - Give all upgrade materials x999
