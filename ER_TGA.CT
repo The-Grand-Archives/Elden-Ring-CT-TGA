@@ -10292,7 +10292,8 @@ if not syntaxcheck then disableMemrec(memrec) end
                   <VariableType>Auto Assembler Script</VariableType>
                   <AssemblerScript>//Author: Coinsworth
 [ENABLE]
-aobscanmodule(LuaWarp_01,eldenring.exe,48 89 5C 24 10 57 48 83 EC 20 48 8B FA 44)
+aobscanmodule(LuaWarp_01_AOB,eldenring.exe,C3 ?? ?? ???????? 57 48 83 EC ?? 48 8B FA 44)
+define(LuaWarp_01,LuaWarp_01_AOB+2)
 alloc(Warp,$100,eldenring.exe)
 label(WarpLocation)
 registersymbol(Warp)
