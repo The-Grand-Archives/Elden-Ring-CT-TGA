@@ -24,7 +24,7 @@ if GetAddressSafe("eldenring.exe") == nil then
   error(e)
 end
 
-local table_ver = 0.061
+--local table_ver = 0.061
 local game_ver = 0x1000400010000
 local ce_ver = 7.4
 local version_url = "https://raw.githubusercontent.com/inunorii/Elden-Ring-CT-TGA/master/VERSION"
@@ -35,21 +35,27 @@ end
 
 if getCEVersion() &lt; ce_ver then
 	showMessage(string.format([[Your version of Cheat Engine is outdated.
-Some features will not work.
+  Some features will not work.
 
 You should update to at least %s or newer.]],ce_ver))
 end
 
-local internet = getInternet()
-local response = internet.getURL(version_url)
-if response ~= nil then
-  if table_ver &lt; tonumber(response) then
-    showMessage("Your Cheat Table is outdated.\nCheck the Github for the latest version.")
+if table_ver ~= nil then
+  local internet = getInternet()
+  local response = internet.getURL(version_url)
+  if response ~= nil then
+    if table_ver &lt; tonumber(response) then
+      showMessage([[Your Cheat Table is outdated.
+      Check the Github for the latest version.]])
+    end
+  else
+    showMessage("Version check failed.")
   end
+  internet.destroy()
 else
-  showMessage("Version check failed.")
+  showMessage([[This is a pre-release version of the Cheat Table.
+  Find regular versions in the Releases section on the Github page.]])
 end
-internet.destroy()
 
 autoAssemble([[
 aobscanmodule(Finder,eldenring.exe,48 8B 05 ?? ?? ?? ?? 48 85 C0 74 05 48 8B 40 58 C3 C3)
