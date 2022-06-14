@@ -126,3 +126,19 @@
  - Stats, Attributes, WIP PlayerParam
  - AddSoul, ItemGib, ItemDrop
  - Custom FPS Limit
+
+[v0.7.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.1...v0.7.0
+[v0.6.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.0...v0.6.1
+[v0.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.5.2...v0.6.0
+[v0.5.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.5.1...v0.5.2
+[v0.5.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.5.0...v0.5.1
+[v0.5.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.4.2...v0.5.0
+[v0.4.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.4.1...v0.4.2
+[v0.4.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.4.0...v0.4.1
+[v0.4.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.3.1...v0.4.0
+[v0.3.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.3.0...v0.3.1
+[v0.3]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.2.2...v0.3
+[v0.2.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.2.1...v0.2.2
+[v0.2.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.2...v0.2.1
+[v0.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.1...v0.2
+[v0.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/releases/tag/v0.1
