@@ -1,32 +1,39 @@
 # Changelog
-### v0.6.1 06/07/2022
+## [v0.6.1] - 2022-06-07
+### Added
  - Check if the user forgot to launch without EAC
 
-### v0.6.0 06/06/2022
+## [v0.6.0] - 2022-06-06
+### Added
  - Give all crafting materials x999 by Mar-Veloz
  - Give all upgrade materials x999
- - ParamUtils error spam should be gone, hopefully
- - Add address based helpers and address finders
- - Add TROPHY section with achievement unlocker
- - Add Teleport to Map-Relative Coordinates by tremwil
- - Add some ParamPatcher2 scripts, including Warp out of mini dungeons
- - Add version check for game, CE, and cheat table
- - Add some event flags and fix the names of some
- - Add "Unlock all ..." scripts for event flags
- - Add Draw Throw Area
- - Add CSCRIPT - CE C scripting extensions by tremwil
- - Add CParamUtils (C Param Patcher) by tremwil
+ - Address based helpers and address finders
+ - TROPHY section with achievement unlocker
+ - Teleport to Map-Relative Coordinates by tremwil
+ - Some ParamPatcher2 scripts, including Warp out of mini dungeons
+ - Version check for game, CE, and cheat table
+ - Some event flags and fix the names of some
+ - "Unlock all ..." scripts for event flags
+ - Draw Throw Area
+ - CSCRIPT - CE C scripting extensions by tremwil
+ - CParamUtils (C Param Patcher) by tremwil
+### Changed
  - ItemGib now uses $ccode instead of $luacode
+### Fixed
+ - ParamUtils error spam should be gone, hopefully
  
-### v0.5.2 04/21/2022
- - Removed Roped Freezing Pot
+## [v0.5.2] - 2022-04-21
+### Removed
+ - Roped Freezing Pot in ItemGib
 
-### v0.5.1 04/21/2022
- - Removed Miranda's Prayer
- - Fixed ItemGib reading Player ReinforceLv as int instead of byte
+## [v0.5.1] - 2022-04-21
+### Removed
+ - Miranda's Prayer in ItemGib
+### Fixed
+ - ItemGib reading Player ReinforceLv as int instead of byte
 
-### v0.5.0 04/20/2022
- - Missing items fixed, cut content stripped
+## [v0.5.0] - 2022-04-20
+### Added
  - Additional Grace ID names (by Careless Esper)
  - Great Rune selection
  - Param Patcher: BuddyParam class, Blaidd Spirit Ash
@@ -36,59 +43,76 @@
  - Maps, Whetblades, and Cookbooks removed from ItemGib dropdown
  - Idle Animation IDs (summon anims, fog wall)
  - Coordinates and Camera sections
- - Last x highlighted helpers now use proper paramdefs
- - ID Helpers now use proper paramdefs and rely on Param Patcher
  - Complete FaceData header
  - Budget inventory viewer (EquipInventoryData) and other misc stuff in Hero
  - Npc Helpers added
  - Toughness and SuperArmor info for player and NPCs
+### Changed
+ - Last x highlighted helpers now use proper paramdefs
+ - ID Helpers now use proper paramdefs and rely on Param Patcher
  - ItemGib will now handle upgrade level in a better way
+### Removed
+ - Cut content stripped from ItemGib
+### Fixed
+ - Missing items
  - MassItemGib crashes hopefully resolved
 
- ### v0.4.2 04/19/2022
+ ## [v0.4.2] - 2022-04-19
+ ### Fixed
  - Updated AOBs for v1.04
  
-### v0.4.1 03/19/2022
- - Fixed some Warp IDs
- - Fixed ItemGib issues: Bloodhound Claws not taking enhancements, Mohgwyn's Sacred Spear missing
+## [v0.4.1] - 2022-03-19
+### Fixed
+ - Some Warp IDs
+ - ItemGib issues: Bloodhound Claws not taking enhancements, Mohgwyn's Sacred Spear missing
  - Fixed Hero>Stats
 
-### v0.4.0 03/17/2022
- - AOBs fixed for latest update (v1.03.0)
+## [v0.4.0] - 2022-03-17
+### Added
  - ReinforceLv, Rune Arc, Character Type, Team Type, ClearCount added under Statitics
  - Resistances, EquipMagicData, GestureGameData,SpecialEffects>Active Effects added under Hero
- - Warp function adjusted to work with the same IDs as Last Grace, dropdowns with names have been added as well
  - Igromanru's Param Patcher v2 ported, Param Classes are still WIP and may not work as expected
  - New scripts: Unlock All Regular Gestures, Upgrades Need No Materials, Custom FOV
  - Easier to use Helpers are now available
+### Changed
+ - Warp function adjusted to work with the same IDs as Last Grace, dropdowns with names have been added as well
+### Fixed
+ - AOBs fixed for latest update (v1.03.0)
 
-### v0.3.1 03/06/2022
+## [v0.3.1] - 2022-03-06
+### Fixed
  - ItemGib adjusted to hopefully fix MassItemGib related crashes
  - MassItemGib expanded
 
-### v0.3 03/05/2022
+## [v0.3] - 2022-03-05
+### Added
  - PlayerParam updated
  - ChrAsm (dec), ChrAsm 2 (hex)
  - FaceData, still WIP but full AOB is available
  - ItemGib now features a complete dropdown for items, as well as selection of Upgrade, Reinforce Level, and Ash of War
  - WIP MassItemGib: Weapons and Projectiles
  - Warp function, IDs will be added at a later time
- - Corrected names of Character Flags
  - Save Slot and Last Grace
  - Debug Stuff > Damage management | ダメージ管理, contains attack hitbox display
+### Changed
+ - Corrected names of Character Flags
 
-### v0.2.2 03/01/2022:
+## [v0.2.2] - 2022-03-01
+### Added
  - Added script to use the table with eldenring.exe renamed to start_protected_game.exe
 
-### v0.2.1 02/28/2022:
- - Param Spreadsheet link in Table FAQ fixed
+## [v0.2.1] - 2022-02-28
+### Fixed
+ - Param Spreadsheet link in Table FAQ
  
-### v0.2 02/28/2022:
+## [v0.2] - 2022-02-28
+### Added
  - Helpers: Weapon, Protector, Accessory, Goods, Bullet, SpEffectParam, Magic
  - Full list of params
  - Character Flags: NoDead, NoStaminConsumption, NoFPConsumption, NoDead, NoGoodsConsume
  
-### v0.1 02/26/2022:
+## [v0.1] - 2022-02-26
+### Added
  - Stats, Attributes, WIP PlayerParam
  - AddSoul, ItemGib, ItemDrop
  - Custom FPS Limit
