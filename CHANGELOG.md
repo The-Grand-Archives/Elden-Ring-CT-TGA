@@ -1,4 +1,14 @@
 # Changelog
+## [v0.7.0] - 2022-06-14
+### Added
+ - Event Flags now have dropdowns
+ - Low FPS boost script by Jouta Kujo
+### Changed
+ - Update supported game version to v1.05
+ - Improve Warp script compatibility
+### Fixed
+ - Potential solution to MassItemGib crashes
+
 ## [v0.6.1] - 2022-06-07
 ### Added
  - Check if the user forgot to launch without EAC

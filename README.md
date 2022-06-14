@@ -9,28 +9,20 @@ Our community, make sure to read the rules carefully
 This table is not meant to be used online and you will most likely be banned if you attempt to do so.
 
 ## Latest Release
-Table: [v0.6.1](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)  
+Table: [v0.7.0](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest)  
 Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
-Game: App ver. 1.04.1
+Game: App ver. 1.05
 
 ## Changelog
-### v0.6.1 06/07/2022
- - Check if the user forgot to launch without EAC
-### v0.6.0 06/06/2022
- - Give all crafting materials x999 by Mar-Veloz
- - Give all upgrade materials x999
- - ParamUtils error spam should be gone, hopefully
- - Add address based helpers and address finders
- - Add TROPHY section with achievement unlocker
- - Add Teleport to Map-Relative Coordinates by tremwil
- - Add some ParamPatcher2 scripts, including Warp out of mini dungeons
- - Add version check for game, CE, and cheat table
- - Add some event flags and fix the names of some
- - Add "Unlock all ..." scripts for event flags
- - Add Draw Throw Area
- - Add CSCRIPT - CE C scripting extensions by tremwil
- - Add CParamUtils (C Param Patcher) by tremwil
- - ItemGib now uses $ccode instead of $luacode
+### [v0.7.0] - 2022-06-14
+#### Added
+ - Event Flags now have dropdowns
+ - Low FPS boost script by Jouta Kujo
+#### Changes
+ - Update supported game version to v1.05
+ - Improve Warp script compatibility
+#### Fixes
+ - Potential solution to MassItemGib crashes
 #### For previous changelogs check the [full changelog](/CHANGELOG.md)
 
 ## Credits
@@ -45,13 +37,14 @@ Dalvik | Advice, ideas
 hery | Grace ID Names
 Igromanru | Param Patcher, advice
 inuNorii | Porting, maintaining, research
+Jouta Kujo | Param scripts
 Relinquished001 | Table contributions
 sfix | Param dumps, advice
 Silence | Spreadsheet
 The-Raid-Boss | MassItemGib additions
 tremwil | Table contributions
 
-Other | Reason   
+Github | Reason   
 ------------- | ---------------------
 Mar-Veloz | Give all crafting materials x999
 qwelias | ReinforceLv pointer
