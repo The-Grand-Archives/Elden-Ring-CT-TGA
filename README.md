@@ -38,11 +38,12 @@ hery | Grace ID Names
 Igromanru | Param Patcher, advice
 inuNorii | Porting, maintaining, research
 Jouta Kujo | Param scripts
+RBT | Param scripts, Event Flags
 Relinquished001 | Table contributions
-sfix | Param dumps, advice
+sfix | Table contributions, param dumps, advice
 Silence | Spreadsheet
 The-Raid-Boss | MassItemGib additions
-tremwil | Table contributions
+tremwil | CParamUtils and more table contributions
 
 Github | Reason   
 ------------- | ---------------------
