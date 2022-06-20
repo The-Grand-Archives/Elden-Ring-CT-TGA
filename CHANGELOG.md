@@ -1,4 +1,18 @@
 # Changelog
+## [Unreleased]
+### Added
+ - Give all Crystal Tears script to MassItemgib
+ - Item Discovery x10 script to Scripts->QoL
+ - Faster respawn script to Scripts->QoL
+ - ThrowMan symbol
+ - Event Flags for Varré by RBT
+### Changed
+ - Cleaned up Discardable Items script
+ - Moved Discardable Items to Scripts->QoL
+ - Moved World Map Cursor Speed to Scripts->QoL
+ - Moved Warp out of uncleared mini-dungeons to Scripts->QoL
+ - Reorganised Event Flags->Bosses
+
 ## [v0.7.0] - 2022-06-14
 ### Added
  - Event Flags now have dropdowns
@@ -127,6 +141,7 @@
  - AddSoul, ItemGib, ItemDrop
  - Custom FPS Limit
 
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.7.0...HEAD
 [v0.7.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.5.2...v0.6.0
