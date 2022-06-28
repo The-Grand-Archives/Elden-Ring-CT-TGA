@@ -12,6 +12,7 @@
  - Moved World Map Cursor Speed to Scripts->QoL
  - Moved Warp out of uncleared mini-dungeons to Scripts->QoL
  - Reorganised Event Flags->Bosses
+ - Use process (LUA) or $process (AA) to support renamed executables
 
 ## [v0.7.0] - 2022-06-14
 ### Added
