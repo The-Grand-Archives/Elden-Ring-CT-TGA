@@ -6,6 +6,7 @@
  - Faster respawn script to Scripts->QoL
  - ThrowMan symbol
  - Event Flags for Varré by RBT
+ - steam_appid.txt will now be shipped with releases
 ### Changed
  - Cleaned up Discardable Items script
  - Moved Discardable Items to Scripts->QoL
