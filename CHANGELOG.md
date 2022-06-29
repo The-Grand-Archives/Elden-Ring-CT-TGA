@@ -16,7 +16,7 @@
  - Use process (LUA) or $process (AA) to support renamed executables
  - Cleaned up base address finders, no longer using autoAssemble()
  - Improved some of the AOBs
- - Updated README
+ - Updated README: Removed latest version changelog, added "How to use"
 ### Fixed
  - CSTrophy symbol missing
 
