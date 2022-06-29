@@ -21,7 +21,7 @@ Game: App ver. 1.05
 1. Unpack `steam_appid.txt` from the [latest release](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest) 
 2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\Elden Ring\Game`) 
 3. Move `steam_appid.txt` into the same folder as your Elden Ring executable (`eldenring.exe`) 
-4. Run the game via **eldenring.exe** 
+4. Run the game via `eldenring.exe` 
 #### Method 2 - Compatibility 
 1. Download LukeYui's Offline Launcher from [Nexusmods](https://www.nexusmods.com/eldenring/mods/98) or [Github](https://github.com/LukeYui/launch_modded_eldenring) 
 2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\Elden Ring\Game`) 
