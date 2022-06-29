@@ -13,6 +13,7 @@
  - Moved Warp out of uncleared mini-dungeons to Scripts->QoL
  - Reorganised Event Flags->Bosses
  - Use process (LUA) or $process (AA) to support renamed executables
+ - Cleaned up base address finders, no longer using autoAssemble()
 
 ## [v0.7.0] - 2022-06-14
 ### Added
