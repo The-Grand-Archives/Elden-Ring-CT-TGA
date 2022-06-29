@@ -14,6 +14,8 @@
  - Reorganised Event Flags->Bosses
  - Use process (LUA) or $process (AA) to support renamed executables
  - Cleaned up base address finders, no longer using autoAssemble()
+### Fixed
+ - CSTrophy symbol missing
 
 ## [v0.7.0] - 2022-06-14
 ### Added
