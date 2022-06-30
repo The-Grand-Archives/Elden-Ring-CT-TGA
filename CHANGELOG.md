@@ -19,6 +19,7 @@
  - Updated README: Removed latest version changelog, added "How to use"
 ### Fixed
  - CSTrophy symbol missing
+ - Map-Relative Teleport within legacy dungeons
 
 ## [v0.7.0] - 2022-06-14
 ### Added
