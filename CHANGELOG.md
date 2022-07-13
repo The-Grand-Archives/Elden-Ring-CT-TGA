@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v0.8.0] - 2022-07-13
 ### Added
  - Give all Crystal Tears script to MassItemgib
  - Item Discovery x10 script to Scripts->QoL
