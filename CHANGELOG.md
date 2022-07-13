@@ -20,6 +20,7 @@
 ### Fixed
  - CSTrophy symbol missing
  - Map-Relative Teleport within legacy dungeons
+ - CParamUtils (C Param Patcher) script crashes
 
 ## [v0.7.0] - 2022-06-14
 ### Added
