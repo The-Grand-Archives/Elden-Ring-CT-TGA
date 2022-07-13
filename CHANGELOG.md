@@ -5,7 +5,7 @@
  - Item Discovery x10 script to Scripts->QoL
  - Faster respawn script to Scripts->QoL
  - ThrowMan symbol
- - Event Flags for Varré by RBT
+ - Event Flags for some doors and many NPCs by RBT
  - steam_appid.txt will now be shipped with releases
 ### Changed
  - Cleaned up Discardable Items script
@@ -150,7 +150,8 @@
  - AddSoul, ItemGib, ItemDrop
  - Custom FPS Limit
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.7.0...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.1...v0.7.0
 [v0.7.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.5.2...v0.6.0
