@@ -6,9 +6,9 @@ Our community, make sure to read the rules carefully
 [The Grand Archives](https://discord.io/the-grand-archives)
 
 ## Latest Release
-Table: [v0.8.0](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest) | [Changelog](/CHANGELOG.md)  
+Table: [v0.8.1](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest) | [Changelog](/CHANGELOG.md)  
 Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
-Game: App ver. 1.05
+Game: App ver. 1.06
 
 ## How to use
 ### Info 
