@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - Upgrades Need No Materials
 
 ## [v0.8.0] - 2022-07-13
 ### Added
