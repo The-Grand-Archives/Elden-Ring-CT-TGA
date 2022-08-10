@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - More NPC flags and door flags by RBT
 ### Fixed
  - Upgrades Need No Materials
 
