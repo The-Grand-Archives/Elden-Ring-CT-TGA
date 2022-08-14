@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - Removed Dungeons from Unlock all Maps
 
 ## [v0.8.1] - 2022-08-10
 ### Added
