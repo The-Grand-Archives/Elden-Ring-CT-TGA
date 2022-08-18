@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Flags for Royal Capital
 ### Changed
  - Removed Dungeons from Unlock all Maps
 
