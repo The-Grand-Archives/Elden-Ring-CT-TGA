@@ -13,29 +13,43 @@ Game: App ver. 1.06
 ## How to use
 ### Info 
 This table is not meant to be used online and you will most likely be banned if you attempt to do so. 
-### Cheat Table
+### Cheat Table (Windows)
 1. Download and install Cheat Engine either from [Github](https://github.com/cheat-engine/cheat-engine/releases) or from its [website](https://cheatengine.org/) 
 2. Download the [Cheat Table](https://github.com/inunorii/Elden-Ring-CT-TGA/releases)
 3. Unpack the .CT file anywhere, a recommendation would be your **My Cheat Tables** folder (e.g. `%USERPROFILE%\Documents\My Cheat Tables`) 
-4. Open the .CT file (double-click or select and enter) 
-5. Disable EasyAntiCheat and run the game, see [Disabling EasyAntiCheat](#disabling-easyanticheat)
+4. Disable EasyAntiCheat and run the game, see [Disabling EasyAntiCheat](#disabling-easyanticheat)
+5. Load the .CT file directly via double-click or selecting it and pressing enter, or launch Cheat Engine and load the .CT file via File->Load or by clicking on the folder icon
 6. Activate the "Open" script by ticking its box
+### Cheat Table (Linux)
+I expect you to already have Steam, Wine, Proton, and the game installed
+1. Launch the game at least once via Steam to have your wine prefix set up
+2. Install [protonhax](https://github.com/jcnils/protonhax) (On Arch you should grab [protonhax-git](https://aur.archlinux.org/packages/protonhax-git))
+3. Download and install the **Windows** version of Cheat Engine from [Github](https://github.com/cheat-engine/cheat-engine/releases) or from its [website](https://cheatengine.org/) using **Wine**
+4. Download the [Cheat Table](https://github.com/inunorii/Elden-Ring-CT-TGA/releases) 
+5. Unpack the .CT file anywhere, a recommendation would be somewhere you can easily find within the wine prefix created for the game (e.g. `~/.steam/steam/steamapps/compatdata/1245620/pfx/drive_c/`)
+6. In Steam, set the game's launch options to `protonhax init %command%`
+7. Run the game via Steam ([Disabling EasyAntiCheat](#disabling-easyanticheat) is optional)
+8. Run Cheat Engine via `protonhax run 1245620 /path/to/Cheat\ Engine.exe` in your terminal of choice or put it in a shell script (replace `/path/to/` with your actual path to where you installed CE)
+9. Load the .CT file via File->Load or by clicking on the folder icon
+10. Activate the "Open" script by ticking its box
 ### Disabling EasyAntiCheat 
 #### Method 1 - Recommended 
 1. Unpack `steam_appid.txt` from the [latest release](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest) 
-2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\Elden Ring\Game`) 
+2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\ELDEN RING\Game` or `~/.steam/steam/steamapps/common/ELDEN RING/Game/`) 
 3. Move `steam_appid.txt` into the same folder as your Elden Ring executable (`eldenring.exe`) 
-4. Run the game via `eldenring.exe` 
+4. - Windows: Run the game via `eldenring.exe` 
+   - Linux: Add `eldenring.exe` as a non-steam app and run that
 #### Method 2 - Compatibility 
 1. Download LukeYui's Offline Launcher from [Nexusmods](https://www.nexusmods.com/eldenring/mods/98) or [Github](https://github.com/LukeYui/launch_modded_eldenring) 
-2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\Elden Ring\Game`) 
+2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\ELDEN RING\Game` or `~/.steam/steam/steamapps/common/ELDEN RING/Game/`) 
 3. Move the downloaded .exe file into the same folder as your Elden Ring executable (`eldenring.exe`) 
-4. Run the game via the **offline launcher** 
+4. - Windows: Run the game via the **Offline Launcher** 
+   - Linux: Add the **Offline Launcher** to Steam as a non-steam app and run that
 #### Method 3 - Legacy
-1. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\Elden Ring\Game`) 
+1. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\ELDEN RING\Game` or `~/.steam/steam/steamapps/common/ELDEN RING/Game/`) 
 2. Rename `launch_protected_game.exe` to something else (e.g. `launch_protected_game.exe.bak`) 
 3. Rename `eldenring.exe` to `launch_protected_game.exe` 
-4. Run the game via `launch_protected_game.exe` or Steam 
+4. Run the game via Steam or `launch_protected_game.exe`
 
 ## Credits
 The Grand Archives | Reason               
