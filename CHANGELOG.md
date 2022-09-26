@@ -4,6 +4,9 @@
  - Flags for Royal Capital
 ### Changed
  - Removed Dungeons from Unlock all Maps
+ - No longer using synchronize
+### Fixed
+ - "Boost for low FPS" script
 
 ## [v0.8.1] - 2022-08-10
 ### Added
