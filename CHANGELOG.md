@@ -2,11 +2,44 @@
 ## [Unreleased]
 ### Added
  - Flags for Royal Capital
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - New "Table Tools" header
+   - Persistent table configuration, Table Tools > Configure Table
+   - New config options:
+     - Save symbols (speeds up lookup) (default: true)
+     - Prevent opening table if game is not running (default: true)
+     - Check game version (default: true)
+     - Check Cheat Engine version (default: true)
+     - Check table version (Github) (default: true)
+   - Default config section in the table initialization script
+   - Functionality to register new config variables in the default config section
+   - Functionality to cache (save) symbol addresses (speeding up their subsequent lookup)
+   - Table Tools > Clear Symbol Cache to delete all cached symbols
+   - Default TGA files path: %PROGRAMDATA%/the-grand-archives/
+   - "tga" class for file manipulation functions: tga:loadConfig, tga:saveConfig, tga:loadSymbolCache, tga:saveSymbolCache, tga:clearSymbolCache
+   - isdir and mkpath file manipulation functions 
+   - sanitizeUsername, getGameVersion functions
+   - getAddressProcessSafe, registerBaseByKey functions
+   - cacheSymbol, AOBScanProcessCached, registerBaseByKeyCached cache interacting functions
+   - Details, explanations and examples for the new functions in the table initialization script
+### Fixed
+ - "Boost for low FPS" script
 ### Changed
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
-### Fixed
- - "Boost for low FPS" script
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - Reorganized table initialization script structure
+   - Table initialization to utilize config variables
+   - Significantly reduced the time it takes to open the table by caching base addresses (config option)
+   - Table can now be opened without the game being launched (config option)
+   - Reorganized base AOBs into a table
+   - Table will now open in case of not finding all AOBs
+   - Missing AOBs are printed in the Lua console output
+   - Table initialization variable game_ver now contains a version string, formatted like "1.XX.Y"
+   - Unsupported game version warning message now displays the current and supported game versions
+### Removed
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - Old method of getting base addresses from AOBs in the table initialization
 
 ## [v0.8.1] - 2022-08-10
 ### Added
