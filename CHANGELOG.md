@@ -15,8 +15,10 @@
    - Functionality to register new config variables in the default config section
    - Functionality to cache (save) symbol addresses (speeding up their subsequent lookup)
    - Table Tools > Clear Symbol Cache to delete all cached symbols
+   - The table FAQ now opens the first time the table is opened
+   - Table Tools > Clear runOnce Memory to delete all identifiers tga:runOnce has saved running functions
    - Default TGA files path: %PROGRAMDATA%/the-grand-archives/
-   - "tga" class for file manipulation functions: tga:loadConfig, tga:saveConfig, tga:loadSymbolCache, tga:saveSymbolCache, tga:clearSymbolCache
+   - "tga" class for file manipulation functions: tga:loadConfig, tga:saveConfig, tga:loadSymbolCache, tga:saveSymbolCache, tga:clearSymbolCache, tga:runOnce, tga:clearRunOnce
    - isdir and mkpath file manipulation functions 
    - sanitizeUsername, getGameVersion functions
    - getAddressProcessSafe, registerBaseByKey functions
