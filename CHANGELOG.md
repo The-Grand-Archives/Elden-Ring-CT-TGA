@@ -3,6 +3,10 @@
 ### Added
  - Flags for Royal Capital
  - by [Dasaav](https://github.com/Dasaav-dsv):
+   - Event Flags > Event Flags by ID
+   - ef.getFlag and ef.setFlag functions to manipulate event flags based on ID
+   - Explanations and examples in Event Flags > Event Flags by ID > Examples and in the table initialization script
+   - Additional check in getGameVersion in case the game is running with EAC
    - New "Table Tools" header
    - Persistent table configuration, Table Tools > Configure Table
    - New config options:
@@ -24,6 +28,8 @@
    - getAddressProcessSafe, registerBaseByKey functions
    - cacheSymbol, AOBScanProcessCached, registerBaseByKeyCached cache interacting functions
    - Details, explanations and examples for the new functions in the table initialization script
+ - by [sfix](https://github.com/garyttierney):
+   - "Event Flags" script as a basis for event flag manipulation by ID
 ### Fixed
  - "Boost for low FPS" script
 ### Changed
@@ -34,11 +40,14 @@
    - Table initialization to utilize config variables
    - Significantly reduced the time it takes to open the table by caching base addresses (config option)
    - Table can now be opened without the game being launched (config option)
-   - Reorganized base AOBs into a table
+   - Reorganized base AOBs into a Lua table
    - Table will now open in case of not finding all AOBs
    - Missing AOBs are printed in the Lua console output
    - Table initialization variable game_ver now contains a version string, formatted like "1.XX.Y"
    - Unsupported game version warning message now displays the current and supported game versions
+   - Modified 
+ - by [tremwil](https://github.com/tremwil):
+   - CParamUtils early initialization fix
 ### Removed
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Old method of getting base addresses from AOBs in the table initialization
