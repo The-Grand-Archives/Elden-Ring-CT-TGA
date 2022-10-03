@@ -3,9 +3,12 @@
 ### Added
  - Flags for Royal Capital
  - by [Dasaav](https://github.com/Dasaav-dsv):
-   - Event Flags > Event Flags by ID
-   - ef.getFlag and ef.setFlag functions to manipulate event flags based on ID
-   - Explanations and examples in Event Flags > Event Flags by ID > Examples and in the table initialization script
+   - New "Event Flags" script header
+   - ef.getFlag, ef.setFlag functions
+   - Event Flags by ID subsection
+   - Details, explanations and examples for the new functions in the "Event Flags" header script, as well as in:
+     - Event Flags > Event Flags by ID > How to use
+     - Event Flags > Event Flags by ID > Examples
    - Additional check in getGameVersion in case the game is running with EAC
    - New "Table Tools" header
    - Persistent table configuration, Table Tools > Configure Table
@@ -36,6 +39,7 @@
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
  - by [Dasaav](https://github.com/Dasaav-dsv):
+   - Unlock all Graces, Whetblades, Cookbooks, Maps scripts to use flag IDs instead of pointers
    - Reorganized table initialization script structure
    - Table initialization to utilize config variables
    - Significantly reduced the time it takes to open the table by caching base addresses (config option)
@@ -51,6 +55,10 @@
 ### Removed
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Old method of getting base addresses from AOBs in the table initialization
+### Deprecated
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - Old "Event Flags" header with flag pointers moved to Event Flags > Deprecated
+
 
 ## [v0.8.1] - 2022-08-10
 ### Added
