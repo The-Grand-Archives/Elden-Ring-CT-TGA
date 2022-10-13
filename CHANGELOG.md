@@ -5,8 +5,9 @@
  - Set flag when user is on Linux (Wine) and do not run CSCRIPT + CParamUtils
  - Errors for Linux incompatible scripts
  - by [Dasaav](https://github.com/Dasaav-dsv):
+   - New "Invasion Regions" script to modify areas targeted by multi-area invasions and blue summons, Event Flags > Invasion Regions
    - New "Event Flags" script header
-   - ef.getFlag, ef.setFlag functions
+   - ef.getFlag, ef.setFlag, ef.batchSetFlags functions
    - Event Flags by ID subsection
    - Details, explanations and examples for the new functions in the "Event Flags" header script, as well as in:
      - Event Flags > Event Flags by ID > How to use
@@ -53,7 +54,6 @@
    - Missing AOBs are printed in the Lua console output
    - Table initialization variable game_ver now contains a version string, formatted like "1.XX.Y"
    - Unsupported game version warning message now displays the current and supported game versions
-   - Modified 
  - by [tremwil](https://github.com/tremwil):
    - CParamUtils early initialization fix
 ### Removed
