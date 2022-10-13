@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Added
  - Flags for Royal Capital
+ - Set flag when user is on Linux (Wine) and do not run CSCRIPT + CParamUtils
+ - Errors for Linux incompatible scripts
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - New "Event Flags" script header
    - ef.getFlag, ef.setFlag functions
