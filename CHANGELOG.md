@@ -1,6 +1,10 @@
 # Changelog
 ## [Unreleased]
 
+## [v0.8.2] - 2022-10-13
+### Fixed
+ - Compatibility for App ver. 1.07
+
 ## [v0.8.1] - 2022-08-10
 ### Added
  - More NPC flags and door flags by RBT

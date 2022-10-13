@@ -6,23 +6,23 @@ Our community, make sure to read the rules carefully
 [The Grand Archives](https://discord.io/the-grand-archives)
 
 ## Latest Release
-Table: [v0.8.1](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest) | [Changelog](/CHANGELOG.md)  
+Table: [v0.8.2](https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA/releases/latest) | [Changelog](/CHANGELOG.md)  
 Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
-Game: App ver. 1.06
+Game: App ver. 1.07
 
 ## How to use
 ### Info 
 This table is not meant to be used online and you will most likely be banned if you attempt to do so. 
 ### Cheat Table
 1. Download and install Cheat Engine either from [Github](https://github.com/cheat-engine/cheat-engine/releases) or from its [website](https://cheatengine.org/) 
-2. Download the [Cheat Table](https://github.com/inunorii/Elden-Ring-CT-TGA/releases)
+2. Download the [Cheat Table](https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA/releases)
 3. Unpack the .CT file anywhere, a recommendation would be your **My Cheat Tables** folder (e.g. `%USERPROFILE%\Documents\My Cheat Tables`) 
 4. Open the .CT file (double-click or select and enter) 
 5. Disable EasyAntiCheat and run the game, see [Disabling EasyAntiCheat](#disabling-easyanticheat)
 6. Activate the "Open" script by ticking its box
 ### Disabling EasyAntiCheat 
 #### Method 1 - Recommended 
-1. Unpack `steam_appid.txt` from the [latest release](https://github.com/inunorii/Elden-Ring-CT-TGA/releases/latest) 
+1. Unpack `steam_appid.txt` from the [latest release](https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA/releases/latest) 
 2. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\Elden Ring\Game`) 
 3. Move `steam_appid.txt` into the same folder as your Elden Ring executable (`eldenring.exe`) 
 4. Run the game via `eldenring.exe` 
