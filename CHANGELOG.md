@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Added
  - Flags for Royal Capital
+ - Set flag when user is on Linux (Wine) and do not run CSCRIPT + CParamUtils
+ - Errors for Linux incompatible scripts
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - New "Event Flags" script header
    - ef.getFlag, ef.setFlag functions
@@ -35,9 +37,11 @@
    - "Event Flags" script as a basis for event flag manipulation by ID
 ### Fixed
  - "Boost for low FPS" script
+ - Compatibility for App ver. 1.07
 ### Changed
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
+ - Replaced ItemGib's ReinforceLv C code with ASM for better compatibility
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Unlock all Graces, Whetblades, Cookbooks, Maps scripts to use flag IDs instead of pointers
    - Reorganized table initialization script structure
