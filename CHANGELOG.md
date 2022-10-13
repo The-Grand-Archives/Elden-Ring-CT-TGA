@@ -38,7 +38,6 @@
    - "Event Flags" script as a basis for event flag manipulation by ID
 ### Fixed
  - "Boost for low FPS" script
- - Compatibility for App ver. 1.07
 ### Changed
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
@@ -63,6 +62,10 @@
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Old "Event Flags" header with flag pointers moved to Event Flags > Deprecated
 
+
+## [v0.8.2] - 2022-10-13
+### Fixed
+ - Compatibility for App ver. 1.07
 
 ## [v0.8.1] - 2022-08-10
 ### Added
@@ -224,7 +227,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.1...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...HEAD
+[v0.8.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.1...v0.8.2
 [v0.8.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.0...v0.8.1
 [v0.8.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.6.1...v0.7.0
