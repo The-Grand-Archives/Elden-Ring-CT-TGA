@@ -41,6 +41,7 @@
 ### Changed
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
+ - Replaced ItemGib's ReinforceLv C code with ASM for better compatibility
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Unlock all Graces, Whetblades, Cookbooks, Maps scripts to use flag IDs instead of pointers
    - Reorganized table initialization script structure
