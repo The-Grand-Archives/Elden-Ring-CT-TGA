@@ -5,6 +5,8 @@
  - Set flag when user is on Linux (Wine) and do not run CSCRIPT + CParamUtils
  - Errors for Linux incompatible scripts
  - by [Dasaav](https://github.com/Dasaav-dsv):
+   - "SaveLoad2" subsection, Statistics > SaveLoad2
+   - Misc savefile related scripts and pointers
    - New "Invasion Regions" script to modify areas targeted by multi-area invasions and blue summons, Event Flags > Invasion Regions
    - New "Event Flags" script header
    - ef.getFlag, ef.setFlag, ef.batchSetFlags functions
