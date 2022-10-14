@@ -4,6 +4,7 @@
  - Flags for Royal Capital
  - Set flag when user is on Linux (Wine) and do not run CSCRIPT + CParamUtils
  - Errors for Linux incompatible scripts
+ - 'printProgress' config option
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - "SaveLoad2" subsection, Statistics > SaveLoad2
    - Misc savefile related scripts and pointers
