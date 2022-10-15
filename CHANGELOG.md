@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.0.0] - 2022-10-15
 ### Added
  - Flags for Royal Capital
  - Set flag when user is on Linux (Wine) and do not run CSCRIPT + CParamUtils
@@ -67,7 +69,6 @@
 ### Deprecated
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Old "Event Flags" header with flag pointers moved to Event Flags > Deprecated
-
 
 ## [v0.8.2] - 2022-10-13
 ### Fixed
@@ -233,7 +234,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.0...HEAD
+[v1.0.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...v1.0.0
 [v0.8.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.1...v0.8.2
 [v0.8.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.0...v0.8.1
 [v0.8.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.7.0...v0.8.0
