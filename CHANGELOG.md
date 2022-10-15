@@ -42,6 +42,7 @@
 ### Fixed
  - "Boost for low FPS" script
  - Targeted Npc Info
+ - Last Hit Npc Info
 ### Changed
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
