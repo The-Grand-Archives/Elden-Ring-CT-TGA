@@ -41,6 +41,7 @@
    - "Event Flags" script as a basis for event flag manipulation by ID
 ### Fixed
  - "Boost for low FPS" script
+ - Targeted Npc Info
 ### Changed
  - Removed Dungeons from Unlock all Maps
  - No longer using synchronize
