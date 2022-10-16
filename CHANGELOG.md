@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - ItemGib ReinforceLv code using wrong data type
 
 ## [v1.0.0] - 2022-10-15
 ### Added
