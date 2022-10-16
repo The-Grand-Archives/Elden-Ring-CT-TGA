@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Fixed
  - "printProgress" check in scripts that use it
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - "Quit (Desktop)" script
 
 ## [V1.0.1] - 2022-10-16
 ### Fixed
