@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - "printProgress" check in scripts that use it
 
 ## [V1.0.1] - 2022-10-16
 ### Fixed
