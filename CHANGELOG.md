@@ -1,5 +1,8 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - "Unlock all ..." scripts now auto-disable on completion
 ### Fixed
  - "printProgress" check in scripts that use it
  - by [Dasaav](https://github.com/Dasaav-dsv):
