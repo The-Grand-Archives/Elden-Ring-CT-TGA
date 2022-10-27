@@ -2,6 +2,7 @@
 #define _TGA_PARAM_UTILS
 
 #include <stddef.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 #include "param_containers.h"

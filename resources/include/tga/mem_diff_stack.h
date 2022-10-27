@@ -2,6 +2,7 @@
 #define _TGA_MEM_DIFF_STACK_H
 
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #include "aligned_alloc.h"
 

@@ -2,6 +2,7 @@
 #define _TGA_PARAM_CONTAINERS
 
 #include <stddef.h>
+#include <stdint.h>
 #include "dl_types.h"
 
 typedef struct _ParamRowInfo

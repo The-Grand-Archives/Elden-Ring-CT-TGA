@@ -1,7 +1,7 @@
 #ifndef _TGA_DL_TYPES
 #define _TGA_DL_TYPES
 
-#include <stddef.h>
+#include <stdint.h>
 
 typedef struct _DLRuntimeClass {
     void** vftable_ptr;

@@ -1,7 +1,7 @@
 #ifndef _TGA_DBGHELP_H
 #define _TGA_DBGHELP_H
 
-#include <stddef.h>
+#include <stdint.h>
 
 typedef struct _MODULEINFO {
     void* lpBaseOfDll;

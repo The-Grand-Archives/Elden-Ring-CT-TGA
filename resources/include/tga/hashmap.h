@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 /* Simple, very crude fixed bucket size hashmap implementation */
