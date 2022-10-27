@@ -32,7 +32,7 @@ int find_singleton_addresses(const region* reg, intptr_t* out_array, int out_arr
         // Read singleton address from MOV instruction relative offset
         intptr_t s = (intptr_t)addr + 7 + *(uint32_t*)(addr + 3);
 
-        int insert_at = bsearch(s, out_array, num_out);
+        int insert_at = bsearch_geq(s, out_array, num_out);
         if (insert_at < num_out && out_array[insert_at] == s) continue;
 
         // Shift elements above new one up one index to make space

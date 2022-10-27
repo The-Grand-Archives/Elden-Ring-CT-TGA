@@ -66,9 +66,9 @@ bool get_rtti_class_name(const region* mod, void* obj, char* out_name, size_t ou
 
     // 14338 = UNDNAME_32_BIT_DECODE | UNDNAME_NAME_ONLY | UNDNAME_NO_ARGUMENTS | UNDNAME_NO_MS_KEYWORDS
     if (!UnDecorateSymbolName(descriptor->name + 1, out_name, out_name_cb, 14338))
-        return true;
+        return false;
 
-    return false;
+    return true;
 }
 
 #endif

@@ -5,7 +5,7 @@
 
 /// Performs binary search in an array of unique values and returns the index of the
 /// first element larger or equal to the value. returns size if not found.
-inline int bsearch(int64_t value, const int64_t* array, int size)
+inline int bsearch_geq(int64_t value, const int64_t* array, int size)
 {
     int low = 0;
     int high = size;
