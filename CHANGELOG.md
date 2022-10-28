@@ -1,12 +1,24 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - by [tremwil](https://github.com/tremwil):
+   - RTTI powered singleton (base) address finder that identifies and registers almost all singleton addresses extremely quickly
+   - archiving system so that a TGA C library can be packaged with the table (installed in tga.path/include)
 ### Changed
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - "Unlock all ..." scripts now auto-disable on completion
+ - by [tremwil](https://github.com/tremwil):
+   - Updated C paramdefs & param field metadata
+   - Reworked CParamUtils to use new C library (should now work under Wine)
+   - Cleaned up "Table Tools"
 ### Fixed
  - "printProgress" check in scripts that use it
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - "Quit (Desktop)" script
+ - by [tremwil](https://github.com/tremwil):
+   - Bugs in CE symbol resolution breaking C code compilation and libc/winapi includes when running under Wine
+   - Updated CSCRIPT with Wine compatibility and fixed synchronization bug
+   - Teleport to Map-Relative Coordinates
 
 ## [V1.0.1] - 2022-10-16
 ### Fixed
