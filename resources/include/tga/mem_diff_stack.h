@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdbool.h>
 #include "aligned_alloc.h"
 
 // Allow user to customize allocators used if necessary
@@ -20,59 +21,56 @@
 
 // Optimized subroutines for bitwise operations on aligned memory.
 // TCC has no optimization, so we have to use simd manually
-void _mds_asm_defs()
-{
-	__asm__ __volatile__("
+void memxor_simd(void* dest, void* src, size_t len);
+void memor_simd(void* dest, void* src, size_t len);
+void memandn_simd(void* dest, void* src, size_t len);
+void memand_simd(void* dest, void* src, size_t len);
+__asm__("
 
-	memxor_simd:
-		xorq %rax, %rax
-	loop_xor_simd:
-		movaps (%rcx, %rax), %xmm0
-		pxor (%rdx, %rax), %xmm0
-		movaps %xmm0, (%rcx, %rax)
-		addq $0x10, %rax
-		cmpq %rax, %r8
-		ja loop_xor_simd
-		ret
+memxor_simd:
+	xorq %rax, %rax
+loop_xor_simd:
+	movaps (%rcx, %rax), %xmm0
+	pxor (%rdx, %rax), %xmm0
+	movaps %xmm0, (%rcx, %rax)
+	addq $0x10, %rax
+	cmpq %rax, %r8
+	ja loop_xor_simd
+	ret
 
-	memor_simd:
-		xorq %rax, %rax
-	loop_or_simd:
-		movaps (%rcx, %rax), %xmm0
-		por (%rdx, %rax), %xmm0
-		movaps %xmm0, (%rcx, %rax)
-		addq $0x10, %rax
-		cmpq %rax, %r8
-		ja loop_or_simd
-		ret
+memor_simd:
+	xorq %rax, %rax
+loop_or_simd:
+	movaps (%rcx, %rax), %xmm0
+	por (%rdx, %rax), %xmm0
+	movaps %xmm0, (%rcx, %rax)
+	addq $0x10, %rax
+	cmpq %rax, %r8
+	ja loop_or_simd
+	ret
 
-	memandn_simd:
-		xorq %rax, %rax
-	loop_andn_simd:
-		movaps (%rcx, %rax), %xmm0
-		pandn (%rdx, %rax), %xmm0
-		movaps %xmm0, (%rcx, %rax)
-		addq $0x10, %rax
-		cmpq %rax, %r8
-		ja loop_andn_simd
-		ret
+memandn_simd:
+	xorq %rax, %rax
+loop_andn_simd:
+	movaps (%rcx, %rax), %xmm0
+	pandn (%rdx, %rax), %xmm0
+	movaps %xmm0, (%rcx, %rax)
+	addq $0x10, %rax
+	cmpq %rax, %r8
+	ja loop_andn_simd
+	ret
 
-	memand_simd:
-		xorq %rax, %rax
-	loop_and_simd:
-		movaps (%rcx, %rax), %xmm0
-		pand (%rdx, %rax), %xmm0
-		movaps %xmm0, (%rcx, %rax)
-		addq $0x10, %rax
-		cmpq %rax, %r8
-		ja loop_and_simd
-		ret"
-	);
-}
-extern void memxor_simd(void* dest, void* src, size_t len);
-extern void memor_simd(void* dest, void* src, size_t len);
-extern void memandn_simd(void* dest, void* src, size_t len);
-extern void memand_simd(void* dest, void* src, size_t len);
+memand_simd:
+	xorq %rax, %rax
+loop_and_simd:
+	movaps (%rcx, %rax), %xmm0
+	pand (%rdx, %rax), %xmm0
+	movaps %xmm0, (%rcx, %rax)
+	addq $0x10, %rax
+	cmpq %rax, %r8
+	ja loop_and_simd
+	ret"
+);
 
 #define align16(n) (((n) + 0xF) & ~(uint64_t)0xF)
 
