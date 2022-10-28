@@ -12,8 +12,8 @@ inline int bsearch_geq(int64_t value, const int64_t* array, int size)
 
     while (low+1 < high) {
         int mid = (low + high) >> 1;
-        if (array[mid] > value) low = mid;
-        else if (array[mid] < value) high = mid;
+        if (array[mid] < value) low = mid;
+        else if (array[mid] > value) high = mid;
         else return mid;
     }
     return high;
