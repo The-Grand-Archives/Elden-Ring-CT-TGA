@@ -19,6 +19,8 @@
    - Bugs in CE symbol resolution breaking C code compilation and libc/winapi includes when running under Wine
    - Updated CSCRIPT with Wine compatibility and fixed synchronization bug
    - Teleport to Map-Relative Coordinates
+### Removed
+ - Linux check from scripts written in C that were previously incompatible with Linux
 
 ## [V1.0.1] - 2022-10-16
 ### Fixed
