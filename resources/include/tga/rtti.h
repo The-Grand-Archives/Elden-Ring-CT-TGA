@@ -50,8 +50,7 @@ typedef struct _RTTICompleteObjectLocator {
 
 // Tries to find the demangled name of the class a suspected vtable belongs to. Returns FALSE
 // if the RTTI data could not be found/parsed.
-bool get_rtti_class_name(const region* mod, void* obj, char* out_name, size_t out_name_cb) {
-    void** vtable = *(void***)obj;
+bool get_rtti_class_name_vmt(const region* mod, void** vtable, char* out_name, size_t out_name_cb) {
     if (!ptr_in_region(vtable - 1, mod)) return false;
 
     const RTTICompleteObjectLocator* locator = *(RTTICompleteObjectLocator**)(vtable - 1);
@@ -70,6 +69,14 @@ bool get_rtti_class_name(const region* mod, void* obj, char* out_name, size_t ou
         return false;
 
     return true;
+}
+
+// Tries to find the demangled name of the class a an object belongs to. Returns FALSE
+// if the RTTI data could not be found/parsed.
+bool get_rtti_class_name(const region* mod, void* obj, char* out_name, size_t out_name_cb)
+{
+    void** vtable = *(void***)obj;
+    return get_rtti_class_name_vmt(mod, vtable, out_name, out_name_cb);
 }
 
 #endif
