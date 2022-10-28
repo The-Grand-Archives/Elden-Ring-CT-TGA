@@ -1,0 +1,2 @@
+CompileFlags:
+    Add: ["--include-directory=C:/Program Files/Cheat Engine 7.4/include", -xc, -std=gnu99]
