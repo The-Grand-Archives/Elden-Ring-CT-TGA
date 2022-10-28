@@ -3,7 +3,7 @@
 ### Added
  - by [tremwil](https://github.com/tremwil):
    - RTTI powered singleton (base) address finder that identifies and registers almost all singleton addresses extremely quickly
-   - archiving system so that a TGA C library can be packaged with the table (installed in tga.path/include)
+   - Archiving system so that a TGA C library can be packaged with the table (installed under `%PROGRAMDATA%/the-grand-archives/`)
 ### Changed
  - ItemGib replaced with its previous version using C code inbetween Assembly
  - by [Dasaav](https://github.com/Dasaav-dsv):
