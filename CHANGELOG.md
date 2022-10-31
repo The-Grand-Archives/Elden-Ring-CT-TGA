@@ -23,7 +23,7 @@
 ### Removed
  - Linux check from scripts written in C that were previously incompatible with Linux
 
-## [V1.0.1] - 2022-10-16
+## [v1.0.1] - 2022-10-16
 ### Fixed
  - ItemGib ReinforceLv code using wrong data type
 
@@ -260,7 +260,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.1...HEAD
+[v1.0.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...v1.0.0
 [v0.8.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.1...v0.8.2
 [v0.8.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.0...v0.8.1

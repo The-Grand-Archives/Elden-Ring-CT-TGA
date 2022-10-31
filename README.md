@@ -59,6 +59,7 @@ Apricus | Event Flags, MassItemGib
 Careless Esper | Grace ID Names
 [Coinsworth](https://github.com/LukeYui/) | Table contributions, advice
 Dalvik | Advice, ideas
+[Dasaav](https://github.com/Dasaav-dsv) | Functionality reworks and additions
 [hery](https://github.com/heryoff) | Grace ID Names
 [Igromanru](https://github.com/igromanru) | Param Patcher, advice
 [inuNorii](https://github.com/inuNorii) | Porting, maintaining, research
