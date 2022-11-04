@@ -1,5 +1,8 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - by [tremwil](https://github.com/tremwil):
+   - ItemGib
 
 ## [v1.1.0] - 2022-11-04
 ### Added
