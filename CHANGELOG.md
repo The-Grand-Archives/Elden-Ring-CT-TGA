@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.1.0] - 2022-11-04
 ### Added
  - by [tremwil](https://github.com/tremwil):
    - RTTI powered singleton (base) address finder that identifies and registers almost all singleton addresses extremely quickly
@@ -260,7 +262,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.1...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.0...HEAD
+[v1.1.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.1...v1.1.0
 [v1.0.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...v1.0.0
 [v0.8.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.1...v0.8.2
