@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.1.1] - 2022-11-04
 ### Fixed
  - by [tremwil](https://github.com/tremwil):
    - ItemGib
@@ -265,7 +267,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.1...HEAD
+[v1.1.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.0...v1.1.1
 [v1.1.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.1...v1.1.0
 [v1.0.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...v1.0.0
