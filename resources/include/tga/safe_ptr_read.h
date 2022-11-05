@@ -83,9 +83,6 @@ bool is_prime(uint64_t n)
 // Creates a page access cache used to keep track of invalid memory regions. 
 void bad_page_cache_init(bad_page_cache* cache, size_t requested_size) 
 {
-    if (cache->addr_cache) 
-        free(cache->addr_cache);
-
     requested_size |= 1;
     while (!is_prime(requested_size)) {
         requested_size += 2;
