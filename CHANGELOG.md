@@ -1,6 +1,15 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.1.2] - 2022-11-05
+### Added
+ - by [tremwil](https://github.com/tremwil):
+   - runOnceForVersion feature that runs a function only once per table version
+   - QoL scripts for invaders
+### Fixed
+ - by [tremwil](https://github.com/tremwil):
+   - Singleton finder crash that affected some users
+
 ## [v1.1.1] - 2022-11-04
 ### Fixed
  - by [tremwil](https://github.com/tremwil):
