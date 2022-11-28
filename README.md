@@ -1,13 +1,19 @@
 # Elden Ring Cheat Table
+![Cheat Table Version](https://img.shields.io/github/v/release/The-Grand-Archives/Elden-Ring-CT-TGA?include_prereleases&label=Cheat%20Table&sort=semver&logo=github)
+![Downloads](https://img.shields.io/github/downloads/The-Grand-Archives/Elden-Ring-CT-TGA/total?label=Downloads&logo=github)
+![Discord](https://img.shields.io/discord/334557263203401729?label=Discord&logo=discord)  
 Elden Ring Cheat Engine table maintained by The Grand Archives.
 
 ## Discord
-Our community, make sure to read the rules carefully  
+Our community, make sure to read the rules carefully.  
 [The Grand Archives](https://discord.io/the-grand-archives)
 
 ## Latest Release
-Table: [v1.1.2](https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA/releases/latest) | [Changelog](/CHANGELOG.md)  
-Cheat Engine: [7.4 or newer](https://github.com/cheat-engine/cheat-engine/releases)  
+[![Download](https://img.shields.io/badge/dynamic/json.svg?label=download&url=https://api.github.com/repos/The-Grand-Archives/Elden-Ring-CT-TGA/releases/latest&query=$.assets[0].name&style=for-the-badge)](https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA/releases/latest)  
+[Changelog](/CHANGELOG.md) 
+ 
+### Requirements
+Cheat Engine: [7.4](https://github.com/cheat-engine/cheat-engine/releases)  
 Game: App ver. 1.07
 
 ## How to use
