@@ -1,7 +1,7 @@
 # Changelog
 ## [Unreleased]
 
-## [v1.1.3] - 2022-11-05
+## [v1.1.3] - 2022-12-02
 ### Changed
  - Timeout for Singleton Finder to 1000
 
