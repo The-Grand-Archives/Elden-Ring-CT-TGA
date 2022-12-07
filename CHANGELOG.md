@@ -1,6 +1,10 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.1.4] - 2022-12-07
+### Changed
+ - Supported version to v1.08
+
 ## [v1.1.3] - 2022-12-02
 ### Changed
  - Timeout for Singleton Finder to 1000
@@ -280,7 +284,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.3...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.4...HEAD
+[v1.1.3]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.3...v1.1.4
 [v1.1.3]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.2...v1.1.3
 [v1.1.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.0...v1.1.1

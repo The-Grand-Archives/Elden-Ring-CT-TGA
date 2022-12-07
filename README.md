@@ -1,7 +1,7 @@
 # Elden Ring Cheat Table
-![Cheat Table Version](https://img.shields.io/github/v/release/The-Grand-Archives/Elden-Ring-CT-TGA?include_prereleases&label=Cheat%20Table&sort=semver&logo=github)
-![Downloads](https://img.shields.io/github/downloads/The-Grand-Archives/Elden-Ring-CT-TGA/total?label=Downloads&logo=github)
-![Discord](https://img.shields.io/discord/334557263203401729?label=Discord&logo=discord)  
+[![Cheat Table Version](https://img.shields.io/github/v/release/The-Grand-Archives/Elden-Ring-CT-TGA?include_prereleases&label=Cheat%20Table&sort=semver&logo=github)](#)
+[![Downloads](https://img.shields.io/github/downloads/The-Grand-Archives/Elden-Ring-CT-TGA/total?label=Downloads&logo=github)](#)
+[![Discord](https://img.shields.io/discord/334557263203401729?label=Discord&logo=discord)](https://discord.io/the-grand-archives)  
 Elden Ring Cheat Engine table maintained by The Grand Archives.
 
 ## Discord
@@ -14,7 +14,7 @@ Our community, make sure to read the rules carefully.
  
 ### Requirements
 Cheat Engine: [7.4](https://github.com/cheat-engine/cheat-engine/releases)  
-Game: App ver. 1.07
+Game: App ver. 1.08
 
 ## How to use
 ### Info 
@@ -53,9 +53,9 @@ I expect you to already have Steam, Wine, Proton, and the game installed
    - Linux: Add the **Offline Launcher** to Steam as a non-steam app and run that
 #### Method 3 - Legacy
 1. Locate your Elden Ring folder (e.g. `C:\Program Files\Steam\steamapps\common\ELDEN RING\Game` or `~/.steam/steam/steamapps/common/ELDEN RING/Game/`) 
-2. Rename `launch_protected_game.exe` to something else (e.g. `launch_protected_game.exe.bak`) 
-3. Rename `eldenring.exe` to `launch_protected_game.exe` 
-4. Run the game via Steam or `launch_protected_game.exe`
+2. Rename `start_protected_game.exe` to something else (e.g. `start_protected_game.exe.bak`) 
+3. Rename `eldenring.exe` to `start_protected_game.exe` 
+4. Run the game via Steam or `start_protected_game.exe`
 
 ## Credits
 The Grand Archives | Reason               
