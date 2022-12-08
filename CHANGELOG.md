@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - AddSoul
+ - Offsets used to reach PlayerGameData from WorldChrMan
+ - Mistakes in "Targeted Npc Info" and "Last Hit Npc Info" helpers
 
 ## [v1.1.4] - 2022-12-07
 ### Changed
