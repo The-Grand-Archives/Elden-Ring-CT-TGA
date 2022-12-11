@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - OptionData header
+### Fixed
+ - Pointers in the CSWindow header
 
 ## [v1.1.5] - 2022-12-08
 ### Fixed
