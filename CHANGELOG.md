@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Added
  - OptionData header
+### Changed
+ - Supported CE version is now required and option to download is given
 ### Fixed
  - Pointers in the CSWindow header
 
