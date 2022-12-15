@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.1.6] - 2022-12-15
 ### Added
  - OptionData header
 ### Changed
@@ -299,7 +301,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.5...HEAD
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.6...HEAD
+[v1.1.6]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.5...v1.1.6
 [v1.1.5]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.4...v1.1.5
 [v1.1.4]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.3...v1.1.4
 [v1.1.3]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.2...v1.1.3
