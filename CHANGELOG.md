@@ -6,6 +6,8 @@
  - Supported CE version is now required and option to download is given
 ### Fixed
  - Pointers in the CSWindow header
+ - Not being able to spawn more than one "Arrow"
+ - Projectiles and other non-weapon items being spawned with the Ash of War value not being reset
 
 ## [v1.1.5] - 2022-12-08
 ### Fixed
