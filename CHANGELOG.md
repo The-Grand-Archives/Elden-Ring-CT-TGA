@@ -4,6 +4,7 @@
  - OptionData header
 ### Changed
  - Supported CE version is now required and option to download is given
+ - Supported game version to 1.08.1
 ### Fixed
  - Pointers in the CSWindow header
  - Not being able to spawn more than one "Arrow"
