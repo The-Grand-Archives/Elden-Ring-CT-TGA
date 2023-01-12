@@ -3,6 +3,7 @@
 ### Changed
  - Moved code for C include path to not run before version checks
  - Singleton Finder timeout to 2000
+ - Commented out linux check
 
 ## [v1.1.6] - 2022-12-15
 ### Added
