@@ -1,6 +1,48 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.1.7] - 2023-01-12
+### Changed
+ - Moved code for C include path to not run before version checks
+ - Singleton Finder timeout to 2000
+ - Commented out linux check
+### Fixed
+ - Teleport to Map-Relative Coordinates
+
+## [v1.1.6] - 2022-12-15
+### Added
+ - OptionData header
+### Changed
+ - Supported CE version is now required and option to download is given
+ - Supported game version to 1.08.1
+### Fixed
+ - Pointers in the CSWindow header
+ - Not being able to spawn more than one "Arrow"
+ - Projectiles and other non-weapon items being spawned with the Ash of War value not being reset
+
+## [v1.1.5] - 2022-12-08
+### Fixed
+ - AddSoul
+ - Offsets used to reach PlayerGameData from WorldChrMan
+ - Mistakes in "Targeted Npc Info" and "Last Hit Npc Info" helpers
+
+## [v1.1.4] - 2022-12-07
+### Changed
+ - Supported version to v1.08
+
+## [v1.1.3] - 2022-12-02
+### Changed
+ - Timeout for Singleton Finder to 1000
+
+## [v1.1.2] - 2022-11-05
+### Added
+ - by [tremwil](https://github.com/tremwil):
+   - runOnceForVersion feature that runs a function only once per table version
+   - QoL scripts for invaders
+### Fixed
+ - by [tremwil](https://github.com/tremwil):
+   - Singleton finder crash that affected some users
+
 ## [v1.1.1] - 2022-11-04
 ### Fixed
  - by [tremwil](https://github.com/tremwil):
@@ -267,8 +309,14 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.1...HEAD
-[v1.1.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.0...v1.1.1
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.7...dev
+[v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.6...v1.1.7
+[v1.1.6]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.5...v1.1.6
+[v1.1.5]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.4...v1.1.5
+[v1.1.4]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.3...v1.1.4
+[v1.1.3]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.2...v1.1.3
+[v1.1.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.1...v1.1.2
+[v1.1.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.0...v1.1.1
 [v1.1.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.1...v1.1.0
 [v1.0.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v0.8.2...v1.0.0
