@@ -66,10 +66,10 @@
 
 // Shrinks the vector's capacity if the size is significantly smaller.
 #define VECTOR_SHRINK_IF_REQUIRED(vec) { \
-    size_t threshold = (vec)->size << 2; \
-    if (threshold < VECTOR_MIN_CAPACITY) threshold = VECTOR_MIN_CAPACITY; \
-    else if (threshold < (vec)->capacity) { \
-        while (threshold < (vec)->capacity) (vec)->capacity >>= 1; \
+    size_t __vsrhink_threshold = (vec)->size << 2; \
+    if (__vsrhink_threshold < VECTOR_MIN_CAPACITY) __vsrhink_threshold = VECTOR_MIN_CAPACITY; \
+    else if (__vsrhink_threshold < (vec)->capacity) { \
+        while (__vsrhink_threshold < (vec)->capacity) (vec)->capacity >>= 1; \
         (vec)->data = (typeof((vec)->data))aligned_realloc((vec)->data, (vec)->capacity * VECTOR_ELEM_SIZE(vec), VECTOR_ALIGN_OF(vec)); \
     } \
 }
@@ -99,9 +99,9 @@
 // Be sure to call VECTOR_ELEM_DEL (or the deleter directly if you know it) on the return value after use,
 // to avoid memory leaks.
 #define VECTOR_POP(vec) ({ \
-    VECTOR_TYPE(vec) elem = (vec)->data[--(vec)->size]; \
+    VECTOR_TYPE(vec) __vpop_elem = (vec)->data[--((vec)->size)]; \
     VECTOR_SHRINK_IF_REQUIRED(vec); \
-    elem; \
+    __vpop_elem; \
 })
 
 // Removes the last element of the vector and deletes it.
@@ -111,10 +111,10 @@
 // Be sure to call VECTOR_ELEM_DEL (or the deleter directly if you know it) on the return value after use,
 // to avoid memory leaks.
 #define VECTOR_POP_AT(vec, index) ({ \
-    VECTOR_TYPE(vec) elem = (vec)->data[index]; \
-    memmove((vec)->data + index, (vec)->data + index + 1, (--(vec)->size - index) * VECTOR_ELEM_SIZE(vec)); \
+    VECTOR_TYPE(vec) __vpop_at_elem = (vec)->data[index]; \
+    memmove((vec)->data + index, (vec)->data + index + 1, (--((vec)->size) - index) * VECTOR_ELEM_SIZE(vec)); \
     VECTOR_SHRINK_IF_REQUIRED(vec); \
-    elem; \
+    __vpop_at_elem; \
 })
 
 // Removes the element at a given index of the vector and deletes it.
@@ -125,23 +125,23 @@
 // - Pointer to element "elem"
 // Returns the number of elements removed.
 #define VECTOR_REMOVE_IF(vec, predicate) ({ \
-    size_t num_removed = 0; \
+    size_t __vremif_n_removed = 0; \
     for (size_t i = 0; i < (vec)->size; i++) { \
         typeof((vec)->data) elem = (vec)->data + i; \
         if ((predicate)) { \
             VECTOR_ELEM_DEL(vec, *elem); \
-            num_removed++; \
+            __vremif_n_removed++; \
         } \
-        else if (num_removed > 0) { \
-            (vec)->data[i - num_removed] = (vec)->data[i]; \
+        else if (__vremif_n_removed > 0) { \
+            (vec)->data[i - __vremif_n_removed] = (vec)->data[i]; \
         } \
     } \
-    (vec)->size -= num_removed; \
+    (vec)->size -= __vremif_n_removed; \
     VECTOR_SHRINK_IF_REQUIRED(vec); \
-    num_removed; \
+    __vremif_n_removed; \
 })
 
-// Returns the index of first element in the vecotr for which the predicate returns "true". 
+// Returns the index of first element in the vector for which the predicate returns "true". 
 // If the element is not found, returns -1. The predicate is an expression scope given two variables:
 // - Index "i"
 // - Pointer to element "elem"
@@ -155,7 +155,7 @@
     i; \
 })
 
-// Returns the inex of first element in the vecotr for which the predicate returns "true", 
+// Returns the index of first element in the vector for which the predicate returns "true", 
 // starting from the end. If the element is not found, returns -1. The predicate is an expression scope given two variables:
 // - Index "i"
 // - Pointer to element "elem"

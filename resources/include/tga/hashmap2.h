@@ -13,13 +13,6 @@
 
 #include "aligned_alloc.h"
 
-#define BITFIELD_GET(bf, i) (((uint8_t*)(bf))[(i) >> 3] & (1 << ((i) & 7)))
-#define BITFIELD_SET(bf, i, s) { \
-    uint8_t mask = ~(1 << ((i) & 7)); \
-    uint8_t bit = (s << ((i) & 7)); \
-    ((uint8_t*)(bf))[(i) >> 3] = bit | (((uint8_t*)(bf))[(i) >> 3] & mask); \
-}
-
 typedef size_t hm2_hash_t;
 
 hm2_hash_t hm2_u64_hash(uint64_t x)
@@ -76,7 +69,7 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
     vtype(*val_copy_fn)(vtype); \
     void(*val_del_fn)(vtype); \
     \
-    uint8_t* occupancy; \
+    uint8_t* flags; \
     ktype* keys; \
     vtype* vals; \
 })
@@ -95,6 +88,17 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
 #define HASHMAP_GROW_FACTOR 2.0
 #define HASHMAP_MIN_SATURATION 0.005
 
+#define HM2_FREE 0
+#define HM2_OCCUPIED 1
+#define HM2_DELETED 2
+
+#define HM2_IS_OCCUPIED(hm, i) ((hm)->flags[i] == HM2_OCCUPIED)
+#define HM2_IS_DELETED(hm, i) ((hm)->flags[i] == HM2_DELETED)
+#define HM2_IS_FREE(hm, i) ((hm)->flags[i] == HM2_FREE)
+#define HM2_SET_OCCUPIED(hm, i) ((hm)->flags[i] = HM2_OCCUPIED)
+#define HM2_SET_DELETED(hm, i) ((hm)->flags[i] = HM2_DELETED)
+#define HM2_SET_FREE(hm, i) ((hm)->flags[i] = HM2_FREE)
+
 // Initializes a hash map in-place, with the provided hash, equality and copy/delete functions.
 #define HASHMAP_INIT(hm, hash_f, eq_f, key_copy_f, val_copy_f, key_del_f, val_del_f) { \
     (hm)->n_buckets = HASHMAP_MIN_BUCKETS; \
@@ -105,6 +109,7 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
     (hm)->val_copy_fn = val_copy_f; \
     (hm)->key_del_fn = key_del_f; \
     (hm)->val_del_fn = val_del_f; \
+    (hm)->flags = (uint8_t*)calloc(HASHMAP_MIN_BUCKETS, 1); \
     (hm)->keys = (HASHMAP_KTYPE(hm)*)aligned_malloc(HASHMAP_MIN_BUCKETS * HASHMAP_KSIZE(hm), HASHMAP_KALIGN(hm)); \
     (hm)->vals = (HASHMAP_VTYPE(hm)*)aligned_malloc(HASHMAP_MIN_BUCKETS * HASHMAP_VSIZE(hm), HASHMAP_VALIGN(hm)); \
     memset((hm)->keys, 0, HASHMAP_MIN_BUCKETS * HASHMAP_KSIZE(hm)); \
@@ -140,18 +145,20 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
 
 // Finds the index of a key inside the hashmap. -1 if not found.
 #define HASHMAP_FIND(hm, key_expr) ({ \
-    HASHMAP_KTYPE(hm) key = key_expr; /* evaluate key */ \
-    size_t i = HASHMAP_HASH(hm, key) % (hm)->n_buckets, j = i; \
+    HASHMAP_KTYPE(hm) __hmfind_key = key_expr; /* evaluate __hmfind_key */ \
+    size_t i = HASHMAP_HASH(hm, __hmfind_key) % (hm)->n_buckets, j = i; \
     for (; j < (hm)->n_buckets; j++) { \
-        if (BITFIELD_GET((hm)->occupancy, j) && HASHMAP_EQ(hm, key, (hm)->vals[j])) break; \
+        if (HM2_IS_OCCUPIED(hm, j) && HASHMAP_EQ(hm, __hmfind_key, (hm)->vals[j])) break; \
+        if (HM2_IS_FREE(hm, j)) { j = -1; break; } \
     } \
-    if (j == (hm)->n_buckets) { \
+    if (j != -1 && j == (hm)->n_buckets) { \
         for (j = 0; j < i; j++) { \
-            if (BITFIELD_GET((hm)->occupancy, j) && HASHMAP_EQ(hm, key, (hm)->vals[j])) break; \
+            if (HM2_IS_OCCUPIED(hm, j) && HASHMAP_EQ(hm, __hmfind_key, (hm)->vals[j])) break; \
+            if (HM2_IS_FREE(hm, j)) { j = -1; break; } \
         } \
         if (j == i) j = -1; \
     } \
-    i; \
+    j; \
 })
 
 // Checks if the hashmap contains the given key.
@@ -167,63 +174,61 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
 
 #define HASHMAP_RESIZE(hm, bucket_count) { \
     size_t new_n_buckets = bucket_count; /* make sure macro arg gets evaluated */ \
-    uint8_t* new_occupancy = (uint8_t*)calloc(new_n_buckets, 1); \
+    uint8_t* new_flags = (uint8_t*)calloc(new_n_buckets, 1); \
     HASHMAP_KTYPE(hm)* new_keys = (HASHMAP_KTYPE(hm)*)aligned_malloc(new_n_buckets * HASHMAP_KSIZE(hm), HASHMAP_KALIGN(hm)); \
     HASHMAP_VTYPE(hm)* new_vals = (HASHMAP_VTYPE(hm)*)aligned_malloc(new_n_buckets * HASHMAP_VSIZE(hm), HASHMAP_VALIGN(hm)); \
-    memset((hm)->keys, 0, new_n_buckets * HASHMAP_KSIZE(hm)); \
-    memset((hm)->vals, 0, new_n_buckets * HASHMAP_VSIZE(hm)); \
     \
     for (size_t i = 0; i < (hm)->n_buckets; i++) { \
-        if (!BITFIELD_GET((hm)->occupancy, i)) continue; \
+        if (!HM2_IS_OCCUPIED(hm, i)) continue; \
         \
         size_t j = HASHMAP_HASH(hm, (hm)->keys[i]) % (new_n_buckets), k = j; \
-        for (; k < new_n_buckets && BITFIELD_GET(new_occupancy, k); k++); \
+        for (; k < new_n_buckets && HM2_IS_OCCUPIED(hm, k); k++); \
         if (k == new_n_buckets) { \
-            for (k = 0; k < j && BITFIELD_GET(new_occupancy, k); k++); \
+            for (k = 0; k < j && HM2_IS_OCCUPIED(hm, k); k++); \
         } \
         \
         new_keys[k] = (hm)->keys[i]; \
         new_vals[k] = (hm)->vals[i]; \
-        BITFIELD_SET(new_occupancy, k, 1); \
+        new_flags[k] = HM2_OCCUPIED; \
     } \
-    free((hm)->occupancy); \
+    free((hm)->flags); \
     aligned_free((hm)->keys); \
     aligned_free((hm)->vals); \
     (hm)->n_buckets = new_n_buckets; \
-    (hm)->occupancy = new_occupancy; \
+    (hm)->flags = new_flags; \
     (hm)->keys = new_keys; \
     (hm)->vals = new_vals; \
 }
 
 #define HASHMAP_FIND_SLOT(hm, key_expr) ({ \
-    HASHMAP_KTYPE(hm) key = key_expr; /* evaluate key */ \
-    size_t i = HASHMAP_HASH(hm, key), j = i; \
-    for (; j < (hm)->n_buckets && BITFIELD_GET((hm)->occupancy, j); j++); \
+    HASHMAP_KTYPE(hm) __hfindslot_key = key_expr; /* evaluate key */ \
+    size_t i = HASHMAP_HASH(hm, __hfindslot_key) % (hm)->n_buckets, j = i; \
+    for (; j < (hm)->n_buckets && HM2_IS_OCCUPIED(hm, j); j++); \
     if (j == (hm)->n_buckets) { \
-        for (j = 0; j < i && BITFIELD_GET((hm)->occupancy, j); j++); \
+        for (j = 0; j < i && HM2_IS_OCCUPIED(hm, j); j++); \
     } \
-    i; \
+    j; \
 })
 
 // Tries to insert given (key, value) pair in the hashmap, returning true if a value was already present at key. 
 // Optionally writes the old value, if any, to prev_out_opt. If prev_out_opt is null, the old value will be deleted via hm->val_del_fn.
 #define HASHMAP_INSERT(hm, key_expr, val_expr, prev_out_opt) ({ \
-    HASHMAP_KTYPE(hm) key = key_expr; /* evaluate args */ \
-    HASHMAP_VTYPE(hm) val = val_expr, *out = prev_out_opt; \
+    HASHMAP_KTYPE(hm) __hinsert_key = key_expr; /* evaluate args */ \
+    HASHMAP_VTYPE(hm) __hinsert_val = val_expr, *__hinsert_out = prev_out_opt; \
     \
-    size_t i = HASHMAP_FIND(hm, key); \
+    size_t i = HASHMAP_FIND(hm, __hinsert_key); \
     if (i != -1) { \
-        if (out) *out = (hm)->vals[i]; \
+        if (__hinsert_out) *__hinsert_out = (hm)->vals[i]; \
         else if ((hm)->val_del_fn) (hm)->val_del_fn((hm)->vals[i]); \
-        (hm)->vals[i] = (hm)->val_copy_fn(val); \
+        (hm)->vals[i] = (hm)->val_copy_fn ? (hm)->val_copy_fn(__hinsert_val) : __hinsert_val; \
     } else { \
         if ((hm)->size > (size_t)((double)((hm)->n_buckets) * HASHMAP_MAX_SATURATION)) { \
             HASHMAP_RESIZE(hm, (size_t)((double)((hm)->n_buckets) * HASHMAP_GROW_FACTOR)); \
         } \
-        size_t j = HASHMAP_FIND_SLOT(hm, key); \
-        (hm)->keys[j] = (hm)->key_copy_fn ? (hm)->key_copy_fn(key) : key; \
-        (hm)->vals[j] = (hm)->val_copy_fn ? (hm)->val_copy_fn(val) : val; \
-        BITFIELD_SET((hm)->occupancy, j, 1); \
+        size_t j = HASHMAP_FIND_SLOT(hm, __hinsert_key); \
+        (hm)->keys[j] = (hm)->key_copy_fn ? (hm)->key_copy_fn(__hinsert_key) : __hinsert_key; \
+        (hm)->vals[j] = (hm)->val_copy_fn ? (hm)->val_copy_fn(__hinsert_val) : __hinsert_val; \
+        HM2_SET_OCCUPIED(hm, j); \
         (hm)->size++; \
     } \
     i != -1; \
@@ -232,15 +237,15 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
 // Tries to erase an item given its key, returning true if the item was present. 
 // Optionally writes value, if any, to val_out_opt. If val_out_opt is null, the old value will be deleted via hm->val_del_fn.
 #define HASHMAP_ERASE(hm, key_expr, val_out_opt) ({ \
-    HASHMAP_KTYPE(hm) key = key_expr; /* evaluate args */ \
-    HASHMAP_VTYPE(hm)* out = val_out_opt; \
+    HASHMAP_KTYPE(hm) __herase_key= key_expr; /* evaluate args */ \
+    HASHMAP_VTYPE(hm)* __herase_out = val_out_opt; \
     \
-    size_t i = HASHMAP_FIND(hm, key); \
+    size_t i = HASHMAP_FIND(hm, __herase_key); \
     if (i != -1) { \
         if ((hm)->key_del_fn) (hm)->key_del_fn((hm)->keys[i]); \
-        if (out) *out = (hm)->vals[i]; \
-        else if ((hm)->val_del_fn) ((hm)->vals[i]); \
-        BITFIELD_SET((hm)->occupancy, i, 0); \
+        if (__herase_out) *__herase_out = (hm)->vals[i]; \
+        else if ((hm)->val_del_fn) (hm)->val_del_fn((hm)->vals[i]); \
+        HM2_SET_DELETED(hm, i); \
         size_t min_size = (size_t)((double)((hm)->n_buckets) * HASHMAP_MIN_SATURATION); \
         if ((hm)->size-- < min_size) { \
             size_t new_n_buckets = (size_t)((double)((hm)->size) * HASHMAP_GROW_FACTOR / HASHMAP_MAX_SATURATION); \
@@ -257,7 +262,7 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
     /* run deleter on keys and values, if any */ \
     if ((hm)->key_del_fn || (hm)->val_del_fn) { \
         for (size_t i = 0; i < (hm)->n_buckets; i++) { \
-            if (BITFIELD_GET((hm)->occupancy, i)) { \
+            if (HM2_IS_OCCUPIED(hm, i)) { \
                 if ((hm)->key_del_fn) (hm)->key_del_fn((hm)->keys[i]); \
                 if ((hm)->val_del_fn) (hm)->val_del_fn((hm)->vals[i]); \
             } \
@@ -266,7 +271,8 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
     /* resize to default min capacity */ \
     (hm)->n_buckets = HASHMAP_MIN_BUCKETS; \
     (hm)->size = 0; \
-    (hm)->occupancy = realloc((hm)->occupancy, HASHMAP_MIN_BUCKETS); \
+    (hm)->flags = realloc((hm)->flags, HASHMAP_MIN_BUCKETS); \
+    memset((hm)->flags, 0, HASHMAP_MIN_BUCKETS); \
     (hm)->keys = aligned_realloc((hm)->keys, HASHMAP_MIN_BUCKETS * HASHMAP_KSIZE(hm), HASHMAP_KALIGN(hm)); \
     (hm)->vals = aligned_realloc((hm)->vals, HASHMAP_MIN_BUCKETS * HASHMAP_VSIZE(hm), HASHMAP_VALIGN(hm)); \
 }
@@ -274,7 +280,7 @@ bool hm2_default_eq(void* a, void* b, size_t size) {
 // Deletes (frees) an allocated hashmap created using HASHMAP_CREATE.
 #define HASHMAP_DELETE(hm) { \
     HASHMAP_CLEAR(hm); \
-    free((hm)->occupancy); \
+    free((hm)->flags); \
     aligned_free((hm)->keys); \
     aligned_free((hm)->vals); \
     free(hm); \
