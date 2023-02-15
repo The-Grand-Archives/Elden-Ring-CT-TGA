@@ -81,3 +81,7 @@ Github | Reason
 ------------- | ---------------------
 [Mar-Veloz](https://github.com/Mar-Veloz) | Give all crafting materials x999
 [qwelias](https://github.com/qwelias) | ReinforceLv pointer
+
+Other | Reason
+------------- | ---------------------
+AssassinXMod | Unlock all Summoning Pools

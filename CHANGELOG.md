@@ -1,5 +1,28 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - by [tremwil](https://github.com/tremwil):
+   - New C library features:
+     - `hde64.h`: HDE64 x86 dissembler
+     - `vector.h`: macro-based STL-like "templated" dynamic array
+     - `hashmap2.h`: macro-based STL-like "templated" linear probing hash table with dynamic bucket count
+     - `code_utils.h`:
+       - `virtual_alloc_near` function for allocating memory within short JMP distance of a memory region, similar to CE's `alloc(symbol, size, target.exe)`
+       - `code_reloc` function for performing control flow analysis of a function and reassembling it in another region of memory
+       - `call_hook` struct and related functions for call hooking game functions to C code hooks, with automatic thunk generation
+     - `mem_region.h`
+       - Support for quickly defining memory regions from module and section names via the region_from_module function
+     - `pattern.h`
+       - CE AOB syntax parsing via the pattern struct and pattern_init function
+       - Easy CE-like easy_aob_scan function for performing a unique AOB scan given a module/section name and a CE AOB string
+     - Example script making use of the new features in `Scripts > Misc`: AOB scanning for ItemDrop, relocating its code and call hooking it to allow for arbitrary spawn coordinates
+ - by AssassinXMod:
+   - Unlock all Summoning Pools
+### Changed
+ - by [tremwil](https://github.com/tremwil):
+   - Moved clangd hints from `.clangd` to VSCode workspace settings to allow for relative include paths on Windows
+### Fixed
+ - Spelling of names in Great Rune dropdown
 
 ## [v1.1.7] - 2023-01-12
 ### Changed
