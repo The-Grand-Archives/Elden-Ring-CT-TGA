@@ -18,7 +18,10 @@
      - Example script making use of the new features in `Scripts > Misc`: AOB scanning for ItemDrop, relocating its code and call hooking it to allow for arbitrary spawn coordinates
  - by AssassinXMod:
    - Unlock all Summoning Pools
+ - by Pav:
+   - Free Camera
 ### Changed
+ - "table_ver", "game_ver", and "ce_ver" are now global variables
  - by [tremwil](https://github.com/tremwil):
    - Moved clangd hints from `.clangd` to VSCode workspace settings to allow for relative include paths on Windows
 ### Fixed

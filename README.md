@@ -85,3 +85,4 @@ Github | Reason
 Other | Reason
 ------------- | ---------------------
 AssassinXMod | Unlock all Summoning Pools
+Pav | Free Camera
