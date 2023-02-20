@@ -22,6 +22,7 @@
    - Free Camera
 ### Changed
  - "table_ver", "game_ver", and "ce_ver" are now global variables
+ - Removed username from tga path
  - by [tremwil](https://github.com/tremwil):
    - Moved clangd hints from `.clangd` to VSCode workspace settings to allow for relative include paths on Windows
 ### Fixed
