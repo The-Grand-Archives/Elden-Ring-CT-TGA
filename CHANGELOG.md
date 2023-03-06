@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.2.0] - 2023-03-06
 ### Added
  - by [tremwil](https://github.com/tremwil):
    - New C library features:
@@ -336,7 +338,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.7...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.2.0...dev
+[v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.7...v1.2.0
 [v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.6...v1.1.7
 [v1.1.6]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.5...v1.1.6
 [v1.1.5]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.4...v1.1.5
