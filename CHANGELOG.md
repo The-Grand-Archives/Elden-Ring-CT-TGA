@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - OptionsData -> Ray Tracing Quality setting moved up one header
+### Fixed
+ - Version check for Free Camera script
 
 ## [v1.2.0] - 2023-03-06
 ### Added
