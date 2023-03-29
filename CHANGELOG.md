@@ -4,6 +4,7 @@
  - OptionsData -> Ray Tracing Quality setting moved up one header
 ### Fixed
  - Version check for Free Camera script
+ - Free camera updated for v1.09
 
 ## [v1.2.0] - 2023-03-06
 ### Added
