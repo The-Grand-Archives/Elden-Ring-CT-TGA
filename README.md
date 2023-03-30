@@ -14,7 +14,7 @@ Our community, make sure to read the rules carefully.
  
 ### Requirements
 Cheat Engine: [7.4](https://github.com/cheat-engine/cheat-engine/releases)  
-Game: App ver. 1.08.1
+Game: App ver. 1.09
 
 ## How to use
 ### Info 
@@ -81,6 +81,12 @@ Github | Reason
 ------------- | ---------------------
 [Mar-Veloz](https://github.com/Mar-Veloz) | Give all crafting materials x999
 [qwelias](https://github.com/qwelias) | ReinforceLv pointer
+
+Seamless PvP Community | Reason   
+------------- | ---------------------
+Jacky Dima | Script contributions
+Jouta Kujo | Script contributions
+Orang | Script contributions
 
 Other | Reason
 ------------- | ---------------------
