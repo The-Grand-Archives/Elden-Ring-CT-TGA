@@ -2,9 +2,11 @@
 ## [Unreleased]
 ### Changed
  - OptionsData -> Ray Tracing Quality setting moved up one header
+ - Supported game version changed to v1.09
 ### Fixed
  - Version check for Free Camera script
  - Free camera updated for v1.09
+ - Spacing on version check errors
 
 ## [v1.2.0] - 2023-03-06
 ### Added
