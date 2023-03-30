@@ -1,5 +1,16 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Seamless PvP Community:
+   - by Orang:
+     - Remove Water Effects
+   - by Jacky Dima:
+     - Remove No Attack
+     - Cycling Tear
+     - Heal using Bone Dart
+     - Prevent Rot
+   - by Jouta Kujo:
+     - Auto Revive
 ### Changed
  - OptionsData -> Ray Tracing Quality setting moved up one header
  - Supported game version changed to v1.09
@@ -7,6 +18,7 @@
  - Version check for Free Camera script
  - Free camera updated for v1.09
  - Spacing on version check errors
+ - NoGoodsConsume
 
 ## [v1.2.0] - 2023-03-06
 ### Added
