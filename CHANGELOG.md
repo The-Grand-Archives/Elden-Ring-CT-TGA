@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.3.0] - 2023-04-02
 ### Added
  - Check if user has required TCC DLL
  - Seamless PvP Community:
@@ -358,7 +360,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.2.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.0...dev
+[v1.2.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.2.0...v1.3.0
 [v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.7...v1.2.0
 [v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.6...v1.1.7
 [v1.1.6]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.5...v1.1.6
