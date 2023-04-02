@@ -1,6 +1,7 @@
 # Changelog
 ## [Unreleased]
 ### Added
+ - Check if user has required TCC DLL
  - Seamless PvP Community:
    - by Orang:
      - Remove Water Effects
