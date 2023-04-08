@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Check if user enabled dbk32 QueryMemoryRegionEx
 
 ## [v1.3.0] - 2023-04-02
 ### Added
