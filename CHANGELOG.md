@@ -2,6 +2,7 @@
 ## [Unreleased]
 ### Added
  - Check if user enabled dbk32 QueryMemoryRegionEx
+ - Permanent lantern toggle script
 
 ## [v1.3.0] - 2023-04-02
 ### Added
