@@ -3,6 +3,8 @@
 ### Added
  - Check if user enabled dbk32 QueryMemoryRegionEx
  - Permanent lantern toggle script
+### Changed
+ - Supported game version to v1.09.1
 
 ## [v1.3.0] - 2023-04-02
 ### Added
@@ -68,7 +70,7 @@
  - OptionData header
 ### Changed
  - Supported CE version is now required and option to download is given
- - Supported game version to 1.08.1
+ - Supported game version to v1.08.1
 ### Fixed
  - Pointers in the CSWindow header
  - Not being able to spawn more than one "Arrow"
