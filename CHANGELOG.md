@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Death Num in GameData
 
 ## [v1.3.1] - 2023-04-18
 ### Added
