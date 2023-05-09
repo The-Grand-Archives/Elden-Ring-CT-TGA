@@ -2,6 +2,10 @@
 ## [Unreleased]
 ### Added
  - Death Num in GameData
+ - Char flags No Hit, No Attack, No Move, No Update for and npc helpers and hero header
+### Fixed
+ - Fix Last Hit Npc Info
+ - Fix animation header for npc helpers
 
 ## [v1.3.1] - 2023-04-18
 ### Added
