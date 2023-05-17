@@ -3,7 +3,8 @@
 ### Added
  - Death Num in GameData
  - Char flags No Hit, No Attack, No Move, No Update for and npc helpers and hero header
- - Length played pointers added after current animation pointers
+ - Length played pointers for current animation
+ - Debug Stuff > GAME > LOCK_TGT_MAN
 ### Changed
  - Current Animation pointers changed for npc helpers and player
 ### Fixed
