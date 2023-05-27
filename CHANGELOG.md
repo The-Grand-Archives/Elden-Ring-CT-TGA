@@ -5,8 +5,12 @@
  - Char flags No Hit, No Attack, No Move, No Update for and npc helpers and hero header
  - Length played pointers for current animation
  - Debug Stuff > GAME > LOCK_TGT_MAN
+ - game_title var
+ - address_version function to throw an error for incompatible scripts that rely on addresses
 ### Changed
  - Current Animation pointers changed for npc helpers and player
+ - Renamed and moved some headers for consistency with Dark Souls III table
+ - Free Camera script now uses address_version function
 ### Fixed
  - Fix Last Hit Npc Info
  - Fix animation header for npc helpers
