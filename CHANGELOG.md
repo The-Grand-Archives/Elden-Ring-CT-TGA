@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.4.0] - 2023-06-20
 ### Added
  - Death Num in GameData
  - Char flags No Hit, No Attack, No Move, No Update for and npc helpers and hero header
@@ -385,7 +387,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.1...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.4.0...dev
+[v1.3.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.1...v1.4.0
 [v1.3.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.0...v1.3.1
 [v1.2.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.2.0...v1.3.0
 [v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.7...v1.2.0
