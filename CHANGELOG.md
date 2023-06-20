@@ -4,7 +4,7 @@
 ## [v1.4.0] - 2023-06-20
 ### Added
  - Death Num in GameData
- - Char flags No Hit, No Attack, No Move, No Update for and npc helpers and hero header
+ - Char flags No Hit, No Attack, No Move, No Update for npc helpers and hero header
  - Length played pointers for current animation
  - Debug Stuff > GAME > LOCK_TGT_MAN
  - game_title var
