@@ -9,6 +9,7 @@
  - address_version function to throw an error for incompatible scripts that rely on addresses
  - Get Param List as table script (intended as example)
  - inArray lua function to check if an item is inside a specified array
+ - Kill all mobs script
 ### Changed
  - Current Animation pointers changed for npc helpers and player
  - Renamed and moved some headers for consistency with Dark Souls III table
