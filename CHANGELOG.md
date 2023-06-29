@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Npc Menus header
+   - Level Up
+   - Shop
 
 ## [v1.4.0] - 2023-06-20
 ### Added
