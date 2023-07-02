@@ -4,6 +4,8 @@
  - Npc Menus header
    - Level Up
    - Shop
+   - Rebirth
+   - Cosmetics
 
 ## [v1.4.0] - 2023-06-20
 ### Added
