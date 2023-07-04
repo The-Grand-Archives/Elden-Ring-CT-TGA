@@ -6,6 +6,8 @@
    - Shop
    - Rebirth
    - Cosmetics
+ - by [Dasaav](https://github.com/Dasaav-dsv):
+   - setBit function
 
 ## [v1.4.0] - 2023-06-20
 ### Added
