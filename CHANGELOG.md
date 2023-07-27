@@ -8,6 +8,8 @@
    - Cosmetics
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - setBit function
+### Changed
+ - Supported game version to app ver 1.10 (executable v2.00)
 
 ## [v1.4.0] - 2023-06-20
 ### Added
