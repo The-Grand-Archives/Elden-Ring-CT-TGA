@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.5.0] - 2023-07-27
 ### Added
  - Npc Menus header
    - Level Up
