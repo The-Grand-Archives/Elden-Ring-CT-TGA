@@ -1,5 +1,11 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Functions header
+ - PlayAnimation script
+### Changed
+ - Moved scripts from Scripts > Misc to Scripts > Functions
+ - Removed Deathsbane Jerky, Deathsbane White Jerky, Drawstring Freezing Grease from ItemGib dropdown
 
 ## [v1.5.0] - 2023-07-27
 ### Added
