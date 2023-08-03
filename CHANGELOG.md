@@ -3,6 +3,7 @@
 ### Added
  - Functions header
  - PlayAnimation script
+ - "Wraith Caller" and some other enemy to Kill all mobs
 ### Changed
  - Moved scripts from Scripts > Misc to Scripts > Functions
  - Removed Deathsbane Jerky, Deathsbane White Jerky, Drawstring Freezing Grease from ItemGib dropdown
