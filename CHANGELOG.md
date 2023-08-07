@@ -7,6 +7,7 @@
 ### Changed
  - Moved scripts from Scripts > Misc to Scripts > Functions
  - Removed Deathsbane Jerky, Deathsbane White Jerky, Drawstring Freezing Grease from ItemGib dropdown
+ - Required CE files check now includes "luaclient-x86_64.dll"
 
 ## [v1.5.0] - 2023-07-27
 ### Added
