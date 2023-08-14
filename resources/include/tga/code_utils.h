@@ -97,10 +97,6 @@ bool code_reloc(fn_info* original, fn_info* relocated, void* dest, size_t dest_s
         hde64_disasm((void*)ip, &instr);
         if (instr.flags & F_ERROR) { original->function_begin = 0; goto ret; }
 
-        if (ip == 0x7FF7E7116896) {
-            int _bp = 0;
-        }
-
         if (ip < original->code_begin) original->code_begin = ip;
         if (ip > original->code_end) original->code_end = ip + instr.len;
 
