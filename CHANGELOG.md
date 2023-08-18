@@ -4,6 +4,8 @@
  - Functions header
  - PlayAnimation script
  - "Wraith Caller" and some other enemy to Kill all mobs
+ - Scripts > Build Creation > Set flask level
+ - Scripts > Build Creation > Add charge to flask
 ### Changed
  - Moved scripts from Scripts > Misc to Scripts > Functions
  - Removed Deathsbane Jerky, Deathsbane White Jerky, Drawstring Freezing Grease from ItemGib dropdown
