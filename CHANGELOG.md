@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.6.0] - 2023-08-18
 ### Added
  - Functions header
  - PlayAnimation script
@@ -409,8 +411,10 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.4.0...dev
-[v1.3.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.1...v1.4.0
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.0...dev
+[v1.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.5.0...v1.6.0
+[v1.5.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.4.0...v1.5.0
+[v1.4.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.1...v1.4.0
 [v1.3.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.0...v1.3.1
 [v1.2.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.2.0...v1.3.0
 [v1.1.7]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.1.7...v1.2.0
