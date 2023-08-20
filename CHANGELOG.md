@@ -1,6 +1,11 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.6.1] - 2023-08-18
+### Fixed
+ - by [tremwil](https://github.com/tremwil):
+   - CSEventFlagMan / CSFD4VirtualMemoryFlag symbols, which broke Event Flags
+
 ## [v1.6.0] - 2023-08-18
 ### Added
  - Functions header
@@ -12,6 +17,8 @@
  - Moved scripts from Scripts > Misc to Scripts > Functions
  - Removed Deathsbane Jerky, Deathsbane White Jerky, Drawstring Freezing Grease from ItemGib dropdown
  - Required CE files check now includes "luaclient-x86_64.dll"
+ - by [tremwil](https://github.com/tremwil):
+   - FD4Singleton finder rewritten
 
 ## [v1.5.0] - 2023-07-27
 ### Added
@@ -411,7 +418,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.1...dev
+[v1.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.0...v1.6.1
 [v1.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.4.0...v1.5.0
 [v1.4.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.1...v1.4.0
