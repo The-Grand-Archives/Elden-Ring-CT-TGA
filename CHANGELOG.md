@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - OpenProcess approach now uses a table and for loop
 
 ## [v1.6.1] - 2023-08-18
 ### Fixed
