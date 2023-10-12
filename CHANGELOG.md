@@ -3,6 +3,7 @@
 ### Added
  - Hero > GameData > EquipInventoryData > Print Inventory
  - Scripts > Functions > RemoveItem
+ - Scripts > Functions > RemoveItem > Remove All Duplicates
 ### Changed
  - OpenProcess approach now uses a table and for loop
 
