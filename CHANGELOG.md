@@ -1,5 +1,8 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Hero > GameData > EquipInventoryData > Print Inventory
+ - Scripts > Functions > RemoveItem
 ### Changed
  - OpenProcess approach now uses a table and for loop
 
