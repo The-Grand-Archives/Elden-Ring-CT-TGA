@@ -6,6 +6,8 @@
  - Scripts > Functions > RemoveItem > Remove All Duplicates
 ### Changed
  - OpenProcess approach now uses a table and for loop
+### Fixed
+ - Allocated memory in PlayAnimation should deallocate properly now
 
 ## [v1.6.1] - 2023-08-18
 ### Fixed
