@@ -4,6 +4,7 @@
  - Hero > GameData > EquipInventoryData > Print Inventory
  - Scripts > Functions > RemoveItem
  - Scripts > Functions > RemoveItem > Remove All Duplicates
+ - Scripts > Npc Menus has been greatly expanded to include more menus and made slightly easier to update:
  - by [sovietspaceship](https://github.com/sovietspaceship):
    - Colosseum unlock state Event Flags
    - Unlock all Colosseums script
