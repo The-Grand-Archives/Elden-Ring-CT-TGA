@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.7.0] - 2023-11-21
 ### Added
  - Hero > GameData > EquipInventoryData > Print Inventory
  - Scripts > Functions > RemoveItem
@@ -430,8 +432,9 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.1...dev
-[v1.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.0...v1.6.1
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.7.0...dev
+[v1.7.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.1...v1.7.0
+[v1.6.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.0...v1.6.1
 [v1.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.4.0...v1.5.0
 [v1.4.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.3.1...v1.4.0
