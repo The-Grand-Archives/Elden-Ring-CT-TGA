@@ -4,6 +4,9 @@
  - Hero > GameData > EquipInventoryData > Print Inventory
  - Scripts > Functions > RemoveItem
  - Scripts > Functions > RemoveItem > Remove All Duplicates
+ - by [sovietspaceship](https://github.com/sovietspaceship):
+   - Colosseum unlock state Event Flags
+   - Unlock all Colosseums script
 ### Changed
  - OpenProcess approach now uses a table and for loop
 ### Fixed
