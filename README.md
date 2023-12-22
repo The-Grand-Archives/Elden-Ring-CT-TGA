@@ -8,7 +8,7 @@ Elden Ring Cheat Engine table maintained by The Grand Archives.
 ## Discord
 
 Our community, make sure to read the rules carefully.  
-[The Grand Archives](https://discord.io/the-grand-archives)  
+[The Grand Archives](https://dsc.gg/the-grand-archives)  
 
 If it doesn't work, try this [alternative invite](https://discord.gg/2RTW6BFgeX)
 
