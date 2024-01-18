@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - Supported game version to app ver 1.10.1 (executable v2.00.1)
 ### Fixed
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Last Hit Npc Info
@@ -9,7 +11,7 @@
  - Hero > GameData > EquipInventoryData > Print Inventory
  - Scripts > Functions > RemoveItem
  - Scripts > Functions > RemoveItem > Remove All Duplicates
- - Scripts > Npc Menus has been greatly expanded to include more menus and made slightly easier to update:
+ - Scripts > Npc Menus has been greatly expanded to include more menus and made slightly easier to update
  - by [sovietspaceship](https://github.com/sovietspaceship):
    - Colosseum unlock state Event Flags
    - Unlock all Colosseums script
