@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.7.1] - 2024-01-18
 ### Added
  - Basic first time setup question for update check
 ### Changed
