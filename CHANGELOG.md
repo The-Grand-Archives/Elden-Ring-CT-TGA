@@ -7,6 +7,7 @@
 ### Fixed
  - by [Dasaav](https://github.com/Dasaav-dsv):
    - Last Hit Npc Info
+   - Free Camera
 
 ## [v1.7.0] - 2023-11-21
 ### Added
