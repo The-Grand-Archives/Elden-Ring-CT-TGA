@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Basic first time setup question for update check
 ### Changed
  - Supported game version to app ver 1.10.1 (executable v2.00.1)
 ### Fixed
