@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Current magic slot and magic quantities (unused) to EquipMagicData
 
 ## [v1.7.1] - 2024-01-18
 ### Added
