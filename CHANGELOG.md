@@ -2,6 +2,7 @@
 ## [Unreleased]
 ### Added
  - Current magic slot and magic quantities (unused) to EquipMagicData
+ - BulletSpawn
 
 ## [v1.7.1] - 2024-01-18
 ### Added
@@ -444,7 +445,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.7.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.7.1...dev
+[v1.7.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.7.0...v1.7.1
 [v1.7.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.1...v1.7.0
 [v1.6.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.6.0...v1.6.1
 [v1.6.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.5.0...v1.6.0
