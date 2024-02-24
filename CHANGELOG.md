@@ -3,6 +3,8 @@
 ### Added
  - Current magic slot and magic quantities (unused) to EquipMagicData
  - BulletSpawn
+### Fixed
+ - Npc Menus
 
 ## [v1.7.1] - 2024-01-18
 ### Added
