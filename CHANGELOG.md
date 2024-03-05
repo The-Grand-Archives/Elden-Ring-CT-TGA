@@ -6,6 +6,7 @@
    - getItemByIdx
    - getItemType
  - EquipItem function, equip any item from inventory via inventory index or item id
+ - "Remove by Item ID" for RemoveItem
 
 ## [v1.8.0] - 2024-02-24
 ### Added
