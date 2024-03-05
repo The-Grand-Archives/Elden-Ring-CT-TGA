@@ -1,5 +1,11 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Misc/WIP > Dependencies > Shared Functions
+   - getItemIdx
+   - getItemByIdx
+   - getItemType
+ - EquipItem function, equip any item from inventory via inventory index or item id
 
 ## [v1.8.0] - 2024-02-24
 ### Added
