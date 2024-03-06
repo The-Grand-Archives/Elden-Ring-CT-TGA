@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.9.0] - 2024-03-06
 ### Added
  - Misc/WIP > Dependencies > Shared Functions
    - getItemIdx
