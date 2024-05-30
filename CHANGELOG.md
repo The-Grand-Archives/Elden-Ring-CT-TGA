@@ -4,6 +4,8 @@
  - ApplyEffect
  - Colosseum IDs to Event Flags
  - Party Member Info
+### Changed
+ - Increase size of ItemGibArray alloc in ItemGib, might fix crashing
 
 ## [v1.9.0] - 2024-03-06
 ### Added
