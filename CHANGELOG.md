@@ -3,6 +3,7 @@
 ### Added
  - ApplyEffect
  - Colosseum IDs to Event Flags
+ - Party Member Info
 
 ## [v1.9.0] - 2024-03-06
 ### Added
