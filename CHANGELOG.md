@@ -6,6 +6,7 @@
  - Party Member Info
  - ChangeMagic
  - ItemGive lua script under Global Functions
+ - DLC items to MassItemGib
 ### Changed
  - Increase size of ItemGibArray alloc in ItemGib, might fix crashing
  - Improved getItemIdx
@@ -13,6 +14,8 @@
  - Moved getItemIdx, getItemByIdx, and getItemType into a single script
  - Moved code of RemoveItem, equipItem, and changeMagic under Global Functions
  - "Remove Seamless Co-op items" now uses equipItem and RemoveItem
+### Fixed
+ - RemoveItem
 
 ## [v1.9.0] - 2024-03-06
 ### Added
