@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.10.0] - 2024-06-21
 ### Added
  - ApplyEffect
  - Colosseum IDs to Event Flags
@@ -14,6 +16,7 @@
  - Moved getItemIdx, getItemByIdx, and getItemType into a single script
  - Moved code of RemoveItem, equipItem, and changeMagic under Global Functions
  - "Remove Seamless Co-op items" now uses equipItem and RemoveItem
+ - Supported game version to app ver 1.12 (executable v2.02)
 ### Fixed
  - RemoveItem
 
