@@ -5,9 +5,14 @@
  - Colosseum IDs to Event Flags
  - Party Member Info
  - ChangeMagic
+ - ItemGive lua script under Global Functions
 ### Changed
  - Increase size of ItemGibArray alloc in ItemGib, might fix crashing
  - Improved getItemIdx
+ - Renamed Shared Functions to Global Functions
+ - Moved getItemIdx, getItemByIdx, and getItemType into a single script
+ - Moved code of RemoveItem, equipItem, and changeMagic under Global Functions
+ - "Remove Seamless Co-op items" now uses equipItem and RemoveItem
 
 ## [v1.9.0] - 2024-03-06
 ### Added
