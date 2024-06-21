@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Unlock all Shadow of the Erdtree gestures
 ### Changed
  - CsDlc names
  - address_version text to specify "executable version" instead of "app ver"
@@ -10,6 +12,7 @@
  - ChrAsm
  - GestureGameData
  - GestureEquipData
+ - Unlock all gestures
 
 ## [v1.10.0] - 2024-06-21
 ### Added
