@@ -2,11 +2,14 @@
 ## [Unreleased]
 ### Changed
  - CsDlc names
+ - address_version text to specify "executable version" instead of "app ver"
 ### Fixed 
  - Fix Print Inventory
  - Remove All Duplicates
  - getItemIdx, getItemByIdx, getItemType
  - ChrAsm
+ - GestureGameData
+ - GestureEquipData
 
 ## [v1.10.0] - 2024-06-21
 ### Added
