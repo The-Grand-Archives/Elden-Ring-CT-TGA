@@ -1,9 +1,12 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - CsDlc names
 ### Fixed 
  - Fix Print Inventory
  - Remove All Duplicates
  - getItemIdx, getItemByIdx, getItemType
+ - ChrAsm
 
 ## [v1.10.0] - 2024-06-21
 ### Added
