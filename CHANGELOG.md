@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Fixed 
+ - Fix Print Inventory
+ - Remove All Duplicates
+ - getItemIdx, getItemByIdx, getItemType
 
 ## [v1.10.0] - 2024-06-21
 ### Added
