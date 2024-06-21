@@ -2,6 +2,7 @@
 ## [Unreleased]
 ### Added
  - Unlock all Shadow of the Erdtree gestures
+ - Give all gems for Shadow of the Erdtree
 ### Changed
  - CsDlc names
  - address_version text to specify "executable version" instead of "app ver"
