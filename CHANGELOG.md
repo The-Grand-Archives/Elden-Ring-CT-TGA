@@ -4,16 +4,16 @@
 ## [v1.10.1] - 2024-06-22
 ### Added
  - Unlock all Shadow of the Erdtree gestures
- - Give all gems for Shadow of the Erdtree
  - more missing weapons to give all weapons (SotE)
- - MassItemGib additions:
+ - MassItemGib additions for Shadow of the Erdtree:
+   - Give all ashes of war
    - Give all remembrances
    - Give all bell bearings
    - Give all spirit ashes
    - Give all sorceries and incantations (should be split up later)
    - by Layka:
-     - Give all crystal tears (SotE)
-     - Give all projectiles x99 (SotE)
+     - Give all crystal tears
+     - Give all projectiles x99
    - by Bearmageddon:
      - Give all greases x999
      - Give all crafted pots x999
