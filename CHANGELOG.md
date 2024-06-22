@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - Fix Unlock All Gestures scripts
 
 ## [v1.10.1] - 2024-06-22
 ### Added
