@@ -3,6 +3,10 @@
 ### Added
  - Unlock all Shadow of the Erdtree gestures
  - Give all gems for Shadow of the Erdtree
+ - MassItemGib additions:
+   - by Layka:
+     - Give all crystal tears (SotE)
+     - Give all projectiles x99 (SotE)
 ### Changed
  - CsDlc names
  - address_version text to specify "executable version" instead of "app ver"
