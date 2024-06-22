@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.10.1] - 2024-06-22
 ### Added
  - Unlock all Shadow of the Erdtree gestures
  - Give all gems for Shadow of the Erdtree
