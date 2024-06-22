@@ -14,6 +14,8 @@
  - GestureGameData
  - GestureEquipData
  - Unlock all gestures
+ - EquipInventoryData
+ - Npc Menus
 
 ## [v1.10.0] - 2024-06-21
 ### Added
