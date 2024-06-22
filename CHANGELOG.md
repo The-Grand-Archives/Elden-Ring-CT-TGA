@@ -4,9 +4,18 @@
  - Unlock all Shadow of the Erdtree gestures
  - Give all gems for Shadow of the Erdtree
  - MassItemGib additions:
+   - Give all remembrances
+   - Give all bell bearings
+   - Give all spirit ashes
+   - Give all sorceries and incantations (should be split up later)
    - by Layka:
      - Give all crystal tears (SotE)
      - Give all projectiles x99 (SotE)
+   - by Bearmageddon:
+     - Give all greases x999
+     - Give all crafted pots x999
+     - Give all misc consumables x999
+     - Give all crafting materials x999
 ### Changed
  - CsDlc names
  - address_version text to specify "executable version" instead of "app ver"
