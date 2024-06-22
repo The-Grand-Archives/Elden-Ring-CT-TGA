@@ -3,6 +3,7 @@
 ### Added
  - Unlock all Shadow of the Erdtree gestures
  - Give all gems for Shadow of the Erdtree
+ - more missing weapons to give all weapons (SotE)
  - MassItemGib additions:
    - Give all remembrances
    - Give all bell bearings
