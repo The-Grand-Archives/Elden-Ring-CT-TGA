@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Print active SpEffects
 ### Fixed
  - Fix Unlock All Gestures scripts
 
