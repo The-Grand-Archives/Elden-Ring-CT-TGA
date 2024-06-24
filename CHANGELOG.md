@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Added
  - Print active SpEffects
+### Changed
+ - Replaced ItemGib with lua rewrite, old ItemGib code moved to Misc/WIP->Deprecated
 ### Fixed
  - Fix Unlock All Gestures scripts
 
