@@ -2,8 +2,10 @@
 ## [Unreleased]
 ### Added
  - Print active SpEffects
+ - Npc Menus -> Remembrance Duplication
 ### Changed
  - Replaced ItemGib with lua rewrite, old ItemGib code moved to Misc/WIP->Deprecated
+ - MassItemGib weapon scripts made more easily customisable
 ### Fixed
  - Fix Unlock All Gestures scripts
 
