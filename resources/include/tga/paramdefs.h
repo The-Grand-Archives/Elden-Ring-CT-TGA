@@ -7688,8 +7688,7 @@ struct _SWORD_ARTS_PARAM_ST {
 	s16 useMagicPoint_L2;
 	s16 useMagicPoint_R1;
 	s16 useMagicPoint_R2;
-	u8 swordArtsTypeNew;
-	u8 IsDlcSwordArt;
+	u16 swordArtsTypeNew;
 	u16 iconId;
 	s32 aiUsageId;
 };
