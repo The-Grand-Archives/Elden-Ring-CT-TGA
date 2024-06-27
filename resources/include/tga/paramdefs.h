@@ -3,6 +3,8 @@
 #pragma once
 #define _TGA_PARAMDEFS_H
 
+#include <stdint.h>
+
 typedef char s8;
 typedef unsigned char u8;
 typedef short s16;
@@ -423,7 +425,7 @@ struct _ASSET_GEOMETORY_PARAM_ST {
 	u8 isAnimBreak: 1;
 	u8 isDamageCover: 1;
 	u8 isAttackBacklash: 1;
-	dummy8 Reserve_2: 1;
+	u8 unknown_0x3b_7: 1;
 	u8 isLadder: 1;
 	u8 isMoveObj: 1;
 	u8 isSkydomeFlag: 1;
@@ -485,8 +487,8 @@ struct _ASSET_GEOMETORY_PARAM_ST {
 	u8 slidingBulletHitType;
 	u8 isBushesForDamage;
 	u8 penetrationBulletType;
-	dummy8 Reserve_3[1];
-	dummy8 Reserve_4[4];
+	u8 unkR3;
+	f32 unkR4;
 	s32 soundBreakSECpId;
 	f32 debug_HeightCheckCapacityMin;
 	f32 debug_HeightCheckCapacityMax;
@@ -503,7 +505,7 @@ struct _ASSET_GEOMETORY_PARAM_ST {
 	u8 isDisableBulletHitSfx: 1;
 	u8 isEnableSignPreBreak: 1;
 	u8 isEnableSignPostBreak: 1;
-	dummy8 Reserve_1: 2;
+	u8 unkR1: 2;
 	u8 generateMultiForbiddenRegion;
 	s32 residentSeId0;
 	s32 residentSeId1;
@@ -517,7 +519,13 @@ struct _ASSET_GEOMETORY_PARAM_ST {
 	u8 excludeActivateRatio_Xboxone_Legacy;
 	u8 excludeActivateRatio_PS4_Grid;
 	u8 excludeActivateRatio_PS4_Legacy;
-	dummy8 Reserve_0[32];
+	u8 unknown_0x120;
+	u8 unknown_0x121;
+	u8 unknown_0x122;
+	u8 unknown_0x123;
+	u8 unknown_0x124;
+	u8 unknown_0x125;
+	dummy8 Reserve_0[26];
 };
 typedef struct _ASSET_GEOMETORY_PARAM_ST ASSET_GEOMETORY_PARAM_ST;
 
@@ -795,7 +803,9 @@ struct _ATK_PARAM_ST {
 	u8 defSfxMaterialVariationValue;
 	dummy8 pad4[3];
 	s32 finalDamageRateId;
-	dummy8 pad7[12];
+	u8 unknown_0x1bc;
+	u8 unknown_0x1bd;
+	dummy8 pad7[10];
 };
 typedef struct _ATK_PARAM_ST ATK_PARAM_ST;
 
@@ -936,7 +946,8 @@ struct _BONFIRE_WARP_PARAM_ST {
 	u16 iconId;
 	u8 dispMask00: 1;
 	u8 dispMask01: 1;
-	dummy8 pad1: 6;
+	u8 dispMask02: 1;
+	dummy8 pad1: 5;
 	dummy8 pad2[1];
 	u8 areaNo;
 	u8 gridXNo;
@@ -981,23 +992,24 @@ struct _BONFIRE_WARP_PARAM_ST {
 	s32 noIgnitionSfxId_0;
 	s32 noIgnitionSfxDmypolyId_1;
 	s32 noIgnitionSfxId_1;
-	s32 unkA8;
-	s32 unkAC;
-	s32 unkB0;
-	s32 unkB4;
-	s32 unkB8;
-	s32 unkBC;
-	s32 unkC0;
-	s32 unkC4;
-	s32 unkC8;
-	s32 unkCC;
-	s32 unkD0;
-	s32 unkD4;
-	s32 unkD8;
-	s32 unkDC;
-	s32 unkE0;
-	s32 unkE4;
-	s32 unkE8;
+	s32 textEnableFlag2Id1;
+	s32 textEnableFlag2Id2;
+	s32 textEnableFlag2Id3;
+	s32 textEnableFlag2Id4;
+	s32 textEnableFlag2Id5;
+	s32 textEnableFlag2Id6;
+	s32 textEnableFlag2Id7;
+	s32 textEnableFlag2Id8;
+	s32 textDisableFlag2Id1;
+	s32 textDisableFlag2Id2;
+	s32 textDisableFlag2Id3;
+	s32 textDisableFlag2Id4;
+	s32 textDisableFlag2Id5;
+	s32 textDisableFlag2Id6;
+	s32 textDisableFlag2Id7;
+	s32 textDisableFlag2Id8;
+	u16 altIconId;
+	u16 altForbiddenIconId;
 };
 typedef struct _BONFIRE_WARP_PARAM_ST BONFIRE_WARP_PARAM_ST;
 
@@ -1052,7 +1064,23 @@ struct _BUDDY_PARAM_ST {
 	s32 dopingSpEffect_lv10;
 	s32 npcPlayerInitParamId;
 	s32 generateAnimId;
-	dummy8 Reserve2[4];
+	u32 unknown_0x5c;
+	u32 unknown_0x60;
+	s32 unknown_0x64;
+	s32 unknown_0x68;
+	s32 unknown_0x6c;
+	s32 unknown_0x70;
+	s32 unknown_0x74;
+	s32 unknown_0x78;
+	s32 unknown_0x7c;
+	s32 unknown_0x80;
+	u32 unknown_0x84;
+	s32 unknown_0x88;
+	s32 unknown_0x8c;
+	s32 unknown_0x90;
+	s32 unknown_0x94;
+	s32 unknown_0x98;
+	u32 unknown_0x9c;
 };
 typedef struct _BUDDY_PARAM_ST BUDDY_PARAM_ST;
 
@@ -1170,7 +1198,8 @@ struct _BULLET_PARAM_ST {
 	u8 Material_AttackMaterial;
 	u8 isPenetrateChr: 1;
 	u8 isPenetrateObj: 1;
-	dummy8 pad: 6;
+	u8 unknown_0x98_3: 1;
+	dummy8 pad: 5;
 	u8 launchConditionType;
 	u8 FollowType: 3;
 	u8 EmittePosType: 3;
@@ -1210,7 +1239,7 @@ struct _BULLET_PARAM_ST {
 	u8 isCheckWall_byCenterRay: 1;
 	u8 isHitFlare: 1;
 	u8 isUseBulletWallFilter: 1;
-	dummy8 pad1: 1;
+	u8 unknown_0xc3_5: 1;
 	u8 isNonDependenceMagicForFunnleNum: 1;
 	u8 isAiInterruptShootNoDamageBullet: 1;
 	f32 randomCreateRadius;
@@ -1304,7 +1333,9 @@ struct _CHARACTER_INIT_PARAM {
 	s32 equip_Accessory02;
 	s32 equip_Accessory03;
 	s32 equip_Accessory04;
-	dummy8 pad8[4];
+	u8 unknown_0x50;
+	u8 unknown_0x51;
+	dummy8 pad8[2];
 	s32 elixir_material00;
 	s32 elixir_material01;
 	s32 elixir_material02;
@@ -1450,6 +1481,13 @@ struct _CHR_ACTIVATE_CONDITION_PARAM_ST {
 };
 typedef struct _CHR_ACTIVATE_CONDITION_PARAM_ST CHR_ACTIVATE_CONDITION_PARAM_ST;
 
+struct _CHR_EQUIP_MODEL_PARAM_ST {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+};
+typedef struct _CHR_EQUIP_MODEL_PARAM_ST CHR_EQUIP_MODEL_PARAM_ST;
+
 struct _CHR_MODEL_PARAM_ST {
 	u8 disableParam_NT: 1;
 	dummy8 disableParamReserve1: 7;
@@ -1458,6 +1496,7 @@ struct _CHR_MODEL_PARAM_ST {
 	u8 texMemoryType;
 	s16 cameraDitherFadeId;
 	f32 reportAnimMemSizeMb;
+	u32 unk;
 };
 typedef struct _CHR_MODEL_PARAM_ST CHR_MODEL_PARAM_ST;
 
@@ -1601,7 +1640,8 @@ struct _CUTSCENE_MAP_ID_PARAM_ST {
 	u32 RequireMapId1;
 	u32 RequireMapId2;
 	s32 RefCamPosHitPartsID;
-	dummy8 reserved_2[12];
+	s32 unknown_0x18;
+	dummy8 reserved_2[8];
 	u16 ClientDisableViewTimeForProgress;
 	dummy8 reserved[2];
 	s32 HitParts_0;
@@ -2068,7 +2108,8 @@ struct _EQUIP_PARAM_GEM_ST {
 	u8 showLogCondType: 1;
 	dummy8 pad: 1;
 	u8 defaultWepAttr;
-	dummy8 pad2[2];
+	u8 unknown_0x36;
+	dummy8 pad2[1];
 	u8 canMountWep_Dagger: 1;
 	u8 canMountWep_SwordNormal: 1;
 	u8 canMountWep_SwordLarge: 1;
@@ -2105,8 +2146,16 @@ struct _EQUIP_PARAM_GEM_ST {
 	u8 canMountWep_ShieldNormal: 1;
 	u8 canMountWep_ShieldLarge: 1;
 	u8 canMountWep_Torch: 1;
-	dummy8 reserved_canMountWep: 4;
-	dummy8 reserved2_canMountWep[3];
+	u8 canMountWep_HandToHand: 1;
+	u8 canMountWep_PerfumeBottle: 1;
+	u8 canMountWep_ThrustingShield: 1;
+	u8 canMountWep_ThrowingWeapon: 1;
+	u8 canMountWep_ReverseHandSword: 1;
+	u8 canMountWep_LightGreatsword: 1;
+	u8 canMountWep_GreatKatana: 1;
+	u8 canMountWep_BeastClaw: 1;
+	dummy8 reserved_canMountWep_0x3d_4: 4;
+	dummy8 reserved2_canMountWep[2];
 	s32 spEffectMsgId0;
 	s32 spEffectMsgId1;
 	s32 spEffectId_forAtk0;
@@ -2145,7 +2194,7 @@ struct _EQUIP_PARAM_GOODS_ST {
 	u8 goodsType;
 	u8 refCategory;
 	u8 spEffectCategory;
-	dummy8 pad3[1];
+	u8 unknown_0x40;
 	u8 goodsUseAnim;
 	u8 opmeMenuType;
 	u8 useLimitCategory;
@@ -2204,7 +2253,9 @@ struct _EQUIP_PARAM_GOODS_ST {
 	s16 maxRepositoryNum;
 	u8 sortGroupId;
 	u8 isUseNoAttackRegion: 1;
-	dummy8 pad1: 7;
+	u8 unknown_0x73_1: 1;
+	u8 unknown_0x73_2: 1;
+	dummy8 pad1: 5;
 	s32 saleValue;
 	u8 rarity;
 	u8 useLimitSummonBuddy;
@@ -2664,7 +2715,9 @@ struct _EQUIP_PARAM_WEAPON_ST {
 	u8 isAutoEquip: 1;
 	u8 isEnableEmergencyStep: 1;
 	u8 invisibleOnRemo: 1;
-	dummy8 pad2: 3;
+	u8 unknown_0x17c_5: 1;
+	u8 unknown_0x17c_6: 1;
+	u8 unknown_0x17c_7: 1;
 	u8 correctType_Magic;
 	u8 correctType_Fire;
 	u8 correctType_Thunder;
@@ -2762,7 +2815,8 @@ struct _EQUIP_PARAM_WEAPON_ST {
 	s16 stealthAtkRate;
 	f32 vsPlayerDmgCorrectRate_Disease;
 	f32 vsPlayerDmgCorrectRate_Curse;
-	dummy8 pad[8];
+	u8 unknown_0x290;
+	dummy8 pad[7];
 };
 typedef struct _EQUIP_PARAM_WEAPON_ST EQUIP_PARAM_WEAPON_ST;
 
@@ -3268,13 +3322,13 @@ struct _FE_TEXT_EFFECT_PARAM_ST {
 typedef struct _FE_TEXT_EFFECT_PARAM_ST FE_TEXT_EFFECT_PARAM_ST;
 
 struct _FINAL_DAMAGE_RATE_PARAM_ST {
-	f32 physrate;
-	f32 magrate;
-	f32 firerate;
-	f32 thunrate;
-	f32 darkrate;
-	f32 staminarate;
-	f32 sarate;
+	f32 physRate;
+	f32 magRate;
+	f32 fireRate;
+	f32 thunRate;
+	f32 darkRate;
+	f32 staminaRate;
+	f32 saRate;
 };
 typedef struct _FINAL_DAMAGE_RATE_PARAM_ST FINAL_DAMAGE_RATE_PARAM_ST;
 
@@ -3719,7 +3773,7 @@ struct _GAME_SYSTEM_COMMON_PARAM_ST {
 	f32 aiSightRate_evening;
 	f32 aiSightRate_night;
 	f32 aiSightRate_midnightA;
-	dummy8 reserve4_2[4];
+	s32 unknown_0x230;
 	f32 aiSightRate_sunloss_light;
 	f32 aiSightRate_sunloss_dark;
 	f32 aiSightRate_sunloss_veryDark;
@@ -3812,7 +3866,48 @@ struct _GAME_SYSTEM_COMMON_PARAM_ST {
 	f32 actionButtonInputCancelTime;
 	f32 blockClearBonusDelayTime;
 	f32 bonfireCheckEnemyRange;
-	dummy8 reserved_124[128];
+	s32 unknown_0x2f0;
+	s32 unknown_0x2f4;
+	s32 unknown_0x2f8;
+	s32 unknown_0x2fc;
+	s32 unknown_0x300;
+	s32 unknown_0x304;
+	s32 unknown_0x308;
+	s32 unknown_0x30c;
+	f32 unknown_0x310;
+	f32 unknown_0x314;
+	f32 unknown_0x318;
+	f32 unknown_0x31c;
+	f32 unknown_0x320;
+	f32 unknown_0x324;
+	f32 unknown_0x328;
+	f32 unknown_0x32c;
+	f32 unknown_0x330;
+	f32 unknown_0x334;
+	f32 unknown_0x338;
+	f32 unknown_0x33c;
+	f32 unknown_0x340;
+	f32 unknown_0x344;
+	s32 unknown_0x34c;
+	s32 unknown_0x350;
+	s32 unknown_0x354;
+	s32 unknown_0x358;
+	s32 unknown_0x35c;
+	s32 unknown_0x360;
+	s32 unknown_0x364;
+	s32 unknown_0x368;
+	s32 unknown_0x36c;
+	s32 unknown_0x370;
+	s32 unknown_0x374;
+	s32 unknown_0x378;
+	s32 unknown_0x37c;
+	s32 unknown_0x380;
+	s32 unknown_0x384;
+	s32 unknown_0x388;
+	s32 unknown_0x38c;
+	s32 unknown_0x390;
+	s32 unknown_0x394;
+	dummy8 endPad[108];
 };
 typedef struct _GAME_SYSTEM_COMMON_PARAM_ST GAME_SYSTEM_COMMON_PARAM_ST;
 
@@ -3872,6 +3967,20 @@ struct _CS_MOTION_BLUR_QUALITY_DETAIL {
 	f32 blurMaxLengthScale;
 };
 typedef struct _CS_MOTION_BLUR_QUALITY_DETAIL CS_MOTION_BLUR_QUALITY_DETAIL;
+
+struct _CS_RAYTRACING_QUALITY_DETAIL {
+	u8 Unk0x00;
+	u8 Unk0x01;
+	u8 Unk0x02;
+	u8 Unk0x03;
+	f32 UnkFloat0x04;
+	s32 Unk0x08;
+	f32 UnkFloat0x0C;
+	s32 Unk0x10;
+	f32 penumbraSize;
+	f32 renderDistance;
+};
+typedef struct _CS_RAYTRACING_QUALITY_DETAIL CS_RAYTRACING_QUALITY_DETAIL;
 
 struct _CS_REFLECTION_QUALITY_DETAIL {
 	u8 enabled;
@@ -4001,7 +4110,8 @@ struct _CS_GRAPHICS_CONFIG_PARAM_ST {
 	u8 m_waterQuality;
 	u8 m_shaderQuality;
 	u8 m_volumetricEffectQuality;
-	dummy8 m_dummy[3];
+	u8 m_RayTracingQuality;
+	dummy8 m_dummy[2];
 };
 typedef struct _CS_GRAPHICS_CONFIG_PARAM_ST CS_GRAPHICS_CONFIG_PARAM_ST;
 
@@ -4716,6 +4826,26 @@ struct _MAP_GD_REGION_ID_PARAM_ST {
 };
 typedef struct _MAP_GD_REGION_ID_PARAM_ST MAP_GD_REGION_ID_PARAM_ST;
 
+struct _MAP_GRID_CREATE_HEIGHT_LIMIT_DETAIL_INFO_PARAM_ST {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+	s32 Unknown4;
+	s32 Unknown5;
+	s32 Unknown6;
+	s32 Unknown7;
+	s32 Unknown8;
+	s32 Unknown9;
+	s32 Unknown10;
+	s32 Unknown11;
+	s32 Unknown12;
+	s32 Unknown13;
+	s32 Unknown14;
+	s32 Unknown15;
+};
+typedef struct _MAP_GRID_CREATE_HEIGHT_LIMIT_DETAIL_INFO_PARAM_ST MAP_GRID_CREATE_HEIGHT_LIMIT_DETAIL_INFO_PARAM_ST;
+
 struct _MAP_GRID_CREATE_HEIGHT_LIMIT_INFO_PARAM_ST {
 	f32 GridEnableCreateHeightMin;
 	f32 GridEnableCreateHeightMax;
@@ -4753,6 +4883,20 @@ struct _MAP_NAME_TEX_PARAM_ST {
 };
 typedef struct _MAP_NAME_TEX_PARAM_ST MAP_NAME_TEX_PARAM_ST;
 
+struct _MAP_NAME_TEX_PARAM_ST_DLC02 {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+	s32 Unknown4;
+	s32 Unknown5;
+	s32 Unknown6;
+	s32 Unknown7;
+	s32 Unknown8;
+	s32 Unknown9;
+};
+typedef struct _MAP_NAME_TEX_PARAM_ST_DLC02 MAP_NAME_TEX_PARAM_ST_DLC02;
+
 struct _MAP_PIECE_TEX_PARAM_ST {
 	u8 disableParam_NT: 1;
 	dummy8 disableParamReserve1: 7;
@@ -4765,6 +4909,20 @@ struct _MAP_PIECE_TEX_PARAM_ST {
 	s32 multiPlayAreaId;
 };
 typedef struct _MAP_PIECE_TEX_PARAM_ST MAP_PIECE_TEX_PARAM_ST;
+
+struct _MAP_PIECE_TEX_PARAM_ST_DLC02 {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+	s32 Unknown4;
+	s32 Unknown5;
+	s32 Unknown6;
+	s32 Unknown7;
+	s32 Unknown8;
+	s32 Unknown9;
+};
+typedef struct _MAP_PIECE_TEX_PARAM_ST_DLC02 MAP_PIECE_TEX_PARAM_ST_DLC02;
 
 struct _MATERIAL_EX_PARAM_ST {
 	fixstrW paramName[32];
@@ -4838,7 +4996,22 @@ struct _MENU_COMMON_PARAM_ST {
 	u16 enemyTagSafeTop;
 	u16 enemyTagSafeBottom;
 	u32 pcHorseHpRecoverDispThreshold;
-	dummy8 reserved33[32];
+	u8 unknown_0xe0;
+	u8 unknown_0xe1;
+	u8 unknown_0xe2;
+	u8 unknown_0xe3;
+	u8 unknown_0xe4;
+	u8 unknown_0xe5;
+	u8 unknown_0xe6;
+	u8 unknown_0xe7;
+	u8 unknown_0xe8;
+	u8 unknown_0xe9;
+	u8 unknown_0xea;
+	u8 unknown_0xeb;
+	u8 unknown_0xec;
+	u8 unknown_0xed;
+	u8 unknown_0xee;
+	dummy8 reserved33[17];
 };
 typedef struct _MENU_COMMON_PARAM_ST MENU_COMMON_PARAM_ST;
 
@@ -4916,6 +5089,18 @@ struct _MIMICRY_ESTABLISHMENT_TEX_PARAM_ST {
 	dummy8 pad2[4];
 };
 typedef struct _MIMICRY_ESTABLISHMENT_TEX_PARAM_ST MIMICRY_ESTABLISHMENT_TEX_PARAM_ST;
+
+struct _MIMICRY_ESTABLISHMENT_TEX_PARAM_ST_DLC02 {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+	s32 Unknown4;
+	s32 Unknown5;
+	s32 Unknown6;
+	s32 Unknown7;
+};
+typedef struct _MIMICRY_ESTABLISHMENT_TEX_PARAM_ST_DLC02 MIMICRY_ESTABLISHMENT_TEX_PARAM_ST_DLC02;
 
 struct _MISSILE_PARAM_ST {
 	s32 FFXID;
@@ -5125,7 +5310,12 @@ struct _NETWORK_MSG_PARAM_ST {
 	s32 forceJoinBlack_Npc;
 	s32 forceJoinBlack_B_Npc;
 	s32 forceJoinBlack_C_Npc;
-	dummy8 pad2[28];
+	s32 unknown_0xa4;
+	s32 unknown_0xa8;
+	s32 unknown_0xac;
+	s32 unknown_0xb0;
+	s32 unknown_0xb4;
+	dummy8 pad2[8];
 };
 typedef struct _NETWORK_MSG_PARAM_ST NETWORK_MSG_PARAM_ST;
 
@@ -5161,7 +5351,8 @@ struct _NETWORK_PARAM_ST {
 	u32 maxBreakInTargetListCount;
 	f32 breakInRequestIntervalTimeSec;
 	f32 breakInRequestTimeOutSec;
-	dummy8 pad_1[4];
+	u8 unknown_0x7c;
+	dummy8 pad_1[3];
 	f32 keyGuideRange;
 	f32 keyGuideHeight_1;
 	u32 reloadSignTotalCount_1;
@@ -5276,7 +5467,7 @@ struct _NETWORK_PARAM_ST {
 	dummy8 pad11[8];
 	u32 VisitorListMax;
 	f32 VisitorTimeOutTime;
-	f32 DownloadSpan;
+	f32 DownloadSpan_2;
 	f32 VisitorGuestRequestMessageIntervalSec;
 	f32 wanderGhostIntervalLifeTime;
 	dummy8 pad13[12];
@@ -5742,7 +5933,7 @@ struct _NPC_PARAM_ST {
 	f32 maxAnklePitchAngle;
 	u16 resist_freeze;
 	s8 freezeGuardResist;
-	dummy8 pad1[1];
+	u8 unknown_0x1e3;
 	s32 lockCameraParamId;
 	s32 spEffectID16;
 	s32 spEffectID17;
@@ -5794,7 +5985,7 @@ struct _NPC_PARAM_ST {
 	f32 updateActivatePriolity;
 	u8 chrNavimeshFlag_Alive;
 	u8 chrNavimeshFlag_Dead;
-	dummy8 pad7[1];
+	u8 unknown_0x26a;
 	u8 wheelRotType;
 	f32 wheelRotRadius;
 	f32 retargetMoveRate;
@@ -5825,7 +6016,8 @@ struct _NPC_PARAM_ST {
 	f32 stepDispInterpolateTime;
 	f32 stepDispInterpolateTriggerValue;
 	f32 lockScoreOffset;
-	dummy8 pad12[8];
+	s32 unknown_0x2d8;
+	dummy8 pad12[4];
 };
 typedef struct _NPC_PARAM_ST NPC_PARAM_ST;
 
@@ -5960,7 +6152,13 @@ struct _OBJ_ACT_PARAM_ST {
 	f32 enableTreasureDelaySec;
 	s32 preActionSfxDmypolyId;
 	s32 preActionSfxId;
-	dummy8 pad2[40];
+	u8 unknown_0x38;
+	u8 unknown_0x3c;
+	u8 unknown_0x40;
+	u8 unknown_0x44;
+	u8 unknown_0x48;
+	u8 unknown_0x4c;
+	dummy8 pad2[34];
 };
 typedef struct _OBJ_ACT_PARAM_ST OBJ_ACT_PARAM_ST;
 
@@ -6234,7 +6432,13 @@ struct _PLAYER_COMMON_PARAM_ST {
 	dummy8 reserved_123[3];
 	s32 resistCurseItemSpEffectBaseId;
 	s32 resistCurseItemLotParamId_map;
-	dummy8 reserved41[52];
+	s32 unknown_0xcc;
+	s32 unknown_0xd0;
+	s32 unknown_0xd4;
+	s32 unknown_0xd8;
+	s32 unknown_0xdc;
+	s32 unknown_0xe0;
+	dummy8 reserved41[28];
 };
 typedef struct _PLAYER_COMMON_PARAM_ST PLAYER_COMMON_PARAM_ST;
 
@@ -6276,7 +6480,8 @@ struct _PLAY_REGION_PARAM_ST {
 	u8 redSignLimitEventFlagId_2_targetFlagState: 1;
 	u8 redSignLimitEventFlagId_3_targetFlagState: 1;
 	u8 isAutoIntrudePoint: 1;
-	dummy8 pad1: 7;
+	u8 unknown_0x45_1: 1;
+	dummy8 pad1: 6;
 	dummy8 pad2[2];
 	u32 multiPlayHASHostLimitEventFlagId;
 	f32 otherMaxDistance;
@@ -6410,7 +6615,10 @@ struct _POSTURE_CONTROL_PARAM_WEP_LEFT_ST {
 	s16 a003_leftArmFB;
 	s16 a003_leftWristFB;
 	s16 a003_leftWristIO;
-	dummy8 pad[14];
+	s16 unknown_0x12;
+	s16 unknown_0x14;
+	s16 unknown_0x16;
+	dummy8 pad[8];
 };
 typedef struct _POSTURE_CONTROL_PARAM_WEP_LEFT_ST POSTURE_CONTROL_PARAM_WEP_LEFT_ST;
 
@@ -6469,7 +6677,15 @@ struct _POSTURE_CONTROL_PARAM_WEP_RIGHT_ST {
 	s16 a016_leftArmFB;
 	s16 a016_leftWristFB;
 	s16 a016_leftWristIO;
-	dummy8 pad[4];
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+	s32 Unknown4;
+	s32 Unknown5;
+	s32 Unknown6;
+	s32 Unknown7;
+	dummy8 endPad[4];
 };
 typedef struct _POSTURE_CONTROL_PARAM_WEP_RIGHT_ST POSTURE_CONTROL_PARAM_WEP_RIGHT_ST;
 
@@ -6847,9 +7063,34 @@ struct _SIGN_PUDDLE_PARAM_ST {
 	dummy8 disableParamReserve1: 7;
 	dummy8 disableParamReserve2[3];
 	s32 matchAreaId;
-	dummy8 pad1[24];
+	s32 unknown_0x20;
+	s32 unknown_0x24;
+	s32 unknown_0x28;
+	f32 unknown_0x2c;
+	f32 unknown_0x30;
+	f32 unknown_0x34;
+	s32 unknown_0x38;
+	s32 unknown_0x3c;
+	s32 unknown_0x40;
+	s32 unknown_0x44;
 };
 typedef struct _SIGN_PUDDLE_PARAM_ST SIGN_PUDDLE_PARAM_ST;
+
+struct _SIGN_PUDDLE_SUB_CATEGORY_PARAM_ST {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+};
+typedef struct _SIGN_PUDDLE_SUB_CATEGORY_PARAM_ST SIGN_PUDDLE_SUB_CATEGORY_PARAM_ST;
+
+struct _SIGN_PUDDLE_TAB_PARAM_ST {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+};
+typedef struct _SIGN_PUDDLE_TAB_PARAM_ST SIGN_PUDDLE_TAB_PARAM_ST;
 
 struct _SOUND_ASSET_SOUND_OBJ_ENABLE_DIST_PARAM_ST {
 	f32 SoundObjEnableDist;
@@ -6947,7 +7188,12 @@ struct _SOUND_CUTSCENE_PARAM_ST {
 	s32 PostPlaySeId;
 	s32 PostPlaySeIdForSkip;
 	f32 EnterMapMuteStopTimeOnDrawCutscene;
-	dummy8 reserved[12];
+	u8 unknown_0x18;
+	u8 unknown_0x19;
+	u8 unknown_0x1a;
+	u8 unknown_0x1b;
+	dummy8 reserved[4];
+	dummy8 reserved2[4];
 };
 typedef struct _SOUND_CUTSCENE_PARAM_ST SOUND_CUTSCENE_PARAM_ST;
 
@@ -7309,8 +7555,16 @@ struct _SP_EFFECT_PARAM_ST {
 	u8 fakeTargetIgnoreAjin: 1;
 	u8 fakeTargetIgnoreMirageArts: 1;
 	u8 requestForceJoinBlackSOS_B: 1;
-	u8 unk353_4: 1;
-	dummy8 pad2[1];
+	u8 isDestinedDeathHpMult: 1;
+	u8 isHpBurnEffect: 1;
+	u8 unknown_0x352_6: 1;
+	u8 unknown_0x352_7: 1;
+	u8 unknown_0x353_0: 1;
+	u8 unknown_0x353_1: 1;
+	u8 unknown_0x353_2: 1;
+	u8 unknown_0x353_3: 1;
+	u8 unknown_0x353_4: 1;
+	dummy8 unknown_0x353_5: 3;
 	f32 changeSuperArmorPoint;
 	f32 changeSaPoint;
 	f32 hugeEnemyPickupHeightOverwrite;
@@ -7326,8 +7580,8 @@ struct _SP_EFFECT_PARAM_ST {
 	u16 overwrite_backhomeBattleDist;
 	u16 overwrite_BackHome_LookTargetDist;
 	f32 goodsConsumptionRate;
-	f32 unk2;
-	dummy8 unk3[4];
+	f32 guardStaminaMult;
+	s32 spiritDeathSpEffectId;
 };
 typedef struct _SP_EFFECT_PARAM_ST SP_EFFECT_PARAM_ST;
 
@@ -7371,7 +7625,7 @@ struct _SP_EFFECT_VFX_PARAM_ST {
 	u8 isFinishFullbody: 1;
 	u8 isVisibleDeadChr: 1;
 	u8 isUseOffsetEnchantSfxSize: 1;
-	dummy8 pad_1: 1;
+	u8 unknown_0x2f_7: 1;
 	s32 decalId1;
 	s32 decalId2;
 	u8 footEffectPriority;
@@ -7404,7 +7658,12 @@ struct _SP_EFFECT_VFX_PARAM_ST {
 	f32 materialParamTargetValue;
 	f32 materialParamFadeTime;
 	s16 footDecalMaterialOffsetOverwriteId;
-	dummy8 pad[14];
+	u8 unknown_0x96;
+	u8 unknown_0x97;
+	u8 unknown_0x98;
+	u8 unknown_0x99;
+	u8 unknown_0x9a;
+	dummy8 pad[9];
 };
 typedef struct _SP_EFFECT_VFX_PARAM_ST SP_EFFECT_VFX_PARAM_ST;
 
@@ -7429,8 +7688,7 @@ struct _SWORD_ARTS_PARAM_ST {
 	s16 useMagicPoint_L2;
 	s16 useMagicPoint_R1;
 	s16 useMagicPoint_R2;
-	u8 swordArtsTypeNew;
-	dummy8 pad[1];
+	u16 swordArtsTypeNew;
 	u16 iconId;
 	s32 aiUsageId;
 };
@@ -7551,7 +7809,9 @@ struct _TOUGHNESS_PARAM_ST {
 	dummy8 pad2[1];
 	s32 spEffectId;
 	f32 proCorrectionRate;
-	dummy8 pad1[16];
+	f32 unk1;
+	f32 unk2;
+	dummy8 pad1[8];
 };
 typedef struct _TOUGHNESS_PARAM_ST TOUGHNESS_PARAM_ST;
 
@@ -7692,6 +7952,17 @@ struct _WEATHER_LOT_TEX_PARAM_ST {
 };
 typedef struct _WEATHER_LOT_TEX_PARAM_ST WEATHER_LOT_TEX_PARAM_ST;
 
+struct _WEATHER_LOT_TEX_PARAM_ST_DLC02 {
+	s32 Unknown0;
+	s32 Unknown1;
+	s32 Unknown2;
+	s32 Unknown3;
+	s32 Unknown4;
+	s32 Unknown5;
+	s32 Unknown6;
+};
+typedef struct _WEATHER_LOT_TEX_PARAM_ST_DLC02 WEATHER_LOT_TEX_PARAM_ST_DLC02;
+
 struct _WEATHER_PARAM_ST {
 	s32 SfxId;
 	s32 WindSfxId;
@@ -7772,7 +8043,11 @@ struct _WEP_ABSORP_POS_PARAM_ST {
 	u8 dispPosType_leftBoth_3;
 	u8 dispPosType_rightHang_3;
 	u8 dispPosType_leftHang_3;
-	dummy8 reserve[12];
+	s8 unknown_0x54;
+	s8 unknown_0x55;
+	s8 unknown_0x56;
+	s8 unknown_0x57;
+	dummy8 reserve[8];
 };
 typedef struct _WEP_ABSORP_POS_PARAM_ST WEP_ABSORP_POS_PARAM_ST;
 
@@ -7880,7 +8155,8 @@ struct _WORLD_MAP_POINT_PARAM_ST {
 	u32 clearedEventFlagId;
 	u8 dispMask00: 1;
 	u8 dispMask01: 1;
-	dummy8 pad2_0: 6;
+	u8 dispMask02: 1;
+	dummy8 pad2_0: 5;
 	dummy8 pad2[1];
 	u16 distViewIconId;
 	f32 angle;
@@ -7933,23 +8209,26 @@ struct _WORLD_MAP_POINT_PARAM_ST {
 	u8 dispMinZoomStep;
 	u8 selectMinZoomStep;
 	u8 entryFEType;
-	dummy8 pad4[9];
-	s32 unkC0;
-	s32 unkC4;
-	s32 unkC8;
-	s32 unkCC;
-	s32 unkD0;
-	s32 unkD4;
-	s32 unkD8;
-	s32 unkDC;
-	s32 unkE0;
-	s32 unkE4;
-	s32 unkE8;
-	s32 unkEC;
-	s32 unkF0;
-	s32 unkF4;
-	s32 unkF8;
-	s32 unkFC;
+	u8 unknown_0xb7;
+	u8 unknown_0xb8;
+	u8 unknown_0xb9;
+	dummy8 pad4[6];
+	s32 textEnableFlag2Id1;
+	s32 textEnableFlag2Id2;
+	s32 textEnableFlag2Id3;
+	s32 textEnableFlag2Id4;
+	s32 textEnableFlag2Id5;
+	s32 textEnableFlag2Id6;
+	s32 textEnableFlag2Id7;
+	s32 textEnableFlag2Id8;
+	s32 textDisableFlag2Id1;
+	s32 textDisableFlag2Id2;
+	s32 textDisableFlag2Id3;
+	s32 textDisableFlag2Id4;
+	s32 textDisableFlag2Id5;
+	s32 textDisableFlag2Id6;
+	s32 textDisableFlag2Id7;
+	s32 textDisableFlag2Id8;
 };
 typedef struct _WORLD_MAP_POINT_PARAM_ST WORLD_MAP_POINT_PARAM_ST;
 
@@ -7987,6 +8266,7 @@ typedef CHARACTER_INIT_PARAM CharaInitParam;
 typedef CHARMAKEMENU_LISTITEM_PARAM_ST CharMakeMenuListItemParam;
 typedef CHARMAKEMENUTOP_PARAM_ST CharMakeMenuTopParam;
 typedef CHR_ACTIVATE_CONDITION_PARAM_ST ChrActivateConditionParam;
+typedef CHR_EQUIP_MODEL_PARAM_ST ChrEquipModelParam;
 typedef CHR_MODEL_PARAM_ST ChrModelParam;
 typedef CLEAR_COUNT_CORRECT_PARAM_ST ClearCountCorrectParam;
 typedef COOL_TIME_PARAM_ST CoolTimeParam;
@@ -8056,10 +8336,13 @@ typedef MAGIC_PARAM_ST Magic;
 typedef MAP_DEFAULT_INFO_PARAM_ST MapDefaultInfoParam;
 typedef MAP_GD_REGION_DRAW_PARAM MapGdRegionDrawParam;
 typedef MAP_GD_REGION_ID_PARAM_ST MapGdRegionInfoParam;
+typedef MAP_GRID_CREATE_HEIGHT_LIMIT_DETAIL_INFO_PARAM_ST MapGridCreateHeightDetailLimitInfo;
 typedef MAP_GRID_CREATE_HEIGHT_LIMIT_INFO_PARAM_ST MapGridCreateHeightLimitInfoParam;
 typedef MAP_MIMICRY_ESTABLISHMENT_PARAM_ST MapMimicryEstablishmentParam;
 typedef MAP_NAME_TEX_PARAM_ST MapNameTexParam;
+typedef MAP_NAME_TEX_PARAM_ST_DLC02 MapNameTexParam_m61;
 typedef MAP_PIECE_TEX_PARAM_ST MapPieceTexParam;
+typedef MAP_PIECE_TEX_PARAM_ST_DLC02 MapPieceTexParam_m61;
 typedef MATERIAL_EX_PARAM_ST MaterialExParam;
 typedef MENU_PARAM_COLOR_TABLE_ST MenuColorTableParam;
 typedef MENU_COMMON_PARAM_ST MenuCommonParam;
@@ -8068,6 +8351,7 @@ typedef MENUPROPERTY_LAYOUT MenuPropertyLayoutParam;
 typedef MENUPROPERTY_SPEC MenuPropertySpecParam;
 typedef MENU_VALUE_TABLE_SPEC MenuValueTableParam;
 typedef MIMICRY_ESTABLISHMENT_TEX_PARAM_ST MimicryEstablishmentTexParam;
+typedef MIMICRY_ESTABLISHMENT_TEX_PARAM_ST_DLC02 MimicryEstablishmentTexParam_m61;
 typedef MOVE_PARAM_ST MoveParam;
 typedef ESTUS_FLASK_RECOVERY_PARAM_ST MPEstusFlaskRecoveryParam;
 typedef MULTI_ESTUS_FLASK_BONUS_PARAM_ST MultiHPEstusFlaskBonusParam;
@@ -8104,6 +8388,8 @@ typedef SFX_BLOCK_RES_SHARE_PARAM SfxBlockResShareParam;
 typedef SHOP_LINEUP_PARAM ShopLineupParam;
 typedef SHOP_LINEUP_PARAM ShopLineupParam_Recipe;
 typedef SIGN_PUDDLE_PARAM_ST SignPuddleParam;
+typedef SIGN_PUDDLE_SUB_CATEGORY_PARAM_ST SignPuddleSubCategoryParam;
+typedef SIGN_PUDDLE_TAB_PARAM_ST SignPuddleTabParam;
 typedef SOUND_ASSET_SOUND_OBJ_ENABLE_DIST_PARAM_ST SoundAssetSoundObjEnableDistParam;
 typedef SOUND_AUTO_ENV_SOUND_GROUP_PARAM_ST SoundAutoEnvSoundGroupParam;
 typedef SOUND_AUTO_REVERB_EVALUATION_DIST_PARAM_ST SoundAutoReverbEvaluationDistParam;
@@ -8126,6 +8412,7 @@ typedef WEATHER_ASSET_CREATE_PARAM_ST WeatherAssetCreateParam;
 typedef WEATHER_ASSET_REPLACE_PARAM_ST WeatherAssetReplaceParam;
 typedef WEATHER_LOT_PARAM_ST WeatherLotParam;
 typedef WEATHER_LOT_TEX_PARAM_ST WeatherLotTexParam;
+typedef WEATHER_LOT_TEX_PARAM_ST_DLC02 WeatherLotTexParam_m61;
 typedef WEATHER_PARAM_ST WeatherParam;
 typedef WEP_ABSORP_POS_PARAM_ST WepAbsorpPosParam;
 typedef WET_ASPECT_PARAM_ST WetAspectParam;
