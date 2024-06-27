@@ -3,11 +3,31 @@
 ### Added
  - Print active SpEffects
  - Npc Menus -> Remembrance Duplication
+ - Parts of player storage to EquipInventoryData header
+ - Played Area header (WIP) to Hero header
+ - ItemGib dropdown for DLC items, requires dlc license
+ - Equipment of Champions shop menu
+ - Global Functions->Test functions:
+   - isOwnDlc
+   - isDlcMagic
+   - isInventoryFull / isStorageFull
+ - Event Flags
+   - by Signum:
+     - DLC graces
+     - DLC cookbooks
+     - DLC maps
+     - DLC bosses
 ### Changed
  - Replaced ItemGib with lua rewrite, old ItemGib code moved to Misc/WIP->Deprecated
  - MassItemGib weapon scripts made more easily customisable
 ### Fixed
  - Fix Unlock All Gestures scripts
+ - Stastics->SaveLoad2
+ - Gesture scripts, again
+ - Invasion Regions, does NOT include DLC regions yet
+ - Kill All Mobs, does NOT include DLC enemies yet
+ - Statistics->Last Grace
+ - Statistics->Misc header
 
 ## [v1.10.1] - 2024-06-22
 ### Added
