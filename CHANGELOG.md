@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.11.1] - 2024-06-27
 ### Added
  - DLC check to ChangeMagic
 ### Fixed
@@ -542,7 +544,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.1...dev
+[v1.11.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.0...v1.11.1
 [v1.11.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.1...v1.11.0
 [v1.10.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.0...v1.10.1
 [v1.10.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.9.0...v1.10.0
