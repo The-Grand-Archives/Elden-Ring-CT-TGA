@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Added
  - DLC check to ChangeMagic
+### Fixed
+ - copy paste mistake in event flag "unlock all" scripts
 
 ## [v1.11.0] - 2024-06-27
 ### Added
