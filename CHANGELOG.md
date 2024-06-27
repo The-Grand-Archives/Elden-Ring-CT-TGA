@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - DLC check to ChangeMagic
 
 ## [v1.11.0] - 2024-06-27
 ### Added
