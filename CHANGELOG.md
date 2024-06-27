@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.11.0] - 2024-06-27
 ### Added
  - Print active SpEffects
  - Npc Menus -> Remembrance Duplication
@@ -23,7 +25,6 @@
 ### Fixed
  - Fix Unlock All Gestures scripts
  - Stastics->SaveLoad2
- - Gesture scripts, again
  - Invasion Regions, does NOT include DLC regions yet
  - Kill All Mobs, does NOT include DLC enemies yet
  - Statistics->Last Grace
@@ -537,7 +538,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.1...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.0...dev
+[v1.11.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.1...v1.11.0
 [v1.10.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.0...v1.10.1
 [v1.10.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.9.0...v1.10.0
 [v1.9.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.8.0...v1.9.0
