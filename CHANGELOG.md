@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - DLC Larval Tear label to "Larval Tear (SotE)"
 
 ## [v1.11.2] - 2024-06-28
 ### Fixed
