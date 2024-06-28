@@ -1,6 +1,10 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.11.2] - 2024-06-28
+### Fixed
+ - ItemGib getWeaponAddr hotfix for weapon level check
+
 ## [v1.11.1] - 2024-06-27
 ### Added
  - DLC check to ChangeMagic
