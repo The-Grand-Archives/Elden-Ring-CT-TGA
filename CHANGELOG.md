@@ -1,5 +1,11 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - Npc menus
+   - Moore
+ - Event Flags
+   - by Signum:
+     - "Show DLC Map" to "Unlock all maps"
 ### Changed
  - DLC Larval Tear label to "Larval Tear (SotE)"
 
