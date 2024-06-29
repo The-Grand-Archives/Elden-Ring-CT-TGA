@@ -3,6 +3,7 @@
 ### Added
  - ItemPopup function
  - Scadutree Blessing and Revered Spirit Ash Blessing pointers to Statistics
+ - DLC ashes of war to ItemGib dropdowns
  - Npc menus
    - Moore
  - Event Flags
