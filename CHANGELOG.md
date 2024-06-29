@@ -14,6 +14,7 @@
 ### Fixed
  - ChangeMagic
  - EquipType in ItemGib->Detailed
+ - Set flask level
 
 ## [v1.11.2] - 2024-06-28
 ### Fixed
