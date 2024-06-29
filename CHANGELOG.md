@@ -1,13 +1,16 @@
 # Changelog
 ## [Unreleased]
 ### Added
+ - ItemPopup function
  - Npc menus
    - Moore
  - Event Flags
    - by Signum:
      - "Show DLC Map" to "Unlock all maps"
+     - Labeled DLC regions for Invasion Regions
 ### Changed
  - DLC Larval Tear label to "Larval Tear (SotE)"
+ - Gesture scripts now have fake item popups
 ### Fixed
  - ChangeMagic
  - EquipType in ItemGib->Detailed
