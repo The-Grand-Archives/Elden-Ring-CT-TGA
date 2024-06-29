@@ -8,6 +8,9 @@
      - "Show DLC Map" to "Unlock all maps"
 ### Changed
  - DLC Larval Tear label to "Larval Tear (SotE)"
+### Fixed
+ - ChangeMagic
+ - EquipType in ItemGib->Detailed
 
 ## [v1.11.2] - 2024-06-28
 ### Fixed
