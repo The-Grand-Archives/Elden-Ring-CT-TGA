@@ -2,6 +2,7 @@
 ## [Unreleased]
 ### Added
  - ItemPopup function
+ - Scadutree Blessing and Revered Spirit Ash Blessing pointers to Statistics
  - Npc menus
    - Moore
  - Event Flags
