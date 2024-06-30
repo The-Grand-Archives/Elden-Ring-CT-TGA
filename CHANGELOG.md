@@ -18,6 +18,7 @@
  - ChangeMagic
  - EquipType in ItemGib->Detailed
  - Set flask level
+ - ItemGib inventory and storage check
 
 ## [v1.11.2] - 2024-06-28
 ### Fixed
