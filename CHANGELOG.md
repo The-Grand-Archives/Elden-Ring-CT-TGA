@@ -13,6 +13,7 @@
 ### Changed
  - DLC Larval Tear label to "Larval Tear (SotE)"
  - Gesture scripts now have fake item popups
+ - Remove Seamless Co-op items script updated for mod rewrite
 ### Fixed
  - ChangeMagic
  - EquipType in ItemGib->Detailed
