@@ -18,7 +18,7 @@
 ### Changed
  - DLC Larval Tear label to "Larval Tear (SotE)"
  - Gesture scripts now have fake item popups
- - Remove Seamless Co-op items script updated for mod rewrite
+ - "Remove Seamless Co-op items" script updated for mod rewrite
  - ItemGib now adjusts projectile and consumable quantity based on inventory and storage
  - MassItemGib quantities
  - Npc Menus version to v2.02.3 (app ver 1.12.3)
@@ -27,6 +27,7 @@
  - EquipType in ItemGib->Detailed
  - Set flask level
  - ItemGib inventory and storage check
+ - Event Flags script compatibility with Seamless Co-op
 
 ## [v1.11.2] - 2024-06-28
 ### Fixed
@@ -575,7 +576,9 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.1...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.0...dev
+[v1.12.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.2...v1.12.0
+[v1.11.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.1...v1.11.2
 [v1.11.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.0...v1.11.1
 [v1.11.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.1...v1.11.0
 [v1.10.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.10.0...v1.10.1
