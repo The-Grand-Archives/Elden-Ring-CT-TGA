@@ -21,6 +21,7 @@
  - Remove Seamless Co-op items script updated for mod rewrite
  - ItemGib now adjusts projectile and consumable quantity based on inventory and storage
  - MassItemGib quantities
+ - Npc Menus version to v2.02.3 (app ver 1.12.3)
 ### Fixed
  - ChangeMagic
  - EquipType in ItemGib->Detailed
