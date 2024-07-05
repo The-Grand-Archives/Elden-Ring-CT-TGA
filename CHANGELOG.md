@@ -5,6 +5,7 @@
 ### Added
  - Scadutree Blessing and Revered Spirit Ash Blessing pointers to Statistics
  - DLC ashes of war to ItemGib dropdowns
+ - "Give build starting items" in MassItemGib
  - New functions
    - ItemPopup
    - missingDlc
