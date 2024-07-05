@@ -1,11 +1,16 @@
 # Changelog
 ## [Unreleased]
 ### Added
- - ItemPopup function
  - Scadutree Blessing and Revered Spirit Ash Blessing pointers to Statistics
  - DLC ashes of war to ItemGib dropdowns
+ - New functions
+   - ItemPopup
+   - missingDlc
  - Npc menus
    - Moore
+   - Thiollier
+   - Grand Altar of Dragon Communion
+   - Communion with Bayle
  - Event Flags
    - by Signum:
      - "Show DLC Map" to "Unlock all maps"
