@@ -1,6 +1,10 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.12.1] - 2024-07-05
+### Fixed
+ - ItemPopup address, replaced with AOB
+
 ## [v1.12.0] - 2024-07-05
 ### Added
  - Scadutree Blessing and Revered Spirit Ash Blessing pointers to Statistics
@@ -580,7 +584,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.1...dev
+[v1.12.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.0...v1.12.1
 [v1.12.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.2...v1.12.0
 [v1.11.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.1...v1.11.2
 [v1.11.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.0...v1.11.1
