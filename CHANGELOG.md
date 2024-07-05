@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.12.0] - 2024-07-05
 ### Added
  - Scadutree Blessing and Revered Spirit Ash Blessing pointers to Statistics
  - DLC ashes of war to ItemGib dropdowns
@@ -22,6 +24,7 @@
  - ItemGib now adjusts projectile and consumable quantity based on inventory and storage
  - MassItemGib quantities
  - Npc Menus version to v2.02.3 (app ver 1.12.3)
+ - Supported game version to v2.02.3 (app ver 1.12.3)
 ### Fixed
  - ChangeMagic
  - EquipType in ItemGib->Detailed
