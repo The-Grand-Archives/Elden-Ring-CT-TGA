@@ -19,6 +19,8 @@
  - DLC Larval Tear label to "Larval Tear (SotE)"
  - Gesture scripts now have fake item popups
  - Remove Seamless Co-op items script updated for mod rewrite
+ - ItemGib now adjusts projectile and consumable quantity based on inventory and storage
+ - MassItemGib quantities
 ### Fixed
  - ChangeMagic
  - EquipType in ItemGib->Detailed
