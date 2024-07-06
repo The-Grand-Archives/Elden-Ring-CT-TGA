@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - "Give build starting items" in MassItemGib
 
 ## [v1.12.1] - 2024-07-05
 ### Fixed
