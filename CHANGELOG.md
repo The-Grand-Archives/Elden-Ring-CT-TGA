@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - DLC PlayRegions to Invasion Regions script, by SeriouslyCasual
 ### Fixed
  - "Give build starting items" in MassItemGib
 
