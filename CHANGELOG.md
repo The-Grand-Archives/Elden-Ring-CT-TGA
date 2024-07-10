@@ -1,7 +1,13 @@
 # Changelog
 ## [Unreleased]
+### Added
+- full EquipItemData header
+- "Unequip slot" for EquipItem
 ### Fixed
  - "Give build starting items" in MassItemGib
+- some chrasm pointers
+- "Remove Seamless Co-op Items" script
+- EquipItem's unequip function
 
 ## [v1.12.1] - 2024-07-05
 ### Fixed
