@@ -1,14 +1,17 @@
 # Changelog
 ## [Unreleased]
 ### Added
-- full EquipItemData header
-- "Unequip slot" for EquipItem
+ - full EquipItemData header
+ - "Unequip slot" for EquipItem
+ - Lua rewrite of Warp
+ - Warp under Scripts -> Functions (now under both Functions and Build Creation, where it has been before)
+ - DLC grace IDs, thanks to [Nordgaren](https://github.com/Nordgaren)
 ### Fixed
  - "Give build starting items" in MassItemGib
-- some chrasm pointers
-- "Remove Seamless Co-op Items" script
-- EquipItem's unequip function
-- Free Camera
+ - some chrasm pointers
+ - "Remove Seamless Co-op Items" script
+ - EquipItem's unequip function
+ - Free Camera
 
 ## [v1.12.1] - 2024-07-05
 ### Fixed
