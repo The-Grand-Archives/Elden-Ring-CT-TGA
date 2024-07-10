@@ -8,6 +8,7 @@
 - some chrasm pointers
 - "Remove Seamless Co-op Items" script
 - EquipItem's unequip function
+- Free Camera
 
 ## [v1.12.1] - 2024-07-05
 ### Fixed
