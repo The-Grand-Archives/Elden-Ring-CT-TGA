@@ -16,6 +16,7 @@
  - "Remove Seamless Co-op Items" script
  - EquipItem's unequip function
  - Free Camera
+ - Session Info equipment offsets
 
 ## [v1.12.1] - 2024-07-05
 ### Fixed
