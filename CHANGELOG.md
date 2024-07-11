@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.13.0] - 2024-07-05
 ### Added
  - full EquipItemData header
  - "Unequip slot" for EquipItem
@@ -601,7 +603,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.1...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.13.0...dev
+[v1.13.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.1...v1.13.0
 [v1.12.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.0...v1.12.1
 [v1.12.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.2...v1.12.0
 [v1.11.2]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.1...v1.11.2
