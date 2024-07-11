@@ -8,6 +8,8 @@
  - DLC grace IDs, thanks to [Nordgaren](https://github.com/Nordgaren)
  - Storage chest support for EquipInventoryData, getItemIdx, getItemByIdx, and RemoveItem (including Remove all duplicates)
  - "Loading screen stuck fix" for Seamless Co-op users
+### Changed
+ - Seamless Co-op header was unnecessarily a script, now it's just a header
 ### Fixed
  - "Give build starting items" in MassItemGib
  - some chrasm pointers
