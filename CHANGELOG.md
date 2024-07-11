@@ -6,6 +6,7 @@
  - Lua rewrite of Warp
  - Warp under Scripts -> Functions (now under both Functions and Build Creation, where it has been before)
  - DLC grace IDs, thanks to [Nordgaren](https://github.com/Nordgaren)
+ - Storage chest support for EquipInventoryData, getItemIdx, getItemByIdx, and RemoveItem (including Remove all duplicates)
 ### Fixed
  - "Give build starting items" in MassItemGib
  - some chrasm pointers
