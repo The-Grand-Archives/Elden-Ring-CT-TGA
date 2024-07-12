@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - ItemGive now sets maxNum depending on potGroupId when relevant
+### Fixed
+ - "Remove by Item ID" for Storage Chest
 
 ## [v1.13.0] - 2024-07-05
 ### Added
