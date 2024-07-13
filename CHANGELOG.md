@@ -4,6 +4,7 @@
  - ItemGive now sets maxNum depending on potGroupId when relevant
 ### Fixed
  - "Remove by Item ID" for Storage Chest
+ - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
 
 ## [v1.13.0] - 2024-07-05
 ### Added
