@@ -5,6 +5,7 @@
 ### Fixed
  - "Remove by Item ID" for Storage Chest
  - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
+ - Session Info equipment for real
 
 ## [v1.13.0] - 2024-07-05
 ### Added
