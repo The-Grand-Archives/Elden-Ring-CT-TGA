@@ -16,6 +16,7 @@
  - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
  - Session Info equipment for real
  - Focus, Stamina, Great Rune offsets
+ - Currently Equipped Magic helper shows correct spell more reliably
  - Invasion Regions code by SeriouslyCasual and [Dasaav](https://github.com/Dasaav-dsv/)
 
 ## [v1.13.0] - 2024-07-05
