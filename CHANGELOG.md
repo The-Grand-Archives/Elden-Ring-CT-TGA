@@ -1,5 +1,14 @@
 # Changelog
 ## [Unreleased]
+###
+ - by [Dasaav](https://github.com/Dasaav-dsv/)
+   - Save Character Flags, saves a list of all your flags to a file
+   - Event Flags lua rewrite
+ - New lua functions:
+   - getEventFlag(id)
+   - setEventFlag(id, state)
+   - setEventFlags/setMultipleFlags(tbl, state)
+   - booltonumber(bool)
 ### Changed
  - ItemGive now sets maxNum depending on potGroupId when relevant
 ### Fixed
@@ -7,6 +16,7 @@
  - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
  - Session Info equipment for real
  - Focus, Stamina, Great Rune offsets
+ - Invasion Regions code by SeriouslyCasual and [Dasaav](https://github.com/Dasaav-dsv/)
 
 ## [v1.13.0] - 2024-07-05
 ### Added
