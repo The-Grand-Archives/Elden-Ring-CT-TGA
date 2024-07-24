@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>100874</ID>
+  <ID>100875</ID>
   <Description>"Character Flags"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100875"/>
     <id id="100876"/>
     <id id="100877"/>
     <id id="100878"/>
@@ -13,5 +12,6 @@
     <id id="100881"/>
     <id id="100882"/>
     <id id="100883"/>
+    <id id="100884"/>
   </x-ce2fs-child-order>
 </CheatEntry>

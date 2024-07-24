@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100662</ID>
+  <ID>100663</ID>
   <Description>"Nose/Forehead Ratio"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>100188</ID>
+  <ID>100189</ID>
   <Description>"NetPlayer:4"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100189"/>
     <id id="100190"/>
     <id id="100191"/>
     <id id="100192"/>
@@ -14,6 +13,7 @@
     <id id="100196"/>
     <id id="100197"/>
     <id id="100198"/>
-    <id id="100207"/>
+    <id id="100199"/>
+    <id id="100208"/>
   </x-ce2fs-child-order>
 </CheatEntry>

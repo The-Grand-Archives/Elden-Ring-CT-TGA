@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101755</ID>
+  <ID>101756</ID>
   <Description>"Model Masks"</Description>
   <Options moHideChildren="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -8,7 +8,6 @@
   <ByteLength>0</ByteLength>
   <Address>+130</Address>
   <x-ce2fs-child-order>
-    <id id="101756"/>
     <id id="101757"/>
     <id id="101758"/>
     <id id="101759"/>
@@ -106,5 +105,6 @@
     <id id="101851"/>
     <id id="101852"/>
     <id id="101853"/>
+    <id id="101854"/>
   </x-ce2fs-child-order>
 </CheatEntry>

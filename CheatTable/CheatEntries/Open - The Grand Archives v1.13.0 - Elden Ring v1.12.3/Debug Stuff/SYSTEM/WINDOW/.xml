@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>106618</ID>
+  <ID>108143</ID>
   <Description>"WINDOW"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106619"/>
-    <id id="106620"/>
-    <id id="106621"/>
-    <id id="106622"/>
-    <id id="106623"/>
-    <id id="106624"/>
+    <id id="108144"/>
+    <id id="108145"/>
+    <id id="108146"/>
+    <id id="108147"/>
+    <id id="108148"/>
+    <id id="108149"/>
   </x-ce2fs-child-order>
 </CheatEntry>

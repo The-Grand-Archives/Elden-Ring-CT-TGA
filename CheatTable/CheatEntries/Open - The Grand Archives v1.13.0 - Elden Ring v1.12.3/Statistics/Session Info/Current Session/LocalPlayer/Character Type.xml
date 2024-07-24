@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100040</ID>
+  <ID>100041</ID>
   <Description>"Character Type"</Description>
   <DropDownListLink>CHAR_TYPE</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>

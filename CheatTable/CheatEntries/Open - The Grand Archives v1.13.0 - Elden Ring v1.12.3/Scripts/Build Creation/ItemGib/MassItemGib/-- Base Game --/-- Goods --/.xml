@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>101059</ID>
+  <ID>101060</ID>
   <Description>"-- Goods --"</Description>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101060"/>
     <id id="101061"/>
     <id id="101062"/>
     <id id="101063"/>
@@ -14,5 +13,6 @@
     <id id="101067"/>
     <id id="101068"/>
     <id id="101069"/>
+    <id id="101070"/>
   </x-ce2fs-child-order>
 </CheatEntry>

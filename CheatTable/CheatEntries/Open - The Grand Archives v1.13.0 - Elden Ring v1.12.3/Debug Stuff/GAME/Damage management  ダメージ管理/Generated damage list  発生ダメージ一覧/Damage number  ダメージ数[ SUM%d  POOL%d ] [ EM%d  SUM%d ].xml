@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106417</ID>
+  <ID>107941</ID>
   <Description>"Damage number | ダメージ数[ SUM:%d / POOL:%d ] [ EM:%d / SUM:%d ]"</Description>
   <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>

@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>100981</ID>
+  <ID>100982</ID>
   <Description>"Sound and Display"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100982"/>
     <id id="100983"/>
     <id id="100984"/>
     <id id="100985"/>
@@ -16,5 +15,6 @@
     <id id="100991"/>
     <id id="100992"/>
     <id id="100993"/>
+    <id id="100994"/>
   </x-ce2fs-child-order>
 </CheatEntry>

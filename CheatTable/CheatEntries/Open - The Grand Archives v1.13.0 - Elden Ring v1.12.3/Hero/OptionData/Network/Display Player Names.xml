@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100998</ID>
+  <ID>100999</ID>
   <Description>"Display Player Names"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Character Name
 1:Steam Name

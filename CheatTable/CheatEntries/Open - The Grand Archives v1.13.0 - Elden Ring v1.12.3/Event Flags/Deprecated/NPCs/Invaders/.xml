@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>105858</ID>
+  <ID>107375</ID>
   <Description>"Invaders"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105859"/>
-    <id id="105862"/>
-    <id id="105864"/>
+    <id id="107376"/>
+    <id id="107379"/>
+    <id id="107381"/>
   </x-ce2fs-child-order>
 </CheatEntry>

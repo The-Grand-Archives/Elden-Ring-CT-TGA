@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>105840</ID>
+  <ID>107357</ID>
   <Description>"Weeping Peninsula"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105841"/>
-    <id id="105845"/>
+    <id id="107358"/>
+    <id id="107362"/>
   </x-ce2fs-child-order>
 </CheatEntry>

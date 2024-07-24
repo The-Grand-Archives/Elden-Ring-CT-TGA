@@ -1,11 +1,10 @@
 <CheatEntry>
-  <ID>101227</ID>
+  <ID>101228</ID>
   <Description>"QoL"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101228"/>
-    <id id="101232"/>
+    <id id="101229"/>
     <id id="101233"/>
     <id id="101234"/>
     <id id="101235"/>
@@ -17,5 +16,6 @@
     <id id="101241"/>
     <id id="101242"/>
     <id id="101243"/>
+    <id id="101244"/>
   </x-ce2fs-child-order>
 </CheatEntry>

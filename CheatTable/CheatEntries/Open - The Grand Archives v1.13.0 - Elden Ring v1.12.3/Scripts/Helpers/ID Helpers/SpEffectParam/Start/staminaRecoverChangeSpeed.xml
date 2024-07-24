@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>89100</ID>
+  <ID>102441</ID>
   <Description>"staminaRecoverChangeSpeed"</Description>
   <VariableType>4 Bytes</VariableType>
   <Address>+0B8</Address>

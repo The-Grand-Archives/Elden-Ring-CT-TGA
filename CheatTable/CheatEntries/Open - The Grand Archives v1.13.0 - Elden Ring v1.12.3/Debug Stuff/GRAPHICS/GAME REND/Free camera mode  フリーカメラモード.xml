@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106559</ID>
+  <ID>108084</ID>
   <Description>"Free camera mode | フリーカメラモード"</Description>
   <Options moRecursiveSetValue="1"/>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF | 無効

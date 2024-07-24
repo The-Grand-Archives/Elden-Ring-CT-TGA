@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106240</ID>
+  <ID>107757</ID>
   <Description>"Door above Chrysalids area"</Description>
   <DropDownListLink>TRUE_FALSE</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>
@@ -13,6 +13,6 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="106241"/>
+    <id id="107758"/>
   </x-ce2fs-child-order>
 </CheatEntry>

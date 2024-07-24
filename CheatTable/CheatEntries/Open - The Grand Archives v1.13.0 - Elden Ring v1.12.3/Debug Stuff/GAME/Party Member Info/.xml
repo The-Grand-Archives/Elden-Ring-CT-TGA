@@ -1,18 +1,18 @@
 <CheatEntry>
-  <ID>106474</ID>
+  <ID>107999</ID>
   <Description>"Party Member Info"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106475"/>
-    <id id="106476"/>
-    <id id="106477"/>
-    <id id="106478"/>
-    <id id="106479"/>
-    <id id="106480"/>
-    <id id="106481"/>
-    <id id="106482"/>
-    <id id="106483"/>
-    <id id="106484"/>
+    <id id="108000"/>
+    <id id="108001"/>
+    <id id="108002"/>
+    <id id="108003"/>
+    <id id="108004"/>
+    <id id="108005"/>
+    <id id="108006"/>
+    <id id="108007"/>
+    <id id="108008"/>
+    <id id="108009"/>
   </x-ce2fs-child-order>
 </CheatEntry>

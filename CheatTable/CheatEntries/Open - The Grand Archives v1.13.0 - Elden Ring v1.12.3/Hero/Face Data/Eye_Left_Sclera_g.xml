@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100837</ID>
+  <ID>100838</ID>
   <Description>"Eye_Left_Sclera_g"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

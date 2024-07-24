@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>100246</ID>
+  <ID>100247</ID>
   <Description>"--- Equipment"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100247"/>
     <id id="100248"/>
     <id id="100249"/>
     <id id="100250"/>
@@ -23,5 +22,6 @@
     <id id="100263"/>
     <id id="100264"/>
     <id id="100265"/>
+    <id id="100266"/>
   </x-ce2fs-child-order>
 </CheatEntry>

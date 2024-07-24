@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>101155</ID>
+  <ID>101156</ID>
   <Description>"Attune multiple"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101156"/>
     <id id="101157"/>
+    <id id="101158"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>101228</ID>
+  <ID>101229</ID>
   <Description>"Custom FPS Limit"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101229"/>
     <id id="101230"/>
     <id id="101231"/>
+    <id id="101232"/>
   </x-ce2fs-child-order>
 </CheatEntry>

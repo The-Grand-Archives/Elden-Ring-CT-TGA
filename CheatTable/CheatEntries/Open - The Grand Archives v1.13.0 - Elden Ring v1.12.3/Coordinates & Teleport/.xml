@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>106368</ID>
+  <ID>107885</ID>
   <Description>"Coordinates &amp; Teleport"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106369"/>
-    <id id="106384"/>
-    <id id="410"/>
-    <id id="106398"/>
+    <id id="107886"/>
+    <id id="107901"/>
+    <id id="107915"/>
+    <id id="107922"/>
   </x-ce2fs-child-order>
 </CheatEntry>

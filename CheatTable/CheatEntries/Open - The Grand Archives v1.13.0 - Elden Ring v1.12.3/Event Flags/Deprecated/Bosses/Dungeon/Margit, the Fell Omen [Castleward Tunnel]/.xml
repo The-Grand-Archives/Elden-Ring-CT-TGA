@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105808</ID>
+  <ID>107325</ID>
   <Description>"Margit, the Fell Omen [Castleward Tunnel]"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,7 +10,7 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105809"/>
-    <id id="105810"/>
+    <id id="107326"/>
+    <id id="107327"/>
   </x-ce2fs-child-order>
 </CheatEntry>

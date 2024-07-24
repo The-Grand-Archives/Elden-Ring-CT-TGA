@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>101112</ID>
+  <ID>101113</ID>
   <Description>"Usage Examples"</Description>
   <Options moHideChildren="1"/>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101113"/>
     <id id="101114"/>
+    <id id="101115"/>
   </x-ce2fs-child-order>
 </CheatEntry>

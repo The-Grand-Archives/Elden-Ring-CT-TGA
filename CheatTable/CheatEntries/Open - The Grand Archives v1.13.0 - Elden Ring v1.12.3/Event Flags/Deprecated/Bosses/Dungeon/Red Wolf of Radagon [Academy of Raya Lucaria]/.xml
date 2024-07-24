@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105814</ID>
+  <ID>107331</ID>
   <Description>"Red Wolf of Radagon [Academy of Raya Lucaria]"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,7 +10,7 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105815"/>
-    <id id="105816"/>
+    <id id="107332"/>
+    <id id="107333"/>
   </x-ce2fs-child-order>
 </CheatEntry>

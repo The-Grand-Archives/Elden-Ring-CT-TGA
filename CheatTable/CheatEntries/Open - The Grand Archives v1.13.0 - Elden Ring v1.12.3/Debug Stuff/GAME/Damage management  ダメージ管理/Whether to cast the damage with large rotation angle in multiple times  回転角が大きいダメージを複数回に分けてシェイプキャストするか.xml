@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106411</ID>
+  <ID>107935</ID>
   <Description>"Whether to cast the damage with large rotation angle in multiple times | 回転角が大きいダメージを複数回に分けてシェイプキャストするか"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:No
 1:Yes

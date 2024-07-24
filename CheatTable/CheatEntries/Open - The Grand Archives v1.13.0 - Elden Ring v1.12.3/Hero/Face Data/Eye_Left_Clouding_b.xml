@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100835</ID>
+  <ID>100836</ID>
   <Description>"Eye_Left_Clouding_b"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>101098</ID>
+  <Description>""</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>ItemDropData+08</Address>
+</CheatEntry>

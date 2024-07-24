@@ -1,7 +1,7 @@
 {$lua}
 if syntaxcheck then return end
-local memrec_item = getAddressList().getMemoryRecordByID(5000)
-local memrec_gem = getAddressList().getMemoryRecordByID(5001)
+local memrec_item = getAddressList().getMemoryRecordByID(1100)
+local memrec_gem = getAddressList().getMemoryRecordByID(1101)
 [ENABLE]
 if ItemGive == nil then
     getAddressList().getMemoryRecordByDescription("ItemGive_code").active = true

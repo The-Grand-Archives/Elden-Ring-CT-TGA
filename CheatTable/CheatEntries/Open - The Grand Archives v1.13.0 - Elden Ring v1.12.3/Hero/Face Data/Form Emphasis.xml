@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100640</ID>
+  <ID>100641</ID>
   <Description>"Form Emphasis"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

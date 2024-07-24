@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>102482</ID>
+  <ID>103882</ID>
   <Description>"Bullet"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="102483"/>
-    <id id="102484"/>
+    <id id="103883"/>
+    <id id="103884"/>
   </x-ce2fs-child-order>
 </CheatEntry>

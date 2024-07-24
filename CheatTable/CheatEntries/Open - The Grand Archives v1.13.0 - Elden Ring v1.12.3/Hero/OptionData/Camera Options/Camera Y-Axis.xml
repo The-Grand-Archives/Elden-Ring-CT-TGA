@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100975</ID>
+  <ID>100976</ID>
   <Description>"Camera Y-Axis"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Reverse
 1:Normal

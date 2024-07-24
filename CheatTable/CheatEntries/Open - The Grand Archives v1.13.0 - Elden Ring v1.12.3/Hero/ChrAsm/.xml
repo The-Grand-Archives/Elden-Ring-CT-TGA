@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>100307</ID>
+  <ID>100308</ID>
   <Description>"ChrAsm"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100308"/>
     <id id="100309"/>
     <id id="100310"/>
     <id id="100311"/>
@@ -12,7 +11,7 @@
     <id id="100313"/>
     <id id="100314"/>
     <id id="100315"/>
-    <id id="100340"/>
+    <id id="100316"/>
     <id id="100341"/>
     <id id="100342"/>
     <id id="100343"/>
@@ -34,5 +33,6 @@
     <id id="100359"/>
     <id id="100360"/>
     <id id="100361"/>
+    <id id="100362"/>
   </x-ce2fs-child-order>
 </CheatEntry>

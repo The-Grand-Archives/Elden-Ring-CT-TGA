@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105877</ID>
+  <ID>107394</ID>
   <Description>"Blaidd"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,8 +10,8 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105878"/>
-    <id id="105879"/>
-    <id id="105880"/>
+    <id id="107395"/>
+    <id id="107396"/>
+    <id id="107397"/>
   </x-ce2fs-child-order>
 </CheatEntry>

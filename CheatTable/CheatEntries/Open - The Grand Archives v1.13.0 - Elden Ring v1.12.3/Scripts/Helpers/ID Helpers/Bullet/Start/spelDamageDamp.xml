@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102218</ID>
+  <ID>102311</ID>
   <Description>"spelDamageDamp"</Description>
   <VariableType>Byte</VariableType>
   <Address>+8b</Address>

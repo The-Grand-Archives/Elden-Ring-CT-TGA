@@ -1,16 +1,16 @@
 <CheatEntry>
-  <ID>101122</ID>
+  <ID>101123</ID>
   <Description>"RemoveItem"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101123"/>
     <id id="101124"/>
     <id id="101125"/>
     <id id="101126"/>
-    <id id="5004"/>
-    <id id="101130"/>
+    <id id="101127"/>
+    <id id="1104"/>
     <id id="101131"/>
     <id id="101132"/>
+    <id id="101133"/>
   </x-ce2fs-child-order>
 </CheatEntry>

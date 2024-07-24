@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101015</ID>
+  <ID>101016</ID>
   <Description>"Ray Tracing Quality"</Description>
   <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>

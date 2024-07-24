@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>410</ID>
+  <ID>107915</ID>
   <Description>"Bloodstain"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="409"/>
-    <id id="412"/>
-    <id id="413"/>
-    <id id="414"/>
-    <id id="411"/>
-    <id id="415"/>
+    <id id="107916"/>
+    <id id="107917"/>
+    <id id="107918"/>
+    <id id="107919"/>
+    <id id="107920"/>
+    <id id="107921"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105997</ID>
+  <ID>107514</ID>
   <Description>"Gostoc"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,10 +10,10 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105998"/>
-    <id id="105999"/>
-    <id id="106000"/>
-    <id id="106001"/>
-    <id id="106005"/>
+    <id id="107515"/>
+    <id id="107516"/>
+    <id id="107517"/>
+    <id id="107518"/>
+    <id id="107522"/>
   </x-ce2fs-child-order>
 </CheatEntry>

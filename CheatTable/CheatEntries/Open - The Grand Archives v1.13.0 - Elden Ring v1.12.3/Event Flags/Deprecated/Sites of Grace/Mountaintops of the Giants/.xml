@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>105597</ID>
+  <ID>107114</ID>
   <Description>"Mountaintops of the Giants"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105598"/>
-    <id id="105604"/>
-    <id id="105615"/>
-    <id id="105623"/>
+    <id id="107115"/>
+    <id id="107121"/>
+    <id id="107132"/>
+    <id id="107140"/>
   </x-ce2fs-child-order>
 </CheatEntry>

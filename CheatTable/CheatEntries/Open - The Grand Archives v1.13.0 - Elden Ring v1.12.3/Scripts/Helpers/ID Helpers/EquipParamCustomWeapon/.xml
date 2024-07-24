@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>102038</ID>
+  <ID>102128</ID>
   <Description>"EquipParamCustomWeapon"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="102039"/>
-    <id id="102040"/>
+    <id id="102129"/>
+    <id id="102130"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101600</ID>
+  <ID>101601</ID>
   <Description>"Start"</Description>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,7 +10,6 @@
     <Offset>0</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="101601"/>
     <id id="101602"/>
     <id id="101603"/>
     <id id="101604"/>
@@ -126,10 +125,11 @@
     <id id="101714"/>
     <id id="101715"/>
     <id id="101716"/>
-    <id id="101751"/>
+    <id id="101717"/>
     <id id="101752"/>
     <id id="101753"/>
     <id id="101754"/>
     <id id="101755"/>
+    <id id="101756"/>
   </x-ce2fs-child-order>
 </CheatEntry>

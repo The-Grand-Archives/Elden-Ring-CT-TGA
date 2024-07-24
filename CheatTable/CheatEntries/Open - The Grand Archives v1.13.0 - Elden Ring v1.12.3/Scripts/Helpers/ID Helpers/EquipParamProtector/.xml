@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>101597</ID>
+  <ID>101598</ID>
   <Description>"EquipParamProtector"</Description>
   <Options moHideChildren="1"/>
   <DropDownListLink>PROTECTOR_ID</DropDownListLink>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101598"/>
     <id id="101599"/>
     <id id="101600"/>
+    <id id="101601"/>
   </x-ce2fs-child-order>
 </CheatEntry>

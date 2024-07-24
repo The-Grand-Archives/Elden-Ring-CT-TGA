@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105888</ID>
+  <ID>107405</ID>
   <Description>"Boggart"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105889"/>
-    <id id="105890"/>
-    <id id="105891"/>
-    <id id="105892"/>
-    <id id="105893"/>
-    <id id="105894"/>
-    <id id="105895"/>
-    <id id="105896"/>
-    <id id="105897"/>
-    <id id="105898"/>
-    <id id="105899"/>
-    <id id="105900"/>
-    <id id="105901"/>
-    <id id="105902"/>
-    <id id="105903"/>
-    <id id="105904"/>
+    <id id="107406"/>
+    <id id="107407"/>
+    <id id="107408"/>
+    <id id="107409"/>
+    <id id="107410"/>
+    <id id="107411"/>
+    <id id="107412"/>
+    <id id="107413"/>
+    <id id="107414"/>
+    <id id="107415"/>
+    <id id="107416"/>
+    <id id="107417"/>
+    <id id="107418"/>
+    <id id="107419"/>
+    <id id="107420"/>
+    <id id="107421"/>
   </x-ce2fs-child-order>
 </CheatEntry>

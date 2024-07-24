@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106697</ID>
+  <ID>108228</ID>
   <Description>"Dependencies"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
@@ -7,6 +7,6 @@
     <id id="1000"/>
     <id id="1001"/>
     <id id="1002"/>
-    <id id="300"/>
+    <id id="108229"/>
   </x-ce2fs-child-order>
 </CheatEntry>

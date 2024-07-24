@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106243</ID>
+  <ID>107760</ID>
   <Description>"Rusty Key door"</Description>
   <DropDownListLink>TRUE_FALSE</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>
@@ -13,6 +13,6 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="106244"/>
+    <id id="107761"/>
   </x-ce2fs-child-order>
 </CheatEntry>

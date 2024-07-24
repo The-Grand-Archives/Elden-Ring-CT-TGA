@@ -1,9 +1,8 @@
 <CheatEntry>
-  <ID>100403</ID>
+  <ID>100404</ID>
   <Description>"== Equip Magic List =="</Description>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100404"/>
     <id id="100405"/>
     <id id="100406"/>
     <id id="100407"/>
@@ -17,5 +16,6 @@
     <id id="100415"/>
     <id id="100416"/>
     <id id="100417"/>
+    <id id="100418"/>
   </x-ce2fs-child-order>
 </CheatEntry>

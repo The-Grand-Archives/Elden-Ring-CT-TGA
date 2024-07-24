@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>101308</ID>
+  <ID>101309</ID>
   <Description>"Caelid"</Description>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101309"/>
     <id id="101310"/>
     <id id="101311"/>
+    <id id="101312"/>
   </x-ce2fs-child-order>
 </CheatEntry>

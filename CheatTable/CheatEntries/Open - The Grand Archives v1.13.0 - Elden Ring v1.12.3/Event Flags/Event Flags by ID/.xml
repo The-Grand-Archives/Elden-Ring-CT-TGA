@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>105321</ID>
+  <ID>106838</ID>
   <Description>"Event Flags by ID"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105322"/>
-    <id id="105323"/>
-    <id id="105327"/>
-    <id id="105328"/>
-    <id id="105329"/>
+    <id id="106839"/>
+    <id id="106840"/>
+    <id id="106844"/>
+    <id id="106845"/>
+    <id id="106846"/>
   </x-ce2fs-child-order>
 </CheatEntry>

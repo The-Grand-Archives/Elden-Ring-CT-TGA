@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101019</ID>
+  <ID>101020</ID>
   <Description>"Antialiasing Quality"</Description>
   <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>

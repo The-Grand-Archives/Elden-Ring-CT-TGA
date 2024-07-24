@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>105472</ID>
+  <ID>106989</ID>
   <Description>"Altus Plateau"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105473"/>
-    <id id="105493"/>
-    <id id="105506"/>
+    <id id="106990"/>
+    <id id="107010"/>
+    <id id="107023"/>
   </x-ce2fs-child-order>
 </CheatEntry>

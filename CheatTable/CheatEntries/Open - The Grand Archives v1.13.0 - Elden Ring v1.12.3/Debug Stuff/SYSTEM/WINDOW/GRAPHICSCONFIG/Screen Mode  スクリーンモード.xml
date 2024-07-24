@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106631</ID>
+  <ID>108156</ID>
   <Description>"Screen Mode | スクリーンモード"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Window
 1:Fullscreen

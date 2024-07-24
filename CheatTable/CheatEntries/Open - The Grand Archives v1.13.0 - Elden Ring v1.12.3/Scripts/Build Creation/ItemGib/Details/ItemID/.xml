@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>101043</ID>
+  <ID>101044</ID>
   <Description>"ItemID"</Description>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
   <Address>item_menu+00</Address>
   <x-ce2fs-child-order>
-    <id id="101044"/>
     <id id="101045"/>
+    <id id="101046"/>
   </x-ce2fs-child-order>
 </CheatEntry>

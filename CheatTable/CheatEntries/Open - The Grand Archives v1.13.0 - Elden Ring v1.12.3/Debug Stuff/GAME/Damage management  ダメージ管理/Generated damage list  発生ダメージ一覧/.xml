@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>106416</ID>
+  <ID>107940</ID>
   <Description>"Generated damage list | 発生ダメージ一覧"</Description>
   <Options moHideChildren="1"/>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106417"/>
+    <id id="107941"/>
   </x-ce2fs-child-order>
 </CheatEntry>

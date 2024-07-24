@@ -1,11 +1,10 @@
 <CheatEntry>
-  <ID>101277</ID>
+  <ID>101278</ID>
   <Description>"The Lands Between"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101278"/>
-    <id id="101284"/>
+    <id id="101279"/>
     <id id="101285"/>
     <id id="101286"/>
     <id id="101287"/>
@@ -13,6 +12,7 @@
     <id id="101289"/>
     <id id="101290"/>
     <id id="101291"/>
-    <id id="101294"/>
+    <id id="101292"/>
+    <id id="101295"/>
   </x-ce2fs-child-order>
 </CheatEntry>

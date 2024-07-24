@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>89782</ID>
+  <ID>103435</ID>
   <Description>"BuddyParam"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="89783"/>
-    <id id="89784"/>
-    <id id="89785"/>
+    <id id="103436"/>
+    <id id="103437"/>
+    <id id="103438"/>
   </x-ce2fs-child-order>
 </CheatEntry>

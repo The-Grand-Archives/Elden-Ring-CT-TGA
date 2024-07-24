@@ -1,10 +1,9 @@
 <CheatEntry>
-  <ID>101245</ID>
+  <ID>101246</ID>
   <Description>"Site of Grace"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101246"/>
     <id id="101247"/>
     <id id="101248"/>
     <id id="101249"/>
@@ -12,5 +11,6 @@
     <id id="101251"/>
     <id id="101252"/>
     <id id="101253"/>
+    <id id="101254"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>107475</ID>
+  <Description>"?"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0</Address>
+</CheatEntry>

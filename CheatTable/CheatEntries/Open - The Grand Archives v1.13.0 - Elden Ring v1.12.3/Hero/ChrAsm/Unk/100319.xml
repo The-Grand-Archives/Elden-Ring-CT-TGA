@@ -6,7 +6,7 @@
   <VariableType>4 Bytes</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>34C</Offset>
+    <Offset>348</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>

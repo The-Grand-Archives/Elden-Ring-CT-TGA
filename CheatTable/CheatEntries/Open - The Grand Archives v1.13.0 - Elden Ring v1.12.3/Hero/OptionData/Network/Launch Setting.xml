@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100999</ID>
+  <ID>101000</ID>
   <Description>"Launch Setting"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Play Online
 1:Play Offline

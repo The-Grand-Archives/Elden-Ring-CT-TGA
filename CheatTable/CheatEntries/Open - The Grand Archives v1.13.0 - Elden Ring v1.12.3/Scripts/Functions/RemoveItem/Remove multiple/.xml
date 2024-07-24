@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>101132</ID>
+  <ID>101133</ID>
   <Description>"Remove multiple"</Description>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101133"/>
     <id id="101134"/>
+    <id id="101135"/>
   </x-ce2fs-child-order>
 </CheatEntry>

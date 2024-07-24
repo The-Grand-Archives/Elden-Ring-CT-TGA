@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>5000</ID>
+  <ID>1100</ID>
   <Description>"Item"</Description>
   <DropDownListLink>ItemDropdown</DropDownListLink>
   <ShowAsHex>1</ShowAsHex>

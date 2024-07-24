@@ -1,15 +1,15 @@
 <CheatEntry>
-  <ID>101033</ID>
+  <ID>101034</ID>
   <Description>"Build Creation"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101034"/>
-    <id id="101037"/>
-    <id id="101087"/>
-    <id id="101089"/>
+    <id id="101035"/>
+    <id id="101038"/>
+    <id id="101088"/>
     <id id="101090"/>
     <id id="101091"/>
     <id id="101092"/>
+    <id id="101093"/>
   </x-ce2fs-child-order>
 </CheatEntry>

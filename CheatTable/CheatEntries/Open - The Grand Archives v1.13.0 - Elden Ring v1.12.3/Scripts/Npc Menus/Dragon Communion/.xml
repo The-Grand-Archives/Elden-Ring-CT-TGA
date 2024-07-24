@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>101258</ID>
+  <ID>101259</ID>
   <Description>"Dragon Communion"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101259"/>
     <id id="101260"/>
     <id id="101261"/>
     <id id="101262"/>
+    <id id="101263"/>
   </x-ce2fs-child-order>
 </CheatEntry>

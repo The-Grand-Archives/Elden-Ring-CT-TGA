@@ -1,15 +1,15 @@
 <CheatEntry>
-  <ID>100973</ID>
+  <ID>100974</ID>
   <Description>"Camera Options"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100974"/>
     <id id="100975"/>
     <id id="100976"/>
     <id id="100977"/>
     <id id="100978"/>
     <id id="100979"/>
     <id id="100980"/>
+    <id id="100981"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>101001</ID>
+  <ID>101002</ID>
   <Description>"Controller Settings"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101002"/>
+    <id id="101003"/>
   </x-ce2fs-child-order>
 </CheatEntry>

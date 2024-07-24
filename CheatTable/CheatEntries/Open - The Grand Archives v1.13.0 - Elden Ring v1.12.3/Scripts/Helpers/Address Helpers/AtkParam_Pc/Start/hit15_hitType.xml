@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102770</ID>
+  <ID>104170</ID>
   <Description>"hit15_hitType"</Description>
   <VariableType>Byte</VariableType>
   <Address>+0173</Address>

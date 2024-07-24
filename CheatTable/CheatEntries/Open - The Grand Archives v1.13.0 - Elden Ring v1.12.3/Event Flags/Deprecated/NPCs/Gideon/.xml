@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105980</ID>
+  <ID>107497</ID>
   <Description>"Gideon"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105981"/>
-    <id id="105982"/>
-    <id id="105983"/>
-    <id id="105984"/>
-    <id id="105985"/>
-    <id id="105986"/>
-    <id id="105987"/>
-    <id id="105988"/>
-    <id id="105989"/>
-    <id id="105990"/>
-    <id id="105991"/>
-    <id id="105992"/>
-    <id id="105993"/>
-    <id id="105994"/>
-    <id id="105995"/>
-    <id id="105996"/>
+    <id id="107498"/>
+    <id id="107499"/>
+    <id id="107500"/>
+    <id id="107501"/>
+    <id id="107502"/>
+    <id id="107503"/>
+    <id id="107504"/>
+    <id id="107505"/>
+    <id id="107506"/>
+    <id id="107507"/>
+    <id id="107508"/>
+    <id id="107509"/>
+    <id id="107510"/>
+    <id id="107511"/>
+    <id id="107512"/>
+    <id id="107513"/>
   </x-ce2fs-child-order>
 </CheatEntry>

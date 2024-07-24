@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100669</ID>
+  <ID>100670</ID>
   <Description>"Forehead Depth"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

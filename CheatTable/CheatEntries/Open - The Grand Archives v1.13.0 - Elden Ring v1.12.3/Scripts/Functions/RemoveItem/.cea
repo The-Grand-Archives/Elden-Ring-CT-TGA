@@ -1,6 +1,6 @@
 {$lua}
 if syntaxcheck then return end
-local memrec = getAddressList().getMemoryRecordByID(5004)
+local memrec = getAddressList().getMemoryRecordByID(1104)
 [ENABLE]
 if RemoveItem == nil then
     getAddressList().getMemoryRecordByDescription("RemoveItem_code").active = true

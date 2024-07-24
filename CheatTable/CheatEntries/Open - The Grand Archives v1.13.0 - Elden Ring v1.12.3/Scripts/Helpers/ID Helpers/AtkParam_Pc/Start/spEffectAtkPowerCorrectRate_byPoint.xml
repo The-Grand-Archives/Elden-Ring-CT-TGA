@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>89647</ID>
+  <ID>102988</ID>
   <Description>"spEffectAtkPowerCorrectRate_byPoint"</Description>
   <VariableType>2 Bytes</VariableType>
   <Address>+018E</Address>

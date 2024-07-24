@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106405</ID>
+  <ID>107929</ID>
   <Description>"Debug sphere display | デバッグ球表示"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

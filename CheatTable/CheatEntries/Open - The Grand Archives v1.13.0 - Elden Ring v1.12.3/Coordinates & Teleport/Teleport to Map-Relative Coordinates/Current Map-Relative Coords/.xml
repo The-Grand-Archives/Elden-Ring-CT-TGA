@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106375</ID>
+  <ID>107892</ID>
   <Description>"Current Map-Relative Coords"</Description>
   <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -13,10 +13,10 @@
     <Offset>10EF8</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="106376"/>
-    <id id="106377"/>
-    <id id="106378"/>
-    <id id="106379"/>
-    <id id="106380"/>
+    <id id="107893"/>
+    <id id="107894"/>
+    <id id="107895"/>
+    <id id="107896"/>
+    <id id="107897"/>
   </x-ce2fs-child-order>
 </CheatEntry>

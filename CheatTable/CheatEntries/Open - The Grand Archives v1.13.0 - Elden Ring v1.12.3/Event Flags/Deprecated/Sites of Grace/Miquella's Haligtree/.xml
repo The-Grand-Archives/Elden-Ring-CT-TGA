@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>105631</ID>
+  <ID>107148</ID>
   <Description>"Miquella's Haligtree"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105632"/>
-    <id id="105637"/>
+    <id id="107149"/>
+    <id id="107154"/>
   </x-ce2fs-child-order>
 </CheatEntry>

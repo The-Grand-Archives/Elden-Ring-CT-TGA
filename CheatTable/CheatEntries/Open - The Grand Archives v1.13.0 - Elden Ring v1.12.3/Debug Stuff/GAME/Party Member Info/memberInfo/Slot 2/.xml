@@ -1,18 +1,18 @@
 <CheatEntry>
-  <ID>106507</ID>
+  <ID>108032</ID>
   <Description>"Slot 2"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106508"/>
-    <id id="106509"/>
-    <id id="106510"/>
-    <id id="106511"/>
-    <id id="106512"/>
-    <id id="106513"/>
-    <id id="106514"/>
-    <id id="106515"/>
-    <id id="106516"/>
-    <id id="106517"/>
+    <id id="108033"/>
+    <id id="108034"/>
+    <id id="108035"/>
+    <id id="108036"/>
+    <id id="108037"/>
+    <id id="108038"/>
+    <id id="108039"/>
+    <id id="108040"/>
+    <id id="108041"/>
+    <id id="108042"/>
   </x-ce2fs-child-order>
 </CheatEntry>

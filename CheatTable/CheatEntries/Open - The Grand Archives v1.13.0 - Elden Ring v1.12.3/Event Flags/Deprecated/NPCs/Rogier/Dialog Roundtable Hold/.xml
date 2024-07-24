@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106115</ID>
+  <ID>107632</ID>
   <Description>"Dialog Roundtable Hold"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,37 +10,37 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="106116"/>
-    <id id="106117"/>
-    <id id="106118"/>
-    <id id="106119"/>
-    <id id="106120"/>
-    <id id="106121"/>
-    <id id="106122"/>
-    <id id="106123"/>
-    <id id="106124"/>
-    <id id="106125"/>
-    <id id="106126"/>
-    <id id="106127"/>
-    <id id="106128"/>
-    <id id="106129"/>
-    <id id="106130"/>
-    <id id="106131"/>
-    <id id="106132"/>
-    <id id="106133"/>
-    <id id="106134"/>
-    <id id="106135"/>
-    <id id="106136"/>
-    <id id="106137"/>
-    <id id="106138"/>
-    <id id="106139"/>
-    <id id="106140"/>
-    <id id="106141"/>
-    <id id="106142"/>
-    <id id="106143"/>
-    <id id="106144"/>
-    <id id="106145"/>
-    <id id="106146"/>
-    <id id="106147"/>
+    <id id="107633"/>
+    <id id="107634"/>
+    <id id="107635"/>
+    <id id="107636"/>
+    <id id="107637"/>
+    <id id="107638"/>
+    <id id="107639"/>
+    <id id="107640"/>
+    <id id="107641"/>
+    <id id="107642"/>
+    <id id="107643"/>
+    <id id="107644"/>
+    <id id="107645"/>
+    <id id="107646"/>
+    <id id="107647"/>
+    <id id="107648"/>
+    <id id="107649"/>
+    <id id="107650"/>
+    <id id="107651"/>
+    <id id="107652"/>
+    <id id="107653"/>
+    <id id="107654"/>
+    <id id="107655"/>
+    <id id="107656"/>
+    <id id="107657"/>
+    <id id="107658"/>
+    <id id="107659"/>
+    <id id="107660"/>
+    <id id="107661"/>
+    <id id="107662"/>
+    <id id="107663"/>
+    <id id="107664"/>
   </x-ce2fs-child-order>
 </CheatEntry>

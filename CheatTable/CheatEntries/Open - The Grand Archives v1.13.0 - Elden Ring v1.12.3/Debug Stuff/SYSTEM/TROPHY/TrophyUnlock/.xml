@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>106562</ID>
+  <ID>108087</ID>
   <Description>"TrophyUnlock"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="106563"/>
-    <id id="106564"/>
+    <id id="108088"/>
+    <id id="108089"/>
   </x-ce2fs-child-order>
 </CheatEntry>

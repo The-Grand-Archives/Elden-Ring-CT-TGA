@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100656</ID>
+  <ID>100657</ID>
   <Description>"Chin Width"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

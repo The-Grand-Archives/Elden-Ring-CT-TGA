@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100809</ID>
+  <ID>100810</ID>
   <Description>"Decal_Color_b"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

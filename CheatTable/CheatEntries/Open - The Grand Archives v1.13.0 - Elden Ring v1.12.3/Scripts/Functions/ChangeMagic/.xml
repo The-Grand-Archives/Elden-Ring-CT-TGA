@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>101150</ID>
+  <ID>101151</ID>
   <Description>"ChangeMagic"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101151"/>
     <id id="101152"/>
     <id id="101153"/>
     <id id="101154"/>
     <id id="101155"/>
+    <id id="101156"/>
   </x-ce2fs-child-order>
 </CheatEntry>

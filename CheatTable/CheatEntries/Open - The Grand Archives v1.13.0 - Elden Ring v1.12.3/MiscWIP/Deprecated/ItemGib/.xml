@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>106707</ID>
+  <ID>108239</ID>
   <Description>"ItemGib"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="106708"/>
+    <id id="108240"/>
   </x-ce2fs-child-order>
 </CheatEntry>

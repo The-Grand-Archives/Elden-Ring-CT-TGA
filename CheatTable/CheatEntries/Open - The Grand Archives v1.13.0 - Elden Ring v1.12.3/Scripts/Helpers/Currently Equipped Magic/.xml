@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>103553</ID>
+  <ID>104953</ID>
   <Description>"Currently Equipped Magic"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="103554"/>
+    <id id="104954"/>
   </x-ce2fs-child-order>
 </CheatEntry>

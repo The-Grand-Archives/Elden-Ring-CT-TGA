@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100641</ID>
+  <ID>100642</ID>
   <Description>"Unk (Numen = 128)"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

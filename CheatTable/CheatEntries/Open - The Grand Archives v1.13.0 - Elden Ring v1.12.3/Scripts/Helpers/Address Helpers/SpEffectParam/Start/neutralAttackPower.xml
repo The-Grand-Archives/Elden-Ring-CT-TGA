@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102364</ID>
+  <ID>103764</ID>
   <Description>"neutralAttackPower"</Description>
   <VariableType>4 Bytes</VariableType>
   <Address>+023C</Address>

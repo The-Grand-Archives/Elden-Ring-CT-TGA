@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100449</ID>
+  <ID>100450</ID>
   <Description>"Point Upwards"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">42:Locked
 43:Unlocked
