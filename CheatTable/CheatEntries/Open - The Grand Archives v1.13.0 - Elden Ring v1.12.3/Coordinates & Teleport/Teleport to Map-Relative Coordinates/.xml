@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337258981</ID>
+  <Description>"Teleport to Map-Relative Coordinates"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="1337258982"/>
+    <id id="1337258987"/>
+    <id id="1337258993"/>
+    <id id="1337258994"/>
+    <id id="1337258995"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

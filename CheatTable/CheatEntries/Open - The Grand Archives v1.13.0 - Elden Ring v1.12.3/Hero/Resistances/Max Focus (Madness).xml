@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337196755</ID>
+  <Description>"Max Focus (Madness)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>44</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,15 @@
+{
+   Autor: Orang
+   Description: Dont debuff/buff firedefense/lighningdefense
+}
+
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local removeWaterDebuff = SpEffectParam:new("water",4010)
+removeWaterDebuff:patchFloat(0x30,1)
+removeWaterDebuff:patchFloat(0x34,1)
+
+[DISABLE]
+paramUtils:restore("water")

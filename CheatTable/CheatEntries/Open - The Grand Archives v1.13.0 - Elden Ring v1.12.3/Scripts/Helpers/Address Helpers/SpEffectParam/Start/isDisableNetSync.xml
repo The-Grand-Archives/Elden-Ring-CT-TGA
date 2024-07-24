@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337215022</ID>
+  <Description>"isDisableNetSync"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0259</Address>
+</CheatEntry>

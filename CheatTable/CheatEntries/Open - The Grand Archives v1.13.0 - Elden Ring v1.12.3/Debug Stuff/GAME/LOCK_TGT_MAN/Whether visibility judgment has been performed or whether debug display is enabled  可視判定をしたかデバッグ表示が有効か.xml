@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337099147</ID>
+  <Description>"Whether visibility judgment has been performed or whether debug display is enabled | 可視判定をしたかデバッグ表示が有効か"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2989</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1337200510</ID>
+  <Description>"saleValue"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+74</Address>
+</CheatEntry>

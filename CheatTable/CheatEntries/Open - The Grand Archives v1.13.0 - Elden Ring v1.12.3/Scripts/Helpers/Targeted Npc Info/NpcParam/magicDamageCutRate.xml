@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337218464</ID>
+  <Description>"magicDamageCutRate"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+1B4</Address>
+</CheatEntry>

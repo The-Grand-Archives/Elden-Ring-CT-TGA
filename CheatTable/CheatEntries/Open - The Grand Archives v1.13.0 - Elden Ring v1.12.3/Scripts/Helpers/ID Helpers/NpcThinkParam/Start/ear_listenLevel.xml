@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337200708</ID>
+  <Description>"ear_listenLevel"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+5F</Address>
+</CheatEntry>

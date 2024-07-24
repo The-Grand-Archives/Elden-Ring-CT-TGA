@@ -1,0 +1,10 @@
+//Author: inuNorii
+//Warp out of mini-dungeons without defeating its boss
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local effect = SpEffectParam:new("MiniDungeonWarp",4270)
+effect:stateInfo(0)
+
+[DISABLE]
+paramUtils:restore("MiniDungeonWarp")

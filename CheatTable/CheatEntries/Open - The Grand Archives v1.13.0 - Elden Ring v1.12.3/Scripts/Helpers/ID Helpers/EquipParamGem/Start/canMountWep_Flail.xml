@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1899</ID>
+  <Description>"canMountWep_Flail"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+39</Address>
+</CheatEntry>

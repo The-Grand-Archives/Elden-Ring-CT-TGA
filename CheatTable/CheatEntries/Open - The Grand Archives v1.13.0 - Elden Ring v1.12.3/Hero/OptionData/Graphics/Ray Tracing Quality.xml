@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337259154</ID>
+  <Description>"Ray Tracing Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>120</Offset>
+  </Offsets>
+</CheatEntry>

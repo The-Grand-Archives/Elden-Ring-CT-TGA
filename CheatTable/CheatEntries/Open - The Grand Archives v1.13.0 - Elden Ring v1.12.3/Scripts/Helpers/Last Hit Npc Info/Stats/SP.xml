@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337199574</ID>
+  <Description>"SP"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>154</Offset>
+    <Offset>0</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

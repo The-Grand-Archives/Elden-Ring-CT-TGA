@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>1337218233</ID>
+  <Description>"Red Wolf of Radagon [Academy of Raya Lucaria]"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>15814C</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337213587"/>
+    <id id="1337213588"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

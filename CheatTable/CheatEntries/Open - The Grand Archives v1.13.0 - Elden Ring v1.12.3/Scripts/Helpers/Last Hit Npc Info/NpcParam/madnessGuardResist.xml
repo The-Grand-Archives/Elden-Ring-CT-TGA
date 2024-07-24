@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337213712</ID>
+  <Description>"madnessGuardResist"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+12B</Address>
+</CheatEntry>

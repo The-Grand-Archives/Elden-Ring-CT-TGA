@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337213394</ID>
+  <Description>"tailDataIdx"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>1C</Offset>
+    <Offset>readInteger("EquipInventoryDataIdx+4")</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

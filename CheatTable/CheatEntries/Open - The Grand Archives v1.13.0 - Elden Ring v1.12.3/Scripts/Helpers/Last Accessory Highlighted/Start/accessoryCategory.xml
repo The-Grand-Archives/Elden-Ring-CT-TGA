@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337201256</ID>
+  <Description>"accessoryCategory"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Ring
+1:Covenant
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+30</Address>
+</CheatEntry>

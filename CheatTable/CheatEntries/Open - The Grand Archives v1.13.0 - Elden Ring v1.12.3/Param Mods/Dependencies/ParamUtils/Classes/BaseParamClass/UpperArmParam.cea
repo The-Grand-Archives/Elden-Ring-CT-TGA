@@ -1,0 +1,96 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START UpperArmParam class]]--
+UpperArmParam = BaseParamClass:new()
+
+function UpperArmParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("UpperArmParam", uuid, id, address)
+	return o
+end
+
+function UpperArmParam:ArmZ0(value)
+    self:patchFloat(0x0,value)
+end
+
+function UpperArmParam:ArmXY0(value)
+    self:patchFloat(0x4,value)
+end
+
+function UpperArmParam:ArmZ1(value)
+    self:patchFloat(0x8,value)
+end
+
+function UpperArmParam:ArmXY1(value)
+    self:patchFloat(0xC,value)
+end
+
+function UpperArmParam:ArmZ2(value)
+    self:patchFloat(0x10,value)
+end
+
+function UpperArmParam:ArmXY2(value)
+    self:patchFloat(0x14,value)
+end
+
+function UpperArmParam:ArmZ3(value)
+    self:patchFloat(0x18,value)
+end
+
+function UpperArmParam:ArmXY3(value)
+    self:patchFloat(0x1C,value)
+end
+
+function UpperArmParam:ArmZ4(value)
+    self:patchFloat(0x20,value)
+end
+
+function UpperArmParam:ArmXY4(value)
+    self:patchFloat(0x24,value)
+end
+
+function UpperArmParam:ArmZ5(value)
+    self:patchFloat(0x28,value)
+end
+
+function UpperArmParam:ArmXY5(value)
+    self:patchFloat(0x2C,value)
+end
+
+function UpperArmParam:ArmZ6(value)
+    self:patchFloat(0x30,value)
+end
+
+function UpperArmParam:ArmXY6(value)
+    self:patchFloat(0x34,value)
+end
+
+function UpperArmParam:ArmZ7(value)
+    self:patchFloat(0x38,value)
+end
+
+function UpperArmParam:ArmXY7(value)
+    self:patchFloat(0x3C,value)
+end
+
+function UpperArmParam:ArmZ8(value)
+    self:patchFloat(0x40,value)
+end
+
+function UpperArmParam:ArmXY8(value)
+    self:patchFloat(0x44,value)
+end
+
+function UpperArmParam:ArmZ9(value)
+    self:patchFloat(0x48,value)
+end
+
+function UpperArmParam:ArmXY9(value)
+    self:patchFloat(0x4C,value)
+end
+
+[DISABLE]

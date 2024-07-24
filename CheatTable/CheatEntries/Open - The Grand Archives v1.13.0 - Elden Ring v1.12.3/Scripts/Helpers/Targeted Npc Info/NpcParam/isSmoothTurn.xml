@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337218408</ID>
+  <Description>"isSmoothTurn"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+14D</Address>
+</CheatEntry>

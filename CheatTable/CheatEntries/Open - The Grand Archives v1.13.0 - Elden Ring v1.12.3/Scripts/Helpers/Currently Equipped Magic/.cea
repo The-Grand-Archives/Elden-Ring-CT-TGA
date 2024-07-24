@@ -1,0 +1,26 @@
+// Author : inuNorii
+[ENABLE]
+aobscanmodule(CurrentMagic,$process,0F BF 40 10 C3)
+alloc(newmem,$100,CurrentMagic)
+
+newmem:
+mov [CurrentMagicAddr],rax
+movsx eax,word ptr [rax+10]
+ret
+jmp return
+
+CurrentMagicAddr:
+registersymbol(CurrentMagicAddr)
+dq 0000000000000000
+
+CurrentMagic:
+jmp newmem
+return:
+registersymbol(CurrentMagic)
+
+[DISABLE]
+CurrentMagic:
+db 0F BF 40 10 C3
+unregistersymbol(CurrentMagic)
+unregistersymbol(CurrentMagicAddr)
+dealloc(newmem)

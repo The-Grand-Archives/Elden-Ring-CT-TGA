@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337215027</ID>
+  <Description>"saReceiveDamageRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+025C</Address>
+</CheatEntry>

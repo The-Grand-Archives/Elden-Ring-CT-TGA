@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1863</ID>
+  <Description>"configurableWepAttr11"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+31</Address>
+</CheatEntry>

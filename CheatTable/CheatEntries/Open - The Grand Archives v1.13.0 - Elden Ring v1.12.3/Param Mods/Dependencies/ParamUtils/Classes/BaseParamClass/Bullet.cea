@@ -1,0 +1,391 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START Bullet class]]--
+Bullet = BaseParamClass:new()
+
+function Bullet:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("Bullet", uuid, id, address)
+	return o
+end
+
+function Bullet:atkId_Bullet(value)
+	self:patch4Byte(0x0, value)
+end
+
+function Bullet:sfxId_Bullet(value)
+	self:patch4Byte(0x4, value)
+end
+
+function Bullet:sfxId_Hit(value)
+	self:patch4Byte(0x8, value)
+end
+
+function Bullet:sfxId_Flick(value)
+	self:patch4Byte(0xC, value)
+end
+
+function Bullet:life(value)
+	self:patchFloat(0x10, value)
+end
+
+function Bullet:dist(value)
+	self:patchFloat(0x14, value)
+end
+
+function Bullet:shootInterval(value)
+	self:patchFloat(0x18, value)
+end
+
+function Bullet:gravityInRange(value)
+	self:patch4Byte(0x1C, value)
+end
+
+function Bullet:gravityOutRange(value)
+	self:patchFloat(0x20, value)
+end
+
+function Bullet:homingStopRange(value)
+	self:patchFloat(0x24, value)
+end
+
+function Bullet:initVellocity(value)
+	self:patchFloat(0x28, value)
+end
+
+function Bullet:accelInRange(value)
+	self:patchFloat(0x2C, value)
+end
+
+function Bullet:accelOutRange(value)
+	self:patchFloat(0x30, value)
+end
+
+function Bullet:maxVellocity(value)
+	self:patchFloat(0x34, value)
+end
+
+function Bullet:minVellocity(value)
+	self:patchFloat(0x38, value)
+end
+
+function Bullet:accelTime(value)
+	self:patchFloat(0x3C, value)
+end
+
+function Bullet:homingBeginDist(value)
+	self:patchFloat(0x40, value)
+end
+
+function Bullet:hitRadius(value)
+	self:patchFloat(0x44, value)
+end
+
+function Bullet:hitRadiusMax(value)
+	self:patchFloat(0x48, value)
+end
+
+function Bullet:spreadTime(value)
+	self:patchFloat(0x4C, value)
+end
+
+function Bullet:expDelay(value)
+	self:patchFloat(0x50, value)
+end
+
+function Bullet:hormingOffsetRange(value)
+	self:patchFloat(0x54, value)
+end
+
+function Bullet:dmgHitRecordLifeTime(value)
+	self:patchFloat(0x58, value)
+end
+
+function Bullet:externalForce(value)
+	self:patch4Byte(0x5C, value)
+end
+
+function Bullet:spEffectIDForShooter(value)
+	self:patch4Byte(0x60, value)
+end
+
+function Bullet:autoSearchNPCThinkID(value)
+	self:patch4Byte(0x64, value)
+end
+
+function Bullet:HitBulletID(value)
+	self:patch4Byte(0x68, value)
+end
+
+--Special Effect IDs
+function Bullet:spEffectId0(value)
+	self:patch4Byte(0x6C, value)
+end
+
+function Bullet:spEffectId1(value)
+	self:patch4Byte(0x70, value)
+end
+
+function Bullet:spEffectId2(value)
+	self:patch4Byte(0x74, value)
+end
+
+function Bullet:spEffectId3(value)
+	self:patch4Byte(0x78, value)
+end
+
+function Bullet:spEffectId4(value)
+	self:patch4Byte(0x7C, value)
+end
+
+function Bullet:numShoot(value)
+	self:patch2Byte(0x80, value)
+end
+
+function Bullet:homingAngle(value)
+	self:patch2Byte(0x82, value)
+end
+
+function Bullet:shootAngle(value)
+	self:patch2Byte(0x84, value)
+end
+
+function Bullet:shootAngleInterval(value)
+	self:patch2Byte(0x86, value)
+end
+
+function Bullet:shootAngleXInterval(value)
+	self:patch2Byte(0x88, value)
+end
+
+--Damp's
+function Bullet:damageDamp(value)
+	self:patchByte(0x8A, value)
+end
+
+function Bullet:spelDamageDamp(value)
+	self:patchByte(0x8B, value)
+end
+
+function Bullet:fireDamageDamp(value)
+	self:patchByte(0x8C, value)
+end
+
+function Bullet:thunderDamageDamp(value)
+	self:patchByte(0x8D, value)
+end
+
+function Bullet:staminaDamp(value)
+	self:patchByte(0x8E, value)
+end
+
+function Bullet:knockbackDamp(value)
+	self:patchByte(0x8F, value)
+end
+
+
+function Bullet:shootAngleXZ(value)
+	self:patchByte(0x90, value)
+end
+
+function Bullet:lockShootLimitAng(value)
+	self:patchByte(0x91, value)
+end
+
+function Bullet:isPenetrate(value)
+	self:patchByte(0x92, value)
+end
+
+function Bullet:prevVelocityDirRate(value)
+	self:patchByte(0x93, value)
+end
+
+function Bullet:atkAttribute(value)
+	self:patchByte(0x94, value)
+end
+
+function Bullet:spAttribute(value)
+	self:patchByte(0x95, value)
+end
+
+function Bullet:Material_AttackType(value)
+	self:patchByte(0x96, value)
+end
+
+function Bullet:Material_AttackMaterial(value)
+	self:patchByte(0x97, value)
+end
+
+function Bullet:Material_Size(value)
+	self:patchByte(0x99, value)
+end
+
+function Bullet:launchConditionType(value)
+    self:patchByte(0x99, value)
+end
+
+--Flags
+function Bullet:FollowType(value)
+	self:patchBinary(0x9A, value, 0)
+end
+
+function Bullet:EmittePosType(value)
+	self:patchBinary(0x9A, value, 1)
+end
+
+function Bullet:isAttackSFX(value)
+	self:patchBinary(0x9A, value, 2)
+end
+
+function Bullet:isEndlessHit(value)
+	self:patchBinary(0x9A, value, 3)
+end
+
+function Bullet:camAngleShoot(value)
+	self:patchBinary(0x9A, value, 4)
+end
+
+function Bullet:isSpawnAtClosestEnemy(value)
+	self:patchBinary(0x9A, value, 5)
+end
+
+function Bullet:isPenetrateMap(value)
+	self:patchBinary(0x9B, value, 0)
+end
+
+function Bullet:isHitBothTeam(value)
+	self:patchBinary(0x9B, value, 1)
+end
+
+function Bullet:isUseSharedHitList(value)
+	self:patchBinary(0x9B, value, 2)
+end
+
+function Bullet:isUseMultiDmyPolyIfPlace(value)
+	self:patchBinary(0x9B, value, 3)
+end
+
+function Bullet:attachEffectType(value)
+	self:patchBinary(0x9B, value, 4)
+end
+
+function Bullet:isHitForceBullet(value)
+	self:patchBinary(0x9B, value, 5)
+end
+
+function Bullet:isIgnoreSfxIfHitWater(value)
+	self:patchBinary(0x9B, value, 6)
+end
+
+function Bullet:isIgnoreMoveStateIfHitWater(value)
+	self:patchBinary(0x9B, value, 7)
+end
+
+function Bullet:isHitDarkForceBullet(value)
+	self:patchBinary(0x9C, value, 0)
+end
+
+function Bullet:spellParriable(value)
+	self:patchBinary(0x9C, value, 1)
+end
+
+function Bullet:autoFollowTarget(value)
+	self:patchBinary(0x9C, value, 4)
+end
+
+function Bullet:darkDamageDamp(value)
+	self:patchByte(0x9D, value)
+end
+
+function Bullet:conditionByte(value)
+	self:patchByte(0x9E, value)
+end
+
+function Bullet:conditionByte1(value)
+	self:patchByte(0x9F, value)
+end
+
+function Bullet:Z_Homing(value)
+	self:patchFloat(0xA0, value)
+end
+
+function Bullet:homingAngleCameraXY(value)
+	self:patchFloat(0xA4, value)
+end
+
+function Bullet:homingAngleCameraZ(value)
+	self:patchFloat(0xA8, value)
+end
+
+function Bullet:emitterBulletId(value)
+	self:patch4Byte(0xAC, value)
+end
+
+function Bullet:emitterShootInterval(value)
+	self:patchFloat(0xB0, value)
+end
+
+function Bullet:emitterSpawnInterval(value)
+	self:patchFloat(0xB4, value)
+end
+
+function Bullet:emitterDelayUntilShot(value)
+	self:patchFloat(0xBC, value)
+end
+
+function Bullet:BulletCreateLimitId(value)
+	self:patchByte(0xC1, value)
+end
+
+function Bullet:targetHitstop(value)
+	self:patchBinary(0xC3, value, 1)
+end
+
+function Bullet:targetPenetrate(value)
+	self:patchBinary(0xC3, value, 4)
+end
+
+function Bullet:freeAim(value)
+	self:patchBinary(0xC3, value, 5)
+end
+
+function Bullet:followTypeNumshoot(value)
+	self:patchBinary(0xC3, value, 6)
+end
+
+function Bullet:objectId(value)
+	self:patch4Byte(0xC8, value)
+end
+
+function Bullet:extendDist(value)
+	self:patchFloat(0xCC, value)
+end
+
+function Bullet:extendLife(value)
+	self:patchByte(0xD0, value)
+end
+
+function Bullet:adjustAngle(value)
+	self:patchByte(0xD1, value)
+end
+
+--Compatibility/memes
+function Bullet:hormingStopRange(value)
+	self:patchFloat(0x24, value)
+end
+
+function Bullet:spEffectId5(value)
+	self:patch4Byte(0x60, value)
+end
+
+--[[END Bullet class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

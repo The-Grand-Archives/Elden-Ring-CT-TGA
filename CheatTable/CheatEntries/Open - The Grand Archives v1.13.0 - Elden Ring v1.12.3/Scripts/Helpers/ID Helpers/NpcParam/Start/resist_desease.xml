@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>4996</ID>
+  <Description>"resist_desease"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+10A</Address>
+</CheatEntry>

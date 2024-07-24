@@ -1,0 +1,22 @@
+<CheatEntry>
+  <ID>1337258987</ID>
+  <Description>"Current Map-Relative Coords"</Description>
+  <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1"/>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>20</ByteLength>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>6B0</Offset>
+    <Offset>0</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337258988"/>
+    <id id="1337258989"/>
+    <id id="1337258990"/>
+    <id id="1337258991"/>
+    <id id="1337258992"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

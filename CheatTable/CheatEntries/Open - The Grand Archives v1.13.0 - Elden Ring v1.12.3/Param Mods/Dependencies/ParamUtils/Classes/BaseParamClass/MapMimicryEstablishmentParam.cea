@@ -1,0 +1,64 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START MapMimicryEstablishmentParam class]]--
+MapMimicryEstablishmentParam = BaseParamClass:new()
+
+function MapMimicryEstablishmentParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("MapMimicryEstablishmentParam", uuid, id, address)
+	return o
+end
+
+function MapMimicryEstablishmentParam:RandomizerCoefficient0(value)
+    self:patchFloat(0x0,value)
+end
+
+function MapMimicryEstablishmentParam:RandomizerCoefficient1(value)
+    self:patchFloat(0x4,value)
+end
+
+function MapMimicryEstablishmentParam:RandomizerCoefficient2(value)
+    self:patchFloat(0x8,value)
+end
+
+function MapMimicryEstablishmentParam:TransformVfxId0(value)
+    self:patch4Byte(0xC,value)
+end
+
+function MapMimicryEstablishmentParam:LoopVfxId0(value)
+    self:patch4Byte(0x10,value)
+end
+
+function MapMimicryEstablishmentParam:DestroyVfxId0(value)
+    self:patch4Byte(0x14,value)
+end
+
+function MapMimicryEstablishmentParam:TransformVfxId1(value)
+    self:patch4Byte(0x18,value)
+end
+
+function MapMimicryEstablishmentParam:LoopVfxId1(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function MapMimicryEstablishmentParam:DestroyVfxId1(value)
+    self:patch4Byte(0x20,value)
+end
+
+function MapMimicryEstablishmentParam:TransformVfxId2(value)
+    self:patch4Byte(0x24,value)
+end
+
+function MapMimicryEstablishmentParam:LoopVfxId2(value)
+    self:patch4Byte(0x28,value)
+end
+
+function MapMimicryEstablishmentParam:DestroyVfxId2(value)
+    self:patch4Byte(0x2C,value)
+end
+
+[DISABLE]

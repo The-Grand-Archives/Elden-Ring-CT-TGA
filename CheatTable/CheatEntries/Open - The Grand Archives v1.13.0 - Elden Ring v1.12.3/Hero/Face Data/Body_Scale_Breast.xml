@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213097</ID>
+  <Description>"Body_Scale_Breast"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+B5</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

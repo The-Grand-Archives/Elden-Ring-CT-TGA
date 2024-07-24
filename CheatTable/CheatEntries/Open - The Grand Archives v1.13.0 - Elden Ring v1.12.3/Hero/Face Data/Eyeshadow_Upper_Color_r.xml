@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213126</ID>
+  <Description>"Eyeshadow_Upper_Color_r"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+D2</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

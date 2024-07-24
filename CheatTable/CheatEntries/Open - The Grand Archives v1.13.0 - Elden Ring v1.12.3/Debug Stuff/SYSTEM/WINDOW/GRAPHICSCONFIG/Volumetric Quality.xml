@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337218179</ID>
+  <Description>"Volumetric Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>11C</Offset>
+  </Offsets>
+</CheatEntry>

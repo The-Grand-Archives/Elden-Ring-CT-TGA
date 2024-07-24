@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337218162</ID>
+  <Description>"Lighting quality | ライティング品質"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>108</Offset>
+  </Offsets>
+</CheatEntry>

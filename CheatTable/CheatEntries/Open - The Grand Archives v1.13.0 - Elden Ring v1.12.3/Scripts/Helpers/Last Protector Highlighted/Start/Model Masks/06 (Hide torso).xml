@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337201442</ID>
+  <Description>"06 (Hide torso)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+06</Address>
+</CheatEntry>

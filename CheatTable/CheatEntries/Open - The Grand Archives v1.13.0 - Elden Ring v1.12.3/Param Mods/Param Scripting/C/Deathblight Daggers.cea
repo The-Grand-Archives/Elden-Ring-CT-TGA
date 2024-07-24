@@ -1,0 +1,23 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("deathblight_dagger");
+    ParamPatchAll(EquipParamWeapon, {
+        if (param->weaponCategory == 0) {
+            param->residentSpEffectId2 = 70;
+        }
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("deathblight_dagger");
+    return 0;
+}
+
+{$asm}
+[DISABLE]
+

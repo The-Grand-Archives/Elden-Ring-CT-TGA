@@ -1,0 +1,17 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local GameDataMan = readPointer("GameDataMan")
+local PlayerGameData = readPointer(GameDataMan + 0x8)
+local EquipInventoryData = PlayerGameData + 0x408
+local inventoryNum = EquipInventoryData + 0x18
+
+for i=0,37 do
+    local idx = math.random(0, readInteger(inventoryNum))
+    equipItem(i, idx)
+end
+
+disableMemrec(memrec)
+
+[DISABLE]
+

@@ -1,0 +1,25 @@
+// Author: inuNorii
+[ENABLE]
+aobscanmodule(LastAccessoryHighlighted,$process,F3 0F 10 70 0C E9)
+alloc(newmem,$100,LastAccessoryHighlighted)
+
+newmem:
+mov [LastAccessoryHighlightedAddr],rax
+movss xmm6,[rax+0C]
+jmp return
+
+LastAccessoryHighlightedAddr:
+registersymbol(LastAccessoryHighlightedAddr)
+dq 0000000000000000
+
+LastAccessoryHighlighted:
+jmp newmem
+return:
+registersymbol(LastAccessoryHighlighted)
+
+[DISABLE]
+LastAccessoryHighlighted:
+db F3 0F 10 70 0C E9
+unregistersymbol(LastAccessoryHighlighted)
+unregistersymbol(LastAccessoryHighlightedAddr)
+dealloc(newmem)

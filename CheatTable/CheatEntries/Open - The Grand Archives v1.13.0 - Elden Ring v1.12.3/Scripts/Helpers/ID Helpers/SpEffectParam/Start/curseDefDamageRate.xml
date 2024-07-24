@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337199253</ID>
+  <Description>"curseDefDamageRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+36C</Address>
+</CheatEntry>

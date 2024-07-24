@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337099117</ID>
+  <Description>"VisibleCheckIntervalTime"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>291C</Offset>
+  </Offsets>
+</CheatEntry>

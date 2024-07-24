@@ -1,0 +1,389 @@
+{
+CParamUtils - Helper functions to manipulate params at runtime
+by tremwil (minusone12)
+}
+[ENABLE]
+{$c prefix=CParamUtils}
+
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <winapi/windows.h>
+
+#include <tga/celua.h>
+#include <tga/param_utils.h>
+#include <tga/hashmap.h>
+#include <tga/mem_diff_stack.h>
+
+extern CSRegulationManagerImp* CSRegulationManager;
+hashmap* PARAM_MAP = 0;
+
+// Iterate over game params.
+void CParamUtils_ParamIterator(param_iter_func cb)
+{
+	uint64_t num_params = CSRegulationManager->param_list_end - CSRegulationManager->param_list_begin;
+	for (size_t i = 0; i < num_params; i++)
+	{
+		ParamResCap* res_cap = CSRegulationManager->param_list_begin[i];
+
+		if (cb(dlw_c_str(&res_cap->param_name), res_cap->param_header->param_table))
+			break;
+	}
+}
+
+// Iterate over the rows of a param. Returns FALSE (0) if param doesn't exist.
+bool CParamUtils_RowIterator(wchar_t* param_name, row_iter_func cb)
+{
+	hm_node* node = hm_get_node(PARAM_MAP, param_name);
+	if (node == 0) return true;
+
+	ParamTable* tbl = ((param_info*)node->value)->table;
+	for (int j = 0; j < tbl->num_rows; j++)
+	{
+		if (cb(tbl->rows[j].row_id, get_row_data(tbl, j)))
+			break;
+	}
+	return false;
+}
+
+// Get a pointer to processed param info given a game param. NULL if param doesn't exist.
+param_info* CParamUtils_GetParamInfo(wchar_t* param_name)
+{
+	hm_node* node = hm_get_node(PARAM_MAP, param_name);
+	return (node == NULL) ? NULL : (param_info*)node->value;
+}
+
+// Convert an UTF-16 string in the ASCII range to a single byte string.
+size_t wchar_to_char(char* dest_buff, size_t cb, const wchar_t* wide_str)
+{
+	char* start = dest_buff;
+	for (char* end = start + cb-1; dest_buff < end && (*wide_str & 0xFF) != 0; dest_buff++, wide_str++)
+		*dest_buff = *wide_str;
+
+	*dest_buff = 0;
+	return dest_buff - start;
+}
+
+// Like CParamUtils_GetParamInfo, but prints out an error message in the CE console on failure.
+param_info* CParamUtils_GetParamInfoVerbose(wchar_t* param_name)
+{
+	param_info* res = CParamUtils_GetParamInfo(param_name);
+	if (res == NULL)
+	{
+		char cstr[512];
+		wchar_to_char(cstr, sizeof(cstr), param_name);
+
+		char buffer[1024];
+		snprintf(buffer, sizeof(buffer), "asyncPrint(\"CParamUtils Error: Param \\\"%s\\\" not found\")", cstr);
+		CELUA_ExecuteFunctionAsync(buffer, 0);
+	}
+	return res;
+}
+
+// Return the index of a param row given it's row ID (-1 if not found).
+int32_t CParamUtils_GetRowIndex(wchar_t* param_name, uint64_t row_id)
+{
+	param_info* pinfo = (param_info*)hm_get_val(PARAM_MAP, param_name);
+	if (pinfo == NULL) return NULL;
+
+	hm_node* row_node = hm_get_node(pinfo->_reserved, (void*)row_id);
+	return (row_node == NULL) ? -1 : (int32_t)row_node->value;
+}
+
+// Like CParamUtils_GetRowIndex, but prints out an error message in the CE console on failure.
+int32_t CParamUtils_GetRowIndexVerbose(wchar_t* param_name, uint64_t row_id)
+{
+	int32_t res = CParamUtils_GetRowIndex(param_name, row_id);
+	if (res == -1)
+	{
+		char cstr[512];
+		wchar_to_char(cstr, sizeof(cstr), param_name);
+
+		char buffer[1024];
+		snprintf(buffer, sizeof(buffer), "asyncPrint(\"CParamUtils Error: Row ID %I64d of param \\\"%s\\\" not found\")", row_id, cstr);
+		CELUA_ExecuteFunctionAsync(buffer, 0);
+	}
+	return res;
+}
+
+// Get a pointer to the row data for a given param, by row ID. NULL if ID/param doesn't exist.
+void* CParamUtils_GetRowData(wchar_t* param_name, uint64_t row_id)
+{
+	param_info* pinfo = (param_info*)hm_get_val(PARAM_MAP, param_name);
+	if (pinfo == NULL) return NULL;
+
+	hm_node* row_node = hm_get_node(pinfo->_reserved, (void*)row_id);
+	return (row_node == NULL) ? NULL : get_row_data(pinfo->table, (int32_t)row_node->value);
+}
+
+// Like CParamUtils_GetRowData, but prints out an error message in the CE console on failure.
+void* CParamUtils_GetRowDataVerbose(wchar_t* param_name, uint64_t row_id)
+{
+	void* res = CParamUtils_GetRowData(param_name, row_id);
+	if (res == NULL)
+	{
+		char cstr[512];
+		wchar_to_char(cstr, sizeof(cstr), param_name);
+
+		char buffer[1024];
+		snprintf(buffer, sizeof(buffer), "asyncPrint(\"CParamUtils Error: Row ID %I64d of param \\\"%s\\\" not found\")", row_id, cstr);
+		CELUA_ExecuteFunctionAsync(buffer, 0);
+	}
+	return res;
+}
+
+/* Param Patcher API */
+
+// Array of mem diffs, indexed by param index, row index
+mem_diff_stack** MEM_DIFFS = NULL;
+
+// Represents a collection of param patches under a given name
+typedef struct _named_patch
+{
+	struct _named_patch* next;
+	char* name;
+	uint32_t uid; // Unique identifier for this named patch
+	int32_t diffs_num;
+	int32_t diffs_cap;
+
+	mem_diff_stack** diff_stacks;
+	mem_diff** diffs;
+} named_patch;
+
+#define NAMED_PATCH_INIT_DIFF_CAP 0x100
+
+// Stack of named param patches defined by the user.
+uint32_t NAMED_PATCH_UID_CTR = 0;
+named_patch* NAMED_PATCH_LL_HEAD = NULL;
+
+const char* CURRENT_PATCH_NAME = NULL;
+
+// Critical section object to make patching thread safe. Could be important
+// if a user attempts to execute multiple separate scripts at once.
+CRITICAL_SECTION PARAM_PATCHER_LOCK;
+
+// Create a new named patch with the given name.
+// If a patch already exists under this name, will return a null pointer.
+named_patch* CParamUtils_Internal_TryCreateNamedPatch(const char* name, bool debug)
+{
+	named_patch* curr = NAMED_PATCH_LL_HEAD, * prev = NULL;
+	for (; curr != NULL && strcmp(curr->name, name); curr = (prev = curr)->next);
+
+	if (curr == NULL)
+	{
+		named_patch* patch = malloc(sizeof(named_patch));
+		patch->next = NAMED_PATCH_LL_HEAD;
+		patch->name = strdup(name);
+		patch->uid = ++NAMED_PATCH_UID_CTR;
+		patch->diffs_num = 0;
+		patch->diffs_cap = NAMED_PATCH_INIT_DIFF_CAP;
+		patch->diff_stacks = malloc(sizeof(mem_diff_stack*) * NAMED_PATCH_INIT_DIFF_CAP);
+		patch->diffs = malloc(sizeof(void*) * NAMED_PATCH_INIT_DIFF_CAP);
+
+		NAMED_PATCH_LL_HEAD = patch;
+		CURRENT_PATCH_NAME = strdup(name);
+		return patch;
+	}
+	else if (debug)
+	{
+		char buffer[1024];
+		snprintf(buffer, sizeof(buffer), "asyncPrint(\"CParamUtils Error: Tried to create new patch under existing name \\\"%s\\\"\")", name);
+		CELUA_ExecuteFunctionAsync(buffer, 0);
+	}
+	return NULL;
+}
+
+// Signify the current named patch is complete. Release the internal param patcher lock, and
+// prevents any future patches from being made under this name until the script is disabled.
+extern void CParamUtils_Internal_FinalizeNamedPatch()
+{
+	if (CURRENT_PATCH_NAME != NULL)
+	{
+		FREE(CURRENT_PATCH_NAME);
+		CURRENT_PATCH_NAME = NULL;
+	}
+	LeaveCriticalSection(&PARAM_PATCHER_LOCK);
+}
+
+// Declare a new named param patch. This acquires a critical section, so CParamUtils_Internal_FinalizeNamedPatch
+// MUST be called after all desired patches have been applied to release it.
+void CParamUtils_Internal_BeginNamedPatch(const char* patch_name, bool debug)
+{
+	// Don't let an idiot pass a null pointer as a patch name
+	if (patch_name == NULL) patch_name = "";
+
+	EnterCriticalSection(&PARAM_PATCHER_LOCK);
+
+	// Same patch is still in progress and this call is superfluous, release and do nothing
+	if (CURRENT_PATCH_NAME != NULL && !strcmp(patch_name, CURRENT_PATCH_NAME))
+		LeaveCriticalSection(&PARAM_PATCHER_LOCK);
+	else
+	{
+		// Different patch was in progress on this thread and was not Finalized(); do it for the user
+		if (CURRENT_PATCH_NAME != NULL) CParamUtils_Internal_FinalizeNamedPatch();
+		CParamUtils_Internal_TryCreateNamedPatch(patch_name, debug);
+	}
+}
+
+// If a previous call to BeginNamedPatch specified a valid name, returns the current patch object
+// instance. Otherwise, returns a null pointer.
+extern void* CParamUtils_Internal_GetPatchIns(bool debug)
+{
+	if (CURRENT_PATCH_NAME == NULL && debug)
+		CELUA_ExecuteFunctionAsync("asyncPrint(\"CParamUtils Error: Tried to patch params without an active named patch in progress\")", 0);
+	return (CURRENT_PATCH_NAME == NULL) ? NULL : NAMED_PATCH_LL_HEAD;
+}
+
+// Begin a memory patch, and return a pointer to the given param row's data.
+void* CParamUtils_Internal_BeginRowPatch(int32_t param_index, int32_t row_index)
+{
+	return mds_push_begin(&MEM_DIFFS[param_index][row_index]);
+}
+
+// Call immediately after having called BeginPatch and having modified the returned param row.
+extern void CParamUtils_Internal_FinalizeRowPatch(void* h_patch, int32_t param_index, int32_t row_index)
+{
+    named_patch* patch = (named_patch*)h_patch;
+	mem_diff* diff = mds_push_end(&MEM_DIFFS[param_index][row_index], patch->uid);
+	if (diff != NULL)
+	{
+		if (patch->diffs_num == patch->diffs_cap)
+		{
+			patch->diffs_cap *= 2;
+			patch->diffs = realloc(patch->diffs, sizeof(mem_diff*) * patch->diffs_cap);
+			patch->diff_stacks = realloc(patch->diff_stacks, sizeof(mem_diff_stack*) * patch->diffs_cap);
+		}
+		patch->diffs[patch->diffs_num] = diff;
+		patch->diff_stacks[patch->diffs_num++] = &MEM_DIFFS[param_index][row_index];
+	}
+}
+
+// Attempts to restore a named param patch. Returns FALSE if the patch was not found.
+extern bool CParamUtils_Internal_RestorePatch(const char* name, bool debug)
+{
+	// Don't let an idiot pass a null pointer as a patch name
+	if (name == NULL) name = "";
+
+	EnterCriticalSection(&PARAM_PATCHER_LOCK);
+
+	named_patch* curr = NAMED_PATCH_LL_HEAD, * prev = NULL;
+	for (; curr != NULL && strcmp(curr->name, name); curr = (prev = curr)->next);
+
+	if (curr != NULL)
+	{
+		for (int i = 0; i < curr->diffs_num; i++)
+			mds_restore(curr->diff_stacks[i], curr->diffs[i]);
+
+		free(curr->diffs);
+		free(curr->diff_stacks);
+		free(curr->name);
+
+		if (prev == NULL) NAMED_PATCH_LL_HEAD = curr->next;
+		else prev->next = curr->next;
+
+		free(curr);
+	}
+	else if (debug)
+	{
+		char buffer[1024];
+		snprintf(buffer, sizeof(buffer), "asyncPrint(\"CParamUtils Error: Patch \\\"%s\\\" cannot be restored, as it doesn't exist\")", name);
+		CELUA_ExecuteFunctionAsync(buffer, 0);
+	}
+	// User is trying to restore the same patch they are currently working on
+	// Remove it without leaving the critical section, to account for their call to End()
+	if (CURRENT_PATCH_NAME != NULL && !strcmp(CURRENT_PATCH_NAME, name))
+	{
+		free(CURRENT_PATCH_NAME);
+		CURRENT_PATCH_NAME = NULL;
+	}
+
+	LeaveCriticalSection(&PARAM_PATCHER_LOCK);
+	return curr != NULL;
+}
+
+typedef struct _paramdef_metadata
+{
+	uint32_t name_offset; // If set to 0, means this is an array terminator
+	uint32_t field_bitmask_offset;
+} paramdef_metadata;
+
+// Pointer to an array of paramdef metadata structs, set by an external lua script.
+// The param patcher will still work without this data, but expect undefined behavior
+// when attempting to resolve patches to the same field out-of-order.
+extern paramdef_metadata PARAMDEF_META[1];
+
+// Search the paramdef metadata array for a field mask for the given paramdef.
+// return NULL if not found.
+field_bitmask* get_field_mask(const char* def_name)
+{
+	if (PARAMDEF_META == 1) return NULL;
+
+	for (int i = 0; PARAMDEF_META[i].name_offset != 0; i++)
+	{
+		if (!strcmp((char*)PARAMDEF_META + PARAMDEF_META[i].name_offset, def_name))
+			return (field_bitmask*)((char*)PARAMDEF_META + PARAMDEF_META[i].field_bitmask_offset);
+	}
+	return NULL;
+}
+
+// Parse game param list & build data structures
+void CParamUtils_Init()
+{
+	if (PARAM_MAP != 0) {
+      CELUA_ExecuteFunctionAsync("asyncPrint(\"CParamUtils_Init error: CParamUtils is already initialized, ignoring\")", 0);
+      return;
+	};
+    InitializeCriticalSection(&PARAM_PATCHER_LOCK);
+
+	uint64_t num_params = CSRegulationManager->param_list_end - CSRegulationManager->param_list_begin;
+	PARAM_MAP = hm_create(2 * num_params, (hash_fun)wstr_hash, (eq_fun)wstr_eq, FALSE, FALSE);
+	MEM_DIFFS = calloc(num_params, sizeof(mem_diff_stack*));
+
+	for (size_t i = 0; i < num_params; i++)
+	{
+		ParamResCap* res_cap = CSRegulationManager->param_list_begin[i];
+		ParamTable* tbl = res_cap->param_header->param_table;
+
+		param_info* pinfo = malloc(sizeof(param_info));
+		pinfo->name = dlw_c_str(&res_cap->param_name);
+		pinfo->index = i;
+		pinfo->row_size = get_param_size(tbl);
+		pinfo->type = get_param_type(tbl);
+		pinfo->table = tbl;
+
+		pinfo->_reserved = hm_create(2 * (size_t)tbl->num_rows, (hash_fun)u64_hash, (eq_fun)u64_eq, FALSE, FALSE);
+		if (pinfo->row_size > 0)
+		{
+			field_bitmask* fbm = get_field_mask(pinfo->type);
+			MEM_DIFFS[i] = malloc(sizeof(mem_diff_stack) * tbl->num_rows);
+			for (int j = 0; j < tbl->num_rows; j++)
+			{
+				mds_init(&MEM_DIFFS[i][j], get_row_data(tbl, j), pinfo->row_size, fbm);
+				hm_set(pinfo->_reserved, (void*)tbl->rows[j].row_id, j);
+			}
+		}
+
+		hm_set(PARAM_MAP, pinfo->name, pinfo);
+	}
+}
+
+{$asm}
+{$lua}
+if syntaxcheck then return end
+local paramHeader = findTableFile("params.h")
+if (paramHeader ~= nil) then paramHeader.saveToFile("params.h") end
+local fieldMetadata = findTableFile("param_fields.bin")
+if (fieldMetadata ~= nil) then
+    local mem = allocateMemory(fieldMetadata.Stream.Size)
+    local data = readBytesLocal(fieldMetadata.Stream.Memory, fieldMetadata.Stream.Size, true)
+    writeBytes(mem, data)
+    registerSymbol("PARAMDEF_META", mem, true)
+else
+    registerSymbol("PARAMDEF_META", 1, true)
+end
+
+{$asm}
+createthread(CParamUtils.CParamUtils_Init)
+
+[DISABLE]

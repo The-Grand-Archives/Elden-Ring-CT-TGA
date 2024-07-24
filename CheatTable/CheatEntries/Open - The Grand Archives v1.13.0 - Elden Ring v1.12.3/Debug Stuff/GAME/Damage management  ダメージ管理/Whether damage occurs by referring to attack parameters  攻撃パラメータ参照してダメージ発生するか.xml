@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337096530</ID>
+  <Description>"Whether damage occurs by referring to attack parameters | 攻撃パラメータ参照してダメージ発生するか"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>DamageCtrl</Address>
+  <Offsets>
+    <Offset>A5</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337254027</ID>
+  <Description>"Door above Chrysalids area"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>151C15</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

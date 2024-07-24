@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337200672</ID>
+  <Description>"enableJumpMove"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+9C</Address>
+</CheatEntry>

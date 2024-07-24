@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337261255</ID>
+  <Description>"Roundtable Hold"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337261246"/>
+    <id id="1337261245"/>
+    <id id="1337273128"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337258966</ID>
+  <Description>"SaveLoad2"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337258937"/>
+    <id id="1337258941"/>
+    <id id="1337258947"/>
+    <id id="1337258936"/>
+    <id id="1337258939"/>
+    <id id="1337258945"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

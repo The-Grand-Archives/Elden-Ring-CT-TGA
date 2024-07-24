@@ -1,0 +1,126 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+RoleParam = BaseParamClass:new()
+
+function RoleParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("RoleParam", uuid, id, address)
+	return o
+end
+
+function RoleParam:teamType(value)
+    self:patchByte(0x00,value)
+end
+
+function RoleParam:phantomParamId(value)
+    self:patch4Byte(0x04,value)
+end
+
+function RoleParam:spEffectId(value)
+    self:patch4Byte(0x08,value)
+end
+
+function RoleParam:spEffectId1(value)
+    self:patch4Byte(0x0C,value)
+end
+
+function RoleParam:spEffectId2(value)
+    self:patch4Byte(0x10,value)
+end
+
+function RoleParam:spEffectId3(value)
+    self:patch4Byte(0x14,value)
+end
+
+function RoleParam:spEffectId4(value)
+    self:patch4Byte(0x18,value)
+end
+
+function RoleParam:spEffectId5(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function RoleParam:spEffectId6(value)
+    self:patch4Byte(0x20,value)
+end
+
+function RoleParam:spEffectId7(value)
+    self:patch4Byte(0x24,value)
+end
+
+function RoleParam:spEffectId8(value)
+    self:patch4Byte(0x28,value)
+end
+
+function RoleParam:spEffectId9(value)
+    self:patch4Byte(0x2C,value)
+end
+
+function RoleParam:soapstoneColor1(value)
+    self:patch4Byte(0x30,value)
+end
+
+function RoleParam:soapstoneColor(value)
+    self:patch4Byte(0x34,value)
+end
+
+function RoleParam:animEntry(value)
+    self:patch4Byte(0x38,value)
+end
+
+function RoleParam:itemLotId(value)
+    self:patch4Byte(0x3C,value)
+end
+
+function RoleParam:voiceChat(value)
+    self:patchByte(0x40,value)
+end
+
+function RoleParam:displayNameType(value)
+    self:patchByte(0x41,value)
+end
+
+function RoleParam:displayTeamTypeName(value)
+    self:patch4Byte(0x44,value)
+end
+
+function RoleParam:teamType1(value)
+    self:patch4Byte(0x48,value)
+end
+
+function RoleParam:phantomParamId1(value)
+    self:patch4Byte(0x4C,value)
+end
+
+function RoleParam:phantomParamId2(value)
+    self:patch4Byte(0x50,value)
+end
+
+function RoleParam:phantomParamId3(value)
+    self:patch4Byte(0x54,value)
+end
+
+function RoleParam:spEffectId10(value)
+    self:patch4Byte(0x58,value)
+end
+
+function RoleParam:spEffectId11(value)
+    self:patch4Byte(0x5C,value)
+end
+
+function RoleParam:spEffectId12(value)
+    self:patch4Byte(0x60,value)
+end
+
+function RoleParam:spEffectId13(value)
+    self:patch4Byte(0x64,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

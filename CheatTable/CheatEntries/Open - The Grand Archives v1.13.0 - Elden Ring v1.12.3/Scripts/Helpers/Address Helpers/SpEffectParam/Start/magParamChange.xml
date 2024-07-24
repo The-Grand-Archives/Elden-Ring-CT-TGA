@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337214891</ID>
+  <Description>"magParamChange"</Description>
+  <Color>FF8000</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+160</Address>
+</CheatEntry>

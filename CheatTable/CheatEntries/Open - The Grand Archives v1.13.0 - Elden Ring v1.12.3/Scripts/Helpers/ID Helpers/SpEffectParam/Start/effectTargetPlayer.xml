@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337199044</ID>
+  <Description>"effectTargetPlayer"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+015F</Address>
+</CheatEntry>

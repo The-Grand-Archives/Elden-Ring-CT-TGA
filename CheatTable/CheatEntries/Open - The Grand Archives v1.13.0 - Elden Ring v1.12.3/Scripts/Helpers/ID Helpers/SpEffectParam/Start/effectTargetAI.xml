@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337199045</ID>
+  <Description>"effectTargetAI"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+015F</Address>
+</CheatEntry>

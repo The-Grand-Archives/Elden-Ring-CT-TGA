@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1895</ID>
+  <Description>"canMountWep_AxeNormal"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+39</Address>
+</CheatEntry>

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337200440</ID>
+  <Description>"GameRend"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <GroupHeader>1</GroupHeader>
+  <Address>FieldArea</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>20</Offset>
+  </Offsets>
+</CheatEntry>

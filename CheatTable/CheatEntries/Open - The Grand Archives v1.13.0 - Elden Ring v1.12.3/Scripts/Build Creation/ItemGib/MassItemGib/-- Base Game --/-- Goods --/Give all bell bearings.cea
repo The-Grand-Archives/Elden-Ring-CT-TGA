@@ -1,0 +1,67 @@
+{
+    Author: Apricus
+    Description: Spawns all bell bearings
+}
+
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x400022CE, 1, 0, 0, -1 }, -- Pidia's Bell Bearing
+  { 0x400022CF, 1, 0, 0, -1 }, -- Seluvis's Bell Bearing
+  { 0x400022D0, 1, 0, 0, -1 }, -- Patches' Bell Bearing
+  { 0x400022D1, 1, 0, 0, -1 }, -- Sellen's Bell Bearing
+  { 0x400022D3, 1, 0, 0, -1 }, -- D's Bell Bearing
+  { 0x400022D4, 1, 0, 0, -1 }, -- Bernahl's Bell Bearing
+  { 0x400022D5, 1, 0, 0, -1 }, -- Miriel's Bell Bearing
+  { 0x400022D6, 1, 0, 0, -1 }, -- Gostoc's Bell Bearing
+  { 0x400022D7, 1, 0, 0, -1 }, -- Thops's Bell Bearing
+  { 0x400022D8, 1, 0, 0, -1 }, -- Kalé's Bell Bearing
+  { 0x400022D9, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [1]
+  { 0x400022DA, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [2]
+  { 0x400022DB, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [3]
+  { 0x400022DC, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [4]
+  { 0x400022DD, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [5]
+  { 0x400022DE, 1, 0, 0, -1 }, -- Isolated Merchant's Bell Bearing [1]
+  { 0x400022DF, 1, 0, 0, -1 }, -- Isolated Merchant's Bell Bearing [2]
+  { 0x400022E0, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [6]
+  { 0x400022E1, 1, 0, 0, -1 }, -- Hermit Merchant's Bell Bearing [1]
+  { 0x400022E2, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [7]
+  { 0x400022E3, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [8]
+  { 0x400022E4, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [9]
+  { 0x400022E5, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [10]
+--{ 0x400022E6, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [11]
+  { 0x400022E7, 1, 0, 0, -1 }, -- Isolated Merchant's Bell Bearing [3]
+  { 0x400022E8, 1, 0, 0, -1 }, -- Hermit Merchant's Bell Bearing [2]
+  { 0x400022E9, 1, 0, 0, -1 }, -- Abandoned Merchant's Bell Bearing
+  { 0x400022EA, 1, 0, 0, -1 }, -- Hermit Merchant's Bell Bearing [3]
+  { 0x400022EB, 1, 0, 0, -1 }, -- Imprisoned Merchant's Bell Bearing
+  { 0x400022EC, 1, 0, 0, -1 }, -- Iji's Bell Bearing
+  { 0x400022ED, 1, 0, 0, -1 }, -- Rogier's Bell Bearing
+  { 0x400022EE, 1, 0, 0, -1 }, -- Blackguard's Bell Bearing
+  { 0x400022EF, 1, 0, 0, -1 }, -- Corhyn's Bell Bearing
+  { 0x400022F0, 1, 0, 0, -1 }, -- Gowry's Bell Bearing
+  { 0x400022F1, 1, 0, 0, -1 }, -- Bone Peddler's Bell Bearing
+  { 0x400022F2, 1, 0, 0, -1 }, -- Meat Peddler's Bell Bearing
+  { 0x400022F3, 1, 0, 0, -1 }, -- Medicine Peddler's Bell Bearing
+  { 0x400022F4, 1, 0, 0, -1 }, -- Gravity Stone Peddler's Bell Bearing
+  { 0x400022F7, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [1]
+  { 0x400022F8, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [2]
+  { 0x400022F9, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [3]
+  { 0x400022FA, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [4]
+  { 0x400022FB, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [1]
+  { 0x400022FC, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [2]
+  { 0x400022FD, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [3]
+  { 0x400022FE, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [4]
+  { 0x400022FF, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [5]
+  { 0x40002300, 1, 0, 0, -1 }, -- Glovewort Picker's Bell Bearing [1]
+  { 0x40002301, 1, 0, 0, -1 }, -- Glovewort Picker's Bell Bearing [2]
+  { 0x40002302, 1, 0, 0, -1 }, -- Glovewort Picker's Bell Bearing [3]
+  { 0x40002303, 1, 0, 0, -1 }, -- Ghost-Glovewort Picker's Bell Bearing [1]
+  { 0x40002304, 1, 0, 0, -1 }, -- Ghost-Glovewort Picker's Bell Bearing [2]
+  { 0x40002305, 1, 0, 0, -1 }, -- Ghost-Glovewort Picker's Bell Bearing [3]
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

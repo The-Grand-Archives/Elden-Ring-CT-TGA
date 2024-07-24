@@ -1,0 +1,18 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("mini_dungeon_warp");
+    ParamPatch(SpEffectParam, 4270, param->stateInfo = 0;);
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("mini_dungeon_warp");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

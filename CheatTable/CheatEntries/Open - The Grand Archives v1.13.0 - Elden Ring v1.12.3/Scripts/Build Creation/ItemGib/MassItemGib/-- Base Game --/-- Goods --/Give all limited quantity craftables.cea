@@ -1,0 +1,49 @@
+//Author: The-Raid-Boss
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+-- Perfumes
+  { 0x40000DAC, 699, 0, 0, -1 }, -- Uplifting Aromatic
+  { 0x40000DB6, 699, 0, 0, -1 }, -- Spark Aromatic
+  { 0x40000DC0, 699, 0, 0, -1 }, -- Ironjar Aromatic
+  { 0x40000DDE, 699, 0, 0, -1 }, -- Bloodboil Aromatic
+  { 0x40000DFC, 699, 0, 0, -1 }, -- Poison Spraymist
+  { 0x40000E1A, 699, 0, 0, -1 }, -- Acid Spraymist
+  { 0x40000DC0, 699, 0, 0, -1 }, -- Ironjar Aromatic
+-- Pots
+  { 0x4000012C, 699, 0, 0, -1 }, -- Fire Pot
+  { 0x4000012D, 699, 0, 0, -1 }, -- Redmane Fire Pot
+  { 0x4000012E, 699, 0, 0, -1 }, -- Giantsflame Fire Pot
+  { 0x40000140, 699, 0, 0, -1 }, -- Lightning Pot
+  { 0x40000141, 699, 0, 0, -1 }, -- Ancient Dragonbolt Pot
+  { 0x4000014A, 699, 0, 0, -1 }, -- Fetid Pot
+  { 0x4000015E, 699, 0, 0, -1 }, -- Holy Water Pot
+  { 0x4000015F, 699, 0, 0, -1 }, -- Sacred Order Pot
+  { 0x40000168, 699, 0, 0, -1 }, -- Freezing Pot
+  { 0x40000172, 699, 0, 0, -1 }, -- Poison Pot
+  { 0x4000017C, 699, 0, 0, -1 }, -- Oil Pot
+  { 0x40000186, 699, 0, 0, -1 }, -- Alluring Pot
+  { 0x40000187, 699, 0, 0, -1 }, -- Beastlure Pot
+  { 0x40000190, 699, 0, 0, -1 }, -- Roped Fire Pot
+  { 0x40000154, 699, 0, 0, -1 }, -- Swarm Pot
+  { 0x40000280, 699, 0, 0, -1 }, -- Sleep Pot
+  { 0x400001A4, 699, 0, 0, -1 }, -- Roped Lightning Pot
+  { 0x400001AE, 699, 0, 0, -1 }, -- Roped Fetid Pot
+  { 0x400001B8, 699, 0, 0, -1 }, -- Roped Poison Pot
+  { 0x400001C2, 699, 0, 0, -1 }, -- Roped Oil Pot
+  { 0x400001CC, 699, 0, 0, -1 }, -- Roped Magic Pot
+  { 0x400001D6, 699, 0, 0, -1 }, -- Roped Fly Pot
+--{ 0x400001E0, 699, 0, 0, -1 }, -- Roped Freezing Pot
+  { 0x400001EA, 699, 0, 0, -1 }, -- Roped Volcano Pot
+  { 0x400001FE, 699, 0, 0, -1 }, -- Roped Holy Water Pot
+  { 0x40000258, 699, 0, 0, -1 }, -- Volcano Pot
+  { 0x40000262, 699, 0, 0, -1 }, -- Albinauric Pot
+  { 0x40000276, 699, 0, 0, -1 }, -- Cursed-Blood Pot
+  { 0x40000294, 699, 0, 0, -1 }, -- Magic Pot
+  { 0x40000295, 699, 0, 0, -1 }, -- Academy Magic Pot
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

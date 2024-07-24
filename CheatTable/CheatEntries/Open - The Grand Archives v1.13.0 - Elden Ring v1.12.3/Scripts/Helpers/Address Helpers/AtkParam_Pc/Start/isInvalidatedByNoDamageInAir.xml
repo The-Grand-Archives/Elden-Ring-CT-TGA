@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337215312</ID>
+  <Description>"isInvalidatedByNoDamageInAir"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+018A</Address>
+</CheatEntry>

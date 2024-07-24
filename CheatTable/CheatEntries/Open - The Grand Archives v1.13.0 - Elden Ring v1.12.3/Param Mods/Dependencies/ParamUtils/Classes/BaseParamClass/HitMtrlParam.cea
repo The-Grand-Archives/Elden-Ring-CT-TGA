@@ -1,0 +1,126 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+HitMtrlParam = BaseParamClass:new()
+
+function HitMtrlParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("HitMtrlParam", uuid, id, address)
+	return o
+end
+
+function HitEffectSfxParam:aiVolumeRate(value)
+    self:patch4Float(0x0, value)
+end
+
+function HitEffectSfxParam:spEffectId0(value)
+    self:patch4Byte(0x4, value)
+end
+
+function HitEffectSfxParam:spEffectId1(value)
+    self:patch4Byte(0x8, value)
+end
+
+function HitEffectSfxParam:footEffectHeightType0(value)
+    self:patchBinary(0xC, value, 0)
+end
+
+function HitEffectSfxParam:footEffectHeightType1(value)
+    self:patchBinary(0xC, value, 1)
+end
+
+function HitEffectSfxParam:footEffectDirType0(value)
+    self:patchBinary(0xC, value, 2)
+end
+
+function HitEffectSfxParam:footEffectDirType1(value)
+    self:patchBinary(0xC, value, 3)
+end
+
+function HitEffectSfxParam:newSpType0(value)
+    self:patchBinary(0xC, value, 4)
+end
+
+function HitEffectSfxParam:newSpType1(value)
+    self:patchBinary(0xC, value, 5)
+end
+
+function HitEffectSfxParam:hitMtrlType0(value)
+    self:patchByte(0xD, value)
+end
+
+function HitEffectSfxParam:hitMtrlType1(value)
+    self:patchByte(0xE, value)
+end
+
+function HitEffectSfxParam:hitMtrlType2(value)
+    self:patchByte(0xF, value)
+end
+
+function HitEffectSfxParam:spEffectId2(value)
+    self:patchByte(0x10, value)
+end
+
+function HitEffectSfxParam:spEffectId3(value)
+    self:patchByte(0x14, value)
+end
+
+function HitEffectSfxParam:spEffectId4(value)
+    self:patchByte(0x18, value)
+end
+
+function HitEffectSfxParam:spEffectId5(value)
+    self:patchByte(0x1C, value)
+end
+
+function HitEffectSfxParam:spEffectId6(value)
+    self:patchByte(0x20, value)
+end
+
+function HitEffectSfxParam:spEffectId7(value)
+    self:patchByte(0x24, value)
+end
+
+function HitEffectSfxParam:spEffectId8(value)
+    self:patchByte(0x28, value)
+end
+
+function HitEffectSfxParam:spEffectId9(value)
+    self:patchByte(0x2C, value)
+end
+
+function HitEffectSfxParam:spEffectId10(value)
+    self:patchByte(0x30, value)
+end
+
+function HitEffectSfxParam:spEffectId11(value)
+    self:patchByte(0x34, value)
+end
+
+function HitEffectSfxParam:spEffectId12(value)
+    self:patchByte(0x38, value)
+end
+
+function HitEffectSfxParam:spEffectId13(value)
+    self:patchByte(0x3C, value)
+end
+
+function HitEffectSfxParam:spEffectId14(value)
+    self:patchByte(0x40, value)
+end
+
+function HitEffectSfxParam:spEffectId15(value)
+    self:patchByte(0x44, value)
+end
+
+function HitEffectSfxParam:spEffectId16(value)
+    self:patchByte(0x48, value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

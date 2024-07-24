@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>1337192872</ID>
+  <Description>"Example: EquipParamWeapon"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>String</VariableType>
+  <Length>32</Length>
+  <Unicode>1</Unicode>
+  <CodePage>0</CodePage>
+  <ZeroTerminate>1</ZeroTerminate>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>18</Offset>
+    <Offset>88</Offset>
+  </Offsets>
+</CheatEntry>

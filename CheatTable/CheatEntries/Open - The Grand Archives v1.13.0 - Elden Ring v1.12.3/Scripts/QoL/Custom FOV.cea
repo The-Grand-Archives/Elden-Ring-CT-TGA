@@ -1,0 +1,18 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("custom_fov");
+    ParamPatchAll(LockCamParam, param->camFovY = 60;);
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("custom_fov");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

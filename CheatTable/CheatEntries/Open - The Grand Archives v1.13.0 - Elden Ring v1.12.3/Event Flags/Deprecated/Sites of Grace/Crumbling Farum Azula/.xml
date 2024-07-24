@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>1337208307</ID>
+  <Description>"Crumbling Farum Azula"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337208002"/>
+    <id id="1337208043"/>
+    <id id="1337208044"/>
+    <id id="1337208059"/>
+    <id id="1337208060"/>
+    <id id="1337208061"/>
+    <id id="1337208062"/>
+    <id id="1337208063"/>
+    <id id="1337208068"/>
+    <id id="1337208155"/>
+    <id id="1337208247"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

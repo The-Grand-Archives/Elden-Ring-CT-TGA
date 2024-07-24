@@ -1,0 +1,33 @@
+<CheatEntry>
+  <ID>1337253703</ID>
+  <Description>"NPCs"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337253704"/>
+    <id id="1337253731"/>
+    <id id="1337253738"/>
+    <id id="1337253744"/>
+    <id id="1337253748"/>
+    <id id="1337253752"/>
+    <id id="1337254145"/>
+    <id id="1337253759"/>
+    <id id="1337254108"/>
+    <id id="1337253899"/>
+    <id id="1337253938"/>
+    <id id="1337253767"/>
+    <id id="1337253771"/>
+    <id id="1337253875"/>
+    <id id="1337253777"/>
+    <id id="1337253803"/>
+    <id id="1337253783"/>
+    <id id="1337253790"/>
+    <id id="1337254125"/>
+    <id id="1337254162"/>
+    <id id="1337253820"/>
+    <id id="1337253856"/>
+    <id id="1337254078"/>
+    <id id="1337253794"/>
+    <id id="1337253839"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

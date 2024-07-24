@@ -1,0 +1,826 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START EquipParamProtector class]]--
+EquipParamProtector = BaseParamClass:new()
+
+function EquipParamProtector:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("EquipParamProtector", uuid, id, address)
+	return o
+end
+
+function EquipParamProtector:sortId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function EquipParamProtector:wanderingEquipId(value)
+    self:patch4Byte(0x8, value)
+end
+
+function EquipParamProtector:vagrantItemLotId(value)
+    self:patch4Byte(0xC, value)
+end
+
+function EquipParamProtector:vagrantBonuseneDropItemLotId(value)
+    self:patch4Byte(0x10, value)
+end
+
+function EquipParamProtector:vagrantItemEneDropItemLotId(value)
+    self:patch4Byte(0x14, value)
+end
+
+function EquipParamProtector:basicPrice(value)
+    self:patch4Byte(0x1C, value)
+end
+
+function EquipParamProtector:sellValue(value)
+    self:patch4Byte(0x20, value)
+end
+
+function EquipParamProtector:materialSetId(value)
+    self:patch4Byte(0x34, value)
+end
+
+function EquipParamProtector:partsDamageRate(value)
+    self:patchFloat(0x38, value)
+end
+
+function EquipParamProtector:faceScaleM_ScaleX(value)
+    self:patchFloat(0x80, value)
+end
+
+function EquipParamProtector:faceScaleM_ScaleZ(value)
+    self:patchFloat(0x84, value)
+end
+
+function EquipParamProtector:faceScaleM_MaxX(value)
+    self:patchFloat(0x88, value)
+end
+
+function EquipParamProtector:faceScaleM_MaxZ(value)
+    self:patchFloat(0x8C, value)
+end
+
+function EquipParamProtector:faceScaleF_ScaleX(value)
+    self:patchFloat(0x90, value)
+end
+
+function EquipParamProtector:faceScaleF_ScaleZ(value)
+    self:patchFloat(0x94, value)
+end
+
+function EquipParamProtector:faceScaleF_MaxX(value)
+    self:patchFloat(0x98, value)
+end
+
+function EquipParamProtector:faceScaleF_MaxX(value)
+    self:patchFloat(0x9C, value)
+end
+
+function EquipParamProtector:Knockback(value)
+    self:patch2Byte(0xAA, value)
+end
+
+function EquipParamProtector:KnockbackBounceRate(value)
+    self:patch2Byte(0xAC, value)
+end
+
+function EquipParamProtector:durability(value)
+    self:patch2Byte(0xAE, value)
+end
+
+function EquipParamProtector:durabilityMax(value)
+    self:patch2Byte(0xB0, value)
+end
+
+function EquipParamProtector:saDurability(value)
+    self:patch2Byte(0xB2, value)
+end
+
+function EquipParamProtector:defenseMagic(value)
+    self:patch2Byte(0xB8, value)
+end
+
+function EquipParamProtector:defenseSlash(value)
+    self:patch2Byte(0xBE, value)
+end
+
+function EquipParamProtector:knockbackParamId(value)
+    self:patchByte(0xD2, value)
+end
+
+function EquipParamProtector:FlickDamageCutRate(value)
+    self:patchByte(0xD3, value)
+end
+
+function EquipParamProtector:equipModelCategory(value)
+    self:patchByte(0xD4, value)
+end
+
+function EquipParamProtector:protectorCategory(value)
+    self:patchByte(0xD6, value)
+end
+
+function EquipParamProtector:defenseMaterial(value)
+    self:patchByte(0xD7, value)
+end
+
+function EquipParamProtector:defenseMaterialSfx(value)
+    self:patchByte(0xD8, value)
+end
+
+function EquipParamProtector:partsDmgType(value)
+    self:patchByte(0xD9, value)
+end
+
+function EquipParamProtector:defenseMaterial_Weak(value)
+    self:patchByte(0xDA, value)
+end
+
+function EquipParamProtector:defenseMaterialSfx_Weak(value)
+    self:patchByte(0xDB, value)
+end
+
+function EquipParamProtector:headEquip(value)
+    self:patchBinary(0xDC, value, 1)
+end
+
+function EquipParamProtector:armEquip(value)
+    self:patchBinary(0xDC, value, 3)
+end
+
+function EquipParamProtector:useFaceScale(value)
+    self:patchBinary(0xDC, value, 5)
+end
+
+function EquipParamProtector:InvisibleFlag00(value)
+    self:patchBinary(0xDC, value, 6)
+end
+
+function EquipParamProtector:InvisibleFlag01(value)
+    self:patchBinary(0xDC, value, 7)
+end
+
+function EquipParamProtector:InvisibleFlag02(value)
+    self:patchBinary(0xDD, value, 0)
+end
+
+function EquipParamProtector:InvisibleFlag03(value)
+    self:patchBinary(0xDD, value, 1)
+end
+
+function EquipParamProtector:InvisibleFlag04(value)
+    self:patchBinary(0xDD, value, 2)
+end
+
+function EquipParamProtector:InvisibleFlag05(value)
+    self:patchBinary(0xDD, value, 3)
+end
+
+function EquipParamProtector:InvisibleFlag06(value)
+    self:patchBinary(0xDD, value, 4)
+end
+
+function EquipParamProtector:InvisibleFlag07(value)
+    self:patchBinary(0xDD, value, 5)
+end
+
+function EquipParamProtector:InvisibleFlag08(value)
+    self:patchBinary(0xDD, value, 6)
+end
+
+function EquipParamProtector:InvisibleFlag09(value)
+    self:patchBinary(0xDD, value, 7)
+end
+
+function EquipParamProtector:InvisibleFlag10(value)
+    self:patchBinary(0xDE, value, 0)
+end
+
+function EquipParamProtector:InvisibleFlag11(value)
+    self:patchBinary(0xDE, value, 1)
+end
+
+function EquipParamProtector:InvisibleFlag12(value)
+    self:patchBinary(0xDE, value, 2)
+end
+
+function EquipParamProtector:InvisibleFlag13(value)
+    self:patchBinary(0xDE, value, 3)
+end
+
+function EquipParamProtector:InvisibleFlag14(value)
+    self:patchBinary(0xDE, value, 4)
+end
+
+function EquipParamProtector:InvisibleFlag15(value)
+    self:patchBinary(0xDE, value, 5)
+end
+
+function EquipParamProtector:InvisibleFlag16(value)
+    self:patchBinary(0xDE, value, 6)
+end
+
+function EquipParamProtector:InvisibleFlag17(value)
+    self:patchBinary(0xDE, value, 7)
+end
+
+function EquipParamProtector:InvisibleFlag18(value)
+    self:patchBinary(0xDF, value, 0)
+end
+
+function EquipParamProtector:InvisibleFlag19(value)
+    self:patchBinary(0xDF, value, 1)
+end
+
+function EquipParamProtector:InvisibleFlag20(value)
+    self:patchBinary(0xDF, value, 2)
+end
+
+function EquipParamProtector:InvisibleFlag21(value)
+    self:patchBinary(0xDF, value, 3)
+end
+
+function EquipParamProtector:InvisibleFlag22(value)
+    self:patchBinary(0xDF, value, 4)
+end
+
+function EquipParamProtector:InvisibleFlag23(value)
+    self:patchBinary(0xDF, value, 5)
+end
+
+function EquipParamProtector:InvisibleFlag24(value)
+    self:patchBinary(0xDF, value, 6)
+end
+
+function EquipParamProtector:InvisibleFlag25(value)
+    self:patchBinary(0xDF, value, 7)
+end
+
+function EquipParamProtector:InvisibleFlag26(value)
+    self:patchBinary(0xE0, value, 0)
+end
+
+function EquipParamProtector:InvisibleFlag27(value)
+    self:patchBinary(0xE0, value, 1)
+end
+
+function EquipParamProtector:InvisibleFlag28(value)
+    self:patchBinary(0xE0, value, 2)
+end
+
+function EquipParamProtector:InvisibleFlag29(value)
+    self:patchBinary(0xE0, value, 3)
+end
+
+function EquipParamProtector:InvisibleFlag30(value)
+    self:patchBinary(0xE0, value, 4)
+end
+
+function EquipParamProtector:InvisibleFlag31(value)
+    self:patchBinary(0xE0, value, 5)
+end
+
+function EquipParamProtector:InvisibleFlag32(value)
+    self:patchBinary(0xE0, value, 6)
+end
+
+function EquipParamProtector:InvisibleFlag33(value)
+    self:patchBinary(0xE0, value, 7)
+end
+
+function EquipParamProtector:InvisibleFlag34(value)
+    self:patchBinary(0xE1, value, 0)
+end
+
+function EquipParamProtector:InvisibleFlag35(value)
+    self:patchBinary(0xE1, value, 1)
+end
+
+function EquipParamProtector:InvisibleFlag36(value)
+    self:patchBinary(0xE1, value, 2)
+end
+
+function EquipParamProtector:InvisibleFlag37(value)
+    self:patchBinary(0xE1, value, 3)
+end
+
+function EquipParamProtector:InvisibleFlag38(value)
+    self:patchBinary(0xE1, value, 4)
+end
+
+function EquipParamProtector:InvisibleFlag39(value)
+    self:patchBinary(0xE1, value, 5)
+end
+
+function EquipParamProtector:InvisibleFlag40(value)
+    self:patchBinary(0xE1, value, 6)
+end
+
+function EquipParamProtector:InvisibleFlag41(value)
+    self:patchBinary(0xE1, value, 7)
+end
+
+function EquipParamProtector:InvisibleFlag42(value)
+    self:patchBinary(0xE2, value, 0)
+end
+
+function EquipParamProtector:InvisibleFlag43(value)
+    self:patchBinary(0xE2, value, 1)
+end
+
+function EquipParamProtector:InvisibleFlag44(value)
+    self:patchBinary(0xE2, value, 2)
+end
+
+function EquipParamProtector:InvisibleFlag45(value)
+    self:patchBinary(0xE2, value, 3)
+end
+
+function EquipParamProtector:InvisibleFlag46(value)
+    self:patchBinary(0xE2, value, 4)
+end
+
+function EquipParamProtector:InvisibleFlag47(value)
+    self:patchBinary(0xE2, value, 5)
+end
+
+function EquipParamProtector:disableMultiDropShare(value)
+    self:patchBinary(0xE2, value, 6)
+end
+
+function EquipParamProtector:PhysDamageCutRate(value)
+    self:patchFloat(0xE4, value)
+end
+
+function EquipParamProtector:SlashDamageCutRate(value)
+    self:patchFloat(0xE8, value)
+end
+
+function EquipParamProtector:StrikeDamageCutRate(value)
+    self:patchFloat(0xEC, value)
+end
+
+function EquipParamProtector:ThrustDamageCutRate(value)
+    self:patchFloat(0xF0, value)
+end
+
+function EquipParamProtector:MagicDamageCutRate(value)
+    self:patchFloat(0xF4, value)
+end
+
+function EquipParamProtector:FireDamageCutRate(value)
+    self:patchFloat(0xF8, value)
+end
+
+function EquipParamProtector:ThunderDamageCutRate(value)
+    self:patchFloat(0xFC, value)
+end
+
+function EquipParamProtector:MaterialId0(value)
+    self:patch2Byte(0x100, value)
+end
+
+function EquipParamProtector:MaterialId1(value)
+    self:patch2Byte(0x102, value)
+end
+
+function EquipParamProtector:MaterialId2(value)
+    self:patch2Byte(0x104, value)
+end
+
+function EquipParamProtector:MaterialId3(value)
+    self:patch2Byte(0x106, value)
+end
+
+function EquipParamProtector:MaterialId4(value)
+    self:patch2Byte(0x108, value)
+end
+
+function EquipParamProtector:MaterialId5(value)
+    self:patch2Byte(0x10A, value)
+end
+
+function EquipParamProtector:MaterialId6(value)
+    self:patch2Byte(0x10C, value)
+end
+
+function EquipParamProtector:MaterialId7(value)
+    self:patch2Byte(0x10E, value)
+end
+
+function EquipParamProtector:protectorCategoryId(value)
+    self:patch4Byte(0x110, value)
+end
+
+function EquipParamProtector:DarkDamageCutRate(value)
+    self:patchFloat(0x11C, value)
+end
+
+function EquipParamProtector:defenseDark(value)
+    self:patch2Byte(0x120, value)
+end
+
+function EquipParamProtector:Mask00(value)
+    self:patchByte(0x132, value)
+end
+
+function EquipParamProtector:Mask01(value)
+    self:patchByte(0x133, value)
+end
+
+function EquipParamProtector:Mask02(value)
+    self:patchByte(0x134, value)
+end
+
+function EquipParamProtector:Mask03(value)
+    self:patchByte(0x135, value)
+end
+
+function EquipParamProtector:Mask04(value)
+    self:patchByte(0x136, value)
+end
+
+function EquipParamProtector:Mask05(value)
+    self:patchByte(0x137, value)
+end
+
+function EquipParamProtector:Mask06(value)
+    self:patchByte(0x138, value)
+end
+
+function EquipParamProtector:Mask07(value)
+    self:patchByte(0x139, value)
+end
+
+function EquipParamProtector:Mask08(value)
+    self:patchByte(0x13A, value)
+end
+
+function EquipParamProtector:Mask09(value)
+    self:patchByte(0x13B, value)
+end
+
+function EquipParamProtector:Mask10(value)
+    self:patchByte(0x13C, value)
+end
+
+function EquipParamProtector:Mask11(value)
+    self:patchByte(0x13D, value)
+end
+
+function EquipParamProtector:Mask12(value)
+    self:patchByte(0x13E, value)
+end
+
+function EquipParamProtector:Mask13(value)
+    self:patchByte(0x13F, value)
+end
+
+function EquipParamProtector:Mask14(value)
+    self:patchByte(0x140, value)
+end
+
+function EquipParamProtector:Mask15(value)
+    self:patchByte(0x141, value)
+end
+
+function EquipParamProtector:Mask16(value)
+    self:patchByte(0x142, value)
+end
+
+function EquipParamProtector:Mask17(value)
+    self:patchByte(0x143, value)
+end
+
+function EquipParamProtector:Mask18(value)
+    self:patchByte(0x144, value)
+end
+
+function EquipParamProtector:Mask19(value)
+    self:patchByte(0x145, value)
+end
+
+function EquipParamProtector:Mask20(value)
+    self:patchByte(0x146, value)
+end
+
+function EquipParamProtector:Mask21(value)
+    self:patchByte(0x147, value)
+end
+
+function EquipParamProtector:Mask22(value)
+    self:patchByte(0x148, value)
+end
+
+function EquipParamProtector:Mask23(value)
+    self:patchByte(0x149, value)
+end
+
+function EquipParamProtector:Mask24(value)
+    self:patchByte(0x14A, value)
+end
+
+function EquipParamProtector:Mask25(value)
+    self:patchByte(0x14B, value)
+end
+
+function EquipParamProtector:Mask26(value)
+    self:patchByte(0x14C, value)
+end
+
+function EquipParamProtector:Mask27(value)
+    self:patchByte(0x14D, value)
+end
+
+function EquipParamProtector:Mask28(value)
+    self:patchByte(0x14E, value)
+end
+
+function EquipParamProtector:Mask29(value)
+    self:patchByte(0x14F, value)
+end
+
+function EquipParamProtector:Mask30(value)
+    self:patchByte(0x150, value)
+end
+
+function EquipParamProtector:Mask31(value)
+    self:patchByte(0x151, value)
+end
+
+function EquipParamProtector:Mask32(value)
+    self:patchByte(0x152, value)
+end
+
+function EquipParamProtector:Mask33(value)
+    self:patchByte(0x153, value)
+end
+
+function EquipParamProtector:Mask34(value)
+    self:patchByte(0x154, value)
+end
+
+function EquipParamProtector:Mask35(value)
+    self:patchByte(0x155, value)
+end
+
+function EquipParamProtector:Mask36(value)
+    self:patchByte(0x156, value)
+end
+
+function EquipParamProtector:Mask37(value)
+    self:patchByte(0x157, value)
+end
+
+function EquipParamProtector:Mask38(value)
+    self:patchByte(0x158, value)
+end
+
+function EquipParamProtector:Mask39(value)
+    self:patchByte(0x159, value)
+end
+
+function EquipParamProtector:Mask40(value)
+    self:patchByte(0x15A, value)
+end
+
+function EquipParamProtector:Mask41(value)
+    self:patchByte(0x15B, value)
+end
+
+function EquipParamProtector:Mask42(value)
+    self:patchByte(0x15C, value)
+end
+
+function EquipParamProtector:Mask43(value)
+    self:patchByte(0x15D, value)
+end
+
+function EquipParamProtector:Mask44(value)
+    self:patchByte(0x15E, value)
+end
+
+function EquipParamProtector:Mask45(value)
+    self:patchByte(0x15F, value)
+end
+
+function EquipParamProtector:Mask46(value)
+    self:patchByte(0x160, value)
+end
+
+function EquipParamProtector:Mask47(value)
+    self:patchByte(0x161, value)
+end
+
+function EquipParamProtector:Mask48(value)
+    self:patchByte(0x162, value)
+end
+
+function EquipParamProtector:Mask49(value)
+    self:patchByte(0x163, value)
+end
+
+function EquipParamProtector:Mask50(value)
+    self:patchByte(0x164, value)
+end
+
+function EquipParamProtector:Mask51(value)
+    self:patchByte(0x165, value)
+end
+
+function EquipParamProtector:Mask52(value)
+    self:patchByte(0x166, value)
+end
+
+function EquipParamProtector:Mask53(value)
+    self:patchByte(0x167, value)
+end
+
+function EquipParamProtector:Mask54(value)
+    self:patchByte(0x168, value)
+end
+
+function EquipParamProtector:Mask55(value)
+    self:patchByte(0x169, value)
+end
+
+function EquipParamProtector:Mask56(value)
+    self:patchByte(0x16A, value)
+end
+
+function EquipParamProtector:Mask57(value)
+    self:patchByte(0x16B, value)
+end
+
+function EquipParamProtector:Mask58(value)
+    self:patchByte(0x16C, value)
+end
+
+function EquipParamProtector:Mask59(value)
+    self:patchByte(0x16D, value)
+end
+
+function EquipParamProtector:Mask60(value)
+    self:patchByte(0x16E, value)
+end
+
+function EquipParamProtector:Mask61(value)
+    self:patchByte(0x16F, value)
+end
+
+function EquipParamProtector:Mask62(value)
+    self:patchByte(0x170, value)
+end
+
+function EquipParamProtector:Mask63(value)
+    self:patchByte(0x171, value)
+end
+
+function EquipParamProtector:Mask64(value)
+    self:patchByte(0x172, value)
+end
+
+function EquipParamProtector:Mask65(value)
+    self:patchByte(0x173, value)
+end
+
+function EquipParamProtector:Mask66(value)
+    self:patchByte(0x174, value)
+end
+
+function EquipParamProtector:Mask67(value)
+    self:patchByte(0x175, value)
+end
+
+function EquipParamProtector:Mask68(value)
+    self:patchByte(0x176, value)
+end
+
+function EquipParamProtector:Mask69(value)
+    self:patchByte(0x177, value)
+end
+
+function EquipParamProtector:Mask70(value)
+    self:patchByte(0x178, value)
+end
+
+function EquipParamProtector:Mask71(value)
+    self:patchByte(0x179, value)
+end
+
+function EquipParamProtector:Mask72(value)
+    self:patchByte(0x17A, value)
+end
+
+function EquipParamProtector:Mask73(value)
+    self:patchByte(0x17B, value)
+end
+
+function EquipParamProtector:Mask74(value)
+    self:patchByte(0x17C, value)
+end
+
+function EquipParamProtector:Mask75(value)
+    self:patchByte(0x17D, value)
+end
+
+function EquipParamProtector:Mask76(value)
+    self:patchByte(0x17E, value)
+end
+
+function EquipParamProtector:Mask77(value)
+    self:patchByte(0x17F, value)
+end
+
+function EquipParamProtector:Mask78(value)
+    self:patchByte(0x180, value)
+end
+
+function EquipParamProtector:Mask79(value)
+    self:patchByte(0x181, value)
+end
+
+function EquipParamProtector:Mask80(value)
+    self:patchByte(0x182, value)
+end
+
+function EquipParamProtector:Mask81(value)
+    self:patchByte(0x183, value)
+end
+
+function EquipParamProtector:Mask82(value)
+    self:patchByte(0x184, value)
+end
+
+function EquipParamProtector:Mask83(value)
+    self:patchByte(0x185, value)
+end
+
+function EquipParamProtector:Mask84(value)
+    self:patchByte(0x186, value)
+end
+
+function EquipParamProtector:Mask85(value)
+    self:patchByte(0x187, value)
+end
+
+function EquipParamProtector:Mask86(value)
+    self:patchByte(0x188, value)
+end
+
+function EquipParamProtector:Mask87(value)
+    self:patchByte(0x189, value)
+end
+
+function EquipParamProtector:Mask88(value)
+    self:patchByte(0x18A, value)
+end
+
+function EquipParamProtector:Mask89(value)
+    self:patchByte(0x18B, value)
+end
+
+function EquipParamProtector:Mask90(value)
+    self:patchByte(0x18C, value)
+end
+
+function EquipParamProtector:Mask91(value)
+    self:patchByte(0x18D, value)
+end
+
+function EquipParamProtector:Mask92(value)
+    self:patchByte(0x18E, value)
+end
+
+function EquipParamProtector:Mask93(value)
+    self:patchByte(0x18F, value)
+end
+
+function EquipParamProtector:Mask94(value)
+    self:patchByte(0x190, value)
+end
+
+function EquipParamProtector:Mask95(value)
+    self:patchByte(0x191, value)
+end
+
+function EquipParamProtector:Mask96(value)
+    self:patchByte(0x192, value)
+end
+
+function EquipParamProtector:Mask97(value)
+    self:patchByte(0x193, value)
+end
+
+--[[END EquipParamProtector class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

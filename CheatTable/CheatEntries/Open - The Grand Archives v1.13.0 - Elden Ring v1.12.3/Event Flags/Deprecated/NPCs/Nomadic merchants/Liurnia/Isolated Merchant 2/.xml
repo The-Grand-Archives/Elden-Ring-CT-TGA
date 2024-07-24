@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>1337254179</ID>
+  <Description>"Isolated Merchant 2"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>251</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337254184"/>
+    <id id="1337254183"/>
+    <id id="1337254197"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

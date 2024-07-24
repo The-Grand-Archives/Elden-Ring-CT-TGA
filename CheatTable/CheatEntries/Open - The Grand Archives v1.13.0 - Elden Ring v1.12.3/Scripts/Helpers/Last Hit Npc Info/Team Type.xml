@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337199564</ID>
+  <Description>"Team Type"</Description>
+  <DropDownListLink>TEAM_TYPE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>6C</Offset>
+  </Offsets>
+</CheatEntry>

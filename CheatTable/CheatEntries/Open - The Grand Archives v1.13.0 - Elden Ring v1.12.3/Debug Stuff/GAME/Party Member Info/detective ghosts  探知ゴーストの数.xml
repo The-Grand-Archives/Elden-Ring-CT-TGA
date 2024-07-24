@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337187664</ID>
+  <Description>"detective ghosts | 探知ゴーストの数"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>0</Address>
+</CheatEntry>

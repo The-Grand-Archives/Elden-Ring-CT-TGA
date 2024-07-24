@@ -1,0 +1,22 @@
+<CheatEntry>
+  <ID>1337253794</ID>
+  <Description>"Varré"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>18D</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253795"/>
+    <id id="1337253796"/>
+    <id id="1337253797"/>
+    <id id="1337253798"/>
+    <id id="1337253799"/>
+    <id id="1337253800"/>
+    <id id="1337253801"/>
+    <id id="1337253802"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

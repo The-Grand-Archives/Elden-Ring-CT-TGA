@@ -1,0 +1,224 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+ItemGive_data = allocateMemory(128, getAddress(process))
+local item_table_mem = ItemGive_data + 32
+
+local ItemGive_func = AOBScanModuleUnique(process,"8B 02 83 F8 0A") - 0x52
+local getWeaponAddr_func = AOBScanModuleUnique(process,"8B EA 48 8B F1 33 DB 41 83 CE FF 85 D2") - 0x22
+local getGoodsAddr_func = AOBScanModuleUnique(process,"8b fa ?? 8b f1 33 db 85 d2 0f 88 ?? ?? ?? ?? ?? 8b 0d c4 8a") - 0x1E
+local getQuantity_func = AOBScanModuleUnique(process,"?? 8b f9 ?? 8d 44 ?? 48 ?? 89 44 ?? ?? 8b 01") - 0x14
+
+function ItemGive(table_or_id, quantity, reinforceLv, upgrade,gem)
+
+	local MapItemMan = readPointer("MapItemMan")
+	local item_table = {}
+
+	local function spawn_item(items)
+		local unk_int = 0
+		executeCodeEx(0, 100, ItemGive_func, MapItemMan, items, ItemGive_data, unk_int)
+	end
+
+	local function getParamAddr(id, item_type)
+		local func = 0
+		if item_type == 0 then
+			func = getWeaponAddr_func
+		elseif item_type == 4 then
+			func = getGoodsAddr_func
+		else
+			return 0
+		end
+		local mem = allocateMemory(0x20)
+		executeCodeEx(0, 100, func, mem, id, 0, 0)
+		local r = readPointer(mem + 8)
+		deAlloc(mem)
+		return r
+	end
+
+	local function getQuantity(id)
+		local mem = allocateMemory(0x100, getAddress(process))
+		writeInteger(mem, id)
+		local r = executeCodeEx(0, 100, getQuantity_func, mem)
+		deAlloc(mem)
+		return r
+	end
+
+	local function getMaxQuantity(param_addr, item_type)
+		local maxRepositoryNum = 0
+		if item_type == 0 then
+			local wepType = readSmallInteger(param_addr + 0x1A6)
+			local maxArrowQuantity = 0
+			if wepType == 81 or wepType == 85 then
+				maxArrowQuantity = 99
+				maxRepositoryNum = 600
+			elseif wepType == 83 then
+				maxArrowQuantity = 30
+				maxRepositoryNum = 600
+			elseif wepType == 86 then
+				maxArrowQuantity = 20
+				maxRepositoryNum = 600
+			end
+			return maxArrowQuantity + maxRepositoryNum
+		elseif item_type == 4 then
+			local maxNum = readSmallInteger(param_addr + 0x3A)
+			local maxRepositoryNum = readSmallInteger(param_addr + 0x70)
+			return maxNum + maxRepositoryNum
+		else
+			return 0
+		end
+	end
+
+	local function adjustQuantity(item_type_arr, param_id, param_addr, quantity)
+		local quantityMax = getMaxQuantity(param_addr, item_type_arr[3])
+		local quantityHeld = getQuantity(param_id + item_type_arr[1])
+		if quantity + quantityHeld > quantityMax then
+			quantity = quantityMax - quantityHeld
+		end
+		return quantity
+	end
+
+	local function isProjectile(param_addr)
+		local weaponCategory = readByte(param_addr + 0xE6)
+		if weaponCategory == 13 or weaponCategory == 14 then
+			return true
+		else
+			return false
+		end
+	end
+
+	local function set_reinforceLv(param_addr, weapon_id, inputReinforceLv)
+		local GameDataMan = readPointer("GameDataMan")
+		local PlayerGameData = readPointer(GameDataMan + 8)
+		local playerReinforceLv = readByte(PlayerGameData + 0xE2)
+		local originEquipWep1 = readInteger(param_addr + 0x64)
+		local originEquipWep16 = readInteger(param_addr + 0x250)
+
+		if originEquipWep1 ~= 0xFFFFFFFF then
+			if inputReinforceLv > 25 or inputReinforceLv < 0 then
+				inputReinforceLv = playerReinforceLv
+			end
+			if originEquipWep16 == 0xFFFFFFFF then
+				result = math.floor((inputReinforceLv + 0.5) / 2.5)
+			else
+				result = inputReinforceLv
+			end
+		else
+			result = 0
+		end
+		return weapon_id+result
+	end
+
+	local function add_items(item_table)
+		local item_amount = 0
+
+		if isInventoryFull() and isStorageFull() then
+			local e = "Inventory and storage are full.\nNo more items can be acquired."
+			ShowMessage(e)
+			error(e, 2)
+		end
+
+		for i,v in ipairs(item_table) do
+			local item = v[1]
+			local item_type_arr = getItemType(item)
+			local param_id = item - item_type_arr[1]
+			local quantity = 0
+			local gem = 0xFFFFFFFF
+
+			if item_type_arr then
+				item_type = item_type_arr[3]
+			else
+				error("Invalid item_type")
+			end
+
+			if item_type == 0 then
+				local param_addr = getParamAddr(param_id, item_type)
+				if param_addr == nil or param_addr == 0 then
+					param_addr = paramUtils:getIdAddressInParam("EquipParamWeapon", param_id)
+				end
+				if isProjectile(param_addr) then
+					quantity = adjustQuantity(item_type_arr, param_id, param_addr, v[2])
+				else
+					quantity = 1
+				end
+
+				if v[5] ~= -1 then
+					gem = v[5]
+				end
+
+				item = set_reinforceLv(param_addr, item, v[3])
+				if v[4] >= 0 and v[4] <= 1200 then
+					item = item + v[4]
+				end
+			elseif item_type == 1 then
+				quantity = 1
+			elseif item_type == 2 then
+				quantity = 1
+			elseif item_type == 4 then
+				if isDlcMagic(item) and not isOwnDlc(1) then
+					quantity = 0
+				else
+					local param_addr = getParamAddr(param_id, item_type)
+					if param_addr == nil or param_addr == 0 then
+						param_addr = paramUtils:getIdAddressInParam("EquipParamGoods", param_id)
+                    end
+                    quantity = adjustQuantity(item_type_arr, param_id, param_addr, v[2])
+				end
+			elseif item_type == 8 then
+				quantity = v[2]
+			else
+				quantity = 0
+			end
+
+			i2 = item_table_mem + item_amount * 16
+			writeInteger(i2 +  4, item)
+			writeInteger(i2 +  8, quantity)
+			writeInteger(i2 + 12, 0xFFFFFFFF)
+			writeInteger(i2 + 16, gem)
+			item_amount = item_amount + 1
+
+			if item_amount == 10 then
+				writeInteger(item_table_mem, item_amount)
+				spawn_item(item_table_mem)
+				item_amount = 0
+			end
+		end
+		if item_amount >= 1 then
+			writeInteger(item_table_mem, item_amount)
+			spawn_item(item_table_mem)
+		end
+	end
+
+	if type(table_or_id) == "table" then
+		item_table = table_or_id
+	elseif type(table_or_id) == "number" then
+		local id = table_or_id
+		if quantity == nil then
+			quantity = 1
+		end
+		if reinforceLv == nil or reinforceLv > 25 then
+			reinforceLv = -1
+		end
+		if upgrade == nil or upgrade > 1200 then
+			upgrade = -1
+		end
+		if gem == nil then
+			gem = -1
+		end
+
+		item_table = {
+			{id, quantity, reinforceLv, upgrade, gem}
+		}
+	else
+		local e = "No table or ID given."
+		print(e)
+		error(e)
+	end
+
+	add_items(item_table)
+
+	writeInteger(item_table_mem, 0)
+end
+[DISABLE]
+deAlloc(ItemGive_data)
+ItemGive_data = nil
+ItemGive = nil

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337201325</ID>
+  <Description>"equipModelId"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+A4</Address>
+</CheatEntry>

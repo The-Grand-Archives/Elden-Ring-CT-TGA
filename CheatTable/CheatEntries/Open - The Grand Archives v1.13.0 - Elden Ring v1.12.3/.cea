@@ -1,0 +1,1140 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local executables = {
+    "eldenring.exe",
+    "start_protected_game.exe"
+}
+if not getAddressSafe(process) then
+    for _,v in pairs(executables) do
+        OpenProcess(v)
+        if getAddressSafe(process) then
+            break
+        end
+    end
+end
+
+game_title = "ELDEN RING"
+game_ver = "2.02.3" -- this is officially ELDEN RING app ver v1.12.3
+table_ver = 1.130
+ce_ver = 7.4
+local version_url = "https://raw.githubusercontent.com/The-Grand-Archives/Elden-Ring-CT-TGA/master/VERSION"
+
+-- checking for user issues
+local required_files = {
+    "luaclient-x86_64.dll",
+    "tcc64-64.dll"
+}
+for _,file in pairs(required_files) do
+    if not getFileList(getCheatEngineDir(),file)[1] then
+        local e = string.format("'%s' not present in Cheat Engine folder.\nReinstall Cheat Engine.\nDo not compile it yourself if you don't know what you're doing.",file)
+        ShowMessage(e)
+        error(e,2)
+    end
+end
+
+local settings = getSettings(nil)
+if settings["Use dbk32 QueryMemoryRegionEx"] == "1" then
+    local t = "Incompatible CE kernel setting"
+    if messageDialog(t,[[It appears that you have custom CE kernel routines enabled for "Query memory region routines".
+This setting is not compatible. Selecting 'Ok' will turn it off to allow the table to function.]], mtWarning, mbOK, mbCancel)==mrOK then
+        settings["Use dbk32 QueryMemoryRegionEx"] = 0
+        reloadSettingsFromRegistry()    
+    else
+        error(t,2)
+    end
+end
+
+--[[
+local pL = getProcessList()
+for _,name in pairs(pL) do
+    if name == "winedevice.exe" then
+        isLinux = true
+        break
+    end
+end
+
+function linux_check()
+    if isLinux then
+        local e = "This script is currently not supported on Linux."
+        ShowMessage(e)
+        error(e,2)
+    end
+end
+]]
+
+--[[START TGA file management]]--
+
+lfs = require "lfs"
+
+function isdir(path)
+    return path and lfs.attributes(path, "mode") == "directory" and true
+end
+
+function mkpath(base, ...)
+    local path = base
+    local rel = {...}
+    if type(path) ~= "string" or not isdir(path) then return end
+    for i,v in ipairs(rel) do
+        if type(v) ~= "string" then return end
+        path = string.format("%s/%s", path, v)
+        if not isdir(path) and not lfs.mkdir(path) then
+            error(string.format("mkpath: unable to create directory %s", path))
+        end
+    end
+    return path
+end
+
+function sanitizeUsername(username)
+    local username_t = utf8ToAnsi(username)
+    if type(username) ~= "string" then return
+    elseif username_t == username then return username end
+    local m =	true
+    local t = {}
+    for match in username_t:gmatch(".") do
+        local b = string.byte(match)
+        if b < 0x20 or b > 0x7F or b == 0x3F then m = false break end
+    end
+    if m then return username_t end
+    local h = 0x811C9DC5
+    local p = 0x01000193
+    for match in username:gmatch(".") do
+        local b = string.byte(match)
+        h = h~b
+        h = h*p
+    end
+    return string.format("user-%x", h)
+end
+
+function getGameVersion()
+    local function getVerChunk(verString, cStart, cEnd)
+        return tonumber(string.sub(verString, cStart, cEnd), 16)
+    end
+    local ver = getAddressSafe(process) and enumModules() and enumModules()[1] and getFileVersion(enumModules()[1].PathToFile)
+    if not enumModules()[1] then
+        local e = "Failed to read game process.\nMake sure you've launched the game without EasyAntiCheat."
+        ShowMessage(e)
+        error(e,2)
+    elseif not ver then	return end
+    ver = string.format("%X", ver)
+    local l = #ver
+    local v2 = getVerChunk(ver, l - 11, l - 8)
+    local v3 = getVerChunk(ver, l - 7, l - 4)
+    ver = string.format("%s.%s", getVerChunk(ver, 1, l - 12), v2 < 10 and "0"..v2 or v2)
+    return v3 ~= 0 and string.format("%s.%s", ver, v3) or ver
+end
+
+tga = {}
+
+function tga:new(path, ver)
+    setmetatable({}, self)
+    self.__index = self
+    self.path = path
+    self.tver = table_ver
+    self.ver = ver
+    local num = 0
+    for i in pairs(tga.defaultconfig) do num = num + 1 end
+    self.cfgnum = num
+    return self
+end
+
+--[[START TGA default config]]--
+--These are the default values the config file is created with
+--DO NOT TOUCH THEM
+--instead, use the "Configure Table" script under the "Table Tools" header
+
+tga.defaultconfig, tga.configdesc = {}, {}
+local config = tga.defaultconfig
+local cdesc = tga.configdesc
+
+config.cacheSymbols = true
+config.checkGameLaunched = true
+config.checkGameVersion = true
+config.checkCEVersion = true
+config.checkTableVersion = false
+config.printProgress = false
+cdesc.cacheSymbols = "Save symbols (speeds up lookup)"
+cdesc.checkGameLaunched = "Prevent opening table if game is not running"
+cdesc.checkGameVersion = "Check game version"
+cdesc.checkCEVersion = "Check Cheat Engine version"
+cdesc.checkTableVersion = "Check table version (Github)"
+cdesc.printProgress = "Output progress of scripts to Lua Engine"
+
+--[[END TGA default config]]--
+
+function tga:loadConfig()
+    tga.config = {}
+    local config = tga.config
+    local defaultconfig = tga.defaultconfig
+    for i,v in pairs(defaultconfig) do config[i] = v end
+    local path = self.path.."/config.ini"
+    local f = io.open(path, "a+")
+    if not f then
+        print("tga:loadConfig: warning: unable to open or create config file.\nUsing default config values.")
+        return
+    end
+    local t = f:read("*all")
+    if t == "" then f:write(string.format(";TGA Version: %s | Config Options: %d | File Modified: %s", self.tver, self.cfgnum, os.date("%c"))) end
+    t:gsub("\n(%g+)%s*=%s*(%g+)", function(i, v)
+        config[i] = tonumber(v) or v ~= "true" and v ~= "false" and v or v == "true"
+        defaultconfig[i] = nil
+    end)
+    for i,v in pairs(defaultconfig) do
+        f:write(string.format("\n%s = %s", i, v))
+    end
+    f:close()
+end
+
+function tga:saveConfig()
+    local config = tga.config
+    local path = self.path.."/config.ini"
+    local f = io.open(path, "w")
+    if not f then
+        print("tga:saveConfig: warning: unable to open or create config file.\nNew config values will not be saved.")
+        return
+    end
+    f:write(string.format(";TGA Version: %s | Config Options: %s | File Modified: %s", self.tver, self.cfgnum, os.date("%c")))
+    for i,v in pairs(config) do
+        f:write(string.format("\n%s = %s", i, v))
+    end
+    f:close()
+end
+
+function tga:loadSymbolCache()
+    if not getAddressSafe(process) then return end
+    tga.symbolCache = {}
+    tga.symbolCaching = true -- internal variable, do not mix up with tga.config.cacheSymbols
+    local cache = tga.symbolCache
+    local path = string.format("%s/%s.cache", self.path, self.ver)
+    local f = io.open(path, "a+")
+    if not f then
+        print("tga:loadSymbolCache: warning: unable to open or create symbol cache file.\nDisabling symbol caching for this session.")
+        tga.symbolCaching = false
+        return
+    end
+    local t = f:read("*all")
+    if t == "" then f:write(string.format("TGA Version: %s | Game Version: %s | File Modified: %s", self.tver, self.ver, os.date("%c"))) end
+    t:gsub("\n(%g+)%s*=%s*(%g+)", function(i, v)
+        cache[i] = tonumber(v) or tonumber(v, 16) or nil
+    end)
+    f:close()
+end
+
+function tga:saveSymbolCache()
+    if not getAddressSafe(process) then return end
+    local cache = tga.symbolCache
+    local path = string.format("%s/%s.cache", self.path, self.ver)
+    local f = io.open(path, "w+")
+    if not f then
+        print("tga:saveSymbolCache: warning: unable to open or create symbol cache file.\nDisabling symbol caching for this session.")
+        tga.symbolCaching = false
+        return false
+    end
+    f:write(string.format("TGA Version: %s | Game Version: %s | File Modified: %s", self.tver, self.ver, os.date("%c")))
+    for i,v in pairs(cache) do
+        f:write(string.format("\n%s = %s", i, v))
+    end
+    f:close()
+    return true
+end
+
+function tga:clearSymbolCache()
+    local cache = tga.symbolCache
+    local path = string.format("%s/%s.cache", self.path, self.ver)
+    local f = io.open(path, "w+")
+    if not f then
+        print("tga:saveSymbolCache: warning: unable to clear symbol cache file.")
+        return false
+    end
+    f:write(string.format("TGA Version: %s | Game Version: %s | File Modified: %s", self.tver, self.ver, os.date("%c")))
+    f:close()
+    return true
+end
+
+-- Runs given function
+-- if the function returns truthy value, remembers it
+-- and doesn't run the function on subsequent invocations
+-- Returns the function's result
+-- For persistence function stores the identifier .
+-- Examples:
+-- tga:runOnce("agree_to_eula", showEULA)
+-- tga:runOnce("open_readme", function() getMemoryRecordByDescription("Readme").active = true; return true; end)
+-- @param id, arbitrary unique identifier
+-- @param func, function, a function to call
+function tga:runOnce(id, func)
+    id = tostring(id):gsub("[%s-\n]+", "")
+    assert(id and id ~= "" and type(func) == "function", "tga:runOnce: bad argument type")
+    local path = self.path.."/run-once.txt"
+    local f = io.open(path, "a+")
+    if not f then print("tga:runOnce: warning: unable to open or create run-once.txt, aborting function execution") return end
+    local t = f:read("*all")
+    if t:find(id) then return true end
+    local r = func()
+    if not r then return r end
+    f:write(#t == 0 and id or "\n"..id)
+    f:close()
+    return r
+end
+
+-- Runs the given function, and remembers the result,
+-- not running the function on subsequent invocations WITH THE SAME TABLE VERSION,
+-- if it evaluated to true. Returns the function's result.
+function tga:runOnceForVersion(id, func)
+    if not table_ver then return false end
+
+    id = tostring(id):gsub("[%s-\n]+", "")
+    assert(id and id ~= "" and type(func) == "function", "tga:runOnce: bad argument type")
+    local path = string.format("%s/run-once-%.3f.txt", self.path, table_ver)
+    local f = io.open(path, "a+")
+    if not f then printf("tga:runOnce: warning: unable to open or create %s, aborting function execution", path) return end
+    local t = f:read("*all")
+    if t:find(id) then return true end
+    local r = func()
+    if not r then return r end
+    f:write(#t == 0 and id or "\n"..id)
+    f:close()
+    return r
+end
+
+function tga:clearRunOnce()
+    local s = true
+    for file in lfs.dir(self.path) do
+        if file ~= "." and file ~= ".." then
+            if string.find(file, "^run%-once") then
+                if not os.remove(self.path .. "/" .. file) then
+                    printf("tga:clearRunOnce: warning: unable to delete %s", file)
+                    s = false
+                end
+            end
+        end
+    end
+    return s
+end
+
+ARCHIVE_VERBOSE = true
+function tga:packToTableFile(folderPath, relPath, tableFileName, overwrite)
+    if relPath ~= "" then
+        relPath = relPath .. '/'
+    end
+
+    local tf = findTableFile(tableFileName)
+    if tf ~= nil and not overwrite then
+        error(string.format("Table file with name %s already exists", tableFileName))
+        return
+    elseif tf == nil then
+        tf = createTableFile(tableFileName)
+    end
+
+    tf.stream.size = 0
+    local signature = stringToByteTable("TGA_ARCHIVE_01")
+    tf.stream.write(signature)
+
+    local readStream = createMemoryStream()
+    function serialize(path, relpath)
+        for file in lfs.dir(path) do
+            if (file ~= "." and file ~= "..") then
+                local fullpath = path .. '/' .. file
+                local attr = lfs.attributes(fullpath)
+                if attr.mode == "directory" then
+                    serialize(path .. '/' .. file, relpath .. file .. '/')
+                elseif attr.mode == "file" then
+                    tf.stream.writeAnsiString(relpath)
+                    tf.stream.writeAnsiString(file)
+                    readStream.size = 0
+                    readStream.loadFromFile(fullpath)
+                    tf.stream.writeDword(readStream.size)
+                    tf.stream.copyFrom(readStream, readStream.Size)
+
+                    if ARCHIVE_VERBOSE then
+                        printf("%s -> %s (%d bytes)", fullpath, relpath .. file, readStream.size)
+                    end
+                end
+            end
+        end
+    end
+
+    serialize(folderPath, relPath)
+    return tf
+end
+
+function tga:unpackTableFile(folderPath, tableFileName, overwrite)
+    local tf = findTableFile(tableFileName)
+    if tf == nil then
+        error(string.format("Table file with name %s does not exist", tableFileName))
+        return
+    end
+
+    local sig = "TGA_ARCHIVE_01"
+    local sigSz = string.len(sig)
+
+    if tf.stream.size < sigSz or byteTableToString(tf.stream.read(sigSz)) ~= sig then
+        error(string.format("Table file is not a TGA archive", tableFileName))
+        return
+    end
+
+    local writeStream = createMemoryStream()
+    while tf.stream.position < tf.stream.size do
+        local fullpath = folderPath .. "/"
+        for folder in string.gmatch(tf.stream.readAnsiString(), "([^/]+/)") do
+            fullpath = fullpath .. folder
+            lfs.mkdir(fullpath)
+        end
+
+        fullpath = fullpath .. tf.stream.readAnsiString()
+        local attr = lfs.attributes(fullpath)
+        if attr then
+            if overwrite then
+                os.remove(fullpath)
+            else
+                error(string.format("File %s already exists", fullpath))
+                return
+            end
+        end
+
+        local fsz = tf.stream.readDword()
+        writeStream.size = 0
+        writeStream.copyFrom(tf.stream, fsz)
+        writeStream.saveToFile(fullpath)
+
+        if ARCHIVE_VERBOSE then
+            printf("%s (%d bytes)", fullpath, fsz)
+        end
+    end
+end
+
+--local username = sanitizeUsername(os.getenv("USERNAME"))
+local path = mkpath(os.getenv("PROGRAMDATA"), "the-grand-archives", "elden-ring")
+current_game_ver = getGameVersion()
+tga = tga:new(path, current_game_ver)
+tga:loadConfig()
+tga:loadSymbolCache()
+
+--[[END TGA file management]]--
+
+--[[START TGA checks]]--
+
+local function firstTimeSetup()
+	local fts = messageDialog("First Time Setup", [[Do you want this table to check for updates on enabling?
+You can change it later using Configure Table in Table Tools.]], mtConfirmation, mbYes, mbNo, mbCancel)
+	if fts == mrYes then
+		tga.config.checkTableVersion = true
+	elseif fts == mrNo then
+		tga.config.checkTableVersion = false
+	else
+		error("First Time Setup cancelled", 2)
+	end
+	tga:saveConfig()
+  return true
+end
+tga:runOnce("first_time_setup", firstTimeSetup)
+
+if tga.config.checkGameLaunched and not GetAddressSafe(process) then
+    local e = "Failed to read game process.\nMake sure you've launched the game without EasyAntiCheat."
+    ShowMessage(e)
+    error(e,2)
+end
+
+if tga.config.checkGameVersion and current_game_ver and current_game_ver ~= game_ver and current_game_ver ~= game_ver:match("(%d*%.%d*)%.0+$") then
+    showMessage(string.format("Your version of Elden Ring (%s) might not be supported.\nSupported version: %s", current_game_ver, game_ver))
+end
+
+if tga.config.checkCEVersion and getCEVersion() < ce_ver then
+    local ver_str = string.format("Cheat Engine %s or newer is required.\nDownload version %s from GitHub?",ce_ver,ce_ver)
+    local dl_url = string.format("https://github.com/cheat-engine/cheat-engine/releases/download/%s/CheatEngine%s.exe",ce_ver,string.gsub(ce_ver,"%W",""))
+    if messageDialog("CE Version Check", ver_str, mtError, mbYes, mbNo)==mrYes then
+        shellExecute(dl_url)
+    end
+    error("Cheat Engine outdated",2)
+end
+
+if tga.config.checkTableVersion and table_ver ~= nil then
+    local internet = getInternet()
+    local response = internet.getURL(version_url)
+    if response ~= nil then
+        if table_ver < tonumber(response) then
+            showMessage([[Your Cheat Table is outdated.
+            Check the Github for the latest version.]])
+        elseif table_ver > tonumber(response) then
+            showMessage("This is a pre-release version of the Cheat Table.\nFind regular versions in the Releases section on the Github page.")
+        end
+    else
+        showMessage("Version check failed.")
+    end
+    internet.destroy()
+elseif tga.config.checkTableVersion then
+    showMessage("This is a pre-release version of the Cheat Table.\nFind regular versions in the Releases section on the Github page.")
+end
+
+--[[END TGA checks]]--
+
+tga:runOnceForVersion("unpack_c_includes", function()
+    if findTableFile("include") then
+        print("Unpacking TGA C library...")
+        tga:unpackTableFile(tga.path, "include", true)
+        return true
+    else
+        print("tga WARNING: Could not find archive of C includes")
+        return false
+    end
+end)
+addCIncludePath(tga.path .. '/include')
+
+--[[START TGA memory management]]--
+
+-- base addresses obtained via AOB scanning
+-- format:
+-- symbolName = name of the symbol to be registered
+-- AOB = array of bytes to search for in the process module
+-- offset = optional, number of bytes to offset the AOB matching address by
+tga.baseData = {
+    {symbolName = "GameDataMan", AOB = "48 8B 05 ?? ?? ?? ?? 48 85 C0 74 05 48 8B 40 58 C3 C3"},
+    --{symbolName = "WorldChrMan", AOB = "48 8B 05 ?? ?? ?? ?? 48 85 C0 74 0F 48 39 88"},
+    {symbolName = "GameMan", AOB = "48 8B 05 ?? ?? ?? ?? 80 B8 ?? ?? ?? ?? 0D 0F 94 C0 C3"},
+    {symbolName = "FieldArea", AOB = "48 8B 3D ???????? 49 8B D8 48 8B F2 4C 8B F1 48 85 FF"},
+    --{symbolName = "SoloParamRepository", AOB = "48 89 5C 24 48 8B FA 48 8B D9 C7 44 24 20 00 00 00 00 48", offset = 18},
+    --{symbolName = "CSNetMan", AOB = "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 5E 48 8B 89 ?? ?? ?? ?? B2 01"},
+    --{symbolName = "WorldChrManDbg", AOB = "48 8B 0D ?? ?? ?? ?? 89 5C 24 20 48 85 C9 74 12 B8 ?? ?? ?? ?? 8B D8"},
+    --{symbolName = "CSMenuMan", AOB = "48 8B 05 ?? ?? ?? ?? 33 DB 48 89 74 24"},
+    {symbolName = "MsgRepository", AOB = "48 8B 3D ?? ?? ?? ?? 44 0F B6 30 48 85 FF 75"},
+    --{symbolName = "MapItemMan", AOB = "48 8B 0D ?? ?? ?? ?? C7 44 24 50 FF FF FF FF"},
+    --{symbolName = "ThrowMan", AOB = "41 8B 07 66 0F 7E CF 89 7C 24 ?? 0B C7 33 DB A8", offset = -36},
+    --{symbolName = "CSTrophy", AOB = "0F 84 ?? ?? ?? ?? 8B 00 89 44 24", offset = -10},
+    --{symbolName = "CSWindow", AOB = "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 ?? 48 83 C1 ?? 48 8D 45"},
+    --{symbolName = "CSFlipper", AOB = "48 8B 0D ?? ?? ?? ?? 80 BB ?? ?? ?? ?? 00 0F 84"},
+    --{symbolName = "CSSessionManager", AOB = "48 8B 05 ?? ?? ?? ?? 48 89 9C 24 ?? ?? ?? ?? 48 89 B4 24"},
+    --{symbolName = "CSRemo", AOB = "48 85 C0 74 ?? 80 B8 ?? ?? ?? ?? 00 0F B6 DB 0F 45 DF 48 8B 0D", offset = 18},
+    --{symbolName = "CSLuaEventManager", AOB = "48 83 3D ?? ?? ?? ?? 00 48 8B F9 0F 84 ?? ?? ?? ?? 48"},
+    --{symbolName = "CSRegulationManager", AOB = "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 0B 4C 8B C0 48 8B D7"},
+    --{symbolName = "DamageCtrl", AOB = "48 8B 05 ?? ?? ?? ?? 49 8B D9 49 8B F8 48 8B F2 48 85 C0 75 2E"},
+    --{symbolName = "CSFD4VirtualMemoryFlag", AOB = "48 8B 3D ???????? 48 85 FF 74 ?? 48 8B 49"}
+}
+
+-- Maps a proper base address name (i.e. name of FD4Singleton) to a set of aliases
+-- for backwards compatibility.
+tga.baseAliases = {
+    CSPairAnimManager = { "ThrowMan" },
+    DmgMan = { "DamageCtrl" },
+    CSLuaEventMan = { "CSLuaEventManager" },
+    CSEventFlagMan = { "CSFD4VirtualMemoryFlag" }
+}
+
+-- Keeps track of base names registered as symbols for easy unregistering when the table
+-- header is closed.
+tga.registeredBaseNames = {}
+
+-- Register a base address as a symbol and possibly many aliases.
+-- The aliases are determined by tga.baseAliases.
+-- The function keeps track of the registered bases so that they can be collectively unloaded.
+function tgaRegisterBase(name, addr)
+    tga.registeredBaseNames[name] = true
+    registerSymbol(name, addr)
+    if tga.baseAliases[name] ~= nil then
+        for i, alias in ipairs(tga.baseAliases[name]) do
+            tga.registeredBaseNames[alias] = true
+            -- Register the symbol *without* saving it in the table, to
+            -- avoid usermode symbol pollution
+            registerSymbol(alias, addr, false)
+        end
+    end
+end
+
+function tgaUnregisterBases()
+    for base, _ in pairs(tga.registeredBaseNames) do
+        unregisterSymbol(base)
+        tga.registeredBaseNames[base] = nil
+    end
+end
+
+-- Checks whether an address or a symbol is within the process module
+-- can be used to determine if an input represents a valid address
+-- returns the address, or false if it is outside, or nil on lookup failure
+-- Examples:
+-- local address = getAddressProcessSafe("someSymbol")
+-- local address = getAddressProcessSafe("DarkSoulsIII.exe+123456")
+-- if getAddressProcessSafe(someVar) then print("valid address") end
+-- assert(getAddressProcessSafe(0x1000) == false)
+-- @param key | number | string | other
+local function getAddressProcessSafe(key)
+    if not getAddressSafe(process) then return end
+    local address = getAddressSafe(key)
+    if address == nil then return nil end
+    return address >= getAddress(process) and address <= getAddress(process) + getModuleSize(process) and address
+end
+
+-- Searches for a key in the target process with an optional offset
+-- a key can be an AOB or an address string or integer
+-- extracts an address from the operands of the instruction at the key
+-- registers a symbol at the address
+-- returns the found address, or false on lookup failure
+-- Examples:
+-- registerBaseByKey("someBase", "48 8B 05 ?? ?? ?? ?? 48 85 C0 ?? ?? 48 8B 40 ?? C3")
+-- registerBaseByKey("someBase", "48 8D 05 ?? ?? ?? ?? 48 89 44 24 ?? F3 0F 11 4C 24 ?? 48 83 3D ?? ?? ?? ?? 00 75", 18)
+-- registerBaseByKey("someBase", "DarkSoulsIII.exe+123456")
+-- registerBaseByKey("someBase", 0x7FF664DB7DC6)
+-- @param symbolName | string
+-- @param key | AOB = string | address = string or number
+-- @param offset | optional number
+function registerBaseByKey(symbolName, key, offset)
+    if not getAddressSafe(process) then return end
+    assert(type(symbolName) == "string" and (offset == nil or type(offset) == "number"), "registerBaseByKey: bad argument type")
+    local address = getAddressProcessSafe(key) or AOBScanModuleUnique(process, key)
+    address = offset and address and address + offset or address
+    if address then
+        local d = createDisassembler()
+        if d.disassemble(address) then
+            local dt = d.getLastDisassembleData()
+            local address = dt.parameters:match("%[(.-)%]")
+            if address then
+                address = tonumber(address, 16)
+                if address then
+                    tgaRegisterBase(symbolName, address)
+                    return address
+                end
+            end
+        end
+    end
+    print(string.format("registerBaseByKey: warning: symbol %s not found", symbolName))
+    return false
+end
+
+-- Saves a symbol-address pair to the symbol cache
+-- address is input or optional if the symbol is registered
+-- returns true on success
+-- Examples:
+-- cacheSymbol("someSymbol") --this symbol has been registered previously
+-- cacheSymbol("someSymbol", address)
+-- cacheSymbol("someSymbol", "DarkSoulsIII.exe+123456")
+-- @param symbolName | string
+-- @param address | optional if the symbol is registered | number | string
+function cacheSymbol(symbolName, address)
+    if not getAddressSafe(process) then return end
+    local address = getAddressProcessSafe(address) or getAddressSafe(symbolName)
+    if not (tga.symbolCaching and tga.config.cacheSymbols and address and type(symbolName) == "string") then return false end
+    address = address - getAddress(process)
+    tga.symbolCache[symbolName] = address
+    return tga:saveSymbolCache()
+end
+
+-- Scans process module memory for AOB
+-- If cacheSymbols is set to true saves the symbol-address pair to the cache
+-- or gets its address from the cache
+-- returns address on success, nil on lookup failure
+-- Examples:
+-- AOBScanProcessCached("someSymbol", "48 8B 05 ?? ?? ?? ?? 48 85 C0 ?? ?? 48 8B 40 ?? C3")
+-- @param symbolName | string
+-- @param AOBString | string
+function AOBScanProcessCached(symbolName, AOBString)
+    if not getAddressSafe(process) then return end
+    assert(type(symbolName) == "string" and type(AOBString) == "string", "AOBScanProcessCached: bad argument type")
+    if not (tga.symbolCaching and tga.config.cacheSymbols and tga.symbolCache[symbolName]) then
+        local address = AOBScanModuleUnique(process, AOBString)
+        if not (address and tga.config.cacheSymbols) then return address end
+        if not cacheSymbol(symbolName, address) then print(string.format("AOBScanProcessCached: warning: symbol %s could not be cached", symbolName)) end
+        return address
+    else
+        return getAddress(process) + tga.symbolCache[symbolName]
+    end
+end
+
+-- Searches for a key in the target process with an optional offset
+-- a key can be an AOB or an address string or integer
+-- extracts an address from the operands of the instruction at the key
+-- registers a symbol at the address
+-- if cacheSymbols is set to true saves the symbol-address pair to the cache
+-- or gets it from the cache
+-- returns the found address, or false on lookup failure
+-- Examples:
+-- registerBaseByKey("someBase", "48 8B 05 ?? ?? ?? ?? 48 85 C0 ?? ?? 48 8B 40 ?? C3")
+-- registerBaseByKey("someBase", "48 8D 05 ?? ?? ?? ?? 48 89 44 24 ?? F3 0F 11 4C 24 ?? 48 83 3D ?? ?? ?? ?? 00 75", 18)
+-- registerBaseByKey("someBase", "DarkSoulsIII.exe+123456")
+-- registerBaseByKey("someBase", 0x7FF664DB7DC6)
+-- @param symbolName | string
+-- @param key | AOB = string | address = string or number
+-- @param offset | optional number
+function registerBaseByKeyCached(symbolName, key, offset)
+    if not getAddressSafe(process) then return end
+    if not (tga.symbolCaching and tga.config.cacheSymbols and tga.symbolCache[symbolName]) then
+        local address = registerBaseByKey(symbolName, key, offset)
+        if not (address and tga.config.cacheSymbols) then return address end
+        if not cacheSymbol(symbolName, address) then print(string.format("registerBaseByKeyCached: warning: symbol %s could not be cached", symbolName)) end
+        return address
+    else
+        local address = getAddress(process) + tga.symbolCache[symbolName]
+        tgaRegisterBase(symbolName, address)
+        return address
+    end
+end
+
+for i,base in ipairs(tga.baseData) do
+    registerBaseByKeyCached(base.symbolName, base.AOB, base.offset)
+end
+
+
+--[[END TGA memory management]]--
+
+--[[START TGA helpers]]--
+
+function enableRecord(id, delay, sync)
+    local record = getAddressList().getMemoryRecordByID(id)
+    if(record ~= nil) then
+        if sync then
+            Sleep(delay)
+            record.Active = true
+            return
+        end
+        local t = createTimer(getMainForm())
+        t.Interval = delay or 100
+        t.OnTimer = function()
+            t.destroy()
+            record.Active = true
+        end
+    else
+        print("Record with ID "..id.." doesn't exist.")
+    end
+end
+
+function disableRecord(id, delay, sync)
+    local record = getAddressList().getMemoryRecordByID(id)
+    if(record ~= nil) then
+        if sync then
+            Sleep(delay)
+            record.Active = false
+            return
+        end
+        local t = createTimer(getMainForm())
+        t.Interval = delay or 100
+        t.OnTimer = function()
+            t.destroy()
+            record.Active = false
+        end
+    else
+        print("Record with ID "..id.." doesn't exist.")
+    end
+end
+
+function address_version(script_ver)
+  if current_game_ver ~= script_ver then
+      e = "The addresses used by this script only work for\n"..game_title.." executable version "..script_ver
+      ShowMessage(e)
+      error(e,2)
+  end
+end
+
+function inArray(array, item)
+  for _,value in pairs(array) do
+    if value == item then
+      return true
+    end
+  end
+  return false
+end
+
+function setBit(addr_str, bit, value)
+  local offset = bit // 8
+  local remainder = bit % 8
+  local bshift = 1 << remainder
+  local addr = getAddress(addr_str) + offset
+  writeByte(addr, readByte(addr) & ~bshift | (bshift & -(value % 2)))
+end
+writeBit = setBit
+
+-- Disables memrec after specified amount of milliseconds
+-- or byte at given address becomes 1
+-- or given function returns true.
+-- Accepts id, description or MemoryRecord instance.
+-- ametalon, 2020-07-15
+-- Examples:
+--   disableMemrec(memrec)
+--     disable current memrec
+--   disableMemrec(13, 1000)
+--     disable memrec with ID = 13 in one second
+--   disableMemrec("Curse Dagger", 500)
+--     disable "Curse Dagger" in half a second
+--   disableMemrec("Slow script", "slow_script_finished")
+--     disable "Slow script" when it sets byte at address "slow_script_finished" to 1
+--   disableMemrec("Funny meme", function() return readInteger('an_address') == 42 end)
+--     disable "Funny meme" when an address in memory takes a specific value
+-- @param memrec, MemoryRecord | number | string
+-- @param delay, number | string | function, default 100,
+--   milliseconds to wait before disabling
+--   or memory address to check when that byte becomes 1
+--   or function that returns true when memrec should be disabled.
+function disableMemrec(memrec, delay)
+    local memrecType = type(memrec)
+    if memrecType == "userdata" then
+        -- noop, we assume it is already MemoryRecord
+    elseif memrecType == "string" then
+        memrec = getAddressList().getMemoryRecordByDescription(memrec)
+    elseif memrecType == "number" then
+        memrec = getAddressList().getMemoryRecordByID(memrec)
+    end
+    if not memrec then return end
+    local t = createTimer(nil)
+    delay = delay or 100
+    local delayType = type(delay)
+    if delayType == "string" then
+        t.interval = 100
+        t.onTimer = function(t)
+            if readBytes(delay, 1) == 1 then
+                t.destroy()
+                memrec.active = false
+            end
+        end
+    elseif delayType == "number" then
+        -- minimum delay is 0.1 seconds
+        t.interval = math.max(delay, 100)
+        t.onTimer = function(t)
+            t.destroy()
+            memrec.active = false
+        end
+    elseif delayType == "function" then
+        t.interval = 100
+        t.onTimer = function(t)
+            if delay() then
+                t.destroy()
+                memrec.active = false
+            end
+        end
+    end
+end
+
+-- copies Steam profile link to clipboard
+-- @param hexId, String, hex representation of profile number
+function copySteamProfile(hexId)
+    local link = "https://steamcommunity.com/profiles/" .. tonumber(hexId, 16) .. "/"
+    writeToClipboard(link)
+end
+
+-- opens up "Memory View" window at given address
+-- if address is a string it must be registered symbol
+-- @param addr, Number | String
+function showMemoryViewAtAddress(addr)
+    local mvForm = getMemoryViewForm()
+    mvForm.Disassemblerview.TopAddress = getAddress(addr)
+    mvForm.show()
+end
+
+-- "Vortexian mov" by ametalon
+-- Allows to use multilevel pointers in AA scripts.
+-- Arguments:
+--   register to build a pointer in
+--   multilevel pointer in format [[[base]+offset]+offset]+offset
+--   (optional) a place to jump to in case of failed zero check
+-- If you need more thorough error handling, consider wrapping code it try..except block instead.
+-- Examples:
+--   vortmov(rax, [[[BaseB]+80]+1F90]+18)
+--   assembles into
+--   mov rax, [BaseB]
+--   mov rax, [rax+80]
+--   mov rax, [rax+1F90]
+--   mov rax, [rax+18]
+--
+--   vortmov(rax, [BaseB]+80, no_player)
+--   assembles into
+--   mov rax, [BaseB]
+--   test rax, rax
+--   jz no_player
+--   mov rax, [rax+80]
+--   test rax, rax
+--   jz no_player
+local function vortmov(parameters, syntaxcheckonly)
+    if syntaxcheckonly then return end
+    local reg, path, on_error = string.match(parameters, '(%w+)%s*,%s*%[+([%w%.%]%+]+)%s*,%s*(.+)')
+    if not reg then
+        reg, path = string.match(parameters, '(%w+)%s*,%s*%[+(.+)')
+    end
+    local offsets = {}
+    string.gsub(path, "[^%]]+", function(c) offsets[#offsets+1] = c end)
+    local asm = ''
+    for i,offset in ipairs(offsets) do
+        asm = asm..string.format("mov %s, [%s%s]\r\n", reg, i==1 and '' or reg, offset)
+        if on_error then
+            asm = asm..string.format("test %s, %s\r\njz short %s\r\n", reg, reg, on_error)
+        end
+    end
+    return asm
+end
+registerAutoAssemblerCommand("vortmov", vortmov)
+
+--[[
+Adds a menu item to the main menu
+that allows switching between standard, gaming and compact view modes.
+
+Gaming view mode hides:
+* Scanning panel
+* Address and Type columns in Address list
+Compact view mode hides:
+* Scanning panel
+
+Place in "C:\Program Files\Cheat Engine 7.1\autorun" folder to use with any table.
+
+Tested only on CE 7.1
+Author: ametalon, based on "compact mode" by mgr.inz.Player
+Date: 2020-07-07
+]]
+
+package.preload["ce.view_mode"] = function(...)
+    local _m = {}
+
+    local STANDARD_MODE = 0
+    local GAMING_MODE = 1
+    local COMPACT_MODE = 2
+
+    -- caption shows name of the next mode
+    local captions = {
+        [STANDARD_MODE] = 'Gaming &View Mode',
+        [GAMING_MODE] = 'Compact &View Mode',
+        [COMPACT_MODE] = 'Standard &View Mode'}
+
+        function _m:_update()
+            self.menu_item.Caption = captions[self.mode]
+            -- splitter between Scanning panel and Address list
+            MainForm.Splitter1.Visible = self.mode == STANDARD_MODE
+            -- Status bar
+            MainForm.Panel4.Visible = self.mode == STANDARD_MODE
+            -- Scanning panel
+            MainForm.Panel5.Visible = self.mode == STANDARD_MODE
+            -- Address column in Address list
+            AddressList.Header.Sections[2].Visible = self.mode == STANDARD_MODE or self.mode == COMPACT_MODE
+            -- Type column in Address list
+            AddressList.Header.Sections[3].Visible = self.mode == STANDARD_MODE or self.mode == COMPACT_MODE
+        end
+
+        function _m:cycle()
+            if self.mode == STANDARD_MODE then
+                self.mode = GAMING_MODE
+            elseif self.mode == GAMING_MODE then
+                self.mode = COMPACT_MODE
+            elseif self.mode == COMPACT_MODE then
+                self.mode = STANDARD_MODE
+            end
+            self:_update()
+        end
+
+        function _m:standard()
+            self.mode = STANDARD_MODE
+            self:_update()
+        end
+
+        function _m:gaming()
+            self.mode = GAMING_MODE
+            self:_update()
+        end
+
+        function _m:compact()
+            self.mode = COMPACT_MODE
+            self:_update()
+        end
+
+
+        local parent = getMainForm().Menu.Items
+        local menu_item = createMenuItem(parent)
+        menu_item.OnClick = function() _m:cycle() end
+        parent.add(menu_item)
+
+        _m.menu_item = menu_item
+        _m:standard()
+
+        return _m
+    end
+
+    require("ce.view_mode")
+
+    --[[
+    Finds memrec by ID or description and tries to make it visible.
+    Adds "Edit -> Scroll to" menu item.
+    Available via <Ctrl+F> and <Alt+E,S> shortcuts.
+
+    Install by placing this file in CE autorun folder
+    by default "C:\Program Files (x86)\Cheat Engine 6.8.3\autorun"
+
+    Type part of a description and select one of remaining items in the list below the searchbox.
+    Or press <Enter> to select first item right away.
+    To search by ID, type a number into the searchbox and press <Enter>
+
+    Tested only on CE 6.8.3
+    Author: ametalon
+    Date: 2020-03-23
+    ]]
+
+    package.preload["ce.scroll_to"] = function(...)
+        local _m = {}
+
+        -- Recursively activates given memrec and its parents
+        local function recursive_activate(memrec)
+            if(not memrec) then return end
+            recursive_activate(memrec.Parent)
+            memrec.Active = true
+        end
+
+        -- Returns data that will be used for a search
+        local function refresh_search_list()
+            local addr_list = getAddressList()
+            local list = createStringlist()
+            list.beginUpdate()
+            for i = 0, addr_list.Count - 1 do
+                list.add(addr_list[i].Description)
+            end
+            list.endUpdate()
+            return list
+        end
+
+        -- Makes given memrec visible on screen
+        -- @param memrec MemoryRecord
+        function _m:scroll_to_memrec(memrec)
+            if(not memrec) then return end
+            recursive_activate(memrec.Parent)
+            -- focus AddressList's TTreeviewWithScroll to set keyboard focus for the selected memrec
+            getAddressList().Control[0].setFocus()
+            getAddressList().setSelectedRecord(memrec)
+        end
+
+        -- Shows search dialog and tries to find memrec for typed text
+        -- @return MemoryRecord | nil
+        function _m:find_memrec()
+            local addr_list = getAddressList()
+
+            if not self.description_list or self.description_list.Count ~= addr_list.Count then
+                self.description_list = refresh_search_list()
+            end
+
+            local i, text = showSelectionList(
+            "Scroll to memory record",
+            "Enter ID or description\n<Enter> selects the first element in the list",
+            self.description_list,
+            true
+        )
+        -- one of the list elements was selected
+        if i >= 0 then return addr_list[i] end
+        -- no text was typed
+        if text == '' then return end
+        local memrec
+        -- check if numeric ID was typed
+        local id = tonumber(text)
+        if(id) then
+            memrec = addr_list.getMemoryRecordByID(id)
+            if memrec then return memrec end
+        end
+        -- check if typed text is an exact description of a memrec
+        memrec = addr_list.getMemoryRecordByDescription(text)
+        if memrec then return memrec end
+        -- fallback to full list search by a partial match
+        i = self:_dumb_search(text)
+        if i then return addr_list[i] end
+    end
+
+    -- horrible, horrible search
+    -- returns index of the first memrec with description containing given text
+    -- @return Integer | nil
+    function _m:_dumb_search(text)
+        text = string.lower(text)
+        for i = 0, self.description_list.Count - 1 do
+            -- plain "find substring" operation
+            if string.find(string.lower(self.description_list[i]), text, 1, true) then
+                return i
+            end
+        end
+    end
+
+
+    -- add new menu item
+    -- if can't find Edit menu item add to the main menu itself
+    local parent = getMainForm().Edit3 or getMainForm().Menu.Items
+    local new_item = createMenuItem(parent)
+    new_item.Caption = '&Scroll to'
+    new_item.Shortcut = "Ctrl+F"
+    new_item.OnClick = function() _m:scroll_to_memrec(_m:find_memrec()) end
+    parent.add(new_item)
+
+    return _m
+end
+
+require("ce.scroll_to")
+
+-- Show text in a separate window.
+-- Examples:
+--   showText("Title", "Some text")
+--   showText([[Multiline text]])
+-- @param caption, String, optional title for the window
+-- @param text, String, text to show
+-- ametalon, 2020-07-17
+function showText(caption, text)
+    if not text then
+        text = caption
+        caption = ""
+    end
+    local f = createForm(false)
+    f.Name = 'ShowTextForm'
+    f.DoNotSaveInTable = true
+    f.AutoSize = true
+    f.BorderStyle = bsSizeable
+    local m = createMemo(f)
+    m.Name = 'TextMemo'
+    m.BorderStyle = bsNone
+    m.ReadOnly = true
+    m.ScrollBars = ssAutoBoth
+    m.Constraints.MinWidth = 400
+    m.Constraints.MinHeight = 400
+    m.Align = alClient
+    m.AnchorSideRight.Side = asrBottom
+    m.AnchorSideBottom.Side = asrBottom
+
+    f.Caption = caption
+    f.TextMemo.Lines.setText(text)
+    f.centerScreen()
+    f.show()
+    f.bringToFront()
+    return f
+end
+
+--[[END TGA helpers]]--
+
+enableRecord(1000, 0, true) -- enable Symbol Lookup Fix
+
+local asyncEnableTimer = createTimer(getMainForm())
+asyncEnableTimer.Interval = 100
+asyncEnableTimer.OnTimer = function()
+    local record = getAddressList().getMemoryRecordByID(1001)
+    if not record.Active then
+        enableRecord(1001, 100) -- enable CSCRIPT V2
+    else
+        asyncEnableTimer.destroy()
+        enableRecord(1002, 0, true) -- Run singleton finder
+        enableRecord(1003, 10) -- enable CParamUtils
+        enableRecord(251, 10) -- enable ParamUtils
+        enableRecord(300) -- enable Shared Functions
+    end
+end
+
+helperUpdateTimer = createTimer(getMainForm())
+helperUpdateTimer.Interval = 1000
+helperUpdateTimer.OnTimer = function(timer)
+    --checkSynchronize() -- if using synchronize()
+    if paramUtils ~= nil then
+        local paramTable = paramUtils['masterParamTable']
+        for param in pairs(paramTable) do
+            local paramHelperId = readInteger(param .. "Helper")
+            if paramHelperId ~= nil then
+                local paramHelperAddress = paramUtils:getIdAddressInParam(param, paramHelperId)
+                writePointer(param .. "Helper+8", paramHelperAddress)
+            end
+        end
+    else
+        enableRecord(251) -- ensure an instance of ParamUtils is enabled
+    end
+end
+
+if table_ver ~= nil then
+    tga:runOnce("open_faq", function() getAddressList().getMemoryRecordByDescription("Table Info (FAQ)").active = true; return true; end)
+end
+
+[DISABLE]
+disableRecord(251) -- disable ParamUtils
+disableRecord(300) -- disable Shared Functions
+--disableRecord(1003, 0, true) -- CParamUtils should NOT be disabled to avoid memory leaks.
+disableRecord(1002, 0, true) -- disable singleton finder
+disableRecord(1001, 0, true) -- disable CSCRIPT V2
+disableRecord(1000, 0, true) -- disable symbol lookup fix
+
+helperUpdateTimer.destroy()
+tgaUnregisterBases()

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337201742</ID>
+  <Description>"ItemID"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>item_menu+00</Address>
+  <x-ce2fs-child-order>
+    <id id="1337201743"/>
+    <id id="1337201744"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

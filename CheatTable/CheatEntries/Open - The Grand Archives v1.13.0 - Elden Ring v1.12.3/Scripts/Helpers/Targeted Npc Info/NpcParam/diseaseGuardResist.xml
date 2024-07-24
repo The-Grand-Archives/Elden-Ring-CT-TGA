@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337218361</ID>
+  <Description>"diseaseGuardResist"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+13F</Address>
+</CheatEntry>

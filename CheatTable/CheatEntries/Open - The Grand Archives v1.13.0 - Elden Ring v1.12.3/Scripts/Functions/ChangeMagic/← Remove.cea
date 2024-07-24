@@ -1,0 +1,9 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local slot = readInteger(changeMagic_data)
+if slot > 13 then slot = 0 end
+changeMagic(slot, -1)
+disableMemrec(memrec)
+
+[DISABLE]

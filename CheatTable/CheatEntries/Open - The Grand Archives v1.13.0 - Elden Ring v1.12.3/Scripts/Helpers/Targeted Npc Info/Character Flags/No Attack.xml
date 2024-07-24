@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337214606</ID>
+  <Description>"No Attack"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>530</Offset>
+  </Offsets>
+</CheatEntry>

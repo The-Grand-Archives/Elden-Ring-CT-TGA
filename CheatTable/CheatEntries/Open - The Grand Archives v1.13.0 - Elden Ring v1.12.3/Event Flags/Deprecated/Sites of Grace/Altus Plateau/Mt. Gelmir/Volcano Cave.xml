@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337208261</ID>
+  <Description>"Volcano Cave"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B48</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

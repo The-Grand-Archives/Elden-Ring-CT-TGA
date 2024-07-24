@@ -1,0 +1,69 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local sl = getMainSymbolList()
+local mExec = {}
+local mExecCnt = 0
+
+for i, m in ipairs(enumMemoryRegions()) do
+    if (m.Protect & 0x20) == 0x20 then -- PAGE_EXECUTE_READ
+        mExec[mExecCnt] = m
+        mExecCnt = mExecCnt + 1
+    end
+end
+
+-- Efficiently check if a page of memory is executable using binary search
+-- on the list of all executable pages
+function isExecutableMem(addr)
+    addr = addr & ~0x3FF -- Align to page size
+    local low = 0
+    local high = mExecCnt
+
+    while low+1 < high do
+        local mid = (low + high) >> 1
+        if mExec[mid].BaseAddress < addr then low = mid
+        elseif mExec[mid].BaseAddress > addr then high = mid
+        else low = mid; break; end
+    end
+    return addr < mExec[low].BaseAddress + mExec[low].RegionSize
+end
+
+function getSymbolUnderscoreFix(symbolStr)
+    local symbol = sl.getSymbolFromString(symbolStr)
+    if (symbol == nil and string.sub(symbolStr, 1, 1) == "_") then
+        symbol = sl.getSymbolFromString(string.sub(symbolStr, 2, string.len(symbolStr)))
+    elseif (symbol == nil) then
+        symbol = sl.getSymbolFromString("_" .. symbolStr)
+    end
+    return symbol
+end
+
+-- Override CE symbol lookup behavior to allow usage of the mingw
+-- headers already installed with it, and fix a weird symbol lookup bug
+-- where CE will not follow imports for some functions (ex: InitializeCriticalSection)
+function onSymbolLookup(symbolStr)
+    local symbol = getSymbolUnderscoreFix(symbolStr)
+    if (symbol == nil) then
+       return nil
+    end
+
+    -- Fix CE symbol lookup bug
+    while not isExecutableMem(symbol.address) do
+        local name = readString(symbol.address, 256)
+        symbol = sl.getSymbolFromString(name)
+        if symbol == nil then return nil end
+    end
+    return symbol.address
+end
+
+if (SymbolLookupCallbackId ~= nil) then
+    unregisterSymbolLookupCallback(SymbolLookupCallbackId)
+end
+SymbolLookupCallbackId = registerSymbolLookupCallback(onSymbolLookup, slNotModule)
+
+
+[DISABLE]
+if (SymbolLookupCallbackId ~= nil) then
+    unregisterSymbolLookupCallback(SymbolLookupCallbackId)
+end

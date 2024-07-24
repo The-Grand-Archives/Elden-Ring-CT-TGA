@@ -1,0 +1,18 @@
+<CheatEntry>
+  <ID>1337200817</ID>
+  <Description>"wepmotionOneHandId"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Light 1H
+1:Light 1H
+2:Heavy 1H
+3:Spear 1H
+10:Light 2H
+12:Heavy 2H
+13:Spear 2H
+14:Bow 2H
+15:Fist 2H
+16:Crossbow 2H
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+F0</Address>
+</CheatEntry>

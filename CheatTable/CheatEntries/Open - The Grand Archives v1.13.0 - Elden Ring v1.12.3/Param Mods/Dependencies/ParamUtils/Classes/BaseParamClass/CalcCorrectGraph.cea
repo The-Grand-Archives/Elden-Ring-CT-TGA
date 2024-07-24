@@ -1,0 +1,94 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+CalcCorrectGraph = BaseParamClass:new()
+
+function CalcCorrectGraph:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("CalcCorrectGraph", uuid, id, address)
+	return o
+end
+
+function CalcCorrectGraph:stageMaxVal0(value)
+    self:patchFloat(0x00,value)
+end
+
+function CalcCorrectGraph:stageMaxVal1(value)
+    self:patchFloat(0x04,value)
+end
+
+function CalcCorrectGraph:stageMaxVal2(value)
+    self:patchFloat(0x08,value)
+end
+
+function CalcCorrectGraph:stageMaxVal3(value)
+    self:patchFloat(0x0C,value)
+end
+
+function CalcCorrectGraph:stageMaxVal4(value)
+    self:patchFloat(0x10,value)
+end
+
+function CalcCorrectGraph:stageMaxGrowVal0(value)
+    self:patchFloat(0x14,value)
+end
+
+function CalcCorrectGraph:stageMaxGrowVal1(value)
+    self:patchFloat(0x18,value)
+end
+
+function CalcCorrectGraph:stageMaxGrowVal2(value)
+    self:patchFloat(0x1C,value)
+end
+
+function CalcCorrectGraph:stageMaxGrowVal3(value)
+    self:patchFloat(0x20,value)
+end
+
+function CalcCorrectGraph:stageMaxGrowVal4(value)
+    self:patchFloat(0x24,value)
+end
+
+function CalcCorrectGraph:adjPt_maxGrowVal0(value)
+    self:patchFloat(0x28,value)
+end
+
+function CalcCorrectGraph:adjPt_maxGrowVal1(value)
+    self:patchFloat(0x2C,value)
+end
+
+function CalcCorrectGraph:adjPt_maxGrowVal2(value)
+    self:patchFloat(0x30,value)
+end
+
+function CalcCorrectGraph:adjPt_maxGrowVal3(value)
+    self:patchFloat(0x34,value)
+end
+
+function CalcCorrectGraph:adjPt_maxGrowVal4(value)
+    self:patchFloat(0x38,value)
+end
+
+function CalcCorrectGraph:init_inclination_soul(value)
+    self:patchFloat(0x3C,value)
+end
+
+function CalcCorrectGraph:adjustment_value(value)
+    self:patchFloat(0x40,value)
+end
+
+function CalcCorrectGraph:boundry_inclination_soul(value)
+    self:patchFloat(0x44,value)
+end
+
+function CalcCorrectGraph:boundry_value(value)
+    self:patchFloat(0x48,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

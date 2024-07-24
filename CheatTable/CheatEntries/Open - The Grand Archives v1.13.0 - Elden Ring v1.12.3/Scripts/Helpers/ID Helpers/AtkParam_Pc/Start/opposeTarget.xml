@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337199377</ID>
+  <Description>"opposeTarget"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+81</Address>
+</CheatEntry>

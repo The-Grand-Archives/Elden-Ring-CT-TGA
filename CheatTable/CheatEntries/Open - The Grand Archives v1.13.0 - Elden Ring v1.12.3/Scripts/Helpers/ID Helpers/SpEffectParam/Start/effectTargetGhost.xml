@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337199047</ID>
+  <Description>"effectTargetGhost"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+015F</Address>
+</CheatEntry>

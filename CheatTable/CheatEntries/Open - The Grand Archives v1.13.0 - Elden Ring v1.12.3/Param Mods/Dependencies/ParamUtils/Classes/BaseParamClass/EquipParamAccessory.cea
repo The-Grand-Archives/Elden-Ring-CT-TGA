@@ -1,0 +1,117 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+
+EquipParamAccessory = BaseParamClass:new()
+
+function EquipParamAccessory:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("EquipParamAccessory", uuid, id, address)
+	return o
+end
+
+
+
+function EquipParamAccessory:refId(value)
+    self:patch4Byte(0x4, value)
+end
+
+function EquipParamAccessory:sfxVariationId(value)
+    self:patch4Byte(0x8, value)
+end
+
+function EquipParamAccessory:behaviorId(value)
+    self:patch4Byte(0x10, value)
+end
+
+function EquipParamAccessory:basicPrice(value)
+    self:patch4Byte(0x14, value)
+end
+
+function EquipParamAccessory:sellValue(value)
+    self:patch4Byte(0x18, value)
+end
+
+function EquipParamAccessory:trophySGradeId(value)
+    self:patch2Byte(0x2A, value)
+end
+
+function EquipParamAccessory:equipModelCategory(value)
+    self:patchByte(0x2E, value)
+end
+
+function EquipParamAccessory:accessoryCategory(value)
+    self:patchByte(0x30, value)
+end
+
+function EquipParamAccessory:refCategory(value)
+    self:patchByte(0x31, value)
+end
+
+function EquipParamAccessory:spEffectCategory(value)
+    self:patchByte(0x32, value)
+end
+
+function EquipParamAccessory:vagrantItemLotId(value)
+    self:patch4Byte(0x34, value)
+end
+
+function EquipParamAccessory:vagrantBonusEneDropItemLotId(value)
+    self:patch4Byte(0x38, value)
+end
+
+function EquipParamAccessory:vagrantItemEneDropItemLotId(value)
+    self:patch4Byte(0x3C, value)
+end
+
+function EquipParamAccessory:IsEquipOutBrake(value)
+    self:patchBinary(0x40, value, 1)
+end
+
+function EquipParamAccessory:disableMultiDropShare(value)
+    self:patchBinary(0x40, value, 2)
+end
+
+function EquipParamAccessory:IsDiscard(value)
+    self:patchBinary(0x40, value, 3)
+end
+
+function EquipParamAccessory:isDrop(value)
+    self:patchBinary(0x40, value, 4)
+end
+
+function EquipParamAccessory:Costvalue(value)
+    self:patch4Byte(0x44, value)
+end
+
+function EquipParamAccessory:RingCompatibilityId(value)
+    self:patch2Byte(0x48, value)
+end
+
+function EquipParamAccessory:vowType(value)
+    self:patchByte(0x4A, value)
+end
+
+function EquipParamAccessory:refId1(value)
+    self:patch4Byte(0x4C, value)
+end
+
+function EquipParamAccessory:refId2(value)
+    self:patch4Byte(0x50, value)
+end
+
+function EquipParamAccessory:refId3(value)
+    self:patch4Byte(0x54, value)
+end
+
+function EquipParamAccessory:refId4(value)
+    self:patch4Byte(0x58, value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

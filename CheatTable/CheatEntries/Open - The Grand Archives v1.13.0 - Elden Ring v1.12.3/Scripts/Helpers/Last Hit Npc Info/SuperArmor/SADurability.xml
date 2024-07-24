@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337213535</ID>
+  <Description>"SADurability  /"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>10</Offset>
+    <Offset>40</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

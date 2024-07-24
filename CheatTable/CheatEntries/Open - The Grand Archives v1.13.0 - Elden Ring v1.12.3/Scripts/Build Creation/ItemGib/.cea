@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+local memrec_item = getAddressList().getMemoryRecordByID(1337193277)
+local memrec_gem = getAddressList().getMemoryRecordByID(1337193281)
+[ENABLE]
+if ItemGive == nil then
+    getAddressList().getMemoryRecordByDescription("ItemGive_code").active = true
+    local e = "'ItemGive' symbol was not found.\nTry enabling this script again."
+    ShowMessage(e)
+    error(e, 2)
+end
+
+item_menu = ItemGive_data + 16
+writeInteger(item_menu +  0, 0x000F4240)
+writeInteger(item_menu +  4, 0x00000001)
+writeInteger(item_menu +  8, 0xFFFF0000)
+writeInteger(item_menu + 12, 0xFFFFFFFF)
+
+if isOwnDlc(1) then
+    memrec_item.DropDownLinkedMemrec = "ItemDropdownDLC"
+    memrec_gem.DropDownLinkedMemrec = "ItemGemDLC"
+else
+    memrec_item.DropDownLinkedMemrec = "ItemDropdown"
+    memrec_gem.DropDownLinkedMemrec = "ItemGem"
+end
+
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- ItemGive(table_or_id, quantity, reinforceLv, upgrade, gem)
+
+[DISABLE]
+memrec_item.DropDownLinkedMemrec = "ItemDropdown"
+memrec_gem.DropDownLinkedMemrec = "ItemGem"
+item_menu = nil

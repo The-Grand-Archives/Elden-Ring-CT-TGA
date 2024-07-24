@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337208132</ID>
+  <Description>"Inner Consecrated Snowfield"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>CF6</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

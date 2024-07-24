@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213137</ID>
+  <Description>"Decal_Color_r"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+DD</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

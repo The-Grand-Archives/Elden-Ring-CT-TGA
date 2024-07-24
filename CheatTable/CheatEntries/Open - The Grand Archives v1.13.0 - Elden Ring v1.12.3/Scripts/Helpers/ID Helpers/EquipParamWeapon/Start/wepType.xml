@@ -1,0 +1,55 @@
+<CheatEntry>
+  <ID>1337198236</ID>
+  <Description>"wepType"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Dagger
+3:Straight Sword
+5:Greatsword
+7:Ultra Greatsword
+9:Curved Sword
+11:Curved Greatsword
+13:Katana
+15:Thrusting Sword
+17:Axe
+19:Greataxe
+21:Hammer
+23:Great Hammer
+25:Spear
+27:Pike
+29:Halberd
+31:Reaper
+33:Fist [bare]
+35:Fist [weapon]
+37:Claw
+39:Whip
+51:Bow
+53:Greatbow
+55:Crossbow
+57:Staff
+59:Pyromancy Flame
+61:Talisman
+63:Sacred Chime
+65:Small Shield
+67:Shield
+69:Greatshield
+81:Arrow
+83:Greatarrow
+85:Bolt
+87:Torch
+101:Dagger (Paired)
+103:Sword (Paired)
+105:Ultra Greatsword (Unique)
+107:Curved Sword (Paired)
+109:Katana (Paired)
+111:Axe (Paired)
+113:Hammer (Paired)
+115:Spear (Paired)
+117:Special Straight Sword
+119:Special Thrusting Sword
+121:Reaper [paired]
+131:Greatshield (Paired)
+133:Ultra Greatsword (Paired)
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+1A6</Address>
+</CheatEntry>

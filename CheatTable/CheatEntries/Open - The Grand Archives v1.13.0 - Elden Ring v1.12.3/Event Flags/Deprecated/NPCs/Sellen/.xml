@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>1337253856</ID>
+  <Description>"Sellen"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1B0</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253857"/>
+    <id id="1337253858"/>
+    <id id="1337253859"/>
+    <id id="1337253860"/>
+    <id id="1337253861"/>
+    <id id="1337253862"/>
+    <id id="1337253863"/>
+    <id id="1337253864"/>
+    <id id="1337253865"/>
+    <id id="1337253866"/>
+    <id id="1337253867"/>
+    <id id="1337253868"/>
+    <id id="1337253869"/>
+    <id id="1337253870"/>
+    <id id="1337253871"/>
+    <id id="1337253872"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

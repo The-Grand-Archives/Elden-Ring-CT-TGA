@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337199517</ID>
+  <Description>"MaxMP"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>150</Offset>
+    <Offset>0</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

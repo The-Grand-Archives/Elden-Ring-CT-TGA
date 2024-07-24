@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337198671</ID>
+  <Description>"isWarpProhibited"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+6C</Address>
+</CheatEntry>

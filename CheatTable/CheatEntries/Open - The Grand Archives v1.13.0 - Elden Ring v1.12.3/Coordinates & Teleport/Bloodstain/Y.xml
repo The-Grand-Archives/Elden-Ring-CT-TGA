@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>413</ID>
+  <Description>"Y"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>8</Offset>
+    <Offset>48</Offset>
+  </Offsets>
+</CheatEntry>

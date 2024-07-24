@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>1337254162</ID>
+  <Description>"Rya"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1AC</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337254169"/>
+    <id id="1337254168"/>
+    <id id="1337254163"/>
+    <id id="1337254164"/>
+    <id id="1337254165"/>
+    <id id="1337254166"/>
+    <id id="1337254167"/>
+    <id id="1337254170"/>
+    <id id="1337254171"/>
+    <id id="1337254172"/>
+    <id id="1337254173"/>
+    <id id="1337254174"/>
+    <id id="1337254175"/>
+    <id id="1337254176"/>
+    <id id="1337254177"/>
+    <id id="1337254178"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

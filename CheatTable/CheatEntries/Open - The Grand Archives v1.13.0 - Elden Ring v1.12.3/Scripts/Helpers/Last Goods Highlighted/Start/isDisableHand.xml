@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337201167</ID>
+  <Description>"isDisableHand"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+49</Address>
+</CheatEntry>

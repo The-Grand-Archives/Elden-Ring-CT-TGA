@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337200930</ID>
+  <Description>"arrowBoltEquipId"</Description>
+  <DropDownList DisplayValueAsItem="1">63990000:Arrow Quiver
+67000000:Bolt Quiver
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+1A0</Address>
+</CheatEntry>

@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337096531</ID>
+  <Description>"Whether to cast the damage with large rotation angle in multiple times | 回転角が大きいダメージを複数回に分けてシェイプキャストするか"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:No
+1:Yes
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>DamageCtrl</Address>
+  <Offsets>
+    <Offset>A6</Offset>
+  </Offsets>
+</CheatEntry>

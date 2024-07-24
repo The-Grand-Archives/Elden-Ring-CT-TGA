@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337198865</ID>
+  <Description>"isAttackSFX"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9a</Address>
+</CheatEntry>

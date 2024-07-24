@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337079963</ID>
+  <Description>"Find Address"</Description>
+  <Options moHideChildren="1"/>
+  <Color>FF0000</Color>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="1337079964"/>
+    <id id="1337079968"/>
+    <id id="1337079966"/>
+    <id id="1337079965"/>
+    <id id="1337079967"/>
+    <id id="1337079976"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

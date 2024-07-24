@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337254107</ID>
+  <Description>"Purified Ruins"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>87E1A</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

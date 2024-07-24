@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337201054</ID>
+  <Description>"enable_gray"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+31</Address>
+</CheatEntry>

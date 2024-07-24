@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337198898</ID>
+  <Description>"isDisableHitSfx_byChrAndObj"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+C3</Address>
+</CheatEntry>

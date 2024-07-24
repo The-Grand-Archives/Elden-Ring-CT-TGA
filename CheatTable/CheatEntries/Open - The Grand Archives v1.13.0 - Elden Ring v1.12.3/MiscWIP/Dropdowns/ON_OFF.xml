@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1337213453</ID>
+  <Description>"ON_OFF"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
+1:On
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

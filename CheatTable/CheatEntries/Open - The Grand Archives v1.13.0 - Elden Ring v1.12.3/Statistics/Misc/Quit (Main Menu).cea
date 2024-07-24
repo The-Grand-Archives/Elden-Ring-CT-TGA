@@ -1,0 +1,6 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+writeByte("[GameMan]+10",1)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337272939</ID>
+  <Description>"Item"</Description>
+  <DropDownListLink>ItemDropdown</DropDownListLink>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>RemoveItem_data+4</Address>
+  <x-ce2fs-child-order>
+    <id id="1337272940"/>
+    <id id="1337272941"/>
+    <id id="1337272942"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

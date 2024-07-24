@@ -1,0 +1,107 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+local cfgForm = {ctrl}
+function cfgForm:new()
+  o = {
+    ctrl = {}
+  }
+  setmetatable(o, self)
+  self.__index = self
+  return o
+end
+
+function cfgForm:create(typ, parent, properties, customName)
+  parent = self.ctrl[parent]
+  local control = createComponentClass(typ, parent)
+  control.Parent = parent
+  self:initialize(control, properties)
+  control['x'] = control.Left + control.Width
+  control['y'] = control.Top + control.Height
+  local name = customName or properties.Caption
+  name = string.gsub(name, "%s", "")
+  self.ctrl[name] = control
+end
+
+function cfgForm:initialize(control, properties)
+  if(type(control) == 'string') then control = self.ctrl[control] end
+  for propertyName, property in pairs(properties) do
+    if (type(property) == 'table') then
+      for subPropertyName, subProperty in pairs(property) do
+        control[propertyName][subPropertyName] = subProperty
+      end
+    else
+    control[propertyName] = property
+    end
+  end
+end
+
+function cfgForm:initDefaultForm(formName)
+  self.ctrl[formName].BorderStyle = bsDialog
+  self.ctrl[formName].show()
+  self.ctrl[formName].centerScreen()
+  self.ctrl[formName].BorderStyle = bsDialog
+  self.ctrl[formName].OnClose = function (sender)
+    return caFree
+  end
+end
+
+function cfgForm:fixSize(parentName, x, y)
+  x = x or 0
+  y = y or 0
+  local parent = self.ctrl[parentName]
+  local width, height = 0,0
+  local tempWidth, tempHeight
+  for i = 0, parent.ComponentCount - 1 do
+    tempWidth = parent.Component[i].Left +  parent.Component[i].Width
+    if (tempWidth > width) then
+        width = tempWidth
+    end
+    tempHeight =  parent.Component[i].Top +  parent.Component[i].Height
+    if (tempHeight > height) then
+       height = tempHeight
+    end
+  end
+  parent.Width = width + x
+  parent.x = parent.Width + parent.Left
+  parent.Height = height + y
+  parent.y = parent.Height + parent.Top
+end
+
+local win = cfgForm:new()
+
+local function configure()
+  local checkBoxes = win.ctrl
+  local config = tga.config
+  for i,v in pairs(config) do
+		local desc = tga.configdesc[i]
+		config[i] = checkBoxes[desc:gsub("%s+", "")].Checked
+  end
+  tga:saveConfig()
+  win.ctrl.ConfigureTable.close()
+end
+
+local function createWindow()
+  local formName = 'ConfigureTable'
+  win:create('TCEForm', nil, {Caption = 'Configure Table'}, formName)
+  win:initDefaultForm(formName)
+
+  win:create('TLabel', formName, {Caption = '', Left = 15})
+  win:create('TScrollBox', formName, {Caption = 'test', Width = 300, Height = 110, Left = 10, Top = 15 })
+  for i,v in pairs(tga.config) do
+  	if type(v) == "boolean" then
+    	win:create('TCheckBox', 'test', {Caption = tga.configdesc[i], Checked = v})
+    end
+  end
+  win:initialize('test',{ChildSizing = {Layout = 'cclLeftToRightThenTopToBottom', EnlargeHorizontal = 'crsScaleChilds', LeftRightSpacing = 5}})
+
+  win:fixSize(formName, 10, 60)
+  win:create('TButton', formName, {Caption = 'OK', Width = win.ctrl[formName].Width - 20, Height = 40, Left = 10, Top = win.ctrl[formName].Height - 50})
+  win.ctrl['OK'].onClick = configure
+end
+
+createWindow()
+disableMemrec(memrec)
+
+[DISABLE]

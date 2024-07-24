@@ -1,0 +1,428 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START Magic class]]--
+Magic = BaseParamClass:new()
+
+function Magic:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("Magic", uuid, id, address)
+	return o
+end
+
+function Magic:YesNoDialogMessageId(value)
+	self:patchByte(0x0, value)
+end
+
+function Magic:LimitCancelSpEffectId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function Magic:SortId(value)
+	self:patch2Byte(0x8, value)
+end
+
+function Magic:RefId(value)
+	self:patch2Byte(0xA, value)
+end
+
+function Magic:Mp(value)
+	self:patch2Byte(0xC, value)
+end
+
+function Magic:Stamina(value)
+	self:patch2Byte(0xE, value)
+end
+
+function Magic:IconId(value)
+	self:patch2Byte(0x10, value)
+end
+
+function Magic:BehaviorId(value)
+	self:patch2Byte(0x12, value)
+end
+
+function Magic:MtrlItemId(value)
+	self:patch2Byte(0x14, value)
+end
+
+function Magic:ReplaceMagicId(value)
+	self:patch2Byte(0x16, value)
+end
+
+function Magic:MaxQuantity(value)
+	self:patch2Byte(0x18, value)
+end
+
+function Magic:Humanity(value)
+	self:patchByte(0x1A, value)
+end
+
+function Magic:OverDexterity(value)
+	self:patchByte(0x1B, value)
+end
+
+function Magic:SfxVariationId(value)
+	self:patchByte(0x1C, value)
+end
+
+function Magic:SlotLength(value)
+	self:patchByte(0x1D, value)
+end
+
+function Magic:RequirementIntellect(value)
+	self:patchByte(0x1E, value)
+end
+
+function Magic:RequirementFaith(value)
+	self:patchByte(0x1F, value)
+end
+
+function Magic:AnalogDexiterityMin(value)
+	self:patchByte(0x20, value)
+end
+
+function Magic:AnalogDexiterityMax(value)
+	self:patchByte(0x21, value)
+end
+
+function Magic:EzStateBehaviorType(value)
+	self:patchByte(0x22, value)
+end
+
+function Magic:RefCategory(value)
+	self:patchByte(0x23, value)
+end
+
+function Magic:SpEffectCategory(value)
+	self:patchByte(0x24, value)
+end
+
+function Magic:RefType(value)
+	self:patchByte(0x25, value)
+end
+
+function Magic:OpmeMenuType(value)
+	self:patchByte(0x26, value)
+end
+
+function Magic:HasSpEffectType(value)
+	self:patchByte(0x27, value)
+end
+
+function Magic:ReplaceCategory(value)
+	self:patchByte(0x28, value)
+end
+
+function Magic:UseLimitCategory(value)
+	self:patchByte(0x29, value)
+end
+
+function Magic:DisableOffline(value)
+	self:patchBinary(0x2A, value, 0)
+end
+
+function Magic:CastResonanceMagic(value)
+	self:patchBinary(0x2A, value, 1)
+end
+
+function Magic:VowType0(value)
+	self:patchBinary(0x2C, value, 0)
+end
+
+function Magic:VowType1(value)
+	self:patchBinary(0x2C, value, 1)
+end
+
+function Magic:VowType2(value)
+	self:patchBinary(0x2C, value, 2)
+end
+
+function Magic:VowType3(value)
+	self:patchBinary(0x2C, value, 3)
+end
+
+function Magic:VowType4(value)
+	self:patchBinary(0x2C, value, 4)
+end
+
+function Magic:VowType5(value)
+	self:patchBinary(0x2C, value, 5)
+end
+
+function Magic:VowType6(value)
+	self:patchBinary(0x2C, value, 6)
+end
+
+function Magic:VowType7(value)
+	self:patchBinary(0x2C, value, 7)
+end
+
+function Magic:Enable_multi(value)
+	self:patchBinary(0x2D, value, 0)
+end
+
+function Magic:Enable_multi_only(value)
+	self:patchBinary(0x2D, value, 1)
+end
+
+function Magic:IsEnchant(value)
+	self:patchBinary(0x2D, value, 2)
+end
+
+function Magic:IsShieldEnchant(value)
+	self:patchBinary(0x2D, value, 3)
+end
+
+function Magic:Enable_live(value)
+	self:patchBinary(0x2D, value, 4)
+end
+
+function Magic:Enable_gray(value)
+	self:patchBinary(0x2D, value, 5)
+end
+
+function Magic:Enable_white(value)
+	self:patchBinary(0x2D, value, 6)
+end
+
+function Magic:Enable_black(value)
+	self:patchBinary(0x2D, value, 7)
+end
+
+function Magic:VowType8(value)
+	self:patchBinary(0x2F, value, 0)
+end
+
+function Magic:VowType9(value)
+	self:patchBinary(0x2F, value, 1)
+end
+
+function Magic:VowType10(value)
+	self:patchBinary(0x2F, value, 2)
+end
+
+function Magic:VowType11(value)
+	self:patchBinary(0x2F, value, 3)
+end
+
+function Magic:VowType12(value)
+	self:patchBinary(0x2F, value, 4)
+end
+
+function Magic:VowType13(value)
+	self:patchBinary(0x2F, value, 5)
+end
+
+function Magic:VowType14(value)
+	self:patchBinary(0x2F, value, 6)
+end
+
+function Magic:VowType15(value)
+	self:patchBinary(0x2F, value, 7)
+end
+
+-- insert 2E-2F
+
+function Magic:sfxID1(value)
+	self:patch4Byte(0x30, value)
+end
+
+function Magic:sfxID2(value)
+	self:patch4Byte(0x34, value)
+end
+
+function Magic:sfxID3(value)
+	self:patch4Byte(0x38, value)
+end
+
+-- insert 3C-40
+
+--Faith Breakpoints
+function Magic:FaithBreakpoint20(value)
+	self:patchByte(0x41, value)
+end
+
+function Magic:FaithBreakpoint30(value)
+	self:patchByte(0x42, value)
+end
+
+function Magic:FaithBreakpoint40(value)
+	self:patchByte(0x43, value)
+end
+
+function Magic:FaithBreakpoint60(value)
+	self:patchByte(0x44, value)
+end
+
+function Magic:useBullet2(value)
+	self:patchByte(0x45, value)
+end
+
+--Spell cast at X Faith
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x48, value)
+end
+
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x4C, value)
+end
+
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x50, value)
+end
+
+function Magic:Spellcastat20Faith(value)
+	self:patch4Byte(0x54, value)
+end
+
+function Magic:useBullet3(value)
+	self:patchByte(0x5D, value)
+end
+
+-- Bullets
+function Magic:Bullet1(value)
+	self:patch4Byte(0x64, value)
+end
+
+function Magic:Bullet2(value)
+	self:patch4Byte(0x68, value)
+end
+
+function Magic:Bullet3(value)
+	self:patch4Byte(0x6C, value)
+end
+
+function Magic:Bullet4(value)
+	self:patch4Byte(0x70, value)
+end
+
+
+-- Compatibility with old names
+function Magic:YesNoDialogBox(value)
+	self:patchByte(0x0, value)
+end
+
+function Magic:LimitCancelSpEffectID(value)
+	self:patch4Byte(0x4, value)
+end
+
+function Magic:SortID(value)
+	self:patch2Byte(0x8, value)
+end
+
+function Magic:ReferenceID(value)
+	self:patch2Byte(0xA, value)
+end
+
+function Magic:FPCost(value)
+	self:patch2Byte(0xC, value)
+end
+
+function Magic:StaminaCost(value)
+	self:patch2Byte(0xE, value)
+end
+
+function Magic:IconID(value)
+	self:patch2Byte(0x10, value)
+end
+
+function Magic:BehaviorID(value)
+	self:patch2Byte(0x12, value)
+end
+
+function Magic:MaterialItemID(value)
+	self:patch2Byte(0x14, value)
+end
+
+function Magic:ReplaceMagicID(value)
+	self:patch2Byte(0x16, value)
+end
+
+function Magic:NumberofCasts(value)
+	self:patch2Byte(0x18, value)
+end
+
+function Magic:SFXVariation(value)
+	self:patchByte(0x1C, value)
+end
+
+function Magic:SlotsUsed(value)
+	self:patchByte(0x1D, value)
+end
+
+function Magic:RequiredINT(value)
+	self:patchByte(0x1E, value)
+end
+
+function Magic:RequiredFAI(value)
+	self:patchByte(0x1F, value)
+end
+
+function Magic:DexterityMinimumCastSpeedScaling(value)
+	self:patchByte(0x20, value)
+end
+
+function Magic:DexterityMaximumCastSpeedScaling(value)
+	self:patchByte(0x21, value)
+end
+
+function Magic:ReferenceCategory(value)
+	self:patchByte(0x23, value)
+end
+
+function Magic:CastAnimation(value)
+	self:patchByte(0x25, value)
+end
+
+function Magic:MenuType(value)
+	self:patchByte(0x26, value)
+end
+
+function Magic:EnableMulti(value)
+	self:patchBinary(0x2D, value, 0)
+end
+
+function Magic:EnableMultOnly(value)
+	self:patchBinary(0x2D, value, 1)
+end
+
+function Magic:IsWeaponEnchant(value)
+	self:patchBinary(0x2D, value, 2)
+end
+
+function Magic:EnableHuman(value)
+	self:patchBinary(0x2D, value, 4)
+end
+
+function Magic:EnableDragonPhantom(value)
+	self:patchBinary(0x2D, value, 5)
+end
+
+function Magic:EnableWhitePhantom(value)
+	self:patchBinary(0x2D, value, 6)
+end
+
+function Magic:EnableBlackPhantom(value)
+	self:patchBinary(0x2D, value, 7)
+end
+
+--Compatibility stuff
+function Magic:FPcost(value)
+	self:patch2Byte(0xC, value)
+end
+
+function Magic:StaminaCost(value)
+	self:patch2Byte(0xE, value)
+end
+
+--[[END Magic class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>1337253767</ID>
+  <Description>"Gideon"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1EF</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253768"/>
+    <id id="1337253769"/>
+    <id id="1337253770"/>
+    <id id="1337253919"/>
+    <id id="1337253920"/>
+    <id id="1337253921"/>
+    <id id="1337253922"/>
+    <id id="1337253923"/>
+    <id id="1337253924"/>
+    <id id="1337253925"/>
+    <id id="1337253926"/>
+    <id id="1337253927"/>
+    <id id="1337253928"/>
+    <id id="1337253929"/>
+    <id id="1337253930"/>
+    <id id="1337253931"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

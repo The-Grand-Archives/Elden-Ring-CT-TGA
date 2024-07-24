@@ -1,0 +1,22 @@
+<CheatEntry>
+  <ID>1337259132</ID>
+  <Description>"Advanced Settings"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337259142"/>
+    <id id="1337259143"/>
+    <id id="1337259144"/>
+    <id id="1337259145"/>
+    <id id="1337259146"/>
+    <id id="1337259147"/>
+    <id id="1337259148"/>
+    <id id="1337259149"/>
+    <id id="1337259153"/>
+    <id id="1337259150"/>
+    <id id="1337259151"/>
+    <id id="1337259152"/>
+    <id id="1337259155"/>
+    <id id="1337259156"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337099155</ID>
+  <Description>"Whether auto lock change is effective | オートロック変更が有効か"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2991</Offset>
+  </Offsets>
+</CheatEntry>

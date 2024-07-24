@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337254008</ID>
+  <Description>"Liftside Chamber door"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>151C15</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,20 @@
+<CheatEntry>
+  <ID>1337212459</ID>
+  <Description>"GraphicsCommonParam"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>58</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>2878</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="3613"/>
+    <id id="1337212444"/>
+    <id id="3614"/>
+    <id id="1337212445"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

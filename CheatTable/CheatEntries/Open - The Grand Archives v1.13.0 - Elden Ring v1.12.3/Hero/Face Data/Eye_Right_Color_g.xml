@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213147</ID>
+  <Description>"Eye_Right_Color_g"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+E7</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

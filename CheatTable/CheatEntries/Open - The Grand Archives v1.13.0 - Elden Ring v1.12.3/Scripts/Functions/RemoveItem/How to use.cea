@@ -1,0 +1,17 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+showText("How to RemoveItem",[[
+For Inventory Idx:
+  1. Go into Hero -> EquipInventoryData
+  2. Either navigate the inventory using the scripts at the start,
+     change Idx directly, or use the "Print ..." scripts to
+     find idx (inventory slot) of your item
+  3. Change Inventory Idx under RemoveItem to the idx you found
+  4. Enable "> Remove by Inventory Idx" script
+
+Alternatively you can choose an Item from the Item dropdown
+and select "> Remove by Item ID"
+]])
+disableMemrec(memrec)
+[DISABLE]

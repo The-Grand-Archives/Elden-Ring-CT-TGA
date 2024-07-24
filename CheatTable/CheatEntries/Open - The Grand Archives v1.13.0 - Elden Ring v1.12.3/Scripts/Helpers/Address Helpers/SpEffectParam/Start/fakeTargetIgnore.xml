@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337214906</ID>
+  <Description>"fakeTargetIgnore"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0162</Address>
+</CheatEntry>

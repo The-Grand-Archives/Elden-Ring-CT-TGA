@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213419</ID>
+  <Description>"dummy8 reserved2_canMountWep"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>3</ByteLength>
+  <Address>+3D</Address>
+</CheatEntry>

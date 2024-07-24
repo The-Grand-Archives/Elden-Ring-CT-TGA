@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337099161</ID>
+  <Description>"Is it effective to test that hits that the camera does not hit also locks | カメラの当たらないヒットにロックも当たらないテストが有効か"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2995</Offset>
+  </Offsets>
+</CheatEntry>

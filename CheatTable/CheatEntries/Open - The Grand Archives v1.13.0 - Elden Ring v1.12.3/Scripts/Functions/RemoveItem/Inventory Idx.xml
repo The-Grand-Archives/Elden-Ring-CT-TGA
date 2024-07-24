@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337273257</ID>
+  <Description>"Inventory Idx"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>RemoveItem_data</Address>
+</CheatEntry>

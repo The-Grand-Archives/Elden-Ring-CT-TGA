@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>1337213591</ID>
+  <Description>"Rennala, Queen of the Full Moon [Academy of Raya Lucaria]"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>158146</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337213595"/>
+    <id id="1337213598"/>
+    <id id="1337213599"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

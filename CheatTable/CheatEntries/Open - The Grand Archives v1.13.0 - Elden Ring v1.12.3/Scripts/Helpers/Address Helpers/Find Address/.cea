@@ -1,0 +1,18 @@
+[ENABLE]
+aobscanmodule(SpEffect,$process,F3 0F59 71 08)
+registersymbol(SpEffect)
+
+aobscanmodule(Bullet,$process,8B 18 45 85 F6)
+registersymbol(Bullet)
+
+aobscanmodule(Attack,$process,0FB6 41 72 EB 0F)
+registersymbol(Attack)
+
+aobscanmodule(Throw,$process,8B 40 24 C3 C3)
+registersymbol(Throw)
+
+[DISABLE]
+unregistersymbol(SpEffect)
+unregistersymbol(Bullet)
+unregistersymbol(Attack)
+unregistersymbol(Throw)

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337218431</ID>
+  <Description>"isSoulGetByBoss"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+15D</Address>
+</CheatEntry>

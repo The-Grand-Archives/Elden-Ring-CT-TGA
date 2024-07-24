@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>1337253777</ID>
+  <Description>"Kenneth Haight"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1BF</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253778"/>
+    <id id="1337253779"/>
+    <id id="1337253780"/>
+    <id id="1337253781"/>
+    <id id="1337253782"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

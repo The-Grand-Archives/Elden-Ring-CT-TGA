@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337258941</ID>
+  <Description>"Load Save Slot"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>B78</Offset>
+  </Offsets>
+</CheatEntry>

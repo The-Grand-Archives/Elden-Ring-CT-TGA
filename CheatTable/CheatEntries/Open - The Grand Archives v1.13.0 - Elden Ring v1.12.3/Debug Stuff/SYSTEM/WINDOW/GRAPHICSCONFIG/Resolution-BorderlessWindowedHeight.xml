@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337218184</ID>
+  <Description>"Resolution-BorderlessWindowedHeight"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>E0</Offset>
+  </Offsets>
+</CheatEntry>

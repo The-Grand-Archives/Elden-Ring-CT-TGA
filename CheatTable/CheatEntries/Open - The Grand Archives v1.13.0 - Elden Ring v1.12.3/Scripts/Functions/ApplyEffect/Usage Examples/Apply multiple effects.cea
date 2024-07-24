@@ -1,0 +1,15 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local ids = {
+    3160,  -- fire grease (rght hand)
+    3162,  -- fire grease (left hand)
+    3950   -- exalted flesh
+}
+
+for _,id in pairs(ids) do
+    SpEffect_add(id)
+end
+
+disableMemrec(memrec)
+[DISABLE]

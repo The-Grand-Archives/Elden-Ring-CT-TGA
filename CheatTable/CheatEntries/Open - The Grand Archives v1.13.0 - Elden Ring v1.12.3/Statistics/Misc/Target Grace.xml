@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337018650</ID>
+  <Description>"Target Grace"</Description>
+  <DropDownListLink>BonfireId</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>B6C</Offset>
+  </Offsets>
+</CheatEntry>

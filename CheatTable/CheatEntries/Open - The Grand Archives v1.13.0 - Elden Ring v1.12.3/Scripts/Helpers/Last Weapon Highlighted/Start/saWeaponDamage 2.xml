@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337200797</ID>
+  <Description>"saWeaponDamage"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+D2</Address>
+</CheatEntry>

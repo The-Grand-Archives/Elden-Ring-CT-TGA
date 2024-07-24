@@ -1,0 +1,32 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+warp_data = allocateMemory(100, getAddress(process))
+writeInteger(warp_data,1042362951)
+
+local LuaWarp_01 = AOBScanModuleUnique(process,"C3 ?? ?? ???????? 57 48 83 EC ?? 48 8B FA 44")+2
+function lua_warp(warpId)
+	local function isDlcBonfire(warpId, dlc)
+		if dlc == 1 then
+			if (warpId >= 20001950 and warpId <= 43011951) or (warpId >= 2045411950 and warpId <= 2051481951) then
+				return true
+			end
+		end
+		return false
+	end
+
+	local CSLuaEventManager = readPointer("CSLuaEventManager")
+	local CSLuaEventProxy = readPointer(CSLuaEventManager+0x08)
+	local CSLuaEventScriptImitation = readPointer(CSLuaEventManager+0x18)
+
+	if isDlcBonfire(warpId, 1) and not isOwnDlc(1) then missingDlc(1) end
+
+	return executeCodeEx(0, 100, LuaWarp_01, CSLuaEventScriptImitation, CSLuaEventProxy, warpId-1000)
+end
+Warp = lua_warp
+
+[DISABLE]
+deAlloc(warp_data)
+warp_data = nil
+lua_warp = nil
+Warp = nil

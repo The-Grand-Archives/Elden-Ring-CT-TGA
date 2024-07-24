@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337215313</ID>
+  <Description>"dummy8 pad2"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>4</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+018A</Address>
+</CheatEntry>

@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337272935</ID>
+  <Description>"ChangeMagic"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="1337272842"/>
+    <id id="1337272936"/>
+    <id id="1337272843"/>
+    <id id="1337272844"/>
+    <id id="1337272847"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

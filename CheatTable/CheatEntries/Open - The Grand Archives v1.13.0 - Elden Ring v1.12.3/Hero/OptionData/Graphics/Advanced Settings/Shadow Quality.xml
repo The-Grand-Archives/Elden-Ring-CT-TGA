@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337259147</ID>
+  <Description>"Shadow Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>104</Offset>
+  </Offsets>
+</CheatEntry>

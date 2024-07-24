@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1835</ID>
+  <Description>"reinforceLv"</Description>
+  <DropDownListLink>ItemReinforceLv</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+8</Address>
+</CheatEntry>

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337214531</ID>
+  <Description>"ID:28 &lt; Magma Wyrm Makar"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*1C</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

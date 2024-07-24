@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337271222</ID>
+  <Description>"Length played [seconds]"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>24</Offset>
+    <Offset>18</Offset>
+    <Offset>190</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

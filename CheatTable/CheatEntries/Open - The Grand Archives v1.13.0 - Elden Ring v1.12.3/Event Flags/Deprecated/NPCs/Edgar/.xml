@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>1337253899</ID>
+  <Description>"Edgar"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1A9</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253907"/>
+    <id id="1337253906"/>
+    <id id="1337253904"/>
+    <id id="1337253902"/>
+    <id id="1337253901"/>
+    <id id="1337253900"/>
+    <id id="1337253915"/>
+    <id id="1337253914"/>
+    <id id="1337253903"/>
+    <id id="1337253905"/>
+    <id id="1337253908"/>
+    <id id="1337253909"/>
+    <id id="1337253910"/>
+    <id id="1337253911"/>
+    <id id="1337253912"/>
+    <id id="1337253913"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

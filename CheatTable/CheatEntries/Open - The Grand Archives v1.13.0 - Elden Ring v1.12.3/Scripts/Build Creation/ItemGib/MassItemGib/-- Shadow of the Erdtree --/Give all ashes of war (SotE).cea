@@ -1,0 +1,34 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x80030D40, 1, 0, 0, -1 }, -- Ash of War: Dryleaf Whirlwind
+  { 0x80030DA4, 1, 0, 0, -1 }, -- Ash of War: Aspects of the Crucible: Wings
+  { 0x80061A80, 1, 0, 0, -1 }, -- Ash of War: Spinning Gravity Thrust
+  { 0x80061E68, 1, 0, 0, -1 }, -- Ash of War: Palm Blast
+  { 0x80062250, 1, 0, 0, -1 }, -- Ash of War: Piercing Throw
+  { 0x80062638, 1, 0, 0, -1 }, -- Ash of War: Scattershot Throw
+  { 0x80062A20, 1, 0, 0, -1 }, -- Ash of War: Wall of Sparks
+  { 0x80062E08, 1, 0, 0, -1 }, -- Ash of War: Rolling Sparks
+  { 0x800631F0, 1, 0, 0, -1 }, -- Ash of War: Raging Beast
+  { 0x800635D8, 1, 0, 0, -1 }, -- Ash of War: Savage Claws
+  { 0x80063DA8, 1, 0, 0, -1 }, -- Ash of War: Blind Spot
+  { 0x80064190, 1, 0, 0, -1 }, -- Ash of War: Swift Slash
+  { 0x80064578, 1, 0, 0, -1 }, -- Ash of War: Overhead Stance
+  { 0x80064960, 1, 0, 0, -1 }, -- Ash of War: Wing Stance
+  { 0x80064D48, 1, 0, 0, -1 }, -- Ash of War: Blinkbolt
+  { 0x80065130, 1, 0, 0, -1 }, -- Ash of War: Flame Skewer
+  { 0x80065518, 1, 0, 0, -1 }, -- Ash of War: Savage Lion's Claw
+  { 0x80065900, 1, 0, 0, -1 }, -- Ash of War: Divine Beast Frost Stomp
+  { 0x80065CE8, 1, 0, 0, -1 }, -- Ash of War: Flame Spear
+  { 0x800660D0, 1, 0, 0, -1 }, -- Ash of War: Carian Sovereignty
+  { 0x800664B8, 1, 0, 0, -1 }, -- Ash of War: Shriek of Sorrow
+  { 0x80067070, 1, 0, 0, -1 }, -- Ash of War: Ghostflame Call
+  { 0x8007B4A8, 1, 0, 0, -1 }, -- Ash of War: The Poison Flower Blooms Twice
+  { 0x80085CA0, 1, 0, 0, -1 }, -- Ash of War: Igon's Drake Hunt
+  { 0x800C3500, 1, 0, 0, -1 }, -- Ash of War: Shield Strike
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

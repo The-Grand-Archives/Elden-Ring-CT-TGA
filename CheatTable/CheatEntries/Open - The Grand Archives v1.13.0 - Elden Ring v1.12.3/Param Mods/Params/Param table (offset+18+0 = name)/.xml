@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337192871</ID>
+  <Description>"Param table (offset+18+0 = name)"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <VariableType>8 Bytes</VariableType>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337192872"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

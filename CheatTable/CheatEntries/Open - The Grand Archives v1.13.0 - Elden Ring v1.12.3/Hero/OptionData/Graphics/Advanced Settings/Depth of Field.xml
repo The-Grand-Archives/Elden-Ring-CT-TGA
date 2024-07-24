@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337259145</ID>
+  <Description>"Depth of Field"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>FC</Offset>
+  </Offsets>
+</CheatEntry>

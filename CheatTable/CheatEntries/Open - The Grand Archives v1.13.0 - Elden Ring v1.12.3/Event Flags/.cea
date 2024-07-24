@@ -1,0 +1,1327 @@
+//authors: sfix and Dasaav
+[ENABLE]
+alloc(ef.flags_code,$400,$process)
+alloc(ef.flag_data,8,$process)
+
+aobscanmodule(ef.set_call,$process,?? ?? ?? ?? ?? 44 8B 49 ?? 44 8B D2 33 D2 41 8B C2 41 F7 F1)
+aobscanmodule(ef.get_call,$process,?? ?? ?? ?? ?? 8B DA 33 D2 41 8B C3 41 F7 F0)
+
+ef.flag_data:
+registersymbol(ef.flag_data)
+dd #71190
+dd 0
+dd 0
+
+ef.flags_code:
+
+label(ef.set_flag)
+registersymbol(ef.set_flag)
+ef.set_flag:
+sub rsp,48
+test cl,cl
+mov rcx,[CSFD4VirtualMemoryFlag]
+jne sf_call
+mov edx,[ef.flag_data]
+mov r8l,[ef.flag_data+04]
+sf_call:
+call ef.set_call
+add rsp,48
+ret
+
+label(ef.get_flag)
+registersymbol(ef.get_flag)
+ef.get_flag:
+push rbx
+sub rsp,48
+mov bl,cl
+test cl,cl
+mov rcx,[CSFD4VirtualMemoryFlag]
+jne gf_call
+mov edx,[ef.flag_data]
+gf_call:
+call ef.get_call
+test bl,bl
+jne gf_skip
+mov [ef.flag_data+04],eax
+gf_skip:
+add rsp,48
+pop rbx
+ret
+
+{$lua}
+if syntaxcheck then return end
+ef = ef or {}
+
+-- Sets a flag by ID to the specified state
+-- state can be binary or boolean
+-- Examples:
+-- ef.setFlag(62000, 1)
+-- ef.setFlag(62000, false)
+-- for more examples check Event Flags &gt; Event Flags by ID &gt; Examples
+-- @param id | signed int32, positive
+-- @param state | 0/1 or false/true
+function ef.setFlag(id, state)
+  assert(type(id) == "number" and id > 0 and id < 0x80000000, "ef.setFlag: bad argument")
+  id = math.floor(id)
+  state = state and state ~= 0 and 1 or 0
+  executeCodeEx(0, -1, "ef.set_flag", 1, id, state)
+end
+
+-- Returns the state of a flag by ID
+-- the return value type can be specified to be boolean
+-- Examples:
+-- print(ef.getFlag(62000))
+-- if ef.getFlag(62000, "boolean") then print("flag is set") end
+-- for more examples check Event Flags &gt; Event Flags by ID &gt; Examples
+-- @param id | signed int32, positive
+-- @param returnType | optional string | "boolean" to return boolean value
+function ef.getFlag(id, returnType)
+  assert(type(id) == "number" and id > 0 and id < 0x80000000, "ef.setFlag: bad argument")
+  id = math.floor(id)
+  returnType = returnType ~= "boolean"
+  local r = executeCodeEx(0, -1, "ef.get_flag", 1, id)&1
+  return returnType and r or r == 1 or false
+end
+
+-- Sets the flag IDs from tables in the flagTable table to the specified state
+-- Examples:
+-- ef.batchSetFlags({{62000, 62001, 62002, 62003}, {63000, 63001}}, 1, thread1)
+-- ef.batchSetFlags({bossDeathFlags}, true, thread2)
+-- @param flagTable | table | table of tables with signed int32, positive entries
+-- @param state | 0/1 or false/true
+-- @param threadName | string
+function ef.batchSetFlags(flagTable, state, threadName)
+	state = state and state ~= 0 and 1 or 0
+	threadName = threadName or "thread"
+  ef[threadName] = true
+  local thread = createThread(function()
+	  local results = {}
+    local total = 0
+	  for i,v in ipairs(flagTable) do
+		  if not ef[threadName] then break end
+  	  n = #v
+      table.insert(results, n)
+      local p1, p2, count = 0, 0
+      local t = os.clock()
+      for i,v in ipairs(v) do
+		    if not ef[threadName] then break end
+  			assert(type(v) == "number" and v > 0 and v < 0x80000000, "ef.setFlag: bad argument")
+        ef.setFlag(v, state)
+        p1 = i*100//n
+        if p1 ~= p2 and tga.config.printProgress then print(p1.."% "..(os.clock() - t)*100//1/100) p2 = p1 end
+      end
+	  end
+    for i,v in ipairs(results) do total = total + v end
+    if tga.config.printProgress then print(string.format("Set %s flags!", total)) end
+	  ef[threadName] = false
+  end)
+end
+
+ef.categories = {
+[[]],
+[[71190:Table of Lost Grace / Roundtable Hold
+76101:Limgrave - Limgrave - The First Step
+76100:Limgrave - Limgrave - Church of Elleh
+76111:Limgrave - Limgrave - Gatefront
+76120:Limgrave - Limgrave - Waypoint Ruins Cellar
+76103:Limgrave - Limgrave - Artist's Shack (Limgrave)
+76104:Limgrave - Limgrave - Third Church of Marika
+76105:Limgrave - Limgrave - Fort Haight West
+76106:Limgrave - Limgrave - Agheel Lake South
+76108:Limgrave - Limgrave - Agheel Lake North
+76110:Limgrave - Limgrave - Church of Dragon Communion
+76113:Limgrave - Limgrave - Seaside Ruins
+76114:Limgrave - Limgrave - Mistwood Outskirts
+76116:Limgrave - Limgrave - Murkwater Coast
+76119:Limgrave - Limgrave - Summonwater Village Outskirts
+73002:Limgrave - Limgrave - Stormfoot Catacombs
+73004:Limgrave - Limgrave - Murkwater Catacombs
+73103:Limgrave - Limgrave - Groveside Cave
+73115:Limgrave - Limgrave - Coastal Cave
+73100:Limgrave - Limgrave - Murkwater Cave
+73117:Limgrave - Limgrave - Highroad Cave
+73201:Limgrave - Limgrave - Limgrave Tunnels
+71800:Limgrave - Stranded Graveyard - Cave of Knowledge
+71801:Limgrave - Stranded Graveyard - Stranded Graveyard
+76102:Limgrave - Stormhill - Stormhill Shack
+71002:Limgrave - Stormhill - Castleward Tunnel
+71001:Limgrave - Stormhill - Margit, the Fell Omen
+76118:Limgrave - Stormhill - Warmaster's Shack
+76117:Limgrave - Stormhill - Saintsbridge
+73011:Limgrave - Stormhill - Deathtouched Catacombs
+73410:Limgrave - Stormhill - Limgrave Tower Bridge
+73412:Limgrave - Stormhill - Divine Tower of Limgrave
+76150:Limgrave - Weeping Peninsula - Church of Pilgrimage
+76151:Limgrave - Weeping Peninsula - Castle Morne Rampart
+76152:Limgrave - Weeping Peninsula - Tombsward
+76153:Limgrave - Weeping Peninsula - South of the Lookout Tower
+76154:Limgrave - Weeping Peninsula - Ailing Village Outskirts
+76155:Limgrave - Weeping Peninsula - Beside the Crater-Pocked Glade
+76156:Limgrave - Weeping Peninsula - Isolated Merchant's Shack (Limgrave)
+76162:Limgrave - Weeping Peninsula - Fourth Church of Marika
+76157:Limgrave - Weeping Peninsula - Bridge of Sacrifice
+76158:Limgrave - Weeping Peninsula - Castle Morne Lift
+76159:Limgrave - Weeping Peninsula - Behind The Castle
+76160:Limgrave - Weeping Peninsula - Beside the Rampart Gaol
+76161:Limgrave - Weeping Peninsula - Morne Moangrave
+73001:Limgrave - Weeping Peninsula - Impaler's Catacombs
+73000:Limgrave - Weeping Peninsula - Tombsward Catacombs
+73101:Limgrave - Weeping Peninsula - Earthbore Cave
+73102:Limgrave - Weeping Peninsula - Tombsward Cave
+73200:Limgrave - Weeping Peninsula - Morne Tunnel
+71008:Stormveil Castle - Stormveil Main Gate
+71003:Stormveil Castle - Gateside Chamber
+71004:Stormveil Castle - Stormveil Cliffside
+71005:Stormveil Castle - Rampart Tower
+71006:Stormveil Castle - Liftside Chamber
+71007:Stormveil Castle - Secluded Cell
+71000:Stormveil Castle - Godrick the Grafted
+76200:Liurnia of the Lakes - Liurnia of the Lakes - Lake-Facing Cliffs
+76202:Liurnia of the Lakes - Liurnia of the Lakes - Laskyar Ruins
+76201:Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Lake Shore
+76204:Liurnia of the Lakes - Liurnia of the Lakes - Academy Gate Town
+76217:Liurnia of the Lakes - Liurnia of the Lakes - Artist's Shack (Liurnia of the Lakes)
+76223:Liurnia of the Lakes - Liurnia of the Lakes - Eastern Liurnia Lake Shore
+76222:Liurnia of the Lakes - Liurnia of the Lakes - Gate Town Bridge
+76221:Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Highway North
+76244:Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Highway South
+76206:Liurnia of the Lakes - Liurnia of the Lakes - Main Academy Gate
+76203:Liurnia of the Lakes - Liurnia of the Lakes - Scenic Isle
+76205:Liurnia of the Lakes - Liurnia of the Lakes - South Raya Lucaria Gate
+76225:Liurnia of the Lakes - Liurnia of the Lakes - Ruined Labyrinth
+76216:Liurnia of the Lakes - Liurnia of the Lakes - Boilprawn Shack
+76224:Liurnia of the Lakes - Liurnia of the Lakes - Church of Vows
+76237:Liurnia of the Lakes - Liurnia of the Lakes - Converted Tower
+76234:Liurnia of the Lakes - Liurnia of the Lakes - Eastern Tableland
+76236:Liurnia of the Lakes - Liurnia of the Lakes - Fallen Ruins of the Lake
+76219:Liurnia of the Lakes - Liurnia of the Lakes - Folly on the Lake
+76245:Liurnia of the Lakes - Liurnia of the Lakes - Jarburg
+76226:Liurnia of the Lakes - Liurnia of the Lakes - Mausoleum Compound
+76247:Liurnia of the Lakes - Liurnia of the Lakes - Ranni's Chamber
+76218:Liurnia of the Lakes - Liurnia of the Lakes - Revenger's Shack
+76215:Liurnia of the Lakes - Liurnia of the Lakes - Slumbering Wolf's Shack
+76220:Liurnia of the Lakes - Liurnia of the Lakes - Village of the Albinaurics
+76243:Liurnia of the Lakes - Liurnia of the Lakes - Crystalline Woods
+76242:Liurnia of the Lakes - Liurnia of the Lakes - East Gate Bridge Trestle
+76210:Liurnia of the Lakes - Liurnia of the Lakes - Foot of the Four Belfries
+76233:Liurnia of the Lakes - Liurnia of the Lakes - Gate Town North
+76214:Liurnia of the Lakes - Liurnia of the Lakes - Main Caria Manor Gate
+76231:Liurnia of the Lakes - Liurnia of the Lakes - Manor Lower Level
+76230:Liurnia of the Lakes - Liurnia of the Lakes - Manor Upper Level
+76212:Liurnia of the Lakes - Liurnia of the Lakes - Northern Liurnia Lake Shore
+76213:Liurnia of the Lakes - Liurnia of the Lakes - Road to the Manor
+76232:Liurnia of the Lakes - Liurnia of the Lakes - Royal Moongazing Grounds
+76211:Liurnia of the Lakes - Liurnia of the Lakes - Sorcerer's Isle
+76241:Liurnia of the Lakes - Liurnia of the Lakes - Temple Quarter
+76227:Liurnia of the Lakes - Liurnia of the Lakes - The Four Belfries
+73106:Liurnia of the Lakes - Liurnia of the Lakes - Academy Crystal Cave
+76238:Liurnia of the Lakes - Liurnia of the Lakes - Behind Caria Manor
+73005:Liurnia of the Lakes - Liurnia of the Lakes - Black Knife Catacombs
+73006:Liurnia of the Lakes - Liurnia of the Lakes - Cliffbottom Catacombs
+73105:Liurnia of the Lakes - Liurnia of the Lakes - Lakeside Crystal Cave
+73421:Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Tower Bridge
+76228:Liurnia of the Lakes - Liurnia of the Lakes - Ranni's Rise
+76229:Liurnia of the Lakes - Liurnia of the Lakes - Ravine-Veiled Village
+73202:Liurnia of the Lakes - Liurnia of the Lakes - Raya Lucaria Crystal Tunnel
+73003:Liurnia of the Lakes - Liurnia of the Lakes - Road's End Catacombs
+73104:Liurnia of the Lakes - Liurnia of the Lakes - Stillwater Cave
+73420:Liurnia of the Lakes - Liurnia of the Lakes - Study Hall Entrance
+76235:Liurnia of the Lakes - Liurnia of the Lakes - The Ravine
+73422:Liurnia of the Lakes - Liurnia of the Lakes - Divine Tower of Liurnia
+76208:Liurnia of the Lakes - Bellum Highway - Bellum Church
+76240:Liurnia of the Lakes - Bellum Highway - Church of Inhibition
+76207:Liurnia of the Lakes - Bellum Highway - East Raya Lucaria Gate
+76239:Liurnia of the Lakes - Bellum Highway - Frenzied Flame Village Outskirts
+76209:Liurnia of the Lakes - Bellum Highway - Grand Lift of Dectus
+73900:Liurnia of the Lakes - Ruin-Strewn Precipice - Magma Wyrm
+73901:Liurnia of the Lakes - Ruin-Strewn Precipice - Ruin-Strewn Precipice
+73902:Liurnia of the Lakes - Ruin-Strewn Precipice - Ruin-Strewn Precipice Overlook
+76252:Liurnia of the Lakes - Moonlight Altar - Altar South
+76251:Liurnia of the Lakes - Moonlight Altar - Cathedral of Manus Celes
+76250:Liurnia of the Lakes - Moonlight Altar - Moonlight Altar
+71402:Academy of Raya Lucaria - Church of the Cuckoo
+71401:Academy of Raya Lucaria - Debate Parlour
+71400:Academy of Raya Lucaria - Raya Lucaria Grand Library
+71403:Academy of Raya Lucaria - Schoolhouse Classroom
+76300:Altus Plateau - Altus Plateau - Abandoned Coffin
+76303:Altus Plateau - Altus Plateau - Altus Highway Junction
+76301:Altus Plateau - Altus Plateau - Altus Plateau
+76306:Altus Plateau - Altus Plateau - Bower of Bounty
+76302:Altus Plateau - Altus Plateau - Erdtree-Gazing Hill
+76304:Altus Plateau - Altus Plateau - Forest-Spanning Greatbridge
+76305:Altus Plateau - Altus Plateau - Rampartside Path
+76307:Altus Plateau - Altus Plateau - Road of Iniquity Side Path
+76321:Altus Plateau - Altus Plateau - Shaded Castle Inner Gate
+76320:Altus Plateau - Altus Plateau - Shaded Castle Ramparts
+76313:Altus Plateau - Altus Plateau - Windmill Heights
+76308:Altus Plateau - Altus Plateau - Windmill Village
+73205:Altus Plateau - Altus Plateau - Altus Tunnel
+76322:Altus Plateau - Altus Plateau - Castellan's Hall
+73204:Altus Plateau - Altus Plateau - Old Altus Tunnel
+73118:Altus Plateau - Altus Plateau - Perfumer's Grotto
+73119:Altus Plateau - Altus Plateau - Sage's Cave
+73008:Altus Plateau - Altus Plateau - Sainted Hero's Grave
+73012:Altus Plateau - Altus Plateau - Unsightly Catacombs
+76350:Altus Plateau - Mt. Gelmir - Bridge of Iniquity
+76356:Altus Plateau - Mt. Gelmir - Craftsman's Shack
+76351:Altus Plateau - Mt. Gelmir - First Mt. Gelmir Campsite
+73009:Altus Plateau - Mt. Gelmir - Gelmir Hero's Grave
+76352:Altus Plateau - Mt. Gelmir - Ninth Mt. Gelmir Campsite
+76357:Altus Plateau - Mt. Gelmir - Primeval Sorcerer Azur
+76353:Altus Plateau - Mt. Gelmir - Road of Iniquity
+73107:Altus Plateau - Mt. Gelmir - Seethewater Cave
+76354:Altus Plateau - Mt. Gelmir - Seethewater River
+76355:Altus Plateau - Mt. Gelmir - Seethewater Terminus
+73109:Altus Plateau - Mt. Gelmir - Volcano Cave
+73007:Altus Plateau - Mt. Gelmir - Wyndham Catacombs
+73013:Altus Plateau - Leyndell, Royal Capital - Auriza Side Tomb
+73010:Altus Plateau - Leyndell, Royal Capital - Auzira Hero's Grave
+76314:Altus Plateau - Leyndell, Royal Capital - Capital Rampart
+73430:Altus Plateau - Leyndell, Royal Capital - Divine Tower of West Altus
+73432:Altus Plateau - Leyndell, Royal Capital - Divine Tower of West Altus: Gate
+76311:Altus Plateau - Leyndell, Royal Capital - Hermit Merchant's Shack
+76310:Altus Plateau - Leyndell, Royal Capital - Minor Erdtree Church
+76312:Altus Plateau - Leyndell, Royal Capital - Outer Wall Battleground
+76309:Altus Plateau - Leyndell, Royal Capital - Outer Wall Phantom Tree
+73431:Altus Plateau - Leyndell, Royal Capital - Sealed Tunnel
+71606:Volcano Manor - Abductor Virgin
+71605:Volcano Manor - Audience Pathway
+71604:Volcano Manor - Guest Hall
+71603:Volcano Manor - Prison Town Church
+71600:Volcano Manor - Rykard, Lord of Blasphemy
+71607:Volcano Manor - Subterranean Inquisition Chamber
+71601:Volcano Manor - Temple of Eiglay
+71602:Volcano Manor - Volcano Manor
+71103:Leyndell, Royal Capital - Leyndell, Royal Capital - Lower Capital Church
+71102:Leyndell, Royal Capital - Leyndell, Royal Capital - East Capital Rampart
+71101:Leyndell, Royal Capital - Leyndell, Royal Capital - Erdtree Sanctuary
+71100:Leyndell, Royal Capital - Leyndell, Royal Capital - Elden Throne
+71109:Leyndell, Royal Capital - Leyndell, Royal Capital - Divine Bridge
+71108:Leyndell, Royal Capital - Leyndell, Royal Capital - Fortified Manor, First Floor
+71107:Leyndell, Royal Capital - Leyndell, Royal Capital - Queen's Bedchamber
+71105:Leyndell, Royal Capital - Leyndell, Royal Capital - West Capital Rampart
+71104:Leyndell, Royal Capital - Leyndell, Royal Capital - Avenue Balcony
+73500:Leyndell, Royal Capital - Subterranean Shunning-Grounds - Cathedral of the Forsaken
+73502:Leyndell, Royal Capital - Subterranean Shunning-Grounds - Forsaken Depths
+73504:Leyndell, Royal Capital - Subterranean Shunning-Grounds - Frenzied Flame Proscription
+73503:Leyndell, Royal Capital - Subterranean Shunning-Grounds - Leyndell Catacombs
+73501:Leyndell, Royal Capital - Subterranean Shunning-Grounds - Underground Roadside
+71125:Leyndell, Royal Capital - Leyndell, Ashen Capital - Divine Bridge
+71122:Leyndell, Royal Capital - Leyndell, Ashen Capital - East Capital Rampart
+71120:Leyndell, Royal Capital - Leyndell, Ashen Capital - Elden Throne
+71121:Leyndell, Royal Capital - Leyndell, Ashen Capital - Erdtree Sanctuary
+71123:Leyndell, Royal Capital - Leyndell, Ashen Capital - Leyendell, Capital of Ash
+71124:Leyndell, Royal Capital - Leyndell, Ashen Capital - Queen's Bedchamber
+71900:Leyndell, Royal Capital - Stone Platform - Fractured Marika
+76403:Caelid - Caelid - Caelem Ruins
+76405:Caelid - Caelid - Caelid Highway South
+76404:Caelid - Caelid - Cathedral of Dragon Communion
+76415:Caelid - Caelid - Chair-Crypt of Sellia
+76418:Caelid - Caelid - Church of the Plague
+76402:Caelid - Caelid - Fort Gael North
+76401:Caelid - Caelid - Rotview Balcony
+76414:Caelid - Caelid - Sellia Backstreets
+76416:Caelid - Caelid - Sellia Under-Stair
+76400:Caelid - Caelid - Smoldering Church
+76409:Caelid - Caelid - Smoldering Wall
+76411:Caelid - Caelid - Southern Aeonia Swamp Bank
+73120:Caelid - Caelid - Abandoned Cave
+73015:Caelid - Caelid - Caelid Catacombs
+76420:Caelid - Caelid - Chamber Outside the Plaza
+76410:Caelid - Caelid - Deep Siofra Well
+73207:Caelid - Caelid - Gael Tunnel
+73121:Caelid - Caelid - Gaol Cave
+76417:Caelid - Caelid - Impassable Greatbridge
+73014:Caelid - Caelid - Minor Erdtree Catacombs
+73257:Caelid - Caelid - Rear Gael Tunnel Entrance
+76419:Caelid - Caelid - Redmane Castle Plaza
+73208:Caelid - Caelid - Sellia Crystal Tunnel
+76422:Caelid - Caelid - Starscourge Radahn
+73016:Caelid - Caelid - War-Dead Catacombs
+76406:Caelid - Swamp of Aeonia - Aeonia Swamp Shore
+76407:Caelid - Swamp of Aeonia - Astray from Caelid Highway North
+76412:Caelid - Swamp of Aeonia - Heart of Aeonia
+76413:Caelid - Swamp of Aeonia - Inner Aeonia
+76454:Caelid - Greyoll's Dragonbarrow - Bestial Sanctum
+73440:Caelid - Greyoll's Dragonbarrow - Divine Tower of Caelid: Basement
+73441:Caelid - Greyoll's Dragonbarrow - Divine Tower of Caelid: Center
+73110:Caelid - Greyoll's Dragonbarrow - Dragonbarrow Cave
+76452:Caelid - Greyoll's Dragonbarrow - Dragonbarrow Fork
+76450:Caelid - Greyoll's Dragonbarrow - Dragonbarrow West
+76456:Caelid - Greyoll's Dragonbarrow - Farum Greatbridge
+76453:Caelid - Greyoll's Dragonbarrow - Fort Faroth
+73460:Caelid - Greyoll's Dragonbarrow - Isolated Divine Tower
+76451:Caelid - Greyoll's Dragonbarrow - Isolated Merchant's Shack (Greyoll's Dragonbarrow)
+76455:Caelid - Greyoll's Dragonbarrow - Lenne's Rise
+73111:Caelid - Greyoll's Dragonbarrow - Sellia Hideaway
+73451:Mountaintops of the Giants - Forbiden Lands - Divine Tower of the East Altus
+73450:Mountaintops of the Giants - Forbiden Lands - Divine Tower of the East Altus: Gate
+76500:Mountaintops of the Giants - Forbiden Lands - Forbidden Lands
+76502:Mountaintops of the Giants - Forbiden Lands - Grand Lift of Rold
+73020:Mountaintops of the Giants - Forbiden Lands - Hidden Path to the Haligtree
+76503:Mountaintops of the Giants - Mountaintops of the Giants - Ancient Snow Valley Ruins
+76522:Mountaintops of the Giants - Mountaintops of the Giants - Castle Sol Main Gate
+76524:Mountaintops of the Giants - Mountaintops of the Giants - Castle Sol Rooftop
+76523:Mountaintops of the Giants - Mountaintops of the Giants - Church of the Eclipse
+76505:Mountaintops of the Giants - Mountaintops of the Giants - First Church of Marika
+76504:Mountaintops of the Giants - Mountaintops of the Giants - Freezing Lake
+76521:Mountaintops of the Giants - Mountaintops of the Giants - Snow Valley Ruins Overlook
+73122:Mountaintops of the Giants - Mountaintops of the Giants - Spiritcaller's Cave
+76520:Mountaintops of the Giants - Mountaintops of the Giants - Whiteridge Road
+76501:Mountaintops of the Giants - Mountaintops of the Giants - Zamor Ruins
+76507:Mountaintops of the Giants - Flame Peak - Church of Repose
+76509:Mountaintops of the Giants - Flame Peak - Fire Giant
+76508:Mountaintops of the Giants - Flame Peak - Foot of the Forge
+76510:Mountaintops of the Giants - Flame Peak - Forge of the Giants
+76506:Mountaintops of the Giants - Flame Peak - Giant's Gravepost
+73018:Mountaintops of the Giants - Flame Peak - Giant's Mountaintop Catacombs
+73017:Mountaintops of the Giants - Flame Peak - Giant-Conquering Hero's Grave
+76653:Mountaintops of the Giants - Consecrated Snowfield - Apostate Derelict
+73112:Mountaintops of the Giants - Consecrated Snowfield - Cave of the Forlorn
+76550:Mountaintops of the Giants - Consecrated Snowfield - Consecrated Snowfield
+73019:Mountaintops of the Giants - Consecrated Snowfield - Consecrated Snowfield Catacombs
+76551:Mountaintops of the Giants - Consecrated Snowfield - Inner Consecrated Snowfield
+76652:Mountaintops of the Giants - Consecrated Snowfield - Ordina, Liturgical Town
+73211:Mountaintops of the Giants - Consecrated Snowfield - Yelough Anix Tunnel
+71506:Miquella's Haligtree - Miquella's Haligtree - Haligtree Canopy
+71505:Miquella's Haligtree - Miquella's Haligtree - Haligtree Promenade
+71507:Miquella's Haligtree - Miquella's Haligtree - Haligtree Town
+71508:Miquella's Haligtree - Miquella's Haligtree - Haligtree Town Plaza
+71503:Miquella's Haligtree - Elphael, Brace of the Haligtree - Drainage Channel
+71502:Miquella's Haligtree - Elphael, Brace of the Haligtree - Elphael Inner Wall
+71504:Miquella's Haligtree - Elphael, Brace of the Haligtree - Haligtree Roots
+71500:Miquella's Haligtree - Elphael, Brace of the Haligtree - Malenia, Goddess of Rot
+71501:Miquella's Haligtree - Elphael, Brace of the Haligtree - Prayer Room
+71310:Crumbling Farum Azula - Beside the great Bridge
+71303:Crumbling Farum Azula - Crumbling Beast Grave
+71304:Crumbling Farum Azula - Crumbling Beast Grave Depths
+71306:Crumbling Farum Azula - Dragon Temple
+71302:Crumbling Farum Azula - Dragon Temple Altar
+71308:Crumbling Farum Azula - Dragon Temple Lift
+71309:Crumbling Farum Azula - Dragon Temple Rooftop
+71307:Crumbling Farum Azula - Dragon Temple Transept
+71301:Crumbling Farum Azula - Dragonlord Placidusax
+71300:Crumbling Farum Azula - Maliketh, the Black Blade
+71305:Crumbling Farum Azula - Tempest-Facing Balcony
+71213:Ainsel River - Ainsel River - Ainsel River Downstream
+71212:Ainsel River - Ainsel River - Ainsel River Sluice Gate
+71211:Ainsel River - Ainsel River - Ainsel River Well Depths
+71240:Ainsel River - Ainsel River - Astel, Naturalborn of the Void
+71210:Ainsel River - Ainsel River - Dragonkin Soldier of Nokstella
+71214:Ainsel River - Ainsel River Main - Ainsel River Main
+71215:Ainsel River - Ainsel River Main - Nokstella, Eternal City
+71219:Ainsel River - Ainsel River Main - Nokstella Waterfall Basin
+71218:Ainsel River - Lake of Rot - Grand Cloister
+71216:Ainsel River - Lake of Rot - Lake of Rot Shoreside
+71271:Nokron, Eternal City - Nokron, Eternal City - Nokron, Eternal City
+71224:Nokron, Eternal City - Nokron, Eternal City - Ancestral Woods
+71225:Nokron, Eternal City - Nokron, Eternal City - Aqueduct-Facing Cliffs
+71220:Nokron, Eternal City - Nokron, Eternal City - Great Waterfall Basin
+71221:Nokron, Eternal City - Nokron, Eternal City - Mimic Tear
+71226:Nokron, Eternal City - Nokron, Eternal City - Night's Sacred Ground
+71227:Nokron, Eternal City - Siofra River - Below the Well
+71222:Nokron, Eternal City - Siofra River - Siofra River Bank
+71270:Nokron, Eternal City - Siofra River - Siofra River Well Depths
+71223:Nokron, Eternal City - Siofra River - Worshippers' Woods
+71250:Nokron, Eternal City - Mohgwyn Palace - Cocoon of the Empyrean
+71252:Nokron, Eternal City - Mohgwyn Palace - Dynasty Mausoleum Entrance
+71253:Nokron, Eternal City - Mohgwyn Palace - Dynasty Mausoleum Midpoint
+71251:Nokron, Eternal City - Mohgwyn Palace - Palace Approach Ledge-Road
+71235:Deeproot Depths - Across the Roots
+71233:Deeproot Depths - Deeproot Depths
+71232:Deeproot Depths - Great Waterfall Crest
+71230:Deeproot Depths - Prince of Death's Throne
+71231:Deeproot Depths - Root-Facing Cliffs
+71234:Deeproot Depths - The Nameless Eternal City
+72000:Realm of Shadow - Belurat, Tower Settlement - Theatre of the Divine Beast
+72001:Realm of Shadow - Belurat, Tower Settlement - Belurat, Tower Settlement
+72002:Realm of Shadow - Belurat, Tower Settlement - Small Private Altar
+72003:Realm of Shadow - Belurat, Tower Settlement - Stagefront
+72010:Realm of Shadow - Enir-Ilim - Gate of Divinity
+72012:Realm of Shadow - Enir-Ilim - Enir-Ilim: Outer Wall
+72013:Realm of Shadow - Enir-Ilim - First Rise
+72014:Realm of Shadow - Enir-Ilim - Spiral Rise
+72015:Realm of Shadow - Enir-Ilim - Cleansing Chamber Anteroom
+72016:Realm of Shadow - Enir-Ilim - Divine Gate Front Staircase
+72101:Realm of Shadow - Shadow Keep - Main Gate Plaza
+72102:Realm of Shadow - Shadow Keep - Shadow Keep Main Gate
+72106:Realm of Shadow - Shadow Keep, Church District - Church District Entrance
+72107:Realm of Shadow - Shadow Keep, Church District - Sunken Chapel
+72108:Realm of Shadow - Shadow Keep, Church District - Tree,Worship Passage
+72109:Realm of Shadow - Shadow Keep, Church District - Tree,Worship Sanctum
+72110:Realm of Shadow - Specimen Storehouse - Messmer's Dark Chamber
+72111:Realm of Shadow - Specimen Storehouse - Storehouse, First Floor
+72112:Realm of Shadow - Specimen Storehouse - Storehouse, Fourth Floor
+72113:Realm of Shadow - Specimen Storehouse - Storehouse, Seventh Floor
+72114:Realm of Shadow - Specimen Storehouse - Dark Chamber Entrance
+72116:Realm of Shadow - Specimen Storehouse - Storehouse, Back Section
+72117:Realm of Shadow - Specimen Storehouse - Storehouse, Loft
+72120:Realm of Shadow - Specimen Storehouse - West Rampart
+72200:Realm of Shadow - Stone Coffin Fissure - Garden of Deep Purple
+72201:Realm of Shadow - Stone Coffin Fissure - Stone Coffin Fissure
+72202:Realm of Shadow - Stone Coffin Fissure - Fissure Cross
+72203:Realm of Shadow - Stone Coffin Fissure - Fissure Waypoint
+72204:Realm of Shadow - Stone Coffin Fissure - Fissure Depths
+72500:Realm of Shadow - Scadu Altus - Finger Birthing Grounds
+72800:Realm of Shadow - Midra's Manse - Discussion Chamber
+72801:Realm of Shadow - Midra's Manse - Manse Hall
+72802:Realm of Shadow - Midra's Manse - Midra's Library
+72803:Realm of Shadow - Midra's Manse - Second Floor Chamber
+74000:Realm of Shadow - Gravesite Plain - Fog Rift Catacombs
+74200:Realm of Shadow - Gravesite Plain - Ruined Forge Lava Intake
+74300:Realm of Shadow - Gravesite Plain - Rivermouth Cave
+74301:Realm of Shadow - Gravesite Plain - Dragon's Pit
+74351:Realm of Shadow - Gravesite Plain - Dragon's Pit Terminus
+76804:Realm of Shadow - Gravesite Plain - Cliffroad Terminus
+76803:Realm of Shadow - Gravesite Plain - Main Gate Cross
+76800:Realm of Shadow - Gravesite Plain - Gravesite Plain
+76802:Realm of Shadow - Gravesite Plain - Three,Path Cross
+76805:Realm of Shadow - Gravesite Plain - Greatbridge, North
+76801:Realm of Shadow - Gravesite Plain - Scorched Ruins
+76812:Realm of Shadow - Gravesite Plain - Ellac River Cave
+76813:Realm of Shadow - Gravesite Plain - Castle Front
+76811:Realm of Shadow - Gravesite Plain - Pillar Path Waypoint
+76810:Realm of Shadow - Gravesite Plain - Pillar Path Cross
+74100:Realm of Shadow - Gravesite Plain - Belurat Gaol
+76830:Realm of Shadow - Gravesite Plain - Ellac River Downstream
+76841:Realm of Shadow - Charo's Hidden Grave - Charo's Hidden Grave
+74102:Realm of Shadow - Charo's Hidden Grave - Lamenter's Gaol
+76821:Realm of Shadow - Castle Ensis - Castle Ensis Checkpoint
+76823:Realm of Shadow - Castle Ensis - Ensis Moongazing Grounds
+76822:Realm of Shadow - Castle Ensis - Castle,Lord's Chamber
+76832:Realm of Shadow - Cerulean Coast - Cerulean Coast West
+76833:Realm of Shadow - Cerulean Coast - The Fissure
+76835:Realm of Shadow - Cerulean Coast - Cerulean Coast Cross
+76831:Realm of Shadow - Cerulean Coast - Cerulean Coast
+76834:Realm of Shadow - Cerulean Coast - Finger Ruins of Rhia
+76840:Realm of Shadow - Foot of the Jagged Peak - Grand Altar of Dragon Communion
+76861:Realm of Shadow - Abyssal Woods - Divided Falls
+76860:Realm of Shadow - Abyssal Woods - Abyssal Woods
+76862:Realm of Shadow - Abyssal Woods - Forsaken Graveyard
+76864:Realm of Shadow - Abyssal Woods - Church Ruins
+76863:Realm of Shadow - Abyssal Woods - Woodland Trail
+76850:Realm of Shadow - Foot of the Jagged Peak - Foot of the Jagged Peak
+76851:Realm of Shadow - Jagged Peak - Jagged Peak Mountainside
+76852:Realm of Shadow - Jagged Peak - Jagged Peak Summit
+76853:Realm of Shadow - Jagged Peak - Rest of the Dread Dragon
+76944:Realm of Shadow - Ancient Ruins of Rauh - Ancient Ruins, Grand Stairway
+76945:Realm of Shadow - Ancient Ruins of Rauh - Church of the Bud
+76943:Realm of Shadow - Ancient Ruins of Rauh - Church of the Bud, Main Entrance
+76942:Realm of Shadow - Ancient Ruins of Rauh - Rauh Ancient Ruins, West
+76941:Realm of Shadow - Ancient Ruins of Rauh - Rauh Ancient Ruins, East
+76940:Realm of Shadow - Ancient Ruins of Rauh - Viaduct Minor Tower
+76913:Realm of Shadow - Rauh Base - Temple Town Ruins
+76914:Realm of Shadow - Rauh Base - Ravine North
+74001:Realm of Shadow - Rauh Base - Scorpion River Catacombs
+74203:Realm of Shadow - Rauh Base - Taylew's Ruined Forge
+76912:Realm of Shadow - Rauh Base - Ancient Ruins Base
+74002:Realm of Shadow - Scadu Altus - Darklight Catacombs
+74101:Realm of Shadow - Scadu Altus - Bonny Gaol
+76900:Realm of Shadow - Scadu Altus - Highroad Cross
+76907:Realm of Shadow - Scadu Altus - Scadu Altus, West
+76908:Realm of Shadow - Scadu Altus - Moorth Highway, South
+76909:Realm of Shadow - Scadu Altus - Fort of Reprimand
+76910:Realm of Shadow - Scadu Altus - Behind the Fort of Reprimand
+76902:Realm of Shadow - Scadu Altus - Moorth Ruins
+76903:Realm of Shadow - Scadu Altus - Bonny Village
+76916:Realm of Shadow - Scadu Altus - Castle Watering Hole
+74202:Realm of Shadow - Scadu Altus - Ruined Forge of Starfall Past
+76911:Realm of Shadow - Scadu Altus - Scaduview Cross
+76918:Realm of Shadow - Scadu Altus - Recluses' River Downstream
+76917:Realm of Shadow - Scadu Altus - Recluses' River Upstream
+76904:Realm of Shadow - Scadu Altus - Bridge Leading to the Village
+76906:Realm of Shadow - Scadu Altus - Cathedral of Manus Metyr
+76905:Realm of Shadow - Scadu Altus - Church District Highroad
+76930:Realm of Shadow - Scaduview - Scaduview
+76931:Realm of Shadow - Scaduview - Shadow Keep, Back Gate
+76936:Realm of Shadow - Scaduview - Fingerstone Hill
+76937:Realm of Shadow - Scaduview - Hinterland Bridge
+76935:Realm of Shadow - Scaduview - Hinterland
+76960:Realm of Shadow - Scaduview - Scadutree Base]],
+[[65600:Upgrade - Standard
+65610:Iron Whetblade (Heavy)
+65620:Iron Whetblade (Keen)
+65630:Iron Whetblade (Quality)
+65640:Red-Hot Whetblade (Fire)
+65650:Red-Hot Whetblade (Flame Art)
+65660:Sanctified Whetblade (Lightning)
+65670:Sanctified Whetblade (Sacred)
+65680:Glintstone Whetblade (Magic)
+65690:Glintstone Whetblade (Frost)
+65700:Black Whetblade (Poison)
+65710:Black Whetblade (Blood)
+65720:Black Whetblade (Occult)]],
+[[67610:Missionary's Cookbook [1]
+67600:Missionary's Cookbook [2]
+67650:Missionary's Cookbook [3]
+67640:Missionary's Cookbook [4]
+67630:Missionary's Cookbook [5]
+67130:Missionary's Cookbook [6]
+68230:Missionary's Cookbook [7]
+67000:Nomadic warrior's Cookbook [1]
+67110:Nomadic warrior's Cookbook [2]
+67010:Nomadic Warrior's Cookbook [3]
+67800:Nomadic Warrior's Cookbook [4]
+67830:Nomadic Warrior's Cookbook [5]
+67020:Nomadic Warrior's Cookbook [6]
+67050:Nomadic Warrior's Cookbook [7]
+67880:Nomadic Warrior's Cookbook [8]
+67430:Nomadic Warrior's Cookbook [9]
+67030:Nomadic Warrior's Cookbook [10]
+67220:Nomadic Warrior's Cookbook [11]
+67060:Nomadic Warrior's Cookbook [12]
+67080:Nomadic Warrior's Cookbook [13]
+67870:Nomadic Warrior's Cookbook [14]
+67900:Nomadic Warrior's Cookbook [15]
+67290:Nomadic Warrior's Cookbook [16]
+67100:Nomadic Warrior's Cookbook [17]
+67270:Nomadic Warrior's Cookbook [18]
+67070:Nomadic Warrior's Cookbook [19]
+67230:Nomadic Warrior's Cookbook [20]
+67120:Nomadic Warrior's Cookbook [21]
+67890:Nomadic Warrior's Cookbook [22]
+67090:Nomadic Warrior's Cookbook [23]
+67910:Nomadic Warrior's Cookbook [24]
+67200:Armorer's Cookbook [1]
+67210:Armorer's Cookbook [2]
+67280:Armorer's Cookbook [3]
+67260:Armorer's Cookbook [4]
+67310:Armorer's Cookbook [5]
+67300:Armorer's Cookbook [6]
+67250:Armorer's Cookbook [7]
+68000:Ancient Dragon Apostle's Cookbook [1]
+68010:Ancient Dragon Apostle's Cookbook [2]
+68030:Ancient Dragon Apostle's Cookbook [3]
+68020:Ancient Dragon Apostle's Cookbook [4]
+68200:Fevor's Cookbook [1]
+68220:Fevor's Cookbook [2]
+68210:Fevor's Cookbook [3]
+67840:Perfumer's Cookbook [1]
+67850:Perfumer's Cookbook [2]
+67860:Perfumer's Cookbook [3]
+67920:Perfumer's Cookbook [4]
+67410:Glintstone Craftsman's Cookbook [1]
+67450:Glintstone Craftsman's Cookbook [2]
+67480:Glintstone Craftsman's Cookbook [3]
+67400:Glintstone Craftsman's Cookbook [4]
+67420:Glintstone Craftsman's Cookbook [5]
+67460:Glintstone Craftsman's Cookbook [6]
+67470:Glintstone Craftsman's Cookbook [7]
+67440:Glintstone Craftsman's Cookbook [8]
+68400:Frenzied's Cookbook [1]
+68410:Frenzied's Cookbook [2]
+68590:Greater Potentate's Cookbook [1]
+68730:Greater Potentate's Cookbook [2]
+68690:Greater Potentate's Cookbook [3]
+68600:Greater Potentate's Cookbook [4]
+68610:Greater Potentate's Cookbook [5]
+68720:Greater Potentate's Cookbook [6]
+68630:Greater Potentate's Cookbook [7]
+68680:Greater Potentate's Cookbook [8]
+68640:Greater Potentate's Cookbook [9]
+68650:Greater Potentate's Cookbook [10]
+68660:Greater Potentate's Cookbook [11]
+68620:Greater Potentate's Cookbook [12]
+68700:Greater Potentate's Cookbook [13]
+68710:Greater Potentate's Cookbook [14]
+68750:Mad Craftsman's Cookbook [1]
+68670:Mad Craftsman's Cookbook [2]
+68880:Mad Craftsman's Cookbook [3]
+68740:Ancient Dragon Knight's Cookbook [1]
+68780:Ancient Dragon Knight's Cookbook [2]
+68760:St. Trina Desciple's Cookbook [1]
+68950:St. Trina Desciple's Cookbook [2]
+68840:St. Trina Desciple's Cookbook [3]
+68520:Forager Brood Cookbook [1]
+68530:Forager Brood Cookbook [2]
+68540:Forager Brood Cookbook [3]
+68550:Forager Brood Cookbook [4]
+68560:Forager Brood Cookbook [5]
+68510:Forager Brood Cookbook [6]
+68830:Forager Brood Cookbook [7]
+68810:Igon's Cookbook [1]
+68570:Igon's Cookbook [2]
+68920:Finger-Weaver's Cookbook [1]
+68580:Finger-Weaver's Cookbook [2]
+68770:Fire Knight's Cookbook [1]
+68900:Fire Knight's Cookbook [2]
+68800:Battlefield Priest's Cookbook [1]
+68820:Battlefield Priest's Cookbook [2]
+68890:Battlefield Priest's Cookbook [3]
+68930:Battlefield Priest's Cookbook [4]
+68940:Grave Keeper's Cookbook [1]
+68850:Grave Keeper's Cookbook [2]
+68910:Antiquity Scholar's Cookbook [1]
+68860:Antiquity Scholar's Cookbook [2]
+68870:Tibia's Cookbook
+68790:Loyal Knight's Cookbook]],
+[[62004:Map: Center
+62005:Map: SW
+62006:Map: NW
+62007:Map: SE
+62008:Map: NE
+62009:Map: N
+62010:Map: Limgrave, West
+62011:Map: Weeping Peninsula
+62012:Map: Limgrave, East
+62020:Map: Liurnia, East
+62021:Map: Liurnia, North
+62022:Map: Liurnia, West
+62030:Map: Altus Plateur
+62031:Map: Leyndell, Royal Capital
+62032:Map: Mt. Gelmir
+62040:Map: Caelid
+62041:Map: Dragonbarrow
+62050:Map: Mountaintops of the Giants, West
+62051:Map: Mountaintops of the Giants, East
+62052:Map: Mountaintops of the Giants, North
+62060:Map: Ainsel River
+62061:Map: Lake of Rot
+62062:Map: Mohgwyn Palace
+62063:Map: Siofra River
+62064:Map: Deeprooth Depths
+62080:Map: Gravesite Plain
+62081:Map: Scadu Altus
+62082:Map: Southern Shore
+62083:Map: Rauh Ruins
+62084:Map: Abyss
+62102:Map: Fringefolk Hero's Cave
+62103:Map: Stormfoot Catacombs
+82001:Show underground]],
+[[10010540: Limgrave - Chapel of Anticipation
+5613540: Limgrave - Deathtouched Catacombs 1
+30110540: Limgrave - Deathtouched Catacombs 2
+5606540: Limgrave - Murkwater Catacombs 1
+30040540: Limgrave - Murkwater Catacombs 2
+5039540: Limgrave - Stormfoot Catacombs 1
+30020540: Limgrave - Stormfoot Catacombs 2
+18000542: Limgrave - Stranded Graveyard 1
+18000570: Limgrave - Stranded Graveyard fog wall
+5312540: Limgrave - Stranded Graveyard 2
+11100570: Roundtable Hold - Fog wall 1
+11100575: Roundtable Hold - Fog wall 2
+11100606: Roundtable Hold - Gideon's room?
+10000500: Stormveil Castle - Main gate
+10000566: Stormveil Castle - Door above Chrysalids area - Door above Chrysalids area
+10000566: Stormveil Castle - Door above Chrysalids area
+10000562: Stormveil Castle - Rusty Key ambush room
+10000564: Stormveil Castle - Rusty Key door - Rusty Key door
+10000564: Stormveil Castle - Rusty Key door
+10000560: Stormveil Castle - Liftside Chamber door - Liftside Chamber door
+10000560: Stormveil Castle - Liftside Chamber door
+10000575: Stormveil Castle - Fog wall - Godskin Prayerbook, Godslayer's Seal
+10000570: Stormveil Castle - Fog wall - Iron Whetblade
+10000540: Stormveil Castle - Godrick door
+31010500: Weeping Peninsula - Earthbore Cave breakable floor
+6138540: Weeping Peninsula - Impaler's Catacombs 1
+30010540: Weeping Peninsula - Impaler's Catacombs 2
+5571600: Weeping Peninsula - Tombsward Catacombs 1
+30000570: Weeping Peninsula - Tombsward Catacombs fog wall
+30000540: Weeping Peninsula - Tombsward Catacombs 2
+4507540: Liurnia - Cliffbottom Catabombs 1
+30060570: Liurnia - Cliffbottom Catabombs fog wall
+30060540: Liurnia - Cliffbottom Catabombs 2
+4502560: Liurnia - Purified Ruins
+3949560: Liurnia - Laskyar Ruins]],
+[[4700:Nomadic merchants - Limgrave - Kalé - Alive, friendly
+4701:Nomadic merchants - Limgrave - Kalé - Alive, hostile
+4703:Nomadic merchants - Limgrave - Kalé - Dead
+4720:Nomadic merchants - Limgrave - Nomadic Merchant 1 - Alive, friendly
+4721:Nomadic merchants - Limgrave - Nomadic Merchant 1 - Alive, hostile
+4723:Nomadic merchants - Limgrave - Nomadic Merchant 1 - Dead
+4725:Nomadic merchants - Limgrave - Nomadic Merchant 2 - Alive, friendly
+4726:Nomadic merchants - Limgrave - Nomadic Merchant 2 - Alive, hostile
+4728:Nomadic merchants - Limgrave - Nomadic Merchant 2 - Dead
+4730:Nomadic merchants - Limgrave - Nomadic Merchant 3 - Alive, friendly
+4731:Nomadic merchants - Limgrave - Nomadic Merchant 3 - Alive, hostile
+4733:Nomadic merchants - Limgrave - Nomadic Merchant 3 - Dead
+4739:Nomadic merchants - Weeping Peninsula - Nomadic Merchant 4 - Alive, friendly
+4736:Nomadic merchants - Weeping Peninsula - Nomadic Merchant 4 - Alive, hostile
+4738:Nomadic merchants - Weeping Peninsula - Nomadic Merchant 4 - Dead
+4745:Nomadic merchants - Weeping Peninsula - Isolated Merchant 1 - Alive, friendly
+4746:Nomadic merchants - Weeping Peninsula - Isolated Merchant 1 - Alive, hostile
+4748:Nomadic merchants - Weeping Peninsula - Isolated Merchant 1 - Dead
+4740:Nomadic merchants - Liurnia - Nomadic Merchant 5 - Alive, friendly
+4741:Nomadic merchants - Liurnia - Nomadic Merchant 5 - Alive, hostile
+4743:Nomadic merchants - Liurnia - Nomadic Merchant 5 - Dead
+4750:Nomadic merchants - Liurnia - Isolated Merchant 2 - Alive, friendly
+4751:Nomadic merchants - Liurnia - Isolated Merchant 2 - Alive, hostile
+4753:Nomadic merchants - Liurnia - Isolated Merchant 2 - Dead
+3660:Alexander - Alive, friendly
+3661:Alexander - Alive, hostile
+3663:Alexander - Dead
+3665:Alexander - Limgrave - quest start
+3666:Alexander - Limgrave - Rear Gael Tunnel Entrance
+3880:Bernahl - Alive, friendly
+3881:Bernahl - Alive, hostile
+3883:Bernahl - Dead
+3600:Blaidd - Alive, friendly
+3601:Blaidd - Alive, hostile
+3603:Blaidd - Dead
+3940:Boc - Alive, friendly
+3941:Boc - Alive, hostile
+3943:Boc - Dead
+3945:Boc - Limgrave - quest start
+3946:Boc - Limgrave - Coastal Cave
+3947:Boc - Liurnia - Lake-Facing Cliffs
+4143:Boggart - Dead
+4142:Boggart - ?
+4141:Boggart - Alive, hostile
+4140:Boggart - Alive, friendly
+4139:Boggart - ?
+4138:Boggart - ?
+4137:Boggart - ?
+4136:Boggart - ?
+4151:Boggart - ?
+4150:Boggart - ?
+4149:Boggart - ?
+4148:Boggart - ?
+4147:Boggart - ?
+4146:Boggart - ?
+4145:Boggart - 1. Liurnia - Boilprawn Shack
+4144:Boggart - ?
+4040:D - Alive, friendly
+4041:D - Alive, hostile
+4043:D - Dead
+4045:D - Limgrave - quest start
+4046:D - Limgrave - Summonwater Village
+4047:D - Roundtable Hold
+3431:D - Related to Gurranq?
+3440:Diallos - Alive, friendly
+3441:Diallos - Alive, hostile
+3443:Diallos - Dead
+3445:Diallos - 1. Roundtable Hold
+3446:Diallos - 2. Liurnia - Academy Gate Town
+3447:Diallos - 3. Roundtable Hold
+3448:Diallos - 4. ?
+3444:Diallos - ?
+3442:Diallos - ?
+3455:Diallos - ?
+3454:Diallos - ?
+3453:Diallos - ?
+3452:Diallos - ?
+3451:Diallos - ?
+3450:Diallos - ?
+3449:Diallos - ?
+3400:Edgar - Alive, friendly
+3401:Edgar - Alive, hostile
+3403:Edgar - Dead
+3405:Edgar - Weeping Peninsula - quest start
+3406:Edgar - Weeping Peninsula - summon sign
+3407:Edgar - Weeping Peninsula - misbegotten defeated
+3408:Edgar - Weeping Peninsula - Irina's body
+3409:Edgar - Invader?
+3404:Edgar - ?
+3402:Edgar - ?
+3415:Edgar - ?
+3414:Edgar - ?
+3413:Edgar - ?
+3412:Edgar - ?
+3411:Edgar - ?
+3410:Edgar - ?
+11109005:Fia Dialogue - 1. Refuse to be held
+11109006:Fia Dialogue - 2. Be held
+11109007:Fia Dialogue - 3. Secret talk
+11109023:Fia Dialogue - 4. Do you know...? option
+11109009:Fia Dialogue - 5. Do you know...? Dialogue
+11109026:Fia Dialogue - 6. About the Black Knifeprint option 1
+11109017:Fia Dialogue - 7. Knifeprint Clue acquired
+11109024:Fia Dialogue - 8. About the Black Knifeprint option 2
+11109004:Fia Dialogue - ?
+11109003:Fia Dialogue - ?
+11109002:Fia Dialogue - ?
+11109001:Fia Dialogue - ?
+11109000:Fia Dialogue - ?
+11109015:Fia Dialogue - ?
+11109014:Fia Dialogue - ?
+11109013:Fia Dialogue - ?
+11109012:Fia Dialogue - ?
+11109011:Fia Dialogue - ?
+11109010:Fia Dialogue - ?
+11109008:Fia Dialogue - ?
+11109022:Fia Dialogue - ?
+11109021:Fia Dialogue - ?
+11109020:Fia Dialogue - ?
+11109019:Fia Dialogue - ?
+11109018:Fia Dialogue - ?
+11109016:Fia Dialogue - ?
+11109031:Fia Dialogue - ?
+11109030:Fia Dialogue - ?
+11109029:Fia Dialogue - ?
+11109028:Fia Dialogue - ?
+11109027:Fia Dialogue - ?
+11109025:Fia Dialogue - ?
+3965:Gideon - Fireplace
+3966:Gideon - Room
+3967:Gideon - Room - Godrick defeated
+3964:Gideon - ?
+3963:Gideon - ?
+3962:Gideon - ?
+3961:Gideon - ?
+3960:Gideon - ?
+3975:Gideon - ?
+3974:Gideon - ?
+3973:Gideon - ?
+3972:Gideon - ?
+3971:Gideon - ?
+3970:Gideon - ?
+3969:Gideon - ?
+3968:Gideon - ?
+3260:Gostoc - Alive, friendly
+3261:Gostoc - Alive, hostile
+3263:Gostoc - Dead
+3265:Gostoc - Stormveil - quest start
+3266:Gostoc - Stormveil - above Rogier
+3269:Gostoc - Stormveil - Godrick arena
+3263:Gostoc - After 1st introduction
+3262:Gostoc - Sometimes 1, sometimes 0
+3261:Gostoc - ?
+3260:Gostoc - ?
+3259:Gostoc - ?
+3258:Gostoc - ?
+3257:Gostoc - ?
+3256:Gostoc - ?
+3271:Gostoc - ?
+3270:Gostoc - ?
+3269:Gostoc - ?
+3268:Gostoc - Merchant?
+3267:Gostoc - The gates! Open the gates!
+3266:Gostoc - ?
+3265:Gostoc - Merchant?
+3264:Gostoc - Always 1?
+3383:Irina / Hyetta - Dead
+3382:Irina / Hyetta - ?
+3381:Irina / Hyetta - Alive, hostile
+3380:Irina / Hyetta - Alive, friendly
+3385:Irina / Hyetta - Weeping Peninsula - quest start
+3387:Irina / Hyetta - Weeping Peninsula - dead / Liurnia - Lake-Facing Cliffs
+3388:Irina / Hyetta - Liurnia - near Purified Ruins
+3389:Irina / Hyetta - Liurnia - Gate Town Bridge grace
+3379:Irina / Hyetta - ?
+3378:Irina / Hyetta - ?
+3377:Irina / Hyetta - ?
+3376:Irina / Hyetta - ?
+3391:Irina / Hyetta - ?
+3390:Irina / Hyetta - ?
+3386:Irina / Hyetta - ?
+3384:Irina / Hyetta - ?
+3583:Kenneth Haight - Dead
+3581:Kenneth Haight - Alive, hostile
+3580:Kenneth Haight - Alive, friendly
+3585:Kenneth Haight - Limgrave - quest start
+3586:Kenneth Haight - Limgrave - Fort Haight
+4687:Melina - ?
+4686:Melina - ?
+4685:Melina - ?
+4684:Melina - ?
+4683:Melina - ?
+4682:Melina - ?
+4681:Melina - 1. Introduction
+4680:Melina - 2. Torrent whistle
+4695:Melina - ?
+4694:Melina - ?
+4693:Melina - ?
+4692:Melina - ?
+4691:Melina - ?
+4690:Melina - ?
+4689:Melina - ?
+4688:Melina - ?
+4220:Nepheli Loux - Alive, friendly
+4221:Nepheli Loux - Alive, hostile
+4223:Nepheli Loux - Dead
+4225:Nepheli Loux - Stormveil - quest start
+4226:Nepheli Loux - Roundtable Hold - near Gideon
+4227:Nepheli Loux - Liurnia - Albinauric village
+3705:Roderika - Limgrave
+3707:Roderika - Roundtable Hold - fireplace
+3708:Roderika - Roundtable Hold - blacksmith
+3905:Rogier - 1. Stormveil
+3906:Rogier - 2. Disappears after seeing corpse
+3907:Rogier - 3. Roundtable Hold
+3911:Rogier - ?
+3910:Rogier - ?
+3909:Rogier - ?
+3908:Rogier - ?
+3904:Rogier - ?
+3919:Rogier - Corpse seen
+3918:Rogier - ?
+3917:Rogier - ?
+3916:Rogier - ?
+3915:Rogier - ?
+3914:Rogier - ?
+3913:Rogier - ?
+3912:Rogier - ?
+10009614:Rogier - Dialogue Stormveil - 1. In Stormveil
+10009605:Rogier - Dialogue Stormveil - 2. Don't tell him
+10009606:Rogier - Dialogue Stormveil - 3. I'm here to defeat Godrick - becomes merchant
+10009609:Rogier - Dialogue Stormveil - 4. Talk option
+10009608:Rogier - Dialogue Stormveil - 5. Talk Dialogue
+10009610:Rogier - Dialogue Stormveil - 6. Not in Stormveil
+10009607:Rogier - Dialogue Stormveil - ?
+10009604:Rogier - Dialogue Stormveil - ?
+10009603:Rogier - Dialogue Stormveil - ?
+10009602:Rogier - Dialogue Stormveil - ?
+10009601:Rogier - Dialogue Stormveil - ?
+10009600:Rogier - Dialogue Stormveil - ?
+10009615:Rogier - Dialogue Stormveil - ?
+10009613:Rogier - Dialogue Stormveil - ?
+10009612:Rogier - Dialogue Stormveil - ?
+10009611:Rogier - Dialogue Stormveil - ?
+10009623:Rogier - Dialogue Stormveil - ?
+10009622:Rogier - Dialogue Stormveil - ?
+10009621:Rogier - Dialogue Stormveil - ?
+10009620:Rogier - Dialogue Stormveil - ?
+10009619:Rogier - Dialogue Stormveil - After first talking to him?
+10009618:Rogier - Dialogue Stormveil - ?
+10009617:Rogier - Dialogue Stormveil - After first talking to him?
+10009616:Rogier - Dialogue Stormveil - After first talking to him?
+11109505:Rogier - Dialogue Roundtable Hold - 1. I apologize, I'm unable to move Dialogue
+11109511:Rogier - Dialogue Roundtable Hold - 2. I've defeated Godrick option
+11109520:Rogier - Dialogue Roundtable Hold - 3. Rogier's Rapier+8 acquired
+11109512:Rogier - Dialogue Roundtable Hold - 4. Corpse option
+11109521:Rogier - Dialogue Roundtable Hold - 5. Corpse Dialogue
+11109513:Rogier - Dialogue Roundtable Hold - 6. About D option 1
+11109522:Rogier - Dialogue Roundtable Hold - 7. About D Dialogue 1
+11109516:Rogier - Dialogue Roundtable Hold - 8. About D option 2
+11109525:Rogier - Dialogue Roundtable Hold - 9. About D Dialogue 2
+11109510:Rogier - Dialogue Roundtable Hold - ?
+11109509:Rogier - Dialogue Roundtable Hold - ?
+11109508:Rogier - Dialogue Roundtable Hold - ?
+11109507:Rogier - Dialogue Roundtable Hold - ?
+11109506:Rogier - Dialogue Roundtable Hold - ?
+11109504:Rogier - Dialogue Roundtable Hold - ?
+11109519:Rogier - Dialogue Roundtable Hold - ?
+11109518:Rogier - Dialogue Roundtable Hold - ?
+11109517:Rogier - Dialogue Roundtable Hold - ?
+11109515:Rogier - Dialogue Roundtable Hold - ?
+11109514:Rogier - Dialogue Roundtable Hold - ?
+11109527:Rogier - Dialogue Roundtable Hold - ?
+11109526:Rogier - Dialogue Roundtable Hold - ?
+11109524:Rogier - Dialogue Roundtable Hold - ?
+11109523:Rogier - Dialogue Roundtable Hold - ?
+11109535:Rogier - Dialogue Roundtable Hold - ?
+11109534:Rogier - Dialogue Roundtable Hold - ?
+11109533:Rogier - Dialogue Roundtable Hold - ?
+11109532:Rogier - Dialogue Roundtable Hold - ?
+11109531:Rogier - Dialogue Roundtable Hold - ?
+11109530:Rogier - Dialogue Roundtable Hold - ?
+11109529:Rogier - Dialogue Roundtable Hold - ?
+11109528:Rogier - Dialogue Roundtable Hold - ?
+3425:Rya - 1. Liurnia - near Scenic Isle
+3426:Rya - 2. 2nd location
+3431:Rya - ?
+3430:Rya - ?
+3429:Rya - ?
+3428:Rya - ?
+3427:Rya - ?
+3424:Rya - ?
+3439:Rya - ?
+3438:Rya - ?
+3437:Rya - ?
+3436:Rya - ?
+3435:Rya - ?
+3434:Rya - ?
+3433:Rya - ?
+3432:Rya - ?
+3682:Patches - Alive, initial boss mode
+3680:Patches - Alive, friendly
+3681:Patches - Alive, hostile
+3683:Patches - Dead
+3685:Patches - Limgrave - quest start
+3686:Patches - Limgrave - Murkwater Cave
+3687:Patches - Liurnia - Scenic Isle grace
+3684:Patches - ?
+3695:Patches - ?
+3694:Patches - Limgrave - crouch gesture?
+3693:Patches - ?
+3692:Patches - Limgrave - last step of his quest?
+3691:Patches - ?
+3690:Patches - ?
+3689:Patches - ?
+3688:Patches - ?
+3463:Sellen - ?
+3462:Sellen - ?
+3461:Sellen - Alive, hostile
+3460:Sellen - Alive, friendly
+3459:Sellen - ?
+3458:Sellen - ?
+3457:Sellen - ?
+3456:Sellen - ?
+3471:Sellen - ?
+3470:Sellen - ?
+3469:Sellen - ?
+3468:Sellen - ?
+3467:Sellen - ?
+3466:Sellen - ?
+3465:Sellen - Limgrave - quest start
+3464:Sellen - ?
+3800:Thops - Alive, friendly
+3801:Thops - Alive, hostile
+3803:Thops - Dead
+3805:Thops - Liurnia - Church of Irith
+3180:Varré - Alive, friendly
+3181:Varré - Alive, hostile
+3183:Varré - Dead
+3185:Varré - Limgrave - quest start
+3191:Varré - Limgrave - Godrick defeated
+3188:Varré - Liurnia - Rose Church
+3189:Varré - Liurnia - invaded 3 times
+3190:Varré - Liurnia - soaked cloth in blood
+3620:Yura - Alive, friendly
+3621:Yura - Alive, hostile
+3623:Yura - Dead
+3626:Yura - 1. Limgrave - quest start
+3625:Yura - 2. Limgrave - after Nerijus invasion
+3627:Yura - 3. Liurnia - Main Academy Gate
+3630:Yura - 4. 4th location
+3631:Yura - If killed in Limgrave?]],
+[[10000800:
+10000850:
+10010800:
+11000800:
+11000850:
+11050800:
+11050850:
+12010800:
+12010850:
+12020800:
+12020830:
+12020850:
+12030390:
+12030800:
+12030850:
+12040800:
+12050800:
+12080800:
+12090800:
+13000800:
+13000830:
+13000850:
+14000800:
+14000850:
+15000800:
+15000850:
+16000800:
+16000850:
+16000860:
+18000800:
+18000850:
+19000800:
+35000800:
+35000850:
+39200800:
+30000800:
+30010800:
+30020800:
+30110800:
+30040800:
+30050800:
+30050850:
+30030800:
+30060800:
+30080800:
+30090800:
+30100800:
+30100801:
+30120800:
+30120801:
+30070800:
+30130800:
+30140800:
+30150800:
+30160800:
+30170800:
+30180800:
+30190800:
+30200800:
+31000800:
+31010800:
+31020800:
+31030800:
+31150800:
+31170800:
+31040800:
+31050800:
+31060800:
+31070800:
+31090800:
+31180800:
+31190800:
+31190850:
+31210800:
+31100800:
+31200800:
+31110800:
+31120800:
+31220800:
+32000800:
+32010800:
+32020800:
+32040800:
+34120800:
+32050800:
+32050801:
+32070800:
+32080800:
+32110800:
+34130800:
+34140850:
+1044360800:
+1043370340:
+1042380800:
+1042380850:
+1042330800:
+1044350800:
+1042370800:
+1043330800:
+1044320342:
+1044320340:
+1043300800:
+1042360800:
+1043360800:
+1045390800:
+1034480800:
+1038410800:
+1033450800:
+1036500800:
+1033420800:
+1033430800:
+1038480800:
+1035500800:
+1037460800:
+1039430340:
+1036480340:
+1037420340:
+1036450340:
+1034450800:
+1034500800:
+1034420800:
+1035420800:
+1039440800:
+1037510800:
+1041520800:
+1038510800:
+1041500800:
+1040530800:
+1041510800:
+1042550800:
+1040520800:
+1045520800:
+1039500800:
+1041530800:
+1039510800:
+1044530800:
+1043530800:
+1037530800:
+1035530800:
+1036540800:
+1039540800:
+1037540810:
+1038520340:
+1047409800:
+1048379800:
+1048409800:
+1049379800:
+1049370850:
+1049389800:
+1051369800:
+1052380800:
+1049390800:
+1048410800:
+1049390850:
+1051400800:
+1052410800:
+1052410850:
+1051430800:
+1048510800:
+1049520800:
+1054560800:
+1053560800:
+1052520800:
+1052560800:
+1050570800:
+1050570850:
+1051570800:
+1050560800:
+1248550800:
+1048570800:
+20000800:Dancing Lion
+20010800:Radahn
+21000850:Golden Hippo
+21010800:Messmer
+28000800:Midra
+2044450800:Romina
+2048440800:Rellana
+2049480800:Gaius
+2054390800:Bayle]],
+[[60360:Limgrave Colosseum
+60350:Caelid Colosseum
+60370:Leyndell Colosseum]]
+}
+
+for i,v in ipairs(ef.categories) do
+	ef.categories[1] = ef.categories[1] == "" and v or ef.categories[1].."\n"..v
+end
+
+ef.updateTimer = createTimer(getMainForm())
+ef.updateTimer.Interval = 500
+ef.updateTimer.OnTimer = function()
+	if getAddressSafe(process) and not autoAssemble("createthread(ef.get_flag)") then
+		ef.updateTimer.destroy()
+  end
+end
+
+local memrec = getAddressList().getMemoryRecordByDescription("Event Flags by ID")
+ef.flagIDDropdown = getAddressList().getMemoryRecordByDescription("EventFlagId")
+for i = 1, memrec.Count do
+	local child = memrec.Child[i - 1]
+  local desc = child.Description
+  if desc == "Category" then ef.flagCategoryRec = child
+	elseif desc == "Event Flag ID" then ef.flagIDRec = child
+  elseif desc == "State" then ef.flagStateRec = child end
+end
+
+ef.flagCategoryRec.Value = 0
+ef.flagIDDropdown.DropDownList.setText(ef.categories[1])
+ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
+
+ef.flagCategoryRec.OnGetDisplayValue = function(sender, newValue)
+	if newValue == "??" then return end
+  if ef.oldCategory ~= newValue then
+  	ef.flagIDDropdown.DropDownList.setText(ef.categories[newValue + 1])
+		ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
+  end
+  ef.oldCategory = newValue
+  return false, newValue
+end
+
+ef.flagIDRec.OnGetDisplayValue = function(sender, newValue)
+	if newValue == "??" then return end
+  if ef.oldID ~= newValue then ef.idChanged = autoAssemble("createthread(ef.get_flag)") end
+  ef.oldID = newValue
+  return false, newValue
+end
+
+ef.flagStateRec.OnGetDisplayValue = function(sender, newValue)
+	if newValue == "??" then return end
+  if ef.oldState ~= newValue and not ef.idChanged then autoAssemble("createthread(ef.set_flag)") end
+  ef.idChanged = false
+  ef.oldState = newValue
+  return false, newValue
+end
+
+[DISABLE]
+{$asm}
+dealloc(ef.flag_code)
+dealloc(ef.flag_data)
+unregistersymbol(ef.flag_code)
+unregistersymbol(ef.flag_data)
+unregistersymbol(ef.set_flag)
+unregistersymbol(ef.get_flag)
+
+{$lua}
+if syntaxcheck then return end
+if ef.updateTimer then ef.updateTimer.destroy() end
+ef.flagCategoryRec.OnGetDisplayValue = nil
+ef.flagIDRec.OnGetDisplayValue = nil
+ef.flagStateRec.OnGetDisplayValue = nil

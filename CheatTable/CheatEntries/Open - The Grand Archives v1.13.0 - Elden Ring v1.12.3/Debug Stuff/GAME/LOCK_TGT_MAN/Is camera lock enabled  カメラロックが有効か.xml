@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337099151</ID>
+  <Description>"Is camera lock enabled | カメラロックが有効か"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>298D</Offset>
+  </Offsets>
+</CheatEntry>

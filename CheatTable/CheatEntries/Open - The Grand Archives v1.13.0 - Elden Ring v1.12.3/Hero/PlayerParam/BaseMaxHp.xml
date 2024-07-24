@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337192012</ID>
+  <Description>"BaseMaxHp"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>18</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

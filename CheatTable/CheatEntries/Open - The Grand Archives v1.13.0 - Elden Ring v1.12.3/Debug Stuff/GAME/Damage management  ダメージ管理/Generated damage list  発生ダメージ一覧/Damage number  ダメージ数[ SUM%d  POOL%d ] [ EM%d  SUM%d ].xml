@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337096536</ID>
+  <Description>"Damage number | ダメージ数[ SUM:%d / POOL:%d ] [ EM:%d / SUM:%d ]"</Description>
+  <Color>C0C0C0</Color>
+  <VariableType>Byte</VariableType>
+  <Address>0</Address>
+</CheatEntry>

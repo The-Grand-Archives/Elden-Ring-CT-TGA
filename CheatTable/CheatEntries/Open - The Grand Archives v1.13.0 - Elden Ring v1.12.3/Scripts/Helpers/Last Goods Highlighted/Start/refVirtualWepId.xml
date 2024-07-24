@@ -1,0 +1,59 @@
+<CheatEntry>
+  <ID>1337201180</ID>
+  <Description>"refVirtualWepId"</Description>
+  <Options moHideChildren="1"/>
+  <DropDownList DisplayValueAsItem="1">0:Normal +10
+100:Heavy +10
+200:Sharp +10
+300:Refined +10
+400:Crystal +10
+500:Simple +10
+600:Fire +10
+700:Chaos +10
+800:Lightning +10
+900:Deep +10
+1000:Dark +10
+1100:Poison +10
+1200:Blood +10
+1300:Raw +10
+1400:Blessed +10
+1500:Hollow +10
+2000:Catalyst +10
+2090:Greatsword of Artorias +5
+2100:Boss Weapon +5
+2200:Special Weapon +5
+2300:Boss Staff +5
+2400:Boss Talisman/Chime +5
+2500:Fire Special Weapon +5
+2600:Magic Special Weapon +5
+2700:2700 +10
+2800:Pyro Flame +5
+3000:Fists/Dark Hand +0
+3100:Crossbow +10
+3200:3200 +10
+3300:Repeating Crossbow? +5
+4000:4000 +10
+4100:4100 +10
+4500:Dragon Tooth? +5
+4600:Ringed Knight Straight Sword? +5
+5000:Sharp Dex Weapon +10
+6000:6000 +10
+6100:6100 +10
+6200:6200 +10
+6300:6300 +10
+7000:7000 +10
+8000:Small Shield +10
+8100:Medium Shield +10
+8200:Greatshield +10
+8300:Special Shield +5
+8400:8400 +5
+8500:Pontiff Knight Shield? +5
+8600:8600 +5
+9000:9000 +10
+9998:9998 +0
+9999:9999 +0
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+50</Address>
+</CheatEntry>

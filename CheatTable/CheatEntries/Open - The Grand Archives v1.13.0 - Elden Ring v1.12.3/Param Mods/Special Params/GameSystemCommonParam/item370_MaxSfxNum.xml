@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337212561</ID>
+  <Description>"item370_MaxSfxNum"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+148</Address>
+</CheatEntry>

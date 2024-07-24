@@ -1,0 +1,11 @@
+{
+  Author: Igromanru
+  Description: Print all IDs for a param
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local paramName = "" --enter a param name here
+--------------------------------------------------------
+paramUtils:printParamsIds(paramName)
+[DISABLE]

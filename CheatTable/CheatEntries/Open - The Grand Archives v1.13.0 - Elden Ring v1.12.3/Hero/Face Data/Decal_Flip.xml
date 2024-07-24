@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213141</ID>
+  <Description>"Decal_Flip"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+E1</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>5009</ID>
+  <Description>"knockbackParamId"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+123</Address>
+</CheatEntry>

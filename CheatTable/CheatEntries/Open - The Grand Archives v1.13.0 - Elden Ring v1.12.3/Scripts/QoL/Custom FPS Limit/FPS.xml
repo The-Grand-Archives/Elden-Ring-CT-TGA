@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337192535</ID>
+  <Description>"FPS"</Description>
+  <VariableType>Float</VariableType>
+  <Address>CSFlipper</Address>
+  <Offsets>
+    <Offset>2C0</Offset>
+  </Offsets>
+</CheatEntry>

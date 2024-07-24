@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337199514</ID>
+  <Description>"BaseMaxHP"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>144</Offset>
+    <Offset>0</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

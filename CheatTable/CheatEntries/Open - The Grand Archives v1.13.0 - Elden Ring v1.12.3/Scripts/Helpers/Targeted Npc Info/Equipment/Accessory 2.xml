@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337199646</ID>
+  <Description>"Accessory 2"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>3E4</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

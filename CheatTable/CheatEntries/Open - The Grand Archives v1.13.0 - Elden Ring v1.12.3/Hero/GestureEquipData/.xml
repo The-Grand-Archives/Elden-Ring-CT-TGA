@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337213275</ID>
+  <Description>"GestureEquipData"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337213343"/>
+    <id id="1337213350"/>
+    <id id="1337213349"/>
+    <id id="1337213348"/>
+    <id id="1337213347"/>
+    <id id="1337213346"/>
+    <id id="1337213345"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

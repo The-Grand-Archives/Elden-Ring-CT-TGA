@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337215410</ID>
+  <Description>"throwType"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:Default
+1:Backstab
+20:Riposte
+25:Guard Break
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+38</Address>
+</CheatEntry>

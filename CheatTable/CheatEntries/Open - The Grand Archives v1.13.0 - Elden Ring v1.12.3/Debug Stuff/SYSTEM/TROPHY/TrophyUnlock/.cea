@@ -1,0 +1,21 @@
+[ENABLE]
+aobscanmodule(TrophyUnlock_func,$process,48 8B 49 08 48 85 C9 74 07 48 8B 01 48 FF 60 28 C3)
+alloc(TrophyUnlock,$100,$process)
+registerSymbol(TrophyUnlock)
+registerSymbol(TrophyData)
+
+TrophyUnlock:
+sub rsp,28
+mov rcx,[CSTrophy]
+mov rdx,TrophyData
+call TrophyUnlock_func
+add rsp,28
+ret
+
+TrophyData:
+dd 0000002A
+
+[DISABLE]
+dealloc(TrophyUnlock)
+unregisterSymbol(TrophyUnlock)
+unregisterSymbol(TrophyData)

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337192510</ID>
+  <Description>"AddSoul"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="1337192511"/>
+    <id id="1337192512"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

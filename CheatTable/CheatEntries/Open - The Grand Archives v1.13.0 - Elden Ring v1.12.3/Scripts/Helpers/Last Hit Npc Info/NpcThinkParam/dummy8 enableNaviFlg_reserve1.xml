@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213995</ID>
+  <Description>"dummy8 enableNaviFlg_reserve1"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>3</ByteLength>
+  <Address>+65</Address>
+</CheatEntry>

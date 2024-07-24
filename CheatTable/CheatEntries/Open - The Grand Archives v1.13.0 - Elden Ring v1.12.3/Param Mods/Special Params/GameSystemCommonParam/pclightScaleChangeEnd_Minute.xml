@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337201611</ID>
+  <Description>"pclightScaleChangeEnd_Minute"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+26B</Address>
+</CheatEntry>

@@ -1,0 +1,52 @@
+{
+    Author: inuNorii
+    Description: Spawn projectiles at specific coordinates or on yourself
+
+                 Essentially the same as DS3 table BulletSpawn, except lua
+                 Some issues are intentional, some are new
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+BulletData = allocateMemory(0x200, getAddress(process))
+BulletData_id = BulletData + 0x14
+BulletData_coords = BulletData + 0x80
+BulletData_options = BulletData + 0x170
+BulletData_rdx = BulletData + 0x180
+BulletData_r9  = BulletData + 0x1C0
+
+writeInteger(BulletData + 0x14, 10030001)
+
+local create_bullet_addr = AOBScanModuleUnique(process, "40 53 55 56 57 48 81 EC 98070000 48 C7 44 24 50 FEFFFFFF")
+
+function create_bullet(bulletId, x, y, z)
+    if bulletId then
+        writeInteger(BulletData_id, bulletId)
+    end
+    if readInteger(BulletData_options) == 1 then
+        local WorldChrMan = readPointer("WorldChrMan")
+        local PlayerIns = readPointer(WorldChrMan + 0x1E508)
+        local ChrModules = readPointer(PlayerIns + 0x190)
+        local CSChrPhysicsModule = readPointer(ChrModules + 0x68)
+
+        for i=0,2 do
+            writeFloat(BulletData_coords + 4*i, readFloat(CSChrPhysicsModule + 0x70+4*i))
+        end
+    end
+
+    if x then writeFloat(BulletData_coords + 0, x) end
+    if y then writeFloat(BulletData_coords + 4, y) end
+    if z then writeFloat(BulletData_coords + 8, z) end
+
+    local CSBulletManager = readPointer("CSBulletManager")
+    return executeCodeEx(0, 100, create_bullet_addr, CSBulletManager, BulletData_rdx, BulletData, BulletData_r9)
+end
+
+[DISABLE]
+deAlloc(BulletData)
+BulletData = nil
+BulletData_id = nil
+BulletData_coords = nil
+BulletData_options = nil
+BulletData_rdx = nil
+BulletData_r9  = nil

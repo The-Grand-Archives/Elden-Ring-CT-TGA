@@ -1,0 +1,683 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+CharaInitParam = BaseParamClass:new()
+
+function CharaInitParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("CharaInitParam", uuid, id, address)
+	return o
+end
+
+function CharaInitParam:BaseRec_mp(value)
+    self:patchFloat(0x00,value)
+end
+
+function CharaInitParam:BaseRec_sp(value)
+    self:patchFloat(0x04,value)
+end
+
+function CharaInitParam:red_Falldam(value)
+    self:patchFloat(0x08,value)
+end
+
+function CharaInitParam:soul(value)
+    self:patch4Byte(0x0C,value)
+end
+
+function CharaInitParam:equip_Wep_Right(value)
+    self:patch4Byte(0x10,value)
+end
+
+function CharaInitParam:equip_Subwep_Right(value)
+    self:patch4Byte(0x14,value)
+end
+
+function CharaInitParam:equip_Wep_Left(value)
+    self:patch4Byte(0x18,value)
+end
+
+function CharaInitParam:equip_Subwep_Left(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function CharaInitParam:equip_Helm(value)
+    self:patch4Byte(0x20,value)
+end
+
+function CharaInitParam:equip_Armor(value)
+    self:patch4Byte(0x24,value)
+end
+
+function CharaInitParam:equip_Gaunt(value)
+    self:patch4Byte(0x28,value)
+end
+
+function CharaInitParam:equip_Leg(value)
+    self:patch4Byte(0x2C,value)
+end
+
+function CharaInitParam:equip_Arrow(value)
+    self:patch4Byte(0x30,value)
+end
+
+function CharaInitParam:equip_Bolt(value)
+    self:patch4Byte(0x34,value)
+end
+
+function CharaInitParam:equip_SubArrow(value)
+    self:patch4Byte(0x38,value)
+end
+
+function CharaInitParam:equip_SubBolt(value)
+    self:patch4Byte(0x3C,value)
+end
+
+function CharaInitParam:equip_Accessory1(value)
+    self:patch4Byte(0x40,value)
+end
+
+function CharaInitParam:equip_Accessory2(value)
+    self:patch4Byte(0x44,value)
+end
+
+function CharaInitParam:equip_Accessory3(value)
+    self:patch4Byte(0x48,value)
+end
+
+function CharaInitParam:equip_Accessory4(value)
+    self:patch4Byte(0x4C,value)
+end
+
+function CharaInitParam:equip_Accessory5(value)
+    self:patch4Byte(0x50,value)
+end
+
+function CharaInitParam:Equip_Skill_01(value)
+    self:patch4Byte(0x54,value)
+end
+
+function CharaInitParam:Equip_Skill_02(value)
+    self:patch4Byte(0x58,value)
+end
+
+function CharaInitParam:Equip_Skill_03(value)
+    self:patch4Byte(0x5C,value)
+end
+
+function CharaInitParam:Equip_Spell_01(value)
+    self:patch4Byte(0x60,value)
+end
+
+function CharaInitParam:Equip_Spell_02(value)
+    self:patch4Byte(0x64,value)
+end
+
+function CharaInitParam:Equip_Spell_03(value)
+    self:patch4Byte(0x68,value)
+end
+
+function CharaInitParam:Equip_Spell_04(value)
+    self:patch4Byte(0x6C,value)
+end
+
+function CharaInitParam:Equip_Spell_05(value)
+    self:patch4Byte(0x70,value)
+end
+
+function CharaInitParam:Equip_Spell_06(value)
+    self:patch4Byte(0x74,value)
+end
+
+function CharaInitParam:Equip_Spell_07(value)
+    self:patch4Byte(0x78,value)
+end
+
+function CharaInitParam:Item_01(value)
+    self:patch4Byte(0x7C,value)
+end
+
+function CharaInitParam:Item_02(value)
+    self:patch4Byte(0x80,value)
+end
+
+function CharaInitParam:Item_03(value)
+    self:patch4Byte(0x84,value)
+end
+
+function CharaInitParam:Item_04(value)
+    self:patch4Byte(0x88,value)
+end
+
+function CharaInitParam:Item_05(value)
+    self:patch4Byte(0x8C,value)
+end
+
+function CharaInitParam:Item_06(value)
+    self:patch4Byte(0x90,value)
+end
+
+function CharaInitParam:Item_07(value)
+    self:patch4Byte(0x94,value)
+end
+
+function CharaInitParam:Item_08(value)
+    self:patch4Byte(0x98,value)
+end
+
+function CharaInitParam:Item_09(value)
+    self:patch4Byte(0x9C,value)
+end
+
+function CharaInitParam:Item_10(value)
+    self:patch4Byte(0xA0,value)
+end
+
+function CharaInitParam:npcPlayerFaceGenId(value)
+    self:patch4Byte(0xA4,value)
+end
+
+function CharaInitParam:npcPlayerThinkId(value)
+    self:patch4Byte(0xA8,value)
+end
+
+function CharaInitParam:baseHp(value)
+    self:patch2Byte(0xAC,value)
+end
+
+function CharaInitParam:baseMp(value)
+    self:patch2Byte(0xAE,value)
+end
+
+function CharaInitParam:baseSp(value)
+    self:patch2Byte(0xB0,value)
+end
+
+function CharaInitParam:arrowNum(value)
+    self:patch2Byte(0xB2,value)
+end
+
+function CharaInitParam:boltNum(value)
+    self:patch2Byte(0xB4,value)
+end
+
+function CharaInitParam:subArrowNum(value)
+    self:patch2Byte(0xB6,value)
+end
+
+function CharaInitParam:subBoltNum(value)
+    self:patch2Byte(0xB8,value)
+end
+
+function CharaInitParam:QWC_sb(value)
+    self:patch2Byte(0xBC,value)
+end
+
+function CharaInitParam:QWC_mw(value)
+    self:patch2Byte(0xBE,value)
+end
+
+function CharaInitParam:QWC_cd(value)
+    self:patch2Byte(0xBF,value)
+end
+
+function CharaInitParam:soulLvl(value)
+    self:patch2Byte(0xC0,value)
+end
+
+function CharaInitParam:baseVit(value)
+    self:patchByte(0xC2,value)
+end
+
+function CharaInitParam:baseWil(value)
+    self:patchByte(0xC3,value)
+end
+
+function CharaInitParam:baseEnd(value)
+    self:patchByte(0xC4,value)
+end
+
+function CharaInitParam:baseStr(value)
+    self:patchByte(0xC5,value)
+end
+
+function CharaInitParam:baseDex(value)
+    self:patchByte(0xC6,value)
+end
+
+function CharaInitParam:baseMag(value)
+    self:patchByte(0xC7,value)
+end
+
+function CharaInitParam:baseFai(value)
+    self:patchByte(0xC8,value)
+end
+
+function CharaInitParam:baseLuc(value)
+    self:patchByte(0xC9,value)
+end
+
+function CharaInitParam:baseHeroPoint(value)
+    self:patchByte(0xCA,value)
+end
+
+function CharaInitParam:baseDurability(value)
+    self:patchByte(0xCB,value)
+end
+
+function CharaInitParam:itemNum_01(value)
+    self:patchByte(0xCC,value)
+end
+
+function CharaInitParam:itemNum_02(value)
+    self:patchByte(0xCD,value)
+end
+
+function CharaInitParam:itemNum_03(value)
+    self:patchByte(0xCE,value)
+end
+
+function CharaInitParam:itemNum_04(value)
+    self:patchByte(0xCF,value)
+end
+
+function CharaInitParam:itemNum_05(value)
+    self:patchByte(0xD0,value)
+end
+
+function CharaInitParam:itemNum_06(value)
+    self:patchByte(0xD1,value)
+end
+
+function CharaInitParam:itemNum_07(value)
+    self:patchByte(0xD2,value)
+end
+
+function CharaInitParam:itemNum_08(value)
+    self:patchByte(0xD3,value)
+end
+
+function CharaInitParam:itemNum_09(value)
+    self:patchByte(0xD4,value)
+end
+
+function CharaInitParam:itemNum_10(value)
+    self:patchByte(0xD5,value)
+end
+
+function CharaInitParam:bodyScaleHead(value)
+    self:patchByte(0xD6,value)
+end
+
+function CharaInitParam:bodyScaleBreast(value)
+    self:patchByte(0xD7,value)
+end
+
+function CharaInitParam:BodyScaleAbdomen(value)
+    self:patchByte(0xD8,value)
+end
+
+function CharaInitParam:BodyScaleArm(value)
+    self:patchByte(0xD9,value)
+end
+
+function CharaInitParam:BodyScaleLeg(value)
+    self:patchByte(0xDA,value)
+end
+
+function CharaInitParam:gestureid0(value)
+    self:patchByte(0xDB,value)
+end
+
+function CharaInitParam:gestureid1(value)
+    self:patchByte(0xDC,value)
+end
+
+function CharaInitParam:gestureid2(value)
+    self:patchByte(0xDD,value)
+end
+
+function CharaInitParam:gestureid3(value)
+    self:patchByte(0xDE,value)
+end
+
+function CharaInitParam:gestureid4(value)
+    self:patchByte(0xDF,value)
+end
+
+function CharaInitParam:gestureid5(value)
+    self:patchByte(0xE0,value)
+end
+
+function CharaInitParam:gestureid6(value)
+    self:patchByte(0xE1,value)
+end
+
+function CharaInitParam:npcPlayerType(value)
+    self:patchByte(0xE2,value)
+end
+
+function CharaInitParam:npcPlayerDrawType(value)
+    self:patchByte(0xE3,value)
+end
+
+function CharaInitParam:NpcPlayerSex(value)
+    self:patchByte(0xE4,value)
+end
+
+function CharaInitParam:vowType(value)
+    self:patchByte(0xE5,value)
+end
+
+function CharaInitParam:VoiceType(value)
+    self:patchByte(0xE6,value)
+end
+
+function CharaInitParam:equip_Wep_Right_GenId(value)
+    self:patch4Byte(0xE8,value)
+end
+
+function CharaInitParam:equip_Subwep_Right_GenId(value)
+    self:patch4Byte(0xEC,value)
+end
+
+function CharaInitParam:equip_Wep_Left_GenId(value)
+    self:patch4Byte(0xF0,value)
+end
+
+function CharaInitParam:equip_Subwep_Left_GenId(value)
+    self:patch4Byte(0xF4,value)
+end
+
+function CharaInitParam:equip_Helm_GenId(value)
+    self:patch4Byte(0xF8,value)
+end
+
+function CharaInitParam:equip_Gaunt_GenId(value)
+    self:patch4Byte(0xFC,value)
+end
+
+function CharaInitParam:equip_Leg_GenId(value)
+    self:patch4Byte(0x100,value)
+end
+
+function CharaInitParam:equip_Wep_Body_GenId(value)
+    self:patch4Byte(0x104,value)
+end
+
+function CharaInitParam:SecondaryItem_01(value)
+    self:patch4Byte(0x108,value)
+end
+
+function CharaInitParam:SecondaryItem_02(value)
+    self:patch4Byte(0x10C,value)
+end
+
+function CharaInitParam:SecondaryItem_03(value)
+    self:patch4Byte(0x110,value)
+end
+
+function CharaInitParam:SecondaryItem_04(value)
+    self:patch4Byte(0x114,value)
+end
+
+function CharaInitParam:SecondaryItem_05(value)
+    self:patch4Byte(0x118,value)
+end
+
+function CharaInitParam:SecondaryItem_06(value)
+    self:patch4Byte(0x11C,value)
+end
+
+function CharaInitParam:SecondaryItem_07(value)
+    self:patch4Byte(0x120,value)
+end
+
+function CharaInitParam:SecondaryItem_08(value)
+    self:patch4Byte(0x124,value)
+end
+
+function CharaInitParam:secondaryItemNum_01(value)
+    self:patchByte(0x128,value)
+end
+
+function CharaInitParam:secondaryItemNum_02(value)
+    self:patchByte(0x129,value)
+end
+
+function CharaInitParam:secondaryItemNum_03(value)
+    self:patchByte(0x12A,value)
+end
+
+function CharaInitParam:secondaryItemNum_04(value)
+    self:patchByte(0x12B,value)
+end
+
+function CharaInitParam:secondaryItemNum_05(value)
+    self:patchByte(0x12C,value)
+end
+
+function CharaInitParam:secondaryItemNum_06(value)
+    self:patchByte(0x12D,value)
+end
+
+function CharaInitParam:secondaryItemNum_07(value)
+    self:patchByte(0x12E,value)
+end
+
+function CharaInitParam:secondaryItemNum_08(value)
+    self:patchByte(0x12F,value)
+end
+
+function CharaInitParam:EstusFlask(value)
+    self:patchByte(0x132,value)
+end
+
+function CharaInitParam:AshenEstusFlask(value)
+    self:patchByte(0x133,value)
+end
+
+--Compatibility
+function CharaInitParam:Souls(value)
+    self:patch4Byte(0x0C,value)
+end
+
+function CharaInitParam:PrimaryRightWep(value)
+    self:patch4Byte(0x10,value)
+end
+
+function CharaInitParam:SecondaryRightWep(value)
+    self:patch4Byte(0x14,value)
+end
+
+function CharaInitParam:PrimaryLeftWep(value)
+    self:patch4Byte(0x18,value)
+end
+
+function CharaInitParam:SecondaryLeftWep(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function CharaInitParam:Helmet(value)
+    self:patch4Byte(0x20,value)
+end
+
+function CharaInitParam:Armor(value)
+    self:patch4Byte(0x24,value)
+end
+
+function CharaInitParam:Gauntlet(value)
+    self:patch4Byte(0x28,value)
+end
+
+function CharaInitParam:Leggings(value)
+    self:patch4Byte(0x2C,value)
+end
+
+function CharaInitParam:PrimaryArrow(value)
+    self:patch4Byte(0x30,value)
+end
+
+function CharaInitParam:PrimaryBolt(value)
+    self:patch4Byte(0x34,value)
+end
+
+function CharaInitParam:SecondaryArrow(value)
+    self:patch4Byte(0x38,value)
+end
+
+function CharaInitParam:SecondaryBolt(value)
+    self:patch4Byte(0x3C,value)
+end
+
+function CharaInitParam:Ring1(value)
+    self:patch4Byte(0x40,value)
+end
+
+function CharaInitParam:Ring2(value)
+    self:patch4Byte(0x44,value)
+end
+
+function CharaInitParam:Ring3(value)
+    self:patch4Byte(0x48,value)
+end
+
+function CharaInitParam:Ring4(value)
+    self:patch4Byte(0x4C,value)
+end
+
+function CharaInitParam:VOW_Type(value)
+    self:patch4Byte(0x50,value)
+end
+
+function CharaInitParam:AttunementSlot1(value)
+    self:patch4Byte(0x60,value)
+end
+
+function CharaInitParam:AttunementSlot2(value)
+    self:patch4Byte(0x64,value)
+end
+
+function CharaInitParam:AttunementSlot3(value)
+    self:patch4Byte(0x68,value)
+end
+
+function CharaInitParam:AttunementSlot4(value)
+    self:patch4Byte(0x6C,value)
+end
+
+function CharaInitParam:AttunementSlot5(value)
+    self:patch4Byte(0x70,value)
+end
+
+function CharaInitParam:AttunementSlot6(value)
+    self:patch4Byte(0x74,value)
+end
+
+function CharaInitParam:AttunementSlot7(value)
+    self:patch4Byte(0x78,value)
+end
+
+function CharaInitParam:QuickItem1(value)
+    self:patch4Byte(0x7C,value)
+end
+
+function CharaInitParam:QuickItem2(value)
+    self:patch4Byte(0x80,value)
+end
+
+function CharaInitParam:QuickItem3(value)
+    self:patch4Byte(0x84,value)
+end
+
+function CharaInitParam:QuickItem4(value)
+    self:patch4Byte(0x88,value)
+end
+
+function CharaInitParam:QuickItem5(value)
+    self:patch4Byte(0x8C,value)
+end
+
+function CharaInitParam:QuickItem6(value)
+    self:patch4Byte(0x90,value)
+end
+
+function CharaInitParam:QuickItem7(value)
+    self:patch4Byte(0x94,value)
+end
+
+function CharaInitParam:QuickItem8(value)
+    self:patch4Byte(0x98,value)
+end
+
+function CharaInitParam:QuickItem9(value)
+    self:patch4Byte(0x9C,value)
+end
+
+function CharaInitParam:QuickItem10(value)
+    self:patch4Byte(0x100,value)
+end
+
+function CharaInitParam:TertiaryRightHand(value)
+    self:patch4Byte(0x108,value)
+end
+
+function CharaInitParam:TertiaryLeftWep(value)
+    self:patch4Byte(0x10C,value)
+end
+
+function CharaInitParam:Toolbelt1(value)
+    self:patch4Byte(0x114,value)
+end
+
+function CharaInitParam:Toolbelt2(value)
+    self:patch4Byte(0x118,value)
+end
+
+function CharaInitParam:Toolbelt3(value)
+    self:patch4Byte(0x11C,value)
+end
+
+function CharaInitParam:Toolbelt4(value)
+    self:patch4Byte(0x120,value)
+end
+
+function CharaInitParam:Toolbelt5(value)
+    self:patch4Byte(0x124,value)
+end
+
+function CharaInitParam:Toolbelt6(value)
+    self:patch4Byte(0x128,value)
+end
+
+function CharaInitParam:ToolbeltAmount1(value)
+    self:patchByte(0x12C,value)
+end
+
+function CharaInitParam:ToolbeltAmount2(value)
+    self:patchByte(0x12D,value)
+end
+
+function CharaInitParam:ToolbeltAmount3(value)
+    self:patchByte(0x12E,value)
+end
+
+function CharaInitParam:ToolbeltAmount4(value)
+    self:patchByte(0x12F,value)
+end
+
+function CharaInitParam:ToolbeltAmount5(value)
+    self:patchByte(0x130,value)
+end
+
+function CharaInitParam:ToolbeltAmount6(value)
+    self:patchByte(0x131,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

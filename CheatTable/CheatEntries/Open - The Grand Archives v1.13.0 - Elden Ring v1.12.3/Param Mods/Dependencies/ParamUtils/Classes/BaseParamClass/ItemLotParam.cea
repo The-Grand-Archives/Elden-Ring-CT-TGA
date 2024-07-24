@@ -1,0 +1,114 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+ItemLotParam = BaseParamClass:new()
+
+function ItemLotParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ItemLotParam", uuid, id, address)
+	return o
+end
+
+function ItemLotParam:ItemLotId(value)
+    self:patch4Byte(0x00,value)
+end
+
+function ItemLotParam:ItemLotId1(value)
+    self:patch4Byte(0x04,value)
+end
+
+function ItemLotParam:ItemLotId2(value)
+    self:patch4Byte(0x08,value)
+end
+
+function ItemLotParam:ItemLotId3(value)
+    self:patch4Byte(0x0C,value)
+end
+
+function ItemLotParam:ItemLotId4(value)
+    self:patch4Byte(0x10,value)
+end
+
+function ItemLotParam:ItemLotId5(value)
+    self:patch4Byte(0x14,value)
+end
+
+function ItemLotParam:ItemLotId6(value)
+    self:patch4Byte(0x18,value)
+end
+
+function ItemLotParam:ItemLotId7(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function ItemLotParam:ItemType(value)
+    self:patch4Byte(0x20,value)
+end
+
+function ItemLotParam:ItemType1(value)
+    self:patch4Byte(0x24,value)
+end
+
+function ItemLotParam:ItemType2(value)
+    self:patch4Byte(0x28,value)
+end
+
+function ItemLotParam:ItemType3(value)
+    self:patch4Byte(0x2C,value)
+end
+
+function ItemLotParam:ItemType4(value)
+    self:patch4Byte(0x30,value)
+end
+
+function ItemLotParam:ItemType5(value)
+    self:patch4Byte(0x34,value)
+end
+
+function ItemLotParam:ItemType6(value)
+    self:patch4Byte(0x38,value)
+end
+
+function ItemLotParam:ItemType7(value)
+    self:patch4Byte(0x3C,value)
+end
+
+function ItemLotParam:DropRateItem(value)
+    self:patch2Byte(0x40,value)
+end
+
+function ItemLotParam:DropRateItem1(value)
+    self:patch2Byte(0x42,value)
+end
+
+function ItemLotParam:DropRateItem2(value)
+    self:patch2Byte(0x44,value)
+end
+
+function ItemLotParam:DropRateItem3(value)
+    self:patch2Byte(0x46,value)
+end
+
+function ItemLotParam:DropRateItem4(value)
+    self:patch2Byte(0x48,value)
+end
+
+function ItemLotParam:DropRateItem5(value)
+    self:patch2Byte(0x4A,value)
+end
+
+function ItemLotParam:DropRateItem6(value)
+    self:patch2Byte(0x4C,value)
+end
+
+function ItemLotParam:DropRateItem7(value)
+    self:patch2Byte(0x4E,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

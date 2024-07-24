@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337197036</ID>
+  <Description>"TEAM_TYPE"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Host
+2:Phantom
+6:Non-Hostile NPC
+7:Hostile NPC
+16:Dark Spirit
+47:Spirit Summon
+0:None
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337198673</ID>
+  <Description>"suppleType"</Description>
+  <Options moHideChildren="1"/>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:0
+1:1
+2:2
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Byte</VariableType>
+  <Address>+6D</Address>
+</CheatEntry>

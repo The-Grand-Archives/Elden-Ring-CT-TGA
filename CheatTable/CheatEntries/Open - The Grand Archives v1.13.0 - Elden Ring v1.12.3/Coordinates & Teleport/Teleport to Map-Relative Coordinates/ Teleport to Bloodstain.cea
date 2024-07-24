@@ -1,0 +1,11 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+writeBytes("TargetCoords", readBytes("[[GameDataMan]+48]", 12, true))
+writeBytes("TargetCoords+10", readBytes("[[GameDataMan]+48]+38", 4, true))
+local tgtPos = getMapRelativeCoords("TargetCoords")
+if (tgtPos ~= nil) then
+    mapRelativeTeleport(tgtPos)
+end
+disableMemrec(memrec)
+[DISABLE]

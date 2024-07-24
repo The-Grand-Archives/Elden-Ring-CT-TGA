@@ -1,0 +1,28 @@
+{$lua}
+if syntaxcheck then return end
+local memrec = getAddressList().getMemoryRecordByID(1337272939)
+[ENABLE]
+if RemoveItem == nil then
+    getAddressList().getMemoryRecordByDescription("RemoveItem_code").active = true
+    local e = "'RemoveItem' symbol was not found.\nTry enabling this script again."
+    ShowMessage(e)
+    error(e, 2)
+end
+
+RemoveItem_data = allocateMemory(16, getAddress(process))
+writeInteger(RemoveItem_data+4,0xFFFFFFFF)
+
+if isOwnDlc(1) then
+    memrec.DropDownLinkedMemrec = "ItemDropdownDLC"
+else
+    memrec.DropDownLinkedMemrec = "ItemDropdown"
+end
+
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- RemoveItem(idx)
+
+[DISABLE]
+deAlloc(RemoveItem_data)
+RemoveItem_data = nil
+memrec.DropDownLinkedMemrec = "ItemDropdown"

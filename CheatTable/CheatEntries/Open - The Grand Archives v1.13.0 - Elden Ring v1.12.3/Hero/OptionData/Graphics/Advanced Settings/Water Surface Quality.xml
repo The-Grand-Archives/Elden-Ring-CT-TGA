@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337259151</ID>
+  <Description>"Water Surface Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>114</Offset>
+  </Offsets>
+</CheatEntry>

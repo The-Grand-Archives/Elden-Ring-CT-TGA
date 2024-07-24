@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337198569</ID>
+  <Description>"showDialogCondType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>2</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+40</Address>
+</CheatEntry>

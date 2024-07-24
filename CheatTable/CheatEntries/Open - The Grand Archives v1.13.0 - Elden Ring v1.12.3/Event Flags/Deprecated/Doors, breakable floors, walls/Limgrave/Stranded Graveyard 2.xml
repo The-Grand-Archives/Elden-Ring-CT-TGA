@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337253852</ID>
+  <Description>"Stranded Graveyard 2"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>A0999</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

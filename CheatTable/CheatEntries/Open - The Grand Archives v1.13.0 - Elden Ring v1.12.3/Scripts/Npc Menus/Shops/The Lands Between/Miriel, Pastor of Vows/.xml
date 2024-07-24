@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337261257</ID>
+  <Description>"Miriel, Pastor of Vows"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337261258"/>
+    <id id="1337261259"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337218152</ID>
+  <Description>"Resolution-FullScreenHeight | 画面解像度-フルスクリーン height"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>D8</Offset>
+  </Offsets>
+</CheatEntry>

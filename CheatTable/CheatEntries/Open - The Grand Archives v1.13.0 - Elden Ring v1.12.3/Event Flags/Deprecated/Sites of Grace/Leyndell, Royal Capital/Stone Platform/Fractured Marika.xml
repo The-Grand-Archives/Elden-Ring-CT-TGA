@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337208098</ID>
+  <Description>"Fractured Marika"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>AB1</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

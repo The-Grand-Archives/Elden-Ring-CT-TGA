@@ -1,0 +1,28 @@
+<CheatEntry>
+  <ID>1337198168</ID>
+  <Description>"baseChangeCategory"</Description>
+  <DropDownList>0:None
+1:Heavy
+2:Sharp
+3:Refined
+4:Crystal
+5:Simple
+6:Fire
+7:Chaos
+8:Lightning
+9:Deep
+10:Dark
+11:Poison
+12:Bleed
+13:Raw
+14:Blessed
+15:Hollow
+16:Debug
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>6</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+108</Address>
+</CheatEntry>

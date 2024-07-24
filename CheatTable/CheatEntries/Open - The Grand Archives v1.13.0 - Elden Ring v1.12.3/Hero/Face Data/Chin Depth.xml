@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337212983</ID>
+  <Description>"Chin Depth"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+43</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

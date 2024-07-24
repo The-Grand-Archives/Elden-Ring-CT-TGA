@@ -1,0 +1,8 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+address_version("2.00.1")
+executeCodeEx(0,100,"$process+7ff290","",0)
+disableMemrec(memrec)
+[DISABLE]
+

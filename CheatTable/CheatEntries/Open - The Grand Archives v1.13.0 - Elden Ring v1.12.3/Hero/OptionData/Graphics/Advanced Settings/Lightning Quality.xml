@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337259148</ID>
+  <Description>"Lightning Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>108</Offset>
+  </Offsets>
+</CheatEntry>

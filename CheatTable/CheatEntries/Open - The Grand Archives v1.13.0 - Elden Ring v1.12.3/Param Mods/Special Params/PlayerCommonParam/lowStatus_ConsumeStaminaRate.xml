@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>5549</ID>
+  <Description>"lowStatus_ConsumeStaminaRate"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+30</Address>
+</CheatEntry>

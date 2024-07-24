@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337201746</ID>
+  <Description>"Upgrade"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>item_menu+08</Address>
+</CheatEntry>

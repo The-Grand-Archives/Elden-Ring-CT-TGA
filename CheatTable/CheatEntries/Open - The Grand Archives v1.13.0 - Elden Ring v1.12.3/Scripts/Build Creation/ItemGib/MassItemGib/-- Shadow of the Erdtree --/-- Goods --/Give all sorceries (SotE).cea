@@ -1,0 +1,27 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+if not isOwnDlc(1) then missingDlc(1) end
+
+local items = {
+	{ 0x401E954C, 1, 0, 0, -1 }, -- Miriam's Vanishing
+	{ 0x401E9556, 1, 0, 0, -1 }, -- Glintblade Trio
+	{ 0x401E9560, 1, 0, 0, -1 }, -- Rellana's Twin Moons
+
+	{ 0x401E9614, 1, 0, 0, -1 }, -- Glintstone Nail
+	{ 0x401E961E, 1, 0, 0, -1 }, -- Glintstone Nails
+	{ 0x401E96DC, 1, 0, 0, -1 }, -- Blades of Stone
+	{ 0x401E96E6, 1, 0, 0, -1 }, -- Gravitational Missile
+	{ 0x401E97A4, 1, 0, 0, -1 }, -- Mantle of Thorns
+	{ 0x401E97AE, 1, 0, 0, -1 }, -- Impenetrable Thorns
+	{ 0x401EA172, 1, 0, 0, -1 }, -- Fleeting Microcosm
+	{ 0x401EA17C, 1, 0, 0, -1 }, -- Cherishing Fingers
+
+	{ 0x401E9808, 1, 0, 0, -1 }, -- Rings of Spectral Light
+	{ 0x401E9CB8, 1, 0, 0, -1 }, -- Vortex of Putrescence
+	{ 0x401E9CC2, 1, 0, 0, -1 }, -- Mass of Putrescence
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

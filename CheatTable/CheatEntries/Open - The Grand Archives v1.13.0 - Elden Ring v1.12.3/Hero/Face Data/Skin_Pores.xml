@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213107</ID>
+  <Description>"Skin_Pores"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+BF</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

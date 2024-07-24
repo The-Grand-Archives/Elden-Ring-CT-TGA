@@ -1,0 +1,57 @@
+<CheatEntry>
+  <ID>1337194452</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>LastAccessoryHighlightedAddr</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337201238"/>
+    <id id="1337201239"/>
+    <id id="1337201240"/>
+    <id id="1337201241"/>
+    <id id="1337201242"/>
+    <id id="1337201243"/>
+    <id id="1337201244"/>
+    <id id="1337201245"/>
+    <id id="1337201246"/>
+    <id id="1337201247"/>
+    <id id="1337201248"/>
+    <id id="1337201249"/>
+    <id id="1337201250"/>
+    <id id="1337201251"/>
+    <id id="1337201252"/>
+    <id id="1337201253"/>
+    <id id="1337201254"/>
+    <id id="1337201255"/>
+    <id id="1337201256"/>
+    <id id="1337201257"/>
+    <id id="1337201258"/>
+    <id id="1337201259"/>
+    <id id="1337201260"/>
+    <id id="1337201261"/>
+    <id id="1337201262"/>
+    <id id="1337201263"/>
+    <id id="1337201264"/>
+    <id id="1337201265"/>
+    <id id="1337201266"/>
+    <id id="1337201267"/>
+    <id id="1337201268"/>
+    <id id="1337201269"/>
+    <id id="1337201270"/>
+    <id id="1337201271"/>
+    <id id="1337201272"/>
+    <id id="1337201273"/>
+    <id id="1337201274"/>
+    <id id="1337201275"/>
+    <id id="1337201276"/>
+    <id id="1337201277"/>
+    <id id="1337201278"/>
+    <id id="1337201279"/>
+    <id id="1337201280"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

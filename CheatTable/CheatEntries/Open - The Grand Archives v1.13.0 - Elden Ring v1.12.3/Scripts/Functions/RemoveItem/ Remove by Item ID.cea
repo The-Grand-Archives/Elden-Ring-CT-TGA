@@ -1,0 +1,14 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local idx = getItemIdx(readInteger(RemoveItem_data + 4))
+if idx then
+    RemoveItem(idx, readInteger(RemoveItem_data + 8))
+else
+    local text = "Item not found in inventory"
+    print(text)
+    error(text,2)
+end
+disableMemrec(memrec)
+[DISABLE]
+

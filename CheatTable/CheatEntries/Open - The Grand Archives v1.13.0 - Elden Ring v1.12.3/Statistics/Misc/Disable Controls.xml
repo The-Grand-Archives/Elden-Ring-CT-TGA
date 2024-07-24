@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337258946</ID>
+  <Description>"Disable Controls"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>BC4</Offset>
+  </Offsets>
+</CheatEntry>

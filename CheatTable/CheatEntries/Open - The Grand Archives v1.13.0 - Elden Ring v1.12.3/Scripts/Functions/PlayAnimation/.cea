@@ -1,0 +1,26 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local aob = AOBScanModuleUnique(process,"74 ?? 48 85 d2 74 ?? 48 8d 4c 24 50")
+local W_Event_addr = aob - 0xD
+
+function PlayAnimation(str)
+    if type(str) ~= "string" then
+        error("Input needs to be string type",2)
+    end
+    -- WorldChrMan -> PlayerIns -> ChrModules ->
+    -- CSChrBehaviorModule -> ? -> hkbCharacter
+    local ptr = getAddressSafe("[[[[[WorldChrMan]+1E508]+190]+28]+10]+30")
+    if ptr == nil then
+        error("'hkbCharacter' not found",2)
+    end
+    local mem_addr = allocateMemory(64, getAddress(process))
+    if writeString(mem_addr,str,true) then
+        if executeCodeEx(0, 100, W_Event_addr, ptr, mem_addr) == 0xFFFFFFFF then
+            print("Failed to play: ", str)
+        end
+    end
+    deAlloc(mem_addr)
+end
+
+[DISABLE]

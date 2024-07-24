@@ -1,0 +1,19 @@
+// Author: Layka, the Wuffinator
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+if not isOwnDlc(1) then missingDlc(1) end
+local items = {
+  { 0x401EAF78, 1, 0, 0, -1 }, -- Viridian Hidden Tear
+  { 0x401EAF82, 1, 0, 0, -1 }, -- Crimsonburst Dried Tear
+  { 0x401EAF8C, 1, 0, 0, -1 }, -- Crimson-Sapping Cracked Tear
+  { 0x401EAF96, 1, 0, 0, -1 }, -- Cerulean-Sapping Cracked Tear
+  { 0x401EAFA0, 1, 0, 0, -1 }, -- Oil-Soaked Tear
+  { 0x401EAFAA, 1, 0, 0, -1 }, -- Bloodsucking Cracked Tear
+  { 0x401EAFB4, 1, 0, 0, -1 }, -- Glovewort Crystal Tear
+  { 0x401EAFBE, 1, 0, 0, -1 }, -- Deflecting Hardtear
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

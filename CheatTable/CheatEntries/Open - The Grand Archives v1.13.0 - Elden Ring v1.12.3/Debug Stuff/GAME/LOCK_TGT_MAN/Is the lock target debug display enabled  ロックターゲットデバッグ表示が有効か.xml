@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337099146</ID>
+  <Description>"Is the lock target debug display enabled? | ロックターゲットデバッグ表示が有効か"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2988</Offset>
+  </Offsets>
+</CheatEntry>

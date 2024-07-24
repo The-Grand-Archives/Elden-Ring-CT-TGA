@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337201424</ID>
+  <Description>"invisibleFlag75"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+3</Address>
+</CheatEntry>

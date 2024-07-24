@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337199360</ID>
+  <Description>"spAttribute"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Normal
+2:Fire
+3:Magic
+6:Lightning
+9:Dark
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+076</Address>
+</CheatEntry>

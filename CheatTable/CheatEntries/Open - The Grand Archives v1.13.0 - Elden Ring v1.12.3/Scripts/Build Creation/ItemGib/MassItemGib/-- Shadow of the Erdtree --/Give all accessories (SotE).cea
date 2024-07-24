@@ -1,0 +1,49 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+--{ 0x200008AC, 1, 0, 0, -1 }, -- Perfumer's Talisman
+  { 0x20001B58, 1, 0, 0, -1 }, -- Crimson Amber Medallion +3
+  { 0x20001B62, 1, 0, 0, -1 }, -- Cerulean Amber Medallion +3
+  { 0x20001B6C, 1, 0, 0, -1 }, -- Viridian Amber Medallion +3
+  { 0x20001B76, 1, 0, 0, -1 }, -- Two-Headed Turtle Talisman
+  { 0x20001B80, 1, 0, 0, -1 }, -- Stalwart Horn Charm +2
+  { 0x20001B8A, 1, 0, 0, -1 }, -- Immunizing Horn Charm +2
+  { 0x20001B94, 1, 0, 0, -1 }, -- Clarifying Horn Charm +2
+  { 0x20001BA8, 1, 0, 0, -1 }, -- Mottled Necklace +2
+  { 0x20001BB2, 1, 0, 0, -1 }, -- Spelldrake Talisman +3
+  { 0x20001BBC, 1, 0, 0, -1 }, -- Flamedrake Talisman +3
+  { 0x20001BC6, 1, 0, 0, -1 }, -- Boltdrake Talisman +3
+  { 0x20001BD0, 1, 0, 0, -1 }, -- Golden Braid
+  { 0x20001BDA, 1, 0, 0, -1 }, -- Pearldrake Talisman +3
+  { 0x20001BE4, 1, 0, 0, -1 }, -- Crimson Seed Talisman +1
+  { 0x20001BEE, 1, 0, 0, -1 }, -- Cerulean Seed Talisman +1
+  { 0x20001F40, 1, 0, 0, -1 }, -- Blessed Blue Dew Talisman
+  { 0x20001F4A, 1, 0, 0, -1 }, -- Fine Crucible Feather Talisman
+  { 0x20001F54, 1, 0, 0, -1 }, -- Outer God Heirloom
+  { 0x20001F5E, 1, 0, 0, -1 }, -- Shattered Stone Talisman
+  { 0x20001F68, 1, 0, 0, -1 }, -- Two-Handed Sword Talisman
+  { 0x20001F72, 1, 0, 0, -1 }, -- Crusade Insignia
+  { 0x20001F7C, 1, 0, 0, -1 }, -- Aged One's Exultation
+  { 0x20001F86, 1, 0, 0, -1 }, -- Arrow's Soaring Sting Talisman
+  { 0x20001F9A, 1, 0, 0, -1 }, -- Pearl Shield Talisman
+  { 0x20001FA4, 1, 0, 0, -1 }, -- Dried Bouquet
+  { 0x20001FAE, 1, 0, 0, -1 }, -- Smithing Talisman
+  { 0x20001FB8, 1, 0, 0, -1 }, -- Ailment Talisman
+  { 0x20001FC2, 1, 0, 0, -1 }, -- Retaliatory Crossed-Tree
+  { 0x20001FCC, 1, 0, 0, -1 }, -- Lacerating Crossed-Tree
+  { 0x20001FD6, 1, 0, 0, -1 }, -- Sharpshot Talisman
+  { 0x20001FE0, 1, 0, 0, -1 }, -- St. Trina's Smile
+  { 0x20001FEA, 1, 0, 0, -1 }, -- Talisman of the Dread
+  { 0x20001FF4, 1, 0, 0, -1 }, -- Enraged Divine Beast
+  { 0x20001FFE, 1, 0, 0, -1 }, -- Beloved Stardust
+  { 0x20002008, 1, 0, 0, -1 }, -- Talisman of Lord's Bestowal
+  { 0x20002012, 1, 0, 0, -1 }, -- Verdigris Discus
+  { 0x2000201C, 1, 0, 0, -1 }, -- Rellana's Cameo
+  { 0x20002026, 1, 0, 0, -1 }, -- Blade of Mercy
+  { 0x20002030, 1, 0, 0, -1 }, -- Talisman of All Crucibles
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337253895</ID>
+  <Description>"Earthbore Cave breakable floor"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1703D8</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

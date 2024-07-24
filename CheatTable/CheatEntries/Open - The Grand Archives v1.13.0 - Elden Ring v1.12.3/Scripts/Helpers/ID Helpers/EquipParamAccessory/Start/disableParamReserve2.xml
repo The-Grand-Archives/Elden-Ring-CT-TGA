@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337200478</ID>
+  <Description>"disableParamReserve2"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>3</ByteLength>
+  <Address>+01</Address>
+</CheatEntry>

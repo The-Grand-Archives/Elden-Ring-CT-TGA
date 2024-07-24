@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337193439</ID>
+  <Description>"Slot4"</Description>
+  <DropDownListLink>MAGIC_ID</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>30</Offset>
+    <Offset>530</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

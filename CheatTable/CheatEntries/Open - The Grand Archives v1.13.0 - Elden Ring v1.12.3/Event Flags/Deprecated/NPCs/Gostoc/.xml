@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>1337253771</ID>
+  <Description>"Gostoc"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>197</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253772"/>
+    <id id="1337253773"/>
+    <id id="1337253774"/>
+    <id id="1337253974"/>
+    <id id="1337253955"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

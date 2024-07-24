@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(ThrowParamHelper_addr,$8)
+registersymbol(ThrowParamHelper_addr)
+
+ThrowParamHelper_addr:
+dq #0
+
+[DISABLE]
+dealloc(ThrowParamHelper_addr)
+unregistersymbol(ThrowParamHelper_addr)

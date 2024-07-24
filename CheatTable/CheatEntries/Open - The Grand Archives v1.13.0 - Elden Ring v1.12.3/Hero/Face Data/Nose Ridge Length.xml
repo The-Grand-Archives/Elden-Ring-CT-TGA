@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213019</ID>
+  <Description>"Nose Ridge Length"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+67</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337198274</ID>
+  <Description>"residentSfx_1_IsVisibleForHang"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+236</Address>
+</CheatEntry>

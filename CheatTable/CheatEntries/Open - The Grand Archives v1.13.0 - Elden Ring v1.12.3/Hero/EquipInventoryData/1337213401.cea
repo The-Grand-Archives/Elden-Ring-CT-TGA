@@ -1,0 +1,6 @@
+[ENABLE]
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+local Idx = readInteger("EquipInventoryDataIdx")+1
+writeInteger("EquipInventoryDataIdx",Idx)
+[DISABLE]

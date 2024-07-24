@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337208217</ID>
+  <Description>"Seethewater River"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>CDE</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

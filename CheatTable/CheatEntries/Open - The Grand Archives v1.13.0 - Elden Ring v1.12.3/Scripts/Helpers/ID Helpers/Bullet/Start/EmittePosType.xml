@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337198862</ID>
+  <Description>"EmittePosType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>3</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9a</Address>
+</CheatEntry>

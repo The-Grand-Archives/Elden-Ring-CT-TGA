@@ -1,0 +1,176 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function initav()
+    local game_addr = getAddressSafe(process)
+    if game_addr == nil then error("Process address not found", 2) end
+	local fun_addr = 0
+	local fun_ver = "2.02.3"
+    return game_addr,fun_addr,fun_ver
+end
+
+function BonfireMenu(menu)
+	local game_addr,fun_addr,fun_ver = initav()
+    if menu == nil then error("no menu specified", 2) end
+    if menu == 0 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80f600  -- Memorize Spells
+    elseif menu == 1 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x8104c0  -- Sort Chest
+    elseif menu == 2 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x810160  -- Level Up
+    elseif menu == 3 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80eee0  -- Ashes of War
+    elseif menu == 4 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80e080  -- Flask Allocation
+    elseif menu == 5 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80de30  -- Wondrous Physick Mix
+    elseif menu == 6 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80d940  -- Great Runes
+    else
+		error("invalid menu", 2)
+    end
+	address_version(fun_ver)
+	if fun_addr ~= 0 and fun_addr ~= nil then
+		executeCodeEx(0, 100, fun_addr, "")
+	else
+		error("invalid function address", 2)
+	end
+end
+
+function NpcMenu(menu)
+	local game_addr,fun_addr,fun_ver = initav()
+    if menu == nil then error("no menu specified", 2) end
+    if menu == 0 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x810bc0  -- Rebirth
+    elseif menu == 1 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80dc00  -- Cosmetics (Rennala)
+    elseif menu == 2 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80dcb0  -- Cosmetics (Mirror)
+    elseif menu == 3 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80daf0  -- Spirit Tuning
+    elseif menu == 4 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80ebb0  -- Blacksmith
+    elseif menu == 5 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80f4f0  -- Smithing Table
+        local var1 = 3
+    elseif menu == 6 then
+		--fun_ver = "2.00"
+        fun_addr = game_addr + 0x80edd0  -- Sell Item
+        local mem = allocateMemory(0x40, game_addr)
+        local var1 = mem
+    else
+		error("invalid menu", 2)
+    end
+	address_version(fun_ver)
+	if fun_addr ~= 0 and fun_addr ~= nil then
+        if var1 ~= nil then
+    		executeCodeEx(0, 100, fun_addr, "", var1)
+            if mem ~= nil then deAlloc(mem) end
+        else
+            executeCodeEx(0, 100, fun_addr, "")
+        end
+	else
+		error("invalid function address", 2)
+	end
+end
+
+function ShopMenu(startId, endId, shopType)
+	local game_addr,fun_addr,fun_ver = initav()
+	if startId == nil then startId = 0 end
+	if endId == nil then endId = startId + 99 end
+	if shopType == 0 or shopType == nil then
+		--fun_ver = "2.02"
+		fun_addr = game_addr + 0x80e770  -- Purchase Item
+	elseif shopType == 1 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x810920  -- Power of Remembrance
+	elseif shopType == 2 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80e8c0  -- GR_MenuText(237000)
+	elseif shopType == 3 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x810a70  -- Dragon Communion
+	elseif shopType == 4 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x810220  -- Alter Garments
+	elseif shopType == 5 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80df30  -- Ash of War Duplication
+	elseif shopType == 6 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x810370  -- Puppet (Starlight Shards)
+	elseif shopType == 7 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x8107d0  -- GR_MenuText(228000)
+	elseif shopType == 8 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80e660  -- Puppet
+	elseif shopType == 9 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80e550  -- Remembrance Duplication
+	elseif shopType == 10 then
+		--fun_ver = "2.00"
+		fun_addr = game_addr + 0x80e400  -- Equipment of Champions
+	else
+		error("invalid shop type", 2)
+	end
+	address_version(fun_ver)
+	if fun_addr ~= 0 and fun_addr ~= nil then
+		local mem = allocateMemory(0xA0, game_addr)
+		executeCodeEx(0, 100, fun_addr, "", startId, endId, mem)
+		deAlloc(mem)
+	else
+		error("invalid function address", 2)
+	end
+end
+
+-- these are unnecessary, but easier to remember
+function ShopMenu_remembrance(startId, endId)
+	ShopMenu(startId, endId, 1)
+end
+
+function ShopMenu_dragon(startId, endId)
+	ShopMenu(startId, endId, 3)
+end
+
+function ShopMenu_alter(startId, endId)
+	ShopMenu(startId, endId, 4)
+end
+
+function ShopMenu_gem(startId, endId)
+	ShopMenu(startId, endId, 5)
+end
+
+function ShopMenu_shards(startId, endId)
+	ShopMenu(startId, endId, 6)
+end
+
+function ShopMenu_puppet(startId, endId)
+	ShopMenu(startId, endId, 8)
+end
+
+function ShopMenu_duplicate(startId, endId)
+	ShopMenu(startId, endId, 9)
+end
+
+function ShopMenu_champion(startId, endId)
+	ShopMenu(startId, endId, 10)
+end
+
+[DISABLE]
+BonfireMenu = nil
+NpcMenu = nil
+ShopMenu = nil

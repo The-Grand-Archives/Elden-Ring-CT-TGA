@@ -1,0 +1,321 @@
+<CheatEntry>
+  <ID>1337213442</ID>
+  <Description>"BonfireId"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">4002950:
+10002950:[Stormveil Castle] Godrick the Grafted
+10002951:[Stormhill] Margit, the Fell Omen
+10002952:[Stormhill] Castleward Tunnel
+10002953:[Stormveil Castle] Gateside Chamber
+10002954:[Stormveil Castle] Stormveil Cliffside
+10002955:[Stormveil Castle] Rampart Tower
+10002956:[Stormveil Castle] Liftside Chamber
+10002957:[Stormveil Castle] Secluded Cell
+10002958:[Stormveil Castle] Stormveil Main Gate
+11002950:[Leyndell, Royal Capital] Elden Throne
+11002951:[Leyndell, Royal Capital] Erdtree Sanctuary
+11002952:[Leyndell, Royal Capital] East Capital Rampart
+11002953:[Leyndell, Royal Capital] Lower Capital Church
+11002954:[Leyndell, Royal Capital] Avenue Balcony
+11002955:[Leyndell, Royal Capital] West Capital Rampart
+11002957:[Leyndell, Royal Capital] Queen's Bedchamber
+11002958:[Leyndell, Royal Capital] Fortified Manor, First Floor
+11002959:[Leyndell, Royal Capital] Divine Bridge
+11052950:[Leyndell, Ashen Capital] Elden Throne
+11052951:[Leyndell, Ashen Capital] Erdtree Sanctuary
+11052952:[Leyndell, Ashen Capital] East Capital Rampart
+11052953:[Leyndell, Ashen Capital] Leyndell, Capital of Ash
+11052954:[Leyndell, Ashen Capital] Queen's Bedchamber
+11052955:[Leyndell, Ashen Capital] Divine Bridge
+11102950:[Roundtable Hold] Table of Lost Grace
+12012950:[Ainsel River] Dragonkin Soldier of Nokstella
+12012951:[Ainsel River] Ainsel River Well Depths
+12012952:[Ainsel River] Ainsel River Sluice Gate
+12012953:[Ainsel River] Ainsel River Downstream
+12012954:[Ainsel River Main] Ainsel River Main
+12012955:[Ainsel River Main] Nokstella, Eternal City
+12012956:[Lake of Rot] Lake of Rot Shoreside
+12012958:[Lake of Rot] Grand Cloister
+12012959:[Ainsel River Main] Nokstella Waterfall Basin
+12022950:[Nokron, Eternal City] Great Waterfall Basin
+12022951:[Nokron, Eternal City] Mimic Tear
+12022953:[Siofra River] Siofra River Bank
+12022954:[Siofra River] Worshippers' Woods
+12022956:[Nokron, Eternal City] Ancestral Woods
+12022957:[Nokron, Eternal City] Aqueduct-Facing Cliffs
+12022958:[Nokron, Eternal City] Night's Sacred Ground
+12022959:[Siofra River] Below the Well
+12032950:[Deeproot Depths] Prince of Death's Throne
+12032951:[Deeproot Depths] Root-Facing Cliffs
+12032952:[Deeproot Depths] Great Waterfall Crest
+12032953:[Deeproot Depths] Deeproot Depths
+12032954:[Deeproot Depths] The Nameless Eternal City
+12032955:[Deeproot Depths] Across the Roots
+12042950:[Ainsel River] Astel, Naturalborn of the Void
+12052950:[Mohgwyn Palace] Cocoon of the Empyrean
+12052951:[Mohgwyn Palace] Palace Approach Ledge-Road
+12052952:[Mohgwyn Palace] Dynasty Mausoleum Entrance
+12052953:[Mohgwyn Palace] Dynasty Mausoleum Midpoint
+12072950:[Siofra River] Siofra River Well Depths
+12072951:[Nokron, Eternal City] Nokron, Eternal City
+13002950:[Crumbling Farum Azula] Maliketh, the Black Blade
+13002951:[Crumbling Farum Azula] Dragonlord Placidusax
+13002952:[Crumbling Farum Azula] Dragon Temple Altar
+13002953:[Crumbling Farum Azula] Crumbling Beast Grave
+13002954:[Crumbling Farum Azula] Crumbling Beast Grave Depths
+13002955:[Crumbling Farum Azula] Tempest-Facing Balcony
+13002956:[Crumbling Farum Azula] Dragon Temple
+13002957:[Crumbling Farum Azula] Dragon Temple Transept
+13002958:[Crumbling Farum Azula] Dragon Temple Lift
+13002959:[Crumbling Farum Azula] Dragon Temple Rooftop
+13002960:[Crumbling Farum Azula] Beside the Great Bridge
+14002950:[Academy of Raya Lucaria] Raya Lucaria Grand Library
+14002951:[Academy of Raya Lucaria] Debate Parlor
+14002952:[Academy of Raya Lucaria] Church of the Cuckoo
+14002953:[Academy of Raya Lucaria] Schoolhouse Classroom
+15002950:[Elphael, Brace of the Haligtree] Malenia, Goddess of Rot
+15002951:[Elphael, Brace of the Haligtree] Prayer Room
+15002952:[Elphael, Brace of the Haligtree] Elphael Inner Wall
+15002953:[Elphael, Brace of the Haligtree] Drainage Channel
+15002954:[Elphael, Brace of the Haligtree] Haligtree Roots
+15002955:[Miquella's Haligtree] Haligtree Promenade
+15002956:[Miquella's Haligtree] Haligtree Canopy
+15002957:[Miquella's Haligtree] Haligtree Town
+15002958:[Miquella's Haligtree] Haligtree Town Plaza
+16002950:[Volcano Manor] Rykard, Lord of Blasphemy
+16002951:[Volcano Manor] Temple of Eiglay
+16002952:[Volcano Manor] Volcano Manor
+16002953:[Volcano Manor] Prison Town Church
+16002954:[Volcano Manor] Guest Hall
+16002960:[Volcano Manor] Audience Pathway
+16002962:[Volcano Manor] Abductor Virgin
+16002964:[Volcano Manor] Subterranean Inquisition Chamber
+18002950:[Stranded Graveyard] Cave of Knowledge
+18002951:[Stranded Graveyard] Stranded Graveyard
+19002950:[Stone Platform] Fractured Marika
+30002950:[Weeping Peninsula] Tombsward Catacombs
+30012950:[Weeping Peninsula] Impaler's Catacombs
+30022950:[Limgrave] Stormfoot Catacombs
+30032950:[Liurnia of the Lakes]Road's End Catacombs
+30042950:[Limgrave] Murkwater Catacombs
+30052950:[Liurnia of the Lakes] Black Knife Catacombs
+30062950:[Liurnia of the Lakes] Cliffbottom Catacombs
+30072950:[Mt. Gelmir] Wyndham Catacombs
+30082950:[Altus Plateau] Sainted Hero's Grave
+30092950:[Mt. Gelmir] Gelmir Hero's Grave
+30102950:[Capital Outskirts] Auriza Hero's Grave
+30112950:[Stormhill] Deathtouched Catacombs
+30122950:[Altus Plateau] Unsightly Catacombs
+30132950:[Capital Outskirts] Auriza Side Tomb
+30142950:[Caelid] Minor Erdtree Catacombs
+30152950:[Caelid] Caelid Catacombs
+30162950:[Caelid] War-Dead Catacombs
+30172950:[Flame Peak] Giant-Conquering Hero's Grave
+30182950:[Flame Peak] Giants' Mountaintop Catacombs
+30192950:[Consecrated Snowfield] Consecrated Snowfield Catacombs
+30202950:[Forbidden Lands] Hidden Path to the Haligtree
+31002950:[Limgrave] Murkwater Cave
+31012950:[Weeping Peninsula] Earthbore Cave
+31022950:[Weeping Peninsula] Tombsward Cave
+31032950:[Limgrave] Groveside Cave
+31042950:[Liurnia of the Lakes] Stillwater Cave
+31052950:[Liurnia of the Lakes] Lakeside Crystal Cave
+31062950:[Liurnia of the Lakes] Academy Crystal Cave
+31072950:[Mt. Gelmir] Seethewater Cave
+31092950:[Mt. Gelmir] Volcano Cave
+31102950:[Greyoll's Dragonbarrow] Dragonbarrow Cave
+31112950:[Greyoll's Dragonbarrow] Sellia Hideaway
+31122950:[Consecrated Snowfield] Cave of the Forlorn
+31152950:[Limgrave] Coastal Cave
+31172950:[Limgrave] Highroad Cave
+31182950:[Altus Plateau] Perfumer's Grotto
+31192950:[Altus Plateau] Sage's Cave
+31202950:[Caelid] Abandoned Cave
+31212950:[Caelid] Gaol Cave
+31222950:[Mountaintops of the Giants] Spiritcaller's Cave
+32002950:[Weeping Peninsula] Morne Tunnel
+32012950:[Limgrave] Limgrave Tunnels
+32022950:[Liurnia of the Lakes] Raya Lucaria Crystal Tunnel
+32042950:[Altus Plateau] Old Altus Tunnel
+32052950:[Altus Plateau] Altus Tunnel
+32072950:[Caelid] Gael Tunnel
+32072951:[Caelid] Rear Gael Tunnel Entrance
+32082950:[Caelid] Sellia Crystal Tunnel
+32112950:[Consecrated Snowfield] Yelough Anix Tunnel
+34102950:[Stormhill] Limgrave Tower Bridge
+34102952:[Stormhill] Divine Tower of Limgrave
+34112950:[Liurnia of the Lakes] Study Hall Entrance
+34112951:[Liurnia of the Lakes] Liurnia Tower Bridge
+34112952:[Liurnia of the Lakes] Divine Tower of Liurnia
+34122950:[Capital Outskirts] Divine Tower of West Altus
+34122951:[Capital Outskirts] Sealed Tunnel
+34122952:[Capital Outskirts] Divine Tower of West Altus
+34132951:[Greyoll's Dragonbarrow] Divine Tower of Caelid
+34132952:[Greyoll's Dragonbarrow] Divine Tower of Caelid
+34142950:[Forbidden Lands] Divine Tower of East Altus
+34142951:[Forbidden Lands] Divine Tower of East Altus
+34152950:[Greyoll's Dragonbarrow] Isolated Divine Tower
+35002950:[Subterranean Shunning-Grounds] Cathedral of the Forsaken
+35002951:[Subterranean Shunning-Grounds] Underground Roadside
+35002952:[Subterranean Shunning-Grounds] Forsaken Depths
+35002953:[Subterranean Shunning-Grounds] Leyndell Catacombs
+35002954:[Subterranean Shunning-Grounds] Frenzied Flame Proscription
+39202950:[Ruin-Strewn Precipice] Magma Wyrm
+39202951:[Ruin-Strewn Precipice] Ruin-Strewn Precipice
+39202952:[Ruin-Strewn Precipice] Ruin-Strewn Precipice Overlook
+1041322950:[Weeping Peninsula] Isolated Merchant's Shack
+1041332950:[Weeping Peninsula] Fourth Church of Marika
+1041352950:[Limgrave] Church of Dragon Communion
+1041382950:[Stormhill] Stormhill Shack
+1042332950:[Weeping Peninsula] Weeping Evergaol
+1042362950:[Limgrave] Church of Elleh
+1042362951:[Limgrave] The First Step
+1042372950:[Limgrave] Gatefront Ruins
+1042382950:[Stormhill] Warmaster's Shack
+1043302950:[Weeping Peninsula] Morne Moangrave
+1043312950:[Weeping Peninsula] Castle Morne
+1043312951:[Weeping Peninsula] Behind the Castle
+1043312952:[Weeping Peninsula] Beside the Rampart Gaol
+1043342950:[Weeping Peninsula] Church of Pilgrimage
+1043352950:[Limgrave] Seaside Ruins
+1043372950:[Limgrave] Agheel Lake North
+1043382950:[Limgrave] Murkwater Coast
+1043392950:[Stormhill] Saintsbridge
+1044332950:[Weeping Peninsula] Callu Baptismal Church
+1044332951:[Weeping Peninsula] South of the Lookout Tower
+1044332952:[Weeping Peninsula] Ailing Village
+1044342950:[Weeping Peninsula] Bridge of Sacrifice
+1044352950:[Limgrave] Forlorn Hound Evergaol
+1044362950:[Limgrave] Waypoint Ruins Cellar
+1044372950:[Limgrave] Mistwood Outskirts
+1044382950:[Limgrave] Artist's Shack
+1044392950:[Limgrave] Summonwater Village Outskirts
+1045332950:[Weeping Peninsula] Oridys's Rise
+1045362950:[Limgrave] Fort Haight West
+1046382950:[Limgrave] Third Church of Marika
+1033402950:[Moonlight Altar] Chelona's Rise
+1033442950:[Liurnia of the Lakes] Revenger's Shack
+1033462950:[Liurnia of the Lakes] Foot of the Four Belfries
+1033472950:[Liurnia of the Lakes] The Four Belfries
+1034412950:[Moonlight Altar] Deep Ainsel Well
+1034422950:[Liurnia of the Lakes] Moonfolk Ruins
+1034432950:[Liurnia of the Lakes] Converted Tower
+1034442950:[Liurnia of the Lakes] Temple Quarter
+1034462950:[Liurnia of the Lakes] Crystalline Woods
+1034472951:[Liurnia of the Lakes] Sorcerer's Isle
+1034482950:[Liurnia of the Lakes] Kingsrealm Ruins
+1034492950:[Liurnia of the Lakes] Road to the Manor
+1034502950:[Liurnia of the Lakes] Ranni's Rise
+1034502951:[Liurnia of the Lakes] Ranni's Chamber
+1035422950:[Moonlight Altar] Village of the Albinaurics
+1035432950:[Liurnia of the Lakes] Folly on the Lake
+1035452950:[Liurnia of the Lakes] South Raya Lucaria Gate
+1035462950:[Liurnia of the Lakes] Main Academy Gate
+1035472950:[Liurnia of the Lakes] Testu's Rise
+1035502950:[Liurnia of the Lakes] Caria Manor
+1035502951:[Liurnia of the Lakes] Manor Lower Level
+1035502952:[Liurnia of the Lakes] Royal Moongazing Grounds
+1035502953:[Liurnia of the Lakes] Main Caria Manor Gate
+1036412950:[Liurnia of the Lakes] Slumbering Wolf's Shack
+1036432950:[Liurnia of the Lakes] Boilprawn Shack
+1036432951:[Liurnia of the Lakes] Fallen Ruins of the Lake
+1036452950:[Liurnia of the Lakes] Gate Town North
+1036482950:[Bellum Highway] East Raya Lucaria Gate
+1036492950:[Bellum Highway] Bellum Church
+1036492951:[Liurnia of the Lakes] The Ravine
+1036502950:[Liurnia of the Lakes] Royal Grave Evergaol
+1037422950:[Liurnia of the Lakes] Laskyar Ruins
+1037442950:[Liurnia of the Lakes] Academy Gate Town
+1037462950:[Liurnia of the Lakes] Church of Vows
+1037482950:[Liurnia of the Lakes] Mausoleum Compound
+1037492950:[Bellum Highway] Church of Inhibition
+1038402950:[Liurnia of the Lakes] Liurnia Lake Shore
+1038412950:[Liurnia of the Lakes] Malefactor's Evergaol
+1038432950:[Liurnia of the Lakes] Gate Town Bridge
+1038452950:[Liurnia of the Lakes] Artist's Shack
+1038452951:[Liurnia of the Lakes] Eastern Liurnia Lake Shore
+1038462950:[Liurnia of the Lakes] Ainsel River Well
+1038472950:[Liurnia of the Lakes] Uld Palace Ruins
+1038482950:[Bellum Highway] Frenzied Flame Village
+1038502950:[Liurnia of the Lakes] Grand Lift of Dectus
+1038502951:[Liurnia of the Lakes] Ravine-Veiled Village
+1039402950:[Liurnia of the Lakes] Lake-Facing Cliffs
+1039412950:[Liurnia of the Lakes] Purified Ruins
+1039422950:[Liurnia of the Lakes] Liurnia Highway North
+1039442950:[Liurnia of the Lakes] Jarburg
+1035532950:[Mt. Gelmir] Seethewater Terminus
+1036522950:[Mt. Gelmir] Hermit's Shack
+1036542951:[Mt. Gelmir] Ninth Mt. Gelmir Campsite
+1036542952:[Mt. Gelmir] Road of Iniquity
+1037512950:[Altus Plateau] Stormcaller Church
+1037522951:[Mt. Gelmir] Hermit Village
+1037532950:[Mt. Gelmir] Primeval Sorcerer Azur
+1038502952:[Altus Plateau] Altus Plateau
+1038512950:[Altus Plateau] Lux Ruins
+1038542950:[Mt. Gelmir] Corpse-Stench Shack
+1039512950:[Altus Plateau] Altus Highway Junction
+1039532950:[Mt. Gelmir] Mirage Rise
+1039542950:[Altus Plateau] The Shaded Castle
+1039542951:[Altus Plateau] Shaded Castle Inner Gate
+1039542952:[Altus Plateau] Castellan's Hall
+1040522950:[Altus Plateau] St. Trina's Hideaway
+1040532950:[Altus Plateau] Writheblood Ruins
+1040542950:[Altus Plateau] Road of Iniquity Side Path
+1041522951:[Altus Plateau] Rampartside Path
+1041542950:[Altus Plateau] Dominula, Windmill Village
+1042512950:[Capital Outskirts] Outer Wall Phantom Tree
+1042552950:[Altus Plateau] Windmill Heights
+1043502950:[Capital Outskirts] Minor Erdtree Church
+1043532950:[Capital Outskirts] Hermit Merchant's Shack
+1043532951:[Capital Outskirts] Outer Wall Battleground
+1045522950:[Capital Outskirts] Capital Rampart
+1046402950:[Caelid] Smoldering Church
+1046402951:[Caelid] Shack of the Rotting
+1047392950:[Caelid] Fort Gael North
+1047402950:[Caelid] Caelem Ruins
+1048362950:[Caelid] Cathedral of Dragon Communion
+1048372950:[Caelid] Caelid Highway South
+1048382950:[Swamp of Aeonia] Street of Sages Ruins
+1048382951:[Swamp of Aeonia] Astray from Caelid Highway North
+1048392950:[Caelid] Smoldering Wall
+1048402950:[Caelid] Deep Siofra Well
+1048402951:[Greyoll's Dragonbarrow] Dragonbarrow West
+1048412950:[Greyoll's Dragonbarrow] Isolated Merchant's Shack
+1049372950:[Caelid] Southern Aeonia Swamp Bank
+1049382950:[Swamp of Aeonia] Swamp Lookout Tower
+1049382951:[Swamp of Aeonia] Sellia Gateway
+1049392950:[Caelid] Sellia Evergaol
+1049392951:[Caelid] Chair-Crypt of Sellia
+1049392952:[Caelid] Sellia Under-Stair
+1050362950:[Caelid] Impassable Greatbridge
+1050382950:[Caelid] Gowry's Shack
+1050402950:[Greyoll's Dragonbarrow] Dragonbarrow Fork
+1051362950:[Caelid] Redmane Castle Plaza
+1051362951:[Caelid] Chamber Outside the Plaza
+1051392950:[Greyoll's Dragonbarrow] Fort Faroth
+1051432950:[Greyoll's Dragonbarrow] Bestial Sanctum
+1052382950:[Caelid] Starscourge Radahn
+1052412950:[Greyoll's Dragonbarrow] Lenne's Rise
+1052422950:[Greyoll's Dragonbarrow] Farum Greatbridge
+1047512950:[Forbidden Lands] Forbidden Lands
+1047582950:[Consecrated Snowfield] Apostate Derelict
+1048572950:[Consecrated Snowfield] Ordina, Liturgical Town
+1049532950:[Mountaintops of the Giants] Zamor Ruins
+1049532951:[Forbidden Lands] Grand Lift of Rold
+1049542950:[Consecrated Snowfield] Consecrated Snowfield
+1049552950:[Consecrated Snowfield] Inner Consecrated Snowfield
+1051532950:[Flame Peak] Church of Repose
+1051562950:[Mountaintops of the Giants] Stargazers' Ruins
+1051572950:[Mountaintops of the Giants] Castle Sol
+1051572951:[Mountaintops of the Giants] Castle Sol Main Gate
+1051572952:[Mountaintops of the Giants] Church of the Eclipse
+1051572953:[Mountaintops of the Giants] Castle Sol Rooftop
+1052532950:[Flame Peak] Foot of the Forge
+1052542950:[Flame Peak] Giants' Gravepost
+1052562950:[Mountaintops of the Giants] Minor Erdtree
+1052572950:[Mountaintops of the Giants] Heretical Rise
+1053522950:[Flame Peak] Fire Giant
+1054532950:[Flame Peak] Forge of the Giants
+1054552950:[Mountaintops of the Giants] First Church of Marika
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

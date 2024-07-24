@@ -1,0 +1,86 @@
+{$lua}
+if syntaxcheck then return end
+[ENABlE]
+
+
+--[[START LockCamParam class]]--
+
+LockCamParam = BaseParamClass:new()
+
+function LockCamParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("LockCamParam", uuid, id, address)
+	return o
+end
+
+function LockCamParam:camDistTarget(value)
+	self:patchFloat(0x00, value)
+end
+
+function LockCamParam:rotRangeMinX(value)
+	self:patchFloat(0x04, value)
+end
+
+function LockCamParam:lockRotXShiftRatio(value)
+	self:patchFloat(0x08, value)
+end
+
+function LockCamParam:chrOrgOffset_Y(value)
+	self:patchFloat(0x0C, value)
+end
+
+function LockCamParam:chrLockRangeMaxRadius(value)
+	self:patchFloat(0x10, value)
+end
+
+function LockCamParam:camFovY(value)
+	self:patchFloat(0x14, value)
+end
+
+function LockCamParam:chrLockRangeMaxRadius_forD(value)
+	self:patchFloat(0x18, value)
+end
+
+function LockCamParam:chrLockRangeMaxRadius_forPD(value)
+	self:patchFloat(0x1C, value)
+end
+
+--Compat
+function LockCamParam:CamDistTarget(value)
+	self:patchFloat(0x00, value)
+end
+
+function LockCamParam:RotRange(value)
+	self:patchFloat(0x04, value)
+end
+
+function LockCamParam:LockRotXShiftRatio(value)
+	self:patchFloat(0x08, value)
+end
+
+function LockCamParam:ChrOrgOffsetZ(value)
+	self:patchFloat(0x0C, value)
+end
+
+function LockCamParam:ChrLockRangeMaxRadius(value)
+	self:patchFloat(0x10, value)
+end
+
+function LockCamParam:FovYChange(value)
+	self:patchFloat(0x14, value)
+end
+
+function LockCamParam:ChrLockRangeMaxRadius_forDark(value)
+	self:patchFloat(0x18, value)
+end
+
+function LockCamParam:ChrLockRangeMaxRadius_forPitchDark(value)
+	self:patchFloat(0x1C, value)
+end
+
+--[[END LockCamParam class]]--
+
+[DiSABlE]

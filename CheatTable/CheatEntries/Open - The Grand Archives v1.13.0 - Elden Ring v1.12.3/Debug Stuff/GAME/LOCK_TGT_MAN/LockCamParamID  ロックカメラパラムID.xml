@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337099142</ID>
+  <Description>"LockCamParamID | ロックカメラパラムID"</Description>
+  <DropDownList DisplayValueAsItem="1">-1:デフォルト
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2968</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,23 @@
+<CheatEntry>
+  <ID>1337272747</ID>
+  <Description>"== Equip Magic Quantity List =="</Description>
+  <Options moHideChildren="1"/>
+  <Color>C0C0C0</Color>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337272748"/>
+    <id id="1337272749"/>
+    <id id="1337272750"/>
+    <id id="1337272751"/>
+    <id id="1337272752"/>
+    <id id="1337272753"/>
+    <id id="1337272754"/>
+    <id id="1337272755"/>
+    <id id="1337272756"/>
+    <id id="1337272757"/>
+    <id id="1337272758"/>
+    <id id="1337272759"/>
+    <id id="1337272760"/>
+    <id id="1337272761"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

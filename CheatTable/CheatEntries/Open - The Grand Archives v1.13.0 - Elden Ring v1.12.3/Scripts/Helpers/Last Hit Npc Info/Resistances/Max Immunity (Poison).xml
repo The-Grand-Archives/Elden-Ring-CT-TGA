@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337199579</ID>
+  <Description>"Max Immunity (Poison)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>2C</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>1337253748</ID>
+  <Description>"Blaidd"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1C2</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253749"/>
+    <id id="1337253750"/>
+    <id id="1337253751"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

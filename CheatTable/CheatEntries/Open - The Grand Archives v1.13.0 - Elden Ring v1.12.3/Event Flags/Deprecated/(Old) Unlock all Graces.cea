@@ -1,0 +1,375 @@
+//Authors: The-Raid-Boss, tremwil
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+disableMemrec(memrec)
+
+local flags = {
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a58", bit = 1}, -- Table of Lost Grace / Roundtable Hold
+  --Limgrave
+  ----Limgrave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbe", bit = 2}, -- The First Step
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbe", bit = 3}, -- Church of Elleh
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbf", bit = 0}, -- Gatefront
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc1", bit = 7}, -- Waypoint Ruins Cellar
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbe", bit = 0}, -- Artist's Shack (Limgrave)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbf", bit = 7}, -- Third Church of Marika
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbf", bit = 6}, -- Fort Haight West
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbf", bit = 5}, -- Agheel Lake South
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbf", bit = 3}, -- Agheel Lake North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbf", bit = 1}, -- Church of Dragon Communion
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc0", bit = 6}, -- Seaside Ruins
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc0", bit = 5}, -- Mistwood Outskirts
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc0", bit = 3}, -- Murkwater Coast
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc0", bit = 0}, -- Summonwater Village Outskirts
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 5}, -- Stormfoot Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 3}, -- Murkwater Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b47", bit = 0}, -- Groveside Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b49", bit = 4}, -- Coastal Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b47", bit = 3}, -- Murkwater Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b49", bit = 2}, -- Highroad Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b54", bit = 6}, -- Limgrave Tunnels
+  ----Stranded Graveyard
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+aa5", bit = 7}, -- Cave of Knowledge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+aa5", bit = 6}, -- Stranded Graveyard
+  ----Stormhill
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cbe", bit = 1}, -- Stormhill Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 5}, -- Castleward Tunnel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 6}, -- Margit, the Fell Omen
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc0", bit = 1}, -- Warmaster's Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc0", bit = 2}, -- Saintsbridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 4}, -- Deathtouched Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b6e", bit = 5}, -- Limgrave Tower Bridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b6e", bit = 3}, -- Divine Tower of Limgrave
+  ----Weeping Peninsula
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc4", bit = 1}, -- Church of Pilgrimage
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc4", bit = 0}, -- Castle Morne Rampart
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 7}, -- Tombsward
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 6}, -- South of the Lookout Tower
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 5}, -- Ailing Village Outskirts
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 4}, -- Beside the Crater-Pocked Glade
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 3}, -- Isolated Merchant's Shack (Limgrave)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc6", bit = 5}, -- Fourth Church of Marika
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 2}, -- Bridge of Sacrifice
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 1}, -- Castle Morne Lift
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc5", bit = 0}, -- Behind The Castle
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc6", bit = 7}, -- Beside the Rampart Gaol
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cc6", bit = 6}, -- Morne Moangrave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 6}, -- Impaler's Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 7}, -- Tombsward Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b47", bit = 2}, -- Earthbore Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b47", bit = 1}, -- Tombsward Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b54", bit = 7}, -- Morne Tunnel
+  --Stormveil Castle
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a42", bit = 7}, -- Stormveil Main Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 4}, -- Gateside Chamber
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 3}, -- Stormveil Cliffside
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 2}, -- Rampart Tower
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 1}, -- Liftside Chamber
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 0}, -- Secluded Cell
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a41", bit = 7}, -- Godrick the Grafted
+  --Liurnia of the Lakes
+  ----Liurnia of the Lakes
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 7}, -- Lake-Facing Cliffs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 5}, -- Laskyar Ruins
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 6}, -- Liurnia Lake Shore
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 3}, -- Academy Gate Town
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 6}, -- Artist's Shack (Liurnia of the Lakes)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 0}, -- Eastern Liurnia Lake Shore
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 1}, -- Gate Town Bridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 2}, -- Liurnia Highway North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 3}, -- Liurnia Highway South
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 1}, -- Main Academy Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 4}, -- Scenic Isle
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 2}, -- South Raya Lucaria Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 6}, -- Ruined Labyrinth
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 7}, -- Boilprawn Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 7}, -- Church of Vows
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 2}, -- Converted Tower
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 5}, -- Eastern Tableland
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 3}, -- Fallen Ruins of the Lake
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 4}, -- Folly on the Lake
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 2}, -- Jarburg
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 5}, -- Mausoleum Compound
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 0}, -- Ranni's Chamber
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 5}, -- Revenger's Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 0}, -- Slumbering Wolf's Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccd", bit = 3}, -- Village of the Albinaurics
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 4}, -- Crystalline Woods
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 5}, -- East Gate Bridge Trestle
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 5}, -- Foot of the Four Belfries
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 6}, -- Gate Town North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 1}, -- Main Caria Manor Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 0}, -- Manor Lower Level
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 1}, -- Manor Upper Level
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 3}, -- Northern Liurnia Lake Shore
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 2}, -- Road to the Manor
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 7}, -- Royal Moongazing Grounds
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 4}, -- Sorcerer's Isle
+
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 6}, -- Temple Quarter
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 4}, -- The Four Belfries
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 5}, -- Academy Crystal Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 1}, -- Behind Caria Manor
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 2}, -- Black Knife Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 1}, -- Cliffbottom Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 6}, -- Lakeside Crystal Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b6f", bit = 2}, -- Liurnia Tower Bridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 3}, -- Ranni's Rise
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cce", bit = 2}, -- Ravine-Veiled Village
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b54", bit = 5}, -- Raya Lucaria Crystal Tunnel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 4}, -- Road's End Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 7}, -- Stillwater Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b6f", bit = 3}, -- Study Hall Entrance
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 4}, -- The Ravine
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b6f", bit = 1}, -- Divine Tower of Liurnia
+  ----Bellum Highway
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 7}, -- Bellum Church
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd0", bit = 7}, -- Church of Inhibition
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccb", bit = 0}, -- East Raya Lucaria Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccf", bit = 0}, -- Frenzied Flame Village Outskirts
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ccc", bit = 6}, -- Grand Lift of Dectus
+  ----Ruin-Strewn Precipice
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+bab", bit = 3}, -- Magma Wyrm
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+bab", bit = 2}, -- Ruin-Strewn Precipice
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+bab", bit = 1}, -- Ruin-Strewn Precipice Overlook
+  ----Moonlight Altar
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd1", bit = 3}, -- Altar South
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd1", bit = 4}, -- Cathedral of Manus Celes
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd1", bit = 5}, -- Moonlight Altar
+  --Academy of Raya Lucaria
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a73", bit = 5}, -- Church of the Cuckoo
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a73", bit = 6}, -- Debate Parlour
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a73", bit = 7}, -- Raya Lucaria Grand Library
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a73", bit = 4}, -- Schoolhouse Classroom
+  --Altus Plateau
+  ----Altus Plateau
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd7", bit = 3}, -- Abandoned Coffin
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd7", bit = 0}, -- Altus Highway Junction
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd7", bit = 2}, -- Altus Plateau
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 5}, -- Bower of Bounty
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd7", bit = 1}, -- Erdtree-Gazing Hill
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 7}, -- Forest-Spanning Greatbridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 6}, -- Rampartside Path
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 4}, -- Road of Iniquity Side Path
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cda", bit = 6}, -- Shaded Castle Inner Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cda", bit = 7}, -- Shaded Castle Ramparts
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd9", bit = 6}, -- Windmill Heights
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 3}, -- Windmill Village
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b54", bit = 2}, -- Altus Tunnel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cda", bit = 5}, -- Castellan's Hall
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b54", bit = 3}, -- Old Altus Tunnel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b49", bit = 1}, -- Perfumer's Grotto
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b49", bit = 0}, -- Sage's Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 7}, -- Sainted Hero's Grave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 3}, -- Unsightly Catacombs
+  ----Mt. Gelmir
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cdd", bit = 1}, -- Bridge of Iniquity
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cde", bit = 3}, -- Craftsman's Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cdd", bit = 0}, -- First Mt. Gelmir Campsite
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 6}, -- Gelmir Hero's Grave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cde", bit = 7}, -- Ninth Mt. Gelmir Campsite
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cde", bit = 2}, -- Primeval Sorcerer Azur
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cde", bit = 6}, -- Road of Iniquity
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 4}, -- Seethewater Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cde", bit = 5}, -- Seethewater River
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cde", bit = 4}, -- Seethewater Terminus
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 2}, -- Volcano Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3b", bit = 0}, -- Wyndham Catacombs
+  ----Capital Outskirts
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 2}, -- Auriza Side Tomb
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 5}, -- Auzira Hero's Grave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd9", bit = 5}, -- Capital Rampart
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b70", bit = 1}, -- Divine Tower of West Altus
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b71", bit = 7}, -- Divine Tower of West Altus: Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 0}, -- Hermit Merchant's Shack
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 1}, -- Minor Eerdtree Church
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd9", bit = 7}, -- Outer Wall Battleground
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cd8", bit = 2}, -- Outer Wall Phantom Tree
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b70", bit = 0}, -- Sealed Tunnel
+  --Volcano Manor
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 1}, -- Abductor Virgin
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 2}, -- Audience Pathway
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 3}, -- Guest Hall
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 4}, -- Prison Town Church
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 7}, -- Rykard, Lord of Blasphemy
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 0}, -- Subterranean Inquisition Chamber
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 6}, -- Temple of Eiglay
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a8c", bit = 5}, -- Volcano Manor
+  --Leyndell, Royal Capital
+  ----Leyndell, Royal Capital
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4D", bit = 0}, -- Lower Capital Church
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4D", bit = 1}, -- East Capital Rampart
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4D", bit = 2}, -- Erdtree Sanctuary
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4D", bit = 3}, -- Elden Throne
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4E", bit = 2}, -- Divine Bridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4E", bit = 3}, -- Fortified Manor, First Floor
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4E", bit = 4}, -- Queen's Bedchamber
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4E", bit = 6}, -- West Capital Rampart
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+A4E", bit = 7}, -- Avenue Balcony
+  ----Subterranean Shunning-Grounds
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b79", bit = 3}, -- Cathedral of the Forsaken
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b79", bit = 1}, -- Forsaken Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b7a", bit = 7}, -- Frenzied Flame Proscription
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b79", bit = 0}, -- Leyndell Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b79", bit = 2}, -- Underground Roadside
+  ----Leyndell, Ashen Capital
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a50", bit = 2}, -- Divine Bridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a50", bit = 5}, -- East Capital Rampart
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a50", bit = 7}, -- Elden Throne
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a50", bit = 6}, -- Erdtree Sanctuary
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a50", bit = 4}, -- Leyendell, Capital of Ash
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a50", bit = 3}, -- Queen's Bedchamber
+  ----Stone Platform
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ab1", bit = 3}, -- Fractured Marika
+  --Caelid
+  ----Caelid
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 4}, -- Caelem Ruins
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 2}, -- Caelid Highway South
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 3}, -- Cathedral of Dragon Communion
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 0}, -- Chair-Crypt of Sellia
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce6", bit = 5}, -- Church of the Plague
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 5}, -- Fort Gael North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 6}, -- Rotview Balcony
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 1}, -- Sellia Backstreets
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce6", bit = 7}, -- Sellia Under-Stair
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 7}, -- Smoldering Church
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 6}, -- Smoldering Wall
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 4}, -- Southern Aeonia Swamp Bank
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b4a", bit = 7}, -- Abandoned Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 0}, -- Caelid Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce6", bit = 3}, -- Chamber Outside the Plaza
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 5}, -- Deep Siofra Well
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b54", bit = 0}, -- Gael Tunnel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b4a", bit = 6}, -- Gaol Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce6", bit = 6}, -- Impassable Greatbridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3c", bit = 1}, -- Minor Eerdtree Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b5b", bit = 6}, -- Rear Gael Tunnel Entrance
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce6", bit = 4}, -- Redmane Castle Plaza
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b55", bit = 7}, -- Sellia Crystal Tunnel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce6", bit = 1}, -- Starscourge Radahn
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3d", bit = 7}, -- War-Dead Catacombs
+  ----Swamp of Aeonia
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 1}, -- Aeonia Swamp Shore
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce4", bit = 0}, -- Astray from Caelid Highway North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 3}, -- Heart of Aeonia
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ce5", bit = 2}, -- Inner Aeonia
+  ----Greyoll's Dragonbarrow
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cea", bit = 1}, -- Bestial Sanctum
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b72", bit = 7}, -- Divine Tower of Caelid: Basement
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b72", bit = 6}, -- Divine Tower of Caelid: Center
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 1}, -- Dragonbarrow Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cea", bit = 3}, -- Dragonbarrow Fork
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cea", bit = 5}, -- Dragonbarrow West
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+ceb", bit = 7}, -- Farum Greatbridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cea", bit = 2}, -- Fort Faroth
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b74", bit = 3}, -- Isolated Divine Tower
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cea", bit = 4}, -- Isolated Merchant's Shack (Greyoll's Dragonbarrow)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cea", bit = 0}, -- Lenne's Rise
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b48", bit = 0}, -- Sellia Hideaway
+  --Mountaintops of the Giants
+  ----Forbiden Lands
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b73", bit = 4}, -- Divine Tower of the East Altus
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b73", bit = 5}, -- Divine Tower of the East Altus: Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf0", bit = 3}, -- Forbidden Lands
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf0", bit = 1}, -- Grand Lift of Rold
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3d", bit = 3}, -- Hidden Path to the Haligtree
+  ----Mountaintops of the Giants
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf0", bit = 0}, -- Ancient Snow Valley Ruins
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf3", bit = 5}, -- Castle Sol Main Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf3", bit = 3}, -- Castle Sol Rooftop
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf3", bit = 4}, -- Church of the Eclipse
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 6}, -- First Church of Marika
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 7}, -- Freezing Lake
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf3", bit = 6}, -- Snow Valley Ruins Overlook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b4a", bit = 5}, -- Spiritcaller's Cave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf3", bit = 7}, -- Whiteridge Road
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf0", bit = 2}, -- Zamor Ruins
+  ----Flame Peak
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 4}, -- Church of Repose
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 2}, -- Fire Giant
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 3}, -- Foot of the Forge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 1}, -- Forge of the Giants
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf1", bit = 5}, -- Giant's Gravepost
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3d", bit = 5}, -- Giant's Mountaintop Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3d", bit = 6}, -- Giant-Conquering Hero's Grave
+  ----Consecrated Snowfield
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+d03", bit = 2}, -- Apostate Derelict
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b49", bit = 7}, -- Cave of the Forlorn
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf6", bit = 1}, -- Consecrated Snowfield
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b3d", bit = 4}, -- Consecrated Snowfield Catacombs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+cf6", bit = 0}, -- Inner Consecrated Snowfield
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+d03", bit = 3}, -- Ordina, Liturgical Town
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+b55", bit = 4}, -- Yelough Anix Tunnel
+  --Miquella's Haligtree
+  ----Miquella's Haligtree
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a80", bit = 5}, -- Haligtree Canopy
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a80", bit = 6}, -- Haligtree Promenade
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a80", bit = 4}, -- Haligtree Town
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a80", bit = 3}, -- Haligtree Town Plaza
+  ----Elphael, Brace of the Haligtree
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a7f", bit = 0}, -- Drainage Channel
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a7f", bit = 1}, -- Elphael Inner Wall
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a80", bit = 7}, -- Haligtree Roots
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a7f", bit = 3}, -- Malenia, Godess of Rot
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a7f", bit = 2}, -- Prayer Room
+  --Crumbling Farum Azula
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 1}, -- Beside the great Bridge
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a66", bit = 0}, -- Crumbling Beast Grave
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 7}, -- Crumbling Beast Grave Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 5}, -- Dragon Temple
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a66", bit = 1}, -- Dragon Temple Altar
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 3}, -- Dragon Temple Lift
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 2}, -- Dragon Temple Rooftop
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 4}, -- Dragon Temple Transept
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a66", bit = 2}, -- Dragonlord Placidusax
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a66", bit = 3}, -- Maliketh, the Black Blade
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a67", bit = 6}, -- Tempest-Facing Balcony
+  --Ainsel River
+  ----Ainsel River
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5b", bit = 2}, -- Ainsel River Downstream
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5b", bit = 3}, -- Ainsel River Sluice Gate
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5b", bit = 4}, -- Ainsel River Well Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5f", bit = 7}, -- Astel, Naturalborn of the Void
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5b", bit = 5}, -- Dragonkin Soldier of Nokstella
+  ----Ainsel River Main
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5b", bit = 1}, -- Ainsel River Main
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5b", bit = 0}, -- Nokstella, Eternal City
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 4}, -- Nokstella Waterfall Basin
+  ----Lake of Rot
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 5}, -- Grand Cloister
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 7}, -- Lake of Rot Shoreside
+  --Nokron, Eternal City
+  ----Nokron, Eternal City
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a62", bit = 0}, -- Nokron, Eternal City
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5d", bit = 7}, -- Ancestral Woods
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5d", bit = 6}, -- Aqueduct-Facing Cliffs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 3}, -- Great Waterfall Basin
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 2}, -- Mimic Tear
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5d", bit = 5}, -- Night's Sacred Ground
+  ----Siofra River
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5d", bit = 4}, -- Below the Well
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 1}, -- Siofra River Bank
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a62", bit = 1}, -- Siofra River Well Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5c", bit = 0}, -- Worshippers' Woods
+  ----Mohgwyn Palace
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a60", bit = 5}, -- Cocoon of the Empyrean
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a60", bit = 3}, -- Dynasty Mausoleum Entrance
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a60", bit = 2}, -- Dynasty Mausoleum Midpoint
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a60", bit = 4}, -- Palace Approach Ledge-Road
+  --Deeproot Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5e", bit = 4}, -- Across the Roots
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5e", bit = 6}, -- Deeproot Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5e", bit = 7}, -- Great Waterfall Crest
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5d", bit = 1}, -- Prince of Death's Throne
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5d", bit = 0}, -- Root-Facing Cliffs
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+a5e", bit = 5}, -- The Nameless Eternal City
+}
+
+for i, flag in ipairs(flags) do
+    local val = readByte(flag.addr)
+    writeByte(flag.addr, val | (1 << flag.bit))
+end
+
+[DISABLE]
+

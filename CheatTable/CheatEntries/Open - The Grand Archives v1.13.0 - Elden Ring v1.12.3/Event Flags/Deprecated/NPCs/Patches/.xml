@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>1337253820</ID>
+  <Description>"Patches"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1CC</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253823"/>
+    <id id="1337253824"/>
+    <id id="1337253825"/>
+    <id id="1337253826"/>
+    <id id="1337253827"/>
+    <id id="1337253828"/>
+    <id id="1337253829"/>
+    <id id="1337253830"/>
+    <id id="1337253831"/>
+    <id id="1337253832"/>
+    <id id="1337253833"/>
+    <id id="1337253834"/>
+    <id id="1337253835"/>
+    <id id="1337253836"/>
+    <id id="1337253837"/>
+    <id id="1337253838"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

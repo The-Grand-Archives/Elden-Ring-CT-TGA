@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337218134</ID>
+  <Description>"Network"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337218121"/>
+    <id id="1337218125"/>
+    <id id="1337218122"/>
+    <id id="1337218123"/>
+    <id id="1337218124"/>
+    <id id="1337218142"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

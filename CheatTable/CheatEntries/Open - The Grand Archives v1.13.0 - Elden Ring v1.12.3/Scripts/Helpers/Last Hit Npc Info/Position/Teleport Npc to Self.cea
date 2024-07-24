@@ -1,0 +1,8 @@
+[ENABLE]
+[[[LastHitNpcAddr]+190]+68]+70:
+readmem([[[[[WorldChrMan]+10EF8]+0*10]+190]+68]+70,12)
+[[[[[LastHitNpcAddr]+190]+68]+A8]+18]+80:
+readmem([[[[[WorldChrMan]+10EF8]+0*10]+190]+68]+70,12)
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+[DISABLE]

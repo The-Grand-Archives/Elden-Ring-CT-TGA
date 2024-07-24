@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337212608</ID>
+  <Description>"stealthSystemSightRate_NotInStealthRigid_SightHide_NotStealthMode"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+1A4</Address>
+</CheatEntry>

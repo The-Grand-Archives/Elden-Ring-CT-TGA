@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337198647</ID>
+  <Description>"isSuppleItem"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+49</Address>
+</CheatEntry>

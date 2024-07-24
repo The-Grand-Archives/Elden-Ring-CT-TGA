@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213163</ID>
+  <Description>"Eye_Left_Clouding_r"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+F7</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

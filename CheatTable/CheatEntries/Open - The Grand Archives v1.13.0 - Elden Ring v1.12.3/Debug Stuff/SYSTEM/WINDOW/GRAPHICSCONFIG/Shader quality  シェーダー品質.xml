@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337218166</ID>
+  <Description>"Shader quality | シェーダー品質"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>118</Offset>
+  </Offsets>
+</CheatEntry>

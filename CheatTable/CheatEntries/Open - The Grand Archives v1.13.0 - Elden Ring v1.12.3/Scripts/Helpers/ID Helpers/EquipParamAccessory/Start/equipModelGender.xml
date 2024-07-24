@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337198555</ID>
+  <Description>"equipModelGender"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:All
+1:Male/Female
+2:Male/Female
+3:Male/Female
+4:Male
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+2F</Address>
+</CheatEntry>

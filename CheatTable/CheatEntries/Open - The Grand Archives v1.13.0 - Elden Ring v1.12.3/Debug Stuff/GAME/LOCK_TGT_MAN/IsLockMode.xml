@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>926</ID>
+  <Description>"IsLockMode"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2831</Offset>
+  </Offsets>
+</CheatEntry>

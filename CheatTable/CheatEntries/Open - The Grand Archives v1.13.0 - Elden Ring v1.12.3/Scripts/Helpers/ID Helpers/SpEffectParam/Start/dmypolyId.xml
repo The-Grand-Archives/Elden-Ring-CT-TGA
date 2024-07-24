@@ -1,0 +1,20 @@
+<CheatEntry>
+  <ID>1337199116</ID>
+  <Description>"dmypolyId"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">-1:None
+1:Right Hand
+2:Left Hand
+3:Left Hand
+4:Left Shoulder?
+5:Right Foot
+6:Left Foot
+7:Neck
+8:Upper Chest
+9:Stomach
+12:Between Legs
+15:Head
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+016E</Address>
+</CheatEntry>

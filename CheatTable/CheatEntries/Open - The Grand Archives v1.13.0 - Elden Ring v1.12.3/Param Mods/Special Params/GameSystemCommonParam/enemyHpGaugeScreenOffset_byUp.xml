@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337212520</ID>
+  <Description>"enemyHpGaugeScreenOffset_byUp"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+B8</Address>
+</CheatEntry>

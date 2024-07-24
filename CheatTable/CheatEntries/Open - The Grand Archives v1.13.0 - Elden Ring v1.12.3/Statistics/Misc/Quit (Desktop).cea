@@ -1,0 +1,7 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+writeByte(registerBaseByKeyCached("Quit_Desktop", "80 3D ?? ?? ?? ?? 00 0F 85 ?? ?? ?? ?? 84 C9"), 1)
+disableMemrec(memrec)
+[DISABLE]
+unregisterSymbol("Quit_Desktop")

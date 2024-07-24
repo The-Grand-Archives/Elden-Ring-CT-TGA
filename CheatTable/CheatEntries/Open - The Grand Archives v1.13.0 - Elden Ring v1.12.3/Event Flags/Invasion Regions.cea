@@ -1,0 +1,640 @@
+//Author: Dasaav
+//UI base by Grish
+//2022-10-12
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+wex = {ctrl}
+function wex:new()
+  o = {
+    ctrl = {}
+  }
+  setmetatable(o, self)
+  self.__index = self
+  return o
+end
+
+function wex:create(typ, parent, properties, customName)
+  parent = self.ctrl[parent]
+  local control = createComponentClass(typ, parent)
+  control.Parent = parent
+  self:initialize(control, properties)
+  control.x = control.Left + control.Width
+  control.y = control.Top + control.Height
+  local name = customName or properties.Caption
+  name = string.gsub(name, "%s", "")
+  self.ctrl[name] = control
+  return control
+end
+
+function wex:initialize(control, properties)
+  if(type(control) == "string") then control = self.ctrl[control] end
+  for propertyName, property in pairs(properties) do
+    if (type(property) == "table") then
+      for subPropertyName, subProperty in pairs(property) do
+        control[propertyName][subPropertyName] = subProperty
+      end
+    else
+    	control[propertyName] = property
+    end
+  end
+end
+
+function wex:initDefaultForm(formName)
+  self.ctrl[formName].BorderStyle = bsDialog
+  self.ctrl[formName].show()
+  self.ctrl[formName].centerScreen()
+  self.ctrl[formName].BorderStyle = bsDialog
+  self.ctrl[formName].OnClose = function(sender)
+  	disableMemrec(wex.memrec)
+    return caFree
+  end
+end
+
+function wex:addItems(control, items, checked)
+  checked = checked or false
+  control = self.ctrl[control]
+  for _, item in pairs(items) do
+    control.items.add(item)
+  end
+  control.setItemIndex(0)
+end
+
+function wex:fixSize(parentName, x, y)
+  x = x or 0
+  y = y or 0
+  local parent = self.ctrl[parentName]
+  local width, height = 0, 0
+  local tempWidth, tempHeight
+  for i = 0, parent.ComponentCount - 1 do
+    tempWidth = parent.Component[i].Left + parent.Component[i].Width
+    if (tempWidth > width) then
+        width = tempWidth
+    end
+    tempHeight =  parent.Component[i].Top + parent.Component[i].Height
+    if (tempHeight > height) then
+       height = tempHeight
+    end
+  end
+  parent.Width = width + x
+  parent.x = parent.Width + parent.Left
+  parent.Height = height + y
+  parent.y = parent.Height + parent.Top
+end
+
+function wex:fillGap(controlName, targetName)
+  local control = self.ctrl[controlName]
+  local target = {
+    x = self.ctrl[targetName.x] or nil,
+    y = self.ctrl[targetName.y] or nil
+  }
+  if(target.x) then control.Width = control.Width + target.x.Width + target.x.Left - control.Width - control.Left end
+  if(target.y) then control.Height = control.Height + target.y.Height + target.y.Top - control.Height - control.Top end
+end
+
+local function changeRegionCheckbox(t)
+	if t.Caption ~= "" then
+  	wex.PlayRegions[wex.IndexedRegionNames[t.Caption]].Active = t.Checked
+  end
+end
+
+local function setMapPool(t)
+	t = t.getItemIndex() + 1
+  wex.MapList.Visible = false
+  for i,v in ipairs(wex.Checkboxes) do v.destroy() end
+  wex.Checkboxes = {}
+  for i,v in ipairs(wex.PlayRegions) do
+		if v.Map == wex.Maps[t] then table.insert(wex.Checkboxes, wex.Main:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
+  end
+  wex.MapList.Visible = true
+end
+
+local function changeAllCheckboxes(t)
+	if t then
+	  t.AllowGrayed = false
+	  for i,v in ipairs(wex.Checkboxes) do
+      v.Checked = t.State == 2 and v.Checked or t.State == 1
+	  end
+  else
+	  for i,v in ipairs(wex.Checkboxes) do
+      v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
+	  end
+  end
+end
+
+local function saveTemplate()
+	local dialog = createSaveDialog(getMainForm())
+  dialog.InitialDir = TrainerOrigin
+  if dialog:execute() then
+    local f = io.open(dialog.FileName, "w+")
+	  if not f then
+      print("Invasion Regions: warning: unable to save template file.")
+      return
+    end
+  	for i,v in ipairs(wex.PlayRegions) do
+  	  if v.Active then f:write(string.format("%s\n", v.PlayRegion)) end
+    end
+    f:close()
+  end
+end
+
+local function loadTemplate()
+	local dialog = createOpenDialog(getMainForm())
+  dialog.InitialDir = TrainerOrigin
+  if dialog:execute() then
+    local f = io.open(dialog.FileName, "r+")
+	    if not f then
+        print("Invasion Regions: warning: unable to open template file.")
+        return
+      end
+    local t = f:read("*all")
+    for i,v in ipairs(wex.PlayRegions) do v.Active = nil end
+    t:gsub("(%d+)\n", function(playRegion)
+    	local playRegion = tonumber(playRegion)
+      local index = wex.IndexedRegions[playRegion]
+      if not index then
+    	  local name = "Unknown PlayRegion "..playRegion
+			  table.insert(wex.PlayRegions, {Map = "Unknown", Name = name, PlayRegion = playRegion, Active = true})
+        if wex.Maps[#wex.Maps] ~= "Unknown" then table.insert(wex.Maps, "Unknown") end
+        local index = #wex.PlayRegions
+        wex.IndexedRegionNames[name] = index
+        wex.IndexedRegions[playRegion] = index
+      else
+    	  wex.PlayRegions[index].Active = true
+      end
+    end)
+    changeAllCheckboxes()
+    f:close()
+  end
+end
+
+local function cancel()
+	wex.Window.close()
+end
+
+local function showGuide()
+	showText(wex.Guide)
+  return true
+end
+
+local function selectRegions(t)
+	t.AllowGrayed = false
+  local property = t.Name
+  local state = t.State == 1
+  if property ~= "All" then wex.RegionProperties[property] = state end
+  for i,v in ipairs(wex.PlayRegions) do
+  	local state = state
+    if state then
+			for _i,_v in pairs(wex.RegionProperties) do
+        if v[_i] and _v == false then state = false break end
+      end
+    end
+    local match = v[property] or property == "All"
+    if state then
+			v.Active = match or v.Active
+		elseif match then
+			v.Active = false
+    end
+  end
+  for i,v in ipairs(wex.Checkboxes) do
+  	v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
+  end
+end
+
+local function readRegions()
+	for i = wex.ArrayStart, wex.ArrayEnd - 4, 4 do
+  	local playRegion = readInteger(i)
+    local index = wex.IndexedRegions[playRegion]
+    if not index then
+    	local name = "Unknown PlayRegion "..playRegion
+			table.insert(wex.PlayRegions, {Map = "Unknown", Name = name, PlayRegion = playRegion, Active = true})
+      if wex.Maps[#wex.Maps] ~= "Unknown" then table.insert(wex.Maps, "Unknown") end
+      local index = #wex.PlayRegions
+      wex.IndexedRegionNames[name] = index
+      wex.IndexedRegions[playRegion] = index
+    else
+    	wex.PlayRegions[index].Active = true
+    end
+  end
+end
+
+local function writeRegions()
+	if tga.config.printProgress then
+    print(string.format("Writing invasion regions%s...", wex.ToggleGraces and ", this may take a while" or ""))
+  end
+	writeByte(wex.SaveDisablePtr, 1)
+	local offset = 0
+  for i,v in ipairs(wex.PlayRegions) do
+    if v.Active then
+		  writeInteger(wex.ArrayStart + offset, v.PlayRegion)
+      offset = offset + 4
+    end
+    if wex.ToggleGraces and v.BonfireFlags and ef then
+			for _i,_v in ipairs(v.BonfireFlags) do ef.setFlag(_v, v.Active) end
+    end
+  end
+	writeInteger(wex.ArrayEndPtr, wex.ArrayStart + offset)
+ 	writeByte(wex.SaveDisablePtr, 0)
+  writeByte(wex.SaveRequestPtr, 1)
+  writeByte(wex.DisableControls, 0)
+  wex.Window.close()
+  if tga.config.printProgress then print("Done!") end
+end
+
+function wex:createWindow(win, formName)
+  wex.Window = win:create("TCEForm", nil, {Caption = "Invasion Areas"}, formName)
+  win:initDefaultForm(formName)
+  win:fixSize(formName, 400, 300)
+  win:create("TCEComboBox", formName, {Caption = "Map", Width = 240, Height = 40, Left = 10, Top = 9, OnChange = setMapPool})
+  win:addItems("Map", wex.Maps)
+	wex.MapList = win:create("TScrollBox", formName, {Caption = "MapList", Width = 240, Height = win.ctrl[formName].Height - 40, Left = 10, Top = 30})
+  win:create("TCheckBox", "MapList", {AllowGrayed = true, State = 2, OnChange = changeAllCheckboxes}, "CheckAll")
+  wex.Checkboxes = {}
+  for i,v in ipairs(wex.PlayRegions) do
+		if v.Map == wex.Maps[1] then table.insert(wex.Checkboxes, win:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
+  end
+  win:initialize("MapList",{ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", EnlargeHorizontal = "crsScaleChilds", LeftRightSpacing = 5}})
+  win:create("TButton", formName, {Caption = "Save Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 8, OnClick = saveTemplate}, "Save")
+	win:create("TButton", formName, {Caption = "Load Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 38, OnClick = loadTemplate}, "Load")
+	win:create("TGroupBox", formName, {Caption = "Region Types", Width = 130, Left = win.ctrl["Map"].Width + 20, Top = 68, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}}, "Regions")
+  win:create("TCheckBox", "Regions", {Caption = "All", Name = "All", AllowGrayed = true, State = 2, OnChange = selectRegions})
+  win:create("TCheckBox", "Regions", {Caption = "Open World",  Name = "isOpenWorld", AllowGrayed = true, State = 2, OnChange = selectRegions})
+  win:create("TCheckBox", "Regions", {Caption = "Dungeons",  Name = "isDungeon", AllowGrayed = true, State = 2, OnChange = selectRegions})
+  win:create("TCheckBox", "Regions", {Caption = "Bosses",  Name = "isBoss", AllowGrayed = true, State = 2, OnChange = selectRegions})
+  win:create("TGroupBox", formName, {Caption = "Options", Width = 130, Left = win.ctrl["Map"].Width + 20, Height = 50, Top = win.ctrl["Regions"].Height + 73, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}})
+  win:create("TCheckBox", "Options", {Caption = "Also Toggle Graces", Checked = false, OnChange = function(t) wex.ToggleGraces = t.State == 1 end})
+  win:create("TButton", formName, {Caption = "Usage Guide", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 65, OnClick = showGuide})
+	win:create("TButton", formName, {Caption = "OK", Width = 60, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 35, OnClick = writeRegions})
+	win:create("TButton", formName, {Caption = "Cancel", Width = 60, Height = 25, Left = win.ctrl["OK"].y + 40, Top = win.ctrl[formName].Height - 35, OnClick = cancel})
+end
+
+wex.Guide = [[
+This is a script meant to make the life of invaders easier by making it possible to manually select which regions the "Near/Far" invasion option attempts to invade.
+Online activity in a particular region is not guaranteed. A character must be loaded prior to using the script.
+
+The information about which regions a character can invade is stored in the savefile, so any changes will persist after restarting Elden Ring with EasyAntiCheat enabled.
+
+Happy invading, Dasaav.
+2022-10-12
+
+Short feature description:
+Select the regions you would like to be able to invade from the menu on the left, using the dropdown to select maps.
+Use the "Region Types" options to toggle ALL regions of a particular type, not just the ones currently on display.
+Disabled region types will be excluded from the "All" region type.
+Tick "Also Toggle Graces" if you would like to also enable/disable the graces which correspond to a particular region. This can be used to unlock graces you do not have or to disabled graces in disabled invasion regions, preventing you from traveling there and reenabling the region by accident.
+"Save" and "Load Template" options can be used to save and/or load the state of all regions.
+Press "OK" to confirm changes, "Cancel" to discard.
+
+Detailed feature description:
+Top left "Map" dropdown: The map which regions are currently on display. If present, you can select "Unknown" to see regions not recognized by the script. You can toggle these all the same.
+Left Region Checkbox menu: The regions of the selected map. Toggling them will change the state of the invasion regions in the savefile.
+"Save Template": Select where to save the current state of all regions.
+"Load Template": Replace current region state with a previously saved template.
+"Region Types":
+  "All": All regions, besides these excluded by the options below.
+  "Open World": Regions considered to be in Elden Ring's open world.
+  "Dungeons": Regions inside Elden Ring's mini-dungeons.
+  "Bosses": Regions before bossfights and boss fog walls. Disabling this option will likely reduce the amount of times you get "fogwalled".
+"Options":
+  "Also Toggle Graces": Whether to enable/disable graces corresponding to an invasion region. This can be used to unlock graces you do not have or to disable graces in disabled invasion regions, preventing you from traveling there and reenabling the region by accident.
+"Usage Guide": You are reading it right now.
+"OK", "Cancel": Confirm changes, discard changes.
+]]
+
+wex.PlayRegions = {
+{Map = "Limgrave", Name = "Church of Dragon Communion", PlayRegion = 6100090, BonfireFlags = {76110}, isOpenWorld = true},
+{Map = "Limgrave", Name = "The First Step, Church of Elleh", PlayRegion = 6100000, BonfireFlags = {76100, 76101}, isOpenWorld = true},
+{Map = "Limgrave", Name = "Seaside Ruins", PlayRegion = 6100001, BonfireFlags = {76113, 76106}, isOpenWorld = true},
+{Map = "Limgrave", Name = "Mistwood Outskirts, Fort Haight West", PlayRegion = 6100004, BonfireFlags = {76114, 76103, 76104, 76105}, isOpenWorld = true},
+{Map = "Limgrave", Name = "Agheel Lake North, Murkwater Coast, Gatefront Ruins", PlayRegion = 6100002, BonfireFlags = {76116, 76111, 76108}, isOpenWorld = true},
+{Map = "Limgrave", Name = "Summonwater Village Outskirts", PlayRegion = 6100003, BonfireFlags = {76119}, isOpenWorld = true},
+{Map = "Limgrave", Name = "Waypoint Ruins Cellar", PlayRegion = 6100010, BonfireFlags = {76120}, isOpenWorld = true},
+{Map = "Limgrave", Name = "Stormfoot Catacombs", PlayRegion = 3002001, BonfireFlags = {73002}, isDungeon = true},
+{Map = "Limgrave", Name = "Murkwater Catacombs", PlayRegion = 3004001, BonfireFlags = {73004}, isDungeon = true},
+{Map = "Limgrave", Name = "Groveside Cave", PlayRegion = 3103001, BonfireFlags = {73103}, isDungeon = true},
+{Map = "Limgrave", Name = "Coastal Cave", PlayRegion = 3115001, BonfireFlags = {73115}, isDungeon = true},
+{Map = "Limgrave", Name = "Murkwater Cave", PlayRegion = 3100001, BonfireFlags = {73100}, isDungeon = true},
+{Map = "Limgrave", Name = "Highroad Cave", PlayRegion = 3117001, BonfireFlags = {73117}, isDungeon = true},
+{Map = "Limgrave", Name = "Limgrave Tunnels", PlayRegion = 3201001, BonfireFlags = {73201}, isDungeon = true},
+{Map = "Stranded Graveyard", Name = "Cave of Knowledge", PlayRegion = 1800090, BonfireFlags = {71800}, isDungeon = true},
+{Map = "Stranded Graveyard", Name = "Stranded Graveyard", PlayRegion = 1800001, BonfireFlags = {71801}, isDungeon = true},
+{Map = "Stormhill", Name = "Stormhill", PlayRegion = 6101000, BonfireFlags = {76102, 71002, 76117, 76118}, isOpenWorld = true},
+{Map = "Stormhill", Name = "Margit, the Fell Omen", PlayRegion = 6101010, BonfireFlags = {71001}, isBoss = true},
+{Map = "Stormhill", Name = "Deathtouched Catacombs", PlayRegion = 3011001, BonfireFlags = {73011}, isDungeon = true},
+{Map = "Stormhill", Name = "Divine Tower of Limgrave", PlayRegion = 3410090, BonfireFlags = {73412, 73410}},
+{Map = "Weeping Peninsula", Name = "Castle Morne", PlayRegion = 6102001, BonfireFlags = {76158, 76159, 76160}, isBoss = true},
+{Map = "Weeping Peninsula", Name = "Morne Moangrave", PlayRegion = 6102020, BonfireFlags = {76161}, isBoss = true},
+{Map = "Weeping Peninsula", Name = "Weeping Peninsula East", PlayRegion = 6102000, BonfireFlags = {76151, 76153, 76154, 76155, 76157}, isOpenWorld = true},
+{Map = "Weeping Peninsula", Name = "Weeping Peninsula West", PlayRegion = 6102002, BonfireFlags = {76150, 76152, 76156, 76162}, isOpenWorld = true},
+{Map = "Weeping Peninsula", Name = "Impaler's Catacombs", PlayRegion = 3001001, BonfireFlags = {73001}, isDungeon = true},
+{Map = "Weeping Peninsula", Name = "Tombsward Catacombs", PlayRegion = 3000001, BonfireFlags = {73000}, isDungeon = true},
+{Map = "Weeping Peninsula", Name = "Earthbore Cave", PlayRegion = 3101001, BonfireFlags = {73101}, isDungeon = true},
+{Map = "Weeping Peninsula", Name = "Tombsward Cave", PlayRegion = 3102001, BonfireFlags = {73102}, isDungeon = true},
+{Map = "Weeping Peninsula", Name = "Morne Tunnel", PlayRegion = 3200001, BonfireFlags = {73200}, isDungeon = true},
+{Map = "Stormveil Castle", Name = "Stormveil Main Gate, Stormveil Cliffside", PlayRegion = 1000001, BonfireFlags = {71008, 71004}},
+{Map = "Stormveil Castle", Name = "Gateside Chamber", PlayRegion = 1000006, BonfireFlags = {71003}},
+{Map = "Stormveil Castle", Name = "Rampart Tower", PlayRegion = 1000003, BonfireFlags = {71005}},
+{Map = "Stormveil Castle", Name = "Liftside Chamber, Secluded Cell", PlayRegion = 1000005, BonfireFlags = {71006, 71007}, isBoss = true},
+{Map = "Stormveil Castle", Name = "Godrick the Grafted", PlayRegion = 1000000, BonfireFlags = {71000}, isBoss = true},
+{Map = "Liurnia of the Lakes", Name = "Liurnia South-East", PlayRegion = 6200001, BonfireFlags = {76217, 76200, 76201, 76202, 76203, 76244, 76221, 76222}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Liurnia East", PlayRegion = 6200004, BonfireFlags = {76223, 76234, 76224, 76225, 76226}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Behind Caria Manor", PlayRegion = 6200008, BonfireFlags = {76247, 76228, 76238}},
+{Map = "Liurnia of the Lakes", Name = "Slumbering Wolf's Shack", PlayRegion = 3105090, BonfireFlags = {76215}},
+{Map = "Liurnia of the Lakes", Name = "Liurnia South", PlayRegion = 6200000, BonfireFlags = {76205, 76204, 76216, 76236, 76241, 76243, 76242, 76233}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Liurnia South-West", PlayRegion = 6200002, BonfireFlags = {76219, 76220, 76237}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Liurnia West", PlayRegion = 6200005, BonfireFlags = {76218, 76210, 76227, 76213}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Kingsrealm Ruins", PlayRegion = 6200003, BonfireFlags = {76212}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Main Caria Manor Gate", PlayRegion = 6200007, BonfireFlags = {76214}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Caria Manor", PlayRegion = 6200007, BonfireFlags = {76230}},
+{Map = "Liurnia of the Lakes", Name = "Manor Lower Level", PlayRegion = 6200007, BonfireFlags = {76231}},
+{Map = "Liurnia of the Lakes", Name = "Royal Moongazing Grounds", PlayRegion = 6200010, BonfireFlags = {76232}},
+{Map = "Liurnia of the Lakes", Name = "The Ravine", PlayRegion = 6200006, BonfireFlags = {76235, 76229, 76211}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Cliffbottom Catacombs", PlayRegion = 3006001, BonfireFlags = {73006}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Road's End Catacombs", PlayRegion = 3003001, BonfireFlags = {73003}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Black Knife Catacombs", PlayRegion = 3005001, BonfireFlags = {73005}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Stillwater Cave", PlayRegion = 3104001, BonfireFlags = {73104}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Lakeside Crystal Cave", PlayRegion = 3105001, BonfireFlags = {73105}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Academy Crystal Cave", PlayRegion = 3106001, BonfireFlags = {73106}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Main Academy Gate", PlayRegion = 1400011, BonfireFlags = {76206}},
+{Map = "Liurnia of the Lakes", Name = "Raya Lucaria Crystal Tunnel", PlayRegion = 3202001, BonfireFlags = {73202}, isDungeon = true},
+{Map = "Liurnia of the Lakes", Name = "Divine Tower of Liurnia", PlayRegion = 3411090, BonfireFlags = {73422, 73421, 73420}},
+{Map = "Bellum Highway", Name = "Bellum Highway", PlayRegion = 6201000, BonfireFlags = {76207, 76208, 76239, 76240}, isOpenWorld = true},
+{Map = "Bellum Highway", Name = "Grand Lift of Dectus, Jarburg", PlayRegion = 6200090, BonfireFlags = {76209, 76245}, isOpenWorld = true},
+{Map = "Ruin-Strewn Precipice", Name = "Ruin-Strewn Precipice", PlayRegion = 3920002, BonfireFlags = {73901}},
+{Map = "Ruin-Strewn Precipice", Name = "Ruin-Strewn Precipice Overlook", PlayRegion = 3920003, BonfireFlags = {73902}, isBoss = true},
+{Map = "Ruin-Strewn Precipice", Name = "Magma Wyrm Makar", PlayRegion = 3920000, BonfireFlags = {73900}, isBoss = true},
+{Map = "Moonlight Altar", Name = "Moonlight Altar", PlayRegion = 6202000, BonfireFlags = {76250, 76251, 76252}},
+{Map = "Academy of Raya Lucaria", Name = "Church of the Cuckoo", PlayRegion = 1400013, BonfireFlags = {71402}},
+{Map = "Academy of Raya Lucaria", Name = "Schoolhouse Classroom", PlayRegion = 1400015, BonfireFlags = {71403}},
+{Map = "Academy of Raya Lucaria", Name = "Debate Parlor", PlayRegion = 1400010, BonfireFlags = {71401}},
+{Map = "Academy of Raya Lucaria", Name = "Raya Lucaria Grand Library", PlayRegion = 1400000, BonfireFlags = {71400}, isBoss = true},
+{Map = "Altus Plateau", Name = "Rampartside Path", PlayRegion = 6300005, BonfireFlags = {76305}, isOpenWorld = true},
+{Map = "Altus Plateau", Name = "Stormcaller Church, Lux Ruins", PlayRegion = 6300000, BonfireFlags = {76300, 76302}, isOpenWorld = true},
+{Map = "Altus Plateau", Name = "The Shaded Castle", PlayRegion = 6300001, BonfireFlags = {76320, 76321}},
+{Map = "Altus Plateau", Name = "Altus Highway Junction", PlayRegion = 6300002, BonfireFlags = {76301, 76303}, isOpenWorld = true},
+{Map = "Altus Plateau", Name = "Castellan's Hall", PlayRegion = 6300030, BonfireFlags = {76322}},
+{Map = "Altus Plateau", Name = "Forest-Spanning Greatbridge", PlayRegion = 6300003, BonfireFlags = {76304, 76306}, isOpenWorld = true},
+{Map = "Altus Plateau", Name = "Unsightly Catacombs", PlayRegion = 3012001, BonfireFlags = {73012}, isDungeon = true},
+{Map = "Altus Plateau", Name = "Sainted Hero's Grave", PlayRegion = 3008001, BonfireFlags = {73008}, isDungeon = true},
+{Map = "Altus Plateau", Name = "Sage's Cave", PlayRegion = 3119001, BonfireFlags = {73119}, isDungeon = true},
+{Map = "Altus Plateau", Name = "Perfumer's Grotto", PlayRegion = 3118001, BonfireFlags = {73118}, isDungeon = true},
+{Map = "Altus Plateau", Name = "Dominula, Windmill Village, Road of Iniquity Side Path", PlayRegion = 6300004, BonfireFlags = {76307, 76308, 76313}, isOpenWorld = true},
+{Map = "Altus Plateau", Name = "Old Altus Tunnel", PlayRegion = 3204001, BonfireFlags = {73204}, isDungeon = true},
+{Map = "Altus Plateau", Name = "Altus Tunnel", PlayRegion = 3205001, BonfireFlags = {73205}, isDungeon = true},
+{Map = "Mt. Gelmir", Name = "Ninth Mt. Gelmir Campsite", PlayRegion = 6302000, BonfireFlags = {76352, 76351, 76350}, isOpenWorld = true},
+{Map = "Mt. Gelmir", Name = "Road of Iniquity", PlayRegion = 6302001, BonfireFlags = {76353}, isOpenWorld = true},
+{Map = "Mt. Gelmir", Name = "Seethewater Terminus, Primeval Sorcerer Azur", PlayRegion = 6302002, BonfireFlags = {76354, 76355, 76356, 76357}, isOpenWorld = true},
+{Map = "Mt. Gelmir", Name = "Wyndham Catacombs", PlayRegion = 3007001, BonfireFlags = {73007}, isDungeon = true},
+{Map = "Mt. Gelmir", Name = "Gelmir Hero's Grave", PlayRegion = 3009001, BonfireFlags = {73009}, isDungeon = true},
+{Map = "Mt. Gelmir", Name = "Seethewater Cave", PlayRegion = 3107001, BonfireFlags = {73107}, isDungeon = true},
+{Map = "Mt. Gelmir", Name = "Volcano Cave", PlayRegion = 3109001, BonfireFlags = {73109}, isDungeon = true},
+{Map = "Capital Outskirts", Name = "Capital Outskirts", PlayRegion = 6301000, BonfireFlags = {76309, 76310, 76311, 76312}, isOpenWorld = true},
+{Map = "Capital Outskirts", Name = "Capital Rampart", PlayRegion = 6301090, BonfireFlags = {76314}, isOpenWorld = true},
+{Map = "Capital Outskirts", Name = "Auriza Side Tomb", PlayRegion = 3013091, BonfireFlags = {73013}, isDungeon = true},
+{Map = "Capital Outskirts", Name = "Auriza Hero's Grave", PlayRegion = 3010001, BonfireFlags = {73010}, isDungeon = true},
+{Map = "Capital Outskirts", Name = "Sealed Tunnel", PlayRegion = 3412011, BonfireFlags = {73431}, isDungeon = true},
+{Map = "Capital Outskirts", Name = "Divine Tower of West Altus", PlayRegion = 3412090, BonfireFlags = {73430, 73432}},
+{Map = "Volcano Manor", Name = "Volcano Manor", PlayRegion = 1600012, BonfireFlags = {71602}},
+{Map = "Volcano Manor", Name = "Prison Town Church", PlayRegion = 1600014, BonfireFlags = {71603}},
+{Map = "Volcano Manor", Name = "Temple of Eiglay", PlayRegion = 1600010, BonfireFlags = {71601}},
+{Map = "Volcano Manor", Name = "Guest Hall", PlayRegion = 1600016, BonfireFlags = {71604}},
+{Map = "Volcano Manor", Name = "Audience Pathway", PlayRegion = 1600006, BonfireFlags = {71605}, isBoss = true},
+{Map = "Volcano Manor", Name = "Abductor Virgin", PlayRegion = 1600020, BonfireFlags = {71606}, isDungeon = true},
+{Map = "Volcano Manor", Name = "Subterranean Inquisition Chamber", PlayRegion = 1600022, BonfireFlags = {71607}},
+{Map = "Volcano Manor", Name = "Rykard, Lord of Blasphemy", PlayRegion = 1600000, BonfireFlags = {71600}, isBoss = true},
+{Map = "Leyndell, Royal Capital", Name = "Erdtree Sanctuary", PlayRegion = 1100010, BonfireFlags = {71101}},
+{Map = "Leyndell, Royal Capital", Name = "East Capital Rampart", PlayRegion = 1100012, BonfireFlags = {71102}},
+{Map = "Leyndell, Royal Capital", Name = "Lower Capital Church", PlayRegion = 1100015, BonfireFlags = {71103}},
+{Map = "Leyndell, Royal Capital", Name = "Avenue Balcony", PlayRegion = 1100013, BonfireFlags = {71104}},
+{Map = "Leyndell, Royal Capital", Name = "Queen's Bedchamber", PlayRegion = 1100001, BonfireFlags = {71107}, isBoss = true},
+{Map = "Leyndell, Royal Capital", Name = "West Capital Rampart, Fortified Manor, First Floor", PlayRegion = 1100016, BonfireFlags = {71105, 71108}},
+{Map = "Leyndell, Royal Capital", Name = "Divine Bridge", PlayRegion = 1100017, BonfireFlags = {71109}},
+{Map = "Leyndell, Royal Capital", Name = "Elden Throne", PlayRegion = 1100000, BonfireFlags = {71100}, isBoss = true},
+{Map = "Subterranean Shunning-Grounds", Name = "Underground Roadside", PlayRegion = 3500002, BonfireFlags = {73501}},
+{Map = "Subterranean Shunning-Grounds", Name = "Forsaken Depths", PlayRegion = 3500008, BonfireFlags = {73502}, isBoss = true},
+{Map = "Subterranean Shunning-Grounds", Name = "Leyndell Catacombs", PlayRegion = 3500010, BonfireFlags = {73503}},
+{Map = "Subterranean Shunning-Grounds", Name = "Leyndell Catacombs Part II", PlayRegion = 3500011, BonfireFlags = {73503}},
+{Map = "Subterranean Shunning-Grounds", Name = "Frenzied Flame Proscription", PlayRegion = 3500092, BonfireFlags = {73504}},
+{Map = "Subterranean Shunning-Grounds", Name = "Cathedral of the Forsaken", PlayRegion = 3500000, BonfireFlags = {73500}},
+{Map = "Leyndell, Ashen Capital", Name = "Leyndell, Capital of Ash", PlayRegion = 1105011, BonfireFlags = {71122, 71123}, isBoss = true},
+{Map = "Leyndell, Ashen Capital", Name = "Queen's Bedchamber ", PlayRegion = 1105001, BonfireFlags = {71124}, isBoss = true},
+{Map = "Leyndell, Ashen Capital", Name = "Divine Bridge ", PlayRegion = 1105092, BonfireFlags = {71125}},
+{Map = "Leyndell, Ashen Capital", Name = "Elden Throne ", PlayRegion = 1105000, BonfireFlags = {71120}, isBoss = true},
+{Map = "Stone Platform", Name = "Fractured Marika", PlayRegion = 1900000, BonfireFlags = {71900}, isBoss = true},
+{Map = "Stone Platform", Name = "Elden Beast", PlayRegion = 1900001, BonfireFlags = {71900}, isBoss = true},
+{Map = "Caelid", Name = "Central Caelid", PlayRegion = 6400001, BonfireFlags = {76406, 76407, 76416, 76414, 76411, 76404, 76405, 76417, 76418}, isOpenWorld = true},
+{Map = "Caelid", Name = "Caelid North", PlayRegion = 6400000, BonfireFlags = {76400, 76401, 76403, 76410, 76402, 76409}, isOpenWorld = true},
+{Map = "Caelid", Name = "Chamber Outside the Plaza", PlayRegion = 6400002, BonfireFlags = {76420}, isBoss = true},
+{Map = "Caelid", Name = "Redmane Castle Plaza", PlayRegion = 6400010, BonfireFlags = {76419}},
+{Map = "Caelid", Name = "Starscourge Radahn", PlayRegion = 6400040, BonfireFlags = {76422}, isBoss = true},
+{Map = "Caelid", Name = "Minor Erdtree Catacombs", PlayRegion = 3014001, BonfireFlags = {73014}, isDungeon = true},
+{Map = "Caelid", Name = "Caelid Catacombs", PlayRegion = 3015001, BonfireFlags = {73015}, isDungeon = true},
+{Map = "Caelid", Name = "War-Dead Catacombs", PlayRegion = 3016001, BonfireFlags = {73016}, isDungeon = true},
+{Map = "Caelid", Name = "Abandoned Cave", PlayRegion = 3120001, BonfireFlags = {73120}, isDungeon = true},
+{Map = "Caelid", Name = "Gaol Cave", PlayRegion = 3121001, BonfireFlags = {73121}, isDungeon = true},
+{Map = "Caelid", Name = "Gael Tunnel", PlayRegion = 3207001, BonfireFlags = {73207}, isDungeon = true},
+{Map = "Caelid", Name = "Gael Tunnel Part II", PlayRegion = 3207002, BonfireFlags = {73207}, isDungeon = true},
+{Map = "Caelid", Name = "Rear Gael Tunnel Entrance", PlayRegion = 3207090, BonfireFlags = {73257}, isDungeon = true},
+{Map = "Caelid", Name = "Sellia Crystal Tunnel", PlayRegion = 3208001, BonfireFlags = {73208}, isDungeon = true},
+{Map = "Caelid", Name = "Chair-Crypt of Sellia", PlayRegion = 6400020, BonfireFlags = {76415}, isBoss = true, isOpenWorld = true},
+{Map = "Swamp of Aeonia", Name = "Swamp of Aeonia", PlayRegion = 6401000, BonfireFlags = {76412, 76413}, isOpenWorld = true},
+{Map = "Greyoll's Dragonbarrow", Name = "Dragonbarrow", PlayRegion = 6402000, BonfireFlags = {76450, 76451, 76453, 76452, 76455}, isOpenWorld = true},
+{Map = "Greyoll's Dragonbarrow", Name = "Sellia Hideaway", PlayRegion = 3111001, BonfireFlags = {73111}, isDungeon = true, isOpenWorld = true},
+{Map = "Greyoll's Dragonbarrow", Name = "Dragonbarrow Cave", PlayRegion = 3110001, BonfireFlags = {73110}, isDungeon = true, isOpenWorld = true},
+{Map = "Greyoll's Dragonbarrow", Name = "Bestial Sanctum", PlayRegion = 6402001, BonfireFlags = {76454, 76456}, isOpenWorld = true},
+{Map = "Greyoll's Dragonbarrow", Name = "Divine Tower of Caelid: Center", PlayRegion = 3413003, BonfireFlags = {73441}},
+{Map = "Greyoll's Dragonbarrow", Name = "Divine Tower of Caelid: Basement", PlayRegion = 3413013, BonfireFlags = {73440}, isBoss = true},
+{Map = "Greyoll's Dragonbarrow", Name = "Isolated Divine Tower", PlayRegion = 3415090, BonfireFlags = {73460}},
+{Map = "Forbidden Lands", Name = "Forbidden Lands", PlayRegion = 6500000, BonfireFlags = {76500}, isOpenWorld = true},
+{Map = "Forbidden Lands", Name = "Grand Lift of Rold", PlayRegion = 6500090, BonfireFlags = {76502}, isOpenWorld = true},
+{Map = "Forbidden Lands", Name = "Hidden Path to the Haligtree", PlayRegion = 3020001, BonfireFlags = {73020}, isDungeon = true},
+{Map = "Forbidden Lands", Name = "Hidden Path to the Haligtree Part II", PlayRegion = 3020002, BonfireFlags = {73020}, isDungeon = true},
+{Map = "Forbidden Lands", Name = "Divine Tower of East Altus", PlayRegion = 3414011, BonfireFlags = {73450, 73451}},
+{Map = "Mountaintops of the Giants", Name = "Zamor Ruins", PlayRegion = 6501000, BonfireFlags = {76501, 76503}, isOpenWorld = true},
+{Map = "Mountaintops of the Giants", Name = "Central Mountaintops", PlayRegion = 6501001, BonfireFlags = {76505, 76504, 76520}, isOpenWorld = true},
+{Map = "Mountaintops of the Giants", Name = "Castle Sol", PlayRegion = 6501002, BonfireFlags = {76521}, isOpenWorld = true},
+{Map = "Mountaintops of the Giants", Name = "Spiritcaller's Cave", PlayRegion = 3122001, BonfireFlags = {73122}, isDungeon = true},
+{Map = "Mountaintops of the Giants", Name = "Castle Sol Main Gate, Church of the Eclipse", PlayRegion = 6501003, BonfireFlags = {76522, 76523}, isOpenWorld = true},
+{Map = "Mountaintops of the Giants", Name = "Castle Sol Rooftop", PlayRegion = 6501010, BonfireFlags = {76524}, isBoss = true, isOpenWorld = true},
+{Map = "Flame Peak", Name = "Giants' Gravepost, Foot of the Forge", PlayRegion = 6502000, BonfireFlags = {76506, 76507, 76508}, isOpenWorld = true, isBoss = true},
+{Map = "Flame Peak", Name = "Fire Giant", PlayRegion = 6502010, BonfireFlags = {76509, 76510}, isBoss = true},
+{Map = "Flame Peak", Name = "Giants' Mountaintop Catacombs", PlayRegion = 3018001, BonfireFlags = {73018}, isDungeon = true},
+{Map = "Flame Peak", Name = "Giant-Conquering Hero's Grave", PlayRegion = 3017002, BonfireFlags = {73017}, isDungeon = true},
+{Map = "Consecrated Snowfield", Name = "Consecrated Snowfield", PlayRegion = 6503000, BonfireFlags = {76550, 76551, 76652, 76653}, isOpenWorld = true},
+{Map = "Consecrated Snowfield", Name = "Consecrated Snowfield Catacombs", PlayRegion = 3019001, BonfireFlags = {73019}, isDungeon = true},
+{Map = "Consecrated Snowfield", Name = "Cave of the Forlorn", PlayRegion = 3112001, BonfireFlags = {73112}, isDungeon = true},
+{Map = "Consecrated Snowfield", Name = "Yelough Anix Tunnel", PlayRegion = 3211001, BonfireFlags = {73211}, isDungeon = true},
+{Map = "Miquella's Haligtree", Name = "Haligtree Canopy", PlayRegion = 1500011, BonfireFlags = {71506}},
+{Map = "Miquella's Haligtree", Name = "Haligtree Town Plaza", PlayRegion = 1500012, BonfireFlags = {71507, 71508}, isBoss = true},
+{Map = "Miquella's Haligtree", Name = "Haligtree Promenade", PlayRegion = 1500010, BonfireFlags = {71505}, isBoss = true},
+{Map = "Elphael, Brace of the Haligtree", Name = "Prayer Room", PlayRegion = 1500001, BonfireFlags = {71501}},
+{Map = "Elphael, Brace of the Haligtree", Name = "Elphael Inner Wall, Drainage Channel", PlayRegion = 1500002, BonfireFlags = {71503, 71502}},
+{Map = "Elphael, Brace of the Haligtree", Name = "Haligtree Roots", PlayRegion = 1500003, BonfireFlags = {71504}, isBoss = true},
+{Map = "Elphael, Brace of the Haligtree", Name = "Malenia, Goddess of Rot", PlayRegion = 1500000, BonfireFlags = {71500}, isBoss = true},
+{Map = "Ainsel River", Name = "Ainsel River Well Depths", PlayRegion = 1201001, BonfireFlags = {71211, 71212}},
+{Map = "Ainsel River", Name = "Ainsel River Downstream", PlayRegion = 1201002, BonfireFlags = {71213}},
+{Map = "Ainsel River", Name = "Ainsel River Downstream Part II", PlayRegion = 1201003, BonfireFlags = {71213}},
+{Map = "Ainsel River", Name = "Astel, Naturalborn of the Void", PlayRegion = 1204000, BonfireFlags = {71240}, isBoss = true},
+{Map = "Ainsel River", Name = "Dragonkin Soldier of Nokstella", PlayRegion = 1201000, BonfireFlags = {71210}},
+{Map = "Ainsel River Main", Name = "Ainsel River Main", PlayRegion = 1201011, BonfireFlags = {71214}},
+{Map = "Ainsel River Main", Name = "Nokstella, Eternal City", PlayRegion = 1201013, BonfireFlags = {71215}},
+{Map = "Ainsel River Main", Name = "Nokstella Waterfall Basin", PlayRegion = 1201014, BonfireFlags = {71219}},
+{Map = "Lake of Rot", Name = "Lake of Rot Shoreside", PlayRegion = 1201015, BonfireFlags = {71216}},
+{Map = "Lake of Rot", Name = "Grand Cloister", PlayRegion = 1201016, BonfireFlags = {71218}},
+{Map = "Lake of Rot", Name = "Grand Cloister Part II", PlayRegion = 1201017, BonfireFlags = {71218}},
+{Map = "Nokron, Eternal City", Name = "Nokron, Eternal City", PlayRegion = 1207026, BonfireFlags = {71271}},
+{Map = "Nokron, Eternal City", Name = "Mimic Tear", PlayRegion = 1202020, BonfireFlags = {71221}},
+{Map = "Nokron, Eternal City", Name = "Ancestral Woods", PlayRegion = 1202002, BonfireFlags = {71224}},
+{Map = "Nokron, Eternal City", Name = "Night's Sacred Ground", PlayRegion = 1202007, BonfireFlags = {71226}},
+{Map = "Nokron, Eternal City", Name = "Aqueduct-Facing Cliffs", PlayRegion = 1202003, BonfireFlags = {71225}},
+{Map = "Nokron, Eternal City", Name = "Aqueduct-Facing Cliffs Part II", PlayRegion = 1202004, BonfireFlags = {71225}, isBoss = true},
+{Map = "Nokron, Eternal City", Name = "Great Waterfall Basin", PlayRegion = 1202000, BonfireFlags = {71220}, isBoss = true},
+{Map = "Mohgwyn Palace", Name = "Palace Approach Ledge-Road", PlayRegion = 1205001, BonfireFlags = {71251}},
+{Map = "Mohgwyn Palace", Name = "Dynasty Mausoleum Entrance", PlayRegion = 1205004, BonfireFlags = {71252}},
+{Map = "Mohgwyn Palace", Name = "Dynasty Mausoleum Midpoint", PlayRegion = 1205006, BonfireFlags = {71253}, isBoss = true},
+{Map = "Mohgwyn Palace", Name = "Cocoon of the Empyrean", PlayRegion = 1205000, BonfireFlags = {71250}, isBoss = true},
+{Map = "Siofra River", Name = "Siofra River Well Depths", PlayRegion = 1207031, BonfireFlags = {71270}},
+{Map = "Siofra River", Name = "Siofra River Bank", PlayRegion = 1202033, BonfireFlags = {71222}},
+{Map = "Siofra River", Name = "Worshippers' Woods", PlayRegion = 1202034, BonfireFlags = {71223, 71227}},
+{Map = "Deeproot Depths", Name = "Root-Facing Cliffs", PlayRegion = 1203001, BonfireFlags = {71231}},
+{Map = "Deeproot Depths", Name = "Great Waterfall Crest Part II", PlayRegion = 1203002, BonfireFlags = {71232}},
+{Map = "Deeproot Depths", Name = "Deeproot Depths", PlayRegion = 1203003, BonfireFlags = {71232, 71233}},
+{Map = "Deeproot Depths", Name = "The Nameless Eternal City", PlayRegion = 1203004, BonfireFlags = {71234}},
+{Map = "Deeproot Depths", Name = "Across the Roots", PlayRegion = 1203005, BonfireFlags = {71235}, isBoss = true},
+{Map = "Deeproot Depths", Name = "Prince of Death's Throne", PlayRegion = 1203000, BonfireFlags = {71230}, isBoss = true},
+{Map = "Crumbling Farum Azula", Name = "Crumbling Beast Grave", PlayRegion = 1300012, BonfireFlags = {71303}},
+{Map = "Crumbling Farum Azula", Name = "Crumbling Beast Grave Depths, Tempest-Facing Balcony", PlayRegion = 1300013, BonfireFlags = {71304, 71305}},
+{Map = "Crumbling Farum Azula", Name = "Dragon Temple", PlayRegion = 1300017, BonfireFlags = {71306}, isBoss = true},
+{Map = "Crumbling Farum Azula", Name = "Dragon Temple Transept", PlayRegion = 1300018, BonfireFlags = {71307}, isBoss = true},
+{Map = "Crumbling Farum Azula", Name = "Dragon Temple Altar", PlayRegion = 1300010, BonfireFlags = {71302}, isBoss = true},
+{Map = "Crumbling Farum Azula", Name = "Dragon Temple Lift", PlayRegion = 1300019, BonfireFlags = {71308}},
+{Map = "Crumbling Farum Azula", Name = "Dragon Temple Rooftop", PlayRegion = 1300003, BonfireFlags = {71309}},
+{Map = "Crumbling Farum Azula", Name = "Dragonlord Placidusax", PlayRegion = 1300020, BonfireFlags = {71301}, isBoss = true},
+{Map = "Crumbling Farum Azula", Name = "Beside the Great Bridge", PlayRegion = 1300006, BonfireFlags = {71310}, isBoss = true},
+{Map = "Crumbling Farum Azula", Name = "Maliketh, the Black Blade", PlayRegion = 1300000, BonfireFlags = {71300}, isBoss = true}
+}
+
+-- provided by Signum
+wex.PlayRegionsDLC1 = {
+{Map = "Realm of Shadow", Name = "Belurat: Theatre of the Divine Beast", PlayRegion = 2000000, BonfireFlags = {72000}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Belurat: Belurat, Tower Settlement", PlayRegion = 2000001, BonfireFlags = {72001, 72002}},
+{Map = "Realm of Shadow", Name = "Belurat: Stagefront", PlayRegion = 2000002, BonfireFlags = {72003}},
+{Map = "Realm of Shadow", Name = "Enir-Ilim: Gate of Divinity", PlayRegion = 2001000, BonfireFlags = {72010}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Enir-Ilim: Outer Wall", PlayRegion = 2001001, BonfireFlags = {72012, 72013}},
+{Map = "Realm of Shadow", Name = "Enir-Ilim: Spiral Rise", PlayRegion = 2001004, BonfireFlags = {72014}},
+{Map = "Realm of Shadow", Name = "Enir-Ilim: Cleansing Chamber Anteroom", PlayRegion = 2001005, BonfireFlags = {72015}},
+{Map = "Realm of Shadow", Name = "Enir-Ilim: Divine Gate Front Staircase", PlayRegion = 2001007, BonfireFlags = {72016}},
+{Map = "Realm of Shadow", Name = "Shadow Keep: Main Gate", PlayRegion = 6900000, BonfireFlags = {72102}},
+{Map = "Realm of Shadow", Name = "Shadow Keep: Main Gate Plaza", PlayRegion = 6900010, BonfireFlags = {72101}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Shadow Keep: Church District Entrance", PlayRegion = 2100011, BonfireFlags = {72106}},
+{Map = "Realm of Shadow", Name = "Shadow Keep: Sunken Chapel", PlayRegion = 2100014, BonfireFlags = {72107}},
+{Map = "Realm of Shadow", Name = "Shadow Keep: Tree-Worship Sanctum", PlayRegion = 2100015, BonfireFlags = {72108, 72109}},
+{Map = "Realm of Shadow", Name = "Storehouse: Messmer's Dark Chamber", PlayRegion = 2101000, BonfireFlags = {72110}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Storehouse: First Floor", PlayRegion = 2101001, BonfireFlags = {72111}},
+{Map = "Realm of Shadow", Name = "Storehouse: Fourth Floor", PlayRegion = 2101003, BonfireFlags = {72112}},
+{Map = "Realm of Shadow", Name = "Storehouse: Seventh Floor", PlayRegion = 2101004, BonfireFlags = {72113}},
+{Map = "Realm of Shadow", Name = "Storehouse: Dark Chamber Entrance", PlayRegion = 2101006, BonfireFlags = {72114}},
+{Map = "Realm of Shadow", Name = "Storehouse: Back Section", PlayRegion = 2101011, BonfireFlags = {72116}},
+{Map = "Realm of Shadow", Name = "Storehouse: Loft", PlayRegion = 2101012, BonfireFlags = {72117}},
+{Map = "Realm of Shadow", Name = "Storehouse: West Rampart", PlayRegion = 2102001, BonfireFlags = {72120}},
+{Map = "Realm of Shadow", Name = "Stone Coffin Fissure: Garden of Deep Purple", PlayRegion = 2200000, BonfireFlags = {72200}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Stone Coffin Fissure: Stone Coffin Fissure", PlayRegion = 2200001, BonfireFlags = {72201}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Stone Coffin Fissure: Fissure Cross", PlayRegion = 2200002, BonfireFlags = {72202}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Stone Coffin Fissure: Fissure Waypoint & Depths", PlayRegion = 2200004, BonfireFlags = {72203, 72204}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Midra's Manse: Discussion Chamber", PlayRegion = 6860010, BonfireFlags = {72800}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Midra's Manse: Manse Hall", PlayRegion = 6860001, BonfireFlags = {72801}},
+{Map = "Realm of Shadow", Name = "Midra's Manse: Midra's Library", PlayRegion = 6860004, BonfireFlags = {72802, 72803}},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Fog Rift Catacombs", PlayRegion = 4000001, BonfireFlags = {74000}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Ruined Forge Lava Intake", PlayRegion = 4200090, BonfireFlags = {74200}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Rivermouth Cave", PlayRegion = 4300001, BonfireFlags = {74300}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Dragon's Pit", PlayRegion = 4200090, BonfireFlags = {74301}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Dragon's Pit Terminus", PlayRegion = 4301090, BonfireFlags = {74351}},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Gravesite Plain", PlayRegion = 6800000, BonfireFlags = {76800, 76801, 76802, 76803, 76804, 76805}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Ellac River Cave", PlayRegion = 6810001, BonfireFlags = {76812}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Pillar Path", PlayRegion = 6810000, BonfireFlags = {76810, 76811, 76813}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Belurat Gaol", PlayRegion = 4100001, BonfireFlags = {74100}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Gravesite Plain: Ellac River Downstream", PlayRegion = 6810090, BonfireFlags = {76830}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Charo's Hidden Grave: Charo's Hidden Grave", PlayRegion = 6840000, BonfireFlags = {76841}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Charo's Hidden Grave: Lamenter's Gaol", PlayRegion = 4102001, BonfireFlags = {74102}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Castle Ensis: Castle Ensis", PlayRegion = 6820000, BonfireFlags = {76821, 76822}},
+{Map = "Realm of Shadow", Name = "Castle Ensis: Ensis Moongazing Grounds", PlayRegion = 6820010, BonfireFlags = {76823}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Cerulean Coast: Cerulean Coast", PlayRegion = 6830000, BonfireFlags = {76831, 76832, 76834, 76835}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Cerulean Coast: The Fissure", PlayRegion = 6830002, BonfireFlags = {76833}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Abyssal Woods: Abyssal Woods", PlayRegion = 6860000, BonfireFlags = {76860, 76861, 76863, 76864}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Abyssal Woods: Forsaken Graveyard", PlayRegion = 4002000, BonfireFlags = {76862}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Foot of the Jagged Peak", PlayRegion = 6841000, BonfireFlags = {76840}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Jagged Peak: Mountainside", PlayRegion = 6850000, BonfireFlags = {76850, 76851}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Jagged Peak: Summit", PlayRegion = 6850001, BonfireFlags = {76852}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Jagged Peak: Rest of the Dread Dragon", PlayRegion = 6850010, BonfireFlags = {76853}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Ancient Ruins of Rauh: West", PlayRegion = 6941000, BonfireFlags = {76942, 76943, 76944}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Ancient Ruins of Rauh: Church of the Bud", PlayRegion = 6941010, BonfireFlags = {76945}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Ancient Ruins of Rauh: East", PlayRegion = 6940000, BonfireFlags = {76940, 76941}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Rauh Base: Ancient Ruins", PlayRegion = 6901000, BonfireFlags = {76912, 76913, 76914}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Rauh Base: Scorpion River Catacombs", PlayRegion = 4001001, BonfireFlags = {74001}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Rauh Base: Taylew's Ruined Forge", PlayRegion = 4203090, BonfireFlags = {74203}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Finger Birthing Grounds", PlayRegion = 2500000, BonfireFlags = {72500}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Scadu Altus", PlayRegion = 6900000, BonfireFlags = {76900, 76902, 76907, 76908, 76909, 76910, 76911, }, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Bonny Village", PlayRegion = 6902000, BonfireFlags = {76903, 76904, 76905, 76906}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Castle Watering Hole", PlayRegion = 6903090, BonfireFlags = {76916, 76917}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Recluses' River Downstream", PlayRegion = 6903000, BonfireFlags = {76918}, isOpenWorld = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Darklight Catacombs", PlayRegion = 4002001, BonfireFlags = {74002}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Bonny Gaol", PlayRegion = 4101001, BonfireFlags = {74101}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Scadu Altus: Ruined Forge of Starfall Past", PlayRegion = 4202090, BonfireFlags = {74202}, isDungeon = true},
+{Map = "Realm of Shadow", Name = "Scaduview: Scadutree Base", PlayRegion = 2100010, BonfireFlags = {76960}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Scaduview: Scaduview", PlayRegion = 2101010, BonfireFlags = {76930}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Scaduview: Shadow Keep, Back Gate", PlayRegion = 2101013, BonfireFlags = {76931}, isBoss = true},
+{Map = "Realm of Shadow", Name = "Scaduview: Hinterland", PlayRegion = 6930000, BonfireFlags = {76935, 76936, 76937}, isOpenWorld = true},
+}
+
+if isOwnDlc(1) then
+	for _,v in ipairs(wex.PlayRegionsDLC1) do
+		table.insert(wex.PlayRegions, v)
+	end
+end
+
+if wex.Window then wex.Window.close() end
+
+wex.Maps = {}
+wex.IndexedRegions = {}
+wex.IndexedRegionNames = {}
+wex.RegionProperties = {}
+
+local t = {}
+for i,v in ipairs(wex.PlayRegions) do
+	wex.IndexedRegions[v.PlayRegion] = i
+	wex.IndexedRegionNames[v.Name] = i
+	local map = v.Map
+	if not t[map] then
+		table.insert(wex.Maps, map)
+		t[map] = true
+	end
+end
+
+wex.memrec = memrec
+wex.SaveSlotPtr = "[GameMan]+AC0"
+wex.ArrayStartPtr = "[[GameDataMan]+8]+938"
+wex.ArrayEndPtr = "[[GameDataMan]+8]+940"
+wex.ArrayStart = readQword(wex.ArrayStartPtr)
+wex.ArrayEnd = readQword(wex.ArrayEndPtr)
+wex.ArrayLength = wex.ArrayStart and wex.ArrayEnd and wex.ArrayEnd - wex.ArrayStart
+wex.NumItems = wex.ArrayLength and wex.ArrayLength//4
+wex.SaveRequestPtr = "[GameMan]+B72"
+wex.SaveDisablePtr = "[CSMenuMan]+13C"
+wex.DisableControlsPtr = "[GameMan]+BC4"
+
+local saveSlot = readInteger(wex.SaveSlotPtr, true)
+if not saveSlot or saveSlot == -1 then
+	local e = "No character loaded. \nLoad a character before activating this script."
+	showMessage(e)
+  error(e)
+end
+writeByte(wex.SaveDisablePtr, 0)
+writeByte(wex.DisableControlsPtr, 0)
+readRegions()
+wex.Main = wex:new()
+wex:createWindow(wex.Main, "Main")
+tga:runOnce("wex_guide", showGuide)
+
+[DISABLE]
+wex.Window.destroy()

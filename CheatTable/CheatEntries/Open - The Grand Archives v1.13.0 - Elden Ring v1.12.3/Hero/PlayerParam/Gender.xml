@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337192044</ID>
+  <Description>"Gender"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Type B
+1:Type A
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>BE</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

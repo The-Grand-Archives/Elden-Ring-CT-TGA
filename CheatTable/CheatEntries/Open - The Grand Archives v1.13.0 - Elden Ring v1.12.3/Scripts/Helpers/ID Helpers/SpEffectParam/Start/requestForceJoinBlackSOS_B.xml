@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337201726</ID>
+  <Description>"requestForceJoinBlackSOS_B"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+352</Address>
+</CheatEntry>

@@ -1,0 +1,10 @@
+//Author: Careless Esper
+//Distance edit via LockCamParam
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local cam = LockCamParam:new("CustomDistance")
+cam:patchAllFloat(0x00,8) -- camDistTarget
+
+[DISABLE]
+paramUtils:restore("CustomDistance")

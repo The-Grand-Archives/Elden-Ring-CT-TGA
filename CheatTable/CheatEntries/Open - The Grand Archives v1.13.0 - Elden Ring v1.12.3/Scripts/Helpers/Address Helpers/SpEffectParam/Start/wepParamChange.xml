@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337214870</ID>
+  <Description>"wepParamChange"</Description>
+  <DropDownList DisplayValueAsItem="1">0:None
+1:Weapon Buff
+2:Shield Buff
+3:Auxillary Effects
+4:Orange Charred Ring
+</DropDownList>
+  <VariableType>Byte</VariableType>
+  <Address>+0158</Address>
+</CheatEntry>

@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>1337258982</ID>
+  <Description>"Target Coords"</Description>
+  <Options moManualExpandCollapse="1"/>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>20</ByteLength>
+  <Address>TargetCoords</Address>
+  <x-ce2fs-child-order>
+    <id id="1337258983"/>
+    <id id="1337258984"/>
+    <id id="1337258985"/>
+    <id id="1337258986"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

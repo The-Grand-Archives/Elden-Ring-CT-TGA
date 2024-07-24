@@ -1,0 +1,33 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("discardable_items");
+    ParamPatchAll(EquipParamWeapon, {
+        param->isDiscard = 1;
+    });
+    ParamPatchAll(EquipParamProtector, {
+        param->isDiscard = 1;
+    });
+    ParamPatchAll(EquipParamAccessory, {
+        param->isDiscard = 1;
+    });
+    ParamPatchAll(EquipParamGoods, {
+        param->isDiscard = 1;
+    });
+    ParamPatchAll(EquipParamGem, {
+        param->isDiscard = 1;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("discardable_items");
+    return 0;
+}
+
+{$asm}
+[DISABLE]
+

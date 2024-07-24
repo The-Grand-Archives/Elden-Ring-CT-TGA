@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1337258005</ID>
+  <Description>"Event Flag ID"</Description>
+  <DropDownListLink>EventFlagId</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>ef.flag_data</Address>
+</CheatEntry>

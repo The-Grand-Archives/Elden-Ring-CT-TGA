@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337273239</ID>
+  <Description>"4"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>+8*4</Address>
+  <x-ce2fs-child-order>
+    <id id="1337273240"/>
+    <id id="1337273241"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

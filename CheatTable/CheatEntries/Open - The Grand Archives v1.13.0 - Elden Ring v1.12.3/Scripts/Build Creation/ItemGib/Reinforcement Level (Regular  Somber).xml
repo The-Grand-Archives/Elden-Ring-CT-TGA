@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1337193280</ID>
+  <Description>"Reinforcement Level (Regular | Somber)"</Description>
+  <DropDownListLink>ItemReinforceLv</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>item_menu+0A</Address>
+</CheatEntry>

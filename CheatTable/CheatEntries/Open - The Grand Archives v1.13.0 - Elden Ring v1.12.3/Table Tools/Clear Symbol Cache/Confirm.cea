@@ -1,0 +1,9 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+tga:clearSymbolCache()
+disableMemrec(memrec.Parent)
+disableMemrec(memrec)
+
+[DISABLE]

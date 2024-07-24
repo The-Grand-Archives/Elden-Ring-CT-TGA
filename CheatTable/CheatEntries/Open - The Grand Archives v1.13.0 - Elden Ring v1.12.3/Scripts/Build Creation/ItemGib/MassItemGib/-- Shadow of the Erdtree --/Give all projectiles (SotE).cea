@@ -1,0 +1,15 @@
+// Author: Layka, the Wuffinator
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x03032DE0, 999, 0, 0, -1 }, -- Piquebone Arrow (Fletched)
+  { 0x030354F0, 999, 0, 0, -1 }, -- Piquebone Arrow
+  { 0x0311D3E0, 630, 0, 0, -1 }, -- Igon's Harpoon
+  { 0x03216440, 999, 0, 0, -1 }, -- Piquebone Bolt
+  { 0x03305860, 620, 0, 0, -1 }, -- Rabbath's Greatbolt
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

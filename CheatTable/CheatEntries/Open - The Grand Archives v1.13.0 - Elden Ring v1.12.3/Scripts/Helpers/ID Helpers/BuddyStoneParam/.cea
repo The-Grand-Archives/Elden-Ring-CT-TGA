@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(BuddyStoneParamHelper,16)
+registersymbol(BuddyStoneParamHelper)
+
+BuddyStoneParamHelper:
+dq #0
+
+[DISABLE]
+dealloc(BuddyStoneParamHelper)
+unregistersymbol(BuddyStoneParamHelper)

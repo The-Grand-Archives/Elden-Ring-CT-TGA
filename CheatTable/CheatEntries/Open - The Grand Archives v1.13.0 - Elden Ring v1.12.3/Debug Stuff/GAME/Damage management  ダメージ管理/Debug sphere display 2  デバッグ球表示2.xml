@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337096515</ID>
+  <Description>"Debug sphere display 2 | デバッグ球表示2"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>DamageCtrl</Address>
+  <Offsets>
+    <Offset>A1</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337193111</ID>
+  <Description>"Leggings"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>3D4</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

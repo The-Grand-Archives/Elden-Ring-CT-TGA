@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(CalcCorrectGraphHelper,16)
+registersymbol(CalcCorrectGraphHelper)
+
+CalcCorrectGraphHelper:
+dq #0
+
+[DISABLE]
+dealloc(CalcCorrectGraphHelper)
+unregistersymbol(CalcCorrectGraphHelper)

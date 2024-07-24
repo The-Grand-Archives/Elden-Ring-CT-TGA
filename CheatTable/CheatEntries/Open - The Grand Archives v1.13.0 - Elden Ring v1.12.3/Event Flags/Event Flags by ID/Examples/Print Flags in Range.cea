@@ -1,0 +1,29 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local start = 62000 -- the id of the first flag in a flag range
+local range = 100 -- the number of flags after the first flag to check
+local state = 1 -- the state to check for, 0/1 or false/true
+
+ef.runThread = true
+local thread = createThread(function()
+  local total = start + range
+  local state = state and state ~= 0 and 1 or 0
+  local r = {}
+  local p1, p2 = 0, 0
+  local t = os.clock()
+  for id = start, total do
+	  if not ef.runThread then break end
+    if ef.getFlag(id) == state then table.insert(r, id) end
+    p1 = (id - start)*100//range
+    if p1 ~= p2 then print(p1.."% "..(os.clock() - t)*100//1/100) p2 = p1 end
+  end
+  print(string.format("Found %s flags with state %s in range %s-%s:", #r, state, start, start + range))
+  for i,v in ipairs(r) do print(v) end
+	ef.runThread = false
+end)
+disableMemrec(memrec, function() return not ef.runThread end)
+
+[DISABLE]
+ef.runThread = false

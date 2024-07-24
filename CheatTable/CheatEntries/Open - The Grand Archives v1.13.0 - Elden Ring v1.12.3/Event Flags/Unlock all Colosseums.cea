@@ -1,0 +1,19 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+60360, -- Limgrave
+60350, -- Caelid
+60370, -- Leyndell
+}
+
+local flags = {flagsBase}
+--if isOwnDlc(1) then table.insert(flags, flagsDLC1) end
+--if isOwnDlc(3) == 1 then table.insert(flags, flagsDLC2) end
+
+ef.batchSetFlags(flags, 1, "ColosseumsThread")
+disableMemrec(memrec, function() return not ef.ColosseumsThread end)
+
+[DISABLE]
+ef.ColosseumsThread = false

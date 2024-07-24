@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213118</ID>
+  <Description>"Eyeliner_Color_r"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+CA</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

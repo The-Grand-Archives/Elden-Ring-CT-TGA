@@ -1,0 +1,18 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("world_map_cursor_speed");
+    ParamPatch(MenuCommonParam, 0, param->worldMapCursorSpeed = 800;);
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("world_map_cursor_speed");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

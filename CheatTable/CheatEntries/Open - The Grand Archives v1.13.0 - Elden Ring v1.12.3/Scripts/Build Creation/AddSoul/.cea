@@ -1,0 +1,25 @@
+//Author: inuNorii
+[ENABLE]
+aobscanmodule(AddSoul_Call,$process,44 8B 49 ?? 45 33 DB 44 89 5C 24)
+alloc(AddSoul,$100,$process)
+registerSymbol(AddSoul)
+label(AddSoulData)
+
+AddSoul:
+sub rsp,48
+mov edi,[AddSoulData]
+mov rcx,[GameDataMan]
+mov rcx,[rcx+08]
+mov edx,edi
+call AddSoul_Call
+add rsp,48
+ret
+
+AddSoulData:
+registerSymbol(AddSoulData)
+dd #500
+
+[DISABLE]
+dealloc(AddSoul)
+unregisterSymbol(AddSoul)
+unregisterSymbol(AddSoulData)

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337215105</ID>
+  <Description>"fakeTargetIgnoreMirageArts"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+352</Address>
+</CheatEntry>

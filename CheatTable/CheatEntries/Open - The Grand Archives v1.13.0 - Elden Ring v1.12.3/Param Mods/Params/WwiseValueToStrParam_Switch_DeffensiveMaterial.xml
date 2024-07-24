@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337192982</ID>
+  <Description>"WwiseValueToStrParam_Switch_DeffensiveMaterial"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>1F30</Offset>
+  </Offsets>
+</CheatEntry>

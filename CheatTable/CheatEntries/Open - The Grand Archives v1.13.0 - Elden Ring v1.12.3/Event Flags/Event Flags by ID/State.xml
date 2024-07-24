@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337258006</ID>
+  <Description>"State"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
+1:On
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>ef.flag_data+4</Address>
+</CheatEntry>

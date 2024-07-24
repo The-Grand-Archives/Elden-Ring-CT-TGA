@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337200455</ID>
+  <Description>"InitPos"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>12</ByteLength>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>140</Offset>
+    <Offset>68</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

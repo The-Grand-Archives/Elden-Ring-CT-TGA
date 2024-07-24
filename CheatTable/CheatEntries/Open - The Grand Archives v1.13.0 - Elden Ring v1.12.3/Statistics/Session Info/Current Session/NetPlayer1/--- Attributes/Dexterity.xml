@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337196969</ID>
+  <Description>"Dexterity"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>4C</Offset>
+    <Offset>580</Offset>
+    <Offset>1*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

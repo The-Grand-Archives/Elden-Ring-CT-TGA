@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337199643</ID>
+  <Description>"Gauntlet"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>3D4</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

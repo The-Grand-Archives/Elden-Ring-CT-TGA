@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337198137</ID>
+  <Description>"blowGuardCutRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+FE</Address>
+</CheatEntry>

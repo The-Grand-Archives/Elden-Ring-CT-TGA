@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337253734</ID>
+  <Description>"Recusant Henricus"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>A113C</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337214697</ID>
+  <Description>"FollowType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>3</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9a</Address>
+</CheatEntry>

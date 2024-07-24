@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337200780</ID>
+  <Description>"weakB_DamageRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+A4</Address>
+</CheatEntry>

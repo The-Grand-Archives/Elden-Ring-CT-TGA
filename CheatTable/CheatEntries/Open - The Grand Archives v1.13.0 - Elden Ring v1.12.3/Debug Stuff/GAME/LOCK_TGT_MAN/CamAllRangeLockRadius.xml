@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337099139</ID>
+  <Description>"CamAllRangeLockRadius"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2954</Offset>
+  </Offsets>
+</CheatEntry>

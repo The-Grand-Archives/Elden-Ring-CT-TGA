@@ -1,0 +1,111 @@
+<CheatEntry>
+  <ID>1337213409</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>EquipParamGemHelper+8</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337213410"/>
+    <id id="1337213411"/>
+    <id id="1337213412"/>
+    <id id="1838"/>
+    <id id="1839"/>
+    <id id="1840"/>
+    <id id="1841"/>
+    <id id="1842"/>
+    <id id="1843"/>
+    <id id="1844"/>
+    <id id="1845"/>
+    <id id="1846"/>
+    <id id="1847"/>
+    <id id="1848"/>
+    <id id="1849"/>
+    <id id="1850"/>
+    <id id="1851"/>
+    <id id="1852"/>
+    <id id="1853"/>
+    <id id="1854"/>
+    <id id="1855"/>
+    <id id="1856"/>
+    <id id="1857"/>
+    <id id="1858"/>
+    <id id="1859"/>
+    <id id="1860"/>
+    <id id="1861"/>
+    <id id="1862"/>
+    <id id="1863"/>
+    <id id="1864"/>
+    <id id="1865"/>
+    <id id="1866"/>
+    <id id="1867"/>
+    <id id="1868"/>
+    <id id="1869"/>
+    <id id="1870"/>
+    <id id="1871"/>
+    <id id="1872"/>
+    <id id="1873"/>
+    <id id="1874"/>
+    <id id="1875"/>
+    <id id="1876"/>
+    <id id="1877"/>
+    <id id="1878"/>
+    <id id="1879"/>
+    <id id="1880"/>
+    <id id="1881"/>
+    <id id="1882"/>
+    <id id="1883"/>
+    <id id="1337213416"/>
+    <id id="1884"/>
+    <id id="1337213417"/>
+    <id id="1885"/>
+    <id id="1886"/>
+    <id id="1887"/>
+    <id id="1888"/>
+    <id id="1889"/>
+    <id id="1890"/>
+    <id id="1891"/>
+    <id id="1892"/>
+    <id id="1893"/>
+    <id id="1894"/>
+    <id id="1895"/>
+    <id id="1896"/>
+    <id id="1897"/>
+    <id id="1898"/>
+    <id id="1899"/>
+    <id id="1900"/>
+    <id id="1901"/>
+    <id id="1902"/>
+    <id id="1903"/>
+    <id id="1904"/>
+    <id id="1905"/>
+    <id id="1906"/>
+    <id id="1907"/>
+    <id id="1908"/>
+    <id id="1909"/>
+    <id id="1910"/>
+    <id id="1911"/>
+    <id id="1912"/>
+    <id id="1913"/>
+    <id id="1914"/>
+    <id id="1915"/>
+    <id id="1916"/>
+    <id id="1917"/>
+    <id id="1918"/>
+    <id id="1919"/>
+    <id id="1920"/>
+    <id id="1337213418"/>
+    <id id="1337213419"/>
+    <id id="1921"/>
+    <id id="1922"/>
+    <id id="1923"/>
+    <id id="1924"/>
+    <id id="1925"/>
+    <id id="1926"/>
+    <id id="1337213420"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

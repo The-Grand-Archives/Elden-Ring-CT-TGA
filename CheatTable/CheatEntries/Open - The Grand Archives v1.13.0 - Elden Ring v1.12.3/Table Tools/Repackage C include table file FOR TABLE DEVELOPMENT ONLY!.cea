@@ -1,0 +1,14 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local path = inputQuery("Repackage C include table file", "Select path", './resources/include')
+if findTableFile("include") then
+    if (messageDialog("Confirm", "Overwrite existing C include table file?", 0, mbno, mbyes) == mbno) then
+        disableMemrec(memrec)
+        return
+    end
+end
+tga:packToTableFile(path, "include", "include", true)
+disableMemrec(memrec)
+
+[DISABLE]

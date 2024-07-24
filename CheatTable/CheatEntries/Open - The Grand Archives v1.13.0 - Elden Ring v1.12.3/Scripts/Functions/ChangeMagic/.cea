@@ -1,0 +1,24 @@
+//Authors: don_caca, inuNorii
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+if changeMagic == nil then
+    getAddressList().getMemoryRecordByDescription("changeMagic_code").active = true
+    local e = "'changeMagic' symbol was not found.\nTry enabling this script again."
+    ShowMessage(e)
+    error(e, 2)
+end
+
+changeMagic_data = allocateMemory(16, getAddress(process))
+writeInteger(changeMagic_data, 0xFFFFFFFF)
+writeInteger(changeMagic_data + 4, 4000)
+
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- changeMagic(magicSlot, magicId)
+-- addMagic(magicId)
+-- removeMagic(magicSlot)
+
+[DISABLE]
+deAlloc(changeMagic_data)
+changeMagic_data = nil

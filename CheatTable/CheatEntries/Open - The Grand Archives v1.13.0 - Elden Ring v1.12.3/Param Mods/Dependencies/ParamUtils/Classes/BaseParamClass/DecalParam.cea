@@ -1,0 +1,278 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+-- Define DecalParam Class
+
+DecalParam = BaseParamClass:new()
+
+function DecalParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("DecalParam", uuid, id, address)
+	return o
+end
+
+function DecalParam:TextureId(value)
+    self:patch4Byte(0x00,value)
+end
+
+function DecalParam:dmyPolyId(value)
+    self:patch4Byte(0x04,value)
+end
+
+function DecalParam:pitchAngle(value)
+    self:patchFloat(0x08,value)
+end
+
+function DecalParam:yawAngle(value)
+    self:patchFloat(0x0C,value)
+end
+
+function DecalParam:nearDistance(value)
+    self:patchFloat(0x10,value)
+end
+
+function DecalParam:farDistance(value)
+    self:patchFloat(0x14,value)
+end
+
+function DecalParam:nearSize(value)
+    self:patchFloat(0x18,value)
+end
+
+function DecalParam:farSize(value)
+    self:patchFloat(0x1C,value)
+end
+
+function DecalParam:maskSpEffectId(value)
+    self:patch4Byte(0x20,value)
+end
+
+function DecalParam:randomVariationNum0(value)
+    self:patchBinary(0x24,value, 0)
+end
+
+function DecalParam:randomVariationNum1(value)
+    self:patchBinary(0x24,value, 1)
+end
+
+function DecalParam:randomVariationNum2(value)
+    self:patchBinary(0x24,value, 2)
+end
+
+function DecalParam:randomVariationNum3(value)
+    self:patchBinary(0x24,value, 3)
+end
+
+function DecalParam:replaceTextureId_byMaterial(value)
+    self:patchBinary(0x24,value, 4)
+end
+
+function DecalParam:dmyPolyCategory0(value)
+    self:patchBinary(0x24,value, 5)
+end
+
+function DecalParam:dmyPolyCategory1(value)
+    self:patchBinary(0x24,value, 6)
+end
+
+function DecalParam:decalShapeType0(value)
+    self:patchBinary(0x24,value, 7)
+end
+
+function DecalParam:decalShapeType1(value)
+    self:patchBinary(0x25,value, 0)
+end
+
+function DecalParam:decalShapeType2(value)
+    self:patchBinary(0x25,value, 1)
+end
+
+function DecalParam:decalShapeType3(value)
+    self:patchBinary(0x25,value, 2)
+end
+
+function DecalParam:useDeferredDecal(value)
+    self:patchBinary(0x25,value, 3)
+end
+
+function DecalParam:usePaintDecal(value)
+    self:patchBinary(0x25,value, 4)
+end
+
+function DecalParam:targetAttackChr(value)
+    self:patchBinary(0x25,value, 5)
+end
+
+function DecalParam:targetDamageChr(value)
+    self:patchBinary(0x25,value, 6)
+end
+
+function DecalParam:targetOtherChr(value)
+    self:patchBinary(0x25,value, 7)
+end
+
+function DecalParam:targetMapObj(value)
+    self:patchBinary(0x26,value, 0)
+end
+
+function DecalParam:usePom(value)
+    self:patchBinary(0x26,value, 1)
+end
+
+function DecalParam:randomSizeMin(value)
+    self:patch2Byte(0x28,value)
+end
+
+function DecalParam:randomSizeMax(value)
+    self:patch2Byte(0x2A,value)
+end
+
+function DecalParam:randomRollMin(value)
+    self:patchFloat(0x2C,value)
+end
+
+function DecalParam:randomRollMax(value)
+    self:patchFloat(0x30,value)
+end
+
+function DecalParam:randomPitchMin(value)
+    self:patchFloat(0x34,value)
+end
+
+function DecalParam:randomPitchMax(value)
+    self:patchFloat(0x38,value)
+end
+
+function DecalParam:randomYawMin(value)
+    self:patchFloat(0x3C,value)
+end
+
+function DecalParam:randomYawMax(value)
+    self:patchFloat(0x40,value)
+end
+
+function DecalParam:pomHeightScale(value)
+    self:patchFloat(0x44,value)
+end
+
+function DecalParam:pomSampleMin(value)
+    self:patchByte(0x48,value)
+end
+
+function DecalParam:pomSampleMax(value)
+    self:patchByte(0x49,value)
+end
+
+function DecalParam:Contrast1(value)
+    self:patchByte(0x4A,value)
+end
+
+function DecalParam:TextureLengthType(value)
+    self:patchByte(0x4B,value)
+end
+
+function DecalParam:TextureWidthX(value)
+    self:patchFloat(0x4C,value)
+end
+
+function DecalParam:TextureWidthZ(value)
+    self:patchFloat(0x50,value)
+end
+
+function DecalParam:TextureLifeTime(value)
+    self:patchFloat(0x60,value)
+end
+
+function DecalParam:TextureId1(value)
+    self:patch4Byte(0x70,value)
+end
+
+function DecalParam:TextureId2(value)
+    self:patch4Byte(0x74,value)
+end
+
+function DecalParam:TextureId3(value)
+    self:patch4Byte(0x78,value)
+end
+
+function DecalParam:Brightness(value)
+    self:patch4Byte(0x7C,value)
+end
+
+function DecalParam:TextureId4(value)
+    self:patch4Byte(0x80,value)
+end
+
+function DecalParam:TextureId5(value)
+    self:patch4Byte(0x84,value)
+end
+
+function DecalParam:TextureId6(value)
+    self:patch4Byte(0x88,value)
+end
+
+function DecalParam:R_Diffuse(value)
+    self:patchByte(0x8C,value)
+end
+
+function DecalParam:G_Diffuse(value)
+    self:patchByte(0x8D,value)
+end
+
+function DecalParam:B_Diffuse(value)
+    self:patchByte(0x8E,value)
+end
+
+function DecalParam:UnkNaM(value)
+    self:patchByte(0x8F,value)
+end
+
+function DecalParam:R_Specular(value)
+    self:patchByte(0x90,value)
+end
+
+function DecalParam:G_Specular(value)
+    self:patchByte(0x91,value)
+end
+
+function DecalParam:B_Specular(value)
+    self:patchByte(0x92,value)
+end
+
+function DecalParam:DelayedSpawnState(value)
+    self:patchByte(0x93,value)
+end
+
+function DecalParam:Contrast2(value)
+    self:patchFloat(0x94,value)
+end
+
+function DecalParam:minVal(value)
+    self:patchFloat(0xA4,value)
+end
+
+function DecalParam:maxVal(value)
+    self:patchFloat(0xA8,value)
+end
+
+function DecalParam:DecalSpawnDelay(value)
+    self:patch2Byte(0xAE,value)
+end
+
+function DecalParam:IsContactPlayer(value)
+    self:patchBinary(0xB0,value, 5)
+end
+
+function DecalParam:IsFormCube(value)
+    self:patchBinary(0xB0,value, 6)
+end
+
+function DecalParam:TextureSpawnDelay(value)
+    self:patchFloat(0xB4,value)
+end
+
+[DISABLE]

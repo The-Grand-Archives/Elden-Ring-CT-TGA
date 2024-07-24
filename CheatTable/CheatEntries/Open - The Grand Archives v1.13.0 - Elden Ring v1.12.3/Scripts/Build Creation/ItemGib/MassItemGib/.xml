@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337193283</ID>
+  <Description>"MassItemGib"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337196706"/>
+    <id id="1337197121"/>
+    <id id="1337273197"/>
+    <id id="1337273185"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

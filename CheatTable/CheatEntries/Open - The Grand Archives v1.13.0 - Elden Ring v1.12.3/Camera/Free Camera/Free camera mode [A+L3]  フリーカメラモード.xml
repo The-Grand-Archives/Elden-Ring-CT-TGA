@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>1337200381</ID>
+  <Description>"Free camera mode [A+L3] | フリーカメラモード"</Description>
+  <Options moRecursiveSetValue="1"/>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF | 無効
+1:ON | 操作
+2:ON (updating) | 操作(ゲーム中の更新あり)
+3:Fixed | 固定
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>FieldArea</Address>
+  <Offsets>
+    <Offset>C8</Offset>
+    <Offset>20</Offset>
+  </Offsets>
+</CheatEntry>

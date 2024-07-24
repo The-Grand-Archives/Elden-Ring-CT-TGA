@@ -1,0 +1,63 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+function SpEffect(id, action, ptr)
+	local add_call = AOBScanModuleUnique(process,"48 8B C4 48 89 58 08 48 89 70 10 57 48 81 EC ???????? 0F2805 ???????? 48 8B F1 0F280D ???????? 48 8D 48 88")
+	local remove_call = AOBScanModuleUnique(process,"48 83 EC 28 8B C2 48 8B 51 08 48 85 D2 ???? 90")
+
+	local PlayerIns = 0
+	if ptr ~= nil and ptr ~= 0 then
+		PlayerIns = readPointer(ptr)
+	else
+		PlayerIns = readPointer("[[WorldChrMan]+10EF8]")
+	end
+	local SpecialEffect = readPointer(PlayerIns + 0x178)
+
+	if action == 0 or action == nil then -- 自分に特殊効果発動
+		executeCodeEx(0, 100, add_call, PlayerIns, id, 1)
+	elseif action == 1 then -- 全部消去
+		local spE = readPointer(SpecialEffect + 0x8)
+		local loop = true
+		while loop do
+			id = readInteger(spE + 0x8)
+			executeCodeEx(0, 100, remove_call, SpecialEffect, id)
+			if readInteger(spE + 0x30) ~= 0 then
+				spE = readPointer(spE + 0x30)
+			else
+				loop = false
+			end
+		end
+	-- elseif action == 2 then -- プレイヤーから特殊効果発動
+		-- not implemented
+	elseif action == 3 then -- 特殊効果を削除
+		executeCodeEx(0, 100, remove_call, SpecialEffect, id)
+	end
+end
+
+function SpEffect_addForSelf(id, ptr)
+	SpEffect(id, 0, ptr)
+end
+SpEffect_add = SpEffect_addForSelf
+
+--function SpEffect_addFromPlayers(id, ptr)
+--	SpEffect(id, 2, ptr)
+--end
+
+function SpEffect_remove(id, ptr)
+	SpEffect(id, 3, ptr)
+end
+
+function SpEffect_eraseAll(ptr)
+	SpEffect(0, 1, ptr)
+end
+SpEffect_erase = SpEffect_eraseAll
+
+[DISABLE]
+SpEffect = nil
+SpEffect_addForSelf = nil
+SpEffect_add = nil
+--SpEffect_addFromPlayers = nil
+SpEffect_remove = nil
+SpEffect_eraseAll = nil
+SpEffect_erase = nil
+Debug_SpEffectId = nil

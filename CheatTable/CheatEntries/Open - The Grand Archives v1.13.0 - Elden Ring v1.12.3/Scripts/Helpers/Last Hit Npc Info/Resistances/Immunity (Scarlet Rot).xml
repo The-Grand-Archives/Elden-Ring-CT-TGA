@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337199580</ID>
+  <Description>"Immunity (Scarlet Rot)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>14</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

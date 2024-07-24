@@ -1,0 +1,73 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+function isOwnDlc(dlc)
+	local CsDlc = readPointer("CsDlc")
+
+	if dlc == nil then local dlc = 1 end
+
+	if readByte(CsDlc + 0x10 + dlc) == 1 then
+		return true
+	end
+
+	return false
+end
+
+function missingDlc(dlc)
+	local dlcNames = {
+		[0] = "ELDEN RING Bonus Gesture",
+		[1] = "ELDEN RING Shadow of the Erdtree",
+		[2] = "ELDEN RING Shadow of the Erdtree Bonus Gesture"
+	}
+
+	local e = "You do not own "..dlcNames[dlc]
+
+	ShowMessage(e)
+	error(e, 2)
+end
+
+function isDlcMagic(id)
+	if id > 0x40000000 then id = id - 0x40000000 end
+	if id >= 2004300 and id <= 2007820 then
+		return true
+	end
+	return false
+end
+
+function isInventoryFull(inv)
+	local GameDataMan = readPointer("GameDataMan")
+	local PlayerGameData = readPointer(GameDataMan + 8)
+	local EquipInventoryData = 0
+
+	if inv == 0 or inv == nil then
+		-- player inventory
+		EquipInventoryData = readPointer(PlayerGameData + 0x5D0)
+	elseif inv == 1 then
+		-- player storage
+		EquipInventoryData = readPointer(PlayerGameData + 0x8D0)
+	else
+		error("invalid inventory", 2)
+	end
+
+	local inventoryNum = readInteger(EquipInventoryData + 0x18)
+
+	if inv == 0 or inv == nil and inventoryNum >= 2688 then
+		return true
+	elseif inv == 1 and inventoryNum >= 1920 then
+		return true
+	end
+
+	return false
+end
+
+function isStorageFull()
+	return isInventoryFull(1)
+end
+
+
+[DISABLE]
+isOwnDlc = nil
+isDlcMagic = nil
+isInventoryFull = nil
+isStorageFull = nil
+missingDlc = nil

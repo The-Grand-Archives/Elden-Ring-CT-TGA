@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>240</ID>
+  <Description>"Idle Animation"</Description>
+  <DropDownListLink>idle_anim</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>18</Offset>
+    <Offset>58</Offset>
+    <Offset>190</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

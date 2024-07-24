@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>5176</ID>
+  <Description>"disableActivateOpen_xb1"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+22D</Address>
+</CheatEntry>

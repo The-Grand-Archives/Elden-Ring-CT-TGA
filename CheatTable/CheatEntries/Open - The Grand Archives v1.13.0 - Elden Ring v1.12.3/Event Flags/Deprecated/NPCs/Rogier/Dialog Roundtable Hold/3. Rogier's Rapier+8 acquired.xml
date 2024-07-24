@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337254069</ID>
+  <Description>"3. Rogier's Rapier+8 acquired"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+2</Address>
+</CheatEntry>

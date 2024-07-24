@@ -1,0 +1,60 @@
+<CheatEntry>
+  <ID>1337198115</ID>
+  <Description>"wepmotionCategory"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">20:Dagger
+23:Straight Sword
+25:Greatsword
+26:Ultra Greatsword
+27:Thrusting Sword
+28:Curved Sword/Curved GS
+29:Katana
+30:Axe
+32:Greataxe
+33:Hammer
+34:Dagger R1 1H
+35:Greathammer
+36:Spear
+37:Dagger R1 1H+2H
+38:Polearm
+41:Catalyst
+42:Fist
+43:Whip
+44:Bow
+45:Greatbow
+46:Crossbow
+47:Greatshield
+48:Shield
+49:Torch
+50:Scythe
+51:Curved Greatsword
+59:Club
+86:Backhand Dagger
+99:Special Curved Sword
+101:Curved Sword
+102:Special Straight Sword
+103:Butcher Knife
+107:Black Knight Greataxe
+108:Halberd R1
+146:Claws
+151:Curved Sword
+163:Ultra Greatsword
+164:Curved Sword
+166:Curved Greatsword
+171:Greathammer
+177:Greatlance
+179:Scythe
+180:Scythe
+190:Bonecrunch 1H
+191:Bonecrunch 1H
+195:Curved Greatsword
+210:Club?
+220:Club R1
+232:Scythe
+234:Club
+235:Backhand Dagger
+252:Partizan
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+E7</Address>
+</CheatEntry>

@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337208143</ID>
+  <Description>"Leyndell Catacombs"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B79</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,14 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+if findTableFile("include") then
+    print("Unpacking TGA C library...")
+    tga:unpackTableFile(tga.path, "include", true)
+    return true
+else
+    print("tga WARNING: Could not find archive of C includes")
+    return false
+end
+
+[DISABLE]

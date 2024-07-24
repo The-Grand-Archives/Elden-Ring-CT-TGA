@@ -1,0 +1,120 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+AttackElementCorrectParam = BaseParamClass:new()
+
+function AttackElementCorrectParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("AttackElementCorrectParam", uuid, id, address)
+	return o
+end
+
+function AttackElementCorrectParam:isPhysSTR(value)
+    self:patchBinary(0x00,value, 0)
+end
+
+function AttackElementCorrectParam:isPhysDEX(value)
+    self:patchBinary(0x00,value, 1)
+end
+
+function AttackElementCorrectParam:isPhysINT(value)
+    self:patchBinary(0x00,value, 2)
+end
+
+function AttackElementCorrectParam:isPhysFTH(value)
+    self:patchBinary(0x00,value, 3)
+end
+
+function AttackElementCorrectParam:isPhysLCK(value)
+    self:patchBinary(0x00,value, 4)
+end
+
+function AttackElementCorrectParam:isMagicSTR(value)
+    self:patchBinary(0x00,value, 5)
+end
+
+function AttackElementCorrectParam:isMagicDEX(value)
+    self:patchBinary(0x00,value, 6)
+end
+
+function AttackElementCorrectParam:isMagicINT(value)
+    self:patchBinary(0x00,value, 7)
+end
+
+function AttackElementCorrectParam:isMagicFTH(value)
+    self:patchBinary(0x01,value, 0)
+end
+
+function AttackElementCorrectParam:isMagicLCK(value)
+    self:patchBinary(0x01,value, 1)
+end
+
+function AttackElementCorrectParam:isFireSTR(value)
+    self:patchBinary(0x01,value, 2)
+end
+
+function AttackElementCorrectParam:isFireDEX(value)
+    self:patchBinary(0x01,value, 3)
+end
+
+function AttackElementCorrectParam:isFireINT(value)
+    self:patchBinary(0x01,value, 4)
+end
+
+function AttackElementCorrectParam:isFireFTH(value)
+    self:patchBinary(0x01,value, 5)
+end
+
+function AttackElementCorrectParam:isFireLCK(value)
+    self:patchBinary(0x01,value, 6)
+end
+
+function AttackElementCorrectParam:isThunSTR(value)
+    self:patchBinary(0x01,value, 7)
+end
+
+function AttackElementCorrectParam:isThunDEX(value)
+    self:patchBinary(0x02,value, 0)
+end
+
+function AttackElementCorrectParam:isThunINT(value)
+    self:patchBinary(0x02,value, 1)
+end
+
+function AttackElementCorrectParam:isThunFTH(value)
+    self:patchBinary(0x02,value, 2)
+end
+
+function AttackElementCorrectParam:isThunLCK(value)
+    self:patchBinary(0x02,value, 3)
+end
+
+function AttackElementCorrectParam:isDarkSTR(value)
+    self:patchBinary(0x02,value, 4)
+end
+
+function AttackElementCorrectParam:isDarkDEX(value)
+    self:patchBinary(0x02,value, 5)
+end
+
+function AttackElementCorrectParam:isDarkINT(value)
+    self:patchBinary(0x02,value, 6)
+end
+
+function AttackElementCorrectParam:isDarkFTH(value)
+    self:patchBinary(0x02,value, 7)
+end
+
+function AttackElementCorrectParam:isDarkLCK(value)
+    self:patchBinary(0x03,value, 0)
+end
+
+--addRate (2Byte) starting at 0x04
+
+--correctionRate (2Byte) starting at 0x36
+
+[DISABLE]

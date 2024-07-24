@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337199582</ID>
+  <Description>"Robustness (Hemorrhage)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>18</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

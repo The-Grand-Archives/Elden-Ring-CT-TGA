@@ -1,0 +1,38 @@
+<CheatEntry>
+  <ID>1337253979</ID>
+  <Description>"Dialog Stormveil"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>152002</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253989"/>
+    <id id="1337253982"/>
+    <id id="1337253981"/>
+    <id id="1337253994"/>
+    <id id="1337253995"/>
+    <id id="1337253993"/>
+    <id id="1337253980"/>
+    <id id="1337253983"/>
+    <id id="1337253984"/>
+    <id id="1337253985"/>
+    <id id="1337253986"/>
+    <id id="1337253987"/>
+    <id id="1337253988"/>
+    <id id="1337253990"/>
+    <id id="1337253991"/>
+    <id id="1337253992"/>
+    <id id="1337253996"/>
+    <id id="1337253997"/>
+    <id id="1337253998"/>
+    <id id="1337253999"/>
+    <id id="1337254000"/>
+    <id id="1337254001"/>
+    <id id="1337254002"/>
+    <id id="1337254003"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,63 @@
+{cscript gensymbols=false}
+//Author: Jouta Kujo
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("fps");
+    ParamPatchAll(LoadBalancerNewDrawDistScaleParam_win64, {
+        param->DrawDist_LvBegin = 0;
+        param->DrawDist_LvEnd = 0;
+        param->DrawDist_ScaleBegin = 0.1;
+        param->DrawDist_ScaleEnd = 0.1;
+        param->ShadwDrawDist_LvBegin = 0;
+        param->ShadwDrawDist_LvEnd = 0;
+        param->ShadwDrawDist_ScaleBegin = 0.1;
+        param->ShadwDrawDist_ScaleEnd = 0.1;
+    });
+    ParamPatchAll(GrassLodRangeParam, {
+        param->LOD0_range = 0;
+        param->LOD0_play = 0;
+        param->LOD1_range = 0;
+        param->LOD1_play = 0;
+        param->LOD2_range = 0;
+        param->LOD2_play = 0;
+    });
+    ParamPatchAll(WetAspectParam, {
+        param->baseColorR = 0;
+        param->baseColorG = 0;
+        param->baseColorB = 0;
+        param->baseColorA = 0;
+        param->metallic = 0;
+        param->metallicRate = 0;
+        param->shininessRate = 0;
+        param->shininess = 0;
+    });
+    ParamPatchAll(WeatherParam, {
+        param->SfxId = 0;
+        param->WindSfxId = 0;
+        param->GroundHitSfxId = 0;
+        param->SoundId = 0;
+        param->WetTime = 0;
+        param->GparamId = 0;
+        param->WetSpEffectId00 = 0;
+        param->WetSpEffectId01 = 0;
+        param->WetSpEffectId02 = 0;
+        param->WetSpEffectId03 = 0;
+        param->WetSpEffectId04 = 0;
+        param->SfxIdInoor = 0;
+        param->SfxIdOutdoor = 0;
+        param->aiSightRate = 0;
+        param->DistViewWeatherGparamOverrideWeight = 0;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("fps");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

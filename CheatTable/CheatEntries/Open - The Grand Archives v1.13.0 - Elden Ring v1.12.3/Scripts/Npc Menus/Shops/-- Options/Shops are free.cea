@@ -1,0 +1,41 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("shops_free");
+    ParamPatchAll(ShopLineupParam, {
+        param->value = 0;
+        param->value_Add = 0;
+        param->value_Magnification = 0;
+    });
+    ParamPatchAll(EquipParamWeapon, {
+        param->sellValue = 0;
+
+    });
+    ParamPatchAll(EquipParamProtector, {
+        param->sellValue = 0;
+
+    });
+    ParamPatchAll(EquipParamAccessory, {
+        param->sellValue = 0;
+
+    });
+    ParamPatchAll(EquipParamGoods, {
+        param->sellValue = 0;
+    });
+    ParamPatchAll(EquipParamGem, {
+        param->sellValue = 0;
+
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("shops_free");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

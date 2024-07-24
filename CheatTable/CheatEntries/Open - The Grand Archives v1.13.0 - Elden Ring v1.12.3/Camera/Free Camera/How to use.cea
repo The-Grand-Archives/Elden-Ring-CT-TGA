@@ -1,0 +1,20 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+showText("Controls", [[
+A controller is required, keyboard is not supported.
+
+
+A+L3: Toggle free camera mode
+
+LS: Move camera position
+RS: Move camera orientation
+
+L1: (while held) decrease camera position movement speed
+R1: (while held) increase camera position movement speed
+
+L2: Descend camera position
+R2: Ascend camera position
+]])
+disableMemrec(memrec)
+[DISABLE]

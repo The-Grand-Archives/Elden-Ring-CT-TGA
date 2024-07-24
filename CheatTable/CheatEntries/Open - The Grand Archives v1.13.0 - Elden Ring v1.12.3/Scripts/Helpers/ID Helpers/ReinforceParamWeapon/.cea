@@ -1,0 +1,8 @@
+[ENABLE]
+alloc(ReinforceParamWeaponHelper,16)
+registersymbol(ReinforceParamWeaponHelper)
+ReinforceParamWeaponHelper:
+dq #0
+[DISABLE]
+dealloc(ReinforceParamWeaponHelper)
+unregistersymbol(ReinforceParamWeaponHelper)

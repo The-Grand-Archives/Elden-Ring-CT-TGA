@@ -1,0 +1,16 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START PlayRegionParam class]]--
+PlayRegionParam = BaseParamClass:new()
+
+function PlayRegionParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("PlayRegionParam", uuid, id, address)
+	return o
+end
+
+[DISABLE]

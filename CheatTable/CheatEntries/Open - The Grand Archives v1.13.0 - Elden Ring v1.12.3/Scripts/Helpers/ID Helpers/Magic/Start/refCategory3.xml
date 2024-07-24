@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337198724</ID>
+  <Description>"refCategory3"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Attack
+1:Bullet
+2:Effect
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+27</Address>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337273183</ID>
+  <Description>"end"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>940</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

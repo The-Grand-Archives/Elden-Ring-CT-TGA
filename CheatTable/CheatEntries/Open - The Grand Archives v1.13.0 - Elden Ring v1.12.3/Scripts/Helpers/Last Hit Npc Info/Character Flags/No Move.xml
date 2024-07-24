@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337271218</ID>
+  <Description>"No Move"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>530</Offset>
+  </Offsets>
+</CheatEntry>

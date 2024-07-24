@@ -1,0 +1,6 @@
+[ENABLE]
+createthread(ItemDrop)
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+[DISABLE]
+

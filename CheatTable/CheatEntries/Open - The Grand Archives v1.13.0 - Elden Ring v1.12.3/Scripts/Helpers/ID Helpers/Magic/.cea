@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(MagicHelper,16)
+registersymbol(MagicHelper)
+
+MagicHelper:
+dq #4000
+
+[DISABLE]
+dealloc(MagicHelper)
+unregistersymbol(MagicHelper)

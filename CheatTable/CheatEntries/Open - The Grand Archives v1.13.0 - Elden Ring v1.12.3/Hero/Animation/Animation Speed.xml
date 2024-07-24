@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337194723</ID>
+  <Description>"Animation Speed"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>17C8</Offset>
+    <Offset>28</Offset>
+    <Offset>190</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

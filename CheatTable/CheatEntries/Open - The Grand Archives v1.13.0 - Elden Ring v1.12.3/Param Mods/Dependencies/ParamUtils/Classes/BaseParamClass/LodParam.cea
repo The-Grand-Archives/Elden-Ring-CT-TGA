@@ -1,0 +1,69 @@
+{$lua}
+if syntaxcheck then return end
+[ENABlE]
+
+
+--[[START LodParam class]]--
+
+LodParam = BaseParamClass:new()
+
+function LodParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("LodParam", uuid, id, address)
+	return o
+end
+
+function LodParam:lv01_BorderDist(value)
+	self:patchFloat(0x0, value)
+end
+
+function LodParam:lv01_PlayDist(value)
+	self:patchFloat(0x4, value)
+end
+
+function LodParam:lv12_BorderDist(value)
+	self:patchFloat(0x8, value)
+end
+
+function LodParam:lv12_PlayDist(value)
+	self:patchFloat(0xC, value)
+end
+
+function LodParam:textureLod(value)
+	self:patchByte(0x10, value)
+end
+
+function LodParam:lv23_BorderDist(value)
+	self:patchFloat(0x14, value)
+end
+
+function LodParam:lv23_PlayDist(value)
+	self:patchFloat(0x18, value)
+end
+
+function LodParam:lv34_BorderDist(value)
+	self:patchFloat(0x1C, value)
+end
+
+function LodParam:lv34_PlayDist(value)
+	self:patchFloat(0x20, value)
+end
+
+function LodParam:lv45_BorderDist(value)
+	self:patchFloat(0x24, value)
+end
+
+function LodParam:lv45_PlayDist(value)
+	self:patchFloat(0x28, value)
+end
+
+function LodParam:distanceScaleId(value)
+	self:patchByte(0x2C, value)
+end
+--[[END LodParam class]]--
+
+[DiSABlE]
+

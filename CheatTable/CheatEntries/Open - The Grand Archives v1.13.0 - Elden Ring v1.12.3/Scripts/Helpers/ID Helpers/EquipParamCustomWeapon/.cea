@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(EquipParamCustomWeaponHelper,16)
+registersymbol(EquipParamCustomWeaponHelper)
+
+EquipParamCustomWeaponHelper:
+dq #10
+
+[DISABLE]
+dealloc(EquipParamCustomWeaponHelper)
+unregistersymbol(EquipParamCustomWeaponHelper)

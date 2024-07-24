@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337200833</ID>
+  <Description>"poisonGuardResist"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+100</Address>
+</CheatEntry>

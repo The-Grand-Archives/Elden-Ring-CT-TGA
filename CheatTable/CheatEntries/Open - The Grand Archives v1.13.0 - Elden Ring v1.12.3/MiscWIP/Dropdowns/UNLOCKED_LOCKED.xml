@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1337214545</ID>
+  <Description>"UNLOCKED_LOCKED"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Locked
+1:Unlocked
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

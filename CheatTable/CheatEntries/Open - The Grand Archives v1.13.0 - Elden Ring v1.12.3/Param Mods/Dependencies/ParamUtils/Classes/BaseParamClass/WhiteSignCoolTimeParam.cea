@@ -1,0 +1,16 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START WhiteSignCoolTimeParam class]]--
+WhiteSignCoolTimeParam = BaseParamClass:new()
+
+function WhiteSignCoolTimeParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("WhiteSignCoolTimeParam", uuid, id, address)
+	return o
+end
+
+[DISABLE]

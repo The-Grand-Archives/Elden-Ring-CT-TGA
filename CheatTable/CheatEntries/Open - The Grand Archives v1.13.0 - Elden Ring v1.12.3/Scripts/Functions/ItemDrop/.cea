@@ -1,0 +1,29 @@
+//Author: inuNorii
+[ENABLE]
+aobscanmodule(ItemDrop_AOB,$process,41 0F B6 F9 41 8B E8)
+define(ItemDrop_Call,ItemDrop_AOB-31)
+alloc(ItemDrop,$100,$process)
+label(ItemDropData)
+registerSymbol(ItemDrop)
+registerSymbol(ItemDropData)
+
+ItemDrop:
+sub rsp,48
+mov rcx,[MapItemMan]
+xor r9d,r9d
+lea r8d,[r9+01]
+lea rdx,[ItemDropData]
+call ItemDrop_Call
+add rsp,48
+ret
+
+ItemDropData:
+dd 400006E0 // ItemId
+dd 00000001 // ItemQuantity
+dd 00000000 // Unused
+dd FFFFFFFF // AshOfWar
+
+[DISABLE]
+dealloc(ItemDrop)
+unregisterSymbol(ItemDrop)
+unregisterSymbol(ItemDropData)

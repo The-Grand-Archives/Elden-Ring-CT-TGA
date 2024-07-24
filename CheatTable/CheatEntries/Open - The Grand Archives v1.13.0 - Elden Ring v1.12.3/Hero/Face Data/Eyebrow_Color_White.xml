@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213187</ID>
+  <Description>"Eyebrow_Color_White"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+10F</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

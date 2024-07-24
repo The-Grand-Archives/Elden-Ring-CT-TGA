@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337198116</ID>
+  <Description>"guardmotionCategory"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Shield
+1:Greatshield
+2:Small Shield
+3:Torch
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+E8</Address>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337213782</ID>
+  <Description>"modelDispMask19"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+14E</Address>
+</CheatEntry>

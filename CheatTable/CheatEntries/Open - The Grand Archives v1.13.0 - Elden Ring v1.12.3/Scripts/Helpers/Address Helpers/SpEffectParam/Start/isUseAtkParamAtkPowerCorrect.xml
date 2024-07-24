@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337215019</ID>
+  <Description>"isUseAtkParamAtkPowerCorrect"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0259</Address>
+</CheatEntry>

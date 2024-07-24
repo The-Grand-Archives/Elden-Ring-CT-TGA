@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337214884</ID>
+  <Description>"disableMadness"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0160</Address>
+</CheatEntry>

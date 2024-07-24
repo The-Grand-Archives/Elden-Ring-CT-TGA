@@ -1,0 +1,23 @@
+<CheatEntry>
+  <ID>1337273191</ID>
+  <Description>"Revered Spirit Ash Blessing"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:0
+1:1
+2:2
+3:3
+4:4
+5:5
+6:6
+7:7
+8:8
+9:9
+10:10
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>FD</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

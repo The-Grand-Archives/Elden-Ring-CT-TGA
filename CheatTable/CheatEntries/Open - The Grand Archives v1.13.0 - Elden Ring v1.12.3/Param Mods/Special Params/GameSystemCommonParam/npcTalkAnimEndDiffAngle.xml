@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>1337212485</ID>
+  <Description>"npcTalkAnimEndDiffAngle"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+24</Address>
+</CheatEntry>

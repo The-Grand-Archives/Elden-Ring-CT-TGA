@@ -1,0 +1,23 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local FieldArea = readPointer("FieldArea")
+local GameMan = readPointer("GameMan")
+local CSFD4VirtualMemoryFlag = readPointer("CSFD4VirtualMemoryFlag")
+local flags = readPointer(CSFD4VirtualMemoryFlag + 0x28)
+
+writeBytes(FieldArea + 0x2C, 0, 0, 10, 11) -- MapId: Roundtable Hold
+writeInteger(GameMan + 0xB60, 1042362950) -- Set last grace to Church of Elleh
+
+loadingScreenFixTimer = createTimer(getMainForm())
+loadingScreenFixTimer.Interval = 100
+loadingScreenFixTimer.OnTimer = function(timer)
+	local loading_flag = readByte(flags + 0x113)
+	if loading_flag == 0 then
+		lua_warp(1042362950) -- Warp to Church of Elleh
+		disableMemrec(memrec)
+		loadingScreenFixTimer.destroy()
+	end
+end
+[DISABLE]
+loadingScreenFixTimer.destroy()

@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>1337254108</ID>
+  <Description>"Diallos"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1AE</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337254116"/>
+    <id id="1337254115"/>
+    <id id="1337254113"/>
+    <id id="1337254111"/>
+    <id id="1337254110"/>
+    <id id="1337254109"/>
+    <id id="1337254124"/>
+    <id id="1337254112"/>
+    <id id="1337254114"/>
+    <id id="1337254117"/>
+    <id id="1337254118"/>
+    <id id="1337254119"/>
+    <id id="1337254120"/>
+    <id id="1337254121"/>
+    <id id="1337254122"/>
+    <id id="1337254123"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

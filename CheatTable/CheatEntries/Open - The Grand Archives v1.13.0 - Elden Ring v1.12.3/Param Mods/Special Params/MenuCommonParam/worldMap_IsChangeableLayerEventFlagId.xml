@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>4311</ID>
+  <Description>"worldMap_IsChangeableLayerEventFlagId"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+58</Address>
+</CheatEntry>

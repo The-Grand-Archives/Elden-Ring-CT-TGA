@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337192534</ID>
+  <Description>"Custom FPS Limit"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="1337192535"/>
+    <id id="1337192536"/>
+    <id id="1337192537"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

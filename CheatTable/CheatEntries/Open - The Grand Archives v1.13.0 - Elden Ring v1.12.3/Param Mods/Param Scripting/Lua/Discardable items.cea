@@ -1,0 +1,21 @@
+//Author: inuNorii
+//Allow discarding any items
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local weapon = EquipParamWeapon:new("discardableItems")
+weapon:patchAllBinary(0x109,1,1)
+
+local protector = EquipParamProtector:new("discardableItems")
+protector:patchAllBinary(0xE3,1,0)
+
+local accessory = EquipParamAccessory:new("discardableItems")
+accessory:patchAllBinary(0x40,1,3)
+
+local goods = EquipParamGoods:new("discardableItems")
+goods:patchAllBinary(0x49,1,3)
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("discardableItems")

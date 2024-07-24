@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337099149</ID>
+  <Description>"Is debug display enabled | デバッグ表示が有効か"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>0000FF</Color>
+  <VariableType>Byte</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>298A</Offset>
+  </Offsets>
+</CheatEntry>

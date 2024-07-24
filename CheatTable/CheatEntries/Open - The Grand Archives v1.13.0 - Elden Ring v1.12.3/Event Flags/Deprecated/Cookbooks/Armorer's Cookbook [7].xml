@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337208707</ID>
+  <Description>"Armorer's Cookbook [7]"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>86C</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

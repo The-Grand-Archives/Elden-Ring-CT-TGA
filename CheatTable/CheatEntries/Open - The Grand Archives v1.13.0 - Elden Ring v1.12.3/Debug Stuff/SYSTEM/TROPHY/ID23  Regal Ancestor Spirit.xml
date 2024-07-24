@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337214526</ID>
+  <Description>"ID:23 &lt; Regal Ancestor Spirit"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*17</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

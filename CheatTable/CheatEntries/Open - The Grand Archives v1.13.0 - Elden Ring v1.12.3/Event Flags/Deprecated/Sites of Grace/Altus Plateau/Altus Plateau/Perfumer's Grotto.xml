@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337208181</ID>
+  <Description>"Perfumer's Grotto"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B49</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

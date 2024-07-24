@@ -1,0 +1,112 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START ThrowParam class]]--
+ThrowParam = BaseParamClass:new()
+
+function ThrowParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ThrowParam", uuid, id, address)
+	return o
+end
+
+function ThrowParam:AtkChrId(value)
+	self:patch4Byte(0x0, value)
+end
+
+function ThrowParam:DefChrId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function ThrowParam:Dist(value)
+	self:patchFloat(0x8, value)
+end
+
+function ThrowParam:DiffAngMin(value)
+	self:patchFloat(0xC, value)
+end
+
+function ThrowParam:DiffAngMax(value)
+	self:patchFloat(0x10, value)
+end
+
+function ThrowParam:UpperYRange(value)
+	self:patchFloat(0x14, value)
+end
+
+function ThrowParam:LowerYRange(value)
+	self:patchFloat(0x18, value)
+end
+
+function ThrowParam:DiffAngMyToDef(value)
+	self:patchFloat(0x1C, value)
+end
+
+function ThrowParam:ThrowTypeId(value)
+	self:patch4Byte(0x20, value)
+end
+
+function ThrowParam:AtkAnimId(value)
+	self:patch4Byte(0x24, value)
+end
+
+function ThrowParam:DefAnimId(value)
+	self:patch4Byte(0x28, value)
+end
+
+function ThrowParam:EscHp(value)
+	self:patch2Byte(0x2C, value)
+end
+
+function ThrowParam:SelfEscCycleTime(value)
+	self:patch2Byte(0x2E, value)
+end
+
+function ThrowParam:SphereCastRadiusRateTop(value)
+	self:patch2Byte(0x30, value)
+end
+
+function ThrowParam:SphereCastRadiusRateLow(value)
+	self:patch2Byte(0x32, value)
+end
+
+function ThrowParam:PadType(value)
+	self:patchByte(0x34, value)
+end
+
+function ThrowParam:AtkEnableState(value)
+	self:patchByte(0x35, value)
+end
+
+function ThrowParam:AtkSorbDmyId(value)
+	self:patchByte(0x36, value)
+end
+
+function ThrowParam:DefSorbDmyId(value)
+	self:patchByte(0x37, value)
+end
+
+function ThrowParam:ThrowType(value)
+	self:patchByte(0x38, value)
+end
+
+function ThrowParam:SelfEscCycleCnt(value)
+	self:patchByte(0x39, value)
+end
+
+function ThrowParam:DmyHasChrDirType(value)
+	self:patchByte(0x3A, value)
+end
+
+-- insert 3B-7C here
+
+--[[END ThrowParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>1337213387</ID>
+  <Description>"Type"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Weapon
+1:Protector
+2:Accessory
+4:Goods
+8:Gem
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>4</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+03</Address>
+</CheatEntry>

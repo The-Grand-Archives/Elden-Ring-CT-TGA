@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337212971</ID>
+  <Description>"Unk (Numen = 128)"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+37</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337218144</ID>
+  <Description>"ScreenMode"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Window
+1:Fullscreen
+2:Borderless Windowed
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>E4</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337199545</ID>
+  <Description>"Eyelash_Model_Id"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>770</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

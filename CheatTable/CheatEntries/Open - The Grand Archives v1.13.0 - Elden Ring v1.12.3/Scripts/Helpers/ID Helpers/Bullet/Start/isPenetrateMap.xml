@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1337198867</ID>
+  <Description>"isPenetrateMap"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9b</Address>
+</CheatEntry>

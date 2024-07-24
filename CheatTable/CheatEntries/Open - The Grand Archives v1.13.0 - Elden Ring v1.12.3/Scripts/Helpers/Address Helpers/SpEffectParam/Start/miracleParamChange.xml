@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>1337214892</ID>
+  <Description>"miracleParamChange"</Description>
+  <Color>008080</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+161</Address>
+</CheatEntry>

@@ -1,0 +1,34 @@
+<CheatEntry>
+  <ID>1337218857</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>CalcCorrectGraphHelper+8</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337218685"/>
+    <id id="1337218674"/>
+    <id id="1337218675"/>
+    <id id="1337218676"/>
+    <id id="1337218677"/>
+    <id id="1337218678"/>
+    <id id="1337218679"/>
+    <id id="1337218680"/>
+    <id id="1337218681"/>
+    <id id="1337218682"/>
+    <id id="1337218683"/>
+    <id id="1337218687"/>
+    <id id="1337218688"/>
+    <id id="1337218689"/>
+    <id id="1337218690"/>
+    <id id="1337218691"/>
+    <id id="1337218692"/>
+    <id id="1337218693"/>
+    <id id="1337218694"/>
+    <id id="1337218695"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

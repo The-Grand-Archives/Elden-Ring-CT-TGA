@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>1337253744</ID>
+  <Description>"Bernahl"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1E5</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="1337253745"/>
+    <id id="1337253746"/>
+    <id id="1337253747"/>
+  </x-ce2fs-child-order>
+</CheatEntry>
