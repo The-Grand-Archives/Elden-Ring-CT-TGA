@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>1337199262</ID>
+  <ID>89414</ID>
   <Description>"ReinforceParamWeapon"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337199263"/>
-    <id id="1337199264"/>
+    <id id="89415"/>
+    <id id="89416"/>
   </x-ce2fs-child-order>
 </CheatEntry>

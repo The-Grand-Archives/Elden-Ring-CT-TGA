@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253794</ID>
+  <ID>106204</ID>
   <Description>"Varré"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,13 +10,13 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253795"/>
-    <id id="1337253796"/>
-    <id id="1337253797"/>
-    <id id="1337253798"/>
-    <id id="1337253799"/>
-    <id id="1337253800"/>
-    <id id="1337253801"/>
-    <id id="1337253802"/>
+    <id id="106205"/>
+    <id id="106206"/>
+    <id id="106207"/>
+    <id id="106208"/>
+    <id id="106209"/>
+    <id id="106210"/>
+    <id id="106211"/>
+    <id id="106212"/>
   </x-ce2fs-child-order>
 </CheatEntry>

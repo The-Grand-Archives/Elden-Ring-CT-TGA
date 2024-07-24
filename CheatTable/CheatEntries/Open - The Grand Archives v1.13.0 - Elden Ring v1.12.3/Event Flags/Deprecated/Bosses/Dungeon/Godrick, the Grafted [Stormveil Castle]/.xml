@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337213572</ID>
+  <ID>105811</ID>
   <Description>"Godrick, the Grafted [Stormveil Castle]"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,7 +10,7 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337213579"/>
-    <id id="1337213580"/>
+    <id id="105812"/>
+    <id id="105813"/>
   </x-ce2fs-child-order>
 </CheatEntry>

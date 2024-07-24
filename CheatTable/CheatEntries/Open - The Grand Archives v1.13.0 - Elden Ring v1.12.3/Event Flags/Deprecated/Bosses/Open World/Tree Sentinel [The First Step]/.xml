@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337218886</ID>
+  <ID>105805</ID>
   <Description>"Tree Sentinel [The First Step]"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,6 +10,6 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337218888"/>
+    <id id="105806"/>
   </x-ce2fs-child-order>
 </CheatEntry>

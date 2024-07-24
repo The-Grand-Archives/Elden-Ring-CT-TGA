@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253714</ID>
+  <ID>105832</ID>
   <Description>"Nomadic Merchant 2"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,8 +10,8 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253715"/>
-    <id id="1337253716"/>
-    <id id="1337253717"/>
+    <id id="105833"/>
+    <id id="105834"/>
+    <id id="105835"/>
   </x-ce2fs-child-order>
 </CheatEntry>

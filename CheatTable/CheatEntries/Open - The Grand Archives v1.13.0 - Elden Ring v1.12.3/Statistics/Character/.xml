@@ -1,21 +1,21 @@
 <CheatEntry>
-  <ID>1337196696</ID>
+  <ID>100002</ID>
   <Description>"Character"</Description>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337192611"/>
-    <id id="1337192612"/>
-    <id id="1337192610"/>
-    <id id="1337192613"/>
-    <id id="1337192614"/>
-    <id id="1337192615"/>
-    <id id="1337197114"/>
+    <id id="100003"/>
+    <id id="100004"/>
+    <id id="100005"/>
+    <id id="100006"/>
+    <id id="100007"/>
+    <id id="100008"/>
+    <id id="100009"/>
     <id id="362"/>
-    <id id="1337188330"/>
-    <id id="1337196146"/>
-    <id id="1337196709"/>
-    <id id="1337193286"/>
-    <id id="1337273190"/>
-    <id id="1337273191"/>
+    <id id="100010"/>
+    <id id="100011"/>
+    <id id="100012"/>
+    <id id="100013"/>
+    <id id="100014"/>
+    <id id="100015"/>
   </x-ce2fs-child-order>
 </CheatEntry>

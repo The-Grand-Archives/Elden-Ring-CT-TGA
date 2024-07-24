@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337213376</ID>
+  <ID>100570</ID>
   <Description>"===== Inventory list ====="</Description>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>1</ShowAsSigned>
@@ -13,12 +13,12 @@
     <Offset>8</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337213399"/>
-    <id id="1337213379"/>
-    <id id="1337213382"/>
-    <id id="1337213381"/>
-    <id id="1337213380"/>
-    <id id="1337213383"/>
-    <id id="1337273104"/>
+    <id id="100571"/>
+    <id id="100572"/>
+    <id id="100573"/>
+    <id id="100577"/>
+    <id id="100578"/>
+    <id id="100579"/>
+    <id id="100580"/>
   </x-ce2fs-child-order>
 </CheatEntry>

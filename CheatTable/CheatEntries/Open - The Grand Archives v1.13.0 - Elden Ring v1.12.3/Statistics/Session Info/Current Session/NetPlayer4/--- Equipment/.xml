@@ -1,27 +1,27 @@
 <CheatEntry>
-  <ID>1337218938</ID>
+  <ID>100207</ID>
   <Description>"--- Equipment"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337218939"/>
-    <id id="1337218940"/>
-    <id id="1337218941"/>
-    <id id="1337218942"/>
-    <id id="1337218943"/>
-    <id id="1337218944"/>
-    <id id="1337218945"/>
-    <id id="1337218946"/>
-    <id id="1337218947"/>
-    <id id="1337218948"/>
-    <id id="1337218949"/>
-    <id id="1337218950"/>
-    <id id="1337218951"/>
-    <id id="1337218952"/>
-    <id id="1337218953"/>
-    <id id="1337218954"/>
-    <id id="1337218955"/>
-    <id id="1337218956"/>
-    <id id="1337218957"/>
+    <id id="100208"/>
+    <id id="100209"/>
+    <id id="100210"/>
+    <id id="100211"/>
+    <id id="100212"/>
+    <id id="100213"/>
+    <id id="100214"/>
+    <id id="100215"/>
+    <id id="100216"/>
+    <id id="100217"/>
+    <id id="100218"/>
+    <id id="100219"/>
+    <id id="100220"/>
+    <id id="100221"/>
+    <id id="100222"/>
+    <id id="100223"/>
+    <id id="100224"/>
+    <id id="100225"/>
+    <id id="100226"/>
   </x-ce2fs-child-order>
 </CheatEntry>

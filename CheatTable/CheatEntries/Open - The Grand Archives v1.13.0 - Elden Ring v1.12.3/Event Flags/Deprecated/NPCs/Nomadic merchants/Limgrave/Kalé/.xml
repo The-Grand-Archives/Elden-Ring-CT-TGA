@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253706</ID>
+  <ID>105824</ID>
   <Description>"Kalé"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,8 +10,8 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253707"/>
-    <id id="1337253708"/>
-    <id id="1337253709"/>
+    <id id="105825"/>
+    <id id="105826"/>
+    <id id="105827"/>
   </x-ce2fs-child-order>
 </CheatEntry>

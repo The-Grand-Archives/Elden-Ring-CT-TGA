@@ -1,6 +1,6 @@
 {$lua}
 if syntaxcheck then return end
-local memrec = getAddressList().getMemoryRecordByID(1337193272)
+local memrec = getAddressList().getMemoryRecordByID(5002)
 [ENABLE]
 if lua_warp == nil then
     getAddressList().getMemoryRecordByDescription("Warp_code").active = true

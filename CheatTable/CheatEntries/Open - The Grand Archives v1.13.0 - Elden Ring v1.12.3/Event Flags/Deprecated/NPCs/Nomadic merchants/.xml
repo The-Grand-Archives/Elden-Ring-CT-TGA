@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>1337253704</ID>
+  <ID>105822</ID>
   <Description>"Nomadic merchants"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337253705"/>
-    <id id="1337253722"/>
-    <id id="1337254104"/>
+    <id id="105823"/>
+    <id id="105840"/>
+    <id id="105849"/>
   </x-ce2fs-child-order>
 </CheatEntry>

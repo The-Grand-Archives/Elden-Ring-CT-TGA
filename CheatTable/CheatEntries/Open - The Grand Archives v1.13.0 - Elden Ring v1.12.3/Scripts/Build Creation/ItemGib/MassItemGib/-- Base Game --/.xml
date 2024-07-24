@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>1337273197</ID>
+  <ID>101053</ID>
   <Description>"-- Base Game --"</Description>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337193284"/>
-    <id id="1337193285"/>
-    <id id="1337193322"/>
-    <id id="1337193323"/>
-    <id id="1337196796"/>
-    <id id="1337193324"/>
+    <id id="101054"/>
+    <id id="101055"/>
+    <id id="101056"/>
+    <id id="101057"/>
+    <id id="101058"/>
+    <id id="101059"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337259173</ID>
+  <ID>101177</ID>
   <Description>"Item 2"</Description>
   <Options moManualExpandCollapse="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -8,9 +8,9 @@
   <ByteLength>16</ByteLength>
   <Address>ItemDrop_ItemList+24</Address>
   <x-ce2fs-child-order>
-    <id id="1337259174"/>
-    <id id="1337259175"/>
-    <id id="1337259176"/>
-    <id id="1337259177"/>
+    <id id="101178"/>
+    <id id="101179"/>
+    <id id="101180"/>
+    <id id="101181"/>
   </x-ce2fs-child-order>
 </CheatEntry>

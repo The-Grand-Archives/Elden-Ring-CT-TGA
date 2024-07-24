@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337192536</ID>
+  <ID>101230</ID>
   <Description>"Use Debug FPS | デバッグFPSを利用するか"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
 1:On

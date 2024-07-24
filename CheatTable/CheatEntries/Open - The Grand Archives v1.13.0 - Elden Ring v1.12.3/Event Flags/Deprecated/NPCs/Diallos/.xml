@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337254108</ID>
+  <ID>105913</ID>
   <Description>"Diallos"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337254116"/>
-    <id id="1337254115"/>
-    <id id="1337254113"/>
-    <id id="1337254111"/>
-    <id id="1337254110"/>
-    <id id="1337254109"/>
-    <id id="1337254124"/>
-    <id id="1337254112"/>
-    <id id="1337254114"/>
-    <id id="1337254117"/>
-    <id id="1337254118"/>
-    <id id="1337254119"/>
-    <id id="1337254120"/>
-    <id id="1337254121"/>
-    <id id="1337254122"/>
-    <id id="1337254123"/>
+    <id id="105914"/>
+    <id id="105915"/>
+    <id id="105916"/>
+    <id id="105917"/>
+    <id id="105918"/>
+    <id id="105919"/>
+    <id id="105920"/>
+    <id id="105921"/>
+    <id id="105922"/>
+    <id id="105923"/>
+    <id id="105924"/>
+    <id id="105925"/>
+    <id id="105926"/>
+    <id id="105927"/>
+    <id id="105928"/>
+    <id id="105929"/>
   </x-ce2fs-child-order>
 </CheatEntry>

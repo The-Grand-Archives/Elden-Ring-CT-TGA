@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337259224</ID>
+  <ID>101160</ID>
   <Description>"Last original spawn coords"</Description>
   <Options moManualExpandCollapse="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -8,9 +8,9 @@
   <ByteLength>16</ByteLength>
   <Address>ItemDrop_LastMapId</Address>
   <x-ce2fs-child-order>
-    <id id="1337259225"/>
-    <id id="1337259226"/>
-    <id id="1337259227"/>
-    <id id="1337259228"/>
+    <id id="101161"/>
+    <id id="101162"/>
+    <id id="101163"/>
+    <id id="101164"/>
   </x-ce2fs-child-order>
 </CheatEntry>

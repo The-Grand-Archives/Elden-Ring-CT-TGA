@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>1337213521</ID>
+  <ID>103765</ID>
   <Description>"SuperArmor"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337213522"/>
-    <id id="1337213523"/>
-    <id id="1337213524"/>
-    <id id="1337213525"/>
-    <id id="1337213526"/>
-    <id id="1337213527"/>
+    <id id="103766"/>
+    <id id="103767"/>
+    <id id="103768"/>
+    <id id="103769"/>
+    <id id="103770"/>
+    <id id="103771"/>
   </x-ce2fs-child-order>
 </CheatEntry>

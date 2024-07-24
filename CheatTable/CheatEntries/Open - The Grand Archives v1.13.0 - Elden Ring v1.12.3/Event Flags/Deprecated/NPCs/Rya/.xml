@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337254162</ID>
+  <ID>106148</ID>
   <Description>"Rya"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337254169"/>
-    <id id="1337254168"/>
-    <id id="1337254163"/>
-    <id id="1337254164"/>
-    <id id="1337254165"/>
-    <id id="1337254166"/>
-    <id id="1337254167"/>
-    <id id="1337254170"/>
-    <id id="1337254171"/>
-    <id id="1337254172"/>
-    <id id="1337254173"/>
-    <id id="1337254174"/>
-    <id id="1337254175"/>
-    <id id="1337254176"/>
-    <id id="1337254177"/>
-    <id id="1337254178"/>
+    <id id="106149"/>
+    <id id="106150"/>
+    <id id="106151"/>
+    <id id="106152"/>
+    <id id="106153"/>
+    <id id="106154"/>
+    <id id="106155"/>
+    <id id="106156"/>
+    <id id="106157"/>
+    <id id="106158"/>
+    <id id="106159"/>
+    <id id="106160"/>
+    <id id="106161"/>
+    <id id="106162"/>
+    <id id="106163"/>
+    <id id="106164"/>
   </x-ce2fs-child-order>
 </CheatEntry>

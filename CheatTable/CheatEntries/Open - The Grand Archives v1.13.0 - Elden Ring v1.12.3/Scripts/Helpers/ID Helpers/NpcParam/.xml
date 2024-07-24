@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>1337199649</ID>
+  <ID>89666</ID>
   <Description>"NpcParam"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337199650"/>
-    <id id="1337199651"/>
+    <id id="89667"/>
+    <id id="89668"/>
   </x-ce2fs-child-order>
 </CheatEntry>

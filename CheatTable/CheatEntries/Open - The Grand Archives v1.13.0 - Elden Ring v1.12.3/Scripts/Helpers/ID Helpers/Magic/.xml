@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>1337198700</ID>
+  <ID>102041</ID>
   <Description>"Magic"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337198701"/>
-    <id id="1337213448"/>
-    <id id="1337198702"/>
+    <id id="102042"/>
+    <id id="102043"/>
+    <id id="102044"/>
   </x-ce2fs-child-order>
 </CheatEntry>

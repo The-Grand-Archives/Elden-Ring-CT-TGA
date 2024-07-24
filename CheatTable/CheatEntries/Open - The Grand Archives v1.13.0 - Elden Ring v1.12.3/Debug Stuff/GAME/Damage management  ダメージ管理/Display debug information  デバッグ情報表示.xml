@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337096514</ID>
+  <ID>106407</ID>
   <Description>"Display debug information | デバッグ情報表示"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

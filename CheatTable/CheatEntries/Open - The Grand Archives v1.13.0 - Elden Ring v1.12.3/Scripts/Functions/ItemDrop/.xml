@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>1337192502</ID>
+  <ID>101094</ID>
   <Description>"ItemDrop"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337193251"/>
-    <id id="1337192504"/>
-    <id id="1337193253"/>
-    <id id="1337192506"/>
-    <id id="1337192507"/>
+    <id id="101095"/>
+    <id id="101096"/>
+    <id id="101097"/>
+    <id id="101098"/>
+    <id id="101099"/>
   </x-ce2fs-child-order>
 </CheatEntry>

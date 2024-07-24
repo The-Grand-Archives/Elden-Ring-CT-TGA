@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253820</ID>
+  <ID>106165</ID>
   <Description>"Patches"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253823"/>
-    <id id="1337253824"/>
-    <id id="1337253825"/>
-    <id id="1337253826"/>
-    <id id="1337253827"/>
-    <id id="1337253828"/>
-    <id id="1337253829"/>
-    <id id="1337253830"/>
-    <id id="1337253831"/>
-    <id id="1337253832"/>
-    <id id="1337253833"/>
-    <id id="1337253834"/>
-    <id id="1337253835"/>
-    <id id="1337253836"/>
-    <id id="1337253837"/>
-    <id id="1337253838"/>
+    <id id="106166"/>
+    <id id="106167"/>
+    <id id="106168"/>
+    <id id="106169"/>
+    <id id="106170"/>
+    <id id="106171"/>
+    <id id="106172"/>
+    <id id="106173"/>
+    <id id="106174"/>
+    <id id="106175"/>
+    <id id="106176"/>
+    <id id="106177"/>
+    <id id="106178"/>
+    <id id="106179"/>
+    <id id="106180"/>
+    <id id="106181"/>
   </x-ce2fs-child-order>
 </CheatEntry>

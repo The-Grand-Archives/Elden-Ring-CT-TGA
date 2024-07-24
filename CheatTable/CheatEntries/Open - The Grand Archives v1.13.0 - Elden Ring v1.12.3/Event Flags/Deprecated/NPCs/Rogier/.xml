@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337254125</ID>
+  <ID>106073</ID>
   <Description>"Rogier"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,23 +10,23 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337254132"/>
-    <id id="1337254131"/>
-    <id id="1337254130"/>
-    <id id="1337254126"/>
-    <id id="1337254127"/>
-    <id id="1337254128"/>
-    <id id="1337254129"/>
-    <id id="1337254133"/>
-    <id id="1337254134"/>
-    <id id="1337254135"/>
-    <id id="1337254136"/>
-    <id id="1337254137"/>
-    <id id="1337254138"/>
-    <id id="1337254139"/>
-    <id id="1337254140"/>
-    <id id="1337254141"/>
-    <id id="1337253979"/>
-    <id id="1337254045"/>
+    <id id="106074"/>
+    <id id="106075"/>
+    <id id="106076"/>
+    <id id="106077"/>
+    <id id="106078"/>
+    <id id="106079"/>
+    <id id="106080"/>
+    <id id="106081"/>
+    <id id="106082"/>
+    <id id="106083"/>
+    <id id="106084"/>
+    <id id="106085"/>
+    <id id="106086"/>
+    <id id="106087"/>
+    <id id="106088"/>
+    <id id="106089"/>
+    <id id="106090"/>
+    <id id="106115"/>
   </x-ce2fs-child-order>
 </CheatEntry>

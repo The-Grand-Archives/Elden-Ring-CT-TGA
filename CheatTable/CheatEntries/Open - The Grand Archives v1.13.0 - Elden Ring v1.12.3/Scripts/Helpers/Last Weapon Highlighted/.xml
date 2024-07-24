@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>1337194448</ID>
+  <ID>102860</ID>
   <Description>"Last Weapon Highlighted"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337193796"/>
+    <id id="102861"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>1337254104</ID>
+  <ID>105849</ID>
   <Description>"Liurnia"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337254087"/>
-    <id id="1337254179"/>
+    <id id="105850"/>
+    <id id="105854"/>
   </x-ce2fs-child-order>
 </CheatEntry>

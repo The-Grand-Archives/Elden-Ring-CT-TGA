@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253955</ID>
+  <ID>106005</ID>
   <Description>"Quest status"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253956"/>
-    <id id="1337253957"/>
-    <id id="1337253958"/>
-    <id id="1337253959"/>
-    <id id="1337253960"/>
-    <id id="1337253961"/>
-    <id id="1337253962"/>
-    <id id="1337253963"/>
-    <id id="1337253964"/>
-    <id id="1337253965"/>
-    <id id="1337253966"/>
-    <id id="1337253967"/>
-    <id id="1337253968"/>
-    <id id="1337253969"/>
-    <id id="1337253970"/>
-    <id id="1337253971"/>
+    <id id="106006"/>
+    <id id="106007"/>
+    <id id="106008"/>
+    <id id="106009"/>
+    <id id="106010"/>
+    <id id="106011"/>
+    <id id="106012"/>
+    <id id="106013"/>
+    <id id="106014"/>
+    <id id="106015"/>
+    <id id="106016"/>
+    <id id="106017"/>
+    <id id="106018"/>
+    <id id="106019"/>
+    <id id="106020"/>
+    <id id="106021"/>
   </x-ce2fs-child-order>
 </CheatEntry>

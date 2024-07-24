@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337212620</ID>
+  <ID>100952</ID>
   <Description>"Current Animation"</Description>
   <ShowAsSigned>1</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
@@ -12,6 +12,6 @@
     <Offset>10EF8</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337271222"/>
+    <id id="100953"/>
   </x-ce2fs-child-order>
 </CheatEntry>

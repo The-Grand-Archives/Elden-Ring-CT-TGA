@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253752</ID>
+  <ID>105881</ID>
   <Description>"Boc"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,11 +10,11 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253753"/>
-    <id id="1337253754"/>
-    <id id="1337253755"/>
-    <id id="1337253756"/>
-    <id id="1337253757"/>
-    <id id="1337253758"/>
+    <id id="105882"/>
+    <id id="105883"/>
+    <id id="105884"/>
+    <id id="105885"/>
+    <id id="105886"/>
+    <id id="105887"/>
   </x-ce2fs-child-order>
 </CheatEntry>

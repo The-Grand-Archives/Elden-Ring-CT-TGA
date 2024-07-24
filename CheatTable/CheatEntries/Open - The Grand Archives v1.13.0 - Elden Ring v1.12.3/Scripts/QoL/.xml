@@ -1,21 +1,21 @@
 <CheatEntry>
-  <ID>1337196759</ID>
+  <ID>101227</ID>
   <Description>"QoL"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337192534"/>
-    <id id="1337258996"/>
-    <id id="1337218243"/>
-    <id id="1337218244"/>
-    <id id="1337218186"/>
-    <id id="1337215543"/>
-    <id id="1337271205"/>
-    <id id="1337215548"/>
-    <id id="1337218241"/>
-    <id id="1337218701"/>
-    <id id="1337218858"/>
-    <id id="1337259006"/>
-    <id id="1337259007"/>
+    <id id="101228"/>
+    <id id="101232"/>
+    <id id="101233"/>
+    <id id="101234"/>
+    <id id="101235"/>
+    <id id="101236"/>
+    <id id="101237"/>
+    <id id="101238"/>
+    <id id="101239"/>
+    <id id="101240"/>
+    <id id="101241"/>
+    <id id="101242"/>
+    <id id="101243"/>
   </x-ce2fs-child-order>
 </CheatEntry>

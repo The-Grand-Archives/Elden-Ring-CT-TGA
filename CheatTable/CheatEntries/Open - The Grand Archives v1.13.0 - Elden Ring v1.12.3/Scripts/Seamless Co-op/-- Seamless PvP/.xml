@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>1337272951</ID>
+  <ID>104737</ID>
   <Description>"-- Seamless PvP"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337270509"/>
-    <id id="1337270510"/>
-    <id id="1337218708"/>
-    <id id="1337213550"/>
-    <id id="1337254009"/>
-    <id id="1337271198"/>
+    <id id="104738"/>
+    <id id="104739"/>
+    <id id="104740"/>
+    <id id="104742"/>
+    <id id="104743"/>
+    <id id="104744"/>
   </x-ce2fs-child-order>
 </CheatEntry>

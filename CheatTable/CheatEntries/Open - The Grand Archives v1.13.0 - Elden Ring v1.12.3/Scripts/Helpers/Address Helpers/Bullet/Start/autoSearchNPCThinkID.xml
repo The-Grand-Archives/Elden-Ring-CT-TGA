@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337214667</ID>
+  <ID>102510</ID>
   <Description>"autoSearchNPCThinkID"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
 10000:Player

@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>1337213407</ID>
+  <ID>102026</ID>
   <Description>"EquipParamGem"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337213408"/>
-    <id id="1337213543"/>
-    <id id="1337213409"/>
+    <id id="102027"/>
+    <id id="102028"/>
+    <id id="102029"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>1337199303</ID>
+  <ID>89456</ID>
   <Description>"AtkParam_Pc"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337199304"/>
-    <id id="1337199305"/>
+    <id id="89457"/>
+    <id id="89458"/>
   </x-ce2fs-child-order>
 </CheatEntry>

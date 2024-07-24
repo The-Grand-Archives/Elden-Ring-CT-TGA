@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337198848</ID>
+  <ID>102222</ID>
   <Description>"knockbackDamp"</Description>
   <VariableType>Byte</VariableType>
   <Address>+8f</Address>

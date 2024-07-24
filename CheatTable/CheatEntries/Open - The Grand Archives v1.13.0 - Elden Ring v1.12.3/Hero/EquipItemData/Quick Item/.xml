@@ -1,19 +1,19 @@
 <CheatEntry>
-  <ID>1337273200</ID>
+  <ID>100512</ID>
   <Description>"Quick Item"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <GroupHeader>1</GroupHeader>
   <Address>+0</Address>
   <x-ce2fs-child-order>
-    <id id="1337272930"/>
-    <id id="1337272943"/>
-    <id id="1337273205"/>
-    <id id="1337273208"/>
-    <id id="1337273211"/>
-    <id id="1337273214"/>
-    <id id="1337273217"/>
-    <id id="1337273220"/>
-    <id id="1337273223"/>
-    <id id="1337273226"/>
+    <id id="100513"/>
+    <id id="100516"/>
+    <id id="100519"/>
+    <id id="100522"/>
+    <id id="100525"/>
+    <id id="100528"/>
+    <id id="100531"/>
+    <id id="100534"/>
+    <id id="100537"/>
+    <id id="100540"/>
   </x-ce2fs-child-order>
 </CheatEntry>

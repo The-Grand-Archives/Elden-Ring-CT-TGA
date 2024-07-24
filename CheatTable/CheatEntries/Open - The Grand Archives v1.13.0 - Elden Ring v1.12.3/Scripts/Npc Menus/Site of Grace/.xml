@@ -1,16 +1,16 @@
 <CheatEntry>
-  <ID>1337261179</ID>
+  <ID>101245</ID>
   <Description>"Site of Grace"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337261188"/>
-    <id id="1337261193"/>
-    <id id="1337261172"/>
-    <id id="1337261213"/>
-    <id id="1337261192"/>
-    <id id="1337261191"/>
-    <id id="1337261190"/>
-    <id id="1337261189"/>
+    <id id="101246"/>
+    <id id="101247"/>
+    <id id="101248"/>
+    <id id="101249"/>
+    <id id="101250"/>
+    <id id="101251"/>
+    <id id="101252"/>
+    <id id="101253"/>
   </x-ce2fs-child-order>
 </CheatEntry>

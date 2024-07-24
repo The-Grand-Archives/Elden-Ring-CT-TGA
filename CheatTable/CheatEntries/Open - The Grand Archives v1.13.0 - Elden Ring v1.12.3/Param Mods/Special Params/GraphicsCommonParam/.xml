@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337212459</ID>
+  <ID>105278</ID>
   <Description>"GraphicsCommonParam"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -13,8 +13,8 @@
   </Offsets>
   <x-ce2fs-child-order>
     <id id="3613"/>
-    <id id="1337212444"/>
+    <id id="105279"/>
     <id id="3614"/>
-    <id id="1337212445"/>
+    <id id="105280"/>
   </x-ce2fs-child-order>
 </CheatEntry>

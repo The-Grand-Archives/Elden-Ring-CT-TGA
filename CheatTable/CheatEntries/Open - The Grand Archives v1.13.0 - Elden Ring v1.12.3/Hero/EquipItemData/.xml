@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337213406</ID>
+  <ID>100511</ID>
   <Description>"EquipItemData"</Description>
   <Options moHideChildren="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -11,8 +11,8 @@
     <Offset>8</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337273200"/>
-    <id id="1337273229"/>
-    <id id="1337273248"/>
+    <id id="100512"/>
+    <id id="100543"/>
+    <id id="100562"/>
   </x-ce2fs-child-order>
 </CheatEntry>

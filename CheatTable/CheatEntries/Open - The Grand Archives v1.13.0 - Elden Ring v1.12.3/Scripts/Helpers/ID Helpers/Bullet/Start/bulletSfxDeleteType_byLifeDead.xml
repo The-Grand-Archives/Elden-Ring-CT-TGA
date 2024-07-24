@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337198885</ID>
+  <ID>89008</ID>
   <Description>"bulletSfxDeleteType_byLifeDead"</Description>
   <VariableType>Byte</VariableType>
   <Address>+9F</Address>

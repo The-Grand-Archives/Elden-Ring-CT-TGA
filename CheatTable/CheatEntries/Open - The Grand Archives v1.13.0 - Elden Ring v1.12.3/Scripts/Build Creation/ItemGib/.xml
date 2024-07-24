@@ -1,16 +1,16 @@
 <CheatEntry>
-  <ID>1337193276</ID>
+  <ID>101037</ID>
   <Description>"ItemGib"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337193277"/>
-    <id id="1337193278"/>
-    <id id="1337193279"/>
-    <id id="1337193280"/>
-    <id id="1337193281"/>
-    <id id="1337193282"/>
-    <id id="1337201741"/>
-    <id id="1337193283"/>
+    <id id="5000"/>
+    <id id="101038"/>
+    <id id="101039"/>
+    <id id="101040"/>
+    <id id="5001"/>
+    <id id="101041"/>
+    <id id="101042"/>
+    <id id="101050"/>
   </x-ce2fs-child-order>
 </CheatEntry>

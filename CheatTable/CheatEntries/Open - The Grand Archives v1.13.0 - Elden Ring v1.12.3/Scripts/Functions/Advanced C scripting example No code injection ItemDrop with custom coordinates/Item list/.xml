@@ -1,19 +1,19 @@
 <CheatEntry>
-  <ID>1337259162</ID>
+  <ID>101165</ID>
   <Description>"Item list"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337259161"/>
-    <id id="1337259163"/>
-    <id id="1337259168"/>
-    <id id="1337259173"/>
-    <id id="1337259178"/>
-    <id id="1337259183"/>
-    <id id="1337259188"/>
-    <id id="1337259193"/>
-    <id id="1337259198"/>
-    <id id="1337259203"/>
-    <id id="1337259208"/>
+    <id id="101166"/>
+    <id id="101167"/>
+    <id id="101172"/>
+    <id id="101177"/>
+    <id id="101182"/>
+    <id id="101187"/>
+    <id id="101192"/>
+    <id id="101197"/>
+    <id id="101202"/>
+    <id id="101207"/>
+    <id id="101212"/>
   </x-ce2fs-child-order>
 </CheatEntry>

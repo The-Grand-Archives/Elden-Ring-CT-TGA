@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253856</ID>
+  <ID>106182</ID>
   <Description>"Sellen"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253857"/>
-    <id id="1337253858"/>
-    <id id="1337253859"/>
-    <id id="1337253860"/>
-    <id id="1337253861"/>
-    <id id="1337253862"/>
-    <id id="1337253863"/>
-    <id id="1337253864"/>
-    <id id="1337253865"/>
-    <id id="1337253866"/>
-    <id id="1337253867"/>
-    <id id="1337253868"/>
-    <id id="1337253869"/>
-    <id id="1337253870"/>
-    <id id="1337253871"/>
-    <id id="1337253872"/>
+    <id id="106183"/>
+    <id id="106184"/>
+    <id id="106185"/>
+    <id id="106186"/>
+    <id id="106187"/>
+    <id id="106188"/>
+    <id id="106189"/>
+    <id id="106190"/>
+    <id id="106191"/>
+    <id id="106192"/>
+    <id id="106193"/>
+    <id id="106194"/>
+    <id id="106195"/>
+    <id id="106196"/>
+    <id id="106197"/>
+    <id id="106198"/>
   </x-ce2fs-child-order>
 </CheatEntry>

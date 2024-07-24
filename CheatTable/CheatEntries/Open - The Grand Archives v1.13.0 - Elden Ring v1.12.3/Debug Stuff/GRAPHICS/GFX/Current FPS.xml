@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337193600</ID>
+  <ID>106555</ID>
   <Description>"Current FPS"</Description>
   <VariableType>Float</VariableType>
   <Address>CSFlipper</Address>

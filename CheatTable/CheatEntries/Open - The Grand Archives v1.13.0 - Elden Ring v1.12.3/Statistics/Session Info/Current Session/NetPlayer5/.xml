@@ -1,19 +1,19 @@
 <CheatEntry>
-  <ID>1337218964</ID>
+  <ID>100227</ID>
   <Description>"NetPlayer:5"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337218965"/>
-    <id id="1337218967"/>
-    <id id="1337218968"/>
-    <id id="1337218969"/>
-    <id id="1337218970"/>
-    <id id="1337218971"/>
-    <id id="1337218972"/>
-    <id id="1337218973"/>
-    <id id="1337218974"/>
-    <id id="1337218976"/>
-    <id id="1337218985"/>
+    <id id="100228"/>
+    <id id="100229"/>
+    <id id="100230"/>
+    <id id="100231"/>
+    <id id="100232"/>
+    <id id="100233"/>
+    <id id="100234"/>
+    <id id="100235"/>
+    <id id="100236"/>
+    <id id="100237"/>
+    <id id="100246"/>
   </x-ce2fs-child-order>
 </CheatEntry>

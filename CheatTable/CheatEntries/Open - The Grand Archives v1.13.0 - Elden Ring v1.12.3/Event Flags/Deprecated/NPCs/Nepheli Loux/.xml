@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253783</ID>
+  <ID>106062</ID>
   <Description>"Nepheli Loux"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,11 +10,11 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253784"/>
-    <id id="1337253785"/>
-    <id id="1337253786"/>
-    <id id="1337253787"/>
-    <id id="1337253788"/>
-    <id id="1337253789"/>
+    <id id="106063"/>
+    <id id="106064"/>
+    <id id="106065"/>
+    <id id="106066"/>
+    <id id="106067"/>
+    <id id="106068"/>
   </x-ce2fs-child-order>
 </CheatEntry>

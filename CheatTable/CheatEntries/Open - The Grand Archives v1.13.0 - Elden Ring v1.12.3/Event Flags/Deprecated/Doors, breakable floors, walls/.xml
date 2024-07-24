@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>1337253846</ID>
+  <ID>106222</ID>
   <Description>"Doors, breakable floors, walls"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337253847"/>
-    <id id="1337253932"/>
-    <id id="1337253972"/>
-    <id id="1337253892"/>
-    <id id="1337254105"/>
+    <id id="106223"/>
+    <id id="106234"/>
+    <id id="106238"/>
+    <id id="106250"/>
+    <id id="106257"/>
   </x-ce2fs-child-order>
 </CheatEntry>

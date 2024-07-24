@@ -1,18 +1,18 @@
 <CheatEntry>
-  <ID>1337192769</ID>
+  <ID>101319</ID>
   <Description>"Helpers"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="1337193793"/>
-    <id id="1337214637"/>
-    <id id="1337196756"/>
-    <id id="1337194448"/>
-    <id id="1337194062"/>
-    <id id="1337194451"/>
-    <id id="1337194453"/>
-    <id id="1337194616"/>
-    <id id="1337199499"/>
-    <id id="1337199552"/>
+    <id id="101320"/>
+    <id id="89858"/>
+    <id id="102859"/>
+    <id id="102860"/>
+    <id id="103134"/>
+    <id id="103389"/>
+    <id id="103434"/>
+    <id id="103553"/>
+    <id id="103667"/>
+    <id id="104200"/>
   </x-ce2fs-child-order>
 </CheatEntry>

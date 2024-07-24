@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1337253875</ID>
+  <ID>106022</ID>
   <Description>"Irina / Hyetta"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,21 +10,21 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="1337253876"/>
-    <id id="1337253877"/>
-    <id id="1337253878"/>
-    <id id="1337253879"/>
-    <id id="1337253890"/>
-    <id id="1337253888"/>
-    <id id="1337253887"/>
-    <id id="1337253886"/>
-    <id id="1337253880"/>
-    <id id="1337253881"/>
-    <id id="1337253882"/>
-    <id id="1337253883"/>
-    <id id="1337253884"/>
-    <id id="1337253885"/>
-    <id id="1337253889"/>
-    <id id="1337253891"/>
+    <id id="106023"/>
+    <id id="106024"/>
+    <id id="106025"/>
+    <id id="106026"/>
+    <id id="106027"/>
+    <id id="106028"/>
+    <id id="106029"/>
+    <id id="106030"/>
+    <id id="106031"/>
+    <id id="106032"/>
+    <id id="106033"/>
+    <id id="106034"/>
+    <id id="106035"/>
+    <id id="106036"/>
+    <id id="106037"/>
+    <id id="106038"/>
   </x-ce2fs-child-order>
 </CheatEntry>

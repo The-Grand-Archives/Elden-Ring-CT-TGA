@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>1337214761</ID>
+  <ID>89866</ID>
   <Description>"SpEffectParam"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="1337214763"/>
-    <id id="1337214764"/>
+    <id id="89867"/>
+    <id id="89868"/>
   </x-ce2fs-child-order>
 </CheatEntry>
