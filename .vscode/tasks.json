@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "TGA: Generate Missing XML",
+            "type": "shell",
+            "command": "./scripts/check.sh",
+            "windows": {
+                "command": ".\\scripts\\check.bat"
+            },
+            "args": ["--fixup"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "TGA: Build Table",
+            "type": "shell",
+            "command": "./scripts/build.sh",
+            "windows": {
+                "command": ".\\scripts\\build.bat"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "TGA: Build table and generate missing XML",
+            "type": "shell",
+            "command": "./scripts/build.sh",
+            "windows": {
+                "command": ".\\scripts\\build.bat"
+            },
+            "args": ["--fixup"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
