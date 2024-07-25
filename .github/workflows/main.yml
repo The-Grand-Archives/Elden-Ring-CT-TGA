@@ -65,7 +65,7 @@ jobs:
         id: extract_changelog
         run: >
           escaped=$(echo "${{ needs.build.outputs.release-tag }}" | sed 's/\./\\./g')
-          echo 'changelog<<EOF' >> "GITHUB_OUTPUT"
+          echo 'changelog<<EOF' << "GITHUB_OUTPUT"
           grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '$ d' >> "GITHUB_OUTPUT"
           echo 'EOF' >> "GITHUB_OUTPUT"
         
