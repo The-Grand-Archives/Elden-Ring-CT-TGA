@@ -65,7 +65,7 @@ jobs:
         id: extract_changelog
         run: |
           escaped=$(echo "${{ needs.build.outputs.release-tag }}" | sed 's/\./\\./g')
-          changelog=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '$ d')
+          changelog=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '1d; $ d')
           if [ -z "${changelog}" ]; then
             echo "No changelog written for release. Aborting."
             exit 1
@@ -99,6 +99,7 @@ jobs:
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
+          name: Release ${{ needs.build.outputs.release-tag }}
           tag_name: ${{ needs.build.outputs.release-tag }}
           body: ${{ needs.generate-changelog.outputs.changelog }}
           files: ${{ needs.build.outputs.build-artifact-name }}.zip
