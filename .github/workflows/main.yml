@@ -1,0 +1,96 @@
+name: "Main workflow"
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: CE2FS build 
+        run: "./scripts/build.sh --check"
+
+      - name: Collect table version
+        id: collect_version
+        run: echo tag=v$(sed -r 's/([0-9])$/.\1/' VERSION) >> "$GITHUB_OUTPUT"
+
+      - name: Upload build
+        id: upload_build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ER_TGA_${{ steps.collect_version.outputs.tag }}
+          path: dist
+          retention-days: 5
+
+    outputs:
+      release-tag: ${{ steps.collect_version.outputs.tag }}
+      build-artifact-name: ER_TGA_${{ steps.collect_version.outputs.tag }}
+  
+  check-version:
+    runs-on: ubuntu-latest
+    needs: build 
+    if: github.ref == 'refs/head/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-tags: true
+          sparse-checkout: .
+      
+      - name: Ensure version was updated
+        env:
+          TAG: ${{ needs.build.outputs.release-tag }}
+        run: |
+          if git show-ref --tags --verify --quiet "refs/tags/$TAG"; then
+            echo "Release $TAG already exists"
+            exit 1
+          fi
+  
+  generate-changelog:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - check-version
+    if: github.ref == 'refs/head/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: CHANGELOG.md
+      
+      - name: Extract changelog section
+        id: extract_changelog
+        run: |
+          escaped=$(echo "${{ needs.build.outputs.release-tag }}" | sed 's/\./\\./g')
+          section=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '$ d')
+          echo changelog="$section" >> "GITHUB_OUTPUT"
+        
+    outputs:
+      changelog: ${{ steps.extract_changelog.outputs.changelog }}
+
+  publish-release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - check-version
+      - generate-changelog
+    if: github.ref == 'refs/head/master'
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.build.outputs.build-artifact-name }}
+          path: dist
+      
+      - name: Create zip
+        run: zip ${{ needs.build.outputs.build-artifact-name }}.zip dist/* -r
+      
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build.outputs.release-tag }}
+          body: ${{ needs.generate-changelog.outputs.changelog }}
+          files: ${{ needs.build.outputs.build-artifact-name }}.zip
