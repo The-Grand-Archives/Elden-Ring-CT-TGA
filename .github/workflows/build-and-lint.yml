@@ -17,11 +17,11 @@ jobs:
         run: "./scripts/build.sh --check"
 
       - name: Collect table version
-        run: echo "::set-env name=SEMVER::$(sed -r 's/([0-9])$/.\\1/' VERSION)"
-
+        id: collect_version
+        run: echo "$(sed -r 's/([0-9])$/.\\1/' VERSION)" >> $GITHUB_OUTPUT
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
-          name: ER_TGA_v${{ env.SEMVER }}
+          name: ER_TGA_v${{ steps.collect_version.outputs.* }}
           path: dist
           retention-days: 5
