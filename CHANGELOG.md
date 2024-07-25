@@ -1,6 +1,6 @@
 # Changelog
 ## [Unreleased]
-###
+### Added
  - by [Dasaav](https://github.com/Dasaav-dsv/)
    - Save Character Flags, saves a list of all your flags to a file
    - Event Flags lua rewrite
@@ -9,8 +9,15 @@
    - setEventFlag(id, state)
    - setEventFlags/setMultipleFlags(tbl, state)
    - booltonumber(bool)
+   - getPlayerIns(addr_or_slot) / getEnemyIns(addr)
 ### Changed
  - ItemGive now sets maxNum depending on potGroupId when relevant
+ - Functions made accessible from anywhere:
+   - Lua rewrite of AddSoul
+   - Lua rewrite of ItemDrop
+   - SpEffect.add, SpEffect.erase, SpEffect.remove
+   - PlayAnimation
+   - Bullet.create
 ### Fixed
  - "Remove by Item ID" for Storage Chest
  - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
