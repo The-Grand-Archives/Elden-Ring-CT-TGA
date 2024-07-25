@@ -63,11 +63,18 @@ jobs:
       
       - name: Extract changelog section
         id: extract_changelog
-        run: >
+        run: |
           escaped=$(echo "${{ needs.build.outputs.release-tag }}" | sed 's/\./\\./g')
-          echo 'changelog<<EOF' << $GITHUB_OUTPUT
-          grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '$ d' >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          changelog=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '$ d')
+          if [ -z "${changelog}" ]; then
+            echo "No changelog written for release. Aborting."
+            exit 1
+          fi
+          {
+            echo 'changelog<<EOF'
+            echo "${changelog}"
+            echo EOF
+          } >> $GITHUB_OUTPUT
         
     outputs:
       changelog: ${{ steps.extract_changelog.outputs.changelog }}
