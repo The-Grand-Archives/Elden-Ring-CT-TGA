@@ -18,10 +18,10 @@ jobs:
 
       - name: Collect table version
         id: collect_version
-        run: sed -r 's/([0-9])$/.\1/' VERSION >> $GITHUB_OUTPUT
+        run: sed -r 's/([0-9])$/.\1/' VERSION >> "$GITHUB_OUTPUT"
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
-          name: ER_TGA_v${{ steps.collect_version.outputs.* }}
+          name: ER_TGA_v${{ steps.collect_version.outputs.* }}_DEV.CT
           path: dist
           retention-days: 5
