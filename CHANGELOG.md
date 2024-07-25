@@ -18,6 +18,7 @@
  - Focus, Stamina, Great Rune offsets
  - Currently Equipped Magic helper shows correct spell more reliably
  - Invasion Regions code by SeriouslyCasual and [Dasaav](https://github.com/Dasaav-dsv/)
+ - Teleport to Map-Relative Coordinates offsets
 
 ## [v1.13.0] - 2024-07-05
 ### Added
