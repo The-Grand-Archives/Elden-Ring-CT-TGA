@@ -8,5 +8,6 @@
     "Lua.diagnostics.disable": [
         "lowercase-global",
         "undefined-global"
-    ]
+    ],
+    "files.eol": "\n" // Windows :(
 }

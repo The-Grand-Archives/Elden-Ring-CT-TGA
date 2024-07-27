@@ -62,10 +62,10 @@ jobs:
         id: extract_changelog
         run: |
           source BUILD_ENV
-          escaped=$(echo "${TABLE_VERSION}" | sed 's/\./\\./g')
+          escaped=$(echo "v${TABLE_VERSION}" | sed 's/\./\\./g')
           changelog=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '1d; $ d')
           if [ -z "${changelog}" ]; then
-            echo "No changelog written for release. Aborting."
+            echo "No changelog written for release v${TABLE_VERSION}. Aborting."
             exit 1
           fi
           {
