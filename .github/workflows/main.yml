@@ -15,7 +15,7 @@ jobs:
 
       - name: Collect table version
         id: collect_version
-        run: source BUILD_ENV && echo tag=v{$TABLE_VERSION} >> "$GITHUB_OUTPUT"
+        run: source BUILD_ENV && echo tag=v${TABLE_VERSION} >> $GITHUB_OUTPUT
 
       - name: Upload build
         id: upload_build
