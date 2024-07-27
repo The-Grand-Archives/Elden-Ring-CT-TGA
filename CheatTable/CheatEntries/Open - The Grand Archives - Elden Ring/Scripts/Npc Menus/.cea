@@ -5,7 +5,7 @@ local function initav()
     local game_addr = getAddressSafe(process)
     if game_addr == nil then error("Process address not found", 2) end
 	local fun_addr = 0
-	local fun_ver = "2.02.3"
+	local fun_ver = "1.12.3"
     return game_addr,fun_addr,fun_ver
 end
 
