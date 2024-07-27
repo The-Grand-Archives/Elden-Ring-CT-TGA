@@ -9,10 +9,12 @@ runs:
   using: "composite"
   steps:      
     - name: CE2FS build 
+      shell: bash
       run: "python ./scripts/build.py --check"
     
     - name: Collect table version
       id: collect_version
+      shell: bash
       run: source BUILD_ENV && echo tag=v${TABLE_VERSION} >> $GITHUB_OUTPUT
       
     - name: Upload build
