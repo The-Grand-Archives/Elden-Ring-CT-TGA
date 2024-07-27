@@ -1,7 +1,7 @@
 {
     "clangd.fallbackFlags": [
         "-I${workspaceFolder}/resources/include",
-        "-IC:/Program Files/Cheat Engine 7.4/include",
+        "-IC:/Program Files/Cheat Engine 7.5/include",
         "-xc",
         "-std=gnu99"
     ],
