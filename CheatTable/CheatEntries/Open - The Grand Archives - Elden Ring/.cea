@@ -355,7 +355,7 @@ function tga:runOnceForVersion(id, func)
 
     id = tostring(id):gsub("[%s-\n]+", "")
     assert(id and id ~= "" and type(func) == "function", "tga:runOnce: bad argument type")
-    local path = string.format("%s/run-once-%.3f.txt", self.path, table_ver)
+    local path = string.format("%s/run-once-%s.txt", self.path, table_ver)
     local f = io.open(path, "a+")
     if not f then printf("tga:runOnce: warning: unable to open or create %s, aborting function execution", path) return end
     local t = f:read("*all")
@@ -526,7 +526,7 @@ if tga.config.checkTableVersion and table_ver ~= nil then
     local internet = getInternet()
     local success, latest = pcall(function() 
         local build_env = internet.getURL(latest_build_env_url)
-        return Semver:fromString(build_env:gmatch("TABLE_VERSION%s*=%s*([^%s\n]+)"))
+        return Semver:fromString(build_env:match("TABLE_VERSION=([^%s\n]+)"))
     end)
     internet.destroy()
 
@@ -1180,7 +1180,7 @@ asyncEnableTimer.OnTimer = function()
         enableRecord(1002, 0, true) -- Run singleton finder
         enableRecord(1003, 10) -- enable CParamUtils
         enableRecord(251, 10) -- enable ParamUtils
-        enableRecord(300) -- enable Shared Functions
+        enableRecord(1004) -- enable Shared Functions
     end
 end
 
@@ -1208,7 +1208,7 @@ end
 
 [DISABLE]
 disableRecord(251) -- disable ParamUtils
-disableRecord(300) -- disable Shared Functions
+disableRecord(1004) -- disable Shared Functions
 --disableRecord(1003, 0, true) -- CParamUtils should NOT be disabled to avoid memory leaks.
 disableRecord(1002, 0, true) -- disable singleton finder
 disableRecord(1001, 0, true) -- disable CSCRIPT V2
