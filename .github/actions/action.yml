@@ -7,12 +7,7 @@ outputs:
 
 runs:
   using: "composite"
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-      
+  steps:      
     - name: CE2FS build 
       run: "python ./scripts/build.py --check"
     
