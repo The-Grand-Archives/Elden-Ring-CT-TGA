@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100803</ID>
+  <ID>100820</ID>
   <Description>"Lipstick_Color_b"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

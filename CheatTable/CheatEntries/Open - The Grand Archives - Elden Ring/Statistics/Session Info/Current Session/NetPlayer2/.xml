@@ -1,19 +1,19 @@
 <CheatEntry>
-  <ID>100111</ID>
+  <ID>100116</ID>
   <Description>"NetPlayer:2"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100112"/>
-    <id id="100113"/>
-    <id id="100114"/>
-    <id id="100115"/>
-    <id id="100116"/>
     <id id="100117"/>
     <id id="100118"/>
     <id id="100119"/>
     <id id="100120"/>
     <id id="100121"/>
-    <id id="100130"/>
+    <id id="100122"/>
+    <id id="100123"/>
+    <id id="100124"/>
+    <id id="100125"/>
+    <id id="100126"/>
+    <id id="100135"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102462</ID>
+  <ID>102480</ID>
   <Description>"registIllnessChangeRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+010C</Address>

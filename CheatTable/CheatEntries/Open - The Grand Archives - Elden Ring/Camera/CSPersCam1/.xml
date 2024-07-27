@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107812</ID>
+  <ID>107832</ID>
   <Description>"CSPersCam1"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -11,16 +11,16 @@
     <Offset>20</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="107813"/>
-    <id id="107818"/>
-    <id id="107823"/>
-    <id id="107828"/>
-    <id id="107829"/>
-    <id id="107830"/>
-    <id id="107831"/>
-    <id id="107832"/>
     <id id="107833"/>
-    <id id="107834"/>
-    <id id="107835"/>
+    <id id="107838"/>
+    <id id="107843"/>
+    <id id="107848"/>
+    <id id="107849"/>
+    <id id="107850"/>
+    <id id="107851"/>
+    <id id="107852"/>
+    <id id="107853"/>
+    <id id="107854"/>
+    <id id="107855"/>
   </x-ce2fs-child-order>
 </CheatEntry>

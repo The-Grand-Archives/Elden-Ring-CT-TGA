@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103964</ID>
+  <ID>103982</ID>
   <Description>"shootAngleXMaxRandom"</Description>
   <VariableType>Float</VariableType>
   <Address>+A8</Address>

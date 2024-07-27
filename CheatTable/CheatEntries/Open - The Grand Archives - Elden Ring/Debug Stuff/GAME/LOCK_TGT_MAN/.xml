@@ -1,22 +1,10 @@
 <CheatEntry>
-  <ID>107944</ID>
+  <ID>107957</ID>
   <Description>"LOCK_TGT_MAN"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="107945"/>
-    <id id="107946"/>
-    <id id="107947"/>
-    <id id="107948"/>
-    <id id="107949"/>
-    <id id="107950"/>
-    <id id="107951"/>
-    <id id="107952"/>
-    <id id="107953"/>
-    <id id="107954"/>
-    <id id="107955"/>
-    <id id="107956"/>
-    <id id="107957"/>
+    <id id="926"/>
     <id id="107958"/>
     <id id="107959"/>
     <id id="107960"/>
@@ -58,5 +46,17 @@
     <id id="107996"/>
     <id id="107997"/>
     <id id="107998"/>
+    <id id="107999"/>
+    <id id="108000"/>
+    <id id="108001"/>
+    <id id="108002"/>
+    <id id="108003"/>
+    <id id="108004"/>
+    <id id="108005"/>
+    <id id="108006"/>
+    <id id="108007"/>
+    <id id="108008"/>
+    <id id="108009"/>
+    <id id="108010"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107975</ID>
+  <ID>107987</ID>
   <Description>"LockCamParamInterpolationRate (0.0 to 1.0) | ロックカメラパラム補間率(0.0〜1.0)"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Float</VariableType>

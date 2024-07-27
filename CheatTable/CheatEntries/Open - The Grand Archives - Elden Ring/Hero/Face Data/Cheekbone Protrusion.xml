@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100649</ID>
+  <ID>100666</ID>
   <Description>"Cheekbone Protrusion"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

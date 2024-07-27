@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>100195</ID>
+  <ID>100207</ID>
   <Description>"Stamina Max"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
   <Address>WorldChrMan</Address>
   <Offsets>
-    <Offset>20</Offset>
+    <Offset>30</Offset>
     <Offset>580</Offset>
     <Offset>4*10</Offset>
     <Offset>10EF8</Offset>

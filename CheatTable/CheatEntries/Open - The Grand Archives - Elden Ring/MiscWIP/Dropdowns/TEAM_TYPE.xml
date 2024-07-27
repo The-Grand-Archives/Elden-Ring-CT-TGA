@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>108212</ID>
+  <ID>108224</ID>
   <Description>"TEAM_TYPE"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Host
 2:Phantom

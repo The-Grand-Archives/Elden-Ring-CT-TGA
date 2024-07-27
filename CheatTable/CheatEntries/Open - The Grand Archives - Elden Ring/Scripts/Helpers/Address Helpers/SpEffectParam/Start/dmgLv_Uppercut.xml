@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103621</ID>
+  <ID>103639</ID>
   <Description>"dmgLv_Uppercut"</Description>
   <VariableType>Byte</VariableType>
   <Address>+0151</Address>

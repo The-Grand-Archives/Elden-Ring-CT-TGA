@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103579</ID>
+  <ID>103597</ID>
   <Description>"equipWeightChangeRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+E4</Address>

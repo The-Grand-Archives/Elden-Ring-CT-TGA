@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107990</ID>
+  <ID>108002</ID>
   <Description>"Whether forced lock is effective for conversation characters | 会話キャラを強制ロックが有効か"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107957</ID>
+  <ID>107969</ID>
   <Description>"LockRangeRadiusBonusDampingStartAngle [rad] | ロック範囲半径ボーナス減衰開始角度 [rad]"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Float</VariableType>

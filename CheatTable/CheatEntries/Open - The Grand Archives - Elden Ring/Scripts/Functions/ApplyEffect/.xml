@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>101108</ID>
+  <ID>101126</ID>
   <Description>"ApplyEffect"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101109"/>
-    <id id="101110"/>
-    <id id="101111"/>
-    <id id="101112"/>
-    <id id="101113"/>
+    <id id="101127"/>
+    <id id="101128"/>
+    <id id="101129"/>
+    <id id="101130"/>
+    <id id="101131"/>
   </x-ce2fs-child-order>
 </CheatEntry>

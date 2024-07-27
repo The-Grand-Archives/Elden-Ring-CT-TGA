@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106393</ID>
+  <ID>106411</ID>
   <Description>"GameSystemCommonParam"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -12,24 +12,6 @@
     <Offset>2830</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="106394"/>
-    <id id="106395"/>
-    <id id="106396"/>
-    <id id="106397"/>
-    <id id="106398"/>
-    <id id="106399"/>
-    <id id="106400"/>
-    <id id="106401"/>
-    <id id="106402"/>
-    <id id="106403"/>
-    <id id="106404"/>
-    <id id="106405"/>
-    <id id="106406"/>
-    <id id="106407"/>
-    <id id="106408"/>
-    <id id="106409"/>
-    <id id="106410"/>
-    <id id="106411"/>
     <id id="106412"/>
     <id id="106413"/>
     <id id="106414"/>
@@ -296,5 +278,23 @@
     <id id="106675"/>
     <id id="106676"/>
     <id id="106677"/>
+    <id id="106678"/>
+    <id id="106679"/>
+    <id id="106680"/>
+    <id id="106681"/>
+    <id id="106682"/>
+    <id id="106683"/>
+    <id id="106684"/>
+    <id id="106685"/>
+    <id id="106686"/>
+    <id id="106687"/>
+    <id id="106688"/>
+    <id id="106689"/>
+    <id id="106690"/>
+    <id id="106691"/>
+    <id id="106692"/>
+    <id id="106693"/>
+    <id id="106694"/>
+    <id id="106695"/>
   </x-ce2fs-child-order>
 </CheatEntry>

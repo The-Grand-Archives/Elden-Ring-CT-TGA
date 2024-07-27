@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100691</ID>
+  <ID>100708</ID>
   <Description>"Nose Position"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

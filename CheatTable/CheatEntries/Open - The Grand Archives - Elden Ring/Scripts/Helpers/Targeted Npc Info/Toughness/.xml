@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>105160</ID>
+  <ID>105178</ID>
   <Description>"Toughness"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105161"/>
-    <id id="105162"/>
-    <id id="105163"/>
-    <id id="105164"/>
+    <id id="105179"/>
+    <id id="105180"/>
+    <id id="105181"/>
+    <id id="105182"/>
   </x-ce2fs-child-order>
 </CheatEntry>

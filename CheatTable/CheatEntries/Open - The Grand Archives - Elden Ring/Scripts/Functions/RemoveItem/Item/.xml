@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>1104</ID>
+  <ID>1105</ID>
   <Description>"Item"</Description>
   <DropDownListLink>ItemDropdown</DropDownListLink>
   <ShowAsHex>1</ShowAsHex>
@@ -7,8 +7,8 @@
   <VariableType>4 Bytes</VariableType>
   <Address>RemoveItem_data+4</Address>
   <x-ce2fs-child-order>
-    <id id="101128"/>
-    <id id="101129"/>
-    <id id="101130"/>
+    <id id="101146"/>
+    <id id="101147"/>
+    <id id="101148"/>
   </x-ce2fs-child-order>
 </CheatEntry>

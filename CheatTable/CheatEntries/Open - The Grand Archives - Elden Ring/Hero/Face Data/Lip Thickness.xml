@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100682</ID>
+  <ID>100699</ID>
   <Description>"Lip Thickness"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

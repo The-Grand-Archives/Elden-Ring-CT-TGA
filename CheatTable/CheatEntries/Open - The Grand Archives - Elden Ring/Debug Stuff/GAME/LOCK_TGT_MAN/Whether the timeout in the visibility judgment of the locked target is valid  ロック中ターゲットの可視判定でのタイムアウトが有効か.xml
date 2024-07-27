@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107996</ID>
+  <ID>108008</ID>
   <Description>"Whether the timeout in the visibility judgment of the locked target is valid | ロック中ターゲットの可視判定でのタイムアウトが有効か"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

@@ -1,21 +1,9 @@
 <CheatEntry>
-  <ID>108149</ID>
+  <ID>108161</ID>
   <Description>"GRAPHICSCONFIG"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="108150"/>
-    <id id="108151"/>
-    <id id="108152"/>
-    <id id="108153"/>
-    <id id="108154"/>
-    <id id="108155"/>
-    <id id="108156"/>
-    <id id="108157"/>
-    <id id="108158"/>
-    <id id="108159"/>
-    <id id="108160"/>
-    <id id="108161"/>
     <id id="108162"/>
     <id id="108163"/>
     <id id="108164"/>
@@ -28,5 +16,17 @@
     <id id="108171"/>
     <id id="108172"/>
     <id id="108173"/>
+    <id id="108174"/>
+    <id id="108175"/>
+    <id id="108176"/>
+    <id id="108177"/>
+    <id id="108178"/>
+    <id id="108179"/>
+    <id id="108180"/>
+    <id id="108181"/>
+    <id id="108182"/>
+    <id id="108183"/>
+    <id id="108184"/>
+    <id id="108185"/>
   </x-ce2fs-child-order>
 </CheatEntry>

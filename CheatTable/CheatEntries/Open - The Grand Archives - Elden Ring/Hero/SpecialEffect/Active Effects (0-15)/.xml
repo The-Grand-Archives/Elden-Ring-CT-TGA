@@ -1,24 +1,24 @@
 <CheatEntry>
-  <ID>100887</ID>
+  <ID>100904</ID>
   <Description>"Active Effects (0-15)"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100888"/>
-    <id id="100892"/>
-    <id id="100896"/>
-    <id id="100900"/>
-    <id id="100904"/>
-    <id id="100908"/>
-    <id id="100912"/>
-    <id id="100916"/>
-    <id id="100920"/>
-    <id id="100924"/>
-    <id id="100928"/>
-    <id id="100932"/>
-    <id id="100936"/>
-    <id id="100940"/>
-    <id id="100944"/>
-    <id id="100948"/>
+    <id id="100905"/>
+    <id id="100909"/>
+    <id id="100913"/>
+    <id id="100917"/>
+    <id id="100921"/>
+    <id id="100925"/>
+    <id id="100929"/>
+    <id id="100933"/>
+    <id id="100937"/>
+    <id id="100941"/>
+    <id id="100945"/>
+    <id id="100949"/>
+    <id id="100953"/>
+    <id id="100957"/>
+    <id id="100961"/>
+    <id id="100965"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,7 +1,7 @@
 <CheatEntry>
-  <ID>101036</ID>
+  <ID>101053</ID>
   <Description>"Runes"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
-  <Address>AddSoulData</Address>
+  <Address>AddSoul_value</Address>
 </CheatEntry>

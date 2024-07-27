@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100313</ID>
+  <ID>100330</ID>
   <Description>"CurrentWepSlotOffset &lt; RIGHT_ARROW &gt;"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Primary
 1:Secondary

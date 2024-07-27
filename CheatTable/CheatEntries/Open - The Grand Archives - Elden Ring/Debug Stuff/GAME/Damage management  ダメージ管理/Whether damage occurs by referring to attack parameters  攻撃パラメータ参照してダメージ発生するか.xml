@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107934</ID>
+  <ID>107947</ID>
   <Description>"Whether damage occurs by referring to attack parameters | 攻撃パラメータ参照してダメージ発生するか"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:No
 1:Yes

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101221</ID>
+  <ID>101239</ID>
   <Description>"Custom spawn coords"</Description>
   <Options moManualExpandCollapse="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -8,9 +8,9 @@
   <ByteLength>16</ByteLength>
   <Address>ItemDrop_CustomMapId</Address>
   <x-ce2fs-child-order>
-    <id id="101222"/>
-    <id id="101223"/>
-    <id id="101224"/>
-    <id id="101225"/>
+    <id id="101240"/>
+    <id id="101241"/>
+    <id id="101242"/>
+    <id id="101243"/>
   </x-ce2fs-child-order>
 </CheatEntry>

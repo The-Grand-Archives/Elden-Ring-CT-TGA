@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100807</ID>
+  <ID>100824</ID>
   <Description>"Decal_Scale"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

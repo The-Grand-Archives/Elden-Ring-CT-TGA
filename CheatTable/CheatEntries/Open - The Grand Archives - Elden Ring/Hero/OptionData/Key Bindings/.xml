@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>101004</ID>
+  <ID>101021</ID>
   <Description>"Key Bindings"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101005"/>
-    <id id="101006"/>
-    <id id="101007"/>
-    <id id="101008"/>
+    <id id="101022"/>
+    <id id="101023"/>
+    <id id="101024"/>
+    <id id="101025"/>
   </x-ce2fs-child-order>
 </CheatEntry>

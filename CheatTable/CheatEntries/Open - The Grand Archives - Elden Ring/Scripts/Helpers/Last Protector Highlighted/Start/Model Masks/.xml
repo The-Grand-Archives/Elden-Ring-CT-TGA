@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>104690</ID>
+  <ID>104708</ID>
   <Description>"Model Masks"</Description>
   <Options moHideChildren="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -8,24 +8,6 @@
   <ByteLength>0</ByteLength>
   <Address>+130</Address>
   <x-ce2fs-child-order>
-    <id id="104691"/>
-    <id id="104692"/>
-    <id id="104693"/>
-    <id id="104694"/>
-    <id id="104695"/>
-    <id id="104696"/>
-    <id id="104697"/>
-    <id id="104698"/>
-    <id id="104699"/>
-    <id id="104700"/>
-    <id id="104701"/>
-    <id id="104702"/>
-    <id id="104703"/>
-    <id id="104704"/>
-    <id id="104705"/>
-    <id id="104706"/>
-    <id id="104707"/>
-    <id id="104708"/>
     <id id="104709"/>
     <id id="104710"/>
     <id id="104711"/>
@@ -106,5 +88,23 @@
     <id id="104786"/>
     <id id="104787"/>
     <id id="104788"/>
+    <id id="104789"/>
+    <id id="104790"/>
+    <id id="104791"/>
+    <id id="104792"/>
+    <id id="104793"/>
+    <id id="104794"/>
+    <id id="104795"/>
+    <id id="104796"/>
+    <id id="104797"/>
+    <id id="104798"/>
+    <id id="104799"/>
+    <id id="104800"/>
+    <id id="104801"/>
+    <id id="104802"/>
+    <id id="104803"/>
+    <id id="104804"/>
+    <id id="104805"/>
+    <id id="104806"/>
   </x-ce2fs-child-order>
 </CheatEntry>

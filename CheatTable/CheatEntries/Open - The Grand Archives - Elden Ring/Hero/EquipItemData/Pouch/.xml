@@ -1,15 +1,15 @@
 <CheatEntry>
-  <ID>100544</ID>
+  <ID>100561</ID>
   <Description>"Pouch"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <GroupHeader>1</GroupHeader>
   <Address>+50</Address>
   <x-ce2fs-child-order>
-    <id id="100545"/>
-    <id id="100548"/>
-    <id id="100551"/>
-    <id id="100554"/>
-    <id id="100557"/>
-    <id id="100560"/>
+    <id id="100562"/>
+    <id id="100565"/>
+    <id id="100568"/>
+    <id id="100571"/>
+    <id id="100574"/>
+    <id id="100577"/>
   </x-ce2fs-child-order>
 </CheatEntry>

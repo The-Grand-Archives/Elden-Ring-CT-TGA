@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100685</ID>
+  <ID>100702</ID>
   <Description>"Mouth Occlusion"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

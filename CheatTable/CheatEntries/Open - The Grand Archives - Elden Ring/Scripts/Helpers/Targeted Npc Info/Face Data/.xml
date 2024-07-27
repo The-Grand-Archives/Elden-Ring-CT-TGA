@@ -1,17 +1,17 @@
 <CheatEntry>
-  <ID>105107</ID>
+  <ID>105125</ID>
   <Description>"Face Data"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="105108"/>
-    <id id="105109"/>
-    <id id="105110"/>
-    <id id="105111"/>
-    <id id="105112"/>
-    <id id="105113"/>
-    <id id="105114"/>
-    <id id="105115"/>
-    <id id="105116"/>
+    <id id="105126"/>
+    <id id="105127"/>
+    <id id="105128"/>
+    <id id="105129"/>
+    <id id="105130"/>
+    <id id="105131"/>
+    <id id="105132"/>
+    <id id="105133"/>
+    <id id="105134"/>
   </x-ce2fs-child-order>
 </CheatEntry>

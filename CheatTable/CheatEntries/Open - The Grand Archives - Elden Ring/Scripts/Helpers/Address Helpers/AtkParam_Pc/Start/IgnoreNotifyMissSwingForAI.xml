@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>104073</ID>
+  <ID>104091</ID>
   <Description>"IgnoreNotifyMissSwingForAI"</Description>
   <VariableType>Binary</VariableType>
   <BitStart>3</BitStart>

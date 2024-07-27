@@ -1,9 +1,10 @@
 <CheatEntry>
-  <ID>100033</ID>
+  <ID>100032</ID>
   <Description>"LocalPlayer"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
+    <id id="100033"/>
     <id id="100034"/>
     <id id="100035"/>
     <id id="100036"/>
@@ -13,7 +14,6 @@
     <id id="100040"/>
     <id id="100041"/>
     <id id="100042"/>
-    <id id="100043"/>
-    <id id="100052"/>
+    <id id="100051"/>
   </x-ce2fs-child-order>
 </CheatEntry>

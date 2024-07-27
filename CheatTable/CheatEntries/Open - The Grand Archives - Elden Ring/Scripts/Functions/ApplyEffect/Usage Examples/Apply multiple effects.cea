@@ -8,7 +8,7 @@ local ids = {
 }
 
 for _,id in pairs(ids) do
-    SpEffect_add(id)
+    SpEffect.add(id)
 end
 
 disableMemrec(memrec)

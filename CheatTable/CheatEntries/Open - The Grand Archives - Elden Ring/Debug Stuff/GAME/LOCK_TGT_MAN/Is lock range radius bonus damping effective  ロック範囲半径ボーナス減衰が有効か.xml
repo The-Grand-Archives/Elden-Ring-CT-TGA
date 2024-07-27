@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107995</ID>
+  <ID>108007</ID>
   <Description>"Is lock range radius bonus damping effective? | ロック範囲半径ボーナス減衰が有効か"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

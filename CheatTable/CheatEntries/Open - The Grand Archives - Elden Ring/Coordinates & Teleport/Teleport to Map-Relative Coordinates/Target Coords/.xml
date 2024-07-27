@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107887</ID>
+  <ID>107907</ID>
   <Description>"Target Coords"</Description>
   <Options moManualExpandCollapse="1"/>
   <ShowAsHex>1</ShowAsHex>
@@ -8,9 +8,9 @@
   <ByteLength>20</ByteLength>
   <Address>TargetCoords</Address>
   <x-ce2fs-child-order>
-    <id id="107888"/>
-    <id id="107889"/>
-    <id id="107890"/>
-    <id id="107891"/>
+    <id id="107908"/>
+    <id id="107909"/>
+    <id id="107910"/>
+    <id id="107911"/>
   </x-ce2fs-child-order>
 </CheatEntry>

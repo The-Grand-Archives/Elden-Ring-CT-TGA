@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103736</ID>
+  <ID>103754</ID>
   <Description>"weakDmgRateF"</Description>
   <VariableType>Float</VariableType>
   <Address>+01CC</Address>

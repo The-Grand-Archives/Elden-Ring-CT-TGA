@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107556</ID>
+  <ID>107576</ID>
   <Description>"Kenneth Haight"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,10 +10,10 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="107557"/>
-    <id id="107558"/>
-    <id id="107559"/>
-    <id id="107560"/>
-    <id id="107561"/>
+    <id id="107577"/>
+    <id id="107578"/>
+    <id id="107579"/>
+    <id id="107580"/>
+    <id id="107581"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>104011</ID>
+  <ID>104029</ID>
   <Description>"knockbackDist"</Description>
   <VariableType>Float</VariableType>
   <Address>+010</Address>

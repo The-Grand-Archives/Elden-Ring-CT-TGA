@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>101051</ID>
+  <ID>101068</ID>
   <Description>"MassItemGib"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101052"/>
-    <id id="101053"/>
-    <id id="101054"/>
+    <id id="101069"/>
+    <id id="101070"/>
     <id id="101071"/>
+    <id id="101088"/>
   </x-ce2fs-child-order>
 </CheatEntry>

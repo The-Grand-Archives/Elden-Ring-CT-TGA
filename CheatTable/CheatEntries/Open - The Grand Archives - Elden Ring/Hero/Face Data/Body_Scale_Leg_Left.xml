@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100773</ID>
+  <ID>100790</ID>
   <Description>"Body_Scale_Leg_Left"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

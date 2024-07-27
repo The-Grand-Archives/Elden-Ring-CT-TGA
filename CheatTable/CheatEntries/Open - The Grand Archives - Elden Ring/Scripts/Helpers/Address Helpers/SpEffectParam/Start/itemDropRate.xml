@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103747</ID>
+  <ID>103765</ID>
   <Description>"itemDropRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+01F8</Address>

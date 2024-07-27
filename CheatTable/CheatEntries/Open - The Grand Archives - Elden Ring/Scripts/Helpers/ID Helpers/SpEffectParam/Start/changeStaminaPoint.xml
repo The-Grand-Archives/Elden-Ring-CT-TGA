@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102440</ID>
+  <ID>102458</ID>
   <Description>"changeStaminaPoint"</Description>
   <VariableType>4 Bytes</VariableType>
   <Address>+0B4</Address>

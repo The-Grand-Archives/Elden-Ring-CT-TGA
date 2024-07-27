@@ -1,20 +1,20 @@
 <CheatEntry>
-  <ID>100982</ID>
+  <ID>100999</ID>
   <Description>"Sound and Display"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100983"/>
-    <id id="100984"/>
-    <id id="100985"/>
-    <id id="100986"/>
-    <id id="100987"/>
-    <id id="100988"/>
-    <id id="100989"/>
-    <id id="100990"/>
-    <id id="100991"/>
-    <id id="100992"/>
-    <id id="100993"/>
-    <id id="100994"/>
+    <id id="101000"/>
+    <id id="101001"/>
+    <id id="101002"/>
+    <id id="101003"/>
+    <id id="101004"/>
+    <id id="101005"/>
+    <id id="101006"/>
+    <id id="101007"/>
+    <id id="101008"/>
+    <id id="101009"/>
+    <id id="101010"/>
+    <id id="101011"/>
   </x-ce2fs-child-order>
 </CheatEntry>

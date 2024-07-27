@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102687</ID>
+  <ID>102705</ID>
   <Description>"sightSearchEnemyAdd"</Description>
   <VariableType>Float</VariableType>
   <Address>+02CC</Address>

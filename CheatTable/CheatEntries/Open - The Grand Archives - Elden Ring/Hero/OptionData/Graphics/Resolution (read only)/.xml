@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101011</ID>
+  <ID>101028</ID>
   <Description>"Resolution (read only)"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">000001C200000320:800x450
 0000021C000003C0:960x540
@@ -25,8 +25,8 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="101012"/>
-    <id id="101013"/>
-    <id id="101014"/>
+    <id id="101029"/>
+    <id id="101030"/>
+    <id id="101031"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107989</ID>
+  <ID>108001</ID>
   <Description>"Is camera lock enabled | カメラロックが有効か"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

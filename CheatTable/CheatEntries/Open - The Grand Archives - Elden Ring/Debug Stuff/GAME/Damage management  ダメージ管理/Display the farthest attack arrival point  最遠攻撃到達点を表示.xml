@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107932</ID>
+  <ID>107945</ID>
   <Description>"Display the farthest attack arrival point | 最遠攻撃到達点を表示"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

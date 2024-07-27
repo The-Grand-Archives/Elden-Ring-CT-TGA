@@ -4,9 +4,7 @@ local memrec = getAddressList().getMemoryRecordByID(1102)
 [ENABLE]
 if lua_warp == nil then
     getAddressList().getMemoryRecordByDescription("Warp_code").active = true
-    local e = "'lua_warp' symbol was not found.\nTry enabling this script again."
-    ShowMessage(e)
-    error(e, 2)
+    throwError("'lua_warp' symbol was not found.\nTry enabling this script again.")
 end
 
 if isOwnDlc(1) then

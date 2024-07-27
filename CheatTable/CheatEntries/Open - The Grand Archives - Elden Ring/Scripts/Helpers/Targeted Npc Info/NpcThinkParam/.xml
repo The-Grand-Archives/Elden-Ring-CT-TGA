@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>105491</ID>
+  <ID>105509</ID>
   <Description>"NpcThinkParam"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -13,24 +13,6 @@
     <Offset>58</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="105492"/>
-    <id id="105493"/>
-    <id id="105494"/>
-    <id id="105495"/>
-    <id id="105496"/>
-    <id id="105497"/>
-    <id id="105498"/>
-    <id id="105499"/>
-    <id id="105500"/>
-    <id id="105501"/>
-    <id id="105502"/>
-    <id id="105503"/>
-    <id id="105504"/>
-    <id id="105505"/>
-    <id id="105506"/>
-    <id id="105507"/>
-    <id id="105508"/>
-    <id id="105509"/>
     <id id="105510"/>
     <id id="105511"/>
     <id id="105512"/>
@@ -117,5 +99,23 @@
     <id id="105593"/>
     <id id="105594"/>
     <id id="105595"/>
+    <id id="105596"/>
+    <id id="105597"/>
+    <id id="105598"/>
+    <id id="105599"/>
+    <id id="105600"/>
+    <id id="105601"/>
+    <id id="105602"/>
+    <id id="105603"/>
+    <id id="105604"/>
+    <id id="105605"/>
+    <id id="105606"/>
+    <id id="105607"/>
+    <id id="105608"/>
+    <id id="105609"/>
+    <id id="105610"/>
+    <id id="105611"/>
+    <id id="105612"/>
+    <id id="105613"/>
   </x-ce2fs-child-order>
 </CheatEntry>

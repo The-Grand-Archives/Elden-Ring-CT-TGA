@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+Bullet = {
+	addr = AOBScanModuleUnique(process, "40 53 55 56 57 48 81 EC 98 07 00 00 48 C7 44 24 50 FE FF FF FF")
+}
+
+function Bullet.create(id, coords)
+	if id == nil then return false end
+	local CSBulletManager = readPointer("CSBulletManager")
+	local mem = allocateMemory(0x200, getAddress(process))
+
+	writeInteger(mem + 0x14, id)
+
+	if coords ~= nil and type(coords) == "table" then
+		for i,v in ipairs(coords) do
+			writeFloat(mem + 0x80 + 4 * i - 4, v)
+		end
+	else
+		local PlayerIns = getPlayerIns()
+        local ChrModules = readPointer(PlayerIns + 0x190)
+        local CSChrPhysicsModule = readPointer(ChrModules + 0x68)
+        for i=0,2 do
+            writeFloat(mem + 0x80 + 4 * i, readFloat(CSChrPhysicsModule + 0x70 + 4 * i))
+        end
+	end
+
+	local r = executeCodeEx(0, 100, Bullet.addr, CSBulletManager, mem + 0x180, mem, mem + 0x1C0)
+	deAlloc(mem)
+	return r
+end
+[DISABLE]
+Bullet = nil

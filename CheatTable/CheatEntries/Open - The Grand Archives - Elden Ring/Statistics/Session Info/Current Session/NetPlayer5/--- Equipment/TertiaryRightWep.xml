@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>100253</ID>
+  <ID>100267</ID>
   <Description>"TertiaryRightWep"</Description>
   <DropDownListLink>WEAPON_ID</DropDownListLink>
   <ShowAsSigned>1</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
   <Address>WorldChrMan</Address>
   <Offsets>
-    <Offset>3B4</Offset>
+    <Offset>3AC</Offset>
     <Offset>580</Offset>
     <Offset>5*10</Offset>
     <Offset>10EF8</Offset>

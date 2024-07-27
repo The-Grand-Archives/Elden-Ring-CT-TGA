@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107985</ID>
+  <ID>107997</ID>
   <Description>"Whether visibility judgment has been performed or whether debug display is enabled | 可視判定をしたかデバッグ表示が有効か"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

@@ -1,17 +1,13 @@
 <CheatEntry>
-  <ID>255</ID>
+  <ID>106849</ID>
   <Description>"Event Flags"</Description>
   <Options moHideChildren="1"/>
-  <VariableType>Auto Assembler Script</VariableType>
+  <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106831"/>
-    <id id="106832"/>
-    <id id="106833"/>
-    <id id="106834"/>
-    <id id="106835"/>
-    <id id="106836"/>
-    <id id="106837"/>
-    <id id="106838"/>
-    <id id="106847"/>
+    <id id="106850"/>
+    <id id="106857"/>
+    <id id="106858"/>
+    <id id="255"/>
+    <id id="106867"/>
   </x-ce2fs-child-order>
 </CheatEntry>

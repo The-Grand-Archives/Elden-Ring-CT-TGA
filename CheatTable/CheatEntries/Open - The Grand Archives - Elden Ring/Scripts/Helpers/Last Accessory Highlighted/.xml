@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>104789</ID>
+  <ID>104807</ID>
   <Description>"Last Accessory Highlighted"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="104790"/>
+    <id id="104808"/>
   </x-ce2fs-child-order>
 </CheatEntry>

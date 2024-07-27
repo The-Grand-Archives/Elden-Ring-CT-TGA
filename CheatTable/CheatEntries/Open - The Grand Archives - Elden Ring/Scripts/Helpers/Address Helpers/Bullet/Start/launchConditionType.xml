@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103939</ID>
+  <ID>103957</ID>
   <Description>"launchConditionType"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:0 : on hit
 3:3 : Enemy?

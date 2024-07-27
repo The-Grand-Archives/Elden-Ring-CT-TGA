@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100783</ID>
+  <ID>100800</ID>
   <Description>"Skin_Dark_Circle_Color_b"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

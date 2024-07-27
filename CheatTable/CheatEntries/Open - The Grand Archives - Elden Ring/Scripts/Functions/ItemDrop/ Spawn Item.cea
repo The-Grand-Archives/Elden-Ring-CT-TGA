@@ -1,6 +1,9 @@
 [ENABLE]
-createthread(ItemDrop)
 {$lua}
-if not syntaxcheck then disableMemrec(memrec) end
+if syntaxcheck then return end
+local item = readInteger(ItemDrop_data + 0)
+local quantity = readInteger(ItemDrop_data + 4)
+local gem = readInteger(ItemDrop_data + 12)
+ItemDrop(item, quantity, gem)
+disableMemrec(memrec)
 [DISABLE]
-

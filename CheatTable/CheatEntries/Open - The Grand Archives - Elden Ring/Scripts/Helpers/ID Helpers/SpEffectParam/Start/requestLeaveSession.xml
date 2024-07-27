@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102528</ID>
+  <ID>102546</ID>
   <Description>"requestLeaveSession"</Description>
   <VariableType>Binary</VariableType>
   <BitStart>6</BitStart>

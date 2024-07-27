@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103884</ID>
+  <ID>103902</ID>
   <Description>"Start"</Description>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>0</ShowAsSigned>
@@ -7,24 +7,6 @@
   <ByteLength>0</ByteLength>
   <Address>BulletHelper_addr</Address>
   <x-ce2fs-child-order>
-    <id id="103885"/>
-    <id id="103886"/>
-    <id id="103887"/>
-    <id id="103888"/>
-    <id id="103889"/>
-    <id id="103890"/>
-    <id id="103891"/>
-    <id id="103892"/>
-    <id id="103893"/>
-    <id id="103894"/>
-    <id id="103895"/>
-    <id id="103896"/>
-    <id id="103897"/>
-    <id id="103898"/>
-    <id id="103899"/>
-    <id id="103900"/>
-    <id id="103901"/>
-    <id id="103902"/>
     <id id="103903"/>
     <id id="103904"/>
     <id id="103905"/>
@@ -126,5 +108,23 @@
     <id id="104001"/>
     <id id="104002"/>
     <id id="104003"/>
+    <id id="104004"/>
+    <id id="104005"/>
+    <id id="104006"/>
+    <id id="104007"/>
+    <id id="104008"/>
+    <id id="104009"/>
+    <id id="104010"/>
+    <id id="104011"/>
+    <id id="104012"/>
+    <id id="104013"/>
+    <id id="104014"/>
+    <id id="104015"/>
+    <id id="104016"/>
+    <id id="104017"/>
+    <id id="104018"/>
+    <id id="104019"/>
+    <id id="104020"/>
+    <id id="104021"/>
   </x-ce2fs-child-order>
 </CheatEntry>

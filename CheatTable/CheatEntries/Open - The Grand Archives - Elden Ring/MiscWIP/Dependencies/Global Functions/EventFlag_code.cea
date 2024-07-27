@@ -1,0 +1,113 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function makeEventFlagAccessor(address, bitpos)
+	local isValid = function (self)
+		return readByte(self.address) ~= nil
+	end
+	local getValue = function (self)
+		return (readByte(self.address) & self.bit) ~= 0
+	end
+	local setValue = function(self, value)
+		writeByte(self.address, readByte(self.address) & ~self.bit
+			| ((value == false or value == 0) and 0 or self.bit))
+	end
+	return {
+		isValid = isValid,
+		getValue = getValue,
+		setValue = setValue,
+		address = address,
+		bit = 1 << bitpos
+	}
+end
+
+function getEventFlag(id)
+	local virtualMemoryFlag = readPointer("CSFD4VirtualMemoryFlag")
+	if virtualMemoryFlag == nil then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	local mod = readInteger(virtualMemoryFlag + 0x1C)
+	local block = id // mod
+	local index = id - block * mod
+	local tree = readPointer(virtualMemoryFlag + 0x38)
+	if tree == nil then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	-- tree root from head
+	local node = readPointer(tree + 0x8)
+	-- while (!_Trynode->_Isnil) {
+	while readByte(node + 0x19) == 0 do
+		-- _Trynode->_Myval < _Keyval
+		local nodeBlock = readInteger(node + 0x20)
+		if nodeBlock < block then
+			-- _Trynode = _Trynode->_Right;
+			node = readPointer(node + 0x10)
+		elseif nodeBlock == block then
+			break
+		else
+			-- _Trynode = _Trynode->_Left;
+			node = readPointer(node)
+		end
+	end
+	if readInteger(node + 0x20) ~= block then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	local blockInfo = node + 0x28
+	-- blockInfo + 0x8 is a union, getting the address
+	-- of the block depends on the mode (blockInfo + 0x0)
+	local addressMode = readInteger(blockInfo)
+	local blockAddress = readPointer(blockInfo + 0x8)
+	if addressMode == 1 then
+		local blockSize = readInteger(virtualMemoryFlag + 0x20)
+		local blocks = readPointer(virtualMemoryFlag + 0x28)
+		local blockIndex = blockAddress & 0xFFFFFFFF
+		blockAddress = blocks + blockIndex * blockSize
+	elseif addressMode ~= 2 or blockAddress == 0 then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	local byteIndex = index // 8
+	local bitIndex = index - byteIndex * 8
+	bitIndex = 7 - bitIndex -- big endian
+	return makeEventFlagAccessor(blockAddress + byteIndex, bitIndex)
+end
+
+function setEventFlag(id, state)
+	if state == nil then state = true end
+	local flag = getEventFlag(id)
+	if flag:isValid() then
+		flag:setValue(state)
+		return true
+	end
+	return false
+end
+
+function setEventFlags(tbl, state)
+	if type(tbl) ~= "table" then throwError("Invalid param type", 1) end
+	if state == nil then state = true end
+	local total = 0
+	for _,v in ipairs(tbl) do
+		if type(v) == "table" then
+			for _,id in ipairs(v) do
+				if setEventFlag(id, state) then
+					total = total + 1
+				end
+			end
+		elseif type(v) == "number" then
+			if setEventFlag(v, state) then
+				total = total + 1
+			end
+		end
+	end
+	if tga.config.printProgress then printf("Set %s flags!", total) end
+	if total > 0 then
+		return true
+	end
+	return false
+end
+setMultipleFlags = setEventFlags
+
+[DISABLE]
+getEventFlag = nil
+setEventFlag = nil
+setEventFlags = nil
+setMultipleFlags = nil

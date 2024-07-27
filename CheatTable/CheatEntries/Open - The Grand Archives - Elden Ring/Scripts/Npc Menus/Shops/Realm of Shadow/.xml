@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>101315</ID>
+  <ID>101333</ID>
   <Description>"Realm of Shadow"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101316"/>
-    <id id="101317"/>
+    <id id="101334"/>
+    <id id="101335"/>
   </x-ce2fs-child-order>
 </CheatEntry>

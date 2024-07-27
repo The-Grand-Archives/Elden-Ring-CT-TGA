@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103822</ID>
+  <ID>103840</ID>
   <Description>"shamanConsumptionRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+02EC</Address>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102466</ID>
+  <ID>102484</ID>
   <Description>"lifeReductionRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+011C</Address>

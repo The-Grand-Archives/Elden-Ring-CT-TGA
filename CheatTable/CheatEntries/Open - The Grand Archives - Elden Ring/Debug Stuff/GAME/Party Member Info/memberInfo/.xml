@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>108009</ID>
+  <ID>108021</ID>
   <Description>"memberInfo"</Description>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="108010"/>
-    <id id="108021"/>
-    <id id="108032"/>
-    <id id="108043"/>
-    <id id="108054"/>
-    <id id="108065"/>
+    <id id="108022"/>
+    <id id="108033"/>
+    <id id="108044"/>
+    <id id="108055"/>
+    <id id="108066"/>
+    <id id="108077"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>106134</ID>
+  <ID>106152</ID>
   <Description>"Seamless Co-op"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106135"/>
-    <id id="106136"/>
-    <id id="106137"/>
+    <id id="106153"/>
+    <id id="106154"/>
+    <id id="106155"/>
   </x-ce2fs-child-order>
 </CheatEntry>

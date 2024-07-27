@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100667</ID>
+  <ID>100684</ID>
   <Description>"Facial Feature Slant"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

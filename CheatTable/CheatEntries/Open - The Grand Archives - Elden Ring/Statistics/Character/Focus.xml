@@ -5,7 +5,7 @@
   <VariableType>4 Bytes</VariableType>
   <Address>WorldChrMan</Address>
   <Offsets>
-    <Offset>144</Offset>
+    <Offset>148</Offset>
     <Offset>0</Offset>
     <Offset>190</Offset>
     <Offset>0*10</Offset>

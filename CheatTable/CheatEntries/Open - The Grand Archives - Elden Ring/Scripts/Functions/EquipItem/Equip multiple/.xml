@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>101146</ID>
+  <ID>101164</ID>
   <Description>"Equip multiple"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101147"/>
-    <id id="101148"/>
-    <id id="101149"/>
-    <id id="101150"/>
+    <id id="101165"/>
+    <id id="101166"/>
+    <id id="101167"/>
+    <id id="101168"/>
   </x-ce2fs-child-order>
 </CheatEntry>

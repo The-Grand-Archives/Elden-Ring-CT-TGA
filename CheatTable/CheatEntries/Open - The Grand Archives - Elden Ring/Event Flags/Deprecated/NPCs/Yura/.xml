@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107730</ID>
+  <ID>107750</ID>
   <Description>"Yura"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,13 +10,13 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="107731"/>
-    <id id="107732"/>
-    <id id="107733"/>
-    <id id="107734"/>
-    <id id="107735"/>
-    <id id="107736"/>
-    <id id="107737"/>
-    <id id="107738"/>
+    <id id="107751"/>
+    <id id="107752"/>
+    <id id="107753"/>
+    <id id="107754"/>
+    <id id="107755"/>
+    <id id="107756"/>
+    <id id="107757"/>
+    <id id="107758"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107334</ID>
+  <ID>107354</ID>
   <Description>"Rennala, Queen of the Full Moon [Academy of Raya Lucaria]"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,8 +10,8 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="107335"/>
-    <id id="107336"/>
-    <id id="107337"/>
+    <id id="107355"/>
+    <id id="107356"/>
+    <id id="107357"/>
   </x-ce2fs-child-order>
 </CheatEntry>

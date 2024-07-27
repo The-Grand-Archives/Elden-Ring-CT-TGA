@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>100143</ID>
+  <ID>100150</ID>
   <Description>"Gauntlet"</Description>
   <DropDownListLink>PROTECTOR_ID</DropDownListLink>
   <ShowAsSigned>1</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
   <Address>WorldChrMan</Address>
   <Offsets>
-    <Offset>3D8</Offset>
+    <Offset>3D0</Offset>
     <Offset>580</Offset>
     <Offset>2*10</Offset>
     <Offset>10EF8</Offset>

@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>106916</ID>
+  <ID>106936</ID>
   <Description>"Liurnia of the Lakes"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106917"/>
-    <id id="106970"/>
-    <id id="106976"/>
-    <id id="106980"/>
+    <id id="106937"/>
+    <id id="106990"/>
+    <id id="106996"/>
+    <id id="107000"/>
   </x-ce2fs-child-order>
 </CheatEntry>

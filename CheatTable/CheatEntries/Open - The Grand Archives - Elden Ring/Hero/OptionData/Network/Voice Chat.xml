@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100998</ID>
+  <ID>101015</ID>
   <Description>"Voice Chat"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Restricted
 1:Allowed

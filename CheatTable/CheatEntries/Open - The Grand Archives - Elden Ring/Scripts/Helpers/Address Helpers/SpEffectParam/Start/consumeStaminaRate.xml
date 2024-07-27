@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103746</ID>
+  <ID>103764</ID>
   <Description>"consumeStaminaRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+01F4</Address>

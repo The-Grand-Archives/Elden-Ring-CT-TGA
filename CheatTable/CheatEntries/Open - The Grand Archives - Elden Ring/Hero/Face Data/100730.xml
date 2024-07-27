@@ -5,7 +5,7 @@
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>740+8F</Offset>
+    <Offset>740+7E</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103607</ID>
+  <ID>103625</ID>
   <Description>"changeMiracleSlot"</Description>
   <VariableType>Byte</VariableType>
   <Address>+0143</Address>

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103952</ID>
+  <ID>103970</ID>
   <Description>"isIgnoreMoveStateIfHitWater"</Description>
   <VariableType>Binary</VariableType>
   <BitStart>0</BitStart>

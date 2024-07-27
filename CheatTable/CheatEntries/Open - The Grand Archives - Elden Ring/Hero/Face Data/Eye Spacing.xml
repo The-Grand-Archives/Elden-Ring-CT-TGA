@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100661</ID>
+  <ID>100678</ID>
   <Description>"Eye Spacing"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

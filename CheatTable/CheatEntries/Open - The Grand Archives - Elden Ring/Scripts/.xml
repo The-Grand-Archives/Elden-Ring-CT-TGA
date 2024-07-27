@@ -1,16 +1,16 @@
 <CheatEntry>
-  <ID>101033</ID>
+  <ID>101050</ID>
   <Description>"Scripts"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101034"/>
-    <id id="101094"/>
-    <id id="101228"/>
-    <id id="101245"/>
-    <id id="101318"/>
-    <id id="101320"/>
-    <id id="106133"/>
-    <id id="106134"/>
+    <id id="101051"/>
+    <id id="101111"/>
+    <id id="101246"/>
+    <id id="101263"/>
+    <id id="101336"/>
+    <id id="101338"/>
+    <id id="106151"/>
+    <id id="106152"/>
   </x-ce2fs-child-order>
 </CheatEntry>

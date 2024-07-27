@@ -1,6 +1,6 @@
-[ENABLE]
-createthread(AddSoul)
 {$lua}
-if not syntaxcheck then disableMemrec(memrec) end
+if syntaxcheck then return end
+[ENABLE]
+AddSoul(readInteger(AddSoul_value))
+disableMemrec(memrec)
 [DISABLE]
-

@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>101071</ID>
+  <ID>101088</ID>
   <Description>"-- Shadow of the Erdtree --"</Description>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101072"/>
-    <id id="101073"/>
-    <id id="101074"/>
-    <id id="101075"/>
-    <id id="101076"/>
-    <id id="101077"/>
+    <id id="101089"/>
+    <id id="101090"/>
+    <id id="101091"/>
+    <id id="101092"/>
+    <id id="101093"/>
+    <id id="101094"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,33 +1,33 @@
 <CheatEntry>
-  <ID>107338</ID>
+  <ID>107358</ID>
   <Description>"NPCs"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="107339"/>
-    <id id="107375"/>
-    <id id="107384"/>
-    <id id="107390"/>
-    <id id="107394"/>
-    <id id="107398"/>
-    <id id="107405"/>
-    <id id="107422"/>
-    <id id="107430"/>
-    <id id="107447"/>
-    <id id="107464"/>
-    <id id="107497"/>
-    <id id="107514"/>
-    <id id="107539"/>
-    <id id="107556"/>
-    <id id="107562"/>
-    <id id="107579"/>
-    <id id="107586"/>
-    <id id="107590"/>
-    <id id="107665"/>
-    <id id="107682"/>
-    <id id="107699"/>
-    <id id="107716"/>
-    <id id="107721"/>
-    <id id="107730"/>
+    <id id="107359"/>
+    <id id="107395"/>
+    <id id="107404"/>
+    <id id="107410"/>
+    <id id="107414"/>
+    <id id="107418"/>
+    <id id="107425"/>
+    <id id="107442"/>
+    <id id="107450"/>
+    <id id="107467"/>
+    <id id="107484"/>
+    <id id="107517"/>
+    <id id="107534"/>
+    <id id="107559"/>
+    <id id="107576"/>
+    <id id="107582"/>
+    <id id="107599"/>
+    <id id="107606"/>
+    <id id="107610"/>
+    <id id="107685"/>
+    <id id="107702"/>
+    <id id="107719"/>
+    <id id="107736"/>
+    <id id="107741"/>
+    <id id="107750"/>
   </x-ce2fs-child-order>
 </CheatEntry>

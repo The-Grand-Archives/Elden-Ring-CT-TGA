@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102429</ID>
+  <ID>102447</ID>
   <Description>"NoGuardDamageRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+088</Address>

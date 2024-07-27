@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103580</ID>
+  <ID>103598</ID>
   <Description>"allItemWeightChangeRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+0E8</Address>

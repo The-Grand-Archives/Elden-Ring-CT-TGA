@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100769</ID>
+  <ID>100786</ID>
   <Description>"Body_Scale_Abdomen"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

@@ -1,16 +1,16 @@
 <CheatEntry>
-  <ID>101160</ID>
+  <ID>101178</ID>
   <Description>"Advanced C scripting example: No code injection ItemDrop with custom coordinates"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101161"/>
-    <id id="101166"/>
-    <id id="101218"/>
-    <id id="101219"/>
-    <id id="101220"/>
-    <id id="101221"/>
-    <id id="101226"/>
-    <id id="101227"/>
+    <id id="101179"/>
+    <id id="101184"/>
+    <id id="101236"/>
+    <id id="101237"/>
+    <id id="101238"/>
+    <id id="101239"/>
+    <id id="101244"/>
+    <id id="101245"/>
   </x-ce2fs-child-order>
 </CheatEntry>

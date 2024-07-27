@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100936</ID>
+  <ID>100953</ID>
   <Description>"12"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
@@ -24,8 +24,8 @@
     <Offset>10EF8</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="100937"/>
-    <id id="100938"/>
-    <id id="100939"/>
+    <id id="100954"/>
+    <id id="100955"/>
+    <id id="100956"/>
   </x-ce2fs-child-order>
 </CheatEntry>

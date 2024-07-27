@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>101255</ID>
+  <ID>101273</ID>
   <Description>"Rennala"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101256"/>
-    <id id="101257"/>
+    <id id="101274"/>
+    <id id="101275"/>
   </x-ce2fs-child-order>
 </CheatEntry>

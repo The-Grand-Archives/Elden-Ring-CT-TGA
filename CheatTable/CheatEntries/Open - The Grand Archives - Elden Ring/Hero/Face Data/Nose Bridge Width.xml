@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100700</ID>
+  <ID>100717</ID>
   <Description>"Nose Bridge Width"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

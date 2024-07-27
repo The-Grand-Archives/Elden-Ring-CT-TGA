@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102350</ID>
+  <ID>102368</ID>
   <Description>"targetYOffsetRange"</Description>
   <VariableType>Float</VariableType>
   <Address>+A0</Address>

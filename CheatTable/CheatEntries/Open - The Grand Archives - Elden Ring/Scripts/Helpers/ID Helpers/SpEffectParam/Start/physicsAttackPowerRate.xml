@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102413</ID>
+  <ID>102431</ID>
   <Description>"physicsAttackPowerRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+048</Address>

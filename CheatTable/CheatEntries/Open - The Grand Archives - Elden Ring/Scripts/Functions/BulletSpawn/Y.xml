@@ -1,7 +1,7 @@
 <CheatEntry>
-  <ID>101119</ID>
+  <ID>101137</ID>
   <Description>"Y"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Float</VariableType>
-  <Address>BulletData_coords+4</Address>
+  <Address>Bullet.data+08</Address>
 </CheatEntry>

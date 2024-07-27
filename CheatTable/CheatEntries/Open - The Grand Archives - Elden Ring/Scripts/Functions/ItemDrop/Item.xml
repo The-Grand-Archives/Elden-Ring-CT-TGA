@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>101096</ID>
+  <ID>1103</ID>
   <Description>"Item"</Description>
   <DropDownListLink>ItemDropdown</DropDownListLink>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
-  <Address>ItemDropData+00</Address>
+  <Address>ItemDrop_data+00</Address>
 </CheatEntry>

@@ -1,18 +1,18 @@
 <CheatEntry>
-  <ID>101060</ID>
+  <ID>101077</ID>
   <Description>"-- Goods --"</Description>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="101061"/>
-    <id id="101062"/>
-    <id id="101063"/>
-    <id id="101064"/>
-    <id id="101065"/>
-    <id id="101066"/>
-    <id id="101067"/>
-    <id id="101068"/>
-    <id id="101069"/>
-    <id id="101070"/>
+    <id id="101078"/>
+    <id id="101079"/>
+    <id id="101080"/>
+    <id id="101081"/>
+    <id id="101082"/>
+    <id id="101083"/>
+    <id id="101084"/>
+    <id id="101085"/>
+    <id id="101086"/>
+    <id id="101087"/>
   </x-ce2fs-child-order>
 </CheatEntry>

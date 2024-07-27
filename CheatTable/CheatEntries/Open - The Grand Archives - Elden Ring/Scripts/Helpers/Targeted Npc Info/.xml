@@ -1,32 +1,32 @@
 <CheatEntry>
-  <ID>105067</ID>
+  <ID>105085</ID>
   <Description>"Targeted Npc Info"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="105068"/>
-    <id id="105069"/>
-    <id id="105070"/>
-    <id id="105071"/>
-    <id id="105072"/>
-    <id id="105073"/>
-    <id id="105074"/>
-    <id id="105075"/>
-    <id id="105076"/>
-    <id id="105077"/>
-    <id id="105078"/>
-    <id id="105079"/>
-    <id id="105080"/>
-    <id id="105081"/>
+    <id id="105086"/>
+    <id id="105087"/>
+    <id id="105088"/>
+    <id id="105089"/>
+    <id id="105090"/>
+    <id id="105091"/>
     <id id="105092"/>
-    <id id="105107"/>
-    <id id="105117"/>
-    <id id="105127"/>
-    <id id="105146"/>
-    <id id="105160"/>
-    <id id="105165"/>
-    <id id="105172"/>
-    <id id="105491"/>
-    <id id="105596"/>
+    <id id="105093"/>
+    <id id="105094"/>
+    <id id="105095"/>
+    <id id="105096"/>
+    <id id="105097"/>
+    <id id="105098"/>
+    <id id="105099"/>
+    <id id="105110"/>
+    <id id="105125"/>
+    <id id="105135"/>
+    <id id="105145"/>
+    <id id="105164"/>
+    <id id="105178"/>
+    <id id="105183"/>
+    <id id="105190"/>
+    <id id="105509"/>
+    <id id="105614"/>
   </x-ce2fs-child-order>
 </CheatEntry>

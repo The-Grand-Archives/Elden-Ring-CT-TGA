@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107464</ID>
+  <ID>107484</ID>
   <Description>"Fia dialog"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,26 +10,6 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="107465"/>
-    <id id="107466"/>
-    <id id="107467"/>
-    <id id="107468"/>
-    <id id="107469"/>
-    <id id="107470"/>
-    <id id="107471"/>
-    <id id="107472"/>
-    <id id="107473"/>
-    <id id="107474"/>
-    <id id="107475"/>
-    <id id="107476"/>
-    <id id="107477"/>
-    <id id="107478"/>
-    <id id="107479"/>
-    <id id="107480"/>
-    <id id="107481"/>
-    <id id="107482"/>
-    <id id="107483"/>
-    <id id="107484"/>
     <id id="107485"/>
     <id id="107486"/>
     <id id="107487"/>
@@ -42,5 +22,25 @@
     <id id="107494"/>
     <id id="107495"/>
     <id id="107496"/>
+    <id id="107497"/>
+    <id id="107498"/>
+    <id id="107499"/>
+    <id id="107500"/>
+    <id id="107501"/>
+    <id id="107502"/>
+    <id id="107503"/>
+    <id id="107504"/>
+    <id id="107505"/>
+    <id id="107506"/>
+    <id id="107507"/>
+    <id id="107508"/>
+    <id id="107509"/>
+    <id id="107510"/>
+    <id id="107511"/>
+    <id id="107512"/>
+    <id id="107513"/>
+    <id id="107514"/>
+    <id id="107515"/>
+    <id id="107516"/>
   </x-ce2fs-child-order>
 </CheatEntry>

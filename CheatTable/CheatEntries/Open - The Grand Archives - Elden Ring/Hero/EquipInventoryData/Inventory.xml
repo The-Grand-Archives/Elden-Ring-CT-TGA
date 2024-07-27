@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100570</ID>
+  <ID>100587</ID>
   <Description>"Inventory"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">000005D0:Player
 000008D0:Chest

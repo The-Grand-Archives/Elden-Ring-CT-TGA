@@ -13,19 +13,6 @@ function isOwnDlc(dlc)
 	return false
 end
 
-function missingDlc(dlc)
-	local dlcNames = {
-		[0] = "ELDEN RING Bonus Gesture",
-		[1] = "ELDEN RING Shadow of the Erdtree",
-		[2] = "ELDEN RING Shadow of the Erdtree Bonus Gesture"
-	}
-
-	local e = "You do not own "..dlcNames[dlc]
-
-	ShowMessage(e)
-	error(e, 2)
-end
-
 function isDlcMagic(id)
 	if id > 0x40000000 then id = id - 0x40000000 end
 	if id >= 2004300 and id <= 2007820 then
@@ -70,4 +57,3 @@ isOwnDlc = nil
 isDlcMagic = nil
 isInventoryFull = nil
 isStorageFull = nil
-missingDlc = nil

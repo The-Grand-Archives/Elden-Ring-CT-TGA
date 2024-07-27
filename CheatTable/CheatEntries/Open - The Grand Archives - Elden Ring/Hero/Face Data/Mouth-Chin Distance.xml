@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100688</ID>
+  <ID>100705</ID>
   <Description>"Mouth-Chin Distance"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

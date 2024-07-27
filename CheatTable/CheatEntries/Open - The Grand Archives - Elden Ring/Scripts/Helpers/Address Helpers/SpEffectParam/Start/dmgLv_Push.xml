@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103617</ID>
+  <ID>103635</ID>
   <Description>"dmgLv_Push"</Description>
   <VariableType>Byte</VariableType>
   <Address>+014D</Address>

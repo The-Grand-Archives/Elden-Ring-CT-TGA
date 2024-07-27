@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100479</ID>
+  <ID>100496</ID>
   <Description>"Prayer"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">200:Locked
 201:Unlocked

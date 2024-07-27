@@ -1,26 +1,9 @@
 <CheatEntry>
-  <ID>100316</ID>
+  <ID>100333</ID>
   <Description>"Unk"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="100317"/>
-    <id id="100318"/>
-    <id id="100319"/>
-    <id id="100320"/>
-    <id id="100321"/>
-    <id id="100322"/>
-    <id id="100323"/>
-    <id id="100324"/>
-    <id id="100325"/>
-    <id id="100326"/>
-    <id id="100327"/>
-    <id id="100328"/>
-    <id id="100329"/>
-    <id id="100330"/>
-    <id id="100331"/>
-    <id id="100332"/>
-    <id id="100333"/>
     <id id="100334"/>
     <id id="100335"/>
     <id id="100336"/>
@@ -28,5 +11,22 @@
     <id id="100338"/>
     <id id="100339"/>
     <id id="100340"/>
+    <id id="100341"/>
+    <id id="100342"/>
+    <id id="100343"/>
+    <id id="100344"/>
+    <id id="100345"/>
+    <id id="100346"/>
+    <id id="100347"/>
+    <id id="100348"/>
+    <id id="100349"/>
+    <id id="100350"/>
+    <id id="100351"/>
+    <id id="100352"/>
+    <id id="100353"/>
+    <id id="100354"/>
+    <id id="100355"/>
+    <id id="100356"/>
+    <id id="100357"/>
   </x-ce2fs-child-order>
 </CheatEntry>

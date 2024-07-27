@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103573</ID>
+  <ID>103591</ID>
   <Description>"poizonAttackPower"</Description>
   <VariableType>4 Bytes</VariableType>
   <Address>+0CC</Address>

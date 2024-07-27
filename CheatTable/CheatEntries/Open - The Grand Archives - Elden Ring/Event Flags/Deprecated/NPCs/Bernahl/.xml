@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107390</ID>
+  <ID>107410</ID>
   <Description>"Bernahl"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,8 +10,8 @@
     <Offset>28</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="107391"/>
-    <id id="107392"/>
-    <id id="107393"/>
+    <id id="107411"/>
+    <id id="107412"/>
+    <id id="107413"/>
   </x-ce2fs-child-order>
 </CheatEntry>

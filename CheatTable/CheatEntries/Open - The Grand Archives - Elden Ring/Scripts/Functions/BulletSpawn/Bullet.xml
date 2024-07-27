@@ -1,7 +1,7 @@
 <CheatEntry>
-  <ID>101117</ID>
+  <ID>101135</ID>
   <Description>"Bullet"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
-  <Address>BulletData_id</Address>
+  <Address>Bullet.data</Address>
 </CheatEntry>

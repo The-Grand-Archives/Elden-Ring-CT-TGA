@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100470</ID>
+  <ID>100487</ID>
   <Description>"Patches' Crouch"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">180:Locked
 181:Unlocked

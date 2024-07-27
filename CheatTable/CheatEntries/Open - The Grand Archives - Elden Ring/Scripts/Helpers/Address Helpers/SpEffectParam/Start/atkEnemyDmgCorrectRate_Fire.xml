@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103803</ID>
+  <ID>103821</ID>
   <Description>"atkEnemyDmgCorrectRate_Fire"</Description>
   <VariableType>Float</VariableType>
   <Address>+02A8</Address>

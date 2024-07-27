@@ -62,6 +62,21 @@ function ItemGive(table_or_id, quantity, reinforceLv, upgrade,gem)
 		elseif item_type == 4 then
 			local maxNum = readSmallInteger(param_addr + 0x3A)
 			local maxRepositoryNum = readSmallInteger(param_addr + 0x70)
+			local potGroupId = readByte(param_addr + 0x2E)
+			if potGroupId ~= 0 then
+				local GameDataMan = readPointer("GameDataMan")
+				local PlayerGameData = readPointer(GameDataMan + 8)
+				local EquipInventoryData = readPointer(PlayerGameData + 0x5D0) + 4 -- PlayerGameData + unk * 4
+				if potGroupId == 1 then
+					maxNum = readInteger(EquipInventoryData + 0xC8)
+				elseif potGroupId == 2 then
+					maxNum = readInteger(EquipInventoryData + 0xCC)
+				elseif potGroupId == 3 then
+					maxNum = readInteger(EquipInventoryData + 0xD0)
+				elseif potGroupId == 4 then
+					maxNum = readInteger(EquipInventoryData + 0xD4)
+				end
+			end
 			return maxNum + maxRepositoryNum
 		else
 			return 0

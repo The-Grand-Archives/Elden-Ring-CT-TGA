@@ -14,7 +14,7 @@ B00000C4:Malenia's Great Rune
   <VariableType>4 Bytes</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>528+88</Offset>
+    <Offset>2B0+288+88</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>

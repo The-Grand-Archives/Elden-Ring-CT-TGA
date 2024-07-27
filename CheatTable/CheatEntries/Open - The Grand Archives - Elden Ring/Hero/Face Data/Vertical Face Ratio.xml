@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100666</ID>
+  <ID>100683</ID>
   <Description>"Vertical Face Ratio"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

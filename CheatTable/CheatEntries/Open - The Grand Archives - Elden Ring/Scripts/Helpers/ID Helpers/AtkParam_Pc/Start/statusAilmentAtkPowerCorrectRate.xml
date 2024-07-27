@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102987</ID>
+  <ID>103005</ID>
   <Description>"statusAilmentAtkPowerCorrectRate"</Description>
   <VariableType>2 Bytes</VariableType>
   <Address>+018C</Address>

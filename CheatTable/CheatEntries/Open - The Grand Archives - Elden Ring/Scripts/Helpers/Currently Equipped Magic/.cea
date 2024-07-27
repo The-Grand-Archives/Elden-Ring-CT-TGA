@@ -1,12 +1,11 @@
-// Author : inuNorii
+// Author : Umgak
 [ENABLE]
-aobscanmodule(CurrentMagic,$process,0F BF 40 10 C3)
+aobscanmodule(CurrentMagic,$process,44 0F B6 68 23)
 alloc(newmem,$100,CurrentMagic)
 
 newmem:
 mov [CurrentMagicAddr],rax
-movsx eax,word ptr [rax+10]
-ret
+movzx r13d,byte ptr [rax+23]
 jmp return
 
 CurrentMagicAddr:
@@ -20,7 +19,7 @@ registersymbol(CurrentMagic)
 
 [DISABLE]
 CurrentMagic:
-db 0F BF 40 10 C3
+db 44 0F B6 68 23
 unregistersymbol(CurrentMagic)
 unregistersymbol(CurrentMagicAddr)
 dealloc(newmem)

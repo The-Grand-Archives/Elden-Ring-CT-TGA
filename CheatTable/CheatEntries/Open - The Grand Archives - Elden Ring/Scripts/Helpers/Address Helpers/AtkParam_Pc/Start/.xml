@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>104006</ID>
+  <ID>104024</ID>
   <Description>"Start"</Description>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>0</ShowAsSigned>
@@ -10,24 +10,6 @@
     <Offset>-72</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="104007"/>
-    <id id="104008"/>
-    <id id="104009"/>
-    <id id="104010"/>
-    <id id="104011"/>
-    <id id="104012"/>
-    <id id="104013"/>
-    <id id="104014"/>
-    <id id="104015"/>
-    <id id="104016"/>
-    <id id="104017"/>
-    <id id="104018"/>
-    <id id="104019"/>
-    <id id="104020"/>
-    <id id="104021"/>
-    <id id="104022"/>
-    <id id="104023"/>
-    <id id="104024"/>
     <id id="104025"/>
     <id id="104026"/>
     <id id="104027"/>
@@ -217,5 +199,23 @@
     <id id="104211"/>
     <id id="104212"/>
     <id id="104213"/>
+    <id id="104214"/>
+    <id id="104215"/>
+    <id id="104216"/>
+    <id id="104217"/>
+    <id id="104218"/>
+    <id id="104219"/>
+    <id id="104220"/>
+    <id id="104221"/>
+    <id id="104222"/>
+    <id id="104223"/>
+    <id id="104224"/>
+    <id id="104225"/>
+    <id id="104226"/>
+    <id id="104227"/>
+    <id id="104228"/>
+    <id id="104229"/>
+    <id id="104230"/>
+    <id id="104231"/>
   </x-ce2fs-child-order>
 </CheatEntry>

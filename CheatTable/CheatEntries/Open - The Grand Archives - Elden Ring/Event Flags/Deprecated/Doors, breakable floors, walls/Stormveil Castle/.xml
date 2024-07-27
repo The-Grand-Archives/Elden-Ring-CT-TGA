@@ -1,16 +1,16 @@
 <CheatEntry>
-  <ID>107755</ID>
+  <ID>107775</ID>
   <Description>"Stormveil Castle"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="107756"/>
-    <id id="107757"/>
-    <id id="107759"/>
-    <id id="107760"/>
-    <id id="107762"/>
-    <id id="107764"/>
-    <id id="107765"/>
-    <id id="107766"/>
+    <id id="107776"/>
+    <id id="107777"/>
+    <id id="107779"/>
+    <id id="107780"/>
+    <id id="107782"/>
+    <id id="107784"/>
+    <id id="107785"/>
+    <id id="107786"/>
   </x-ce2fs-child-order>
 </CheatEntry>

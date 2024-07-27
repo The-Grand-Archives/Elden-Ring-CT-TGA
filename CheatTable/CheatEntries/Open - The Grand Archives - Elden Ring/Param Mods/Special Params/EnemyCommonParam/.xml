@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>106383</ID>
+  <ID>106401</ID>
   <Description>"EnemyCommonParam"</Description>
   <Options moHideChildren="1"/>
   <ShowAsSigned>0</ShowAsSigned>
@@ -12,14 +12,14 @@
     <Offset>27E8</Offset>
   </Offsets>
   <x-ce2fs-child-order>
-    <id id="106384"/>
-    <id id="106385"/>
-    <id id="106386"/>
-    <id id="106387"/>
-    <id id="106388"/>
-    <id id="106389"/>
-    <id id="106390"/>
-    <id id="106391"/>
-    <id id="106392"/>
+    <id id="106402"/>
+    <id id="106403"/>
+    <id id="106404"/>
+    <id id="106405"/>
+    <id id="106406"/>
+    <id id="106407"/>
+    <id id="106408"/>
+    <id id="106409"/>
+    <id id="106410"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,13 +1,13 @@
 <CheatEntry>
-  <ID>108133</ID>
+  <ID>108145</ID>
   <Description>"DLC"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="108134"/>
-    <id id="108135"/>
-    <id id="108136"/>
-    <id id="108137"/>
-    <id id="108138"/>
+    <id id="108146"/>
+    <id id="108147"/>
+    <id id="108148"/>
+    <id id="108149"/>
+    <id id="108150"/>
   </x-ce2fs-child-order>
 </CheatEntry>

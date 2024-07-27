@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100812</ID>
+  <ID>100829</ID>
   <Description>"Decal_Flip"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

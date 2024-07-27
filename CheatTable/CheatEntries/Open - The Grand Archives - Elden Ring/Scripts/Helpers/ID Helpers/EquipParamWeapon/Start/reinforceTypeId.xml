@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101390</ID>
+  <ID>101408</ID>
   <Description>"reinforceTypeId"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Normal +10
 100:Heavy +10

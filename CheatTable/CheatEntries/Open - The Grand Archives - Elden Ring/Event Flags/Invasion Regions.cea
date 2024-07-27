@@ -1,4 +1,4 @@
-//Author: Dasaav
+//Author: Dasaav, updated for DLC by Joel/SeriouslyCasual
 //UI base by Grish
 //2022-10-12
 {$lua}
@@ -7,166 +7,166 @@ if syntaxcheck then return end
 
 wex = {ctrl}
 function wex:new()
-  o = {
-    ctrl = {}
-  }
-  setmetatable(o, self)
-  self.__index = self
-  return o
+	o = {
+		ctrl = {}
+	}
+	setmetatable(o, self)
+	self.__index = self
+	return o
 end
 
 function wex:create(typ, parent, properties, customName)
-  parent = self.ctrl[parent]
-  local control = createComponentClass(typ, parent)
-  control.Parent = parent
-  self:initialize(control, properties)
-  control.x = control.Left + control.Width
-  control.y = control.Top + control.Height
-  local name = customName or properties.Caption
-  name = string.gsub(name, "%s", "")
-  self.ctrl[name] = control
-  return control
+	parent = self.ctrl[parent]
+	local control = createComponentClass(typ, parent)
+	control.Parent = parent
+	self:initialize(control, properties)
+	control.x = control.Left + control.Width
+	control.y = control.Top + control.Height
+	local name = customName or properties.Caption
+	name = string.gsub(name, "%s", "")
+	self.ctrl[name] = control
+	return control
 end
 
 function wex:initialize(control, properties)
-  if(type(control) == "string") then control = self.ctrl[control] end
-  for propertyName, property in pairs(properties) do
-    if (type(property) == "table") then
-      for subPropertyName, subProperty in pairs(property) do
-        control[propertyName][subPropertyName] = subProperty
-      end
-    else
-    	control[propertyName] = property
-    end
-  end
+	if(type(control) == "string") then control = self.ctrl[control] end
+	for propertyName, property in pairs(properties) do
+		if (type(property) == "table") then
+			for subPropertyName, subProperty in pairs(property) do
+				control[propertyName][subPropertyName] = subProperty
+			end
+		else
+			control[propertyName] = property
+		end
+	end
 end
 
 function wex:initDefaultForm(formName)
-  self.ctrl[formName].BorderStyle = bsDialog
-  self.ctrl[formName].show()
-  self.ctrl[formName].centerScreen()
-  self.ctrl[formName].BorderStyle = bsDialog
-  self.ctrl[formName].OnClose = function(sender)
-  	disableMemrec(wex.memrec)
-    return caFree
-  end
+	self.ctrl[formName].BorderStyle = bsDialog
+	self.ctrl[formName].show()
+	self.ctrl[formName].centerScreen()
+	self.ctrl[formName].BorderStyle = bsDialog
+	self.ctrl[formName].OnClose = function(sender)
+		disableMemrec(wex.memrec)
+		return caFree
+	end
 end
 
 function wex:addItems(control, items, checked)
-  checked = checked or false
-  control = self.ctrl[control]
-  for _, item in pairs(items) do
-    control.items.add(item)
-  end
-  control.setItemIndex(0)
+	checked = checked or false
+	control = self.ctrl[control]
+	for _, item in pairs(items) do
+		control.items.add(item)
+	end
+	control.setItemIndex(0)
 end
 
 function wex:fixSize(parentName, x, y)
-  x = x or 0
-  y = y or 0
-  local parent = self.ctrl[parentName]
-  local width, height = 0, 0
-  local tempWidth, tempHeight
-  for i = 0, parent.ComponentCount - 1 do
-    tempWidth = parent.Component[i].Left + parent.Component[i].Width
-    if (tempWidth > width) then
-        width = tempWidth
-    end
-    tempHeight =  parent.Component[i].Top + parent.Component[i].Height
-    if (tempHeight > height) then
-       height = tempHeight
-    end
-  end
-  parent.Width = width + x
-  parent.x = parent.Width + parent.Left
-  parent.Height = height + y
-  parent.y = parent.Height + parent.Top
+	x = x or 0
+	y = y or 0
+	local parent = self.ctrl[parentName]
+	local width, height = 0, 0
+	local tempWidth, tempHeight
+	for i = 0, parent.ComponentCount - 1 do
+		tempWidth = parent.Component[i].Left + parent.Component[i].Width
+		if (tempWidth > width) then
+				width = tempWidth
+		end
+		tempHeight =	parent.Component[i].Top + parent.Component[i].Height
+		if (tempHeight > height) then
+			 height = tempHeight
+		end
+	end
+	parent.Width = width + x
+	parent.x = parent.Width + parent.Left
+	parent.Height = height + y
+	parent.y = parent.Height + parent.Top
 end
 
 function wex:fillGap(controlName, targetName)
-  local control = self.ctrl[controlName]
-  local target = {
-    x = self.ctrl[targetName.x] or nil,
-    y = self.ctrl[targetName.y] or nil
-  }
-  if(target.x) then control.Width = control.Width + target.x.Width + target.x.Left - control.Width - control.Left end
-  if(target.y) then control.Height = control.Height + target.y.Height + target.y.Top - control.Height - control.Top end
+	local control = self.ctrl[controlName]
+	local target = {
+		x = self.ctrl[targetName.x] or nil,
+		y = self.ctrl[targetName.y] or nil
+	}
+	if(target.x) then control.Width = control.Width + target.x.Width + target.x.Left - control.Width - control.Left end
+	if(target.y) then control.Height = control.Height + target.y.Height + target.y.Top - control.Height - control.Top end
 end
 
 local function changeRegionCheckbox(t)
 	if t.Caption ~= "" then
-  	wex.PlayRegions[wex.IndexedRegionNames[t.Caption]].Active = t.Checked
-  end
+		wex.PlayRegions[wex.IndexedRegionNames[t.Caption]].Active = t.Checked
+	end
 end
 
 local function setMapPool(t)
 	t = t.getItemIndex() + 1
-  wex.MapList.Visible = false
-  for i,v in ipairs(wex.Checkboxes) do v.destroy() end
-  wex.Checkboxes = {}
-  for i,v in ipairs(wex.PlayRegions) do
+	wex.MapList.Visible = false
+	for i,v in ipairs(wex.Checkboxes) do v.destroy() end
+	wex.Checkboxes = {}
+	for i,v in ipairs(wex.PlayRegions) do
 		if v.Map == wex.Maps[t] then table.insert(wex.Checkboxes, wex.Main:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
-  end
-  wex.MapList.Visible = true
+	end
+	wex.MapList.Visible = true
 end
 
 local function changeAllCheckboxes(t)
 	if t then
-	  t.AllowGrayed = false
-	  for i,v in ipairs(wex.Checkboxes) do
-      v.Checked = t.State == 2 and v.Checked or t.State == 1
-	  end
-  else
-	  for i,v in ipairs(wex.Checkboxes) do
-      v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
-	  end
-  end
+		t.AllowGrayed = false
+		for i,v in ipairs(wex.Checkboxes) do
+			v.Checked = t.State == 2 and v.Checked or t.State == 1
+		end
+	else
+		for i,v in ipairs(wex.Checkboxes) do
+			v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
+		end
+	end
 end
 
 local function saveTemplate()
 	local dialog = createSaveDialog(getMainForm())
-  dialog.InitialDir = TrainerOrigin
-  if dialog:execute() then
-    local f = io.open(dialog.FileName, "w+")
-	  if not f then
-      print("Invasion Regions: warning: unable to save template file.")
-      return
-    end
-  	for i,v in ipairs(wex.PlayRegions) do
-  	  if v.Active then f:write(string.format("%s\n", v.PlayRegion)) end
-    end
-    f:close()
-  end
+	dialog.InitialDir = TrainerOrigin
+	if dialog:execute() then
+		local f = io.open(dialog.FileName, "w+")
+		if not f then
+			print("Invasion Regions: warning: unable to save template file.")
+			return
+		end
+		for i,v in ipairs(wex.PlayRegions) do
+			if v.Active then f:write(string.format("%s\n", v.PlayRegion)) end
+		end
+		f:close()
+	end
 end
 
 local function loadTemplate()
 	local dialog = createOpenDialog(getMainForm())
-  dialog.InitialDir = TrainerOrigin
-  if dialog:execute() then
-    local f = io.open(dialog.FileName, "r+")
-	    if not f then
-        print("Invasion Regions: warning: unable to open template file.")
-        return
-      end
-    local t = f:read("*all")
-    for i,v in ipairs(wex.PlayRegions) do v.Active = nil end
-    t:gsub("(%d+)\n", function(playRegion)
-    	local playRegion = tonumber(playRegion)
-      local index = wex.IndexedRegions[playRegion]
-      if not index then
-    	  local name = "Unknown PlayRegion "..playRegion
-			  table.insert(wex.PlayRegions, {Map = "Unknown", Name = name, PlayRegion = playRegion, Active = true})
-        if wex.Maps[#wex.Maps] ~= "Unknown" then table.insert(wex.Maps, "Unknown") end
-        local index = #wex.PlayRegions
-        wex.IndexedRegionNames[name] = index
-        wex.IndexedRegions[playRegion] = index
-      else
-    	  wex.PlayRegions[index].Active = true
-      end
-    end)
-    changeAllCheckboxes()
-    f:close()
-  end
+	dialog.InitialDir = TrainerOrigin
+	if dialog:execute() then
+		local f = io.open(dialog.FileName, "r+")
+			if not f then
+				print("Invasion Regions: warning: unable to open template file.")
+				return
+			end
+		local t = f:read("*all")
+		for i,v in ipairs(wex.PlayRegions) do v.Active = nil end
+		t:gsub("(%d+)\n", function(playRegion)
+			local playRegion = tonumber(playRegion)
+			local index = wex.IndexedRegions[playRegion]
+			if not index then
+				local name = "Unknown PlayRegion "..playRegion
+				table.insert(wex.PlayRegions, {Map = "Unknown", Name = name, PlayRegion = playRegion, Active = true})
+				if wex.Maps[#wex.Maps] ~= "Unknown" then table.insert(wex.Maps, "Unknown") end
+				local index = #wex.PlayRegions
+				wex.IndexedRegionNames[name] = index
+				wex.IndexedRegions[playRegion] = index
+			else
+				wex.PlayRegions[index].Active = true
+			end
+		end)
+		changeAllCheckboxes()
+		f:close()
+	end
 end
 
 local function cancel()
@@ -175,96 +175,101 @@ end
 
 local function showGuide()
 	showText(wex.Guide)
-  return true
+	return true
 end
 
 local function selectRegions(t)
 	t.AllowGrayed = false
-  local property = t.Name
-  local state = t.State == 1
-  if property ~= "All" then wex.RegionProperties[property] = state end
-  for i,v in ipairs(wex.PlayRegions) do
-  	local state = state
-    if state then
+	local property = t.Name
+	local state = t.State == 1
+	if property ~= "All" then wex.RegionProperties[property] = state end
+	for i,v in ipairs(wex.PlayRegions) do
+		local state = state
+		if state then
 			for _i,_v in pairs(wex.RegionProperties) do
-        if v[_i] and _v == false then state = false break end
-      end
-    end
-    local match = v[property] or property == "All"
-    if state then
+				if v[_i] and _v == false then state = false break end
+			end
+		end
+		local match = v[property] or property == "All"
+		if state then
 			v.Active = match or v.Active
 		elseif match then
 			v.Active = false
-    end
-  end
-  for i,v in ipairs(wex.Checkboxes) do
-  	v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
-  end
+		end
+	end
+	for i,v in ipairs(wex.Checkboxes) do
+		v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
+	end
 end
 
 local function readRegions()
-	for i = wex.ArrayStart, wex.ArrayEnd - 4, 4 do
-  	local playRegion = readInteger(i)
-    local index = wex.IndexedRegions[playRegion]
-    if not index then
-    	local name = "Unknown PlayRegion "..playRegion
+	local first = readPointer(wex.ArrayStartPtr)
+	local last = readPointer(wex.ArrayEndPtr)
+	for i = first, last - 4, 4 do
+		local playRegion = readInteger(i)
+		local index = wex.IndexedRegions[playRegion]
+		if not index then
+			local name = "Unknown PlayRegion "..playRegion
 			table.insert(wex.PlayRegions, {Map = "Unknown", Name = name, PlayRegion = playRegion, Active = true})
-      if wex.Maps[#wex.Maps] ~= "Unknown" then table.insert(wex.Maps, "Unknown") end
-      local index = #wex.PlayRegions
-      wex.IndexedRegionNames[name] = index
-      wex.IndexedRegions[playRegion] = index
-    else
-    	wex.PlayRegions[index].Active = true
-    end
-  end
+			if wex.Maps[#wex.Maps] ~= "Unknown" then table.insert(wex.Maps, "Unknown") end
+			local index = #wex.PlayRegions
+			wex.IndexedRegionNames[name] = index
+			wex.IndexedRegions[playRegion] = index
+		else
+			wex.PlayRegions[index].Active = true
+		end
+	end
 end
 
 local function writeRegions()
 	if tga.config.printProgress then
-    print(string.format("Writing invasion regions%s...", wex.ToggleGraces and ", this may take a while" or ""))
-  end
+		print(string.format("Writing invasion regions%s...", wex.ToggleGraces and ", this may take a while" or ""))
+	end
 	writeByte(wex.SaveDisablePtr, 1)
 	local offset = 0
-  for i,v in ipairs(wex.PlayRegions) do
-    if v.Active then
-		  writeInteger(wex.ArrayStart + offset, v.PlayRegion)
-      offset = offset + 4
-    end
-    if wex.ToggleGraces and v.BonfireFlags and ef then
+	local first = readPointer(wex.ArrayStartPtr)
+	local cap = readPointer(wex.ArrayCapPtr)
+	for i,v in ipairs(wex.PlayRegions) do
+		if v.Active then
+			if first + offset >= cap then break end
+			writeInteger(first + offset, v.PlayRegion)
+			offset = offset + 4
+		end
+		if wex.ToggleGraces and v.BonfireFlags and ef then
 			for _i,_v in ipairs(v.BonfireFlags) do ef.setFlag(_v, v.Active) end
-    end
-  end
-	writeInteger(wex.ArrayEndPtr, wex.ArrayStart + offset)
+		end
+	end
+	writeInteger(wex.ArrayEndPtr, first + offset)
  	writeByte(wex.SaveDisablePtr, 0)
-  writeByte(wex.SaveRequestPtr, 1)
-  writeByte(wex.DisableControls, 0)
-  wex.Window.close()
-  if tga.config.printProgress then print("Done!") end
+	writeByte(wex.SaveRequestPtr, 1)
+	writeByte(wex.DisableControls, 0)
+	wex.Window.close()
+	if tga.config.printProgress then print("Done!") end
 end
 
 function wex:createWindow(win, formName)
-  wex.Window = win:create("TCEForm", nil, {Caption = "Invasion Areas"}, formName)
-  win:initDefaultForm(formName)
-  win:fixSize(formName, 400, 300)
-  win:create("TCEComboBox", formName, {Caption = "Map", Width = 240, Height = 40, Left = 10, Top = 9, OnChange = setMapPool})
-  win:addItems("Map", wex.Maps)
+	wex.Window = win:create("TCEForm", nil, {Caption = "Invasion Areas"}, formName)
+	win:initDefaultForm(formName)
+	win:fixSize(formName, 400, 300)
+	win:create("TCEComboBox", formName, {Caption = "Map", Width = 240, Height = 40, Left = 10, Top = 9, OnChange = setMapPool})
+	win:addItems("Map", wex.Maps)
 	wex.MapList = win:create("TScrollBox", formName, {Caption = "MapList", Width = 240, Height = win.ctrl[formName].Height - 40, Left = 10, Top = 30})
-  win:create("TCheckBox", "MapList", {AllowGrayed = true, State = 2, OnChange = changeAllCheckboxes}, "CheckAll")
-  wex.Checkboxes = {}
-  for i,v in ipairs(wex.PlayRegions) do
+	win:create("TCheckBox", "MapList", {AllowGrayed = true, State = 2, OnChange = changeAllCheckboxes}, "CheckAll")
+	wex.Checkboxes = {}
+	for i,v in ipairs(wex.PlayRegions) do
 		if v.Map == wex.Maps[1] then table.insert(wex.Checkboxes, win:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
-  end
-  win:initialize("MapList",{ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", EnlargeHorizontal = "crsScaleChilds", LeftRightSpacing = 5}})
-  win:create("TButton", formName, {Caption = "Save Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 8, OnClick = saveTemplate}, "Save")
+	end
+	win:initialize("MapList",{ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", EnlargeHorizontal = "crsScaleChilds", LeftRightSpacing = 5}})
+	win:create("TButton", formName, {Caption = "Save Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 8, OnClick = saveTemplate}, "Save")
 	win:create("TButton", formName, {Caption = "Load Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 38, OnClick = loadTemplate}, "Load")
 	win:create("TGroupBox", formName, {Caption = "Region Types", Width = 130, Left = win.ctrl["Map"].Width + 20, Top = 68, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}}, "Regions")
-  win:create("TCheckBox", "Regions", {Caption = "All", Name = "All", AllowGrayed = true, State = 2, OnChange = selectRegions})
-  win:create("TCheckBox", "Regions", {Caption = "Open World",  Name = "isOpenWorld", AllowGrayed = true, State = 2, OnChange = selectRegions})
-  win:create("TCheckBox", "Regions", {Caption = "Dungeons",  Name = "isDungeon", AllowGrayed = true, State = 2, OnChange = selectRegions})
-  win:create("TCheckBox", "Regions", {Caption = "Bosses",  Name = "isBoss", AllowGrayed = true, State = 2, OnChange = selectRegions})
-  win:create("TGroupBox", formName, {Caption = "Options", Width = 130, Left = win.ctrl["Map"].Width + 20, Height = 50, Top = win.ctrl["Regions"].Height + 73, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}})
-  win:create("TCheckBox", "Options", {Caption = "Also Toggle Graces", Checked = false, OnChange = function(t) wex.ToggleGraces = t.State == 1 end})
-  win:create("TButton", formName, {Caption = "Usage Guide", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 65, OnClick = showGuide})
+	win:create("TCheckBox", "Regions", {Caption = "All", Name = "All", AllowGrayed = true, State = 2, OnChange = selectRegions})
+	win:create("TCheckBox", "Regions", {Caption = "Open World",	Name = "isOpenWorld", AllowGrayed = true, State = 2, OnChange = selectRegions})
+	win:create("TCheckBox", "Regions", {Caption = "Dungeons",	Name = "isDungeon", AllowGrayed = true, State = 2, OnChange = selectRegions})
+	win:create("TCheckBox", "Regions", {Caption = "Bosses",	Name = "isBoss", AllowGrayed = true, State = 2, OnChange = selectRegions})
+	win:create("TGroupBox", formName, {Caption = "Options", Width = 130, Left = win.ctrl["Map"].Width + 20, Height = 50, Top = win.ctrl["Regions"].Height + 73, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}})
+	win:create("TCheckBox", "Options", {Caption = "Also Toggle Graces", Checked = false, OnChange = function(t) wex.ToggleGraces = t.State == 1 end})
+	win:create("TButton", formName, {Caption = "Usage Guide", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 65, OnClick = showGuide})
 	win:create("TButton", formName, {Caption = "OK", Width = 60, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 35, OnClick = writeRegions})
 	win:create("TButton", formName, {Caption = "Cancel", Width = 60, Height = 25, Left = win.ctrl["OK"].y + 40, Top = win.ctrl[formName].Height - 35, OnClick = cancel})
 end
@@ -338,7 +343,7 @@ wex.PlayRegions = {
 {Map = "Stormveil Castle", Name = "Liftside Chamber, Secluded Cell", PlayRegion = 1000005, BonfireFlags = {71006, 71007}, isBoss = true},
 {Map = "Stormveil Castle", Name = "Godrick the Grafted", PlayRegion = 1000000, BonfireFlags = {71000}, isBoss = true},
 {Map = "Liurnia of the Lakes", Name = "Liurnia South-East", PlayRegion = 6200001, BonfireFlags = {76217, 76200, 76201, 76202, 76203, 76244, 76221, 76222}, isOpenWorld = true},
-{Map = "Liurnia of the Lakes", Name = "Liurnia East", PlayRegion = 6200004, BonfireFlags = {76223, 76234, 76224, 76225, 76226}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name v= "Liurnia East", PlayRegion = 6200004, BonfireFlags = {76223, 76234, 76224, 76225, 76226}, isOpenWorld = true},
 {Map = "Liurnia of the Lakes", Name = "Behind Caria Manor", PlayRegion = 6200008, BonfireFlags = {76247, 76228, 76238}},
 {Map = "Liurnia of the Lakes", Name = "Slumbering Wolf's Shack", PlayRegion = 3105090, BonfireFlags = {76215}},
 {Map = "Liurnia of the Lakes", Name = "Liurnia South", PlayRegion = 6200000, BonfireFlags = {76205, 76204, 76216, 76236, 76241, 76243, 76242, 76233}, isOpenWorld = true},
@@ -586,11 +591,8 @@ wex.PlayRegionsDLC1 = {
 {Map = "Realm of Shadow", Name = "Scaduview: Shadow Keep, Back Gate", PlayRegion = 2101013, BonfireFlags = {76931}, isBoss = true},
 {Map = "Realm of Shadow", Name = "Scaduview: Hinterland", PlayRegion = 6930000, BonfireFlags = {76935, 76936, 76937}, isOpenWorld = true},
 }
-
 if isOwnDlc(1) then
-	for _,v in ipairs(wex.PlayRegionsDLC1) do
-		table.insert(wex.PlayRegions, v)
-	end
+	for k,v in pairs(wex.PlayRegionsDLC1) do table.insert(wex.PlayRegions, v) end
 end
 
 if wex.Window then wex.Window.close() end
@@ -615,10 +617,11 @@ wex.memrec = memrec
 wex.SaveSlotPtr = "[GameMan]+AC0"
 wex.ArrayStartPtr = "[[GameDataMan]+8]+938"
 wex.ArrayEndPtr = "[[GameDataMan]+8]+940"
-wex.ArrayStart = readQword(wex.ArrayStartPtr)
-wex.ArrayEnd = readQword(wex.ArrayEndPtr)
-wex.ArrayLength = wex.ArrayStart and wex.ArrayEnd and wex.ArrayEnd - wex.ArrayStart
-wex.NumItems = wex.ArrayLength and wex.ArrayLength//4
+wex.ArrayCapPtr = "[[GameDataMan]+8]+948"
+-- wex.ArrayStart = readQword(wex.ArrayStartPtr)
+-- wex.ArrayEnd = readQword(wex.ArrayEndPtr)
+-- wex.ArrayLength = wex.ArrayStart and wex.ArrayEnd and wex.ArrayEnd - wex.ArrayStart
+-- wex.NumItems = wex.ArrayLength and wex.ArrayLength//4
 wex.SaveRequestPtr = "[GameMan]+B72"
 wex.SaveDisablePtr = "[CSMenuMan]+13C"
 wex.DisableControlsPtr = "[GameMan]+BC4"
@@ -627,7 +630,7 @@ local saveSlot = readInteger(wex.SaveSlotPtr, true)
 if not saveSlot or saveSlot == -1 then
 	local e = "No character loaded. \nLoad a character before activating this script."
 	showMessage(e)
-  error(e)
+	error(e)
 end
 writeByte(wex.SaveDisablePtr, 0)
 writeByte(wex.DisableControlsPtr, 0)

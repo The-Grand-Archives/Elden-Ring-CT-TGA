@@ -1,7 +1,7 @@
 <CheatEntry>
-  <ID>101097</ID>
+  <ID>101113</ID>
   <Description>"Quantity"</Description>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
-  <Address>ItemDropData+04</Address>
+  <Address>ItemDrop_data+04</Address>
 </CheatEntry>

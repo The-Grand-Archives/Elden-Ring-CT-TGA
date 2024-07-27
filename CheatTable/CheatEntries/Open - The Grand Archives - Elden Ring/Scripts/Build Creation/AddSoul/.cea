@@ -1,25 +1,18 @@
-//Author: inuNorii
+{$lua}
+if syntaxcheck then return end
 [ENABLE]
-aobscanmodule(AddSoul_Call,$process,44 8B 49 ?? 45 33 DB 44 89 5C 24)
-alloc(AddSoul,$100,$process)
-registerSymbol(AddSoul)
-label(AddSoulData)
+if AddSoul == nil then
+    getAddressList().getMemoryRecordByDescription("AddSoul_code").active = true
+    throwError("'AddSoul' symbol was not found.\nTry enabling this script again.")
+end
 
-AddSoul:
-sub rsp,48
-mov edi,[AddSoulData]
-mov rcx,[GameDataMan]
-mov rcx,[rcx+08]
-mov edx,edi
-call AddSoul_Call
-add rsp,48
-ret
+AddSoul_value = allocateMemory(4, getAddress(process))
+writeInteger(AddSoul_value, 500)
 
-AddSoulData:
-registerSymbol(AddSoulData)
-dd #500
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- AddSoul(value)
 
 [DISABLE]
-dealloc(AddSoul)
-unregisterSymbol(AddSoul)
-unregisterSymbol(AddSoulData)
+deAlloc(AddSoul_value)
+AddSoul_value = nil

@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>107998</ID>
+  <ID>108010</ID>
   <Description>"Is the summoning magic lock target debug display effective? | 召喚魔法用ロックターゲットデバッグ表示が有効か"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
 1:Enable

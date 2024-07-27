@@ -5,9 +5,7 @@ local memrec_gem = getAddressList().getMemoryRecordByID(1101)
 [ENABLE]
 if ItemGive == nil then
     getAddressList().getMemoryRecordByDescription("ItemGive_code").active = true
-    local e = "'ItemGive' symbol was not found.\nTry enabling this script again."
-    ShowMessage(e)
-    error(e, 2)
+    throwError("'ItemGive' symbol was not found.\nTry enabling this script again.")
 end
 
 item_menu = ItemGive_data + 16

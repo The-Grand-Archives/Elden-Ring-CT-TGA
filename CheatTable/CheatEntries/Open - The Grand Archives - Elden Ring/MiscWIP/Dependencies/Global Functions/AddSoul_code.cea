@@ -1,0 +1,18 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local addr = AOBScanModuleUnique(process,"44 8B ?? ?? 45 33 ?? 44 89 5C 24")
+function AddSoul(value)
+	if value == nil then
+		value = tonumber(inputQuery("AddSoul", "Choose amount of runes", "0"))
+		if value == nil or value == 0 then
+			return false
+		end
+	end
+	local GameDataMan = readPointer("GameDataMan")
+	local PlayerGameData = readPointer(GameDataMan + 8)
+	return executeCodeEx(0, 100, addr, PlayerGameData, value)
+end
+
+[DISABLE]
+AddSoul = nil

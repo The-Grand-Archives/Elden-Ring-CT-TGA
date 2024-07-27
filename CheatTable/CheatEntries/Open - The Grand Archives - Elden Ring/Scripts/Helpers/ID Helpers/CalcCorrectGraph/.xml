@@ -1,10 +1,10 @@
 <CheatEntry>
-  <ID>103488</ID>
+  <ID>103506</ID>
   <Description>"CalcCorrectGraph"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="103489"/>
-    <id id="103490"/>
+    <id id="103507"/>
+    <id id="103508"/>
   </x-ce2fs-child-order>
 </CheatEntry>

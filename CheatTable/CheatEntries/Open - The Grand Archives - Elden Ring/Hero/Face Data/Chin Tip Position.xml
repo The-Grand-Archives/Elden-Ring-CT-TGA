@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100651</ID>
+  <ID>100668</ID>
   <Description>"Chin Tip Position"</Description>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

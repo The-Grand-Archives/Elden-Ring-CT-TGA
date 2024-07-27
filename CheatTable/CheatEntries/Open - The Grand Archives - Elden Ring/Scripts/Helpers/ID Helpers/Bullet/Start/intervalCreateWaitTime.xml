@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102357</ID>
+  <ID>102375</ID>
   <Description>"intervalCreateWaitTime"</Description>
   <VariableType>Float</VariableType>
   <Address>+BC</Address>

@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>100256</ID>
+  <ID>100270</ID>
   <Description>"SecondaryArrow"</Description>
   <DropDownListLink>WEAPON_ID</DropDownListLink>
   <ShowAsSigned>1</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
   <Address>WorldChrMan</Address>
   <Offsets>
-    <Offset>3C0</Offset>
+    <Offset>3B8</Offset>
     <Offset>580</Offset>
     <Offset>5*10</Offset>
     <Offset>10EF8</Offset>

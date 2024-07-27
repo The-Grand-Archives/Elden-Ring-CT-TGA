@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103630</ID>
+  <ID>103648</ID>
   <Description>"throwCondition"</Description>
   <VariableType>Byte</VariableType>
   <Address>+015C</Address>

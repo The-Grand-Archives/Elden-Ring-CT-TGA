@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>101010</ID>
+  <ID>101027</ID>
   <Description>"Screen Mode"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Window
 1:Fullscreen

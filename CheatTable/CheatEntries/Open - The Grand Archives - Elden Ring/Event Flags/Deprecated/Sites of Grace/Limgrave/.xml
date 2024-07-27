@@ -1,12 +1,12 @@
 <CheatEntry>
-  <ID>106854</ID>
+  <ID>106874</ID>
   <Description>"Limgrave"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106855"/>
-    <id id="106877"/>
-    <id id="106880"/>
-    <id id="106889"/>
+    <id id="106875"/>
+    <id id="106897"/>
+    <id id="106900"/>
+    <id id="106909"/>
   </x-ce2fs-child-order>
 </CheatEntry>

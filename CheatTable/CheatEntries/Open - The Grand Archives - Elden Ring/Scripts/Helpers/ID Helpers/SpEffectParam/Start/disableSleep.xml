@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>102513</ID>
+  <ID>102531</ID>
   <Description>"disableSleep"</Description>
   <VariableType>Binary</VariableType>
   <BitStart>7</BitStart>

@@ -4,9 +4,7 @@ if syntaxcheck then return end
 [ENABLE]
 if changeMagic == nil then
     getAddressList().getMemoryRecordByDescription("changeMagic_code").active = true
-    local e = "'changeMagic' symbol was not found.\nTry enabling this script again."
-    ShowMessage(e)
-    error(e, 2)
+    throwError("'changeMagic' symbol was not found.\nTry enabling this script again.")
 end
 
 changeMagic_data = allocateMemory(16, getAddress(process))

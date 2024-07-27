@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>100023</ID>
+  <ID>100022</ID>
   <Description>"Disable Auto-Save"</Description>
   <DropDownListLink>TRUE_FALSE</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>

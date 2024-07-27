@@ -1,21 +1,21 @@
 <CheatEntry>
-  <ID>106847</ID>
+  <ID>106867</ID>
   <Description>"Deprecated"</Description>
   <Options moHideChildren="1"/>
   <Color>C0C0C0</Color>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="106848"/>
-    <id id="106849"/>
-    <id id="106850"/>
-    <id id="106851"/>
-    <id id="106852"/>
-    <id id="107211"/>
+    <id id="106868"/>
+    <id id="106869"/>
+    <id id="106870"/>
+    <id id="106871"/>
+    <id id="106872"/>
     <id id="107231"/>
-    <id id="107291"/>
-    <id id="107320"/>
-    <id id="107338"/>
-    <id id="107739"/>
-    <id id="107780"/>
+    <id id="107251"/>
+    <id id="107311"/>
+    <id id="107340"/>
+    <id id="107358"/>
+    <id id="107759"/>
+    <id id="107800"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,0 +1,63 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local add_call = AOBScanModuleUnique(process,"0f 28 0d ?? ?? ?? ?? ?? 8d ?? ?? 0f 29 ?? ?? ?? 0f b6 d8") - 0x1D
+local remove_call = AOBScanModuleUnique(process,"48 83 EC 28 8B C2 48 8B 51 08 48 85 D2 ?? ?? 90")
+
+SpEffect = {}
+
+-- 自分に特殊効果発動
+function SpEffect.addForSelf(id, ptr)
+	local PlayerIns = getPlayerIns(ptr)
+	return executeCodeEx(0, 100, add_call, PlayerIns, id, 1)
+end
+SpEffect.add = SpEffect.addForSelf
+
+-- 全部消去
+function SpEffect.eraseAll(ptr)
+	local PlayerIns = getPlayerIns(ptr)
+	local SpecialEffect = readPointer(PlayerIns + 0x178)
+	local slot = readPointer(SpecialEffect + 0x8)
+	local loop = true
+	while loop do -- while readInteger(slot + 0x30) ~= 0 do
+		local id = readInteger(slot + 0x8)
+		executeCodeEx(0, 100, remove_call, SpecialEffect, id)
+		if readInteger(slot + 0x30) ~= 0 then
+			slot = readPointer(slot + 0x30)
+		else
+			loop = false
+		end
+	end
+	return true
+end
+SpEffect.erase = SpEffect.eraseAll
+
+-- プレイヤーから特殊効果発動
+function SpEffect.addFromPlayers(id, ptr)
+	-- not implemented
+	return false
+end
+
+-- 特殊効果を削除
+function SpEffect.remove(id, ptr)
+	local PlayerIns = getPlayerIns(ptr)
+	local SpecialEffect = readPointer(PlayerIns + 0x178)
+	return executeCodeEx(0, 100, remove_call, SpecialEffect, id)
+end
+
+-- temporary for backwards compat
+SpEffect.add = SpEffect_addForSelf
+SpEffect.add = SpEffect_add
+SpEffect.erase = SpEffect_eraseAll
+SpEffect.erase = SpEffect_erase
+SpEffect.remove = SpEffect_remove
+
+[DISABLE]
+SpEffect = nil
+
+--temporary for backwards compat
+SpEffect_addForSelf = nil
+SpEffect_add = nil
+SpEffect_eraseAll = nil
+SpEffect_erase = nil
+SpEffect_remove = nil

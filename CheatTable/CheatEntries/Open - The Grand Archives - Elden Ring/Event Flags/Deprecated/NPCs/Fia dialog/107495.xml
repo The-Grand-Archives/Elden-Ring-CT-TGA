@@ -4,8 +4,8 @@
   <DropDownListLink>TRUE_FALSE</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Binary</VariableType>
-  <BitStart>4</BitStart>
+  <BitStart>5</BitStart>
   <BitLength>1</BitLength>
   <ShowAsBinary>0</ShowAsBinary>
-  <Address>+3</Address>
+  <Address>+0</Address>
 </CheatEntry>

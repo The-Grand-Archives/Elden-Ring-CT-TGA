@@ -1,14 +1,14 @@
 <CheatEntry>
-  <ID>101116</ID>
+  <ID>101134</ID>
   <Description>"BulletSpawn"</Description>
   <Options moHideChildren="1"/>
   <VariableType>Auto Assembler Script</VariableType>
   <x-ce2fs-child-order>
-    <id id="101117"/>
-    <id id="101118"/>
-    <id id="101119"/>
-    <id id="101120"/>
-    <id id="101121"/>
-    <id id="101122"/>
+    <id id="101135"/>
+    <id id="101136"/>
+    <id id="101137"/>
+    <id id="101138"/>
+    <id id="101139"/>
+    <id id="101140"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,9 +1,9 @@
 <CheatEntry>
-  <ID>108180</ID>
+  <ID>108192</ID>
   <Description>"Clear runOnce Memory"</Description>
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
-    <id id="108181"/>
+    <id id="108193"/>
   </x-ce2fs-child-order>
 </CheatEntry>

@@ -1,11 +1,10 @@
 <CheatEntry>
-  <ID>100999</ID>
+  <ID>101016</ID>
   <Description>"Display Player Names"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Character Name
 1:Steam Name
 </DropDownList>
   <ShowAsSigned>0</ShowAsSigned>
-  <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>

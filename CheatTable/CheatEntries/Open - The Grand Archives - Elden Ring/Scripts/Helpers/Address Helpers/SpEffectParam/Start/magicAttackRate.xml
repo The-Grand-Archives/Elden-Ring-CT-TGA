@@ -1,5 +1,5 @@
 <CheatEntry>
-  <ID>103537</ID>
+  <ID>103555</ID>
   <Description>"magicAttackRate"</Description>
   <VariableType>Float</VariableType>
   <Address>+03C</Address>
