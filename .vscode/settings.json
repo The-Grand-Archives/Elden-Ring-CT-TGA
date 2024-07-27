@@ -9,5 +9,8 @@
         "lowercase-global",
         "undefined-global"
     ],
-    "files.eol": "\n" // Windows :(
+    "files.eol": "\n", // Windows :(
+    "files.associations": {
+        "*.cea": "lua" // TODO: Make language extension for CE that dispatches to lua/C/AA accordingly
+    }
 }
