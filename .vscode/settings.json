@@ -5,6 +5,7 @@
         "-xc",
         "-std=gnu99"
     ],
+    "Lua.runtime.version": "Lua 5.3",
     "Lua.diagnostics.disable": [
         "lowercase-global",
         "undefined-global"
