@@ -13,7 +13,12 @@ jobs:
         with:
           submodules: true
       - name: "Build"
+        id: build
         uses: "./.github/actions/build"
+    
+    outputs:
+      release-tag: ${{ steps.build.outputs.release-tag }}
+      build-artifact-name: ${{ steps.build.outputs.build-artifact-name }}
   
   check-version:
     runs-on: ubuntu-latest
