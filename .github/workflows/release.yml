@@ -1,9 +1,7 @@
 name: "Release"
 on:
   push:
-    branches:
-      - dev
-      - master
+    branches: [master]
   pull_request: 
     branches: [master]
 
@@ -71,7 +69,7 @@ jobs:
       - build
       - check-version
       - generate-changelog
-    if: github.event_name == 'push' && github.ref == 'ref/heads/master'
+    if: github.event_name == 'push'
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
