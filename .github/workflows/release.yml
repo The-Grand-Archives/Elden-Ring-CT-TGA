@@ -27,7 +27,7 @@ jobs:
       - name: Ensure version was updated
         run: |
           source BUILD_ENV
-          if git show-ref --tags --verify --quiet "refs/tags/v${TABLE_VERSION}"; then
+          if git show-ref --tags --verify "refs/tags/v${TABLE_VERSION}"; then
             echo "Release v${TABLE_VERSION} already exists"
             exit 1
           fi
