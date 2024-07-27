@@ -13,7 +13,7 @@ jobs:
         with:
           submodules: true
       - name: "Build"
-        uses: "./.github/actions/build.yml"
+        uses: "./.github/actions/build"
   
   check-version:
     runs-on: ubuntu-latest
