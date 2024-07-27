@@ -11,11 +11,11 @@ jobs:
           submodules: true
 
       - name: CE2FS build 
-        run: "./scripts/build.sh --check"
+        run: "python ./scripts/build.py --check"
 
       - name: Collect table version
         id: collect_version
-        run: echo tag=v$(sed -r 's/([0-9])$/.\1/' VERSION) >> "$GITHUB_OUTPUT"
+        run: source BUILD_ENV && echo tag=v{$TABLE_VERSION} >> "$GITHUB_OUTPUT"
 
       - name: Upload build
         id: upload_build
@@ -31,40 +31,38 @@ jobs:
   
   check-version:
     runs-on: ubuntu-latest
-    needs: build 
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-tags: true
-          sparse-checkout: .
+          sparse-checkout: BUILD_ENV
       
       - name: Ensure version was updated
-        env:
-          TAG: ${{ needs.build.outputs.release-tag }}
         run: |
-          if git show-ref --tags --verify --quiet "refs/tags/$TAG"; then
-            echo "Release $TAG already exists"
+          source BUILD_ENV
+          if git show-ref --tags --verify --quiet "refs/tags/v${TABLE_VERSION}"; then
+            echo "Release v${TABLE_VERSION} already exists"
             exit 1
           fi
   
   generate-changelog:
     runs-on: ubuntu-latest
-    needs:
-      - build
-      - check-version
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          sparse-checkout: CHANGELOG.md
+          sparse-checkout: |
+            CHANGELOG.md
+            BUILD_ENV
       
       - name: Extract changelog section
         id: extract_changelog
         run: |
-          escaped=$(echo "${{ needs.build.outputs.release-tag }}" | sed 's/\./\\./g')
+          source BUILD_ENV
+          escaped=$(echo "${TABLE_VERSION}" | sed 's/\./\\./g')
           changelog=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '1d; $ d')
           if [ -z "${changelog}" ]; then
             echo "No changelog written for release. Aborting."
@@ -72,6 +70,7 @@ jobs:
           fi
           {
             echo 'changelog<<EOF'
+            echo "## Elden Ring app ver. ${GAME_VERSION}"
             echo "${changelog}"
             echo EOF
           } >> $GITHUB_OUTPUT
