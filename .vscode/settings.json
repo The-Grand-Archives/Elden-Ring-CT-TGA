@@ -4,5 +4,9 @@
         "-IC:/Program Files/Cheat Engine 7.4/include",
         "-xc",
         "-std=gnu99"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global",
+        "undefined-global"
     ]
 }
