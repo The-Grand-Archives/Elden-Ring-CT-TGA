@@ -14,11 +14,82 @@ if not getAddressSafe(process) then
     end
 end
 
+---@class Semver
+---@field major integer
+---@field minor integer
+---@field release integer
+---@field build integer
+Semver = {}
+
+---@param o table | string
+---@return Semver
+function Semver:new(o)
+    if type(o) == "string" then
+        return Semver:fromString(o)
+    end
+    o = {
+        major = o.major or 0,
+        minor = o.minor or 0,
+        release = o.release or 0,
+        build = o.build or 0
+    }
+    setmetatable(o, self)
+    self.__index = self
+    return o
+end
+
+---@param str string
+function Semver:fromString(str)
+    local verParts = {}
+    local remaining = str:gsub("(%d+)%.?", function(m)
+        table.insert(verParts, tonumber(m, 10))
+        return ""
+    end)
+
+    if #verParts == 0 or remaining ~= "" then
+        error(("%s is not a valid semver string"):format(str))
+    end
+    return Semver:new{ 
+        major = verParts[1] or 0,
+        minor = verParts[2] or 0,
+        release = verParts[3] or 0,
+        build = verParts[4] or 0
+    }
+end
+
+---@return integer
+function Semver:asU64()
+    return (self.major << 48 ) | (self.minor << 32) | (self.release << 16) | (self.build)
+end
+
+function Semver:__tostring()
+    local noBuild = ("%d.%d.%d"):format(self.major, self.minor, self.release)
+    return self.build == 0 and noBuild or noBuild .. '.' .. tostring(self.build)
+end
+
+function Semver:__eq(other)
+    if getmetatable(other) ~= Semver then
+        return false
+    end
+    return self:asU64() == other:asU64()
+end
+
+---@param other Semver
+function Semver:__lt(other)
+    return self:asU64() < other:asU64()
+end
+
+---@param other Semver
+function Semver:__le(other)
+    return self:asU64() <= other:asU64()
+end
+
+
 game_title = "ELDEN RING"
-game_ver = "2.02.3" -- this is officially ELDEN RING app ver v1.12.3
-table_ver = 1.130
-ce_ver = 7.4
-local version_url = "https://raw.githubusercontent.com/The-Grand-Archives/Elden-Ring-CT-TGA/master/VERSION"
+game_ver = Semver:fromString("${CE2FS:GAME_VERSION}")
+table_ver = Semver:fromString("${CE2FS:TABLE_VERSION}")
+ce_ver = tonumber("${CE2FS:MIN_CE_VERSION}")
+local latest_build_env_url = "https://raw.githubusercontent.com/The-Grand-Archives/Elden-Ring-CT-TGA/master/BUILD_ENV"
 
 -- checking for user issues
 local required_files = {
@@ -106,22 +177,22 @@ function sanitizeUsername(username)
     return string.format("user-%x", h)
 end
 
+---@return Semver
 function getGameVersion()
-    local function getVerChunk(verString, cStart, cEnd)
-        return tonumber(string.sub(verString, cStart, cEnd), 16)
-    end
-    local ver = getAddressSafe(process) and enumModules() and enumModules()[1] and getFileVersion(enumModules()[1].PathToFile)
-    if not enumModules()[1] then
+    local success, _, semver = pcall(function() 
+        return getFileVersion(enumModules()[1].PathToFile)
+    end)
+    if not success then
         local e = "Failed to read game process.\nMake sure you've launched the game without EasyAntiCheat."
         ShowMessage(e)
         error(e,2)
-    elseif not ver then	return end
-    ver = string.format("%X", ver)
-    local l = #ver
-    local v2 = getVerChunk(ver, l - 11, l - 8)
-    local v3 = getVerChunk(ver, l - 7, l - 4)
-    ver = string.format("%s.%s", getVerChunk(ver, 1, l - 12), v2 < 10 and "0"..v2 or v2)
-    return v3 ~= 0 and string.format("%s.%s", ver, v3) or ver
+    end
+    return Semver:new{
+        major = 1,
+        minor = 10*(semver.major - 1) + semver.minor,
+        release = semver.release,
+        build = semver.build
+    }
 end
 
 tga = {}
@@ -434,13 +505,17 @@ if tga.config.checkGameLaunched and not GetAddressSafe(process) then
     error(e,2)
 end
 
-if tga.config.checkGameVersion and current_game_ver and current_game_ver ~= game_ver and current_game_ver ~= game_ver:match("(%d*%.%d*)%.0+$") then
-    showMessage(string.format("Your version of Elden Ring (%s) might not be supported.\nSupported version: %s", current_game_ver, game_ver))
+if tga.config.checkGameVersion and current_game_ver ~= game_ver then
+    showMessage(string.format(
+        "Your version of Elden Ring (%s) might not be supported.\nSupported version: %s", 
+        current_game_ver, 
+        game_ver
+    ))
 end
 
 if tga.config.checkCEVersion and getCEVersion() < ce_ver then
     local ver_str = string.format("Cheat Engine %s or newer is required.\nDownload version %s from GitHub?",ce_ver,ce_ver)
-    local dl_url = string.format("https://github.com/cheat-engine/cheat-engine/releases/download/%s/CheatEngine%s.exe",ce_ver,string.gsub(ce_ver,"%W",""))
+    local dl_url = string.format("https://github.com/cheat-engine/cheat-engine/releases/download/%s/CheatEngine%s.exe",ce_ver,string.gsub(tostring(ce_ver),"%W",""))
     if messageDialog("CE Version Check", ver_str, mtError, mbYes, mbNo)==mrYes then
         shellExecute(dl_url)
     end
@@ -449,18 +524,20 @@ end
 
 if tga.config.checkTableVersion and table_ver ~= nil then
     local internet = getInternet()
-    local response = internet.getURL(version_url)
-    if response ~= nil then
-        if table_ver < tonumber(response) then
-            showMessage([[Your Cheat Table is outdated.
-            Check the Github for the latest version.]])
-        elseif table_ver > tonumber(response) then
-            showMessage("This is a pre-release version of the Cheat Table.\nFind regular versions in the Releases section on the Github page.")
-        end
-    else
-        showMessage("Version check failed.")
-    end
+    local success, latest = pcall(function() 
+        local build_env = internet.getURL(latest_build_env_url)
+        return Semver:fromString(build_env:gmatch("TABLE_VERSION%s*=%s*([^%s\n]+)"))
+    end)
     internet.destroy()
+
+    if not success then
+        showMessage("Version check failed.")
+    elseif latest > table_ver then
+        showMessage([[Your Cheat Table is outdated.
+        Check the Github for the latest version.]])
+    elseif latest < table_ver then
+        showMessage("This is a pre-release version of the Cheat Table.\nFind regular versions in the Releases section on the Github page.")
+    end
 elseif tga.config.checkTableVersion then
     showMessage("This is a pre-release version of the Cheat Table.\nFind regular versions in the Releases section on the Github page.")
 end
@@ -712,9 +789,10 @@ function disableRecord(id, delay, sync)
     end
 end
 
-function address_version(script_ver)
-  if current_game_ver ~= script_ver then
-      e = "The addresses used by this script only work for\n"..game_title.." executable version "..script_ver
+---@param scriptVer Semver | string
+function address_version(scriptVer)
+  if current_game_ver ~= Semver:new(scriptVer) then
+      e = "The addresses used by this script only work for\n"..game_title.." game version "..scriptVer
       ShowMessage(e)
       error(e,2)
   end
