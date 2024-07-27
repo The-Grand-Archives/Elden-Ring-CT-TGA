@@ -1,0 +1,15 @@
+name: "Build table"
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        uses: "./.github/actions/build.yml"
+  
+  

@@ -1,37 +1,16 @@
-name: "Main workflow"
-on: [push]
+name: "Release"
+on:
+  push:
+    branches: [master]
+  pull_request: 
+    branches: [master]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: CE2FS build 
-        run: "python ./scripts/build.py --check"
-
-      - name: Collect table version
-        id: collect_version
-        run: source BUILD_ENV && echo tag=v${TABLE_VERSION} >> $GITHUB_OUTPUT
-
-      - name: Upload build
-        id: upload_build
-        uses: actions/upload-artifact@v4
-        with:
-          name: ER_TGA_${{ steps.collect_version.outputs.tag }}
-          path: dist
-          retention-days: 5
-
-    outputs:
-      release-tag: ${{ steps.collect_version.outputs.tag }}
-      build-artifact-name: ER_TGA_${{ steps.collect_version.outputs.tag }}
+    uses: "./.github/workflows/build.yml"
   
   check-version:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,7 +28,6 @@ jobs:
   
   generate-changelog:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -84,7 +62,7 @@ jobs:
       - build
       - check-version
       - generate-changelog
-    if: github.ref == 'refs/heads/master'
+    if: github.event_name == 'push'
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
