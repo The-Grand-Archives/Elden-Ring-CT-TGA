@@ -6,8 +6,7 @@ from pack_table_files import pack_table_files
 def p(path: str): # I LOVE WINDOWS
     return path.replace("/", os.sep)
 
-shutil.rmtree(p("./dist"))
-os.mkdir(p("./dist"))
+os.makedirs(p("./dist"), exist_ok=True)
 with open(p("./dist/steam_appid.txt"), "w") as f:
     f.write("1245620")
 
