@@ -1180,7 +1180,7 @@ asyncEnableTimer.OnTimer = function()
         enableRecord(1002, 0, true) -- Run singleton finder
         enableRecord(1003, 10) -- enable CParamUtils
         enableRecord(251, 10) -- enable ParamUtils
-        enableRecord(1004) -- enable Shared Functions
+        enableRecord(300) -- enable Shared Functions
     end
 end
 
@@ -1208,7 +1208,7 @@ end
 
 [DISABLE]
 disableRecord(251) -- disable ParamUtils
-disableRecord(1004) -- disable Shared Functions
+disableRecord(300) -- disable Shared Functions
 --disableRecord(1003, 0, true) -- CParamUtils should NOT be disabled to avoid memory leaks.
 disableRecord(1002, 0, true) -- disable singleton finder
 disableRecord(1001, 0, true) -- disable CSCRIPT V2
