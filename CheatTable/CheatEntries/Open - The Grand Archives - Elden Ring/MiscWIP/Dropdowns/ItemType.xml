@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>108205</ID>
+  <Description>"ItemType"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Weapon
+1:Protector
+2:Accessory
+4:Goods
+8:Gem
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

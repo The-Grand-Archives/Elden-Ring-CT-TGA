@@ -1,0 +1,31 @@
+//Author: Bearmageddon
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x40000578, 610, 0, 0, -1 }, -- Fire Grease
+  { 0x40000582, 610, 0, 0, -1 }, -- Lightning Grease
+  { 0x4000058C, 610, 0, 0, -1 }, -- Magic Grease
+  { 0x40000596, 610, 0, 0, -1 }, -- Holy Grease
+  { 0x400005A0, 610, 0, 0, -1 }, -- Blood Grease
+  { 0x400005AA, 610, 0, 0, -1 }, -- Soporific Grease
+  { 0x400005B4, 610, 0, 0, -1 }, -- Poison Grease
+  { 0x400005BE, 610, 0, 0, -1 }, -- Freezing Grease
+  { 0x400005C8, 610, 0, 0, -1 }, -- Dragonwound Grease
+  { 0x400005D2, 610, 0, 0, -1 }, -- Rot Grease
+  { 0x400005DC, 610, 0, 0, -1 }, -- Drawstring Fire Grease
+  { 0x400005E6, 610, 0, 0, -1 }, -- Drawstring Lightning Grease
+  { 0x400005F0, 610, 0, 0, -1 }, -- Drawstring Magic Grease
+  { 0x400005FA, 610, 0, 0, -1 }, -- Drawstring Holy Grease
+  { 0x40000604, 610, 0, 0, -1 }, -- Drawstring Blood Grease
+  { 0x4000060E, 610, 0, 0, -1 }, -- Drawstring Soporific Grease
+  { 0x40000618, 610, 0, 0, -1 }, -- Drawstring Poison Grease
+--{ 0x40000622, 610, 0, 0, -1 }, -- Drawstring Freezing Grease
+  { 0x40000636, 610, 0, 0, -1 }, -- Drawstring Rot Grease
+  { 0x4000069A, 610, 0, 0, -1 }, -- Shield Grease
+--{ 0x40000CE4, 610, 0, 0, -1 }, -- Holy Water Grease
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,38 @@
+<CheatEntry>
+  <ID>107627</ID>
+  <Description>"Dialog Stormveil"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>152002</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107628"/>
+    <id id="107629"/>
+    <id id="107630"/>
+    <id id="107631"/>
+    <id id="107632"/>
+    <id id="107633"/>
+    <id id="107634"/>
+    <id id="107635"/>
+    <id id="107636"/>
+    <id id="107637"/>
+    <id id="107638"/>
+    <id id="107639"/>
+    <id id="107640"/>
+    <id id="107641"/>
+    <id id="107642"/>
+    <id id="107643"/>
+    <id id="107644"/>
+    <id id="107645"/>
+    <id id="107646"/>
+    <id id="107647"/>
+    <id id="107648"/>
+    <id id="107649"/>
+    <id id="107650"/>
+    <id id="107651"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

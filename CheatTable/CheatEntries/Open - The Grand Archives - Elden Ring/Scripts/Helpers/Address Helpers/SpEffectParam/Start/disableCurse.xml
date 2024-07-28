@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>103688</ID>
+  <Description>"disableCurse"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0163</Address>
+</CheatEntry>

@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+-- script config vars
+local loop = true      -- changedepending on if you want it to loop or not
+local interval = 1000  -- how much time in ms needs to be pass before repeating
+
+----
+
+local PlayerIns = readPointer("[[WorldChrMan]+10EF8]")
+local SpecialEffect = readPointer(PlayerIns + 0x178)
+
+displayEffectsTimer = createTimer(getMainForm())
+displayEffectsTimer.Interval = interval
+displayEffectsTimer.OnTimer = function(timer)
+	local e = readPointer(SpecialEffect + 0x8)
+    print("Active SpEffects:")
+    repeat
+		local id = readInteger(e + 0x8)
+		local duration = readFloat(e + 0x40)
+		local duration_max = readFloat(e + 0x48)
+		print(string.format("%d: %.2f / %.2f",id, duration, duration_max))
+        if readInteger(e + 0x30) ~= 0 then
+            e = readPointer(e + 0x30)
+        else
+            e = false
+        end
+    until not e
+	print("----------------")
+    if loop == false then
+        displayEffectsTimer.destroy()
+        disableMemrec(memrec)
+    end
+end
+
+[DISABLE]
+if displayEffectsTimer then displayEffectsTimer.destroy() end

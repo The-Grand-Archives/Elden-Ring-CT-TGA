@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>105669</ID>
+  <Description>"NoDead"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>19B</Offset>
+    <Offset>0</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

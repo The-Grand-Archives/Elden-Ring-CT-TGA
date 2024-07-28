@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104003</ID>
+  <Description>"homingAngleX"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+D4</Address>
+</CheatEntry>

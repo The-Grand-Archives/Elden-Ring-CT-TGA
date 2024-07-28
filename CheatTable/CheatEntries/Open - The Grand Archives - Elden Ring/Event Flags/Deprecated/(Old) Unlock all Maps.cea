@@ -1,0 +1,42 @@
+//Authors: The-Raid-Boss, tremwil
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+disableMemrec(memrec)
+
+local flags = {
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dc", bit = 0}, -- Map: SE
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dc", bit = 1}, -- Map: NW
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dc", bit = 2}, -- Map: SW
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dc", bit = 3}, -- Map: Center
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dd", bit = 3}, -- Map: Limgrave, East
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dd", bit = 4}, -- Map: Weeping Peninsula
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dd", bit = 5}, -- Map: Limgrave, West
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dd", bit = 6}, -- Map: N
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5dd", bit = 7}, -- Map: NE
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5de", bit = 1}, -- Map: Liurnia, West
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5de", bit = 2}, -- Map: Liurnia, North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5de", bit = 3}, -- Map: Liurnia, East
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5df", bit = 0}, -- Map: Leyndell, Royal Capital
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5df", bit = 1}, -- Map: Altus Plateur
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e0", bit = 7}, -- Map: Mt. Gelmir
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e1", bit = 6}, -- Map: Dragonbarrow
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e1", bit = 7}, -- Map: Caelid
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e2", bit = 3}, -- Map: Mountaintops of the Giants, North
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e2", bit = 4}, -- Map: Mountaintops of the Giants, East
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e2", bit = 5}, -- Map: Mountaintops of the Giants, West
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e3", bit = 0}, -- Map: Siofra River
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e3", bit = 1}, -- Map: Mohgwyn Palace
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e3", bit = 2}, -- Map: Lake of Rot
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e3", bit = 3}, -- Map: Ainsel River
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+5e4", bit = 7}, -- Map: Deeprooth Depths
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+fa0", bit = 6}, -- Show underground
+}
+
+for i, flag in ipairs(flags) do
+    local val = readByte(flag.addr)
+    writeByte(flag.addr, val | (1 << flag.bit))
+end
+
+[DISABLE]
+

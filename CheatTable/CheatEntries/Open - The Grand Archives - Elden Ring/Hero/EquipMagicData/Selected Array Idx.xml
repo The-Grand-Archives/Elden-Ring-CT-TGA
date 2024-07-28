@@ -1,0 +1,28 @@
+<CheatEntry>
+  <ID>100420</ID>
+  <Description>"Selected Array Idx"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">-1:None
+0:Slot 1
+1:Slot 2
+2:Slot 3
+3:Slot 4
+4:Slot 5
+5:Slot 6
+6:Slot 7
+7:Slot 8
+8:Slot 9
+9:Slot 10
+10:Slot 11
+11:Slot 12
+12:Slot 13
+13:Slot 14
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>80</Offset>
+    <Offset>530</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

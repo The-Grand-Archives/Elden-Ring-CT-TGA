@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101432</ID>
+  <Description>"defenseBaseParry"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+F8</Address>
+</CheatEntry>

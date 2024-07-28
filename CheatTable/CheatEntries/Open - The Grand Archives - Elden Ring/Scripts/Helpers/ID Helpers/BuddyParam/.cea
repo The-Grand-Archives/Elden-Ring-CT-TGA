@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(BuddyParamHelper,16)
+registersymbol(BuddyParamHelper)
+
+BuddyParamHelper:
+dq #0
+
+[DISABLE]
+dealloc(BuddyParamHelper)
+unregistersymbol(BuddyParamHelper)

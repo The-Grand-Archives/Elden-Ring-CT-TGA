@@ -1,0 +1,67 @@
+// Author: pav
+// Activate via A+L3 or by setting "Free camera mode"
+
+{$lua}
+if syntaxcheck then return end
+
+local function getCallTarget(address)
+    if not address then return nil end
+    return address + readInteger(address + 1) + 5
+end
+
+local function applyReturnPatch(address, value)
+    writeBytes(address, {0xB0, value and 1 or 0, 0xC3})
+end
+
+local function applyPatches(value)
+    local patches = {}
+    local patchAOBs = {
+        "E8 ?? ?? ?? ?? 84 C0 74 ?? 41 B0 01 BA ?? ?? ?? ?? 48 8B CE E8",
+        "E8 ?? ?? ?? ?? 84 C0 74 ?? 8B 83 ?? ?? ?? ?? FF C8",
+        "E8 ?? ?? ?? ?? 84 C0 0F 85 ?? ?? ?? ?? 38 03"
+    }
+    for _,AOB in ipairs(patchAOBs) do
+        table.insert(patches, assert(getCallTarget(AOBScanModuleUnique(process, AOB))))
+    end
+    applyReturnPatch(table.remove(patches), value)
+    for _,patch in ipairs(patches) do
+        applyReturnPatch(getCallTarget(patch + 9), value)
+    end
+end
+
+[ENABLE]
+applyPatches(true)
+{$asm}
+aobscanmodule(inject,$process,8b 93 c8 00 00 00 85 d2)
+alloc(newmem,$100,inject)
+
+newmem:
+push r15
+mov r15,[GameMan]
+
+mov edx,[rbx+000000C8]
+cmp edx,01
+je originalcode
+mov byte ptr [r15+00000BC4],00
+pop r15
+jmp returnhere
+
+originalcode:
+mov byte ptr [r15+00000BC4],01
+pop r15
+jmp returnhere
+
+inject:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+applyPatches(false)
+writeByte("[[FieldArea]+20]+C8",0)
+writeByte("[GameMan]+0xBC4",0)
+
+{$asm}
+dealloc(newmem)
+inject:
+db 8b 93 c8 00 00 00 //mov edx,[rbx+000000C8]

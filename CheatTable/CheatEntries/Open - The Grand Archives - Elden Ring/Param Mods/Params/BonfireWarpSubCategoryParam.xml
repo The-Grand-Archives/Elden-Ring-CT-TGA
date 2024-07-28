@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>106259</ID>
+  <Description>"BonfireWarpSubCategoryParam"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>D30</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106492</ID>
+  <Description>"retryPointActivatedDialogDelayTime"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+F8</Address>
+</CheatEntry>

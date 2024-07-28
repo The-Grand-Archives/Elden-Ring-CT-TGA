@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106476</ID>
+  <Description>"enemyDetectionSpEffect_ShootBulletDummypolyId"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+BC</Address>
+</CheatEntry>

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>102224</ID>
+  <Description>"ReplacementStatusType"</Description>
+  <DropDownList DisplayValueAsItem="1">0:Strength
+1:Dexterity
+2:Faith
+3:Intelligence
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+44</Address>
+</CheatEntry>

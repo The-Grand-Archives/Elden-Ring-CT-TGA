@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106507</ID>
+  <Description>"enemyDetectionSpEffect_BulletId_byNpcEnemy"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+128</Address>
+</CheatEntry>

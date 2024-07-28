@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>107542</ID>
+  <Description>"Quest status"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>151FE2</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107543"/>
+    <id id="107544"/>
+    <id id="107545"/>
+    <id id="107546"/>
+    <id id="107547"/>
+    <id id="107548"/>
+    <id id="107549"/>
+    <id id="107550"/>
+    <id id="107551"/>
+    <id id="107552"/>
+    <id id="107553"/>
+    <id id="107554"/>
+    <id id="107555"/>
+    <id id="107556"/>
+    <id id="107557"/>
+    <id id="107558"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100022</ID>
+  <Description>"Disable Auto-Save"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSMenuMan</Address>
+  <Offsets>
+    <Offset>13C</Offset>
+  </Offsets>
+</CheatEntry>

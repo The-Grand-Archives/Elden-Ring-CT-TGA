@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102676</ID>
+  <Description>"defPlayerDmgCorrectRate_Physics"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+0260</Address>
+</CheatEntry>

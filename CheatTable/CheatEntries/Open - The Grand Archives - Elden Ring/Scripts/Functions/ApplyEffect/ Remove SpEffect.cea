@@ -1,0 +1,9 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local PlayerIns = getPlayerIns()
+local SpecialEffect = readPointer(PlayerIns + 0x178)
+SpEffect.remove(readInteger(SpecialEffect + 0x30))
+disableMemrec(memrec)
+[DISABLE]
+

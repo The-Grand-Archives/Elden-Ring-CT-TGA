@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106436</ID>
+  <Description>"morningIngameHour"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+5C</Address>
+</CheatEntry>

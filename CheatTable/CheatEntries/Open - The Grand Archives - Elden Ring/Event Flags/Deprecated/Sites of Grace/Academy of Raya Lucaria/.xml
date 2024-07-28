@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>107004</ID>
+  <Description>"Academy of Raya Lucaria"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="107005"/>
+    <id id="107006"/>
+    <id id="107007"/>
+    <id id="107008"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

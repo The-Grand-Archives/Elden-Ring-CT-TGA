@@ -1,0 +1,7 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+ShopMenu(100950,100974)
+disableMemrec(memrec)
+[DISABLE]
+

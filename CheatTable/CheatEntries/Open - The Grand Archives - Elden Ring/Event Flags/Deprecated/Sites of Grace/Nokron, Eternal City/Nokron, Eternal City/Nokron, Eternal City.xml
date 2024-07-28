@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107208</ID>
+  <Description>"Nokron, Eternal City"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>A62</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

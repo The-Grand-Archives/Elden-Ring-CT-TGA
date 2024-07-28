@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>108201</ID>
+  <Description>"ItemUpgrade"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Normal
+100:Heavy
+200:Keen
+300:Quality
+400:Fire
+500:Flame Art
+600:Lightning
+700:Sacred
+800:Magic
+900:Cold
+1000:Poison
+1100:Blood
+1200:Occult
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

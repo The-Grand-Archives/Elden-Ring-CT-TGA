@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108109</ID>
+  <Description>"ID:6 &lt; Shardbearer Morgott"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*6</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

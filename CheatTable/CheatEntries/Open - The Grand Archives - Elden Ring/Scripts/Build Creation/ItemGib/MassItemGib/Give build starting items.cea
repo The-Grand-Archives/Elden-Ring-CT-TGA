@@ -1,0 +1,41 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local items = {
+ { 0x400000FA,  1, 0, 0, -1 }, -- Flask of Wondrous Physick
+ { 0x40000816,  1, 0, 0, -1 }, -- Lantern
+ { 0x40000820,  1, 0, 0, -1 }, -- Blasphemous Claw
+ { 0x4000085C,  1, 0, 0, -1 }, -- Margit's Shackle
+ { 0x40000866,  1, 0, 0, -1 }, -- Mohg's Shackle
+ { 0x40000BB8,  1, 0, 0, -1 }, -- Ancestral Infant's Head
+ { 0x40000BC2,  1, 0, 0, -1 }, -- Omen Bairn
+ { 0x40000BC3,  1, 0, 0, -1 }, -- Regal Omen Bairn
+ { 0x40000BE0,  1, 0, 0, -1 }, -- Mimic's Veil
+ { 0x40000C08,  1, 0, 0, -1 }, -- Wraith Calling Bell
+ { 0x40001FF9, 18, 0, 0, -1 }, -- Larval Tear
+ { 0x4000251C, 20, 0, 0, -1 }, -- Cracked Pot
+ { 0x4000251D, 10, 0, 0, -1 }, -- Ritual Pot
+ { 0x40002526, 10, 0, 0, -1 }, -- Perfume Bottle
+ { 0x4000271A, 30, 0, 0, -1 }, -- Golden Seed
+ { 0x40002724, 12, 0, 0, -1 }, -- Sacred Tear
+ { 0x4000272E,  8, 0, 0, -1 }, -- Memory Stone
+ { 0x40002738,  3, 0, 0, -1 }, -- Talisman Pouch
+ { 0x4000274C, 23, 0, 0, -1 }, -- Dragon Heart
+ { 0x40002756, 18, 0, 0, -1 }, -- Lost Ashes of War
+ { 0x4000218E,  1, 0, 0, -1 }, -- Whetstone knife
+}
+
+local itemsDLC1 = {
+ { 0x401E8C5A,  1, 0, 0, -1 }, -- Rock Heart
+ { 0x401E8C64,  1, 0, 0, -1 }, -- Priestess Heart
+ { 0x401E8C6E,  1, 0, 0, -1 }, -- Lamenter's Mask
+ { 0x401EA3E1,  8, 0, 0, -1 }, -- Larval Tear
+ { 0x401EA99C, 10, 0, 0, -1 }, -- Hefty Cracked Pot
+ { 0x401EAB90, 50, 0, 0, -1 }, -- Scadutree Fragment
+ { 0x401EABF4, 25, 0, 0, -1 }, -- Revered Spirit Ash
+}
+
+ItemGive(items)
+if isOwnDlc(1) then ItemGive(itemsDLC1) end
+disableMemrec(memrec)
+[DISABLE]

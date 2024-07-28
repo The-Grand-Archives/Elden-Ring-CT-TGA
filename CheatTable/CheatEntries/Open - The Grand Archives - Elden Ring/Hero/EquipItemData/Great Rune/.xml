@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100580</ID>
+  <Description>"Great Rune"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>+88</Address>
+  <x-ce2fs-child-order>
+    <id id="100581"/>
+    <id id="100582"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

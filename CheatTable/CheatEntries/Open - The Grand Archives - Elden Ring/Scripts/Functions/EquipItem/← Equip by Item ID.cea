@@ -1,0 +1,8 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local slot = readInteger(equipItem_data)
+local idx = getItemIdx(readInteger(equipItem_data + 8))
+equipItem(slot, idx)
+disableMemrec(memrec)
+[DISABLE]

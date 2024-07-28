@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>100034</ID>
+  <Description>"Level"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>68</Offset>
+    <Offset>580</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

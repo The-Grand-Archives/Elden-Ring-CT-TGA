@@ -1,0 +1,425 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local reinforceLv = -1	-- non-somber values
+local upgrade = 0
+local gem = -1
+
+local items = {
+-- Daggers
+  { 0x000F4240, 1, reinforceLv, upgrade, gem }, -- Dagger
+  { 0x000F6950, 1, reinforceLv, upgrade, gem }, -- Black Knife
+  { 0x000F9060, 1, reinforceLv, upgrade, gem }, -- Parrying Dagger
+  { 0x000FB770, 1, reinforceLv, upgrade, gem }, -- Miséricorde
+  { 0x000FDE80, 1, reinforceLv, upgrade, gem }, -- Reduvia
+  { 0x00100590, 1, reinforceLv, upgrade, gem }, -- Crystal Knife
+  { 0x00102CA0, 1, reinforceLv, upgrade, gem }, -- Celebrant's Sickle
+  { 0x001053B0, 1, reinforceLv, upgrade, gem }, -- Glintstone Kris
+  { 0x00107AC0, 1, reinforceLv, upgrade, gem }, -- Scorpion's Stinger
+  { 0x0010A1D0, 1, reinforceLv, upgrade, gem }, -- Great Knife
+  { 0x0010C8E0, 1, reinforceLv, upgrade, gem }, -- Wakizashi
+  { 0x0010EFF0, 1, reinforceLv, upgrade, gem }, -- Cinquedea
+  { 0x00113E10, 1, reinforceLv, upgrade, gem }, -- Ivory Sickle
+  { 0x00116520, 1, reinforceLv, upgrade, gem }, -- Bloodstained Dagger
+  { 0x00118C30, 1, reinforceLv, upgrade, gem }, -- Erdsteel Dagger
+  { 0x0011B340, 1, reinforceLv, upgrade, gem }, -- Blade of Calling
+-- Straight Swords
+  { 0x001E8480, 1, reinforceLv, upgrade, gem }, -- Longsword
+  { 0x001EAB90, 1, reinforceLv, upgrade, gem }, -- Short Sword
+  { 0x001ED2A0, 1, reinforceLv, upgrade, gem }, -- Broadsword
+  { 0x001F20C0, 1, reinforceLv, upgrade, gem }, -- Lordsworn's Straight Sword
+  { 0x001F47D0, 1, reinforceLv, upgrade, gem }, -- Weathered Straight Sword
+  { 0x001F6EE0, 1, reinforceLv, upgrade, gem }, -- Ornamental Straight Sword
+  { 0x001F95F0, 1, reinforceLv, upgrade, gem }, -- Golden Epitaph
+  { 0x001FBD00, 1, reinforceLv, upgrade, gem }, -- Nox Flowing Sword
+  { 0x001FE410, 1, reinforceLv, upgrade, gem }, -- Inseparable Sword
+  { 0x00203230, 1, reinforceLv, upgrade, gem }, -- Coded Sword
+  { 0x0020A760, 1, reinforceLv, upgrade, gem }, -- Sword of Night and Flame
+  { 0x0020CE70, 1, reinforceLv, upgrade, gem }, -- Crystal Sword
+  { 0x002143A0, 1, reinforceLv, upgrade, gem }, -- Carian Knight's Sword
+  { 0x00216AB0, 1, reinforceLv, upgrade, gem }, -- Sword of St. Trina
+  { 0x002191C0, 1, reinforceLv, upgrade, gem }, -- Miquellan Knight's Sword
+  { 0x0021B8D0, 1, reinforceLv, upgrade, gem }, -- Cane Sword
+  { 0x0021DFE0, 1, reinforceLv, upgrade, gem }, -- Regalia of Eochaid
+  { 0x002206F0, 1, reinforceLv, upgrade, gem }, -- Noble's Slender Sword
+  { 0x00222E00, 1, reinforceLv, upgrade, gem }, -- Warhawk's Talon
+  { 0x00225510, 1, reinforceLv, upgrade, gem }, -- Lazuli Glintstone Sword
+  { 0x00227C20, 1, reinforceLv, upgrade, gem }, -- Rotten Crystal Sword
+-- Greatswords
+  { 0x002DC6C0, 1, reinforceLv, upgrade, gem }, -- Bastard Sword
+  { 0x002DEDD0, 1, reinforceLv, upgrade, gem }, -- Forked Greatsword
+  { 0x002E14E0, 1, reinforceLv, upgrade, gem }, -- Iron Greatsword
+  { 0x002E3BF0, 1, reinforceLv, upgrade, gem }, -- Lordsworn's Greatsword
+  { 0x002E6300, 1, reinforceLv, upgrade, gem }, -- Knight's Greatsword
+  { 0x002E8A10, 1, reinforceLv, upgrade, gem }, -- Flamberge
+  { 0x002EB120, 1, reinforceLv, upgrade, gem }, -- Ordovis's Greatsword
+  { 0x002ED830, 1, reinforceLv, upgrade, gem }, -- Alabaster Lord's Sword
+  { 0x002EFF40, 1, reinforceLv, upgrade, gem }, -- Banished Knight's Greatsword
+  { 0x002F2650, 1, reinforceLv, upgrade, gem }, -- Dark Moon Greatsword
+  { 0x002F4D60, 1, reinforceLv, upgrade, gem }, -- Sacred Relic Sword
+  { 0x002FC290, 1, reinforceLv, upgrade, gem }, -- Helphen's Steeple
+  { 0x002FE9A0, 1, reinforceLv, upgrade, gem }, -- Blasphemous Blade
+  { 0x003010B0, 1, reinforceLv, upgrade, gem }, -- Marais Executioner's Sword
+  { 0x003037C0, 1, reinforceLv, upgrade, gem }, -- Sword of Milos
+  { 0x00305ED0, 1, reinforceLv, upgrade, gem }, -- Golden Order Greatsword
+  { 0x003085E0, 1, reinforceLv, upgrade, gem }, -- Claymore
+  { 0x0030ACF0, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Greatsword
+  { 0x0030D400, 1, reinforceLv, upgrade, gem }, -- Death's Poker
+  { 0x0030FB10, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Blackblade
+-- Colossal Swords
+  { 0x003D0900, 1, reinforceLv, upgrade, gem }, -- Greatsword
+  { 0x003D3010, 1, reinforceLv, upgrade, gem }, -- Watchdog's Greatsword
+  { 0x003D5720, 1, reinforceLv, upgrade, gem }, -- Maliketh's Black Blade
+  { 0x003D7E30, 1, reinforceLv, upgrade, gem }, -- Troll's Golden Sword
+  { 0x003DA540, 1, reinforceLv, upgrade, gem }, -- Zweihander
+  { 0x003DCC50, 1, reinforceLv, upgrade, gem }, -- Starscourge Greatsword
+  { 0x003DF360, 1, reinforceLv, upgrade, gem }, -- Royal Greatsword
+  { 0x003E1A70, 1, reinforceLv, upgrade, gem }, -- Godslayer's Greatsword
+  { 0x003E4180, 1, reinforceLv, upgrade, gem }, -- Ruins Greatsword
+  { 0x003E8FA0, 1, reinforceLv, upgrade, gem }, -- Grafted Blade Greatsword
+  { 0x003EB6B0, 1, reinforceLv, upgrade, gem }, -- Troll Knight's Sword
+-- Thrusting Swords
+  { 0x004C4B40, 1, reinforceLv, upgrade, gem }, -- Estoc
+  { 0x004C7250, 1, reinforceLv, upgrade, gem }, -- Cleanrot Knight's Sword
+  { 0x004C9960, 1, reinforceLv, upgrade, gem }, -- Rapier
+  { 0x004CC070, 1, reinforceLv, upgrade, gem }, -- Rogier's Rapier
+  { 0x004CE780, 1, reinforceLv, upgrade, gem }, -- Antspur Rapier
+  { 0x004D0E90, 1, reinforceLv, upgrade, gem }, -- Frozen Needle
+  { 0x004D35A0, 1, reinforceLv, upgrade, gem }, -- Noble's Estoc
+-- Heavy Thrusting Swords
+  { 0x005B8D80, 1, reinforceLv, upgrade, gem }, -- Bloody Helice
+  { 0x005BB490, 1, reinforceLv, upgrade, gem }, -- Godskin Stitcher
+  { 0x005BDBA0, 1, reinforceLv, upgrade, gem }, -- Great Épée
+  { 0x005C29C0, 1, reinforceLv, upgrade, gem }, -- Dragon King's Cragblade
+-- Curved Swords
+  { 0x006ACFC0, 1, reinforceLv, upgrade, gem }, -- Falchion
+  { 0x006AF6D0, 1, reinforceLv, upgrade, gem }, -- Beastman's Curved Sword
+  { 0x006B1DE0, 1, reinforceLv, upgrade, gem }, -- Shotel
+  { 0x006B44F0, 1, reinforceLv, upgrade, gem }, -- Shamshir
+  { 0x006B6C00, 1, reinforceLv, upgrade, gem }, -- Bandit's Curved Sword
+  { 0x006B9310, 1, reinforceLv, upgrade, gem }, -- Magma Blade
+  { 0x006BBA20, 1, reinforceLv, upgrade, gem }, -- Flowing Curved Sword
+  { 0x006BE130, 1, reinforceLv, upgrade, gem }, -- Wing of Astel
+  { 0x006C0840, 1, reinforceLv, upgrade, gem }, -- Scavenger's Curved Sword
+  { 0x006C5660, 1, reinforceLv, upgrade, gem }, -- Eclipse Shotel
+  { 0x006C7D70, 1, reinforceLv, upgrade, gem }, -- Serpent-God's Curved Sword
+  { 0x006CA480, 1, reinforceLv, upgrade, gem }, -- Mantis Blade
+  { 0x006CF2A0, 1, reinforceLv, upgrade, gem }, -- Scimitar
+  { 0x006D19B0, 1, reinforceLv, upgrade, gem }, -- Grossmesser
+-- Curved Greatswords
+  { 0x007A3910, 1, reinforceLv, upgrade, gem }, -- Onyx Lord's Greatsword
+  { 0x007A6020, 1, reinforceLv, upgrade, gem }, -- Dismounter
+  { 0x007A8730, 1, reinforceLv, upgrade, gem }, -- Bloodhound's Fang
+  { 0x007AAE40, 1, reinforceLv, upgrade, gem }, -- Magma Wyrm's Scalesword
+  { 0x007AD550, 1, reinforceLv, upgrade, gem }, -- Zamor Curved Sword
+  { 0x007AFC60, 1, reinforceLv, upgrade, gem }, -- Omen Cleaver
+  { 0x007B2370, 1, reinforceLv, upgrade, gem }, -- Monk's Flameblade
+  { 0x007B4A80, 1, reinforceLv, upgrade, gem }, -- Beastman's Cleaver
+  { 0x007B98A0, 1, reinforceLv, upgrade, gem }, -- Morgott's Cursed Sword
+-- Katana
+  { 0x00895440, 1, reinforceLv, upgrade, gem }, -- Uchigatana
+  { 0x00897B50, 1, reinforceLv, upgrade, gem }, -- Nagakiba
+  { 0x0089A260, 1, reinforceLv, upgrade, gem }, -- Hand of Malenia
+  { 0x0089C970, 1, reinforceLv, upgrade, gem }, -- Meteoric Ore Blade
+  { 0x0089F080, 1, reinforceLv, upgrade, gem }, -- Rivers of Blood
+  { 0x008A3EA0, 1, reinforceLv, upgrade, gem }, -- Moonveil
+  { 0x008A65B0, 1, reinforceLv, upgrade, gem }, -- Dragonscale Blade
+  { 0x008A8CC0, 1, reinforceLv, upgrade, gem }, -- Serpentbone Blade
+-- Twinblades
+  { 0x00989680, 1, reinforceLv, upgrade, gem }, -- Twinblade
+  { 0x0098BD90, 1, reinforceLv, upgrade, gem }, -- Godskin Peeler
+  { 0x00990BB0, 1, reinforceLv, upgrade, gem }, -- Twinned Knight Swords
+  { 0x009959D0, 1, reinforceLv, upgrade, gem }, -- Eleonora's Poleblade
+  { 0x0099CF00, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Twinblade
+  { 0x0099F610, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Black Blades
+-- Hammers
+  { 0x00A7D8C0, 1, reinforceLv, upgrade, gem }, -- Mace
+  { 0x00A7FFD0, 1, reinforceLv, upgrade, gem }, -- Club
+  { 0x00A84DF0, 1, reinforceLv, upgrade, gem }, -- Curved Club
+  { 0x00A87500, 1, reinforceLv, upgrade, gem }, -- Warpick
+  { 0x00A89C10, 1, reinforceLv, upgrade, gem }, -- Morning Star
+  { 0x00A8C320, 1, reinforceLv, upgrade, gem }, -- Varré's Bouquet
+  { 0x00A8EA30, 1, reinforceLv, upgrade, gem }, -- Spiked Club
+  { 0x00A91140, 1, reinforceLv, upgrade, gem }, -- Hammer
+  { 0x00A93850, 1, reinforceLv, upgrade, gem }, -- Monk's Flamemace
+  { 0x00A95F60, 1, reinforceLv, upgrade, gem }, -- Envoy's Horn
+  { 0x00A98670, 1, reinforceLv, upgrade, gem }, -- Scepter of the All-Knowing
+  { 0x00A9AD80, 1, reinforceLv, upgrade, gem }, -- Nox Flowing Hammer
+  { 0x00A9D490, 1, reinforceLv, upgrade, gem }, -- Ringed Finger
+  { 0x00A9FBA0, 1, reinforceLv, upgrade, gem }, -- Stone Club
+  { 0x00AA22B0, 1, reinforceLv, upgrade, gem }, -- Marika's Hammer
+-- Great Hammers
+  { 0x00B71B00, 1, reinforceLv, upgrade, gem }, -- Large Club
+  { 0x00B74210, 1, reinforceLv, upgrade, gem }, -- Greathorn Hammer
+  { 0x00B76920, 1, reinforceLv, upgrade, gem }, -- Battle Hammer
+  { 0x00B80560, 1, reinforceLv, upgrade, gem }, -- Great Mace
+  { 0x00B85380, 1, reinforceLv, upgrade, gem }, -- Curved Great Club
+  { 0x00B916D0, 1, reinforceLv, upgrade, gem }, -- Celebrant's Skull
+-- Warhammers
+  { 0x00B93DE0, 1, reinforceLv, upgrade, gem }, -- Pickaxe
+  { 0x00B964F0, 1, reinforceLv, upgrade, gem }, -- Beastclaw Greathammer
+  { 0x00B98C00, 1, reinforceLv, upgrade, gem }, -- Envoy's Long Horn
+  { 0x00B9B310, 1, reinforceLv, upgrade, gem }, -- Cranial Vessel Candlestand
+  { 0x00B9DA20, 1, reinforceLv, upgrade, gem }, -- Great Stars
+  { 0x00BA0130, 1, reinforceLv, upgrade, gem }, -- Brick Hammer
+  { 0x00BA2840, 1, reinforceLv, upgrade, gem }, -- Devourer's Scepter
+  { 0x00BA4F50, 1, reinforceLv, upgrade, gem }, -- Rotten Battle Hammer
+-- Flails
+  { 0x00C65D40, 1, reinforceLv, upgrade, gem }, -- Nightrider Flail
+  { 0x00C68450, 1, reinforceLv, upgrade, gem }, -- Flail
+  { 0x00C6AB60, 1, reinforceLv, upgrade, gem }, -- Family Heads
+  { 0x00C6D270, 1, reinforceLv, upgrade, gem }, -- Bastard's Stars
+  { 0x00C6F980, 1, reinforceLv, upgrade, gem }, -- Chainlink Flail
+-- Axes
+  { 0x00D59F80, 1, reinforceLv, upgrade, gem }, -- Battle Axe
+  { 0x00D5C690, 1, reinforceLv, upgrade, gem }, -- Forked Hatchet
+  { 0x00D5EDA0, 1, reinforceLv, upgrade, gem }, -- Hand Axe
+  { 0x00D614B0, 1, reinforceLv, upgrade, gem }, -- Jawbone Axe
+  { 0x00D63BC0, 1, reinforceLv, upgrade, gem }, -- Iron Cleaver
+  { 0x00D662D0, 1, reinforceLv, upgrade, gem }, -- Ripple Blade
+  { 0x00D689E0, 1, reinforceLv, upgrade, gem }, -- Celebrant's Cleaver
+  { 0x00D6D800, 1, reinforceLv, upgrade, gem }, -- Icerind Hatchet
+  { 0x00D72620, 1, reinforceLv, upgrade, gem }, -- Highland Axe
+  { 0x00D74D30, 1, reinforceLv, upgrade, gem }, -- Sacrificial Axe
+  { 0x00D77440, 1, reinforceLv, upgrade, gem }, -- Rosus' Axe
+  { 0x00D7C260, 1, reinforceLv, upgrade, gem }, -- Stormhawk Axe
+-- Greataxes
+  { 0x00E4E1C0, 1, reinforceLv, upgrade, gem }, -- Greataxe
+  { 0x00E508D0, 1, reinforceLv, upgrade, gem }, -- Warped Axe
+  { 0x00E52FE0, 1, reinforceLv, upgrade, gem }, -- Great Omenkiller Cleaver
+  { 0x00E556F0, 1, reinforceLv, upgrade, gem }, -- Crescent Moon Axe
+  { 0x00E57E00, 1, reinforceLv, upgrade, gem }, -- Axe of Godrick
+  { 0x00E5A510, 1, reinforceLv, upgrade, gem }, -- Longhaft Axe
+  { 0x00E5CC20, 1, reinforceLv, upgrade, gem }, -- Rusted Anchor
+  { 0x00E61A40, 1, reinforceLv, upgrade, gem }, -- Executioner's Greataxe
+  { 0x00E68F70, 1, reinforceLv, upgrade, gem }, -- Winged Greathorn
+  { 0x00E6B680, 1, reinforceLv, upgrade, gem }, -- Butchering Knife
+  { 0x00E6DD90, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Great Axe
+  { 0x00E704A0, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Black Axe
+-- Spears
+  { 0x00F42400, 1, reinforceLv, upgrade, gem }, -- Short Spear
+  { 0x00F44B10, 1, reinforceLv, upgrade, gem }, -- Spear
+  { 0x00F47220, 1, reinforceLv, upgrade, gem }, -- Crystal Spear
+  { 0x00F49930, 1, reinforceLv, upgrade, gem }, -- Clayman's Harpoon
+  { 0x00F4C040, 1, reinforceLv, upgrade, gem }, -- Cleanrot Spear
+  { 0x00F4E750, 1, reinforceLv, upgrade, gem }, -- Partisan
+  { 0x00F50E60, 1, reinforceLv, upgrade, gem }, -- Celebrant's Rib-Rake
+  { 0x00F53570, 1, reinforceLv, upgrade, gem }, -- Pike
+  { 0x00F55C80, 1, reinforceLv, upgrade, gem }, -- Torchpole
+  { 0x00F58390, 1, reinforceLv, upgrade, gem }, -- Bolt of Gransax
+  { 0x00F5D1B0, 1, reinforceLv, upgrade, gem }, -- Cross-Naginata
+  { 0x00F5F8C0, 1, reinforceLv, upgrade, gem }, -- Death Ritual Spear
+  { 0x00F61FD0, 1, reinforceLv, upgrade, gem }, -- Inquisitor's Girandole
+  { 0x00F646E0, 1, reinforceLv, upgrade, gem }, -- Spiked Spear
+  { 0x00F66DF0, 1, reinforceLv, upgrade, gem }, -- Iron Spear
+  { 0x00F69500, 1, reinforceLv, upgrade, gem }, -- Rotten Crystal Spear
+-- Great Spears
+  { 0x01038D50, 1, reinforceLv, upgrade, gem }, -- Mohgwyn's Sacred Spear
+  { 0x0103B460, 1, reinforceLv, upgrade, gem }, -- Siluria's Tree
+  { 0x0103DB70, 1, reinforceLv, upgrade, gem }, -- Serpent-Hunter
+  { 0x01042990, 1, reinforceLv, upgrade, gem }, -- Vyke's War Spear
+  { 0x010450A0, 1, reinforceLv, upgrade, gem }, -- Lance
+  { 0x010477B0, 1, reinforceLv, upgrade, gem }, -- Treespear
+-- Halberds
+  { 0x0112A880, 1, reinforceLv, upgrade, gem }, -- Halberd
+  { 0x0112CF90, 1, reinforceLv, upgrade, gem }, -- Pest's Glaive
+  { 0x0112F6A0, 1, reinforceLv, upgrade, gem }, -- Lucerne
+  { 0x01131DB0, 1, reinforceLv, upgrade, gem }, -- Banished Knight's Halberd
+  { 0x011344C0, 1, reinforceLv, upgrade, gem }, -- Commander's Standard
+  { 0x01136BD0, 1, reinforceLv, upgrade, gem }, -- Nightrider Glaive
+  { 0x011392E0, 1, reinforceLv, upgrade, gem }, -- Ripple Crescent Halberd
+  { 0x0113B9F0, 1, reinforceLv, upgrade, gem }, -- Vulgar Militia Saw
+  { 0x0113E100, 1, reinforceLv, upgrade, gem }, -- Golden Halberd
+  { 0x01140810, 1, reinforceLv, upgrade, gem }, -- Glaive
+  { 0x01142F20, 1, reinforceLv, upgrade, gem }, -- Loretta's War Sickle
+  { 0x01145630, 1, reinforceLv, upgrade, gem }, -- Guardian's Swordspear
+  { 0x0114A450, 1, reinforceLv, upgrade, gem }, -- Vulgar Militia Shotel
+  { 0x0114CB60, 1, reinforceLv, upgrade, gem }, -- Dragon Halberd
+  { 0x0114F270, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Halberd
+  { 0x01151980, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Black Halberd
+-- Reapers
+  { 0x0121EAC0, 1, reinforceLv, upgrade, gem }, -- Scythe
+  { 0x012211D0, 1, reinforceLv, upgrade, gem }, -- Grave Scythe
+  { 0x012238E0, 1, reinforceLv, upgrade, gem }, -- Halo Scythe
+  { 0x0122D520, 1, reinforceLv, upgrade, gem }, -- Winged Scythe
+-- Whips
+  { 0x01312D00, 1, reinforceLv, upgrade, gem }, -- Whip
+  { 0x01317B20, 1, reinforceLv, upgrade, gem }, -- Thorned Whip
+  { 0x0131A230, 1, reinforceLv, upgrade, gem }, -- Magma Whip Candlestick
+  { 0x0131F050, 1, reinforceLv, upgrade, gem }, -- Hoslow's Petal Whip
+  { 0x01321760, 1, reinforceLv, upgrade, gem }, -- Giant's Red Braid
+  { 0x01323E70, 1, reinforceLv, upgrade, gem }, -- Urumi
+-- Fists
+  { 0x01406F40, 1, reinforceLv, upgrade, gem }, -- Caestus
+  { 0x01409650, 1, reinforceLv, upgrade, gem }, -- Spiked Caestus
+  { 0x014159A0, 1, reinforceLv, upgrade, gem }, -- Grafted Dragon
+  { 0x014180B0, 1, reinforceLv, upgrade, gem }, -- Iron Ball
+  { 0x0141A7C0, 1, reinforceLv, upgrade, gem }, -- Star Fist
+  { 0x0141F5E0, 1, reinforceLv, upgrade, gem }, -- Katar
+  { 0x01421CF0, 1, reinforceLv, upgrade, gem }, -- Clinging Bone
+  { 0x01424400, 1, reinforceLv, upgrade, gem }, -- Veteran's Prosthesis
+  { 0x01426B10, 1, reinforceLv, upgrade, gem }, -- Cipher Pata
+-- Claws
+  { 0x014FB180, 1, reinforceLv, upgrade, gem }, -- Hookclaws
+  { 0x014FD890, 1, reinforceLv, upgrade, gem }, -- Venomous Fang
+  { 0x014FFFA0, 1, reinforceLv, upgrade, gem }, -- Bloodhound Claws
+  { 0x015026B0, 1, reinforceLv, upgrade, gem }, -- Raptor Talons
+-- Colossal Weapons
+  { 0x015EF3C0, 1, reinforceLv, upgrade, gem }, -- Prelate's Inferno Crozier
+  { 0x015F1AD0, 1, reinforceLv, upgrade, gem }, -- Watchdog's Staff
+  { 0x015F41E0, 1, reinforceLv, upgrade, gem }, -- Great Club
+  { 0x015F68F0, 1, reinforceLv, upgrade, gem }, -- Envoy's Greathorn
+  { 0x015F9000, 1, reinforceLv, upgrade, gem }, -- Duelist Greataxe
+  { 0x015FB710, 1, reinforceLv, upgrade, gem }, -- Axe of Godfrey
+  { 0x015FDE20, 1, reinforceLv, upgrade, gem }, -- Dragon Greatclaw
+  { 0x01600530, 1, reinforceLv, upgrade, gem }, -- Staff of the Avatar
+  { 0x01602C40, 1, reinforceLv, upgrade, gem }, -- Fallingstar Beast Jaw
+  { 0x01607A60, 1, reinforceLv, upgrade, gem }, -- Ghiza's Wheel
+  { 0x0160A170, 1, reinforceLv, upgrade, gem }, -- Giant-Crusher
+  { 0x0160C880, 1, reinforceLv, upgrade, gem }, -- Golem's Halberd
+  { 0x0160EF90, 1, reinforceLv, upgrade, gem }, -- Troll's Hammer
+  { 0x016116A0, 1, reinforceLv, upgrade, gem }, -- Rotten Staff
+  { 0x01613DB0, 1, reinforceLv, upgrade, gem }, -- Rotten Greataxe
+-- Torches
+  { 0x016E3600, 1, reinforceLv, upgrade, gem }, -- Torch
+  { 0x016E8420, 1, reinforceLv, upgrade, gem }, -- Steel-Wire Torch
+  { 0x016ED240, 1, reinforceLv, upgrade, gem }, -- St. Trina's Torch
+  { 0x016EF950, 1, reinforceLv, upgrade, gem }, -- Ghostflame Torch
+  { 0x016F2060, 1, reinforceLv, upgrade, gem }, -- Beast-Repellent Torch
+  { 0x016F4770, 1, reinforceLv, upgrade, gem }, -- Sentry's Torch
+-- Shields
+  { 0x01C9C380, 1, reinforceLv, upgrade, gem }, -- Buckler
+  { 0x01C9EA90, 1, reinforceLv, upgrade, gem }, -- Perfumer's Shield
+  { 0x01CA11A0, 1, reinforceLv, upgrade, gem }, -- Man-Serpent's Shield
+  { 0x01CA38B0, 1, reinforceLv, upgrade, gem }, -- Rickety Shield
+  { 0x01CA5FC0, 1, reinforceLv, upgrade, gem }, -- Pillory Shield
+  { 0x01CAADE0, 1, reinforceLv, upgrade, gem }, -- Beastman's Jar-Shield
+  { 0x01CAD4F0, 1, reinforceLv, upgrade, gem }, -- Red Thorn Roundshield
+  { 0x01CAFC00, 1, reinforceLv, upgrade, gem }, -- Scripture Wooden Shield
+  { 0x01CB2310, 1, reinforceLv, upgrade, gem }, -- Riveted Wooden Shield
+  { 0x01CB4A20, 1, reinforceLv, upgrade, gem }, -- Blue-White Wooden Shield
+  { 0x01CB7130, 1, reinforceLv, upgrade, gem }, -- Rift Shield
+  { 0x01CB9840, 1, reinforceLv, upgrade, gem }, -- Iron Roundshield
+  { 0x01CBBF50, 1, reinforceLv, upgrade, gem }, -- Gilded Iron Shield
+  { 0x01CBE660, 1, reinforceLv, upgrade, gem }, -- Ice Crest Shield
+  { 0x01CC0D70, 1, reinforceLv, upgrade, gem }, -- Smoldering Shield
+  { 0x01CCA9B0, 1, reinforceLv, upgrade, gem }, -- Spiralhorn Shield
+  { 0x01CCD0C0, 1, reinforceLv, upgrade, gem }, -- Coil Shield
+  { 0x01D905C0, 1, reinforceLv, upgrade, gem }, -- Kite Shield
+  { 0x01D92CD0, 1, reinforceLv, upgrade, gem }, -- Marred Leather Shield
+  { 0x01D953E0, 1, reinforceLv, upgrade, gem }, -- Marred Wooden Shield
+  { 0x01D97AF0, 1, reinforceLv, upgrade, gem }, -- Banished Knight's Shield
+  { 0x01D9A200, 1, reinforceLv, upgrade, gem }, -- Albinauric Shield
+  { 0x01D9C910, 1, reinforceLv, upgrade, gem }, -- Sun Realm Shield
+  { 0x01D9F020, 1, reinforceLv, upgrade, gem }, -- Silver Mirrorshield
+  { 0x01DA1730, 1, reinforceLv, upgrade, gem }, -- Round Shield
+  { 0x01DA3E40, 1, reinforceLv, upgrade, gem }, -- Scorpion Kite Shield
+  { 0x01DA6550, 1, reinforceLv, upgrade, gem }, -- Twinbird Kite Shield
+  { 0x01DA8C60, 1, reinforceLv, upgrade, gem }, -- Blue-Gold Kite Shield
+  { 0x01DB0190, 1, reinforceLv, upgrade, gem }, -- Brass Shield
+  { 0x01DB28A0, 1, reinforceLv, upgrade, gem }, -- Great Turtle Shell
+  { 0x01DB9DD0, 1, reinforceLv, upgrade, gem }, -- Shield of the Guilty
+  { 0x01DBEBF0, 1, reinforceLv, upgrade, gem }, -- Carian Knight's Shield
+  { 0x01DC8830, 1, reinforceLv, upgrade, gem }, -- Large Leather Shield
+  { 0x01DCAF40, 1, reinforceLv, upgrade, gem }, -- Horse Crest Wooden Shield
+  { 0x01DCD650, 1, reinforceLv, upgrade, gem }, -- Candletree Wooden Shield
+  { 0x01DCFD60, 1, reinforceLv, upgrade, gem }, -- Flame Crest Wooden Shield
+  { 0x01DD2470, 1, reinforceLv, upgrade, gem }, -- Hawk Crest Wooden Shield
+  { 0x01DD4B80, 1, reinforceLv, upgrade, gem }, -- Beast Crest Heater Shield
+  { 0x01DD7290, 1, reinforceLv, upgrade, gem }, -- Red Crest Heater Shield
+  { 0x01DD99A0, 1, reinforceLv, upgrade, gem }, -- Blue Crest Heater Shield
+  { 0x01DDC0B0, 1, reinforceLv, upgrade, gem }, -- Eclipse Crest Heater Shield
+  { 0x01DDE7C0, 1, reinforceLv, upgrade, gem }, -- Inverted Hawk Heater Shield
+  { 0x01DE0ED0, 1, reinforceLv, upgrade, gem }, -- Heater Shield
+  { 0x01DE35E0, 1, reinforceLv, upgrade, gem }, -- Black Leather Shield
+-- Greatshields
+  { 0x01E84800, 1, reinforceLv, upgrade, gem }, -- Dragon Towershield
+  { 0x01E89620, 1, reinforceLv, upgrade, gem }, -- Distinguished Greatshield
+  { 0x01E8BD30, 1, reinforceLv, upgrade, gem }, -- Crucible Hornshield
+  { 0x01E8E440, 1, reinforceLv, upgrade, gem }, -- Dragonclaw Shield
+  { 0x01E90B50, 1, reinforceLv, upgrade, gem }, -- Briar Greatshield
+  { 0x01E98080, 1, reinforceLv, upgrade, gem }, -- Erdtree Greatshield
+  { 0x01E9A790, 1, reinforceLv, upgrade, gem }, -- Golden Beast Crest Shield
+  { 0x01EA1CC0, 1, reinforceLv, upgrade, gem }, -- Jellyfish Shield
+  { 0x01EA43D0, 1, reinforceLv, upgrade, gem }, -- Fingerprint Stone Shield
+  { 0x01EA6AE0, 1, reinforceLv, upgrade, gem }, -- Icon Shield
+  { 0x01EA91F0, 1, reinforceLv, upgrade, gem }, -- One-Eyed Shield
+  { 0x01EAB900, 1, reinforceLv, upgrade, gem }, -- Visage Shield
+  { 0x01EAE010, 1, reinforceLv, upgrade, gem }, -- Spiked Palisade Shield
+  { 0x01EB2E30, 1, reinforceLv, upgrade, gem }, -- Manor Towershield
+  { 0x01EB5540, 1, reinforceLv, upgrade, gem }, -- Crossed-Tree Towershield
+  { 0x01EB7C50, 1, reinforceLv, upgrade, gem }, -- Inverted Hawk Towershield
+  { 0x01EBA360, 1, reinforceLv, upgrade, gem }, -- Ant's Skull Plate
+  { 0x01EBCA70, 1, reinforceLv, upgrade, gem }, -- Redmane Greatshield
+  { 0x01EBF180, 1, reinforceLv, upgrade, gem }, -- Eclipse Crest Greatshield
+  { 0x01EC1890, 1, reinforceLv, upgrade, gem }, -- Cuckoo Greatshield
+  { 0x01EC3FA0, 1, reinforceLv, upgrade, gem }, -- Golden Greatshield
+  { 0x01EC66B0, 1, reinforceLv, upgrade, gem }, -- Gilded Greatshield
+  { 0x01EC8DC0, 1, reinforceLv, upgrade, gem }, -- Haligtree Crest Greatshield
+  { 0x01ECB4D0, 1, reinforceLv, upgrade, gem }, -- Wooden Greatshield
+  { 0x01ECDBE0, 1, reinforceLv, upgrade, gem }, -- Lordsworn's Shield
+-- Staves
+  { 0x01F78A40, 1, reinforceLv, upgrade, gem }, -- Glintstone Staff
+  { 0x01F82680, 1, reinforceLv, upgrade, gem }, -- Crystal Staff
+  { 0x01F84D90, 1, reinforceLv, upgrade, gem }, -- Gelmir Glintstone Staff
+  { 0x01F874A0, 1, reinforceLv, upgrade, gem }, -- Demi-Human Queen's Staff
+  { 0x01F8E9D0, 1, reinforceLv, upgrade, gem }, -- Carian Regal Scepter
+  { 0x01F95F00, 1, reinforceLv, upgrade, gem }, -- Digger's Staff
+  { 0x01F98610, 1, reinforceLv, upgrade, gem }, -- Astrologer's Staff
+  { 0x01FA2250, 1, reinforceLv, upgrade, gem }, -- Carian Glintblade Staff
+  { 0x01FA4960, 1, reinforceLv, upgrade, gem }, -- Prince of Death's Staff
+  { 0x01FA7070, 1, reinforceLv, upgrade, gem }, -- Albinauric Staff
+  { 0x01FA9780, 1, reinforceLv, upgrade, gem }, -- Academy Glintstone Staff
+  { 0x01FABE90, 1, reinforceLv, upgrade, gem }, -- Carian Glintstone Staff
+  { 0x01FB0CB0, 1, reinforceLv, upgrade, gem }, -- Azur's Glintstone Staff
+  { 0x01FB33C0, 1, reinforceLv, upgrade, gem }, -- Lusat's Glintstone Staff
+  { 0x01FB5AD0, 1, reinforceLv, upgrade, gem }, -- Meteorite Staff
+  { 0x01FB81E0, 1, reinforceLv, upgrade, gem }, -- Staff of the Guilty
+  { 0x01FBA8F0, 1, reinforceLv, upgrade, gem }, -- Rotten Crystal Staff
+  { 0x01FBD000, 1, reinforceLv, upgrade, gem }, -- Staff of Loss
+-- Seals
+  { 0x0206CC80, 1, reinforceLv, upgrade, gem }, -- Finger Seal
+  { 0x0206F390, 1, reinforceLv, upgrade, gem }, -- Godslayer's Seal
+  { 0x02071AA0, 1, reinforceLv, upgrade, gem }, -- Giant's Seal
+  { 0x020741B0, 1, reinforceLv, upgrade, gem }, -- Gravel Stone Seal
+  { 0x020768C0, 1, reinforceLv, upgrade, gem }, -- Clawmark Seal
+  { 0x0207B6E0, 1, reinforceLv, upgrade, gem }, -- Golden Order Seal
+  { 0x0207DDF0, 1, reinforceLv, upgrade, gem }, -- Erdtree Seal
+  { 0x02080500, 1, reinforceLv, upgrade, gem }, -- Dragon Communion Seal
+  { 0x02082C10, 1, reinforceLv, upgrade, gem }, -- Frenzied Flame Seal
+-- Light Bows
+  { 0x02625A00, 1, reinforceLv, upgrade, gem }, -- Shortbow
+  { 0x02628110, 1, reinforceLv, upgrade, gem }, -- Misbegotten Shortbow
+  { 0x0262A820, 1, reinforceLv, upgrade, gem }, -- Red Branch Shortbow
+  { 0x0262CF30, 1, reinforceLv, upgrade, gem }, -- Harp Bow
+  { 0x02631D50, 1, reinforceLv, upgrade, gem }, -- Composite Bow
+-- Bows
+  { 0x02719C40, 1, reinforceLv, upgrade, gem }, -- Longbow
+  { 0x0271C350, 1, reinforceLv, upgrade, gem }, -- Albinauric Bow
+  { 0x0271EA60, 1, reinforceLv, upgrade, gem }, -- Horn Bow
+  { 0x02721170, 1, reinforceLv, upgrade, gem }, -- Erdtree Bow
+  { 0x02723880, 1, reinforceLv, upgrade, gem }, -- Serpent Bow
+  { 0x027286A0, 1, reinforceLv, upgrade, gem }, -- Pulley Bow
+  { 0x0272ADB0, 1, reinforceLv, upgrade, gem }, -- Black Bow
+-- Greatbows
+  { 0x0280DE80, 1, reinforceLv, upgrade, gem }, -- Lion Greatbow
+  { 0x02810590, 1, reinforceLv, upgrade, gem }, -- Golem Greatbow
+  { 0x028153B0, 1, reinforceLv, upgrade, gem }, -- Erdtree Greatbow
+  { 0x02817AC0, 1, reinforceLv, upgrade, gem }, -- Greatbow
+-- Crossbows
+  { 0x029020C0, 1, reinforceLv, upgrade, gem }, -- Soldier's Crossbow
+  { 0x02906EE0, 1, reinforceLv, upgrade, gem }, -- Light Crossbow
+  { 0x029095F0, 1, reinforceLv, upgrade, gem }, -- Heavy Crossbow
+  { 0x0290E410, 1, reinforceLv, upgrade, gem }, -- Pulley Crossbow
+  { 0x02910B20, 1, reinforceLv, upgrade, gem }, -- Full Moon Crossbow
+  { 0x02915940, 1, reinforceLv, upgrade, gem }, -- Arbalest
+  { 0x0291CE70, 1, reinforceLv, upgrade, gem }, -- Crepus's Black-Key Crossbow
+-- Ballistae
+  { 0x029F6300, 1, reinforceLv, upgrade, gem }, -- Hand Ballista
+  { 0x029F8A10, 1, reinforceLv, upgrade, gem }, -- Jar Cannon
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

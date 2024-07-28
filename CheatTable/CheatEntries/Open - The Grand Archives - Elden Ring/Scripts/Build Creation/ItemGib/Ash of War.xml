@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>1101</ID>
+  <Description>"Ash of War"</Description>
+  <DropDownListLink>ItemGem</DropDownListLink>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>item_menu+0C</Address>
+</CheatEntry>

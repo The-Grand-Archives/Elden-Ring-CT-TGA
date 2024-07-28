@@ -1,0 +1,29 @@
+<CheatEntry>
+  <ID>100945</ID>
+  <Description>"10"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>8</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>30</Offset>
+    <Offset>8</Offset>
+    <Offset>178</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="100946"/>
+    <id id="100947"/>
+    <id id="100948"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

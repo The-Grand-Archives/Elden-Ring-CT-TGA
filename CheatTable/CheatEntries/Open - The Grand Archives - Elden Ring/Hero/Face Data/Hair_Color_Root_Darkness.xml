@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100862</ID>
+  <Description>"Hair_Color_Root_Darkness"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+102</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

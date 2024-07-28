@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>105948</ID>
+  <Description>"npcPlayerWeightType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+1C9</Address>
+</CheatEntry>

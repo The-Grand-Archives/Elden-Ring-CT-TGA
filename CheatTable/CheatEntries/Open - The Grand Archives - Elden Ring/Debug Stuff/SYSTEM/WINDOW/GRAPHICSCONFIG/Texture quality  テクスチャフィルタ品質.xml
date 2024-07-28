@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>108171</ID>
+  <Description>"Texture quality | テクスチャフィルタ品質"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>F0</Offset>
+  </Offsets>
+</CheatEntry>

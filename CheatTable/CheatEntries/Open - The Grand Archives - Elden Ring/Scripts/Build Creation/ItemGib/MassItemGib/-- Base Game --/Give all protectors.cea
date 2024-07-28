@@ -1,0 +1,587 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x10009C40, 1, 0, 0, -1 }, -- Iron Helmet
+  { 0x10009CA4, 1, 0, 0, -1 }, -- Scale Armor
+  { 0x10009D08, 1, 0, 0, -1 }, -- Iron Gauntlets
+  { 0x10009D6C, 1, 0, 0, -1 }, -- Leather Trousers
+  { 0x1000C350, 1, 0, 0, -1 }, -- Kaiden Helm
+  { 0x1000C3B4, 1, 0, 0, -1 }, -- Kaiden Armor
+  { 0x1000C418, 1, 0, 0, -1 }, -- Kaiden Gauntlets
+  { 0x1000C47C, 1, 0, 0, -1 }, -- Kaiden Trousers
+  { 0x1000EA60, 1, 0, 0, -1 }, -- Drake Knight Helm
+  { 0x1000EAC4, 1, 0, 0, -1 }, -- Drake Knight Armor
+  { 0x1000EB28, 1, 0, 0, -1 }, -- Drake Knight Gauntlets
+  { 0x1000EB8C, 1, 0, 0, -1 }, -- Drake Knight Greaves
+  { 0x1000EE48, 1, 0, 0, -1 }, -- Drake Knight Helm (Altered)
+  { 0x1000EEAC, 1, 0, 0, -1 }, -- Drake Knight Armor (Altered)
+  { 0x10013880, 1, 0, 0, -1 }, -- Scaled Helm
+  { 0x100138E4, 1, 0, 0, -1 }, -- Scaled Armor
+  { 0x10013948, 1, 0, 0, -1 }, -- Scaled Gauntlets
+  { 0x100139AC, 1, 0, 0, -1 }, -- Scaled Greaves
+  { 0x10013CCC, 1, 0, 0, -1 }, -- Scaled Armor (Altered)
+  { 0x10015F90, 1, 0, 0, -1 }, -- Perfumer Hood
+  { 0x10015FF4, 1, 0, 0, -1 }, -- Perfumer Robe
+  { 0x10016058, 1, 0, 0, -1 }, -- Perfumer Gloves
+  { 0x100160BC, 1, 0, 0, -1 }, -- Perfumer Sarong
+  { 0x100163DC, 1, 0, 0, -1 }, -- Perfumer Robe (Altered)
+  { 0x100186A0, 1, 0, 0, -1 }, -- Traveler's Hat
+  { 0x10018704, 1, 0, 0, -1 }, -- Perfumer's Traveling Garb
+  { 0x10018768, 1, 0, 0, -1 }, -- Traveler's Gloves
+  { 0x100187CC, 1, 0, 0, -1 }, -- Traveler's Slops
+  { 0x10018AEC, 1, 0, 0, -1 }, -- Perfumer's Traveling Garb (Altered)
+  { 0x1001D4C0, 1, 0, 0, -1 }, -- Alberich's Pointed Hat
+  { 0x1001D524, 1, 0, 0, -1 }, -- Alberich's Robe
+  { 0x1001D588, 1, 0, 0, -1 }, -- Alberich's Bracers
+  { 0x1001D5EC, 1, 0, 0, -1 }, -- Alberich's Trousers
+  { 0x1001D8A8, 1, 0, 0, -1 }, -- Alberich's Pointed Hat (Altered)
+  { 0x1001D90C, 1, 0, 0, -1 }, -- Alberich's Robe (Altered)
+  { 0x1001FBD0, 1, 0, 0, -1 }, -- Spellblade's Pointed Hat
+  { 0x1001FC34, 1, 0, 0, -1 }, -- Spellblade's Traveling Attire
+  { 0x1001FC98, 1, 0, 0, -1 }, -- Spellblade's Gloves
+  { 0x1001FCFC, 1, 0, 0, -1 }, -- Spellblade's Trousers
+  { 0x1002001C, 1, 0, 0, -1 }, -- Spellblade's Traveling Attire (Altered)
+  { 0x100222E0, 1, 0, 0, -1 }, -- Bull-Goat Helm
+  { 0x10022344, 1, 0, 0, -1 }, -- Bull-Goat Armor
+  { 0x100223A8, 1, 0, 0, -1 }, -- Bull-Goat Gauntlets
+  { 0x1002240C, 1, 0, 0, -1 }, -- Bull-Goat Greaves
+  { 0x100249F0, 1, 0, 0, -1 }, -- Iron Kasa
+  { 0x10024A54, 1, 0, 0, -1 }, -- Ronin's Armor
+  { 0x10024AB8, 1, 0, 0, -1 }, -- Ronin's Gauntlets
+  { 0x10024B1C, 1, 0, 0, -1 }, -- Ronin's Greaves
+  { 0x10024E3C, 1, 0, 0, -1 }, -- Ronin's Armor (Altered)
+  { 0x10027100, 1, 0, 0, -1 }, -- Guilty Hood
+  { 0x10027164, 1, 0, 0, -1 }, -- Cloth Garb
+  { 0x1002722C, 1, 0, 0, -1 }, -- Cloth Trousers
+  { 0x10029810, 1, 0, 0, -1 }, -- Black Wolf Mask
+  { 0x10029874, 1, 0, 0, -1 }, -- Blaidd's Armor
+  { 0x100298D8, 1, 0, 0, -1 }, -- Blaidd's Gauntlets
+  { 0x1002993C, 1, 0, 0, -1 }, -- Blaidd's Greaves
+  { 0x10029C5C, 1, 0, 0, -1 }, -- Blaidd's Armor (Altered)
+  { 0x1002BF20, 1, 0, 0, -1 }, -- Black Knife Hood
+  { 0x1002BF84, 1, 0, 0, -1 }, -- Black Knife Armor
+  { 0x1002BFE8, 1, 0, 0, -1 }, -- Black Knife Gauntlets
+  { 0x1002C04C, 1, 0, 0, -1 }, -- Black Knife Greaves
+  { 0x1002C36C, 1, 0, 0, -1 }, -- Black Knife Armor (Altered)
+  { 0x1002E630, 1, 0, 0, -1 }, -- Exile Hood
+  { 0x1002E694, 1, 0, 0, -1 }, -- Exile Armor
+  { 0x1002E6F8, 1, 0, 0, -1 }, -- Exile Gauntlets
+  { 0x1002E75C, 1, 0, 0, -1 }, -- Exile Greaves
+  { 0x10030D40, 1, 0, 0, -1 }, -- Banished Knight Helm
+  { 0x10030DA4, 1, 0, 0, -1 }, -- Banished Knight Armor
+  { 0x10030E08, 1, 0, 0, -1 }, -- Banished Knight Gauntlets
+  { 0x10030E6C, 1, 0, 0, -1 }, -- Banished Knight Greaves
+  { 0x10031128, 1, 0, 0, -1 }, -- Banished Knight Helm (Altered)
+  { 0x1003118C, 1, 0, 0, -1 }, -- Banished Knight Armor (Altered)
+  { 0x10033450, 1, 0, 0, -1 }, -- Briar Helm
+  { 0x100334B4, 1, 0, 0, -1 }, -- Briar Armor
+  { 0x10033518, 1, 0, 0, -1 }, -- Briar Gauntlets
+  { 0x1003357C, 1, 0, 0, -1 }, -- Briar Greaves
+  { 0x1003389C, 1, 0, 0, -1 }, -- Briar Armor (Altered)
+  { 0x10035B60, 1, 0, 0, -1 }, -- Page Hood
+  { 0x10035BC4, 1, 0, 0, -1 }, -- Page Garb
+  { 0x10035C8C, 1, 0, 0, -1 }, -- Page Trousers
+  { 0x10035FAC, 1, 0, 0, -1 }, -- Page Garb (Altered)
+  { 0x10038270, 1, 0, 0, -1 }, -- Night's Cavalry Helm
+  { 0x100382D4, 1, 0, 0, -1 }, -- Night's Cavalry Armor
+  { 0x10038338, 1, 0, 0, -1 }, -- Night's Cavalry Gauntlets
+  { 0x1003839C, 1, 0, 0, -1 }, -- Night's Cavalry Greaves
+  { 0x10038658, 1, 0, 0, -1 }, -- Night's Cavalry Helm (Altered)
+  { 0x100386BC, 1, 0, 0, -1 }, -- Night's Cavalry Armor (Altered)
+  { 0x1003A980, 1, 0, 0, -1 }, -- Blue Silver Mail Hood
+  { 0x1003A9E4, 1, 0, 0, -1 }, -- Blue Silver Mail Armor
+  { 0x1003AA48, 1, 0, 0, -1 }, -- Blue Silver Bracelets
+  { 0x1003AAAC, 1, 0, 0, -1 }, -- Blue Silver Mail Skirt
+  { 0x1003ADCC, 1, 0, 0, -1 }, -- Blue Silver Mail Armor (Altered)
+  { 0x1003D090, 1, 0, 0, -1 }, -- Nomadic Merchant's Chapeau
+  { 0x1003D0F4, 1, 0, 0, -1 }, -- Nomadic Merchant's Finery
+  { 0x1003D1BC, 1, 0, 0, -1 }, -- Nomadic Merchant's Trousers
+  { 0x1003D4DC, 1, 0, 0, -1 }, -- Nomadic Merchant's Finery (Altered)
+  { 0x1003F7A0, 1, 0, 0, -1 }, -- Malformed Dragon Helm
+  { 0x1003F804, 1, 0, 0, -1 }, -- Malformed Dragon Armor
+  { 0x1003F868, 1, 0, 0, -1 }, -- Malformed Dragon Gauntlets
+  { 0x1003F8CC, 1, 0, 0, -1 }, -- Malformed Dragon Greaves
+  { 0x10041EB0, 1, 0, 0, -1 }, -- Tree Sentinel Helm
+  { 0x10041F14, 1, 0, 0, -1 }, -- Tree Sentinel Armor
+  { 0x10041F78, 1, 0, 0, -1 }, -- Tree Sentinel Gauntlets
+  { 0x10041FDC, 1, 0, 0, -1 }, -- Tree Sentinel Greaves
+  { 0x100422FC, 1, 0, 0, -1 }, -- Tree Sentinel Armor (Altered)
+  { 0x100445C0, 1, 0, 0, -1 }, -- Royal Knight Helm
+  { 0x10044624, 1, 0, 0, -1 }, -- Royal Knight Armor
+  { 0x10044688, 1, 0, 0, -1 }, -- Royal Knight Gauntlets
+  { 0x100446EC, 1, 0, 0, -1 }, -- Royal Knight Greaves
+  { 0x10044A0C, 1, 0, 0, -1 }, -- Royal Knight Armor (Altered)
+  { 0x10046CD0, 1, 0, 0, -1 }, -- Nox Monk Hood
+  { 0x10046D34, 1, 0, 0, -1 }, -- Nox Monk Armor
+  { 0x10046D98, 1, 0, 0, -1 }, -- Nox Monk Bracelets
+  { 0x10046DFC, 1, 0, 0, -1 }, -- Nox Monk Greaves
+  { 0x100470B8, 1, 0, 0, -1 }, -- Nox Monk Hood (Altered)
+  { 0x1004711C, 1, 0, 0, -1 }, -- Nox Monk Armor (Altered)
+  { 0x100474A0, 1, 0, 0, -1 }, -- Nox Swordstress Crown
+  { 0x10047504, 1, 0, 0, -1 }, -- Nox Swordstress Armor
+  { 0x10047888, 1, 0, 0, -1 }, -- Night Maiden Twin Crown
+  { 0x100478EC, 1, 0, 0, -1 }, -- Night Maiden Armor
+  { 0x10047C70, 1, 0, 0, -1 }, -- Nox Swordstress Crown (Altered)
+  { 0x10047CD4, 1, 0, 0, -1 }, -- Nox Swordstress Armor (Altered)
+  { 0x100493E0, 1, 0, 0, -1 }, -- Great Horned Headband
+  { 0x10049444, 1, 0, 0, -1 }, -- Fur Raiment
+  { 0x1004950C, 1, 0, 0, -1 }, -- Fur Leggings
+  { 0x100497C8, 1, 0, 0, -1 }, -- Shining Horned Headband
+  { 0x1004982C, 1, 0, 0, -1 }, -- Shaman Furs
+  { 0x100498F4, 1, 0, 0, -1 }, -- Shaman Leggings
+  { 0x1004BAF0, 1, 0, 0, -1 }, -- Duelist Helm
+  { 0x1004BB54, 1, 0, 0, -1 }, -- Gravekeeper Cloak
+  { 0x1004BC1C, 1, 0, 0, -1 }, -- Duelist Greaves
+  { 0x1004BF3C, 1, 0, 0, -1 }, -- Gravekeeper Cloak (Altered)
+  { 0x1004E200, 1, 0, 0, -1 }, -- Sanguine Noble Hood
+  { 0x1004E264, 1, 0, 0, -1 }, -- Sanguine Noble Robe
+  { 0x1004E32C, 1, 0, 0, -1 }, -- Sanguine Noble Waistcloth
+  { 0x10050910, 1, 0, 0, -1 }, -- Guardian Mask
+  { 0x10050974, 1, 0, 0, -1 }, -- Guardian Garb (Full Bloom)
+  { 0x100509D8, 1, 0, 0, -1 }, -- Guardian Bracers
+  { 0x10050A3C, 1, 0, 0, -1 }, -- Guardian Greaves
+  { 0x10050D5C, 1, 0, 0, -1 }, -- Guardian Garb
+  { 0x10053020, 1, 0, 0, -1 }, -- Cleanrot Helm
+  { 0x10053084, 1, 0, 0, -1 }, -- Cleanrot Armor
+  { 0x100530E8, 1, 0, 0, -1 }, -- Cleanrot Gauntlets
+  { 0x1005314C, 1, 0, 0, -1 }, -- Cleanrot Greaves
+  { 0x10053408, 1, 0, 0, -1 }, -- Cleanrot Helm (Altered)
+  { 0x1005346C, 1, 0, 0, -1 }, -- Cleanrot Armor (Altered)
+  { 0x10055730, 1, 0, 0, -1 }, -- Fire Monk Hood
+  { 0x10055794, 1, 0, 0, -1 }, -- Fire Monk Armor
+  { 0x100557F8, 1, 0, 0, -1 }, -- Fire Monk Gauntlets
+  { 0x1005585C, 1, 0, 0, -1 }, -- Fire Monk Greaves
+  { 0x10055B18, 1, 0, 0, -1 }, -- Blackflame Monk Hood
+  { 0x10055B7C, 1, 0, 0, -1 }, -- Blackflame Monk Armor
+  { 0x10055BE0, 1, 0, 0, -1 }, -- Blackflame Monk Gauntlets
+  { 0x10055C44, 1, 0, 0, -1 }, -- Blackflame Monk Greaves
+  { 0x10057E40, 1, 0, 0, -1 }, -- Fire Prelate Helm
+  { 0x10057EA4, 1, 0, 0, -1 }, -- Fire Prelate Armor
+  { 0x10057F08, 1, 0, 0, -1 }, -- Fire Prelate Gauntlets
+  { 0x10057F6C, 1, 0, 0, -1 }, -- Fire Prelate Greaves
+  { 0x1005828C, 1, 0, 0, -1 }, -- Fire Prelate Armor (Altered)
+  { 0x1005A550, 1, 0, 0, -1 }, -- Aristocrat Headband
+  { 0x1005A5B4, 1, 0, 0, -1 }, -- Aristocrat Garb
+  { 0x1005A67C, 1, 0, 0, -1 }, -- Aristocrat Boots
+  { 0x1005A99C, 1, 0, 0, -1 }, -- Aristocrat Garb (Altered)
+  { 0x1005CC60, 1, 0, 0, -1 }, -- Aristocrat Hat
+  { 0x1005CCC4, 1, 0, 0, -1 }, -- Aristocrat Coat
+  { 0x1005F370, 1, 0, 0, -1 }, -- Old Aristocrat Cowl
+  { 0x1005F3D4, 1, 0, 0, -1 }, -- Old Aristocrat Gown
+  { 0x1005F49C, 1, 0, 0, -1 }, -- Old Aristocrat Shoes
+  { 0x100668A0, 1, 0, 0, -1 }, -- Vulgar Militia Helm
+  { 0x10066904, 1, 0, 0, -1 }, -- Vulgar Militia Armor
+  { 0x10066968, 1, 0, 0, -1 }, -- Vulgar Militia Gauntlets
+  { 0x100669CC, 1, 0, 0, -1 }, -- Vulgar Militia Greaves
+  { 0x10068FB0, 1, 0, 0, -1 }, -- Sage Hood
+  { 0x10069014, 1, 0, 0, -1 }, -- Sage Robe
+  { 0x100690DC, 1, 0, 0, -1 }, -- Sage Trousers
+  { 0x1006B6C0, 1, 0, 0, -1 }, -- Pumpkin Helm
+  { 0x100704E0, 1, 0, 0, -1 }, -- Elden Lord Crown
+  { 0x10070544, 1, 0, 0, -1 }, -- Elden Lord Armor
+  { 0x100705A8, 1, 0, 0, -1 }, -- Elden Lord Bracers
+  { 0x1007060C, 1, 0, 0, -1 }, -- Elden Lord Greaves
+  { 0x1007092C, 1, 0, 0, -1 }, -- Elden Lord Armor (Altered)
+  { 0x10072BF0, 1, 0, 0, -1 }, -- Radahn's Redmane Helm
+  { 0x10072C54, 1, 0, 0, -1 }, -- Radahn's Lion Armor
+  { 0x10072CB8, 1, 0, 0, -1 }, -- Radahn's Gauntlets
+  { 0x10072D1C, 1, 0, 0, -1 }, -- Radahn's Greaves
+  { 0x1007303C, 1, 0, 0, -1 }, -- Radahn's Lion Armor (Altered)
+  { 0x10075364, 1, 0, 0, -1 }, -- Lord of Blood's Robe
+  { 0x1007574C, 1, 0, 0, -1 }, -- Lord of Blood's Robe (Altered)
+  { 0x1007C830, 1, 0, 0, -1 }, -- Queen's Crescent Crown
+  { 0x1007C894, 1, 0, 0, -1 }, -- Queen's Robe
+  { 0x1007C8F8, 1, 0, 0, -1 }, -- Queen's Bracelets
+  { 0x1007C95C, 1, 0, 0, -1 }, -- Queen's Leggings
+  { 0x1007EF40, 1, 0, 0, -1 }, -- Godskin Apostle Hood
+  { 0x1007EFA4, 1, 0, 0, -1 }, -- Godskin Apostle Robe
+  { 0x1007F008, 1, 0, 0, -1 }, -- Godskin Apostle Bracelets
+  { 0x1007F06C, 1, 0, 0, -1 }, -- Godskin Apostle Trousers
+  { 0x10081650, 1, 0, 0, -1 }, -- Godskin Noble Hood
+  { 0x100816B4, 1, 0, 0, -1 }, -- Godskin Noble Robe
+  { 0x10081718, 1, 0, 0, -1 }, -- Godskin Noble Bracelets
+  { 0x1008177C, 1, 0, 0, -1 }, -- Godskin Noble Trousers
+  { 0x10083D60, 1, 0, 0, -1 }, -- Depraved Perfumer Headscarf
+  { 0x10083DC4, 1, 0, 0, -1 }, -- Depraved Perfumer Robe
+  { 0x10083E28, 1, 0, 0, -1 }, -- Depraved Perfumer Gloves
+  { 0x10083E8C, 1, 0, 0, -1 }, -- Depraved Perfumer Trousers
+  { 0x100841AC, 1, 0, 0, -1 }, -- Depraved Perfumer Robe (Altered)
+  { 0x1008B290, 1, 0, 0, -1 }, -- Crucible Axe Helm
+  { 0x1008B2F4, 1, 0, 0, -1 }, -- Crucible Axe Armor
+  { 0x1008B358, 1, 0, 0, -1 }, -- Crucible Gauntlets
+  { 0x1008B3BC, 1, 0, 0, -1 }, -- Crucible Greaves
+  { 0x1008B678, 1, 0, 0, -1 }, -- Crucible Tree Helm
+  { 0x1008B6DC, 1, 0, 0, -1 }, -- Crucible Tree Armor
+  { 0x1008BAC4, 1, 0, 0, -1 }, -- Crucible Axe Armor (Altered)
+  { 0x1008BEAC, 1, 0, 0, -1 }, -- Crucible Tree Armor (Altered)
+  { 0x1008D9A0, 1, 0, 0, -1 }, -- Lusat's Glintstone Crown
+  { 0x1008DA04, 1, 0, 0, -1 }, -- Lusat's Robe
+  { 0x1008DA68, 1, 0, 0, -1 }, -- Lusat's Manchettes
+  { 0x1008DACC, 1, 0, 0, -1 }, -- Old Sorcerer's Legwraps
+  { 0x1008DD88, 1, 0, 0, -1 }, -- Azur's Glintstone Crown
+  { 0x1008DDEC, 1, 0, 0, -1 }, -- Azur's Glintstone Robe
+  { 0x1008DE50, 1, 0, 0, -1 }, -- Azur's Manchettes
+  { 0x100900B0, 1, 0, 0, -1 }, -- All-Knowing Helm
+  { 0x10090114, 1, 0, 0, -1 }, -- All-Knowing Armor
+  { 0x10090178, 1, 0, 0, -1 }, -- All-Knowing Gauntlets
+  { 0x100901DC, 1, 0, 0, -1 }, -- All-Knowing Greaves
+  { 0x100904FC, 1, 0, 0, -1 }, -- All-Knowing Armor (Altered)
+  { 0x100927C0, 1, 0, 0, -1 }, -- Twinned Helm
+  { 0x10092824, 1, 0, 0, -1 }, -- Twinned Armor
+  { 0x10092888, 1, 0, 0, -1 }, -- Twinned Gauntlets
+  { 0x100928EC, 1, 0, 0, -1 }, -- Twinned Greaves
+  { 0x10092C0C, 1, 0, 0, -1 }, -- Twinned Armor (Altered)
+--{ 0x10094ED0, 1, 0, 0, -1 }, -- Ragged Hat
+--{ 0x10094F34, 1, 0, 0, -1 }, -- Ragged Armor
+--{ 0x10094F98, 1, 0, 0, -1 }, -- Ragged Gloves
+--{ 0x10094FFC, 1, 0, 0, -1 }, -- Ragged Loincloth
+--{ 0x100952B8, 1, 0, 0, -1 }, -- Ragged Hat (Altered)
+--{ 0x1009531C, 1, 0, 0, -1 }, -- Ragged Armor (Altered)
+  { 0x100975E0, 1, 0, 0, -1 }, -- Prophet Blindfold
+  { 0x10097644, 1, 0, 0, -1 }, -- Corhyn's Robe
+  { 0x1009770C, 1, 0, 0, -1 }, -- Prophet Trousers
+  { 0x10097A2C, 1, 0, 0, -1 }, -- Prophet Robe (Altered)
+  { 0x10097E14, 1, 0, 0, -1 }, -- Prophet Robe
+  { 0x10099CF0, 1, 0, 0, -1 }, -- Astrologer Hood
+  { 0x10099D54, 1, 0, 0, -1 }, -- Astrologer Robe
+  { 0x10099DB8, 1, 0, 0, -1 }, -- Astrologer Gloves
+  { 0x10099E1C, 1, 0, 0, -1 }, -- Astrologer Trousers
+  { 0x1009A13C, 1, 0, 0, -1 }, -- Astrologer Robe (Altered)
+  { 0x1009C400, 1, 0, 0, -1 }, -- Lionel's Helm
+  { 0x1009C464, 1, 0, 0, -1 }, -- Lionel's Armor
+  { 0x1009C4C8, 1, 0, 0, -1 }, -- Lionel's Gauntlets
+  { 0x1009C52C, 1, 0, 0, -1 }, -- Lionel's Greaves
+  { 0x1009C84C, 1, 0, 0, -1 }, -- Lionel's Armor (Altered)
+  { 0x1009EB10, 1, 0, 0, -1 }, -- Hoslow's Helm
+  { 0x1009EB74, 1, 0, 0, -1 }, -- Hoslow's Armor
+  { 0x1009EBD8, 1, 0, 0, -1 }, -- Hoslow's Gauntlets
+  { 0x1009EC3C, 1, 0, 0, -1 }, -- Hoslow's Greaves
+  { 0x1009EEF8, 1, 0, 0, -1 }, -- Diallos's Mask
+  { 0x1009F344, 1, 0, 0, -1 }, -- Hoslow's Armor (Altered)
+  { 0x100A1220, 1, 0, 0, -1 }, -- Vagabond Knight Helm
+  { 0x100A1284, 1, 0, 0, -1 }, -- Vagabond Knight Armor
+  { 0x100A12E8, 1, 0, 0, -1 }, -- Vagabond Knight Gauntlets
+  { 0x100A134C, 1, 0, 0, -1 }, -- Vagabond Knight Greaves
+  { 0x100A166C, 1, 0, 0, -1 }, -- Vagabond Knight Armor (Altered)
+  { 0x100A3930, 1, 0, 0, -1 }, -- Blue Cloth Cowl
+  { 0x100A3994, 1, 0, 0, -1 }, -- Blue Cloth Vest
+  { 0x100A39F8, 1, 0, 0, -1 }, -- Warrior Gauntlets
+  { 0x100A3A5C, 1, 0, 0, -1 }, -- Warrior Greaves
+  { 0x100A6040, 1, 0, 0, -1 }, -- White Mask
+  { 0x100A60A4, 1, 0, 0, -1 }, -- War Surgeon Gown
+  { 0x100A6108, 1, 0, 0, -1 }, -- War Surgeon Gloves
+  { 0x100A616C, 1, 0, 0, -1 }, -- War Surgeon Trousers
+  { 0x100A648C, 1, 0, 0, -1 }, -- War Surgeon Gown (Altered)
+  { 0x100A8750, 1, 0, 0, -1 }, -- Royal Remains Helm
+  { 0x100A87B4, 1, 0, 0, -1 }, -- Royal Remains Armor
+  { 0x100A8818, 1, 0, 0, -1 }, -- Royal Remains Gauntlets
+  { 0x100A887C, 1, 0, 0, -1 }, -- Royal Remains Greaves
+--{ 0x100AAE60, 1, 0, 0, -1 }, -- Brave's Cord Circlet
+--{ 0x100AAEC4, 1, 0, 0, -1 }, -- Brave's Battlewear
+--{ 0x100AAF28, 1, 0, 0, -1 }, -- Brave's Bracer
+--{ 0x100AAF8C, 1, 0, 0, -1 }, -- Brave's Legwraps
+--{ 0x100AB248, 1, 0, 0, -1 }, -- Brave's Leather Helm
+--{ 0x100AB630, 1, 0, 0, -1 }, -- Brave's Battlewear (Altered)
+  { 0x100AFC80, 1, 0, 0, -1 }, -- Beast Champion Helm
+  { 0x100AFCE4, 1, 0, 0, -1 }, -- Beast Champion Armor
+  { 0x100AFD48, 1, 0, 0, -1 }, -- Beast Champion Gauntlets
+  { 0x100AFDAC, 1, 0, 0, -1 }, -- Beast Champion Greaves
+  { 0x100B00CC, 1, 0, 0, -1 }, -- Beast Champion Armor (Altered)
+  { 0x100B2390, 1, 0, 0, -1 }, -- Champion Headband
+  { 0x100B23F4, 1, 0, 0, -1 }, -- Champion Pauldron
+  { 0x100B2458, 1, 0, 0, -1 }, -- Champion Bracers
+  { 0x100B24BC, 1, 0, 0, -1 }, -- Champion Gaiters
+  { 0x100B4AA0, 1, 0, 0, -1 }, -- Crimson Hood
+  { 0x100B4B04, 1, 0, 0, -1 }, -- Noble's Traveling Garb
+  { 0x100B4B68, 1, 0, 0, -1 }, -- Noble's Gloves
+  { 0x100B4BCC, 1, 0, 0, -1 }, -- Noble's Trousers
+  { 0x100B4E88, 1, 0, 0, -1 }, -- Navy Hood
+  { 0x100B98C0, 1, 0, 0, -1 }, -- Maliketh's Helm
+  { 0x100B9924, 1, 0, 0, -1 }, -- Maliketh's Armor
+  { 0x100B9988, 1, 0, 0, -1 }, -- Maliketh's Gauntlets
+  { 0x100B99EC, 1, 0, 0, -1 }, -- Maliketh's Greaves
+  { 0x100B9D0C, 1, 0, 0, -1 }, -- Maliketh's Armor (Altered)
+  { 0x100BBFD0, 1, 0, 0, -1 }, -- Malenia's Winged Helm
+  { 0x100BC034, 1, 0, 0, -1 }, -- Malenia's Armor
+  { 0x100BC098, 1, 0, 0, -1 }, -- Malenia's Gauntlet
+  { 0x100BC0FC, 1, 0, 0, -1 }, -- Malenia's Greaves
+  { 0x100BC41C, 1, 0, 0, -1 }, -- Malenia's Armor (Altered)
+  { 0x100BE6E0, 1, 0, 0, -1 }, -- Veteran's Helm
+  { 0x100BE744, 1, 0, 0, -1 }, -- Veteran's Armor
+  { 0x100BE7A8, 1, 0, 0, -1 }, -- Veteran's Gauntlets
+  { 0x100BE80C, 1, 0, 0, -1 }, -- Veteran's Greaves
+  { 0x100BEB2C, 1, 0, 0, -1 }, -- Veteran's Armor (Altered)
+  { 0x100C0DF0, 1, 0, 0, -1 }, -- Bloodhound Knight Helm
+  { 0x100C0E54, 1, 0, 0, -1 }, -- Bloodhound Knight Armor
+  { 0x100C0EB8, 1, 0, 0, -1 }, -- Bloodhound Knight Gauntlets
+  { 0x100C0F1C, 1, 0, 0, -1 }, -- Bloodhound Knight Greaves
+  { 0x100C123C, 1, 0, 0, -1 }, -- Bloodhound Knight Armor (Altered)
+  { 0x100C3500, 1, 0, 0, -1 }, -- Festive Hood
+  { 0x100C3564, 1, 0, 0, -1 }, -- Festive Garb
+  { 0x100C38E8, 1, 0, 0, -1 }, -- Festive Hood (Altered)
+  { 0x100C394C, 1, 0, 0, -1 }, -- Festive Garb (Altered)
+  { 0x100C3CD0, 1, 0, 0, -1 }, -- Blue Festive Hood
+  { 0x100C3D34, 1, 0, 0, -1 }, -- Blue Festive Garb
+  { 0x100C5C10, 1, 0, 0, -1 }, -- Commoner's Headband
+  { 0x100C5C74, 1, 0, 0, -1 }, -- Commoner's Garb
+  { 0x100C5D3C, 1, 0, 0, -1 }, -- Commoner's Shoes
+  { 0x100C5FF8, 1, 0, 0, -1 }, -- Commoner's Headband (Altered)
+  { 0x100C605C, 1, 0, 0, -1 }, -- Commoner's Garb (Altered)
+  { 0x100C63E0, 1, 0, 0, -1 }, -- Commoner's Simple Garb
+  { 0x100C6444, 1, 0, 0, -1 }, -- Commoner's Simple Garb (Altered)
+  { 0x100C8320, 1, 0, 0, -1 }, -- Envoy Crown
+  { 0x100CAA30, 1, 0, 0, -1 }, -- Twinsage Glintstone Crown
+  { 0x100CAA94, 1, 0, 0, -1 }, -- Raya Lucarian Robe
+  { 0x100CAAF8, 1, 0, 0, -1 }, -- Sorcerer Manchettes
+  { 0x100CAB5C, 1, 0, 0, -1 }, -- Sorcerer Leggings
+  { 0x100CAE18, 1, 0, 0, -1 }, -- Olivinus Glintstone Crown
+  { 0x100CB200, 1, 0, 0, -1 }, -- Lazuli Glintstone Crown
+  { 0x100CB5E8, 1, 0, 0, -1 }, -- Karolos Glintstone Crown
+  { 0x100CB9D0, 1, 0, 0, -1 }, -- Witch's Glintstone Crown
+  { 0x100CD140, 1, 0, 0, -1 }, -- Marionette Soldier Helm
+  { 0x100CD1A4, 1, 0, 0, -1 }, -- Marionette Soldier Armor
+  { 0x100CF850, 1, 0, 0, -1 }, -- Marionette Soldier Birdhelm
+  { 0x100D1F60, 1, 0, 0, -1 }, -- Raging Wolf Helm
+  { 0x100D1FC4, 1, 0, 0, -1 }, -- Raging Wolf Armor
+  { 0x100D2028, 1, 0, 0, -1 }, -- Raging Wolf Gauntlets
+  { 0x100D208C, 1, 0, 0, -1 }, -- Raging Wolf Greaves
+  { 0x100D23AC, 1, 0, 0, -1 }, -- Raging Wolf Armor (Altered)
+  { 0x100D4670, 1, 0, 0, -1 }, -- Land of Reeds Helm
+  { 0x100D46D4, 1, 0, 0, -1 }, -- Land of Reeds Armor
+  { 0x100D4738, 1, 0, 0, -1 }, -- Land of Reeds Gauntlets
+  { 0x100D479C, 1, 0, 0, -1 }, -- Land of Reeds Greaves
+  { 0x100D4ABC, 1, 0, 0, -1 }, -- Land of Reeds Armor (Altered)
+  { 0x100D4E40, 1, 0, 0, -1 }, -- Okina Mask
+  { 0x100D4EA4, 1, 0, 0, -1 }, -- White Reed Armor
+  { 0x100D4F08, 1, 0, 0, -1 }, -- White Reed Gauntlets
+  { 0x100D4F6C, 1, 0, 0, -1 }, -- White Reed Greaves
+  { 0x100D6D80, 1, 0, 0, -1 }, -- Confessor Hood
+  { 0x100D6DE4, 1, 0, 0, -1 }, -- Confessor Armor
+  { 0x100D6E48, 1, 0, 0, -1 }, -- Confessor Gloves
+  { 0x100D6EAC, 1, 0, 0, -1 }, -- Confessor Boots
+  { 0x100D7168, 1, 0, 0, -1 }, -- Confessor Hood (Altered)
+  { 0x100D71CC, 1, 0, 0, -1 }, -- Confessor Armor (Altered)
+  { 0x100D9490, 1, 0, 0, -1 }, -- Prisoner Iron Mask
+  { 0x100D94F4, 1, 0, 0, -1 }, -- Prisoner Clothing
+  { 0x100D95BC, 1, 0, 0, -1 }, -- Prisoner Trousers
+  { 0x100D9878, 1, 0, 0, -1 }, -- Blackguard's Iron Mask
+  { 0x100DBBA0, 1, 0, 0, -1 }, -- Traveling Maiden Hood
+  { 0x100DBC04, 1, 0, 0, -1 }, -- Traveling Maiden Robe
+  { 0x100DBC68, 1, 0, 0, -1 }, -- Traveling Maiden Gloves
+  { 0x100DBCCC, 1, 0, 0, -1 }, -- Traveling Maiden Boots
+  { 0x100DBFEC, 1, 0, 0, -1 }, -- Traveling Maiden Robe (Altered)
+  { 0x100DC370, 1, 0, 0, -1 }, -- Finger Maiden Fillet
+  { 0x100DC3D4, 1, 0, 0, -1 }, -- Finger Maiden Robe
+  { 0x100DC49C, 1, 0, 0, -1 }, -- Finger Maiden Shoes
+  { 0x100DC7BC, 1, 0, 0, -1 }, -- Finger Maiden Robe (Altered)
+  { 0x100DE2B0, 1, 0, 0, -1 }, -- Preceptor's Big Hat
+  { 0x100DE314, 1, 0, 0, -1 }, -- Preceptor's Long Gown
+  { 0x100DE378, 1, 0, 0, -1 }, -- Preceptor's Gloves
+  { 0x100DE3DC, 1, 0, 0, -1 }, -- Preceptor's Trousers
+  { 0x100DE698, 1, 0, 0, -1 }, -- Mask of Confidence
+  { 0x100DE6FC, 1, 0, 0, -1 }, -- Preceptor's Long Gown (Altered)
+--{ 0x100E09C0, 1, 0, 0, -1 }, -- Grass Hair Ornament
+  { 0x100E30D0, 1, 0, 0, -1 }, -- Skeletal Mask
+  { 0x100E3134, 1, 0, 0, -1 }, -- Raptor's Black Feathers
+  { 0x100E3198, 1, 0, 0, -1 }, -- Bandit Manchettes
+  { 0x100E31FC, 1, 0, 0, -1 }, -- Bandit Boots
+  { 0x100E351C, 1, 0, 0, -1 }, -- Bandit Garb
+  { 0x100E57E0, 1, 0, 0, -1 }, -- Eccentric's Hood
+  { 0x100E5844, 1, 0, 0, -1 }, -- Eccentric's Armor
+  { 0x100E58A8, 1, 0, 0, -1 }, -- Eccentric's Manchettes
+  { 0x100E590C, 1, 0, 0, -1 }, -- Eccentric's Breeches
+  { 0x100E5BC8, 1, 0, 0, -1 }, -- Eccentric's Hood (Altered)
+  { 0x100E7EF0, 1, 0, 0, -1 }, -- Fingerprint Helm
+  { 0x100E7F54, 1, 0, 0, -1 }, -- Fingerprint Armor
+  { 0x100E7FB8, 1, 0, 0, -1 }, -- Fingerprint Gauntlets
+  { 0x100E801C, 1, 0, 0, -1 }, -- Fingerprint Greaves
+  { 0x100E833C, 1, 0, 0, -1 }, -- Fingerprint Armor (Altered)
+  { 0x100EA600, 1, 0, 0, -1 }, -- Consort's Mask
+  { 0x100EA664, 1, 0, 0, -1 }, -- Consort's Robe
+  { 0x100EA72C, 1, 0, 0, -1 }, -- Consort's Trousers
+  { 0x100EA9E8, 1, 0, 0, -1 }, -- Ruler's Mask
+  { 0x100EAA4C, 1, 0, 0, -1 }, -- Ruler's Robe
+  { 0x100EAE34, 1, 0, 0, -1 }, -- Upper-Class Robe
+  { 0x100EB1B8, 1, 0, 0, -1 }, -- Marais Mask
+  { 0x100EB21C, 1, 0, 0, -1 }, -- Marais Robe
+  { 0x100EB280, 1, 0, 0, -1 }, -- Bloodsoaked Manchettes
+  { 0x100EB5A0, 1, 0, 0, -1 }, -- Bloodsoaked Mask
+  { 0x100EB604, 1, 0, 0, -1 }, -- Official's Attire
+  { 0x100ECD10, 1, 0, 0, -1 }, -- Omen Helm
+  { 0x100ECD74, 1, 0, 0, -1 }, -- Omen Armor
+  { 0x100ECDD8, 1, 0, 0, -1 }, -- Omen Gauntlets
+  { 0x100ECE3C, 1, 0, 0, -1 }, -- Omen Greaves
+  { 0x100EF420, 1, 0, 0, -1 }, -- Carian Knight Helm
+  { 0x100EF484, 1, 0, 0, -1 }, -- Carian Knight Armor
+  { 0x100EF4E8, 1, 0, 0, -1 }, -- Carian Knight Gauntlets
+  { 0x100EF54C, 1, 0, 0, -1 }, -- Carian Knight Greaves
+  { 0x100EF86C, 1, 0, 0, -1 }, -- Carian Knight Armor (Altered)
+  { 0x100F1B30, 1, 0, 0, -1 }, -- Hierodas Glintstone Crown
+  { 0x100F1B94, 1, 0, 0, -1 }, -- Errant Sorcerer Robe
+  { 0x100F1BF8, 1, 0, 0, -1 }, -- Errant Sorcerer Manchettes
+  { 0x100F1C5C, 1, 0, 0, -1 }, -- Errant Sorcerer Boots
+  { 0x100F1F7C, 1, 0, 0, -1 }, -- Errant Sorcerer Robe (Altered)
+  { 0x100F4240, 1, 0, 0, -1 }, -- Haima Glintstone Crown
+  { 0x100F42A4, 1, 0, 0, -1 }, -- Battlemage Robe
+  { 0x100F4308, 1, 0, 0, -1 }, -- Battlemage Manchettes
+  { 0x100F436C, 1, 0, 0, -1 }, -- Battlemage Legwraps
+  { 0x100F6950, 1, 0, 0, -1 }, -- Snow Witch Hat
+  { 0x100F69B4, 1, 0, 0, -1 }, -- Snow Witch Robe
+  { 0x100F6A7C, 1, 0, 0, -1 }, -- Snow Witch Skirt
+  { 0x100F6D9C, 1, 0, 0, -1 }, -- Snow Witch Robe (Altered)
+  { 0x100F90C4, 1, 0, 0, -1 }, -- Traveler's Clothes
+  { 0x100F9128, 1, 0, 0, -1 }, -- Traveler's Manchettes
+  { 0x100F918C, 1, 0, 0, -1 }, -- Traveler's Boots
+  { 0x100FB770, 1, 0, 0, -1 }, -- Juvenile Scholar Cap
+  { 0x100FB7D4, 1, 0, 0, -1 }, -- Juvenile Scholar Robe
+  { 0x100FDE80, 1, 0, 0, -1 }, -- Radiant Gold Mask
+  { 0x100FDEE4, 1, 0, 0, -1 }, -- Goldmask's Rags
+  { 0x100FDF48, 1, 0, 0, -1 }, -- Gold Bracelets
+  { 0x100FDFAC, 1, 0, 0, -1 }, -- Gold Waistwrap
+  { 0x101005F4, 1, 0, 0, -1 }, -- Fell Omen Cloak
+  { 0x10102CA0, 1, 0, 0, -1 }, -- Albinauric Mask
+  { 0x10102D04, 1, 0, 0, -1 }, -- Dirty Chainmail
+  { 0x101053B0, 1, 0, 0, -1 }, -- Zamor Mask
+  { 0x10105414, 1, 0, 0, -1 }, -- Zamor Armor
+  { 0x10105478, 1, 0, 0, -1 }, -- Zamor Bracelets
+  { 0x101054DC, 1, 0, 0, -1 }, -- Zamor Legwraps
+  { 0x10107AC0, 1, 0, 0, -1 }, -- Imp Head (Cat)
+  { 0x10107EA8, 1, 0, 0, -1 }, -- Imp Head (Fanged)
+  { 0x10108290, 1, 0, 0, -1 }, -- Imp Head (Long-Tongued)
+  { 0x10108678, 1, 0, 0, -1 }, -- Imp Head (Corpse)
+  { 0x10108A60, 1, 0, 0, -1 }, -- Imp Head (Wolf)
+  { 0x10108E48, 1, 0, 0, -1 }, -- Imp Head (Elder)
+  { 0x1010A1D0, 1, 0, 0, -1 }, -- Silver Tear Mask
+  { 0x1010C8E0, 1, 0, 0, -1 }, -- Chain Coif
+  { 0x1010C944, 1, 0, 0, -1 }, -- Chain Armor
+  { 0x1010C9A8, 1, 0, 0, -1 }, -- Chain Gauntlets
+  { 0x1010CA0C, 1, 0, 0, -1 }, -- Chain Leggings
+  { 0x1010CCC8, 1, 0, 0, -1 }, -- Greathelm
+  { 0x1010CD2C, 1, 0, 0, -1 }, -- Eye Surcoat
+  { 0x1010D114, 1, 0, 0, -1 }, -- Tree Surcoat
+  { 0x1010EFF0, 1, 0, 0, -1 }, -- Octopus Head
+  { 0x10111700, 1, 0, 0, -1 }, -- Jar
+  { 0x10113E10, 1, 0, 0, -1 }, -- Mushroom Head
+  { 0x10113E74, 1, 0, 0, -1 }, -- Mushroom Body
+  { 0x10113ED8, 1, 0, 0, -1 }, -- Mushroom Arms
+  { 0x10113F3C, 1, 0, 0, -1 }, -- Mushroom Legs
+  { 0x1013D620, 1, 0, 0, -1 }, -- Nox Mirrorhelm
+  { 0x1013DA08, 1, 0, 0, -1 }, -- Iji's Mirrorhelm
+  { 0x10155CC0, 1, 0, 0, -1 }, -- Black Hood
+  { 0x10155D24, 1, 0, 0, -1 }, -- Leather Armor
+  { 0x10155D88, 1, 0, 0, -1 }, -- Leather Gloves
+  { 0x10155DEC, 1, 0, 0, -1 }, -- Leather Boots
+  { 0x101560A8, 1, 0, 0, -1 }, -- Bandit Mask
+  { 0x1016E360, 1, 0, 0, -1 }, -- Knight Helm
+  { 0x1016E3C4, 1, 0, 0, -1 }, -- Knight Armor
+  { 0x1016E428, 1, 0, 0, -1 }, -- Knight Gauntlets
+  { 0x1016E48C, 1, 0, 0, -1 }, -- Knight Greaves
+  { 0x10186A00, 1, 0, 0, -1 }, -- Greathood
+  { 0x1019F0A0, 1, 0, 0, -1 }, -- Godrick Soldier Helm
+  { 0x1019F104, 1, 0, 0, -1 }, -- Tree-and-Beast Surcoat
+  { 0x1019F168, 1, 0, 0, -1 }, -- Godrick Soldier Gauntlets
+  { 0x1019F1CC, 1, 0, 0, -1 }, -- Godrick Soldier Greaves
+  { 0x101A17B0, 1, 0, 0, -1 }, -- Raya Lucarian Helm
+  { 0x101A1814, 1, 0, 0, -1 }, -- Cuckoo Surcoat
+  { 0x101A1878, 1, 0, 0, -1 }, -- Raya Lucarian Gauntlets
+  { 0x101A18DC, 1, 0, 0, -1 }, -- Raya Lucarian Greaves
+  { 0x101A3EC0, 1, 0, 0, -1 }, -- Leyndell Soldier Helm
+  { 0x101A3F24, 1, 0, 0, -1 }, -- Erdtree Surcoat
+  { 0x101A3F88, 1, 0, 0, -1 }, -- Leyndell Soldier Gauntlets
+  { 0x101A3FEC, 1, 0, 0, -1 }, -- Leyndell Soldier Greaves
+  { 0x101A65D0, 1, 0, 0, -1 }, -- Radahn Soldier Helm
+  { 0x101A6634, 1, 0, 0, -1 }, -- Redmane Surcoat
+  { 0x101A6698, 1, 0, 0, -1 }, -- Radahn Soldier Gauntlets
+  { 0x101A66FC, 1, 0, 0, -1 }, -- Radahn Soldier Greaves
+  { 0x101A8D44, 1, 0, 0, -1 }, -- Mausoleum Surcoat
+  { 0x101A8DA8, 1, 0, 0, -1 }, -- Mausoleum Gauntlets
+  { 0x101A8E0C, 1, 0, 0, -1 }, -- Mausoleum Greaves
+  { 0x101AB3F0, 1, 0, 0, -1 }, -- Haligtree Helm
+  { 0x101AB454, 1, 0, 0, -1 }, -- Haligtree Crest Surcoat
+  { 0x101AB4B8, 1, 0, 0, -1 }, -- Haligtree Gauntlets
+  { 0x101AB51C, 1, 0, 0, -1 }, -- Haligtree Greaves
+  { 0x101ADB00, 1, 0, 0, -1 }, -- Gelmir Knight Helm
+  { 0x101ADB64, 1, 0, 0, -1 }, -- Gelmir Knight Armor
+  { 0x101ADBC8, 1, 0, 0, -1 }, -- Gelmir Knight Gauntlets
+  { 0x101ADC2C, 1, 0, 0, -1 }, -- Gelmir Knight Greaves
+  { 0x101ADF4C, 1, 0, 0, -1 }, -- Gelmir Knight Armor (Altered)
+  { 0x101B0210, 1, 0, 0, -1 }, -- Godrick Knight Helm
+  { 0x101B0274, 1, 0, 0, -1 }, -- Godrick Knight Armor
+  { 0x101B02D8, 1, 0, 0, -1 }, -- Godrick Knight Gauntlets
+  { 0x101B033C, 1, 0, 0, -1 }, -- Godrick Knight Greaves
+  { 0x101B065C, 1, 0, 0, -1 }, -- Godrick Knight Armor (Altered)
+  { 0x101B2920, 1, 0, 0, -1 }, -- Cuckoo Knight Helm
+  { 0x101B2984, 1, 0, 0, -1 }, -- Cuckoo Knight Armor
+  { 0x101B29E8, 1, 0, 0, -1 }, -- Cuckoo Knight Gauntlets
+  { 0x101B2A4C, 1, 0, 0, -1 }, -- Cuckoo Knight Greaves
+  { 0x101B2D6C, 1, 0, 0, -1 }, -- Cuckoo Knight Armor (Altered)
+  { 0x101B5030, 1, 0, 0, -1 }, -- Leyndell Knight Helm
+  { 0x101B5094, 1, 0, 0, -1 }, -- Leyndell Knight Armor
+  { 0x101B50F8, 1, 0, 0, -1 }, -- Leyndell Knight Gauntlets
+  { 0x101B515C, 1, 0, 0, -1 }, -- Leyndell Knight Greaves
+  { 0x101B547C, 1, 0, 0, -1 }, -- Leyndell Knight Armor (Altered)
+  { 0x101B7740, 1, 0, 0, -1 }, -- Redmane Knight Helm
+  { 0x101B77A4, 1, 0, 0, -1 }, -- Redmane Knight Armor
+  { 0x101B7808, 1, 0, 0, -1 }, -- Redmane Knight Gauntlets
+  { 0x101B786C, 1, 0, 0, -1 }, -- Redmane Knight Greaves
+  { 0x101B7B8C, 1, 0, 0, -1 }, -- Redmane Knight Armor (Altered)
+  { 0x101B9EB4, 1, 0, 0, -1 }, -- Mausoleum Knight Armor
+  { 0x101B9F18, 1, 0, 0, -1 }, -- Mausoleum Knight Gauntlets
+  { 0x101B9F7C, 1, 0, 0, -1 }, -- Mausoleum Knight Greaves
+  { 0x101BA29C, 1, 0, 0, -1 }, -- Mausoleum Knight Armor (Altered)
+  { 0x101BC560, 1, 0, 0, -1 }, -- Haligtree Knight Helm
+  { 0x101BC5C4, 1, 0, 0, -1 }, -- Haligtree Knight Armor
+  { 0x101BC628, 1, 0, 0, -1 }, -- Haligtree Knight Gauntlets
+  { 0x101BC68C, 1, 0, 0, -1 }, -- Haligtree Knight Greaves
+  { 0x101BC9AC, 1, 0, 0, -1 }, -- Haligtree Knight Armor (Altered)
+  { 0x101BEC70, 1, 0, 0, -1 }, -- Foot Soldier Cap
+  { 0x101BECD4, 1, 0, 0, -1 }, -- Chain-Draped Tabard
+  { 0x101BED38, 1, 0, 0, -1 }, -- Foot Soldier Gauntlets
+  { 0x101BED9C, 1, 0, 0, -1 }, -- Foot Soldier Greaves
+  { 0x101C1380, 1, 0, 0, -1 }, -- Foot Soldier Helmet
+  { 0x101C13E4, 1, 0, 0, -1 }, -- Foot Soldier Tabard
+  { 0x101C3A90, 1, 0, 0, -1 }, -- Gilded Foot Soldier Cap
+  { 0x101C3AF4, 1, 0, 0, -1 }, -- Leather-Draped Tabard
+  { 0x101C61A0, 1, 0, 0, -1 }, -- Foot Soldier Helm
+  { 0x101C6204, 1, 0, 0, -1 }, -- Scarlet Tabard
+  { 0x101C8914, 1, 0, 0, -1 }, -- Bloodsoaked Tabard
+  { 0x101CAFC0, 1, 0, 0, -1 }, -- Sacred Crown Helm
+  { 0x101CB024, 1, 0, 0, -1 }, -- Ivory-Draped Tabard
+  { 0x101CD6D0, 1, 0, 0, -1 }, -- Omensmirk Mask
+  { 0x101CD734, 1, 0, 0, -1 }, -- Omenkiller Robe
+  { 0x101CD798, 1, 0, 0, -1 }, -- Omenkiller Long Gloves
+  { 0x101CD7FC, 1, 0, 0, -1 }, -- Omenkiller Boots
+  { 0x101CFDE0, 1, 0, 0, -1 }, -- Ash-of-War Scarab
+  { 0x101D01C8, 1, 0, 0, -1 }, -- Incantation Scarab
+  { 0x101D05B0, 1, 0, 0, -1 }, -- Glintstone Scarab
+  { 0x101D24F0, 1, 0, 0, -1 }, -- Crimson Tear Scarab
+  { 0x101D4C00, 1, 0, 0, -1 }, -- Cerulean Tear Scarab
+  { 0x101D7374, 1, 0, 0, -1 }, -- Deathbed Dress
+--{ 0x101D743C, 1, 0, 0, -1 }, -- Deathbed Smalls
+  { 0x101D9A20, 1, 0, 0, -1 }, -- Fia's Hood
+  { 0x101D9A84, 1, 0, 0, -1 }, -- Fia's Robe
+  { 0x101D9E6C, 1, 0, 0, -1 }, -- Fia's Robe (Altered)
+--{ 0x101DC194, 1, 0, 0, -1 }, -- Millicent's Robe
+--{ 0x101DC1F8, 1, 0, 0, -1 }, -- Millicent's Gloves
+--{ 0x101DC25C, 1, 0, 0, -1 }, -- Millicent's Boots
+--{ 0x101E0FB4, 1, 0, 0, -1 }, -- Millicent's Tunic
+--{ 0x101E1018, 1, 0, 0, -1 }, -- Golden Prosthetic
+  { 0x101E3660, 1, 0, 0, -1 }, -- Highwayman Hood
+  { 0x101E36C4, 1, 0, 0, -1 }, -- Highwayman Cloth Armor
+  { 0x101E3728, 1, 0, 0, -1 }, -- Highwayman Gauntlets
+  { 0x101E5D70, 1, 0, 0, -1 }, -- High Page Hood
+  { 0x101E5DD4, 1, 0, 0, -1 }, -- High Page Clothes
+  { 0x101E61BC, 1, 0, 0, -1 }, -- High Page Clothes (Altered)
+  { 0x101E8480, 1, 0, 0, -1 }, -- Rotten Duelist Helm
+  { 0x101E84E4, 1, 0, 0, -1 }, -- Rotten Gravekeeper Cloak
+  { 0x101E85AC, 1, 0, 0, -1 }, -- Rotten Duelist Greaves
+  { 0x101E88CC, 1, 0, 0, -1 }, -- Rotten Gravekeeper Cloak (Altered)
+  { 0x101EAB90, 1, 0, 0, -1 }, -- Mushroom Crown
+  { 0x101ED2A0, 1, 0, 0, -1 }, -- Black Dumpling
+  { 0x101EF9B0, 1, 0, 0, -1 }, -- Lazuli Robe
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

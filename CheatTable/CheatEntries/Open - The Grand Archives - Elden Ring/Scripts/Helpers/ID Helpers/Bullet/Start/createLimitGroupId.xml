@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102377</ID>
+  <Description>"createLimitGroupId"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>+C1</Address>
+</CheatEntry>

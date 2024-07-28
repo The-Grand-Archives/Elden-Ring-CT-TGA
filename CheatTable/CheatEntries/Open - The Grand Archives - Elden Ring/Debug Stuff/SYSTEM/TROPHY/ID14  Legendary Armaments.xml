@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108117</ID>
+  <Description>"ID:14 &lt; Legendary Armaments"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*E</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>105150</ID>
+  <Description>"TertiaryLeftWep"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>3AC</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

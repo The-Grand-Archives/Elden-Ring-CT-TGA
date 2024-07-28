@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>101048</ID>
+  <Description>"Global Illumination Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>124</Offset>
+  </Offsets>
+</CheatEntry>

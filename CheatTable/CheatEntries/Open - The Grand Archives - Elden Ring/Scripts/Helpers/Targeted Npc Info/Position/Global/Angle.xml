@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105174</ID>
+  <Description>"Angle"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>7C</Offset>
+    <Offset>68</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

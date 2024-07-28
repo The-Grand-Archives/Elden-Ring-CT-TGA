@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>104968</ID>
+  <Description>"dummy8 reserve5"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+A2</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104014</ID>
+  <Description>"sfxId_ForceErase"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+F4</Address>
+</CheatEntry>

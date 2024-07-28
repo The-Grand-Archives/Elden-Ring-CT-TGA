@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103219</ID>
+  <Description>"isKeepHitOnRide"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+15D</Address>
+</CheatEntry>

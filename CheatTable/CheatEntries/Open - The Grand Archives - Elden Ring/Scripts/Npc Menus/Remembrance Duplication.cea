@@ -1,0 +1,7 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+ShopMenu_duplicate(102800,102830)
+disableMemrec(memrec)
+[DISABLE]
+

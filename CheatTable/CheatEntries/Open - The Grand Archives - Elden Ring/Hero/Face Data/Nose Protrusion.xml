@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100713</ID>
+  <Description>"Nose Protrusion"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+6D</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

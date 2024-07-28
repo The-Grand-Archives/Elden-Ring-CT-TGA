@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>102196</ID>
+  <Description>"enable_multi"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+31</Address>
+</CheatEntry>

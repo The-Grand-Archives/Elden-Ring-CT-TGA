@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>100006</ID>
+  <Description>"Health"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>138</Offset>
+    <Offset>0</Offset>
+    <Offset>190</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

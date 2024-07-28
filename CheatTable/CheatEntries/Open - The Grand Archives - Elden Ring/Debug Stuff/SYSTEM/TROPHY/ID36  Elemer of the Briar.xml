@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108139</ID>
+  <Description>"ID:36 &lt; Elemer of the Briar"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*24</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,81 @@
+//Author: Mar_Veloz
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+-- Animal
+  { 0x40003A98, 1998, 0, 0, -1 }, -- Sliver of Meat
+  { 0x40003AA2, 1998, 0, 0, -1 }, -- Beast Liver
+  { 0x40003AAC, 1998, 0, 0, -1 }, -- Lump of Flesh
+  { 0x40003AB6, 1998, 0, 0, -1 }, -- Beast Blood
+  { 0x40003AC0, 1998, 0, 0, -1 }, -- Old Fang
+  { 0x40003ACA, 1998, 0, 0, -1 }, -- Budding Horn
+  { 0x40003AD4, 1998, 0, 0, -1 }, -- Flight Pinion
+  { 0x40003AE8, 1998, 0, 0, -1 }, -- Four-Toed Fowl Foot
+  { 0x40003AF2, 1998, 0, 0, -1 }, -- Turtle Neck Meat
+  { 0x40003AFC, 1998, 0, 0, -1 }, -- Human Bone Shard
+  { 0x40003B06, 1998, 0, 0, -1 }, -- Great Dragonfly Head
+  { 0x40003B10, 1998, 0, 0, -1 }, -- Slumbering Egg
+  { 0x40003B1A, 1998, 0, 0, -1 }, -- Crab Eggs
+  { 0x40003B24, 1998, 0, 0, -1 }, -- Land Octopus Ovary
+  { 0x40003B38, 1998, 0, 0, -1 }, -- Strip of White Flesh
+  { 0x40003BEC, 1998, 0, 0, -1 }, -- Thin Beast Bones
+  { 0x40003BED, 1998, 0, 0, -1 }, -- Hefty Beast Bone
+  { 0x40003C32, 1998, 0, 0, -1 }, -- Living Jar Shard
+  { 0x40003C3C, 1998, 0, 0, -1 }, -- Albinauric Bloodclot
+  { 0x40003C46, 1998, 0, 0, -1 }, -- Stormhawk Feather
+  { 0x40005140, 1998, 0, 0, -1 }, -- Nascent Butterfly
+  { 0x40005141, 1998, 0, 0, -1 }, -- Aeonian Butterfly
+  { 0x40005142, 1998, 0, 0, -1 }, -- Smoldering Butterfly
+  { 0x4000514A, 1998, 0, 0, -1 }, -- Silver Firefly
+  { 0x4000514B, 1998, 0, 0, -1 }, -- Gold Firefly
+  { 0x4000514C, 1998, 0, 0, -1 }, -- Glintstone Firefly
+  { 0x40005154, 1998, 0, 0, -1 }, -- Golden Centipede
+  { 0x40005159, 1998, 0, 0, -1 }, -- Silver Tear Husk
+  { 0x4000515E, 1998, 0, 0, -1 }, -- Gold-Tinged Excrement
+  { 0x4000515F, 1998, 0, 0, -1 }, -- Blood-Tainted Excrement
+  { 0x4000516D, 1998, 0, 0, -1 }, -- Yellow Ember
+-- Plant
+  { 0x40003B2E, 1998, 0, 0, -1 }, -- Miranda Powder
+  { 0x400050AA, 1998, 0, 0, -1 }, -- Poisonbloom
+  { 0x400050AB, 1998, 0, 0, -1 }, -- Trina's Lily
+  { 0x400050AC, 1998, 0, 0, -1 }, -- Fulgurbloom
+  { 0x400050AD, 1998, 0, 0, -1 }, -- Miquella's Lily
+  { 0x400050AE, 1998, 0, 0, -1 }, -- Grave Violet
+  { 0x400050B4, 1998, 0, 0, -1 }, -- Faded Erdleaf Flower
+  { 0x400050C8, 1998, 0, 0, -1 }, -- Erdleaf Flower
+  { 0x400050C9, 1998, 0, 0, -1 }, -- Altus Bloom
+  { 0x400050CA, 1998, 0, 0, -1 }, -- Fire Blossom
+  { 0x400050CB, 1998, 0, 0, -1 }, -- Golden Sunflower
+  { 0x400050CD, 1998, 0, 0, -1 }, -- Tarnished Golden Sunflower
+  { 0x400050D2, 1998, 0, 0, -1 }, -- Herba
+  { 0x400050D3, 1998, 0, 0, -1 }, -- Arteria Leaf
+  { 0x400050E6, 1998, 0, 0, -1 }, -- Dewkissed Herba
+  { 0x400050F0, 1998, 0, 0, -1 }, -- Rowa Fruit
+  { 0x400050F1, 1998, 0, 0, -1 }, -- Golden Rowa
+  { 0x400050F2, 1998, 0, 0, -1 }, -- Rimed Rowa
+  { 0x400050F3, 1998, 0, 0, -1 }, -- Bloodrose
+  { 0x40005104, 1998, 0, 0, -1 }, -- Eye of Yelough
+  { 0x4000510E, 1998, 0, 0, -1 }, -- Crystal Bud
+  { 0x4000510F, 1998, 0, 0, -1 }, -- Rimed Crystal Bud
+  { 0x40005111, 1998, 0, 0, -1 }, -- Sacramental Bud
+  { 0x40005118, 1998, 0, 0, -1 }, -- Mushroom
+  { 0x40005119, 1998, 0, 0, -1 }, -- Melted Mushroom
+  { 0x40005122, 1998, 0, 0, -1 }, -- Toxic Mushroom
+  { 0x40005127, 1998, 0, 0, -1 }, -- Root Resin
+  { 0x40005168, 1998, 0, 0, -1 }, -- Cave Moss
+  { 0x40005169, 1998, 0, 0, -1 }, -- Budding Cave Moss
+  { 0x4000516A, 1998, 0, 0, -1 }, -- Crystal Cave Moss
+-- Inorganic
+  { 0x400006E0, 1998, 0, 0, -1 }, -- Ruin Fragment
+  { 0x40003C28, 1998, 0, 0, -1 }, -- String
+  { 0x4000512C, 1998, 0, 0, -1 }, -- Cracked Crystal
+  { 0x4000513B, 1998, 0, 0, -1 }, -- Sanctuary Stone
+  { 0x40005172, 1998, 0, 0, -1 }, -- Volcanic Stone
+  { 0x40005174, 1998, 0, 0, -1 }, -- Formic Rock
+  { 0x40005177, 1998, 0, 0, -1 }, -- Gravel Stone
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

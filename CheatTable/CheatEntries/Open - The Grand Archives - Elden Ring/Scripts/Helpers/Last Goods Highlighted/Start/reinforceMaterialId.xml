@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>104949</ID>
+  <Description>"reinforceMaterialId"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+88</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102803</ID>
+  <Description>"reinforcementLevel"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+57</Address>
+</CheatEntry>

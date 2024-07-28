@@ -1,0 +1,32 @@
+<CheatEntry>
+  <ID>105085</ID>
+  <Description>"Targeted Npc Info"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="105086"/>
+    <id id="105087"/>
+    <id id="105088"/>
+    <id id="105089"/>
+    <id id="105090"/>
+    <id id="105091"/>
+    <id id="105092"/>
+    <id id="105093"/>
+    <id id="105094"/>
+    <id id="105095"/>
+    <id id="105096"/>
+    <id id="105097"/>
+    <id id="105098"/>
+    <id id="105099"/>
+    <id id="105110"/>
+    <id id="105125"/>
+    <id id="105135"/>
+    <id id="105145"/>
+    <id id="105164"/>
+    <id id="105178"/>
+    <id id="105183"/>
+    <id id="105190"/>
+    <id id="105509"/>
+    <id id="105614"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

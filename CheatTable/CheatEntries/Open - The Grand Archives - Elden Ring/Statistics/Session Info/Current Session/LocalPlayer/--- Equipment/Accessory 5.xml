@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100073</ID>
+  <Description>"Accessory 5"</Description>
+  <DropDownListLink>ACCESSORY_ID</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>3EC</Offset>
+    <Offset>580</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

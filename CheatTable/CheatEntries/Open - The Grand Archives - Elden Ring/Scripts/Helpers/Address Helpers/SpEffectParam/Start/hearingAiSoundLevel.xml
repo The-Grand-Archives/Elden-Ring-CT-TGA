@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103828</ID>
+  <Description>"hearingAiSoundLevel"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+02BE</Address>
+</CheatEntry>

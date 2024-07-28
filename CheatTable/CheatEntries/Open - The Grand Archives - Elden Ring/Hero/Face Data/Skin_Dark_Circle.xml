@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100797</ID>
+  <Description>"Skin_Dark_Circle"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+C1</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

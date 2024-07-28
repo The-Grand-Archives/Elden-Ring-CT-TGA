@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101526</ID>
+  <Description>"correctType_Poison"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+18F</Address>
+</CheatEntry>

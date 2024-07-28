@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101914</ID>
+  <Description>"compTrophySedId"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+4B</Address>
+</CheatEntry>

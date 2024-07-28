@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103663</ID>
+  <Description>"bAdjustMagicAblity"</Description>
+  <Color>FF8000</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0160</Address>
+</CheatEntry>

@@ -1,0 +1,56 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+EquipMtrlSetParam = BaseParamClass:new()
+
+function EquipMtrlSetParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("EquipMtrlSetParam", uuid, id, address)
+	return o
+end
+
+function EquipMtrlSetParam:MaterialId01(value)
+    self:patch4Byte(0x0, value)
+end
+
+function EquipMtrlSetParam:MaterialId02(value)
+    self:patch4Byte(0x4, value)
+end
+
+function EquipMtrlSetParam:MaterialId03(value)
+    self:patch4Byte(0x8, value)
+end
+
+function EquipMtrlSetParam:MaterialId04(value)
+    self:patch4Byte(0xC, value)
+end
+
+function EquipMtrlSetParam:MaterialId05(value)
+    self:patch4Byte(0x10, value)
+end
+
+function EquipMtrlSetParam:isDisableDispNum01(value)
+    self:patchBinary(0x19, value, 0)
+end
+
+function EquipMtrlSetParam:isDisableDispNum02(value)
+    self:patchBinary(0x19, value, 1)
+end
+
+function EquipMtrlSetParam:isDisableDispNum03(value)
+    self:patchBinary(0x19, value, 2)
+end
+
+function EquipMtrlSetParam:isDisableDispNum04(value)
+    self:patchBinary(0x19, value, 3)
+end
+
+function EquipMtrlSetParam:isDisableDispNum05(value)
+    self:patchBinary(0x19, value, 4)
+end
+
+[DISABLE]

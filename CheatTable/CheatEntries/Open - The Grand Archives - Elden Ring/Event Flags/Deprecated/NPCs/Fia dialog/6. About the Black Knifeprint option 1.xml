@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>107490</ID>
+  <Description>"6. About the Black Knifeprint option 1"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+3</Address>
+</CheatEntry>

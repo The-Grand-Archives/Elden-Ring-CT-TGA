@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105655</ID>
+  <Description>"Max Focus (Sleep)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>40</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

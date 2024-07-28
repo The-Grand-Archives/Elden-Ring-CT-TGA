@@ -1,0 +1,125 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x200003E8, 1, 0, 0, -1 }, -- Crimson Amber Medallion
+  { 0x200003E9, 1, 0, 0, -1 }, -- Crimson Amber Medallion +1
+  { 0x200003EA, 1, 0, 0, -1 }, -- Crimson Amber Medallion +2
+  { 0x200003F2, 1, 0, 0, -1 }, -- Cerulean Amber Medallion
+  { 0x200003F3, 1, 0, 0, -1 }, -- Cerulean Amber Medallion +1
+  { 0x200003F4, 1, 0, 0, -1 }, -- Cerulean Amber Medallion +2
+  { 0x200003FC, 1, 0, 0, -1 }, -- Viridian Amber Medallion
+  { 0x200003FD, 1, 0, 0, -1 }, -- Viridian Amber Medallion +1
+  { 0x200003FE, 1, 0, 0, -1 }, -- Viridian Amber Medallion +2
+  { 0x20000406, 1, 0, 0, -1 }, -- Arsenal Charm
+  { 0x20000407, 1, 0, 0, -1 }, -- Arsenal Charm +1
+  { 0x20000408, 1, 0, 0, -1 }, -- Great-Jar's Arsenal
+  { 0x20000410, 1, 0, 0, -1 }, -- Erdtree's Favor
+  { 0x20000411, 1, 0, 0, -1 }, -- Erdtree's Favor +1
+  { 0x20000412, 1, 0, 0, -1 }, -- Erdtree's Favor +2
+  { 0x2000041A, 1, 0, 0, -1 }, -- Radagon's Scarseal
+  { 0x2000041B, 1, 0, 0, -1 }, -- Radagon's Soreseal
+  { 0x20000424, 1, 0, 0, -1 }, -- Starscourge Heirloom
+  { 0x2000042E, 1, 0, 0, -1 }, -- Prosthesis-Wearer Heirloom
+  { 0x20000438, 1, 0, 0, -1 }, -- Stargazer Heirloom
+  { 0x20000442, 1, 0, 0, -1 }, -- Two Fingers Heirloom
+  { 0x2000044C, 1, 0, 0, -1 }, -- Silver Scarab
+  { 0x20000456, 1, 0, 0, -1 }, -- Gold Scarab
+  { 0x20000474, 1, 0, 0, -1 }, -- Moon of Nokstella
+  { 0x2000047E, 1, 0, 0, -1 }, -- Green Turtle Talisman
+  { 0x20000488, 1, 0, 0, -1 }, -- Stalwart Horn Charm
+  { 0x20000489, 1, 0, 0, -1 }, -- Stalwart Horn Charm +1
+  { 0x20000492, 1, 0, 0, -1 }, -- Immunizing Horn Charm
+  { 0x20000493, 1, 0, 0, -1 }, -- Immunizing Horn Charm +1
+  { 0x2000049C, 1, 0, 0, -1 }, -- Clarifying Horn Charm
+  { 0x2000049D, 1, 0, 0, -1 }, -- Clarifying Horn Charm +1
+  { 0x200004A6, 1, 0, 0, -1 }, -- Prince of Death's Pustule
+  { 0x200004A7, 1, 0, 0, -1 }, -- Prince of Death's Cyst
+  { 0x200004B0, 1, 0, 0, -1 }, -- Mottled Necklace
+  { 0x200004B1, 1, 0, 0, -1 }, -- Mottled Necklace +1
+  { 0x200004BA, 1, 0, 0, -1 }, -- Bull-Goat's Talisman
+  { 0x200004C4, 1, 0, 0, -1 }, -- Marika's Scarseal
+  { 0x200004C5, 1, 0, 0, -1 }, -- Marika's Soreseal
+  { 0x200004CE, 1, 0, 0, -1 }, -- Warrior Jar Shard
+  { 0x200004CF, 1, 0, 0, -1 }, -- Shard of Alexander
+  { 0x200004E2, 1, 0, 0, -1 }, -- Millicent's Prosthesis
+  { 0x200007D0, 1, 0, 0, -1 }, -- Magic Scorpion Charm
+  { 0x200007DA, 1, 0, 0, -1 }, -- Lightning Scorpion Charm
+  { 0x200007E4, 1, 0, 0, -1 }, -- Fire Scorpion Charm
+  { 0x200007EE, 1, 0, 0, -1 }, -- Sacred Scorpion Charm
+  { 0x200007F8, 1, 0, 0, -1 }, -- Red-Feathered Branchsword
+  { 0x20000802, 1, 0, 0, -1 }, -- Ritual Sword Talisman
+  { 0x2000080C, 1, 0, 0, -1 }, -- Spear Talisman
+  { 0x20000816, 1, 0, 0, -1 }, -- Hammer Talisman
+  { 0x20000820, 1, 0, 0, -1 }, -- Winged Sword Insignia
+  { 0x20000821, 1, 0, 0, -1 }, -- Rotten Winged Sword Insignia
+  { 0x2000082A, 1, 0, 0, -1 }, -- Dagger Talisman
+  { 0x20000834, 1, 0, 0, -1 }, -- Arrow's Reach Talisman
+  { 0x2000083E, 1, 0, 0, -1 }, -- Blue Dancer Charm
+  { 0x20000848, 1, 0, 0, -1 }, -- Twinblade Talisman
+  { 0x20000852, 1, 0, 0, -1 }, -- Axe Talisman
+  { 0x2000085C, 1, 0, 0, -1 }, -- Lance Talisman
+  { 0x20000866, 1, 0, 0, -1 }, -- Arrow's Sting Talisman
+  { 0x20000870, 1, 0, 0, -1 }, -- Lord of Blood's Exultation
+  { 0x2000087A, 1, 0, 0, -1 }, -- Kindred of Rot's Exultation
+  { 0x20000884, 1, 0, 0, -1 }, -- Claw Talisman
+  { 0x2000088E, 1, 0, 0, -1 }, -- Roar Medallion
+  { 0x20000898, 1, 0, 0, -1 }, -- Curved Sword Talisman
+  { 0x200008A2, 1, 0, 0, -1 }, -- Companion Jar
+  { 0x200008AC, 1, 0, 0, -1 }, -- Perfumer's Talisman
+  { 0x20000BB8, 1, 0, 0, -1 }, -- Graven-School Talisman
+  { 0x20000BB9, 1, 0, 0, -1 }, -- Graven-Mass Talisman
+  { 0x20000BE0, 1, 0, 0, -1 }, -- Faithful's Canvas Talisman
+  { 0x20000BEA, 1, 0, 0, -1 }, -- Flock's Canvas Talisman
+  { 0x20000BF4, 1, 0, 0, -1 }, -- Old Lord's Talisman
+  { 0x20000BFE, 1, 0, 0, -1 }, -- Radagon Icon
+  { 0x20000C08, 1, 0, 0, -1 }, -- Primal Glintstone Blade
+  { 0x20000C12, 1, 0, 0, -1 }, -- Godfrey Icon
+  { 0x20000FA0, 1, 0, 0, -1 }, -- Dragoncrest Shield Talisman
+  { 0x20000FA1, 1, 0, 0, -1 }, -- Dragoncrest Shield Talisman +1
+  { 0x20000FA2, 1, 0, 0, -1 }, -- Dragoncrest Shield Talisman +2
+  { 0x20000FA3, 1, 0, 0, -1 }, -- Dragoncrest Greatshield Talisman
+  { 0x20000FAA, 1, 0, 0, -1 }, -- Spelldrake Talisman
+  { 0x20000FAB, 1, 0, 0, -1 }, -- Spelldrake Talisman +1
+  { 0x20000FAC, 1, 0, 0, -1 }, -- Spelldrake Talisman +2
+  { 0x20000FB4, 1, 0, 0, -1 }, -- Flamedrake Talisman
+  { 0x20000FB5, 1, 0, 0, -1 }, -- Flamedrake Talisman +1
+  { 0x20000FB6, 1, 0, 0, -1 }, -- Flamedrake Talisman +2
+  { 0x20000FBE, 1, 0, 0, -1 }, -- Boltdrake Talisman
+  { 0x20000FBF, 1, 0, 0, -1 }, -- Boltdrake Talisman +1
+  { 0x20000FC0, 1, 0, 0, -1 }, -- Boltdrake Talisman +2
+  { 0x20000FC8, 1, 0, 0, -1 }, -- Haligdrake Talisman
+  { 0x20000FC9, 1, 0, 0, -1 }, -- Haligdrake Talisman +1
+  { 0x20000FCA, 1, 0, 0, -1 }, -- Haligdrake Talisman +2
+  { 0x20000FD2, 1, 0, 0, -1 }, -- Pearldrake Talisman
+  { 0x20000FD3, 1, 0, 0, -1 }, -- Pearldrake Talisman +1
+  { 0x20000FD4, 1, 0, 0, -1 }, -- Pearldrake Talisman +2
+  { 0x20000FDC, 1, 0, 0, -1 }, -- Crucible Scale Talisman
+  { 0x20000FE6, 1, 0, 0, -1 }, -- Crucible Feather Talisman
+  { 0x20000FF0, 1, 0, 0, -1 }, -- Blue-Feathered Branchsword
+  { 0x20000FFA, 1, 0, 0, -1 }, -- Ritual Shield Talisman
+  { 0x20001004, 1, 0, 0, -1 }, -- Greatshield Talisman
+  { 0x2000100E, 1, 0, 0, -1 }, -- Crucible Knot Talisman
+  { 0x20001388, 1, 0, 0, -1 }, -- Crimson Seed Talisman
+  { 0x20001392, 1, 0, 0, -1 }, -- Cerulean Seed Talisman
+  { 0x2000139C, 1, 0, 0, -1 }, -- Blessed Dew Talisman
+  { 0x200013A6, 1, 0, 0, -1 }, -- Taker's Cameo
+  { 0x200013B0, 1, 0, 0, -1 }, -- Godskin Swaddling Cloth
+  { 0x200013BA, 1, 0, 0, -1 }, -- Assassin's Crimson Dagger
+  { 0x200013C4, 1, 0, 0, -1 }, -- Assassin's Cerulean Dagger
+  { 0x20001770, 1, 0, 0, -1 }, -- Crepus's Vial
+  { 0x2000177A, 1, 0, 0, -1 }, -- Concealing Veil
+  { 0x20001784, 1, 0, 0, -1 }, -- Carian Filigreed Crest
+  { 0x20001798, 1, 0, 0, -1 }, -- Longtail Cat Talisman
+  { 0x200017A2, 1, 0, 0, -1 }, -- Shabriri's Woe
+  { 0x200017AC, 1, 0, 0, -1 }, -- Daedicar's Woe
+  { 0x200017B6, 1, 0, 0, -1 }, -- Sacrificial Twig
+  { 0x200017C0, 1, 0, 0, -1 }, -- Furled Finger's Trick-Mirror
+  { 0x200017CA, 1, 0, 0, -1 }, -- Host's Trick-Mirror
+--{ 0x200017D4, 1, 0, 0, -1 }, -- Entwining Umbilical Cord
+  { 0x200017DE, 1, 0, 0, -1 }, -- Ancestral Spirit's Horn
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

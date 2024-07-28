@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>101478</ID>
+  <Description>"disableGemAttr"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+109</Address>
+</CheatEntry>

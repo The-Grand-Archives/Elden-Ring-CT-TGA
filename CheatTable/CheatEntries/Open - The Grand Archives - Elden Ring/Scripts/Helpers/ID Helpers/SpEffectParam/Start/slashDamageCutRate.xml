@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102420</ID>
+  <Description>"slashDamageCutRate"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+1C</Address>
+</CheatEntry>

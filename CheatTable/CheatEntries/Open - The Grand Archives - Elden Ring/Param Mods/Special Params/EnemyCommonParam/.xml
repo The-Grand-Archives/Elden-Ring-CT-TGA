@@ -1,0 +1,25 @@
+<CheatEntry>
+  <ID>106401</ID>
+  <Description>"EnemyCommonParam"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>58</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>27E8</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="106402"/>
+    <id id="106403"/>
+    <id id="106404"/>
+    <id id="106405"/>
+    <id id="106406"/>
+    <id id="106407"/>
+    <id id="106408"/>
+    <id id="106409"/>
+    <id id="106410"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

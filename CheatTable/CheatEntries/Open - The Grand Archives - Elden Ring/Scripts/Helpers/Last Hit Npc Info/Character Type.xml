@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>105629</ID>
+  <Description>"Character Type"</Description>
+  <DropDownListLink>CHAR_TYPE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>68</Offset>
+  </Offsets>
+</CheatEntry>

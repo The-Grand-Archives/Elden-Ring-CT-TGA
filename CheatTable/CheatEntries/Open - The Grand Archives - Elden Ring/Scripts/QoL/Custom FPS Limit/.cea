@@ -1,0 +1,10 @@
+[ENABLE]
+[CSFlipper]+2CC:
+dd (float)75.00  // Debug FPS | デバッグFPS
+db 01            // Use Debug FPS | デバッグFPSを利用するか
+
+[DISABLE]
+[CSFlipper]+2CC:
+dd (float)30.00  // Debug FPS | デバッグFPS
+db 00            // Use Debug FPS | デバッグFPSを利用するか
+

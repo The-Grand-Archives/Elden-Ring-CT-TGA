@@ -1,0 +1,90 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START ObjActParam class]]--
+ObjActParam = BaseParamClass:new()
+
+function ObjActParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ObjActParam", uuid, id, address)
+	return o
+end
+
+
+
+function ObjActParam:actionEnableMsgId(value)
+    self:patch4Byte(0x0,value)
+end
+
+function ObjActParam:actionFailedMsgId(value)
+    self:patch4Byte(0x4,value)
+end
+
+function ObjActParam:spQualifiedPassEventFlag(value)
+    self:patch4Byte(0x8,value)
+end
+
+function ObjActParam:playerAnimId(value)
+    self:patch4Byte(0xC,value)
+end
+
+function ObjActParam:chrAnimId(value)
+    self:patch4Byte(0x10,value)
+end
+
+function ObjActParam:validDist(value)
+    self:patch2Byte(0x14,value)
+end
+
+function ObjActParam:spQualifiedId(value)
+    self:patch2Byte(0x16,value)
+end
+
+function ObjActParam:spQualifiedId2(value)
+    self:patch2Byte(0x18,value)
+end
+
+function ObjActParam:ObjDummyId(value)
+    self:patchByte(0x1A,value)
+end
+
+function ObjActParam:ObjAnimId(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function ObjActParam:ValidPlayerAngle(value)
+    self:patchByte(0x20,value)
+end
+
+function ObjActParam:spQualifiedType(value)
+    self:patchByte(0x21,value)
+end
+
+function ObjActParam:spQualifiedType2(value)
+    self:patchByte(0x22,value)
+end
+
+function ObjActParam:ValidObjAngle(value)
+    self:patchByte(0x23,value)
+end
+
+function ObjActParam:ChrSorbType(value)
+    self:patchByte(0x24,value)
+end
+
+function ObjActParam:eventKickTiming(value)
+    self:patchByte(0x25,value)
+end
+
+function ObjActParam:actionButtonParamId(value)
+    self:patch4Byte(0x28,value)
+end
+
+function ObjActParam:actionSuccessMsgId(value)
+    self:patch4Byte(0x2C,value)
+end
+
+[DiSaBlE]

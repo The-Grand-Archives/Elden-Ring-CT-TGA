@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100668</ID>
+  <Description>"Chin Tip Position"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+40</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

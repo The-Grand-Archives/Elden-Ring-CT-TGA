@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106488</ID>
+  <Description>"tutorialFlagOnGetGroupReward"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+E8</Address>
+</CheatEntry>

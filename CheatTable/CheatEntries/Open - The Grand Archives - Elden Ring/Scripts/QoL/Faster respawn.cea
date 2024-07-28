@@ -1,0 +1,21 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("faster_respawn");
+    ParamPatch(MenuCommonParam, 0, {
+        param->soloPlayDeath_ToFadeOutTime = 0;
+        param->partyGhostDeath_ToFadeOutTime = 0;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("faster_respawn");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

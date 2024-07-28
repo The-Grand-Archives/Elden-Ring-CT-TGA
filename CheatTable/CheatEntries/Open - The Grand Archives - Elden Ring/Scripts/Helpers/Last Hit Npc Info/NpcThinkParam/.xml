@@ -1,0 +1,121 @@
+<CheatEntry>
+  <ID>106042</ID>
+  <Description>"NpcThinkParam"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>30</Offset>
+    <Offset>C0</Offset>
+    <Offset>18</Offset>
+    <Offset>58</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="106043"/>
+    <id id="106044"/>
+    <id id="106045"/>
+    <id id="106046"/>
+    <id id="106047"/>
+    <id id="106048"/>
+    <id id="106049"/>
+    <id id="106050"/>
+    <id id="106051"/>
+    <id id="106052"/>
+    <id id="106053"/>
+    <id id="106054"/>
+    <id id="106055"/>
+    <id id="106056"/>
+    <id id="106057"/>
+    <id id="106058"/>
+    <id id="106059"/>
+    <id id="106060"/>
+    <id id="106061"/>
+    <id id="106062"/>
+    <id id="106063"/>
+    <id id="106064"/>
+    <id id="106065"/>
+    <id id="106066"/>
+    <id id="106067"/>
+    <id id="106068"/>
+    <id id="106069"/>
+    <id id="106070"/>
+    <id id="106071"/>
+    <id id="106072"/>
+    <id id="106073"/>
+    <id id="106074"/>
+    <id id="106075"/>
+    <id id="106076"/>
+    <id id="106077"/>
+    <id id="106078"/>
+    <id id="106079"/>
+    <id id="106080"/>
+    <id id="106081"/>
+    <id id="106082"/>
+    <id id="106083"/>
+    <id id="106084"/>
+    <id id="106085"/>
+    <id id="106086"/>
+    <id id="106087"/>
+    <id id="106088"/>
+    <id id="106089"/>
+    <id id="106090"/>
+    <id id="106091"/>
+    <id id="106092"/>
+    <id id="106093"/>
+    <id id="106094"/>
+    <id id="106095"/>
+    <id id="106096"/>
+    <id id="106097"/>
+    <id id="106098"/>
+    <id id="106099"/>
+    <id id="106100"/>
+    <id id="106101"/>
+    <id id="106102"/>
+    <id id="106103"/>
+    <id id="106104"/>
+    <id id="106105"/>
+    <id id="106106"/>
+    <id id="106107"/>
+    <id id="106108"/>
+    <id id="106109"/>
+    <id id="106110"/>
+    <id id="106111"/>
+    <id id="106112"/>
+    <id id="106113"/>
+    <id id="106114"/>
+    <id id="106115"/>
+    <id id="106116"/>
+    <id id="106117"/>
+    <id id="106118"/>
+    <id id="106119"/>
+    <id id="106120"/>
+    <id id="106121"/>
+    <id id="106122"/>
+    <id id="106123"/>
+    <id id="106124"/>
+    <id id="106125"/>
+    <id id="106126"/>
+    <id id="106127"/>
+    <id id="106128"/>
+    <id id="106129"/>
+    <id id="106130"/>
+    <id id="106131"/>
+    <id id="106132"/>
+    <id id="106133"/>
+    <id id="106134"/>
+    <id id="106135"/>
+    <id id="106136"/>
+    <id id="106137"/>
+    <id id="106138"/>
+    <id id="106139"/>
+    <id id="106140"/>
+    <id id="106141"/>
+    <id id="106142"/>
+    <id id="106143"/>
+    <id id="106144"/>
+    <id id="106145"/>
+    <id id="106146"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

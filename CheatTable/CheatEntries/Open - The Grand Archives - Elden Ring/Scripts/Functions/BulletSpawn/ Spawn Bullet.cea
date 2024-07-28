@@ -1,0 +1,15 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local id = readInteger(Bullet.data)
+local coords = {
+	readFloat(Bullet.data +  4),
+	readFloat(Bullet.data +  8),
+	readFloat(Bullet.data + 12)
+}
+local r = Bullet.create(id, coords)
+if readInteger(r) == 0xFFFFFFFF then
+	print("Failed to create bullet")
+end
+disableMemrec(memrec)
+[DISABLE]

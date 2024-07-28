@@ -1,0 +1,18 @@
+<CheatEntry>
+  <ID>107736</ID>
+  <Description>"Thops"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1DB</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107737"/>
+    <id id="107738"/>
+    <id id="107739"/>
+    <id id="107740"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

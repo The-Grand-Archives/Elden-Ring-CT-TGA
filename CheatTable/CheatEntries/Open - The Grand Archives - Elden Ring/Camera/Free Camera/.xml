@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>107803</ID>
+  <Description>"Free Camera"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="107804"/>
+    <id id="107805"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

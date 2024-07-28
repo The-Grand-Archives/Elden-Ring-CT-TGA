@@ -1,0 +1,23 @@
+{cscript}
+//Author: Gáté
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("no_upgrade_cost");
+    ParamPatchAll(EquipMtrlSetParam, {
+        param->materialId01 = -1;
+        param->itemNum01 = -1;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("no_upgrade_cost");
+    return 0;
+}
+
+{$asm}
+[DISABLE]
+

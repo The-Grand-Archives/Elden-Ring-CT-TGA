@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>102755</ID>
+  <Description>"unk353_4"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>4</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+352</Address>
+</CheatEntry>

@@ -1,0 +1,52 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START Ceremony class]]--
+Ceremony = BaseParamClass:new()
+
+function Ceremony:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("Ceremony", uuid, id, address)
+	return o
+end
+
+function Ceremony:EventLayerID(value)
+    self:patch4Byte(0x0,value)
+end
+
+function Ceremony:MapStudioLayerID(value)
+    self:patch4Byte(0x4,value)
+end
+
+function Ceremony:GparamID_Up(value)
+    self:patch2Byte(0x8,value)
+end
+
+function Ceremony:GparamID_Low(value)
+    self:patch2Byte(0xA,value)
+end
+
+function Ceremony:PointCloudID(value)
+    self:patch4Byte(0xC,value)
+end
+
+function Ceremony:Gl_TextureID(value)
+    self:patch4Byte(0x10,value)
+end
+
+function Ceremony:LightGroupID(value)
+    self:patch4Byte(0x14,value)
+end
+
+function Ceremony:IsReload(value)
+    self:patchByte(0x18,value)
+end
+
+function Ceremony:IsDisableOnline(value)
+    self:patchByte(0x19,value)
+end
+
+[DiSaBlE]

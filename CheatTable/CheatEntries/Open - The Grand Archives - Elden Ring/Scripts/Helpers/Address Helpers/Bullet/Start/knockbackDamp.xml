@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>103945</ID>
+  <Description>"knockbackDamp"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>+8f</Address>
+</CheatEntry>

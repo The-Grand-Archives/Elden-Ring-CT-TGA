@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>107123</ID>
+  <Description>"Divine Tower of Caelid: Basement"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B72</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

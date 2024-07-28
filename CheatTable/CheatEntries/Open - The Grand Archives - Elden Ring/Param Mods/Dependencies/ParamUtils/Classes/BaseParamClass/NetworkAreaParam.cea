@@ -1,0 +1,16 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START NetworkAreaParam class]]--
+NetworkAreaParam = BaseParamClass:new()
+
+function NetworkAreaParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("NetworkAreaParam", uuid, id, address)
+	return o
+end
+
+[DISABLE]

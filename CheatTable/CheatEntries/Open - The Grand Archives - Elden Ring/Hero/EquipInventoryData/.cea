@@ -1,0 +1,11 @@
+[ENABLE]
+alloc(EquipInventoryDataIdx,$10)
+registerSymbol(EquipInventoryDataIdx)
+
+EquipInventoryDataIdx:
+dd 00000000 // Idx
+dd 000005D0 // Inv
+
+[DISABLE]
+dealloc(EquipInventoryDataIdx)
+unregisterSymbol(EquipInventoryDataIdx)

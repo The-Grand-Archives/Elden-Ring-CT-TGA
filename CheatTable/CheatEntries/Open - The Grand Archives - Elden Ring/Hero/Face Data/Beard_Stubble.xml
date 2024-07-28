@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100796</ID>
+  <Description>"Beard_Stubble"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+C0</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

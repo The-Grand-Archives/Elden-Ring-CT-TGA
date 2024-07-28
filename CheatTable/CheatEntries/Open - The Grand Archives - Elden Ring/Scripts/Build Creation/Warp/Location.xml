@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>1102</ID>
+  <Description>"Location"</Description>
+  <DropDownListLink>BonfireId</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>warp_data</Address>
+</CheatEntry>

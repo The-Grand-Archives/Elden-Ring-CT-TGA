@@ -1,0 +1,13 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local id = 62000 -- the id of the flag to set
+local state = 1 -- the state to set, 0/1 or false/true
+
+state = state and state ~= 0 and 1 or 0
+ef.setFlag(id, state)
+print(string.format("The state of event flag %s is now %s", id, ef.getFlag(id)))
+disableMemrec(memrec)
+
+[DISABLE]

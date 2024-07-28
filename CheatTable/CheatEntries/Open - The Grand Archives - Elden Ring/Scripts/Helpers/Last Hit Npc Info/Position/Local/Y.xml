@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>105701</ID>
+  <Description>"Y"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>88</Offset>
+    <Offset>18</Offset>
+    <Offset>a8</Offset>
+    <Offset>68</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

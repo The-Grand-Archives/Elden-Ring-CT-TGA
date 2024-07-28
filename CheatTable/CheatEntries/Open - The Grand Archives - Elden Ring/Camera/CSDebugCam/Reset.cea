@@ -1,0 +1,9 @@
+[ENABLE]
+[[[FieldArea]+20]+D0]+40:
+dd (float)40
+dd (float)-88
+dd (float)-80
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+[DISABLE]
+

@@ -1,0 +1,76 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+-- Arrows
+  { 0x02FAF080, 699, 0, 0, -1 }, -- Arrow
+  { 0x02FB1790, 699, 0, 0, -1 }, -- Fire Arrow
+  { 0x02FB3EA0, 699, 0, 0, -1 }, -- Serpent Arrow
+  { 0x02FB65B0, 699, 0, 0, -1 }, -- Bone Arrow (Fletched)
+  { 0x02FB8CC0, 699, 0, 0, -1 }, -- St. Trina's Arrow
+  { 0x02FBDAE0, 699, 0, 0, -1 }, -- Shattershard Arrow (Fletched)
+  { 0x02FC2900, 699, 0, 0, -1 }, -- Rainbow Stone Arrow (Fletched)
+  { 0x02FC5010, 699, 0, 0, -1 }, -- Golden Arrow
+  { 0x02FC7720, 699, 0, 0, -1 }, -- Dwelling Arrow
+  { 0x02FC9E30, 699, 0, 0, -1 }, -- Bone Arrow
+  { 0x02FCEC50, 699, 0, 0, -1 }, -- Firebone Arrow (Fletched)
+  { 0x02FD1360, 699, 0, 0, -1 }, -- Firebone Arrow
+  { 0x02FD3A70, 699, 0, 0, -1 }, -- Poisonbone Arrow (Fletched)
+  { 0x02FD6180, 699, 0, 0, -1 }, -- Poisonbone Arrow
+  { 0x02FD8890, 699, 0, 0, -1 }, -- Sleepbone Arrow (Fletched)
+  { 0x02FDAFA0, 699, 0, 0, -1 }, -- Sleepbone Arrow
+  { 0x02FDD6B0, 699, 0, 0, -1 }, -- Stormwing Bone Arrow
+  { 0x02FDFDC0, 699, 0, 0, -1 }, -- Lightningbone Arrow (Fletched)
+  { 0x02FE24D0, 699, 0, 0, -1 }, -- Lightningbone Arrow
+  { 0x02FE4BE0, 699, 0, 0, -1 }, -- Rainbow Stone Arrow
+  { 0x02FE72F0, 699, 0, 0, -1 }, -- Shattershard Arrow
+  { 0x02FE9A00, 699, 0, 0, -1 }, -- Spiritflame Arrow
+  { 0x02FEE820, 699, 0, 0, -1 }, -- Magicbone Arrow (Fletched)
+  { 0x02FF0F30, 699, 0, 0, -1 }, -- Magicbone Arrow
+  { 0x02FF3640, 699, 0, 0, -1 }, -- Haligbone Arrow (Fletched)
+  { 0x02FF5D50, 699, 0, 0, -1 }, -- Haligbone Arrow
+  { 0x02FF8460, 699, 0, 0, -1 }, -- Bloodbone Arrow (Fletched)
+  { 0x02FFAB70, 699, 0, 0, -1 }, -- Bloodbone Arrow
+  { 0x02FFD280, 699, 0, 0, -1 }, -- Coldbone Arrow (Fletched)
+  { 0x02FFF990, 699, 0, 0, -1 }, -- Coldbone Arrow
+  { 0x030020A0, 699, 0, 0, -1 }, -- Rotbone Arrow (Fletched)
+  { 0x030047B0, 699, 0, 0, -1 }, -- Rotbone Arrow
+-- Greatarrows
+  { 0x030A32C0, 630, 0, 0, -1 }, -- Great Arrow
+  { 0x030A59D0, 630, 0, 0, -1 }, -- Golem's Great Arrow
+  { 0x030A80E0, 630, 0, 0, -1 }, -- Golden Great Arrow
+  { 0x030AA7F0, 630, 0, 0, -1 }, -- Golem's Magic Arrow
+  { 0x030ACF00, 630, 0, 0, -1 }, -- Radahn's Spear
+  { 0x030AF610, 630, 0, 0, -1 }, -- Bone Great Arrow (Fletched)
+  { 0x030B1D20, 630, 0, 0, -1 }, -- Bone Great Arrow
+-- Bolts
+  { 0x03197500, 699, 0, 0, -1 }, -- Bolt
+  { 0x03199C10, 699, 0, 0, -1 }, -- Lightning Bolt
+  { 0x0319C320, 699, 0, 0, -1 }, -- Perfumer's Bolt
+  { 0x0319EA30, 699, 0, 0, -1 }, -- Black-Key Bolt
+  { 0x031A1140, 699, 0, 0, -1 }, -- Burred Bolt
+  { 0x031A3850, 699, 0, 0, -1 }, -- Meteor Bolt
+  { 0x031A5F60, 699, 0, 0, -1 }, -- Explosive Bolt
+  { 0x031A8670, 699, 0, 0, -1 }, -- Golden Bolt
+  { 0x031AAD80, 699, 0, 0, -1 }, -- Lordsworn's Bolt
+  { 0x031AD490, 699, 0, 0, -1 }, -- Bone Bolt
+  { 0x031AFBA0, 699, 0, 0, -1 }, -- Firebone Bolt
+  { 0x031B22B0, 699, 0, 0, -1 }, -- Lightningbone Bolt
+  { 0x031B49C0, 699, 0, 0, -1 }, -- Magicbone Bolt
+  { 0x031B70D0, 699, 0, 0, -1 }, -- Haligbone Bolt
+  { 0x031B97E0, 699, 0, 0, -1 }, -- Poisonbone Bolt
+  { 0x031BBEF0, 699, 0, 0, -1 }, -- Bloodbone Bolt
+  { 0x031BE600, 699, 0, 0, -1 }, -- Coldbone Bolt
+  { 0x031C0D10, 699, 0, 0, -1 }, -- Rotbone Bolt
+  { 0x031C3420, 699, 0, 0, -1 }, -- Sleepbone Bolt
+  { 0x031C5B30, 699, 0, 0, -1 }, -- Flaming Bolt
+-- Greatbolts
+  { 0x0328B740, 620, 0, 0, -1 }, -- Ballista Bolt
+  { 0x0328DE50, 620, 0, 0, -1 }, -- Lightning Greatbolt
+  { 0x03290560, 620, 0, 0, -1 }, -- Explosive Greatbolt
+  { 0x03292C70, 620, 0, 0, -1 }, -- Bone Ballista Bolt
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>101583</ID>
+  <Description>"isSoulParamIdChange_model1"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+236</Address>
+</CheatEntry>

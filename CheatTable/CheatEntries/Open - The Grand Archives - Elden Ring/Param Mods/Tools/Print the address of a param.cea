@@ -1,0 +1,11 @@
+{
+  Author: Igromanru
+  Description: Prints the address of a param
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local paramName = "" --enter a param Name here, for example EquipParamWeapon
+--------------------------------------------------------
+paramUtils:printParamAddress(paramName)
+[DISABLE]

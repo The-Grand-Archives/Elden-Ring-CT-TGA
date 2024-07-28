@@ -1,0 +1,80 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x40000FA0, 1, 0, 0, -1 }, -- Glintstone Pebble
+  { 0x40000FA1, 1, 0, 0, -1 }, -- Great Glintstone Shard
+  { 0x40000FAA, 1, 0, 0, -1 }, -- Swift Glintstone Shard
+  { 0x40000FB4, 1, 0, 0, -1 }, -- Glintstone Cometshard
+  { 0x40000FB5, 1, 0, 0, -1 }, -- Comet
+  { 0x40000FBE, 1, 0, 0, -1 }, -- Shard Spiral
+  { 0x40000FC8, 1, 0, 0, -1 }, -- Glintstone Stars
+  { 0x40000FD2, 1, 0, 0, -1 }, -- Star Shower
+  { 0x40000FDC, 1, 0, 0, -1 }, -- Crystal Barrage
+  { 0x40000FE6, 1, 0, 0, -1 }, -- Glintstone Arc
+  { 0x40000FF0, 1, 0, 0, -1 }, -- Cannon of Haima
+  { 0x40000FFA, 1, 0, 0, -1 }, -- Crystal Burst
+  { 0x40001004, 1, 0, 0, -1 }, -- Shatter Earth
+  { 0x4000100E, 1, 0, 0, -1 }, -- Rock Blaster
+  { 0x40001018, 1, 0, 0, -1 }, -- Gavel of Haima
+  { 0x40001022, 1, 0, 0, -1 }, -- Terra Magicus
+  { 0x4000102C, 1, 0, 0, -1 }, -- Starlight
+  { 0x40001068, 1, 0, 0, -1 }, -- Comet Azur
+  { 0x40001072, 1, 0, 0, -1 }, -- Founding Rain of Stars
+  { 0x4000107C, 1, 0, 0, -1 }, -- Stars of Ruin
+  { 0x400010CC, 1, 0, 0, -1 }, -- Glintblade Phalanx
+  { 0x400010CD, 1, 0, 0, -1 }, -- Carian Phalanx
+  { 0x400010CE, 1, 0, 0, -1 }, -- Greatblade Phalanx
+  { 0x40001108, 1, 0, 0, -1 }, -- Rennala's Full Moon
+  { 0x40001109, 1, 0, 0, -1 }, -- Ranni's Dark Moon
+  { 0x40001112, 1, 0, 0, -1 }, -- Magic Downpour
+  { 0x4000111C, 1, 0, 0, -1 }, -- Loretta's Greatbow
+  { 0x4000111D, 1, 0, 0, -1 }, -- Loretta's Mastery
+  { 0x40001126, 1, 0, 0, -1 }, -- Magic Glintblade
+  { 0x40001130, 1, 0, 0, -1 }, -- Glintstone Icecrag
+  { 0x4000113A, 1, 0, 0, -1 }, -- Zamor Ice Storm
+  { 0x40001144, 1, 0, 0, -1 }, -- Freezing Mist
+  { 0x4000114E, 1, 0, 0, -1 }, -- Carian Greatsword
+  { 0x4000114F, 1, 0, 0, -1 }, -- Adula's Moonblade
+  { 0x40001158, 1, 0, 0, -1 }, -- Carian Slicer
+  { 0x40001162, 1, 0, 0, -1 }, -- Carian Piercer
+  { 0x4000116C, 1, 0, 0, -1 }, -- Scholar's Armament
+  { 0x40001176, 1, 0, 0, -1 }, -- Scholar's Shield
+  { 0x40001180, 1, 0, 0, -1 }, -- Lucidity
+  { 0x4000118A, 1, 0, 0, -1 }, -- Frozen Armament
+  { 0x40001194, 1, 0, 0, -1 }, -- Shattering Crystal
+  { 0x4000119E, 1, 0, 0, -1 }, -- Crystal Release
+  { 0x400011A8, 1, 0, 0, -1 }, -- Crystal Torrent
+  { 0x400011F8, 1, 0, 0, -1 }, -- Ambush Shard
+  { 0x40001202, 1, 0, 0, -1 }, -- Night Shard
+  { 0x4000120C, 1, 0, 0, -1 }, -- Night Comet
+  { 0x40001216, 1, 0, 0, -1 }, -- Thops's Barrier
+  { 0x40001220, 1, 0, 0, -1 }, -- Carian Retaliation
+  { 0x4000122A, 1, 0, 0, -1 }, -- Eternal Darkness
+  { 0x40001234, 1, 0, 0, -1 }, -- Unseen Blade
+  { 0x4000123E, 1, 0, 0, -1 }, -- Unseen Form
+  { 0x4000125C, 1, 0, 0, -1 }, -- Meteorite
+  { 0x4000125D, 1, 0, 0, -1 }, -- Meteorite of Astel
+  { 0x40001266, 1, 0, 0, -1 }, -- Rock Sling
+  { 0x40001270, 1, 0, 0, -1 }, -- Gravity Well
+  { 0x40001271, 1, 0, 0, -1 }, -- Collapsing Stars
+  { 0x400012C0, 1, 0, 0, -1 }, -- Magma Shot
+  { 0x400012CA, 1, 0, 0, -1 }, -- Gelmir's Fury
+  { 0x400012D4, 1, 0, 0, -1 }, -- Roiling Magma
+  { 0x400012DE, 1, 0, 0, -1 }, -- Rykard's Rancor
+  { 0x40001324, 1, 0, 0, -1 }, -- Briars of Sin
+  { 0x4000132E, 1, 0, 0, -1 }, -- Briars of Punishment
+  { 0x40001388, 1, 0, 0, -1 }, -- Rancorcall
+  { 0x40001389, 1, 0, 0, -1 }, -- Ancient Death Rancor
+  { 0x40001392, 1, 0, 0, -1 }, -- Explosive Ghostflame
+  { 0x4000139C, 1, 0, 0, -1 }, -- Fia's Mist
+  { 0x400013A6, 1, 0, 0, -1 }, -- Tibia's Summons
+  { 0x400013B0, 1, 0, 0, -1 }, -- Death Lightning
+  { 0x400013EC, 1, 0, 0, -1 }, -- Oracle Bubbles
+  { 0x400013F6, 1, 0, 0, -1 }, -- Great Oracular Bubble
+  { 0x40001964, 1, 0, 0, -1 }, -- Night Maiden's Mist
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

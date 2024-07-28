@@ -1,0 +1,16 @@
+{
+  Author: Jacky Dima
+  Description: Disbables the Effect, that you cannot Attack in the some Areas
+}
+
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local E1 = SpEffectParam:new("NoPazifist", 9621)
+E1:stateInfo(0)
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("NoPazifist")

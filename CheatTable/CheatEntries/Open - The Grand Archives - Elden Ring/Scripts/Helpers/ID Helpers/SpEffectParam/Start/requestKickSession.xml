@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102545</ID>
+  <Description>"requestKickSession"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0161</Address>
+</CheatEntry>

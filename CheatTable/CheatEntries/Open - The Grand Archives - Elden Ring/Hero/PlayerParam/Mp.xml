@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100616</ID>
+  <Description>"Mp"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>1C</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

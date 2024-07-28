@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>103994</ID>
+  <Description>"isHitFlare"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+C3</Address>
+</CheatEntry>

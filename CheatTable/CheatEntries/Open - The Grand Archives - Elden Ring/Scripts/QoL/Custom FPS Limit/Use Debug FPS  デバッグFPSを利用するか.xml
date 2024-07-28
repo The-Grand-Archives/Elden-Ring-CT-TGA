@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>101249</ID>
+  <Description>"Use Debug FPS | デバッグFPSを利用するか"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
+1:On
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>CSFlipper</Address>
+  <Offsets>
+    <Offset>2D0</Offset>
+  </Offsets>
+</CheatEntry>

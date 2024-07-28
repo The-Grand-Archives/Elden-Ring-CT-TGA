@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(EquipParamAccessoryHelper,16)
+registersymbol(EquipParamAccessoryHelper)
+
+EquipParamAccessoryHelper:
+dq #1000
+
+[DISABLE]
+dealloc(EquipParamAccessoryHelper)
+unregistersymbol(EquipParamAccessoryHelper)

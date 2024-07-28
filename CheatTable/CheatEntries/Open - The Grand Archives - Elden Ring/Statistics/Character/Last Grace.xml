@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100013</ID>
+  <Description>"Last Grace"</Description>
+  <DropDownListLink>BonfireId</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>B60</Offset>
+  </Offsets>
+</CheatEntry>

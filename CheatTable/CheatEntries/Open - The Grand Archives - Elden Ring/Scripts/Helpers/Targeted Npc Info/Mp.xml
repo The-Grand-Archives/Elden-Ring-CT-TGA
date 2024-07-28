@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105094</ID>
+  <Description>"Mp"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>148</Offset>
+    <Offset>0</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

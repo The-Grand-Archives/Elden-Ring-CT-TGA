@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>103487</ID>
+  <Description>"Name"</Description>
+  <DropDownListLink>BUDDY_STONE_ID</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>8 Bytes</VariableType>
+  <Address>BuddyStoneParamHelper</Address>
+</CheatEntry>

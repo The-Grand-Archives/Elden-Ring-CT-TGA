@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100902</ID>
+  <Description>"SpecialEffect"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="100903"/>
+    <id id="100904"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

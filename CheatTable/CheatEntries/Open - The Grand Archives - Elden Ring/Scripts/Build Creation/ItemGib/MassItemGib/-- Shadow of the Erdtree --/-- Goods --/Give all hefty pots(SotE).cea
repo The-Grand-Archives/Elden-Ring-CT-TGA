@@ -1,0 +1,31 @@
+//Author: Bearmageddon
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+if not isOwnDlc(1) then missingDlc(1) end
+
+local items = {
+  { 0x401E85AC, 610, 0, 0, -1 }, -- Hefty Fire Pot
+  { 0x401E85B6, 610, 0, 0, -1 }, -- Hefty Rock Pot
+  { 0x401E85C0, 610, 0, 0, -1 }, -- Hefty Lightning Pot
+  { 0x401E85CA, 610, 0, 0, -1 }, -- Hefty Fetid Pot
+  { 0x401E85D4, 610, 0, 0, -1 }, -- Hefty Fly Pot
+  { 0x401E85E8, 610, 0, 0, -1 }, -- Hefty Freezing Pot
+  { 0x401E85F2, 610, 0, 0, -1 }, -- Hefty Poison Pot
+  { 0x401E85FC, 610, 0, 0, -1 }, -- Hefty Oil Pot
+  { 0x401E86D8, 610, 0, 0, -1 }, -- Hefty Volcano Pot
+  { 0x401E86EC, 610, 0, 0, -1 }, -- Hefty Frenzied Flame Pot
+  { 0x401E870A, 610, 0, 0, -1 }, -- Hefty Rancor Pot
+  { 0x401E8714, 610, 0, 0, -1 }, -- Hefty Magic Pot
+  { 0x401E871E, 610, 0, 0, -1 }, -- Hefty Rot Pot
+  { 0x401E8728, 610, 0, 0, -1 }, -- Hefty Furnace Pot
+  { 0x401E8732, 610, 0, 0, -1 }, -- Hefty Red Lightning Pot
+  { 0x401E873C, 610, 0, 0, -1 }, -- Red Lightning Pot
+  { 0x401E8746, 610, 0, 0, -1 }, -- Frenzied Flame Pot
+  { 0x401E8764, 610, 0, 0, -1 }, -- Eternal Sleep Pot
+  { 0x401E8778, 610, 0, 0, -1 }, -- Roped Frenzied Flame Pot
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>108197</ID>
+  <Description>"Misc/WIP"</Description>
+  <Options moHideChildren="1"/>
+  <Color>C0C0C0</Color>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="108198"/>
+    <id id="108225"/>
+    <id id="108234"/>
+    <id id="108250"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

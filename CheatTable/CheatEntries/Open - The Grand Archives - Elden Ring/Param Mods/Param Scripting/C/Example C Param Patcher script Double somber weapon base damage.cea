@@ -1,0 +1,29 @@
+{cscript ontimeout=break gensymbols=true}
+// Example C Param Patcher script: Double somber weapon base damage
+// Requires CSCRIPT extensions
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("double_dmg");
+    ParamPatchAll(EquipParamWeapon, {
+        if (param->originEquipWep1 != -1 && param->originEquipWep16 == -1) {
+            param->attackBasePhysics *= 2;
+            param->attackBaseMagic *= 2;
+            param->attackBaseFire *= 2;
+            param->attackBaseThunder *= 2;
+            param->attackBaseStamina *= 2;
+        }
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("double_dmg");
+    return 0;
+}
+
+{$asm}
+[DISABLE]
+

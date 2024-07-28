@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100004</ID>
+  <Description>"Level"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>68</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>105692</ID>
+  <Description>"Leggings"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>3D8</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

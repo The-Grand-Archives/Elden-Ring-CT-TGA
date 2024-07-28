@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>104809</ID>
+  <Description>"disableParam_NT"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+00</Address>
+</CheatEntry>

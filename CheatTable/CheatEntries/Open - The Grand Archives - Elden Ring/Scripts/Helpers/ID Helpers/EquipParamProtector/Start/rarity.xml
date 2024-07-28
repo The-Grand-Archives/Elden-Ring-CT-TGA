@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101692</ID>
+  <Description>"rarity"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+D7</Address>
+</CheatEntry>

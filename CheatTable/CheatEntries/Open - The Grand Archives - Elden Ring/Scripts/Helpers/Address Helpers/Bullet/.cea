@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(BulletHelper_addr,$8)
+registersymbol(BulletHelper_addr)
+
+BulletHelper_addr:
+dq #0
+
+[DISABLE]
+dealloc(BulletHelper_addr)
+unregistersymbol(BulletHelper_addr)

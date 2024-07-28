@@ -1,0 +1,83 @@
+//Authors: The-Raid-Boss, tremwil
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+disableMemrec(memrec)
+
+local flags = {
+--Missionary's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+899", bit = 5}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+898", bit = 7}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+89e", bit = 5}, --3
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+89d", bit = 7}, --4
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+89b", bit = 1}, --5
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+85d", bit = 5}, --6
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8e6", bit = 1}, --7
+--Nomadic warrior's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+84d", bit = 7}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+85a", bit = 1}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+84e", bit = 5}, --3
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8b1", bit = 7}, --4
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8b4", bit = 1}, --5
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+84f", bit = 3}, --6
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+853", bit = 5}, --7
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8bb", bit = 7}, --8
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+882", bit = 1}, --9
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+850", bit = 1}, --10
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+868", bit = 3}, --11
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+854", bit = 3}, --12
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+857", bit = 7}, --13
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8b9", bit = 1}, --14
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8bd", bit = 3}, --15
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+871", bit = 5}, --16
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+859", bit = 3}, --17
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+86e", bit = 1}, --18
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+855", bit = 1}, --19
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+869", bit = 1}, --20
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+85c", bit = 7}, --21
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8bc", bit = 5}, --22
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+858", bit = 5}, --23
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8be", bit = 1}, --24
+--Armorer's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+866", bit = 7}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+867", bit = 5}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+870", bit = 7}, --3
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+86d", bit = 3}, --4
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+873", bit = 1}, --5
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+872", bit = 3}, --6
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+86c", bit = 5}, --7
+--Ancient Dragon Apostle's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8ca", bit = 7}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8cb", bit = 5}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8cd", bit = 1}, --3
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8cc", bit = 3}, --4
+--Fevor's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8e3", bit = 7}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8e5", bit = 3}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8e4", bit = 5}, --3
+--Perfumer's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8b6", bit = 7}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8b7", bit = 5}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8b8", bit = 3}, --3
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8c0", bit = 7}, --4
+--Glintstone Craftman's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+880", bit = 5}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+885", bit = 5}, --2
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+889", bit = 7}, --3
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+87f", bit = 7}, --4
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+881", bit = 3}, --5
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+886", bit = 3}, --6
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+887", bit = 1}, --7
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+884", bit = 7}, --8
+--Frenzied's Cookbook
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8fc", bit = 7}, --1
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+8fd", bit = 5}, --2
+}
+
+for i, flag in ipairs(flags) do
+    local val = readByte(flag.addr)
+    writeByte(flag.addr, val | (1 << flag.bit))
+end
+
+[DISABLE]
+

@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102349</ID>
+  <Description>"isEndlessHit"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9a</Address>
+</CheatEntry>

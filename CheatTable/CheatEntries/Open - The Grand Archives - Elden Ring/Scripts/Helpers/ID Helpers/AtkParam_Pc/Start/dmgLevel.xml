@@ -1,0 +1,20 @@
+<CheatEntry>
+  <ID>102870</ID>
+  <Description>"dmgLevel"</Description>
+  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0:None
+1:MiniStagger
+2:Middle tier Stagger
+3:Strong Stagger
+4:Knockback
+5:Someone Kicks you
+6:Pancake Slam
+7:Knocback
+8:UnkStagger
+9:Burgerflip
+10:Knockback
+11:Someone kicks you and you fall on a spine
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+072</Address>
+</CheatEntry>

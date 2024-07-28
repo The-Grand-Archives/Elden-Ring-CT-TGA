@@ -1,0 +1,56 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+--[[START WetAspectParam class]]--
+WetAspectParam = BaseParamClass:new()
+
+function WetAspectParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("WetAspectParam", uuid, id, address)
+	return o
+end
+
+function WetAspectParam:Red(value)
+    self:patchByte(0x0,value)
+end
+
+function WetAspectParam:Green(value)
+    self:patchByte(0x1,value)
+end
+
+function WetAspectParam:Blue(value)
+    self:patchByte(0x2,value)
+end
+
+function WetAspectParam:Alpha(value)
+    self:patchFloat(0x4,value)
+end
+
+function WetAspectParam:Red2(value)
+    self:patchByte(0x8,value)
+end
+
+function WetAspectParam:Green2(value)
+    self:patchByte(0x9,value)
+end
+
+function WetAspectParam:Blue2(value)
+    self:patchByte(0xA,value)
+end
+
+function WetAspectParam:Alpha2(value)
+    self:patchFloat(0xC,value)
+end
+
+function WetAspectParam:WetRate(value)
+    self:patchFloat(0x10,value)
+end
+
+function WetAspectParam:WetCorrection(value)
+    self:patchByte(0x14,value)
+end
+
+[DISABLE]

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101439</ID>
+  <Description>"thrustGuardCutRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+FF</Address>
+</CheatEntry>

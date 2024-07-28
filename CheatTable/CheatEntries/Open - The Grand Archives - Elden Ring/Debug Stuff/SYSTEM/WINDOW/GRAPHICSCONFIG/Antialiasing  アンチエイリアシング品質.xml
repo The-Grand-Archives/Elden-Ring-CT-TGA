@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>108172</ID>
+  <Description>"Antialiasing | アンチエイリアシング品質"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>F4</Offset>
+  </Offsets>
+</CheatEntry>

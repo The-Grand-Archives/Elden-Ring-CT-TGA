@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>102104</ID>
+  <Description>"canMountWep_SwordGigantic"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+38</Address>
+</CheatEntry>

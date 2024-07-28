@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107227</ID>
+  <Description>"Great Waterfall Crest"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>A5E</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

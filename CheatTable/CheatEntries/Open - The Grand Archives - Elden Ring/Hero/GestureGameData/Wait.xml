@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100470</ID>
+  <Description>"Wait"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">48:Locked
+49:Unlocked
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>44</Offset>
+    <Offset>8D8</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

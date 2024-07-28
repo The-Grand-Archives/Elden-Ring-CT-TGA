@@ -1,0 +1,305 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START AttackParam_PC class]]--
+AtkParam_Pc = BaseParamClass:new()
+
+function AtkParam_Pc:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("AtkParam_Pc", uuid, id, address)
+	return o
+end
+
+function AtkParam_Pc:Hit0_Radius(value)
+	self:patchFloat(0x0, value)
+end
+
+function AtkParam_Pc:Hit1_Radius(value)
+	self:patchFloat(0x4, value)
+end
+
+function AtkParam_Pc:Hit2_Radius(value)
+	self:patchFloat(0x8, value)
+end
+
+function AtkParam_Pc:Hit3_Radius(value)
+	self:patchFloat(0xC, value)
+end
+
+function AtkParam_Pc:KnockbackDist(value)
+	self:patchFloat(0x10, value)
+end
+
+function AtkParam_Pc:HitStopTime(value)
+	self:patchFloat(0x14, value)
+end
+
+--Special Effect IDs
+function AtkParam_Pc:SpecialEffectId0(value)
+	self:patch4Byte(0x18, value)
+end
+
+function AtkParam_Pc:SpecialEffectId1(value)
+	self:patch4Byte(0x1C, value)
+end
+
+function AtkParam_Pc:SpecialEffectId2(value)
+	self:patch4Byte(0x20, value)
+end
+
+function AtkParam_Pc:SpecialEffectId3(value)
+	self:patch4Byte(0x24, value)
+end
+
+function AtkParam_Pc:SpecialEffectId4(value)
+	self:patch4Byte(0x28, value)
+end
+
+--Hit DmyPoly
+function AtkParam_Pc:Hit0_DmyPoly1(value)
+	self:patch2Byte(0x2C, value)
+end
+
+function AtkParam_Pc:Hit1_DmyPoly1(value)
+	self:patch2Byte(0x2E, value)
+end
+
+function AtkParam_Pc:Hit2_DmyPoly1(value)
+	self:patch2Byte(0x30, value)
+end
+
+function AtkParam_Pc:Hit3_DmyPoly1(value)
+	self:patch2Byte(0x32, value)
+end
+
+function AtkParam_Pc:Hit0_DmyPoly2(value)
+	self:patch2Byte(0x34, value)
+end
+
+function AtkParam_Pc:Hit1_DmyPoly2(value)
+	self:patch2Byte(0x36, value)
+end
+
+function AtkParam_Pc:Hit2_DmyPoly2(value)
+	self:patch2Byte(0x38, value)
+end
+
+function AtkParam_Pc:Hit3_DmyPoly2(value)
+	self:patch2Byte(0x3A, value)
+end
+--
+
+function AtkParam_Pc:BlowingCorrection(value)
+	self:patch2Byte(0x3C, value)
+end
+
+--Corrections
+function AtkParam_Pc:AtkPhysCorrection(value)
+	self:patch2Byte(0x3E, value)
+end
+
+function AtkParam_Pc:AtkMagCorrection(value)
+	self:patch2Byte(0x40, value)
+end
+
+function AtkParam_Pc:AtkFireCorrection(value)
+	self:patch2Byte(0x42, value)
+end
+
+function AtkParam_Pc:AtkThunCorrection(value)
+	self:patch2Byte(0x44, value)
+end
+
+function AtkParam_Pc:AtkStamCorrection(value)
+	self:patch2Byte(0x46, value)
+end
+
+function AtkParam_Pc:GuardAtkRateCorrection(value)
+	self:patch2Byte(0x48, value)
+end
+
+function AtkParam_Pc:GuardBreakCorrection(value)
+	self:patch2Byte(0x4A, value)
+end
+
+function AtkParam_Pc:AtkThrowEscapeCorrection(value)
+	self:patch2Byte(0x4C, value)
+end
+
+function AtkParam_Pc:AtkSuperArmorCorrection(value)
+	self:patch2Byte(0x4E, value)
+end
+--
+
+--Attack
+function AtkParam_Pc:AtkPhys(value)
+	self:patch2Byte(0x50, value)
+end
+
+function AtkParam_Pc:AtkMag(value)
+	self:patch2Byte(0x52, value)
+end
+
+function AtkParam_Pc:AtkFire(value)
+	self:patch2Byte(0x54, value)
+end
+
+function AtkParam_Pc:AtkThun(value)
+	self:patch2Byte(0x56, value)
+end
+
+function AtkParam_Pc:AtkStam(value)
+	self:patch2Byte(0x58, value)
+end
+
+function AtkParam_Pc:GuardAtkRate(value)
+	self:patch2Byte(0x5A, value)
+end
+
+function AtkParam_Pc:GuardBreakRate(value)
+	self:patch2Byte(0x5C, value)
+end
+
+function AtkParam_Pc:AtkSuperArmor(value)
+	self:patch2Byte(0x5E, value)
+end
+
+function AtkParam_Pc:AtkThrowEscape(value)
+	self:patch2Byte(0x60, value)
+end
+
+function AtkParam_Pc:AtkObj(value)
+	self:patch2Byte(0x62, value)
+end
+--
+
+function AtkParam_Pc:GuardStaminaCutRate(value)
+	self:patch2Byte(0x64, value)
+end
+
+function AtkParam_Pc:GuardRate(value)
+	self:patch2Byte(0x66, value)
+end
+
+function AtkParam_Pc:ThrowTypeId(value)
+	self:patch2Byte(0x68, value)
+end
+
+--Hit Type
+function AtkParam_Pc:Hit0_hitType(value)
+	self:patchByte(0x6A, value)
+end
+
+function AtkParam_Pc:Hit1_hitType(value)
+	self:patchByte(0x6B, value)
+end
+
+function AtkParam_Pc:Hit2_hitType(value)
+	self:patchByte(0x6C, value)
+end
+
+function AtkParam_Pc:Hit3_hitType(value)
+	self:patchByte(0x6D, value)
+end
+
+
+-- insert Unknown 1 6E-71
+
+function AtkParam_Pc:DamageLevel(value)
+	self:patchByte(0x72, value)
+end
+
+function AtkParam_Pc:MapHitType(value)
+	self:patchByte(0x73, value)
+end
+
+function AtkParam_Pc:GuardCutCancelRate(value)
+	self:patchByte(0x74, value)
+end
+
+function AtkParam_Pc:AtkAttribute(value)
+	self:patchByte(0x75, value)
+end
+
+function AtkParam_Pc:SpecialAttributes(value)
+	self:patchByte(0x76, value)
+end
+
+function AtkParam_Pc:AttackType(value)
+	self:patchByte(0x77, value)
+end
+
+function AtkParam_Pc:AtkMaterial(value)
+	self:patchByte(0x78, value)
+end
+
+function AtkParam_Pc:AtkSize(value)
+	self:patchByte(0x79, value)
+end
+
+function AtkParam_Pc:DefMaterial(value)
+	self:patchByte(0x7A, value)
+end
+
+function AtkParam_Pc:DefSfxMaterial(value)
+	self:patchByte(0x7B, value)
+end
+
+function AtkParam_Pc:HitSourceType(value)
+	self:patchByte(0x7C, value)
+end
+
+function AtkParam_Pc:ThrowFlag(value)
+	self:patchByte(0x7D, value)
+end
+
+function AtkParam_Pc:isEffectDisabled(value)
+	self:patchBinary(0x7E, value, 2)
+end
+
+function AtkParam_Pc:DoubleDamage(value) --Clientside
+	self:patchBinary(0x7D, value, 6)
+end
+
+function AtkParam_Pc:isHitboxEnabled(value)
+	self:patchBinary(0x81, value, 0)
+end
+
+function AtkParam_Pc:isHitBothTeams(value)
+	self:patchBinary(0x81, value, 1)
+end
+
+function AtkParam_Pc:isSelfHit(value)
+	self:patchBinary(0x81, value, 2)
+end
+
+function AtkParam_Pc:CameraActOnHit(value) --clientside
+	self:patch4Byte(0x98, value)
+end
+
+function AtkParam_Pc:ThrowCameraAct(value) --clientside
+	self:patch4Byte(0x9C, value)
+end
+
+-- insert Unknown 2 7E-184 here
+
+function AtkParam_Pc:AtkDarkCorrection(value)
+	self:patch2Byte(0x186, value)
+end
+
+function AtkParam_Pc:AtkDark(value)
+	self:patch2Byte(0x188, value)
+end
+
+-- insert Unknown 3 here
+
+--[[END AttackParam_PC class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

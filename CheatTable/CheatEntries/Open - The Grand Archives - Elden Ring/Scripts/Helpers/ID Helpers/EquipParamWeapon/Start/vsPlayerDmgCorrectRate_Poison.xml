@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101566</ID>
+  <Description>"vsPlayerDmgCorrectRate_Poison"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+20C</Address>
+</CheatEntry>

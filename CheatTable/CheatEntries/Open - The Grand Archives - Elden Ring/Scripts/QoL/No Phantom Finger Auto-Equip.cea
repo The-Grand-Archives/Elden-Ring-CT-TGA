@@ -1,0 +1,21 @@
+{cscript}
+[Enable]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("no_phantom_finger");
+
+    int goods[] = { 107, 113, 114 };
+    for (int i = 0; i < sizeof(goods) / sizeof(int); i++) {
+        ParamPatch(EquipParamGoods, goods[i], { param->isAutoEquip = 0; });
+    }
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("no_phantom_finger");
+    return 0;
+}
+{$asm}
+[Disable]

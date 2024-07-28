@@ -1,0 +1,18 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+disableMemrec(memrec)
+showText("Event Flags Help", [[
+Select your event flag category from the "Category" dropdown, for example "Bosses," then select the event flag ID from the "Event Flag ID" dropdown, for example "13300850 : Crystal Sage - Defeated,"
+"State" will show the selected flag's current state, which you can change from its dropdown.
+
+You can also manually set "Event Flag ID" to a valid flag ID and check and/or change its state in the same way.
+
+Check under the "Examples" header to see example scripts.
+
+List containing flags, ranges and names:
+https://raw.githubusercontent.com/Nordgaren/Erd-Tools/main/Documentation/Params/Params-Translated/Event%20Param%20Flags%20Translated.csv
+]])
+
+[DISABLE]

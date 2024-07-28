@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>107054</ID>
+  <Description>"Volcano Manor"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="107055"/>
+    <id id="107056"/>
+    <id id="107057"/>
+    <id id="107058"/>
+    <id id="107059"/>
+    <id id="107060"/>
+    <id id="107061"/>
+    <id id="107062"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102390</ID>
+  <Description>"lifeRandomRange"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+D0</Address>
+</CheatEntry>

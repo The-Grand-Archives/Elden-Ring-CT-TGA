@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>106989</ID>
+  <Description>"Divine Tower of Liurnia"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B6F</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

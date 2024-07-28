@@ -1,0 +1,15 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local path = inputQuery("Select new C include path: ", "Select path", "./resources/include")
+if findTableFile("include") then
+    if (messageDialog("Confirm", "Confirm?", 0, mbno, mbyes) == mbno) then
+        disableMemrec(memrec)
+        return
+    end
+end
+removeCIncludePath(tga.path .. '/include')
+addCIncludePath(path)
+disableMemrec(memrec)
+
+[DISABLE]

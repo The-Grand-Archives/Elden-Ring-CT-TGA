@@ -1,0 +1,51 @@
+//Author: Bearmageddon
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local items = {
+  { 0x401E87A0, 630, 0, 0, -1 }, -- Spirit Raisin
+  { 0x401E8804, 601, 0, 0, -1 }, -- Blessing of Marika
+  { 0x401E880E, 610, 0, 0, -1 }, -- Lulling Branch
+  { 0x401E88CC, 1009, 0, 0, -1 }, -- Dragon Communion Flesh
+  { 0x401E88D1, 1009, 0, 0, -1 }, -- Dragonscale Flesh
+  { 0x401E88D6, 1009, 0, 0, -1 }, -- Fingerprint Nostrum
+  { 0x401E88E0, 1004, 0, 0, -1 }, -- Spellproof Pickled Liver
+  { 0x401E88EA, 1004, 0, 0, -1 }, -- Fireproof Pickled Liver
+  { 0x401E88F4, 1004, 0, 0, -1 }, -- Lightningproof Pickled Liver
+  { 0x401E88FE, 1004, 0, 0, -1 }, -- Holyproof Pickled Liver
+  { 0x401E8908, 1004, 0, 0, -1 }, -- Opaline Pickled Liver
+  { 0x401E8912, 1009, 0, 0, -1 }, -- Well-Pickled Turtle Neck
+  { 0x401E8930, 2, 0, 0, -1 }, -- Scorpion Stew
+  { 0x401E8931, 2, 0, 0, -1 }, -- Gourmet Scorpion Stew
+  { 0x401E8932, 2, 0, 0, -1 }, -- Scorpion Stew
+  { 0x401E8933, 2, 0, 0, -1 }, -- Gourmet Scorpion Stew
+  { 0x401E893A, 610, 0, 0, -1 }, -- Sacred Bloody Flesh
+  { 0x401E8944, 1009, 0, 0, -1 }, -- Silver Horn Tender
+  { 0x401E894E, 1009, 0, 0, -1 }, -- Golden Horn Tender
+  { 0x401E8B24, 640, 0, 0, -1 }, -- Innard Meat
+  { 0x401E8B2E, 605, 0, 0, -1 }, -- Dragon Communion Harpoon
+  { 0x401E8C50, 699, 0, 0, -1 }, -- Polter Stone
+  { 0x401E8CC8, 699, 0, 0, -1 }, -- Iris of Grace
+  { 0x401E8CD2, 699, 0, 0, -1 }, -- Iris of Occultation
+  { 0x401E8CDC, 699, 0, 0, -1 }, -- Thiollier's Concoction
+  { 0x401E9039, 610, 0, 0, -1 }, -- Spritestone
+  { 0x401E90CE, 610, 0, 0, -1 }, -- Call of Tibia
+  { 0x401E90D8, 610, 0, 0, -1 }, -- Surging Frenzied Flame
+  { 0x401E90E2, 610, 0, 0, -1 }, -- Golden Vow
+  { 0x401E90EC, 610, 0, 0, -1 }, -- Fire Coil
+  { 0x401E90F6, 610, 0, 0, -1 }, -- Fire Spritestone
+  { 0x401E9100, 610, 0, 0, -1 }, -- Glinting Nail
+  { 0x401E916E, 610, 0, 0, -1 }, -- Sunwarmth Stone
+  { 0x401E9196, 610, 0, 0, -1 }, -- Charming Branch
+}
+
+local itemsDLC1 = {
+  { 0x401E9038, 1, 0, 0, -1 }, -- Bondstone
+  { 0x401E90BA, 1, 0, 0, -1 }, -- Horned Bairn
+  { 0x401E90C4, 1, 0, 0, -1 }, -- Perfumed Oil of Ranah
+}
+
+ItemGive(items)
+if isOwnDlc(1) then ItemGive(itemsDLC1) end
+disableMemrec(memrec)
+[DISABLE]

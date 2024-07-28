@@ -1,0 +1,18 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("custom_camera_distance");
+    ParamPatchAll(LockCamParam, param->camDistTarget = 8;);
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("custom_camera_distance");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

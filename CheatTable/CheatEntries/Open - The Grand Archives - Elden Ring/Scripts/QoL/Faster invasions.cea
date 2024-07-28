@@ -1,0 +1,22 @@
+{cscript}
+// sfix's script for DS3, adapted to ER
+[Enable]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("faster_invasions");
+    ParamPatch(NetworkParam, 0, {
+        param->maxBreakInTargetListCount = 20;
+        param->breakInRequestIntervalTimeSec = 10;
+        param->breakInRequestTimeOutSec = 5;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("faster_invasions");
+    return 0;
+}
+{$asm}
+[Disable]

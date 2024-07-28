@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>105677</ID>
+  <Description>"No Update"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>531</Offset>
+  </Offsets>
+</CheatEntry>

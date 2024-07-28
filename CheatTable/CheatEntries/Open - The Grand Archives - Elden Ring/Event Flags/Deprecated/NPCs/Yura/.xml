@@ -1,0 +1,22 @@
+<CheatEntry>
+  <ID>107750</ID>
+  <Description>"Yura"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1C4</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107751"/>
+    <id id="107752"/>
+    <id id="107753"/>
+    <id id="107754"/>
+    <id id="107755"/>
+    <id id="107756"/>
+    <id id="107757"/>
+    <id id="107758"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

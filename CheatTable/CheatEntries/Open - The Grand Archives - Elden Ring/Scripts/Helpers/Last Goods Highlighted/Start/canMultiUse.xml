@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>104924</ID>
+  <Description>"canMultiUse"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+6C</Address>
+</CheatEntry>

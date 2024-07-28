@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>105998</ID>
+  <Description>"sideUndulationLimit"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+24B</Address>
+</CheatEntry>

@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102687</ID>
+  <Description>"atkPlayerDmgCorrectRate_Physics"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+028C</Address>
+</CheatEntry>

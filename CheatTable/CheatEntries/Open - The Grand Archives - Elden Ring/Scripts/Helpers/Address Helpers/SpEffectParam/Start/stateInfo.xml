@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>103644</ID>
+  <Description>"stateInfo"</Description>
+  <DropDownListLink>STATE_INFO</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>0000FF</Color>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+156</Address>
+</CheatEntry>

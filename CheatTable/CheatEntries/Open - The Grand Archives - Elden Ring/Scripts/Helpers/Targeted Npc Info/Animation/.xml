@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>105614</ID>
+  <Description>"Animation"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="105615"/>
+    <id id="105616"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

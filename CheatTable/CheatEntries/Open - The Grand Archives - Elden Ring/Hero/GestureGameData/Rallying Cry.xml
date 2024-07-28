@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100475</ID>
+  <Description>"Rallying Cry"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">100:Locked
+101:Unlocked
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>58</Offset>
+    <Offset>8D8</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

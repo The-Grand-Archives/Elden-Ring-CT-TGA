@@ -1,0 +1,22 @@
+//Author: Bearmageddon
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x401E89F8, 610, 0, 0, -1 }, -- Messmerfire Grease
+  { 0x401E8A02, 610, 0, 0, -1 }, -- Dragonbolt Grease
+  { 0x401E8A0C, 610, 0, 0, -1 }, -- Royal Magic Grease
+  { 0x401E8A16, 610, 0, 0, -1 }, -- Golden Grease
+  { 0x401E8A2A, 610, 0, 0, -1 }, -- Eternal Sleep Grease
+  { 0x401E8A48, 610, 0, 0, -1 }, -- Dragon Communion Grease
+  { 0x401E8A5C, 610, 0, 0, -1 }, -- Drawstring Messmerfire Grease
+  { 0x401E8A66, 610, 0, 0, -1 }, -- Drawstring Dragonbolt Grease
+  { 0x401E8A70, 610, 0, 0, -1 }, -- Drawstring Royal Magic Grease
+  { 0x401E8A7A, 610, 0, 0, -1 }, -- Drawstring Golden Grease
+  { 0x401E8A8E, 610, 0, 0, -1 }, -- Drawstring Eternal Sleep Grease
+  { 0x401E8AC0, 610, 0, 0, -1 }, -- Festive Grease
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

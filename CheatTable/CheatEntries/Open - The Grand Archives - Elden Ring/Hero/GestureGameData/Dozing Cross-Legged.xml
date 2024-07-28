@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100491</ID>
+  <Description>"Dozing Cross-Legged"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">188:Locked
+189:Unlocked
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>98</Offset>
+    <Offset>8D8</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

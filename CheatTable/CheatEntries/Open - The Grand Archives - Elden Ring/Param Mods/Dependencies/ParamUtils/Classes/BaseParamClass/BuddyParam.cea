@@ -1,0 +1,112 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--[[START BuddyParam class]]--
+BuddyParam = BaseParamClass:new()
+
+function BuddyParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("BuddyParam", uuid, id, address)
+	return o
+end
+
+function BuddyParam:Unk0(value)
+    self:patch4Byte(0x0, value)
+end
+
+function BuddyParam:goodsId(value)
+    self:patch4Byte(0x4, value)
+end
+
+function BuddyParam:npcParamId(value)
+    self:patch4Byte(0x8, value)
+end
+
+function BuddyParam:npcThinkParamId(value)
+    self:patch4Byte(0xC, value)
+end
+
+function BuddyParam:Unk1(value)
+    self:patch4Byte(0x10, value)
+end
+
+function BuddyParam:Unk2(value)
+    self:patch4Byte(0x14, value)
+end
+
+function BuddyParam:spawnOffsetX(value)
+    self:patchFloat(0x18, value)
+end
+
+function BuddyParam:spawnOffsetY(value)
+    self:patchFloat(0x1C, value)
+end
+
+function BuddyParam:spawnOffsetZ(value)
+    self:patchFloat(0x20, value)
+end
+
+function BuddyParam:spawnOffsetR(value)
+    self:patchFloat(0x24, value)
+end
+
+function BuddyParam:reinforceSpEffect(value)
+    self:patch4Byte(0x28, value)
+end
+
+function BuddyParam:reinforceSpEffect1(value)
+    self:patch4Byte(0x2C, value)
+end
+
+function BuddyParam:reinforceSpEffect2(value)
+    self:patch4Byte(0x30, value)
+end
+
+function BuddyParam:reinforceSpEffect3(value)
+    self:patch4Byte(0x34, value)
+end
+
+function BuddyParam:reinforceSpEffect4(value)
+    self:patch4Byte(0x38, value)
+end
+
+function BuddyParam:reinforceSpEffect5(value)
+    self:patch4Byte(0x3C, value)
+end
+
+function BuddyParam:reinforceSpEffect6(value)
+    self:patch4Byte(0x40, value)
+end
+
+function BuddyParam:reinforceSpEffect7(value)
+    self:patch4Byte(0x44, value)
+end
+
+function BuddyParam:reinforceSpEffect8(value)
+    self:patch4Byte(0x48, value)
+end
+
+function BuddyParam:reinforceSpEffect9(value)
+    self:patch4Byte(0x4C, value)
+end
+
+function BuddyParam:reinforceSpEffect10(value)
+    self:patch4Byte(0x50, value)
+end
+
+function BuddyParam:Unk3(value)
+    self:patch4Byte(0x54, value)
+end
+
+function BuddyParam:charaInitId(value)
+    self:patch4Byte(0x58, value)
+end
+
+function BuddyParam:Unk4(value)
+    self:patch4Byte(0x5C, value)
+end
+
+[DISABLE]

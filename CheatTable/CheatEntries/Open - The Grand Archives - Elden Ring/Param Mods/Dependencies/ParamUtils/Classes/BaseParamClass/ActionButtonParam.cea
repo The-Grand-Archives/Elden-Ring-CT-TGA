@@ -1,0 +1,90 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+-- Define ActionButtonParam Class
+
+ActionButtonParam = BaseParamClass:new()
+
+function ActionButtonParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ActionButtonParam", uuid, id, address)
+	return o
+end
+
+function ActionButtonParam:regionType(value)
+    self:patchByte(0x00,value)
+end
+
+function ActionButtonParam:dummyPoly1(value)
+    self:patch4Byte(0x01,value)
+end
+
+function ActionButtonParam:dummyPoly2(value)
+    self:patch4Byte(0x05,value)
+end
+
+function ActionButtonParam:Radius(value)
+    self:patchFloat(0x09,value)
+end
+
+function ActionButtonParam:Angle(value)
+    self:patch4Byte(0x0D,value)
+end
+
+function ActionButtonParam:depth(value)
+    self:patchFloat(0x11,value)
+end
+
+function ActionButtonParam:width(value)
+    self:patchFloat(0x15,value)
+end
+
+function ActionButtonParam:height(value)
+    self:patchFloat(0x19,value)
+end
+
+function ActionButtonParam:baseHeightOffset(value)
+    self:patchFloat(0x1D,value)
+end
+
+function ActionButtonParam:angleCheckType(value)
+    self:patchByte(0x21,value)
+end
+
+function ActionButtonParam:AllowAngle(value)
+    self:patch4Byte(0x22,value)
+end
+
+function ActionButtonParam:textBoxType(value)
+    self:patchByte(0x26,value)
+end
+
+function ActionButtonParam:textId(value)
+    self:patch4Byte(0x27,value)
+end
+
+function ActionButtonParam:InvalidFlag(value)
+    self:patch4Byte(0x2B,value)
+end
+
+function ActionButtonParam:grayoutFlag(value)
+    self:patch4Byte(0x2F,value)
+end
+
+function ActionButtonParam:priority(value)
+    self:patch4Byte(0x33,value)
+end
+
+function ActionButtonParam:execInvalidTime(value)
+    self:patchFloat(0x37,value)
+end
+
+function ActionButtonParam:execButtonCircle(value)
+    self:patchByte(0x3B,value)
+end
+
+[DISABLE]

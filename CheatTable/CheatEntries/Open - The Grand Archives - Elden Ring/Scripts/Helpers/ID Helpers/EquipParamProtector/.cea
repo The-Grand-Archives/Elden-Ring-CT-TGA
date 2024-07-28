@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(EquipParamProtectorHelper,16)
+registersymbol(EquipParamProtectorHelper)
+
+EquipParamProtectorHelper:
+dq #1000
+
+[DISABLE]
+dealloc(EquipParamProtectorHelper)
+unregistersymbol(EquipParamProtectorHelper)

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>107801</ID>
+  <Description>"In cut-scene/loading screen"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>113</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

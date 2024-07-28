@@ -1,0 +1,26 @@
+<CheatEntry>
+  <ID>101574</ID>
+  <Description>"attackElementCorrectId"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">-1:No scaling
+10000:Common
+10014:Common - Blessed
+10015:Common - Hollow
+12000:Phys Fth 12000
+13000:Darkmoon Longbow
+15000:Anri's Straight Sword
+16000:Demon's Scar
+10010010:Sunless Talisman
+10010020:Caitha's Chime
+10010030:Crystal Chime
+10091800:Saint Bident
+10091814:Blessed Saint Bident
+10091815:Hollow Saint Bident
+10131000:Man-grub's Staff
+10131100:Archdeacon's Great Staff
+10131200:Golden Ritual Spear
+10160420:Dancer's Enchanted Swords
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+22C</Address>
+</CheatEntry>

@@ -1,0 +1,73 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x40030D40, 1, 0, 0, -1 }, -- Black Knife Tiche
+  { 0x40031128, 1, 0, 0, -1 }, -- Banished Knight Oleg
+  { 0x40031510, 1, 0, 0, -1 }, -- Banished Knight Engvall
+  { 0x400318F8, 1, 0, 0, -1 }, -- Fanged Imp Ashes
+  { 0x40031CE0, 1, 0, 0, -1 }, -- Latenna the Albinauric
+  { 0x400320C8, 1, 0, 0, -1 }, -- Nomad Ashes
+  { 0x400324B0, 1, 0, 0, -1 }, -- Nightmaiden & Swordstress Puppets
+  { 0x40032898, 1, 0, 0, -1 }, -- Mimic Tear Ashes
+  { 0x40032C80, 1, 0, 0, -1 }, -- Crystalian Ashes
+  { 0x40033068, 1, 0, 0, -1 }, -- Ancestral Follower Ashes
+  { 0x40033450, 1, 0, 0, -1 }, -- Winged Misbegotten Ashes
+  { 0x40033838, 1, 0, 0, -1 }, -- Albinauric Ashes
+  { 0x40033C20, 1, 0, 0, -1 }, -- Skeletal Militiaman Ashes
+  { 0x40034008, 1, 0, 0, -1 }, -- Skeletal Bandit Ashes
+  { 0x400343F0, 1, 0, 0, -1 }, -- Oracle Envoy Ashes
+  { 0x400347D8, 1, 0, 0, -1 }, -- Putrid Corpse Ashes
+  { 0x40034BC0, 1, 0, 0, -1 }, -- Depraved Perfumer Carmaan
+  { 0x40034FA8, 1, 0, 0, -1 }, -- Perfumer Tricia
+  { 0x40035390, 1, 0, 0, -1 }, -- Glintstone Sorcerer Ashes
+  { 0x40035778, 1, 0, 0, -1 }, -- Twinsage Sorcerer Ashes
+  { 0x40035B60, 1, 0, 0, -1 }, -- Page Ashes
+  { 0x40035F48, 1, 0, 0, -1 }, -- Battlemage Hugues
+  { 0x40036330, 1, 0, 0, -1 }, -- Clayman Ashes
+  { 0x40036718, 1, 0, 0, -1 }, -- Cleanrot Knight Finlay
+  { 0x40036B00, 1, 0, 0, -1 }, -- Kindred of Rot Ashes
+  { 0x40036EE8, 1, 0, 0, -1 }, -- Marionette Soldier Ashes
+  { 0x400372D0, 1, 0, 0, -1 }, -- Avionette Soldier Ashes
+  { 0x400376B8, 1, 0, 0, -1 }, -- Fire Monk Ashes
+  { 0x40037AA0, 1, 0, 0, -1 }, -- Blackflame Monk Amon
+  { 0x40037E88, 1, 0, 0, -1 }, -- Man-Serpent Ashes
+  { 0x40038270, 1, 0, 0, -1 }, -- Azula Beastman Ashes
+  { 0x40038658, 1, 0, 0, -1 }, -- Kaiden Sellsword Ashes
+  { 0x40038A40, 1, 0, 0, -1 }, -- Lone Wolf Ashes
+  { 0x40038E28, 1, 0, 0, -1 }, -- Giant Rat Ashes
+  { 0x40039210, 1, 0, 0, -1 }, -- Demi-Human Ashes
+  { 0x400395F8, 1, 0, 0, -1 }, -- Rotten Stray Ashes
+  { 0x400399E0, 1, 0, 0, -1 }, -- Spirit Jellyfish Ashes
+  { 0x40039DC8, 1, 0, 0, -1 }, -- Warhawk Ashes
+  { 0x4003A1B0, 1, 0, 0, -1 }, -- Stormhawk Deenh
+  { 0x4003A598, 1, 0, 0, -1 }, -- Bloodhound Knight Floh
+  { 0x4003A980, 1, 0, 0, -1 }, -- Wandering Noble Ashes
+  { 0x4003AD68, 1, 0, 0, -1 }, -- Noble Sorcerer Ashes
+  { 0x4003B150, 1, 0, 0, -1 }, -- Vulgar Militia Ashes
+  { 0x4003B538, 1, 0, 0, -1 }, -- Mad Pumpkin Head Ashes
+  { 0x4003B920, 1, 0, 0, -1 }, -- Land Squirt Ashes
+  { 0x4003BD08, 1, 0, 0, -1 }, -- Miranda Sprout Ashes
+  { 0x4003C0F0, 1, 0, 0, -1 }, -- Soldjars of Fortune Ashes
+  { 0x4003C4D8, 1, 0, 0, -1 }, -- Omenkiller Rollo
+  { 0x4003C8C0, 1, 0, 0, -1 }, -- Greatshield Soldier Ashes
+  { 0x4003CCA8, 1, 0, 0, -1 }, -- Archer Ashes
+  { 0x4003D090, 1, 0, 0, -1 }, -- Godrick Soldier Ashes
+  { 0x4003D478, 1, 0, 0, -1 }, -- Raya Lucaria Soldier Ashes
+  { 0x4003D860, 1, 0, 0, -1 }, -- Leyndell Soldier Ashes
+  { 0x4003DC48, 1, 0, 0, -1 }, -- Radahn Soldier Ashes
+  { 0x4003E030, 1, 0, 0, -1 }, -- Mausoleum Soldier Ashes
+  { 0x4003E418, 1, 0, 0, -1 }, -- Haligtree Soldier Ashes
+  { 0x4003E800, 1, 0, 0, -1 }, -- Ancient Dragon Knight Kristoff
+  { 0x4003EBE8, 1, 0, 0, -1 }, -- Redmane Knight Ogha
+  { 0x4003EFD0, 1, 0, 0, -1 }, -- Lhutel the Headless
+  { 0x4003F3B8, 1, 0, 0, -1 }, -- Nepheli Loux Puppet
+  { 0x4003F7A0, 1, 0, 0, -1 }, -- Dung Eater Puppet
+  { 0x4003FB88, 1, 0, 0, -1 }, -- Finger Maiden Therolina Puppet
+  { 0x4003FF70, 1, 0, 0, -1 }, -- Dolores the Sleeping Arrow Puppet
+  { 0x40040358, 1, 0, 0, -1 }, -- Jarwight Puppet
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

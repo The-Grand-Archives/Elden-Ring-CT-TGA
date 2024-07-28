@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100469</ID>
+  <Description>"Beckon"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">46:Locked
+47:Unlocked
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>40</Offset>
+    <Offset>8D8</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

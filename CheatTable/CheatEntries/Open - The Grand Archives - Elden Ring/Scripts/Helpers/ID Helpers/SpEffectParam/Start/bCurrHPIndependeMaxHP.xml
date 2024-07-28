@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102549</ID>
+  <Description>"bCurrHPIndependeMaxHP"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0162</Address>
+</CheatEntry>

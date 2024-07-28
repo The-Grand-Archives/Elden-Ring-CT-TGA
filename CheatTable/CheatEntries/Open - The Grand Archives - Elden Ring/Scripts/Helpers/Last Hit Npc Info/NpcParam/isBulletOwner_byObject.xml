@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>105910</ID>
+  <Description>"isBulletOwner_byObject"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+15D</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106124</ID>
+  <Description>"disableLocalSteering"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+9D</Address>
+</CheatEntry>

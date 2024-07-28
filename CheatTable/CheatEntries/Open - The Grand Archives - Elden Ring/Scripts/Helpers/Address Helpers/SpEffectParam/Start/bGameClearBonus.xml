@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103665</ID>
+  <Description>"bGameClearBonus"</Description>
+  <Color>008000</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0160</Address>
+</CheatEntry>

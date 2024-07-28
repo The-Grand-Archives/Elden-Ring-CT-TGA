@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103385</ID>
+  <Description>"TeamAttackEffectivity"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+54</Address>
+</CheatEntry>

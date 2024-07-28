@@ -1,0 +1,72 @@
+{
+  Author: inuNorii
+  Description: Kills all unimportant non-player entities in current area
+               Does not kill friendly NPCs, unique minibosses, or bosses
+               Feel free to report any missing enemies, ideally with IDs
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local WorldChrMan = readPointer("WorldChrMan")
+local ChrSet = readPointer(WorldChrMan + 0x1CC60) -- legacy dungeon
+local openFieldChrSet = readPointer(WorldChrMan + 0x1E270) -- open world
+
+-- list provided by FiftyTifty
+local kill_list = {
+  '2041', '2270', '2271', '2272', '2273', '2274', '2275', '2276', '2277',
+  '3000', '3010', '3020', '3061', '3070', '3080', '3170', '3171', '3180',
+  '3252', '3300', '3320', '3330', '3350', '3360', '3361', '3370', '3371',
+  '3450', '3451', '3460', '3470', '3471', '3500', '3510', '3550', '3610',
+  '3620', '3630', '3650', '3660', '3661', '3662', '3670', '3700', '3702',
+  '3703', '3704', '3730', '3750', '3800', '3810', '3850', '3860', '3900',
+  '3901', '3910', '3950', '3970', '4000', '4020', '4040', '4050', '4070',
+  '4071', '4080', '4090', '4100', '4101', '4110', '4120', '4140', '4150',
+  '4160', '4161', '4162', '4163', '4164', '4165', '4166', '4167', '4170',
+  '4171', '4180', '4190', '4191', '4192', '4200', '4201', '4210', '4220',
+  '4230', '4240', '4241', '4250', '4280', '4290', '4300', '4310', '4311',
+  '4312', '4313', '4314', '4315', '4316', '4320', '4321', '4340', '4350',
+  '4351', '4352', '4353', '4354', '4355', '4356', '4360', '4361', '4362',
+  '4363', '4364', '4365', '4366', '4370', '4371', '4372', '4373', '4374',
+  '4375', '4376', '4377', '4380', '4381', '4382', '4383', '4384', '4385',
+  '4400', '4420', '4421', '4430', '4440', '4441', '4442', '4460', '4470',
+  '4480', '4481', '4482', '4483', '4490', '4491', '4492', '4550', '4560',
+  '4561', '4570', '4580', '4600', '4601', '4602', '4603', '4604', '4630',
+  '4660', '4770', '4960', '6030', '6031', '6050', '6060', '6080', '6081',
+  '6082', '8100', '8101', '8110', '8120'
+}
+
+local useLegacy = false
+local chr_count = readInteger(openFieldChrSet+0x20)
+if chr_count == 4294967295 or chr_count == -1 then -- account for CE 6.4 bug
+  chr_count = readInteger(ChrSet+0x10)
+  useLegacy = true
+end
+
+if useLegacy then
+  ChrSet = readPointer(ChrSet+0x18)
+else
+  ChrSet = readPointer(openFieldChrSet+0x18)
+end
+
+for i=1,chr_count do
+  local EnemyIns = readPointer(ChrSet+i*0x10)
+    if EnemyIns ~= nil then
+      local ChrModules = readPointer(EnemyIns+0x190)
+      if ChrModules ~= nil then
+        local CSChrDataModule = readPointer(ChrModules+0x0)
+        if CSChrDataModule ~= nil then
+          local id = readString(CSChrDataModule+0x1A2, 8, true)
+          local hp = CSChrDataModule+0x138
+          --print(string.format("EnemyID: %d\nHP: %d\n",id,readInteger(hp)))
+          if inArray(kill_list, id) then
+            writeInteger(hp,0)
+          end
+        end
+      end
+    end
+end
+
+disableMemrec(memrec)
+
+[DISABLE]
+

@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>100217</ID>
+  <Description>"Faith"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>54</Offset>
+    <Offset>580</Offset>
+    <Offset>4*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104223</ID>
+  <Description>"atkRegainHp"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+01A2</Address>
+</CheatEntry>

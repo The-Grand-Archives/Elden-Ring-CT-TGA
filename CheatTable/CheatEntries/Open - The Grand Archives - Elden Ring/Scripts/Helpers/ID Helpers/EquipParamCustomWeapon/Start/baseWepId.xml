@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>102149</ID>
+  <Description>"baseWepId"</Description>
+  <DropDownListLink>WEAPON_ID</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+0</Address>
+</CheatEntry>

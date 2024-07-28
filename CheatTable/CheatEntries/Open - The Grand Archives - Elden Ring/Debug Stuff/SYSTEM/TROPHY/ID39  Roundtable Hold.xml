@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108142</ID>
+  <Description>"ID:39 &lt; Roundtable Hold"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*27</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

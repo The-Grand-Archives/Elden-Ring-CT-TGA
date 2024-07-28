@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104000</ID>
+  <Description>"followOffset_BaseHeight"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+C8</Address>
+</CheatEntry>

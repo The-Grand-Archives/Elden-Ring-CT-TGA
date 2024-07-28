@@ -1,0 +1,42 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x40002AF8, 1, 0, 0, -1 }, -- Crimsonspill Crystal Tear
+  { 0x40002AF9, 1, 0, 0, -1 }, -- Greenspill Crystal Tear
+  { 0x40002AFA, 1, 0, 0, -1 }, -- Crimson Crystal Tear
+  { 0x40002AFB, 1, 0, 0, -1 }, -- Crimson Crystal Tear
+  { 0x40002AFC, 1, 0, 0, -1 }, -- Cerulean Crystal Tear
+  { 0x40002AFD, 1, 0, 0, -1 }, -- Cerulean Crystal Tear
+  { 0x40002AFE, 1, 0, 0, -1 }, -- Speckled Hardtear
+  { 0x40002AFF, 1, 0, 0, -1 }, -- Crimson Bubbletear
+  { 0x40002B00, 1, 0, 0, -1 }, -- Opaline Bubbletear
+  { 0x40002B01, 1, 0, 0, -1 }, -- Crimsonburst Crystal Tear
+  { 0x40002B02, 1, 0, 0, -1 }, -- Greenburst Crystal Tear
+  { 0x40002B03, 1, 0, 0, -1 }, -- Opaline Hardtear
+  { 0x40002B04, 1, 0, 0, -1 }, -- Winged Crystal Tear
+  { 0x40002B05, 1, 0, 0, -1 }, -- Thorny Cracked Tear
+  { 0x40002B06, 1, 0, 0, -1 }, -- Spiked Cracked Tear
+  { 0x40002B07, 1, 0, 0, -1 }, -- Windy Crystal Tear
+  { 0x40002B08, 1, 0, 0, -1 }, -- Ruptured Crystal Tear
+  { 0x40002B09, 1, 0, 0, -1 }, -- Ruptured Crystal Tear
+  { 0x40002B0A, 1, 0, 0, -1 }, -- Leaden Hardtear
+  { 0x40002B0B, 1, 0, 0, -1 }, -- Twiggy Cracked Tear
+  { 0x40002B0C, 1, 0, 0, -1 }, -- Crimsonwhorl Bubbletear
+  { 0x40002B0D, 1, 0, 0, -1 }, -- Strength-knot Crystal Tear
+  { 0x40002B0E, 1, 0, 0, -1 }, -- Dexterity-knot Crystal Tear
+  { 0x40002B0F, 1, 0, 0, -1 }, -- Intelligence-knot Crystal Tear
+  { 0x40002B10, 1, 0, 0, -1 }, -- Faith-knot Crystal Tear
+  { 0x40002B11, 1, 0, 0, -1 }, -- Cerulean Hidden Tear
+  { 0x40002B12, 1, 0, 0, -1 }, -- Stonebarb Cracked Tear
+  { 0x40002B13, 1, 0, 0, -1 }, -- Purifying Crystal Tear
+  { 0x40002B14, 1, 0, 0, -1 }, -- Flame-Shrouding Cracked Tear
+  { 0x40002B15, 1, 0, 0, -1 }, -- Magic-Shrouding Cracked Tear
+  { 0x40002B16, 1, 0, 0, -1 }, -- Lightning-Shrouding Cracked Tear
+  { 0x40002B17, 1, 0, 0, -1 }, -- Holy-Shrouding Cracked Tear
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]
+

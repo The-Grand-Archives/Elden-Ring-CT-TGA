@@ -1,0 +1,32 @@
+[ENABLE]
+aobscanmodule(LastHitNpcInfo_AOB,$process,48 8b 03 48 8b cb ?? ?? ?? ?? ff 50 10 83 f8 01)
+define(LastHitNpcInfo, LastHitNpcInfo_AOB+6)
+alloc(newmem,$100,LastHitNpcInfo)
+
+newmem:
+cmp [rbx+0C],FFFFFFFF
+je short code
+mov [LastHitNpcAddr],rbx
+code:
+readmem(LastHitNpcInfo, 7)
+jmp return
+align 8 CC
+
+LastHitNpcAddr:
+registersymbol(LastHitNpcAddr)
+dq 0000000000000000
+readmem(LastHitNpcInfo, 7)
+
+LastHitNpcInfo:
+jmp newmem
+nop 2
+return:
+registersymbol(LastHitNpcInfo)
+
+[DISABLE]
+LastHitNpcInfo:
+readmem(LastHitNpcAddr+8, 7)
+
+unregistersymbol(LastHitNpcInfo)
+unregistersymbol(LastHitNpcAddr)
+dealloc(newmem)

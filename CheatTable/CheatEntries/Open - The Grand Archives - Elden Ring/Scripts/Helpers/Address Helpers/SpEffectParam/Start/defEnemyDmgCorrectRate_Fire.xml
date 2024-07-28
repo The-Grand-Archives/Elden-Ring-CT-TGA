@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>103810</ID>
+  <Description>"defEnemyDmgCorrectRate_Fire"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+027C</Address>
+</CheatEntry>

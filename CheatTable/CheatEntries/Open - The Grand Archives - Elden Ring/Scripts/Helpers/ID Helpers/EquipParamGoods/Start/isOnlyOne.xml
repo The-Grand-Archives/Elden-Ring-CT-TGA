@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>101969</ID>
+  <Description>"isOnlyOne"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+49</Address>
+</CheatEntry>

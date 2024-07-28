@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>106692</ID>
+  <Description>"actionButtonInputCancelTime"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+2E4</Address>
+</CheatEntry>

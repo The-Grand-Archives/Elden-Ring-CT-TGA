@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>106985</ID>
+  <Description>"Road's End Catacombs"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B3B</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

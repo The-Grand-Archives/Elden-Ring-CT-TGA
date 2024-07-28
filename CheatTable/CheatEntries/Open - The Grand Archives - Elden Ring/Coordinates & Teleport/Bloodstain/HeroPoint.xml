@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>415</ID>
+  <Description>"HeroPoint"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>60</Offset>
+    <Offset>48</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100679</ID>
+  <Description>"Nose Size"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+4B</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

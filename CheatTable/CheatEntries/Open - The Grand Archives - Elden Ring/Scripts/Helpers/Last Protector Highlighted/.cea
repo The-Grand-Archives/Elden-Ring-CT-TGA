@@ -1,0 +1,25 @@
+// Author: inuNorii
+[ENABLE]
+aobscanmodule(LastProtectorHighlighted,$process,F3 0F 10 50 14 EB)
+alloc(newmem,$100,LastProtectorHighlighted)
+
+newmem:
+mov [LastProtectorHighlightedAddr],rax
+movss xmm2,[rax+14]
+jmp return
+
+LastProtectorHighlightedAddr:
+registersymbol(LastProtectorHighlightedAddr)
+dq 0000000000000000
+
+LastProtectorHighlighted:
+jmp newmem
+return:
+registersymbol(LastProtectorHighlighted)
+
+[DISABLE]
+LastProtectorHighlighted:
+db F3 0F 10 50 14 EB
+unregistersymbol(LastProtectorHighlighted)
+unregistersymbol(LastProtectorHighlightedAddr)
+dealloc(newmem)

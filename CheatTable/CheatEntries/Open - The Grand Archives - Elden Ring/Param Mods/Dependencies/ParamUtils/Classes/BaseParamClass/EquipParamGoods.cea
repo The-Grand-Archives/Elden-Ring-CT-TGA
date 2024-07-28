@@ -1,0 +1,226 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START EquipParamGoods class]]--
+EquipParamGoods = BaseParamClass:new()
+
+function EquipParamGoods:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("EquipParamGoods", uuid, id, address)
+	return o
+end
+
+function EquipParamGoods:refId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function EquipParamGoods:sfxVariationId(value)
+    self:patch4Byte(0x8, value)
+end
+
+function EquipParamGoods:fragmentNum(value)
+    self:patch4Byte(0x10, value)
+end
+
+function EquipParamGoods:sellValue(value)
+    self:patch4Byte(0x14, value)
+end
+
+function EquipParamGoods:replaceItemId(value)
+    self:patch4Byte(0x18, value)
+end
+
+function EquipParamGoods:behaviorId(value)
+    self:patch4Byte(0x1C, value)
+end
+
+function EquipParamGoods:yesNoDialogMessageId(value)
+    self:patch4Byte(0x28, value)
+end
+
+function EquipParamGoods:magicId(value)
+    self:patch4Byte(0x2C, value)
+end
+
+function EquipParamGoods:maxNum(value)
+    self:patch2Byte(0x3A, value)
+end
+
+function EquipParamGoods:refCategory(value)
+    self:patchByte(0x3F, value)
+end
+
+function EquipParamGoods:spEffectCategory(value)
+    self:patchByte(0x40, value)
+end
+
+function EquipParamGoods:goodsCategory(value)
+    self:patchByte(0x41, value)
+end
+
+function EquipParamGoods:useLimitCategory(value)
+    self:patchByte(0x44, value)
+end
+
+function EquipParamGoods:replaceCategory(value)
+    self:patchByte(0x45, value)
+end
+
+function EquipParamGoods:enable_live(value)
+    self:patchBinary(0x48, value, 0)
+end
+
+function EquipParamGoods:enable_gray(value)
+    self:patchBinary(0x48, value, 1)
+end
+
+function EquipParamGoods:enable_white(value)
+    self:patchBinary(0x48, value, 2)
+end
+
+function EquipParamGoods:enable_black(value)
+    self:patchBinary(0x48, value, 3)
+end
+
+function EquipParamGoods:enable_multi(value)
+    self:patchBinary(0x48, value, 4)
+end
+
+function EquipParamGoods:disable_offline(value)
+    self:patchBinary(0x48, value, 5)
+end
+
+function EquipParamGoods:isEstablishment(value)
+    self:patchBinary(0x49, value, 1)
+end
+
+function EquipParamGoods:isDisableHand(value)
+    self:patchBinary(0x49, value, 5)
+end
+
+function EquipParamGoods:isTravelItem(value)
+    self:patchBinary(0x49, value, 6)
+end
+
+function EquipParamGoods:isEnhance(value)
+    self:patchBinary(0x4A, value, 1)
+end
+
+function EquipParamGoods:disableMutliDropShare(value)
+    self:patchBinary(0x4A, value, 3)
+end
+
+function EquipParamGoods:disableUseAtColiseum(value)
+    self:patchBinary(0x4A, value, 4)
+end
+
+function EquipParamGoods:disableUseAtOutofColiseum(value)
+    self:patchBinary(0x4A, value, 5)
+end
+
+function EquipParamGoods:useBulletMaxNum(value)
+    self:patchBinary(0x4A, value, 6)
+end
+
+function EquipParamGoods:useHpCureMaxNum(value)
+    self:patchBinary(0x4A, value, 7)
+end
+
+function EquipParamGoods:canMultiUse(value)
+    self:patchBinary(0x4B, value, 1)
+end
+
+function EquipParamGoods:isEnchantLeftHand(value)
+    self:patchBinary(0x4B, value, 3)
+end
+
+function EquipParamGoods:isApplySpecialEffect(value)
+    self:patchBinary(0x4B, value, 4)
+end
+
+function EquipParamGoods:reinforceParamWeapon(value)
+    self:patch4Byte(0x50, value)
+end
+function EquipParamGoods:VagrantItemLotId(value)
+    self:patch4Byte(0x54, value)
+end
+
+function EquipParamGoods:VagrantBonusEneDropItemLotId(value)
+    self:patch4Byte(0x58, value)
+end
+
+function EquipParamGoods:vagrantItemeneDropItemLotId(value)
+    self:patch4Byte(0x5C, value)
+end
+
+function EquipParamGoods:refVirtualWepId(value)
+    self:patch4Byte(0x60, value)
+end
+
+function EquipParamGoods:replaceItemId_BySpEffect(value)
+    self:patch4Byte(0x64, value)
+end
+
+function EquipParamGoods:replaceTriggerSpEffectId(value)
+    self:patch4Byte(0x68, value)
+end
+
+function EquipParamGoods:isLoadOfCinder(value)
+    self:patchBinary(0x6C, value, 0)
+end
+
+function EquipParamGoods:isPlayRegion1(value)
+    self:patchBinary(0x6C, value, 1)
+end
+
+function EquipParamGoods:isLadder(value)
+    self:patchBinary(0x6C, value, 2)
+end
+
+function EquipParamGoods:isMultiPlay(value)
+    self:patchBinary(0x6C, value, 3)
+end
+
+function EquipParamGoods:isPlayRegion2(value)
+    self:patchBinary(0x6C, value, 6)
+end
+
+function EquipParamGoods:isNetPenalized(value)
+    self:patchBinary(0x6C, value, 7)
+end
+
+function EquipParamGoods:isDrop(value)
+    self:patchByte(0x6F, value)
+end
+
+function EquipParamGoods:storageMax(value)
+    self:patch2Byte(0x70, value)
+end
+
+function EquipParamGoods:invadeType(value)
+    self:patchByte(0x72, value)
+end
+
+function EquipParamGoods:shopId(value)
+    self:patch2Byte(0x74, value)
+end
+
+function EquipParamGoods:mpCost(value)
+    self:patch2Byte(0x78, value)
+end
+
+function EquipParamGoods:useLimitCategory2(value)
+    self:patch2Byte(0x7A, value)
+end
+
+
+--[[END EquipParamGoods class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

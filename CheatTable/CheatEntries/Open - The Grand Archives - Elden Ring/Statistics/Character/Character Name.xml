@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100003</ID>
+  <Description>"Character Name"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>String</VariableType>
+  <Length>32</Length>
+  <Unicode>1</Unicode>
+  <CodePage>0</CodePage>
+  <ZeroTerminate>1</ZeroTerminate>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>9C</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

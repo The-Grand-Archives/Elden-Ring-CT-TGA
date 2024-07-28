@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106091</ID>
+  <Description>"callHelp_ReplyBehaviorType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+60</Address>
+</CheatEntry>

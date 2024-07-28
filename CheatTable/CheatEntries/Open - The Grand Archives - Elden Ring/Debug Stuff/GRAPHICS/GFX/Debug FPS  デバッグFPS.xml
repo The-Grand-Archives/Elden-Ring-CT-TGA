@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>108094</ID>
+  <Description>"Debug FPS | デバッグFPS"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>CSFlipper</Address>
+  <Offsets>
+    <Offset>2CC</Offset>
+  </Offsets>
+</CheatEntry>

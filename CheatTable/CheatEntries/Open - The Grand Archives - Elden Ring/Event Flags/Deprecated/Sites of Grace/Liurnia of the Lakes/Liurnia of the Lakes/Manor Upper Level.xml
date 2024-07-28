@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>106969</ID>
+  <Description>"Manor Upper Level"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>CCE</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

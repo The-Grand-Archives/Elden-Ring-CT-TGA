@@ -30,7 +30,7 @@ This table is not meant to be used online and you will most likely be banned if 
 
 ### Cheat Table (Windows)
 
-1. Download and install Cheat Engine either from [Github](https://github.com/cheat-engine/cheat-engine/releases) or from its [website](https://cheatengine.org/)  
+1. Download and install Cheat Engine either from its [website](https://cheatengine.org/) or from [Github](https://github.com/cheat-engine/cheat-engine/releases)  
   Use the official installer. Do not try to compile it yourself from source unless you know what you're doing
 2. Download the [Cheat Table](https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA/releases)
 3. Unpack the .CT file anywhere, a recommendation would be your **My Cheat Tables** folder (e.g. `%USERPROFILE%\Documents\My Cheat Tables`)

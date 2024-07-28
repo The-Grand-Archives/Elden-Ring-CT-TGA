@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106142</ID>
+  <Description>"weaponOffSpecialEffectId"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+D0</Address>
+</CheatEntry>

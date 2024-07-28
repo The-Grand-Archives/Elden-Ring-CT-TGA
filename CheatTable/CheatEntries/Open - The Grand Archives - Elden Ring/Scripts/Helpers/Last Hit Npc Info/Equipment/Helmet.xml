@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>105689</ID>
+  <Description>"Helmet"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>3CC</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

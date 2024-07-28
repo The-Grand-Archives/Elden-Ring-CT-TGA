@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(NpcParamHelper,16)
+registersymbol(NpcParamHelper)
+
+NpcParamHelper:
+dq #0
+
+[DISABLE]
+dealloc(NpcParamHelper)
+unregistersymbol(NpcParamHelper)

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102616</ID>
+  <Description>"freezeAttackPower"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+01A8</Address>
+</CheatEntry>

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>100600</ID>
+  <Description>"Inventory Num"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>18</Offset>
+    <Offset>readInteger("EquipInventoryDataIdx+4")</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

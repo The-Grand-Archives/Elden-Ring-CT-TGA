@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101570</ID>
+  <Description>"attainmentWepStatusDex"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+21C</Address>
+</CheatEntry>

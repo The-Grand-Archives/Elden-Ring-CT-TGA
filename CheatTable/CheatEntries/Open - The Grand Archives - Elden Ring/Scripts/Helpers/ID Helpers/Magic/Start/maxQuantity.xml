@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102170</ID>
+  <Description>"maxQuantity"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+1C</Address>
+</CheatEntry>

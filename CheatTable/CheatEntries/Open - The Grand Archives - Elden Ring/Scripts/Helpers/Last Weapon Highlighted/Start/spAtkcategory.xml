@@ -1,0 +1,188 @@
+<CheatEntry>
+  <ID>104359</ID>
+  <Description>"spAtkcategory"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:None
+20:Dagger
+23:Straight Sword
+25:Greatsword
+26:Ultra Greatsword
+27:Thrusting Sword
+28:Curved Sword/Curved GS
+29:Katana
+30:Axe
+32:Greataxe
+33:Hammer
+34:Dagger R1 1H
+35:Greathammer
+36:Spear
+37:Dagger R1 1H+2H
+38:Polearm
+41:Catalyst
+42:Fist
+43:Whip
+44:Bow
+45:Greatbow
+46:Crossbow
+47:Greatshield
+48:Shield
+49:Torch
+50:Scythe
+51:Carthus Curved Greatsword
+53:Broken Straight Sword
+54:Shortsword
+55:Unused no combo
+57:Dark Sword
+59:Club
+63:Partizan
+67:Pike
+68:Dragonslayer Spear
+69:Large Club
+70:Smough's Great Hammer
+71:Parry Dagger
+72:Dagger
+74:Claymore
+75:Special Greatsword
+80:Black Knight Sword
+81:Short Bow
+82:Black Bow of Pharis
+83:Dragonslayer Greatbow
+84:Avelyn
+85:Sniper Crossbow
+86:Backhand Dagger
+88:Chaos Blade
+89:Iaito
+90:Black Blade
+91:Small Shield
+93:Pierce Shield
+94:Havel's Greatshield
+95:Cathedral Knight Greatsword
+99:Shotel
+101:Painting Guardian's Curved Sword
+102:Hand Axe
+103:Butcher Knife
+107:Black Knight Greataxe
+108:Halberd
+112:Black Knight Glaive
+113:Estoc
+115:Ricard's Rapier
+123:Dark Hand
+126:Bonewheel Shield
+127:Talisman
+128:Black Knight Greatsword
+131:Wolf Knight's Greatsword
+134:Four-Pronged Plow
+137:Twinblades
+138:Winged Knight Twinaxes
+141:Twin daggers
+142:Gotthard Twinswords
+143:Golden Dual Swords
+144:Onikiri and Ubadachi
+145:Dragon Twinspears
+146:Claws
+148:Drang Hammers
+149:Pyromancy Flame
+150:Medium Shield
+151:Scimitar
+152:Caestus
+153:Backhand Dagger
+154:Greatsword of Judgement
+155:Twin Princes' Greatsword
+156:Wolnir's Holy Sword
+157:Hollowslayer Greatsword
+158:Moonlight Greatsword
+159:Firelink Greatsword
+160:Astora Greatsword
+161:Farron Greatsword
+162:Profaned Greatsword
+163:Fume Ultra Greatsword
+164:Pontiff Knight Curved Sword
+165:Crescent Moon Sword
+166:Old Wolf Curved Sword
+167:Eleonora
+168:Demon's Greataxe
+169:Yhorm's Great Machete
+171:Pickaxe
+172:Gargoyle Flame Hammer
+173:Vordt's Great Hammer
+174:Old King's Great Hammer
+175:Gargoyle Flame Spear
+176:Dragonslayer Swordspear
+177:Greatlance
+178:Golden Ritual Spear
+179:Pontiff Knight Great Scythe
+184:Onislayer Greatbow
+185:Chime
+187:Irithyll Rapier
+188:Lothric's Holy Sword
+189:Lorian's Greatsword
+190:Bonecrunch 1H
+191:Bonecrunch 1H
+193:Greatsword
+195:Curved Greatsword
+196:Drakeblood Greatsword
+197:Yorshka's Spear
+198:Bloodlust
+199:Dragonslayer Greataxe
+200:Spear
+201:Winged Knight Halberd
+202:Lothric Knight Greatsword
+203:Zweihander
+204:Tailbone Short Sword
+205:Mail Breaker
+206:Scholar's Candlestick
+207:Cleric's Candlestick
+208:Irithyll Straight Sword
+209:Sunlight Straight Sword
+210:Reinforced Club
+211:Morne's Great Hammer
+212:Storm Curved Sword
+213:Great Club
+215:Gundyr's Halberd
+217:Immolation Tinder
+218:Rapier
+220:Heysel Pick
+221:Executioner's Greatsword
+222:Moaning Shield
+224:Storyteller Staff
+225:Dragonslayer Greatshield
+227:Spiked Shield
+228:Warpick
+229:Witch's Locks
+230:Darkmoon Longbow
+231:Whip
+232:Friede's Great Scythe
+233:Sage's Crystal Staff
+234:Rose of Ariandel
+235:Crow Talons
+236:Valorheart
+237:Crow Quills
+239:Pyro's Parting Flame
+240:Follower Torch
+241:Millwood Battle Axe
+242:Earth Seeker
+243:Quakestone Hammer
+244:Millwood Greatbow
+245:Onyx Blade
+246:Follower Javelin
+247:Follower Sabre
+248:Splitleaf Greatsword
+250:Giant Door Shield
+251:Ringed Knight Straight Sword
+252:Ringed Knight Spear
+253:Ringed Knight Paired Greatswords
+255:Dragonhead Greatshield
+256:Aquamarine Dagger
+257:Demon's Scar
+258:Frayed Blade
+259:Ledo's Great Hammer
+260:Lothric War Banner
+261:Crucifix of the Mad King
+262:Repeating Crossbow
+263:Gael's Greatsword
+264:Harald Curved Greatsword
+266:Murky Longstaff
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+EE</Address>
+</CheatEntry>

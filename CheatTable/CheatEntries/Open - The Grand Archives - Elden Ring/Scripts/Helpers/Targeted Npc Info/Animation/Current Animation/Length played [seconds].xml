@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105617</ID>
+  <Description>"Length played [seconds]"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>24</Offset>
+    <Offset>18</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

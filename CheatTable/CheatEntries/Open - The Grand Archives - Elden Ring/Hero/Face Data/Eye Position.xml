@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100675</ID>
+  <Description>"Eye Position"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+47</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

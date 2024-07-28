@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>100167</ID>
+  <Description>"Team Type"</Description>
+  <DropDownListLink>TEAM_TYPE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>6C</Offset>
+    <Offset>3*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,53 @@
+<CheatEntry>
+  <ID>102775</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>ReinforceParamWeaponHelper+8</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="102776"/>
+    <id id="102777"/>
+    <id id="102778"/>
+    <id id="102779"/>
+    <id id="102780"/>
+    <id id="102781"/>
+    <id id="102782"/>
+    <id id="102783"/>
+    <id id="102784"/>
+    <id id="102785"/>
+    <id id="102786"/>
+    <id id="102787"/>
+    <id id="102788"/>
+    <id id="102789"/>
+    <id id="102790"/>
+    <id id="102791"/>
+    <id id="102792"/>
+    <id id="102793"/>
+    <id id="102794"/>
+    <id id="102795"/>
+    <id id="102796"/>
+    <id id="102797"/>
+    <id id="102798"/>
+    <id id="102799"/>
+    <id id="102800"/>
+    <id id="102801"/>
+    <id id="102802"/>
+    <id id="102803"/>
+    <id id="102804"/>
+    <id id="102805"/>
+    <id id="102806"/>
+    <id id="102807"/>
+    <id id="102808"/>
+    <id id="102809"/>
+    <id id="102810"/>
+    <id id="102811"/>
+    <id id="102812"/>
+    <id id="102813"/>
+    <id id="102814"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

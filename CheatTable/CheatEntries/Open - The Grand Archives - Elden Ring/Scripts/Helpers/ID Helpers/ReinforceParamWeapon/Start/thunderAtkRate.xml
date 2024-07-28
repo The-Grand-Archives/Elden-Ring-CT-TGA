@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102779</ID>
+  <Description>"thunderAtkRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+c</Address>
+</CheatEntry>

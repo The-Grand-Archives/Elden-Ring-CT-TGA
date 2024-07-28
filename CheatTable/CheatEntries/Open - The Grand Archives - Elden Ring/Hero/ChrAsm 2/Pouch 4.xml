@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>100416</ID>
+  <Description>"Pouch 4"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>684</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

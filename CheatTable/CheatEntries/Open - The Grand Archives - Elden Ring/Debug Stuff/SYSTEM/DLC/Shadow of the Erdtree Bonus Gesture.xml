@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>108148</ID>
+  <Description>"Shadow of the Erdtree Bonus Gesture"</Description>
+  <Options moHideChildren="1" moRecursiveSetValue="1"/>
+  <VariableType>Byte</VariableType>
+  <Address>CsDlc</Address>
+  <Offsets>
+    <Offset>12</Offset>
+  </Offsets>
+</CheatEntry>

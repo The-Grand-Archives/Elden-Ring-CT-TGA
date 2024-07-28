@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100188</ID>
+  <Description>"TertiaryArrow"</Description>
+  <DropDownListLink>WEAPON_ID</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>3C0</Offset>
+    <Offset>580</Offset>
+    <Offset>3*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

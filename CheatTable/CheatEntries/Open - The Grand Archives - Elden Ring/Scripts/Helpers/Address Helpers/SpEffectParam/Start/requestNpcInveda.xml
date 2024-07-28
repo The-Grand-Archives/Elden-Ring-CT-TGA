@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>103674</ID>
+  <Description>"requestNpcInveda"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0161</Address>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>104387</ID>
+  <Description>"enableParry"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+105</Address>
+</CheatEntry>

@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100499</ID>
+  <Description>"Erudition"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">206:Locked
+207:Unlocked
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>B8</Offset>
+    <Offset>8D8</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

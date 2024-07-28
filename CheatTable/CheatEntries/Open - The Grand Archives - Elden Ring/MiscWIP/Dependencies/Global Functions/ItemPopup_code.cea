@@ -1,0 +1,21 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local ItemPopup_addr = AOBScanModuleUnique(process,"?? 8b fa ?? 8b d9 ?? 8b 81 a8 00 00 00") - 0x14
+
+function ItemPopup(itemId, quantity, gem)
+    local MapItemMan = readPointer("MapItemMan")
+
+	local mem = allocateMemory(0x10, getAddress(process))
+	writeInteger(mem +  0, itemId or 0xFFFFFFFF)
+	writeInteger(mem +  4, quantity or 0)
+	writeInteger(mem +  8, 0xFFFFFFFF)
+	writeInteger(mem + 12, gem or 0)
+
+	executeCodeEx(0, 100, ItemPopup_addr, MapItemMan + 0xA0, mem)
+
+	deAlloc(mem)
+end
+
+[DISABLE]
+ItemPopup = nil

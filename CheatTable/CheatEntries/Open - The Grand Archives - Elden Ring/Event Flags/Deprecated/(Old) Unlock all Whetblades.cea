@@ -1,0 +1,28 @@
+//Authors: The-Raid-Boss, tremwil
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+disableMemrec(memrec)
+
+local flags = {
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+79f", bit = 5}, -- Iron Whetblade (Heavy)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a0", bit = 3}, -- Iron Whetblade (Keen)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a1", bit = 1}, -- Iron Whetblade (Quality)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a3", bit = 7}, -- Red-Hot Whetblade (Fire)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a4", bit = 5}, -- Red-Hot Whetblade (Flame Art)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a5", bit = 3}, -- Sanctified Whetblade (Lightning)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a6", bit = 1}, -- Sanctified Whetblade (Sacred)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a8", bit = 7}, -- Glintstone Whetblade (Magic)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7a9", bit = 5}, -- Glintstone Whetblade (Frost)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7aa", bit = 3}, -- Black Whetblade (Poison)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7ab", bit = 1}, -- Black Whetblade (Blood)
+  {addr = "[[CSFD4VirtualMemoryFlag]+28]+7ad", bit = 7}, -- Black Whetblade (Occult)
+}
+
+for i, flag in ipairs(flags) do
+    local val = readByte(flag.addr)
+    writeByte(flag.addr, val | (1 << flag.bit))
+end
+
+[DISABLE]
+

@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>104094</ID>
+  <Description>"isGhostAtk"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+07E</Address>
+</CheatEntry>

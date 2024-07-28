@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106801</ID>
+  <Description>"arrowBoltRemainingNumModelMaskThreshold2"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+6D</Address>
+</CheatEntry>

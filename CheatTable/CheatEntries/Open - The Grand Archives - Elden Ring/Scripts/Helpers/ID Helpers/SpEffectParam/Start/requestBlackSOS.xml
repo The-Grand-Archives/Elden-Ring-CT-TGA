@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102543</ID>
+  <Description>"requestBlackSOS"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0161</Address>
+</CheatEntry>

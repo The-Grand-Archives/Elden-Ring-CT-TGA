@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>107911</ID>
+  <Description>"Map ID"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+10</Address>
+</CheatEntry>

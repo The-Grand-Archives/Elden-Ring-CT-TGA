@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104327</ID>
+  <Description>"madnessGuardResist_MaxCorrect"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+B4</Address>
+</CheatEntry>

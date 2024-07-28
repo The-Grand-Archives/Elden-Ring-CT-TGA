@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>100021</ID>
+  <Description>"Save Request Busy (read only)"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Byte</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>B80</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,20 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("shops_access");
+    ParamPatchAll(ShopLineupParam, {
+        param->eventFlag_forRelease = -1;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("shops_access");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

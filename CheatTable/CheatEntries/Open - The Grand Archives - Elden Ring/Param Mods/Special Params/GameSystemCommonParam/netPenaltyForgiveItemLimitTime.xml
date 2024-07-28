@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106504</ID>
+  <Description>"netPenaltyForgiveItemLimitTime"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+120</Address>
+</CheatEntry>

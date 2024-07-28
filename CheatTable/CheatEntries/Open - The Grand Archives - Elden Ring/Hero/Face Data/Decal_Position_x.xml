@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100821</ID>
+  <Description>"Decal_Position_x"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+D9</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

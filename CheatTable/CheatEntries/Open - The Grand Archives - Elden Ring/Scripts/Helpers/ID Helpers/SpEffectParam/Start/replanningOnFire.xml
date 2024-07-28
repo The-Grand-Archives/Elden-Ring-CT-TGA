@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102571</ID>
+  <Description>"replanningOnFire"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0164</Address>
+</CheatEntry>

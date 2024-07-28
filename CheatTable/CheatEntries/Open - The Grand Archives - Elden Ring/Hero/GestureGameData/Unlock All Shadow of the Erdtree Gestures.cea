@@ -1,0 +1,35 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+if not isOwnDlc(1) then missingDlc(1) end
+
+local gestures = {
+	{223, 0x401EA7A9}, -- May the Best Win
+	{225, 0x401EA7AA}, -- The Two Fingers
+	{-1,  0x401EA7A8}, -- Ring of Miquella (Pre-order)
+	{229, 0x401EA7AB}, -- Let Us Go Together
+	{231, 0x401EA7AC}, -- O Mother
+	{-1,  0x401EA7A8}, -- Ring of Miquella
+}
+
+local GameDataMan = readPointer("GameDataMan")
+local PlayerGameData = readPointer(GameDataMan + 8)
+local GestureGameData = readPointer(PlayerGameData + 0x8D8)
+
+if isOwnDlc(2) then -- Ring of Miquella pre-order gesture
+    gestures[3][1] = 227
+else
+    gestures[6][1] = 233
+end
+
+for i,v in ipairs(gestures) do
+	if v[1] ~= -1 then
+		writeInteger(GestureGameData + 0xD0 + i * 4, v[1])
+		ItemPopup(v[2],1)
+	end
+end
+
+disableMemrec(memrec)
+
+[DISABLE]

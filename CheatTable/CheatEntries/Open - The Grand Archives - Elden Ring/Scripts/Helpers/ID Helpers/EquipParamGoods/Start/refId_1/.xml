@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>101984</ID>
+  <Description>"refId_1"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+4C</Address>
+  <x-ce2fs-child-order>
+    <id id="101985"/>
+    <id id="101986"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

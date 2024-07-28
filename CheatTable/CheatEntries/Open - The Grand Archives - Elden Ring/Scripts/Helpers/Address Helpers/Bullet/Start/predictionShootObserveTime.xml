@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>103986</ID>
+  <Description>"predictionShootObserveTime"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+B8</Address>
+</CheatEntry>

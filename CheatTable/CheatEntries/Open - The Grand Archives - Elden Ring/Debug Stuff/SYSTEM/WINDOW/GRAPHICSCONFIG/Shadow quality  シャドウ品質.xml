@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>108176</ID>
+  <Description>"Shadow quality | シャドウ品質"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>104</Offset>
+  </Offsets>
+</CheatEntry>

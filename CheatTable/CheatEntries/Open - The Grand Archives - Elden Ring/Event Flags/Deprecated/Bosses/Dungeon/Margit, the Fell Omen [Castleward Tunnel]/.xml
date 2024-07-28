@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>107345</ID>
+  <Description>"Margit, the Fell Omen [Castleward Tunnel]"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>151C39</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107346"/>
+    <id id="107347"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

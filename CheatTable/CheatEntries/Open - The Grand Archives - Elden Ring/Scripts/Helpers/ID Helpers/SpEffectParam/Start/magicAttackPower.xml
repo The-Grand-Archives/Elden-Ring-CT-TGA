@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102436</ID>
+  <Description>"magicAttackPower"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+05C</Address>
+</CheatEntry>

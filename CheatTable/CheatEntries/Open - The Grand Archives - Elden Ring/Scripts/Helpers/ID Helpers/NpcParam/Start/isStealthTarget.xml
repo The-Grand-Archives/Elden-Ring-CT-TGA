@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103187</ID>
+  <Description>"isStealthTarget"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+14D</Address>
+</CheatEntry>

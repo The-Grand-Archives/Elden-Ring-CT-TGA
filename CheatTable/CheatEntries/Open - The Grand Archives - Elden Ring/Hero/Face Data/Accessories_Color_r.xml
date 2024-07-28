@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100879</ID>
+  <Description>"Accessories_Color_r"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+113</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

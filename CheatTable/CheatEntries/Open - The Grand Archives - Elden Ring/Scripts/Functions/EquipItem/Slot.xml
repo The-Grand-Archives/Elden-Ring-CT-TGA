@@ -1,0 +1,47 @@
+<CheatEntry>
+  <ID>101155</ID>
+  <Description>"Slot"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:PrimaryLeftWep
+1:PrimaryRightWep
+2:SecondaryLeftWep
+3:SecondaryRightWep
+4:TertiaryLeftWep
+5:TertiaryRightWep
+6:PrimaryArrow
+7:PrimaryBolt
+8:SecondaryArrow
+9:SecondaryBolt
+10:TertiaryArrow (unused)
+11:TertiaryBolt (unused)
+12:Head
+13:Chest
+14:Hands
+15:Legs
+16:Hair (unused)
+17:Accessory 1
+18:Accessory 2
+19:Accessory 3
+20:Accessory 4
+21:Accessory 5 (Covenant)
+22:Quickitem 1
+23:Quickitem 2
+24:Quickitem 3
+25:Quickitem 4
+26:Quickitem 5
+27:Quickitem 6
+28:Quickitem 7
+29:Quickitem 8
+30:Quickitem 9
+31:Quickitem 10
+32:Pouch 1
+33:Pouch 2
+34:Pouch 3
+35:Pouch 4
+36:Pouch 5
+37:Pouch 6
+38:Great Rune
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>equipItem_data</Address>
+</CheatEntry>

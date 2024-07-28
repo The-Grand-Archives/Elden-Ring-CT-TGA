@@ -1,0 +1,55 @@
+//Author: Jouta Kujo
+{$lua}
+if syntaxcheck then return end
+[Enable]
+
+local currentHp = "[[[[[WorldChrMan]+10EF8]+0*10]+190]+0]+138"
+local currentFp = "[[[[[WorldChrMan]+10EF8]+0*10]+190]+0]+148"
+local maxHp = "[[[[[WorldChrMan]+10EF8]+0*10]+190]+0]+13C"
+local maxFp = "[[[[[WorldChrMan]+10EF8]+0*10]+190]+0]+150"
+local noDeadPtr = "[[[[[WorldChrMan]+10EF8]+0*10]+190]+0]+19B"
+
+local function revive()
+  writeInteger(currentHp, readInteger(maxHp))
+  writeInteger(currentFp, readInteger(maxFp))
+  writeInteger("[[[[[WorldChrMan]+10EF8]+0*10]+190]+58]+18", 0) --animation
+end
+
+LTL = createTimer(getMainForm())
+LTL.Interval = 100
+LTL.OnTimer = function(timer)
+   local hp = readInteger(currentHp)
+   local anim = readInteger("[[[[[WorldChrMan]+10EF8]+0*10]+190]+80]+90")
+   local base = "[[[[WorldChrMan]+10EF8]+0]+178]+8"
+
+   --check for throws
+   if anim == 70000 or anim == 70010 then
+         setBit(noDeadPtr, 0, 1)
+      if hp <= 1 then
+         sleep(1000) --ce sleep my beloved
+         revive()
+      end
+   elseif readByte(noDeadPtr) ~= nil then
+      setBit(noDeadPtr, 0, 0)
+   end
+
+   --checks for hp
+   if hp == 0 then
+      sleep(1000)
+      revive()
+   end
+
+   --removes curse
+   for i = 14, 1, -1 do
+      base = "[" .. base .. "]+30"
+      if readInteger("[" .. base .. "]+8") == 70 then
+         writeFloat("[" .. base .. "]+44", 0)
+         sleep(2000)
+         revive()
+      end
+   end
+end
+
+LTL.setEnabled(true)
+[Disable]
+LTL.destroy()

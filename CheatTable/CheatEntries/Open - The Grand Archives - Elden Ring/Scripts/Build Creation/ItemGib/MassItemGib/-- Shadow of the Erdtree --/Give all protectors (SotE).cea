@@ -1,0 +1,154 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x102DC6C0, 1, 0, 0, -1 }, -- Dane's Hat
+  { 0x102DC724, 1, 0, 0, -1 }, -- Dryleaf Robe
+  { 0x102DC788, 1, 0, 0, -1 }, -- Dryleaf Arm Wraps
+  { 0x102DC7EC, 1, 0, 0, -1 }, -- Dryleaf Cuissardes
+  { 0x102DCB0C, 1, 0, 0, -1 }, -- Dryleaf Robe (Altered)
+  { 0x102DEDD0, 1, 0, 0, -1 }, -- Gaius's Helm
+  { 0x102DEE34, 1, 0, 0, -1 }, -- Gaius's Armor
+  { 0x102DEE98, 1, 0, 0, -1 }, -- Gaius's Gauntlets
+  { 0x102DEEFC, 1, 0, 0, -1 }, -- Gaius's Greaves
+  { 0x104C4B40, 1, 0, 0, -1 }, -- Oathseeker Knight Helm
+  { 0x104C4BA4, 1, 0, 0, -1 }, -- Leda's Armor
+  { 0x104C4C08, 1, 0, 0, -1 }, -- Oathseeker Knight Gauntlets
+  { 0x104C4C6C, 1, 0, 0, -1 }, -- Oathseeker Knight Greaves
+  { 0x104C5374, 1, 0, 0, -1 }, -- Oathseeker Knight Armor
+  { 0x104C7250, 1, 0, 0, -1 }, -- Verdigris Helm
+  { 0x104C72B4, 1, 0, 0, -1 }, -- Verdigris Armor
+  { 0x104C7318, 1, 0, 0, -1 }, -- Verdigris Gauntlets
+  { 0x104C737C, 1, 0, 0, -1 }, -- Verdigris Greaves
+  { 0x104C9960, 1, 0, 0, -1 }, -- Pelt of Ralva
+  { 0x104C99C4, 1, 0, 0, -1 }, -- Iron Rivet Armor
+  { 0x104C9A28, 1, 0, 0, -1 }, -- Iron Rivet Gauntlets
+  { 0x104C9A8C, 1, 0, 0, -1 }, -- Iron Rivet Greaves
+  { 0x104C9D48, 1, 0, 0, -1 }, -- Fang Helm
+  { 0x104CC070, 1, 0, 0, -1 }, -- Thiollier's Mask
+  { 0x104CC0D4, 1, 0, 0, -1 }, -- Thiollier's Garb
+  { 0x104CC138, 1, 0, 0, -1 }, -- Thiollier's Gloves
+  { 0x104CC19C, 1, 0, 0, -1 }, -- Thiollier's Trousers
+  { 0x104CC4BC, 1, 0, 0, -1 }, -- Thiollier's Garb (Altered)
+  { 0x104D35A0, 1, 0, 0, -1 }, -- High Priest Hat
+  { 0x104D3604, 1, 0, 0, -1 }, -- High Priest Robe
+  { 0x104D3668, 1, 0, 0, -1 }, -- High Priest Gloves
+  { 0x104D36CC, 1, 0, 0, -1 }, -- High Priest Undergarments
+  { 0x104D3DD4, 1, 0, 0, -1 }, -- Finger Robe
+  { 0x104D5CB0, 1, 0, 0, -1 }, -- Caterpillar Mask
+  { 0x104D5D14, 1, 0, 0, -1 }, -- Braided Cord Robe
+  { 0x104D5D78, 1, 0, 0, -1 }, -- Braided Arm Wraps
+  { 0x104D5DDC, 1, 0, 0, -1 }, -- Soiled Loincloth
+  { 0x104D83C0, 1, 0, 0, -1 }, -- Dancer's Hood
+  { 0x104D8424, 1, 0, 0, -1 }, -- Dancer's Dress
+  { 0x104D8488, 1, 0, 0, -1 }, -- Dancer's Bracer
+  { 0x104D84EC, 1, 0, 0, -1 }, -- Dancer's Trousers
+  { 0x104D880C, 1, 0, 0, -1 }, -- Dancer's Dress (Altered)
+  { 0x104DAAD0, 1, 0, 0, -1 }, -- Helm of Night
+  { 0x104DAB34, 1, 0, 0, -1 }, -- Armor of Night
+  { 0x104DAB98, 1, 0, 0, -1 }, -- Gauntlets of Night
+  { 0x104DABFC, 1, 0, 0, -1 }, -- Greaves of Night
+  { 0x104DD1E0, 1, 0, 0, -1 }, -- Igon's Helm
+  { 0x104DD244, 1, 0, 0, -1 }, -- Igon's Armor
+  { 0x104DD2A8, 1, 0, 0, -1 }, -- Igon's Gauntlets
+  { 0x104DD30C, 1, 0, 0, -1 }, -- Igon's Loincloth
+  { 0x104DD5C8, 1, 0, 0, -1 }, -- Igon's Helm (Altered)
+  { 0x104DD62C, 1, 0, 0, -1 }, -- Igon's Armor (Altered)
+  { 0x104DF8F0, 1, 0, 0, -1 }, -- Wise Man's Mask
+  { 0x104DF954, 1, 0, 0, -1 }, -- Ansbach's Attire
+  { 0x104DF9B8, 1, 0, 0, -1 }, -- Ansbach's Manchettes
+  { 0x104DFA1C, 1, 0, 0, -1 }, -- Ansbach's Boots
+  { 0x104DFD3C, 1, 0, 0, -1 }, -- Ansbach's Attire (Altered)
+  { 0x104E2000, 1, 0, 0, -1 }, -- Freyja's Helm
+  { 0x104E2064, 1, 0, 0, -1 }, -- Freyja's Armor
+  { 0x104E20C8, 1, 0, 0, -1 }, -- Freyja's Gauntlets
+  { 0x104E212C, 1, 0, 0, -1 }, -- Freyja's Greaves
+  { 0x104E244C, 1, 0, 0, -1 }, -- Freyja's Armor (Altered)
+  { 0x104E4710, 1, 0, 0, -1 }, -- Helm of Solitude
+  { 0x104E4774, 1, 0, 0, -1 }, -- Armor of Solitude
+  { 0x104E47D8, 1, 0, 0, -1 }, -- Gauntlets of Solitude
+  { 0x104E483C, 1, 0, 0, -1 }, -- Greaves of Solitude
+  { 0x104E4B5C, 1, 0, 0, -1 }, -- Armor of Solitude (Altered)
+  { 0x104E6E20, 1, 0, 0, -1 }, -- Messmer Soldier Helm
+  { 0x104E6E84, 1, 0, 0, -1 }, -- Messmer Soldier Armor
+  { 0x104E6EE8, 1, 0, 0, -1 }, -- Messmer Soldier Gauntlets
+  { 0x104E6F4C, 1, 0, 0, -1 }, -- Messmer Soldier Greaves
+  { 0x104E726C, 1, 0, 0, -1 }, -- Messmer Soldier Armor (Altered)
+  { 0x104E9530, 1, 0, 0, -1 }, -- Black Knight Helm
+  { 0x104E9594, 1, 0, 0, -1 }, -- Black Knight Armor
+  { 0x104E95F8, 1, 0, 0, -1 }, -- Black Knight Gauntlets
+  { 0x104E965C, 1, 0, 0, -1 }, -- Black Knight Greaves
+  { 0x104EBC40, 1, 0, 0, -1 }, -- Rakshasa Helm
+  { 0x104EBCA4, 1, 0, 0, -1 }, -- Rakshasa Armor
+  { 0x104EBD08, 1, 0, 0, -1 }, -- Rakshasa Gauntlets
+  { 0x104EBD6C, 1, 0, 0, -1 }, -- Rakshasa Greaves
+  { 0x104F0A60, 1, 0, 0, -1 }, -- Fire Knight Helm
+  { 0x104F0AC4, 1, 0, 0, -1 }, -- Fire Knight Armor
+  { 0x104F0B28, 1, 0, 0, -1 }, -- Fire Knight Gauntlets
+  { 0x104F0B8C, 1, 0, 0, -1 }, -- Fire Knight Greaves
+  { 0x104F0EAC, 1, 0, 0, -1 }, -- Fire Knight Armor (Altered)
+  { 0x104F1230, 1, 0, 0, -1 }, -- Death Mask Helm
+  { 0x104F1618, 1, 0, 0, -1 }, -- Winged Serpent Helm
+  { 0x104F1A00, 1, 0, 0, -1 }, -- Salza's Hood
+  { 0x104F3170, 1, 0, 0, -1 }, -- Leather Headband
+  { 0x104F31D4, 1, 0, 0, -1 }, -- Gloried Attire
+  { 0x104F3238, 1, 0, 0, -1 }, -- Leather Arm Wraps
+  { 0x104F329C, 1, 0, 0, -1 }, -- Leather Leg Wraps
+  { 0x104F3558, 1, 0, 0, -1 }, -- Leather Crown
+  { 0x104F35BC, 1, 0, 0, -1 }, -- Highland Attire
+  { 0x104F5880, 1, 0, 0, -1 }, -- Death Knight Helm
+  { 0x104F58E4, 1, 0, 0, -1 }, -- Death Knight Armor
+  { 0x104F5948, 1, 0, 0, -1 }, -- Death Knight Gauntlets
+  { 0x104F59AC, 1, 0, 0, -1 }, -- Death Knight Greaves
+  { 0x104F7F90, 1, 0, 0, -1 }, -- Curseblade Mask
+  { 0x104F7FF4, 1, 0, 0, -1 }, -- Ascetic's Loincloth
+  { 0x104F8058, 1, 0, 0, -1 }, -- Ascetic's Wrist Guards
+  { 0x104F80BC, 1, 0, 0, -1 }, -- Ascetic's Ankle Guards
+  { 0x104FA6A0, 1, 0, 0, -1 }, -- Messmer's Helm
+  { 0x104FA704, 1, 0, 0, -1 }, -- Messmer's Armor
+  { 0x104FA768, 1, 0, 0, -1 }, -- Messmer's Gauntlets
+  { 0x104FA7CC, 1, 0, 0, -1 }, -- Messmer's Greaves
+  { 0x104FAA88, 1, 0, 0, -1 }, -- Messmer's Helm (Altered)
+  { 0x104FCDB0, 1, 0, 0, -1 }, -- Gravebird Helm
+  { 0x104FCE14, 1, 0, 0, -1 }, -- Gravebird's Blackquill Armor
+  { 0x104FCE78, 1, 0, 0, -1 }, -- Gravebird Bracelets
+  { 0x104FCEDC, 1, 0, 0, -1 }, -- Gravebird Anklets
+  { 0x104FD1FC, 1, 0, 0, -1 }, -- Gravebird Armor
+  { 0x104FF4C0, 1, 0, 0, -1 }, -- Common Soldier Helm
+  { 0x104FF524, 1, 0, 0, -1 }, -- Common Soldier Cloth Armor
+  { 0x104FF588, 1, 0, 0, -1 }, -- Common Soldier Gauntlets
+  { 0x104FF5EC, 1, 0, 0, -1 }, -- Common Soldier Greaves
+  { 0x10501BD0, 1, 0, 0, -1 }, -- Horned Warrior Helm
+  { 0x10501C34, 1, 0, 0, -1 }, -- Horned Warrior Armor
+  { 0x10501C98, 1, 0, 0, -1 }, -- Horned Warrior Gauntlets
+  { 0x10501CFC, 1, 0, 0, -1 }, -- Horned Warrior Greaves
+  { 0x105023A0, 1, 0, 0, -1 }, -- Divine Beast Helm
+  { 0x10502404, 1, 0, 0, -1 }, -- Divine Beast Warrior Armor
+  { 0x10502788, 1, 0, 0, -1 }, -- Divine Bird Helm
+  { 0x105027EC, 1, 0, 0, -1 }, -- Divine Bird Warrior Armor
+  { 0x10502850, 1, 0, 0, -1 }, -- Divine Bird Warrior Gauntlets
+  { 0x105028B4, 1, 0, 0, -1 }, -- Divine Bird Warrior Greaves
+  { 0x105042E0, 1, 0, 0, -1 }, -- Rellana's Helm
+  { 0x10504344, 1, 0, 0, -1 }, -- Rellana's Armor
+  { 0x105043A8, 1, 0, 0, -1 }, -- Rellana's Gloves
+  { 0x1050440C, 1, 0, 0, -1 }, -- Rellana's Greaves
+  { 0x105069F0, 1, 0, 0, -1 }, -- Young Lion's Helm
+  { 0x10506A54, 1, 0, 0, -1 }, -- Young Lion's Armor
+  { 0x10506AB8, 1, 0, 0, -1 }, -- Young Lion's Gauntlets
+  { 0x10506B1C, 1, 0, 0, -1 }, -- Young Lion's Greaves
+  { 0x10506E3C, 1, 0, 0, -1 }, -- Young Lion's Armor (Altered)
+  { 0x105071C0, 1, 0, 0, -1 }, -- Circlet of Light
+  { 0x10509100, 1, 0, 0, -1 }, -- Shadow Militiaman Helm
+  { 0x10509164, 1, 0, 0, -1 }, -- Shadow Militiaman Armor
+  { 0x105091C8, 1, 0, 0, -1 }, -- Shadow Militiaman Gauntlets
+  { 0x1050922C, 1, 0, 0, -1 }, -- Shadow Militiaman Greaves
+  { 0x1050B810, 1, 0, 0, -1 }, -- Divine Beast Head
+  { 0x1050DF20, 1, 0, 0, -1 }, -- St. Trina's Blossom
+  { 0x10510630, 1, 0, 0, -1 }, -- Crucible Hammer-Helm
+  { 0x10512D40, 1, 0, 0, -1 }, -- Greatjar
+  { 0x10515450, 1, 0, 0, -1 }, -- Imp Head (Lion)
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

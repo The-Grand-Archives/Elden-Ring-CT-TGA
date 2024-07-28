@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>102316</ID>
+  <Description>"autoSearchNPCThinkID"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
+10000:Player
+138200:Enemy
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+64</Address>
+</CheatEntry>
