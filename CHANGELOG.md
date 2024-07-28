@@ -1,5 +1,31 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - by [Dasaav](https://github.com/Dasaav-dsv/)
+   - Save Character Flags, saves a list of all your flags to a file
+   - Event Flags lua rewrite
+ - New lua functions:
+   - getEventFlag(id)
+   - setEventFlag(id, state)
+   - setEventFlags/setMultipleFlags(tbl, state)
+   - booltonumber(bool)
+   - getPlayerIns(addr_or_slot) / getEnemyIns(addr)
+### Changed
+ - ItemGive now sets maxNum depending on potGroupId when relevant
+ - Functions made accessible from anywhere:
+   - Lua rewrite of AddSoul
+   - Lua rewrite of ItemDrop
+   - SpEffect.add, SpEffect.erase, SpEffect.remove
+   - PlayAnimation
+   - Bullet.create
+### Fixed
+ - "Remove by Item ID" for Storage Chest
+ - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
+ - Session Info equipment for real
+ - Focus, Stamina, Great Rune offsets
+ - Currently Equipped Magic helper shows correct spell more reliably
+ - Invasion Regions code by SeriouslyCasual and [Dasaav](https://github.com/Dasaav-dsv/)
+ - Teleport to Map-Relative Coordinates offsets
 
 ## [v1.13.0] - 2024-07-05
 ### Added
