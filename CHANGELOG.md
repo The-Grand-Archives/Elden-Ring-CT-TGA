@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.14.0] - 2024-07-29
 ### Added
  - by [Dasaav](https://github.com/Dasaav-dsv/)
    - Save Character Flags, saves a list of all your flags to a file
@@ -629,7 +631,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.13.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.14.0...dev
+[v1.14.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.13.0...v1.14.0
 [v1.13.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.1...v1.13.0
 [v1.12.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.0...v1.12.1
 [v1.12.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.11.2...v1.12.0
