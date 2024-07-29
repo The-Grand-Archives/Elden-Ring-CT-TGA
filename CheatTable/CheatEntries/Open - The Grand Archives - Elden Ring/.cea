@@ -798,6 +798,10 @@ function address_version(scriptVer)
   end
 end
 
+function booltonumber(bool)
+    return bool and 1 or 0
+end
+
 function inArray(array, item)
   for _,value in pairs(array) do
     if value == item then
