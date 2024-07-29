@@ -1,0 +1,47 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function disclaimer()
+    local title = ""
+    local text = [[This will remove all items used by the Seamless Co-op mod from your current character.
+
+If you're using this to transfer your save to vanilla Elden Ring, there is no guarantee that you won't be banned for other reasons.
+
+Use this at your own risk and do not ask for support if you do get banned.
+]]
+    local dialog = messageDialog(title, text, 3, 2, 3)
+    if dialog == mrOK then
+        return true
+    else
+        error("remove_seamless_items_dialog cancelled", 2)
+    end
+    return false
+end
+
+tga:runOnce("remove_seamless_items_dialog", disclaimer)
+
+local GameDataMan = readPointer("GameDataMan")
+local PlayerGameData = readPointer(GameDataMan + 8)
+local ChrAsm = getAddress(PlayerGameData + 0x5F8)
+
+local items = {
+-- pre-rewrite seamless items
+0, 10, 11, 20, 21,
+-- post-rewrite seamless items
+8380001, 8380002, 8380003, 8380004, 8380005, 8380006,
+8380007, 8380008, 8380009, 8380010, 8380011
+}
+
+for _,id in ipairs(items) do
+    local idx = getItemIdx(id + 0x40000000)
+    for i=22,37 do
+	    if readInteger(ChrAsm + i * 4) - 0x40000000 == id then
+		    unequipItem(i)
+        end
+	end
+    if idx then	RemoveItem(idx) end
+end
+
+disableMemrec(memrec)
+
+[DISABLE]

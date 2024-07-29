@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103649</ID>
+  <Description>"addBehaviorJudgeId_condition"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+015D</Address>
+</CheatEntry>

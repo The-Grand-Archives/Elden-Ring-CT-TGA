@@ -1,0 +1,7 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+disableMemrec(memrec)
+writeBytes("TargetCoords", readBytes("[[[WorldChrMan]+10EF8]+0]+6C0", 20, true))
+
+[DISABLE]

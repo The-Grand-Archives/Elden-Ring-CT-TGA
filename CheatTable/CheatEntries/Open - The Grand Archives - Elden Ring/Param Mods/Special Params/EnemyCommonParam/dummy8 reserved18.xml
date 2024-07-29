@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>106410</ID>
+  <Description>"dummy8 reserved18"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>184</ByteLength>
+  <Address>+48</Address>
+</CheatEntry>

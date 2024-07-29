@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>107949</ID>
+  <Description>"Sparking distance | 火花出す距離"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>8 Bytes</VariableType>
+  <Address>0</Address>
+</CheatEntry>

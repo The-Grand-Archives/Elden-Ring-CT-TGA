@@ -1,0 +1,20 @@
+<CheatEntry>
+  <ID>100009</ID>
+  <Description>"Great Rune"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">00000000:None
+B00000BF:Godrick's Great Rune
+B00000C2:Rykard's Great Rune
+B00000C0:Radahn's Great Rune
+B00000C1:Morgott's Great Rune
+B00000C3:Mohg's Great Rune
+B00000C4:Malenia's Great Rune
+</DropDownList>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>2B0+288+88</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

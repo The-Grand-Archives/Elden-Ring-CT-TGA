@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104608</ID>
+  <Description>"defenseMagic"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+B8</Address>
+</CheatEntry>

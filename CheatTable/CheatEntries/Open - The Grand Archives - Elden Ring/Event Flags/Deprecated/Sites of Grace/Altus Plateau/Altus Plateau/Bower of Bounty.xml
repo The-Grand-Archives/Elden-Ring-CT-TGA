@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107014</ID>
+  <Description>"Bower of Bounty"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>CD8</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

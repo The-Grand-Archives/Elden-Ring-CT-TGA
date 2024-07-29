@@ -1,0 +1,100 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x80002710, 1, 0, 0, -1 }, -- Ash of War: Lion's Claw
+  { 0x80002774, 1, 0, 0, -1 }, -- Ash of War: Impaling Thrust
+  { 0x800027D8, 1, 0, 0, -1 }, -- Ash of War: Piercing Fang
+  { 0x8000283C, 1, 0, 0, -1 }, -- Ash of War: Spinning Slash
+  { 0x80002904, 1, 0, 0, -1 }, -- Ash of War: Charge Forth
+  { 0x80002968, 1, 0, 0, -1 }, -- Ash of War: Stamp (Upward Cut)
+  { 0x800029CC, 1, 0, 0, -1 }, -- Ash of War: Stamp (Sweep)
+  { 0x80002A30, 1, 0, 0, -1 }, -- Ash of War: Blood Tax
+  { 0x80002A94, 1, 0, 0, -1 }, -- Ash of War: Repeating Thrust
+  { 0x80002AF8, 1, 0, 0, -1 }, -- Ash of War: Wild Strikes
+  { 0x80002B5C, 1, 0, 0, -1 }, -- Ash of War: Spinning Strikes
+  { 0x80002BC0, 1, 0, 0, -1 }, -- Ash of War: Double Slash
+  { 0x80002C24, 1, 0, 0, -1 }, -- Ash of War: Prelate's Charge
+  { 0x80002C88, 1, 0, 0, -1 }, -- Ash of War: Unsheathe
+  { 0x80002CEC, 1, 0, 0, -1 }, -- Ash of War: Square Off
+  { 0x80002D50, 1, 0, 0, -1 }, -- Ash of War: Giant Hunt
+  { 0x80002E18, 1, 0, 0, -1 }, -- Ash of War: Loretta's Slash
+  { 0x80002E7C, 1, 0, 0, -1 }, -- Ash of War: Poison Moth Flight
+  { 0x80002EE0, 1, 0, 0, -1 }, -- Ash of War: Spinning Weapon
+  { 0x80002FA8, 1, 0, 0, -1 }, -- Ash of War: Storm Assault
+  { 0x8000300C, 1, 0, 0, -1 }, -- Ash of War: Stormcaller
+  { 0x80003070, 1, 0, 0, -1 }, -- Ash of War: Sword Dance
+  { 0x80004E20, 1, 0, 0, -1 }, -- Ash of War: Glintblade Phalanx
+  { 0x80004E84, 1, 0, 0, -1 }, -- Ash of War: Sacred Blade
+  { 0x80004EE8, 1, 0, 0, -1 }, -- Ash of War: Ice Spear
+  { 0x80004F4C, 1, 0, 0, -1 }, -- Ash of War: Glintstone Pebble
+  { 0x80004FB0, 1, 0, 0, -1 }, -- Ash of War: Bloody Slash
+  { 0x80005014, 1, 0, 0, -1 }, -- Ash of War: Lifesteal Fist
+  { 0x800050DC, 1, 0, 0, -1 }, -- Ash of War: Eruption
+  { 0x80005140, 1, 0, 0, -1 }, -- Ash of War: Prayerful Strike
+  { 0x800051A4, 1, 0, 0, -1 }, -- Ash of War: Gravitas
+  { 0x80005208, 1, 0, 0, -1 }, -- Ash of War: Storm Blade
+  { 0x800052D0, 1, 0, 0, -1 }, -- Ash of War: Earthshaker
+  { 0x80005334, 1, 0, 0, -1 }, -- Ash of War: Golden Land
+  { 0x80005398, 1, 0, 0, -1 }, -- Ash of War: Flaming Strike
+  { 0x80005460, 1, 0, 0, -1 }, -- Ash of War: Thunderbolt
+  { 0x800054C4, 1, 0, 0, -1 }, -- Ash of War: Lightning Slash
+  { 0x80005528, 1, 0, 0, -1 }, -- Ash of War: Carian Grandeur
+  { 0x8000558C, 1, 0, 0, -1 }, -- Ash of War: Carian Greatsword
+  { 0x800055F0, 1, 0, 0, -1 }, -- Ash of War: Vacuum Slice
+  { 0x80005654, 1, 0, 0, -1 }, -- Ash of War: Black Flame Tornado
+  { 0x800056B8, 1, 0, 0, -1 }, -- Ash of War: Sacred Ring of Light
+  { 0x80005780, 1, 0, 0, -1 }, -- Ash of War: Blood Blade
+  { 0x800057E4, 1, 0, 0, -1 }, -- Ash of War: Phantom Slash
+  { 0x80005848, 1, 0, 0, -1 }, -- Ash of War: Spectral Lance
+  { 0x800058AC, 1, 0, 0, -1 }, -- Ash of War: Chilling Mist
+  { 0x80005910, 1, 0, 0, -1 }, -- Ash of War: Poisonous Mist
+  { 0x80007530, 1, 0, 0, -1 }, -- Ash of War: Shield Bash
+  { 0x80007594, 1, 0, 0, -1 }, -- Ash of War: Barricade Shield
+  { 0x800075F8, 1, 0, 0, -1 }, -- Ash of War: Parry
+  { 0x80007724, 1, 0, 0, -1 }, -- Ash of War: Carian Retaliation
+  { 0x80007788, 1, 0, 0, -1 }, -- Ash of War: Storm Wall
+  { 0x800077EC, 1, 0, 0, -1 }, -- Ash of War: Golden Parry
+  { 0x80007850, 1, 0, 0, -1 }, -- Ash of War: Shield Crash
+  { 0x800078B4, 1, 0, 0, -1 }, -- Ash of War: No Skill
+  { 0x80007918, 1, 0, 0, -1 }, -- Ash of War: Thops's Barrier
+  { 0x80009C40, 1, 0, 0, -1 }, -- Ash of War: Through and Through
+  { 0x80009CA4, 1, 0, 0, -1 }, -- Ash of War: Barrage
+  { 0x80009D08, 1, 0, 0, -1 }, -- Ash of War: Mighty Shot
+  { 0x80009DD0, 1, 0, 0, -1 }, -- Ash of War: Enchanted Shot
+  { 0x80009E34, 1, 0, 0, -1 }, -- Ash of War: Sky Shot
+  { 0x80009E98, 1, 0, 0, -1 }, -- Ash of War: Rain of Arrows
+  { 0x8000C3B4, 1, 0, 0, -1 }, -- Ash of War: Hoarfrost Stomp
+  { 0x8000C418, 1, 0, 0, -1 }, -- Ash of War: Storm Stomp
+  { 0x8000C47C, 1, 0, 0, -1 }, -- Ash of War: Kick
+  { 0x8000C4E0, 1, 0, 0, -1 }, -- Ash of War: Lightning Ram
+  { 0x8000C544, 1, 0, 0, -1 }, -- Ash of War: Flame of the Redmanes
+  { 0x8000C5A8, 1, 0, 0, -1 }, -- Ash of War: Ground Slam
+  { 0x8000C60C, 1, 0, 0, -1 }, -- Ash of War: Golden Slam
+  { 0x8000C670, 1, 0, 0, -1 }, -- Ash of War: Waves of Darkness
+  { 0x8000C6D4, 1, 0, 0, -1 }, -- Ash of War: Hoarah Loux's Earthshaker
+  { 0x8000EA60, 1, 0, 0, -1 }, -- Ash of War: Determination
+  { 0x8000EAC4, 1, 0, 0, -1 }, -- Ash of War: Royal Knight's Resolve
+  { 0x8000EB28, 1, 0, 0, -1 }, -- Ash of War: Assassin's Gambit
+  { 0x8000EB8C, 1, 0, 0, -1 }, -- Ash of War: Golden Vow
+  { 0x8000EBF0, 1, 0, 0, -1 }, -- Ash of War: Sacred Order
+  { 0x8000EC54, 1, 0, 0, -1 }, -- Ash of War: Shared Order
+  { 0x8000ECB8, 1, 0, 0, -1 }, -- Ash of War: Seppuku
+  { 0x8000ED1C, 1, 0, 0, -1 }, -- Ash of War: Cragblade
+  { 0x8000FDE8, 1, 0, 0, -1 }, -- Ash of War: Barbaric Roar
+  { 0x8000FE4C, 1, 0, 0, -1 }, -- Ash of War: War Cry
+  { 0x8000FEB0, 1, 0, 0, -1 }, -- Ash of War: Beast's Roar
+  { 0x8000FF14, 1, 0, 0, -1 }, -- Ash of War: Troll's Roar
+  { 0x8000FF78, 1, 0, 0, -1 }, -- Ash of War: Braggart's Roar
+  { 0x80011170, 1, 0, 0, -1 }, -- Ash of War: Endure
+  { 0x800111D4, 1, 0, 0, -1 }, -- Ash of War: Vow of the Indomitable
+  { 0x80011238, 1, 0, 0, -1 }, -- Ash of War: Holy Ground
+  { 0x80013880, 1, 0, 0, -1 }, -- Ash of War: Quickstep
+  { 0x800138E4, 1, 0, 0, -1 }, -- Ash of War: Bloodhound's Step
+  { 0x80013948, 1, 0, 0, -1 }, -- Ash of War: Raptor of the Mists
+  { 0x80014C08, 1, 0, 0, -1 }, -- Ash of War: White Shadow's Lure
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,31 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local spells = {
+	1310000, --Magic Weapon
+	1311000, --Great Magic Weapon
+	1312000, --Crystal Magic Weapon
+	1313000, --Frozen Weapon
+	1330000, --Magic Shield
+	1331000, --Great Magic Shield
+	1340000, --Hidden Weapon
+	2435000, --Carthus Flame Arc
+	3590000, --Lightning Blade
+	3591000, --Darkmoon Blade
+	3640000, --Dark Blade
+	3760000, --Blessed Weapon
+}
+
+local GameDataMan = readPointer("GameDataMan")
+local PlayerGameData = readPointer(GameDataMan + 0x10)
+
+local magicSlots = readInteger(PlayerGameData + 0xA4C)
+
+for i,id in ipairs(spells) do
+	if i > magicSlots then break end
+	changeMagic(i-1, id)
+end
+
+disableMemrec(memrec)
+
+[DISABLE]

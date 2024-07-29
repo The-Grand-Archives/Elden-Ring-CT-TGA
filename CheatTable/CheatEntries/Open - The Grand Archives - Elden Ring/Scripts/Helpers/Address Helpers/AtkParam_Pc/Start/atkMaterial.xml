@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104083</ID>
+  <Description>"atkMaterial"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+078</Address>
+</CheatEntry>

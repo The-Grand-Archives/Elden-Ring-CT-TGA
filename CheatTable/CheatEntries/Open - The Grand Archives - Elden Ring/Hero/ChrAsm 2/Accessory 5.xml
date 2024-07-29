@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>100402</ID>
+  <Description>"Accessory 5"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>64C</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

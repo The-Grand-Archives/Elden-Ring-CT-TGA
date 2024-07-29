@@ -1,0 +1,30 @@
+//Author: inuNorii
+//Replaces Banished Knight Engvall with Blaid the Half-Wolf
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local buddy = BuddyParam:new("blaiddSummon",20200000)
+buddy:npcParamId(20109110)
+buddy:npcThinkParamId(20108000)
+buddy:generateAnimId(20039)
+
+local npc = NpcParam:new("blaiddSummon",20109110)
+npc:patchByte(0x133,47) -- TeamType
+npc:patch4Byte(0x54,5130) -- SpEffectID2
+npc:patch4Byte(0x5C,4302) -- SpEffectID4
+npc:patch4Byte(0x60,295000) -- SpEffectID5
+npc:patch4Byte(0x64,296000) -- SpEffectID6
+npc:patch4Byte(0x68,297000) -- SpEffectID7
+
+local goods = {
+  202000, 202001, 202002, 202003, 202004, 202005,
+  202006, 202007, 202008, 202009, 202010
+}
+for i,id in ipairs(goods) do
+local goods = EquipParamGoods:new("blaiddSummon",id)
+goods:iconId(13170)
+goods:consumeMP(-1)
+end
+
+[DISABLE]
+paramUtils:restore("blaiddSummon")

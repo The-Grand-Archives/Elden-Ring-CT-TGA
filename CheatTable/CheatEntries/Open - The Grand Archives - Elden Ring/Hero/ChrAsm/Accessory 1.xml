@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100375</ID>
+  <Description>"Accessory 1"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>3DC</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

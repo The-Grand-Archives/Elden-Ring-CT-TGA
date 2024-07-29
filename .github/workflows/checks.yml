@@ -1,0 +1,17 @@
+name: "Checks"
+on:
+  pull_request:
+    branches: [dev]
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Build
+        uses: "./.github/actions/build"
+  
+  

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106796</ID>
+  <Description>"npcPlayerAnalogWeightRate_SuperLight"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+5F</Address>
+</CheatEntry>

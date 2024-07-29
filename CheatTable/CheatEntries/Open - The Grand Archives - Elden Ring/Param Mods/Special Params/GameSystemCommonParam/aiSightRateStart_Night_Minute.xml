@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106452</ID>
+  <Description>"aiSightRateStart_Night_Minute"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+6C</Address>
+</CheatEntry>

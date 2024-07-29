@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100670</ID>
+  <Description>"Chin Protrusion"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+42</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

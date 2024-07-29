@@ -1,0 +1,68 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START BehaviorParam_PC class]]--
+BehaviorParam_PC = BaseParamClass:new()
+
+function BehaviorParam_PC:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("BehaviorParam_PC", uuid, id, address)
+	return o
+end
+
+function BehaviorParam_PC:variationId(value)
+	self:patch4Byte(0x0, value)
+end
+
+function BehaviorParam_PC:behaviorJudgeId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function BehaviorParam_PC:ezStateBehaviorType_old(value)
+	self:patchByte(0x8, value)
+end
+
+function BehaviorParam_PC:refType(value)
+	self:patchByte(0x9, value)
+end
+
+function BehaviorParam_PC:refId(value)
+	self:patch4Byte(0xC, value)
+end
+
+function BehaviorParam_PC:sfxVariationId(value)
+	self:patch4Byte(0x10, value)
+end
+
+function BehaviorParam_PC:stamina(value)
+	self:patch4Byte(0x14, value)
+end
+
+function BehaviorParam_PC:mp(value)
+	self:patch4Byte(0x18, value)
+end
+
+function BehaviorParam_PC:category(value)
+	self:patchByte(0x1C, value)
+end
+
+function BehaviorParam_PC:heroPoint(value)
+	self:patchByte(0x1D, value)
+end
+
+function BehaviorParam_PC:pad1(value)
+	self:patchByte(0x1E, value)
+end
+
+-- insert 0x1F here
+
+--[[END BehaviorParam_PC class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

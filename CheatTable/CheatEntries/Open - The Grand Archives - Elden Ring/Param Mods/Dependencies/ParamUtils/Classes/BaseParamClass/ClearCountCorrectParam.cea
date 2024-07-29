@@ -1,0 +1,102 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+ClearCountCorrectParam = BaseParamClass:new()
+
+function ClearCountCorrectParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ClearCountCorrectParam", uuid, id, address)
+	return o
+end
+
+function ClearCountCorrectParam:MaxHP(value)
+    self:patch4Byte(0x00,value)
+end
+
+function ClearCountCorrectParam:Unknown1(value)
+    self:patch4Byte(0x08,value)
+end
+
+function ClearCountCorrectParam:Unknown2(value)
+    self:patch4Byte(0x0C,value)
+end
+
+function ClearCountCorrectParam:PhysicalATK(value)
+    self:patch4Byte(0x1C,value)
+end
+
+function ClearCountCorrectParam:MagATK(value)
+    self:patch4Byte(0x20,value)
+end
+
+function ClearCountCorrectParam:FireATK(value)
+    self:patch4Byte(0x24,value)
+end
+
+function ClearCountCorrectParam:ThunATK(value)
+    self:patch4Byte(0x28,value)
+end
+
+function ClearCountCorrectParam:DarkATK(value)
+    self:patch4Byte(0x2C,value)
+end
+
+function ClearCountCorrectParam:PhysicalDEF(value)
+    self:patch4Byte(0x30,value)
+end
+
+function ClearCountCorrectParam:MagDEF(value)
+    self:patch4Byte(0x34,value)
+end
+
+function ClearCountCorrectParam:FireDEF(value)
+    self:patch4Byte(0x38,value)
+end
+
+function ClearCountCorrectParam:ThunDEF(value)
+    self:patch4Byte(0x3C,value)
+end
+
+function ClearCountCorrectParam:DarkDEF(value)
+    self:patch4Byte(0x40,value)
+end
+
+function ClearCountCorrectParam:Unknown3(value)
+    self:patch4Byte(0x44,value)
+end
+
+function ClearCountCorrectParam:Soul(value)
+    self:patch4Byte(0x48,value)
+end
+
+function ClearCountCorrectParam:PoisonRES(value)
+    self:patch4Byte(0x4C,value)
+end
+
+function ClearCountCorrectParam:ToxicRES(value)
+    self:patch4Byte(0x50,value)
+end
+
+function ClearCountCorrectParam:BloodRES(value)
+    self:patch4Byte(0x54,value)
+end
+
+function ClearCountCorrectParam:CurseRES(value)
+    self:patch4Byte(0x58,value)
+end
+
+function ClearCountCorrectParam:FrostRES(value)
+    self:patch4Byte(0x5C,value)
+end
+
+function ClearCountCorrectParam:Unknown4(value)
+    self:patch4Byte(0x64,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

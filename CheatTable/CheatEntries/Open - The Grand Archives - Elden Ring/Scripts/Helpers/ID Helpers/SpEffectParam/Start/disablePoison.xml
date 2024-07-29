@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102558</ID>
+  <Description>"disablePoison"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0163</Address>
+</CheatEntry>

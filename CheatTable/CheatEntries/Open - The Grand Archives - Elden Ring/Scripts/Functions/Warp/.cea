@@ -1,0 +1,21 @@
+{$lua}
+if syntaxcheck then return end
+local dropdown_memrec = getAddressList().getMemoryRecordByID(1104)
+[ENABLE]
+if lua_warp == nil then
+    getAddressList().getMemoryRecordByDescription("Warp_code").active = true
+    throwError("'lua_warp' symbol was not found.\nTry enabling this script again.")
+end
+
+if isOwnDlc(1) then
+    dropdown_memrec.DropDownLinkedMemrec = "BonfireIdDLC"
+else
+    dropdown_memrec.DropDownLinkedMemrec = "BonfireId"
+end
+
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- lua_warp(warpId)
+
+[DISABLE]
+dropdown_memrec.DropDownLinkedMemrec = "BonfireId"

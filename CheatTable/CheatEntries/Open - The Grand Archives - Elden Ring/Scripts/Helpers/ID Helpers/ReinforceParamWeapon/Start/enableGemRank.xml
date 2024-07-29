@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102810</ID>
+  <Description>"enableGemRank"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+70</Address>
+</CheatEntry>

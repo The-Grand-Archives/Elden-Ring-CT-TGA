@@ -1,0 +1,278 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START SpEffectVfxParam class]]--
+SpEffectVfxParam = BaseParamClass:new()
+
+function SpEffectVfxParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("SpEffectVfxParam", uuid, id, address)
+	return o
+end
+
+function SpEffectVfxParam:midstSfxID(value)
+    self:patch4Byte(0x0, value)
+end
+
+function SpEffectVfxParam:midstSeID(value)
+    self:patch4Byte(0x4, value)
+end
+
+function SpEffectVfxParam:initSfxID(value)
+    self:patch4Byte(0x8, value)
+end
+
+function SpEffectVfxParam:InitSeID(value)
+    self:patch4Byte(0xC, value)
+end
+
+function SpEffectVfxParam:FinishSfxID(value)
+    self:patch4Byte(0x10, value)
+end
+
+function SpEffectVfxParam:FinishSeID(value)
+    self:patch4Byte(0x14, value)
+end
+
+function SpEffectVfxParam:camouflageBeginDist(value)
+    self:patchFloat(0x18, value)
+end
+
+function SpEffectVfxParam:camouflageEndDist(value)
+    self:patchFloat(0x1C, value)
+end
+
+function SpEffectVfxParam:transformProtectorID(value)
+    self:patch4Byte(0x20, value)
+end
+
+function SpEffectVfxParam:midstDmyID(value)
+    self:patch2Byte(0x24, value)
+end
+
+function SpEffectVfxParam:initDmyID(value)
+    self:patch2Byte(0x26, value)
+end
+
+function SpEffectVfxParam:FinishDmyID(value)
+    self:patch2Byte(0x28, value)
+end
+
+function SpEffectVfxParam:EffectType(value)
+    self:patchByte(0x2A, value)
+end
+
+function SpEffectVfxParam:SoulParamIDForWepEnchant(value)
+    self:patchByte(0x2B, value)
+end
+
+function SpEffectVfxParam:soulParamIdForWepEnchant0(value) --compatibility
+    self:patchByte(0x2B, value)
+end
+
+function SpEffectVfxParam:PlayCategory(value)
+    self:patchByte(0x2C, value)
+end
+
+function SpEffectVfxParam:PlayPriority(value)
+    self:patchByte(0x2D, value)
+end
+
+function SpEffectVfxParam:ExistEffectForLarge(value)
+    self:patchBinary(0x2E, value , 0)
+end
+
+function SpEffectVfxParam:ExistEffectForSoul(value)
+    self:patchBinary(0x2E, value , 1)
+end
+
+function SpEffectVfxParam:EffectInvisibleAtCamouflage(value)
+    self:patchBinary(0x2E, value , 2)
+end
+
+function SpEffectVfxParam:useCamouflage(value)
+    self:patchBinary(0x2E, value , 3)
+end
+
+function SpEffectVfxParam:InvisibleAtFriendCamouflage(value)
+    self:patchBinary(0x2E, value , 4)
+end
+
+function SpEffectVfxParam:addMapAreaBlock(value)
+    self:patchBinary(0x2E, value , 5)
+end
+
+function SpEffectVfxParam:halfCamouflage(value)
+    self:patchBinary(0x2E, value , 6)
+end
+
+function SpEffectVfxParam:isFullBodyTransformProtectorID(value)
+    self:patchBinary(0x2E, value , 7)
+end
+
+function SpEffectVfxParam:IsInvisibleWeapon(value)
+    self:patchBinary(0x2F, value , 0)
+end
+
+function SpEffectVfxParam:IsSilence(value)
+    self:patchBinary(0x2F, value , 1)
+end
+
+function SpEffectVfxParam:isGauntletProtectorId(value)
+    self:patchBinary(0x2F, value , 2)
+end
+
+function SpEffectVfxParam:Unk1(value)
+    self:patchBinary(0x2F, value , 3)
+end
+
+function SpEffectVfxParam:Unk2(value)
+    self:patchBinary(0x2F, value , 4)
+end
+
+function SpEffectVfxParam:Unk3(value)
+    self:patchBinary(0x2F, value , 5)
+end
+
+function SpEffectVfxParam:Unk4(value)
+    self:patchBinary(0x2F, value , 6)
+end
+
+function SpEffectVfxParam:Unk5(value)
+    self:patchBinary(0x2F, value , 7)
+end
+
+function SpEffectVfxParam:DecalId0(value)
+    self:patch4Byte(0x30, value)
+end
+
+function SpEffectVfxParam:DecalId1(value)
+    self:patch4Byte(0x34, value)
+end
+
+function SpEffectVfxParam:soulParamIdForWepEnchant1(value)
+    self:patchByte(0x38, value)
+end
+
+function SpEffectVfxParam:SpEffectSp0(value)
+    self:patchByte(0x39, value)
+end
+
+function SpEffectVfxParam:SpEffectSp1(value)
+    self:patchByte(0x3A, value)
+end
+
+function SpEffectVfxParam:bodyProtectorType(value)
+    self:patchByte(0x3B, value)
+end
+
+function SpEffectVfxParam:SpSfxId0(value)
+    self:patch4Byte(0x3C, value)
+end
+
+function SpEffectVfxParam:SpSfxId1(value)
+    self:patch4Byte(0x40, value)
+end
+
+function SpEffectVfxParam:SpSfxId2(value)
+    self:patch4Byte(0x44, value)
+end
+
+function SpEffectVfxParam:SpSfxId3(value)
+    self:patch4Byte(0x48, value)
+end
+
+function SpEffectVfxParam:SpSfxId4(value)
+    self:patch4Byte(0x4C, value)
+end
+
+function SpEffectVfxParam:SpSfxId5(value)
+    self:patch4Byte(0x50, value)
+end
+
+function SpEffectVfxParam:SpSfxId6(value)
+    self:patch4Byte(0x54, value)
+end
+
+function SpEffectVfxParam:SpSfxId7(value)
+    self:patch4Byte(0x58, value)
+end
+
+function SpEffectVfxParam:SpSfxId8(value)
+    self:patch4Byte(0x5C, value)
+end
+
+function SpEffectVfxParam:SpSfxId9(value)
+    self:patch4Byte(0x60, value)
+end
+
+function SpEffectVfxParam:SpSfxId10(value)
+    self:patch4Byte(0x64, value)
+end
+
+function SpEffectVfxParam:SpSfxId11(value)
+    self:patch4Byte(0x68, value)
+end
+
+function SpEffectVfxParam:SpSfxId12(value)
+    self:patch4Byte(0x6C, value)
+end
+
+function SpEffectVfxParam:SpSfxId13(value)
+    self:patch4Byte(0x70, value)
+end
+
+function SpEffectVfxParam:SpSfxId14(value)
+    self:patch4Byte(0x74, value)
+end
+
+function SpEffectVfxParam:SpSfxId15(value)
+    self:patch4Byte(0x78, value)
+end
+
+function SpEffectVfxParam:Unk6(value)
+    self:patchByte(0x7C, value)
+end
+
+function SpEffectVfxParam:PhantomType(value)
+    self:patchByte(0x7D, value)
+end
+
+function SpEffectVfxParam:CamouflageGhost(value)
+    self:patchByte(0x7E, value)
+end
+
+function SpEffectVfxParam:Unk7(value)
+    self:patchByte(0x7F, value)
+end
+
+function SpEffectVfxParam:PhantomParamId(value)
+    self:patch4Byte(0x80, value)
+end
+
+function SpEffectVfxParam:EmissiveIntensityScale(value)
+    self:patchFloat(0x84, value)
+end
+
+function SpEffectVfxParam:Unk8(value)
+    self:patchFloat(0x88, value)
+end
+
+function SpEffectVfxParam:BodyProtectorVal(value)
+    self:patch2Byte(0x8C, value)
+end
+
+function SpEffectVfxParam:Unk9(value)
+    self:patch2Byte(0x8E, value)
+end
+
+function SpEffectVfxParam:CinderIntensityScale(value)
+    self:patchFloat(0x90, value)
+end
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

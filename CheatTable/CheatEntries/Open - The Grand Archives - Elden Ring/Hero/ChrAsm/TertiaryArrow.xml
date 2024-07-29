@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>100368</ID>
+  <Description>"TertiaryArrow"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>3C0</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

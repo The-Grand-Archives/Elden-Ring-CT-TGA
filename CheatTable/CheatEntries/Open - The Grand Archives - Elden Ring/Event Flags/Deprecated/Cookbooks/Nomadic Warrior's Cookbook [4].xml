@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107262</ID>
+  <Description>"Nomadic Warrior's Cookbook [4]"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>8B1</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

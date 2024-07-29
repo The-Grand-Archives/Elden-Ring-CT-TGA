@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>108024</ID>
+  <Description>"type"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Local
+1:Net
+2:AI
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>28+30*0+8</Offset>
+    <Offset>D60</Offset>
+  </Offsets>
+</CheatEntry>

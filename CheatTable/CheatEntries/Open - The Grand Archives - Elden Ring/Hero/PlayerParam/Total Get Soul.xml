@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100631</ID>
+  <Description>"Total Get Soul"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>70</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>100530</ID>
+  <Description>"Quick Item"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>+0</Address>
+  <x-ce2fs-child-order>
+    <id id="100531"/>
+    <id id="100534"/>
+    <id id="100537"/>
+    <id id="100540"/>
+    <id id="100543"/>
+    <id id="100546"/>
+    <id id="100549"/>
+    <id id="100552"/>
+    <id id="100555"/>
+    <id id="100558"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

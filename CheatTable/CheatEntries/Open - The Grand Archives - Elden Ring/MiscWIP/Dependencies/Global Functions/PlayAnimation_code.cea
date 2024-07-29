@@ -1,0 +1,28 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local addr = AOBScanModuleUnique(process,"74 ?? 48 85 d2 74 ?? 48 8d 4c 24 50") - 0xD
+
+function PlayAnimation(str)
+    if type(str) ~= "string" then
+        throwError("Input needs to be string type", 1)
+    end
+    local PlayerIns = getPlayerIns()
+    local ChrModules = readPointer(PlayerIns + 0x190)
+    local CSChrBehaviorModule = readPointer(ChrModules + 0x28)
+    local unkPtr = readPointer(CSChrBehaviorModule + 0x10)
+    local hkbCharacter = getAddressSafe(unkPtr + 0x30)
+    if hkbCharacter == nil then
+        throwError("'hkbCharacter' not found", 1)
+    end
+    local mem = allocateMemory(64, getAddress(process))
+    if writeString(mem, str, true) then
+        if executeCodeEx(0, 100, addr, hkbCharacter, mem) == 0xFFFFFFFF then
+            print("Failed to play: ", str)
+        end
+    end
+    deAlloc(mem)
+end
+
+[DISABLE]
+PlayAnimation = nil

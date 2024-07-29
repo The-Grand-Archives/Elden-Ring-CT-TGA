@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102353</ID>
+  <Description>"isUseMultiDmyPolyIfPlace"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9b</Address>
+</CheatEntry>

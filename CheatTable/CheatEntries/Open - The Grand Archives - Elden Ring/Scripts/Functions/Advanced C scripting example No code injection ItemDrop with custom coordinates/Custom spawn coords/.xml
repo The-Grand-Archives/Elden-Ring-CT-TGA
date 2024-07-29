@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>101239</ID>
+  <Description>"Custom spawn coords"</Description>
+  <Options moManualExpandCollapse="1"/>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>16</ByteLength>
+  <Address>ItemDrop_CustomMapId</Address>
+  <x-ce2fs-child-order>
+    <id id="101240"/>
+    <id id="101241"/>
+    <id id="101242"/>
+    <id id="101243"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

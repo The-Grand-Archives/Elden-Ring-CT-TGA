@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100017</ID>
+  <Description>"Save Slot (Profile Index)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameMan</Address>
+  <Offsets>
+    <Offset>AC0</Offset>
+  </Offsets>
+</CheatEntry>

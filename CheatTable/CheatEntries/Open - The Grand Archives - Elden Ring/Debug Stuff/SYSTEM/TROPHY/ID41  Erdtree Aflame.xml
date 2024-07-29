@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108144</ID>
+  <Description>"ID:41 &lt; Erdtree Aflame"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*29</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

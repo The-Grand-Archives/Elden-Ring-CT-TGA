@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106676</ID>
+  <Description>"remotePlayerThreatLvNotify_EndNotifyDist"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+2AC</Address>
+</CheatEntry>

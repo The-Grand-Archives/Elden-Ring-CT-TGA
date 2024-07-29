@@ -1,0 +1,148 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+ReinforceParamWeapon = BaseParamClass:new()
+
+function ReinforceParamWeapon:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ReinforceParamWeapon", uuid, id, address)
+	return o
+end
+
+function ReinforceParamWeapon:physicsAtkRate(value)
+    self:patchFloat(0x00,value)
+end
+
+function ReinforceParamWeapon:magicAtkRate(value)
+    self:patchFloat(0x04,value)
+end
+
+function ReinforceParamWeapon:fireAtkRate(value)
+    self:patchFloat(0x08,value)
+end
+
+function ReinforceParamWeapon:thunderAtkRate(value)
+    self:patchFloat(0x0C,value)
+end
+
+function ReinforceParamWeapon:staminaAtkRate(value)
+    self:patchFloat(0x10,value)
+end
+
+function ReinforceParamWeapon:saWeaponAtkRate(value)
+    self:patchFloat(0x14,value)
+end
+
+function ReinforceParamWeapon:saDurabilityRate(value)
+    self:patchFloat(0x18,value)
+end
+
+function ReinforceParamWeapon:correctStrengthRate(value)
+    self:patchFloat(0x1C,value)
+end
+
+function ReinforceParamWeapon:correctAgilityRate(value)
+    self:patchFloat(0x20,value)
+end
+
+function ReinforceParamWeapon:correctMagicRate(value)
+    self:patchFloat(0x24,value)
+end
+
+function ReinforceParamWeapon:correctFaithRate(value)
+    self:patchFloat(0x28,value)
+end
+
+function ReinforceParamWeapon:physicsGuardCutRate(value)
+    self:patchFloat(0x2C,value)
+end
+
+function ReinforceParamWeapon:magicGuardCutRate(value)
+    self:patchFloat(0x30,value)
+end
+
+function ReinforceParamWeapon:fireGuardCutRate(value)
+    self:patchFloat(0x34,value)
+end
+
+function ReinforceParamWeapon:thunderGuardCutRate(value)
+    self:patchFloat(0x38,value)
+end
+
+function ReinforceParamWeapon:poisonGuardResistRate(value)
+    self:patchFloat(0x3C,value)
+end
+
+function ReinforceParamWeapon:toxicGuardResistRate(value)
+    self:patchFloat(0x40,value)
+end
+
+function ReinforceParamWeapon:bleedGuardResistRate(value)
+    self:patchFloat(0x44,value)
+end
+
+function ReinforceParamWeapon:curseGuardResistRate(value)
+    self:patchFloat(0x48,value)
+end
+
+function ReinforceParamWeapon:staminaGuardResistRate(value)
+    self:patchFloat(0x4C,value)
+end
+
+function ReinforceParamWeapon:spEffectId1(value)
+    self:patchByte(0x50,value)
+end
+
+function ReinforceParamWeapon:spEffectId2(value)
+    self:patchByte(0x51,value)
+end
+
+function ReinforceParamWeapon:spEffectId3(value)
+    self:patchByte(0x52,value)
+end
+
+function ReinforceParamWeapon:ResidentSpEffectId1(value)
+    self:patchByte(0x53,value)
+end
+
+function ReinforceParamWeapon:ResidentSpEffectId2(value)
+    self:patchByte(0x54,value)
+end
+
+function ReinforceParamWeapon:ResidentSpEffectId3(value)
+    self:patchByte(0x55,value)
+end
+
+function ReinforceParamWeapon:materialSetId(value)
+    self:patchByte(0x56,value)
+end
+
+function ReinforceParamWeapon:materialSetId(value)
+    self:patchByte(0x57,value)
+end
+
+function ReinforceParamWeapon:darkAtkRate(value)
+    self:patchFloat(0x58,value)
+end
+
+function ReinforceParamWeapon:darkCutRate(value)
+    self:patchFloat(0x5C,value)
+end
+
+function ReinforceParamWeapon:StabilityAtkRate(value)
+    self:patchFloat(0x60,value)
+end
+
+function ReinforceParamWeapon:StabilityCutRate(value)
+    self:patchFloat(0x64,value)
+end
+
+function ReinforceParamWeapon:frostGuardResistRate(value)
+    self:patchFloat(0x68,value)
+end
+
+[DISABLE]

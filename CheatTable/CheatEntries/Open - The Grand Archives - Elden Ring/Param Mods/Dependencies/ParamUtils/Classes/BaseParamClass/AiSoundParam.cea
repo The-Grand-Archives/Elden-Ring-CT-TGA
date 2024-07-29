@@ -1,0 +1,46 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+-- Define AiSoundParam Class
+
+AiSoundParam = BaseParamClass:new()
+
+function AiSoundParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("AiSoundParam", uuid, id, address)
+	return o
+end
+
+function AiSoundParam:Radius(value)
+    self:patchFloat(0x00,value)
+end
+
+function AiSoundParam:lifeFrame(value)
+    self:patchFloat(0x04,value)
+end
+
+function AiSoundParam:bSpEffectEnable(value)
+    self:patchByte(0x08,value)
+end
+
+function AiSoundParam:Type(value)
+    self:patchByte(0x09,value)
+end
+
+function AiSoundParam:fakeTargetType(value)
+    self:patchByte(0x0A,value)
+end
+
+function AiSoundParam:InterestCategory(value)
+    self:patchByte(0x0B,value)
+end
+
+function AiSoundParam:UseHitDamageTeam(value)
+    self:patchByte(0x0C,value)
+end
+
+[DISABLE]

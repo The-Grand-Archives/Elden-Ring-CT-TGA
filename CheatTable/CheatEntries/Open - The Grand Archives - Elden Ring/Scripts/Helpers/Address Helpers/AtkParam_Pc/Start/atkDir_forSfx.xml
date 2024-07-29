@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104097</ID>
+  <Description>"atkDir_forSfx"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+080</Address>
+</CheatEntry>

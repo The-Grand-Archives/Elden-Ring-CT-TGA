@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(NpcThinkParamHelper,16)
+registersymbol(NpcThinkParamHelper)
+
+NpcThinkParamHelper:
+dq #0
+
+[DISABLE]
+dealloc(NpcThinkParamHelper)
+unregistersymbol(NpcThinkParamHelper)

@@ -1,0 +1,22 @@
+//Author: The-Raid-Boss
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x40000898, 1, -1, 0, -1 }, -- Prattling Pate "Hello"
+  { 0x40000899, 1, -1, 0, -1 }, -- Prattling Pate "Thank you"
+  { 0x4000089A, 1, -1, 0, -1 }, -- Prattling Pate "Apologies"
+  { 0x4000089B, 1, -1, 0, -1 }, -- Prattling Pate "Wonderful"
+  { 0x4000089C, 1, -1, 0, -1 }, -- Prattling Pate "Please help"
+  { 0x4000089D, 1, -1, 0, -1 }, -- Prattling Pate "My beloved"
+  { 0x4000089E, 1, -1, 0, -1 }, -- Prattling Pate "Let's get to it"
+  { 0x4000089F, 1, -1, 0, -1 }, -- Prattling Pate "You're beautiful"
+}
+
+if isOwnDlc(1) then
+  table.insert(items,{0x401E8CE6, 1, 0, 0, -1}) -- Prattling Pate "Lamentation"
+end
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

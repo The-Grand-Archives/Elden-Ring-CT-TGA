@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(EquipParamWeaponHelper,16)
+registersymbol(EquipParamWeaponHelper)
+
+EquipParamWeaponHelper:
+dq #1000
+
+[DISABLE]
+dealloc(EquipParamWeaponHelper)
+unregistersymbol(EquipParamWeaponHelper)

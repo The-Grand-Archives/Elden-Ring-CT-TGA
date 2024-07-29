@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>106346</ID>
+  <Description>"EnvObjLotParam"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>25A8</Offset>
+  </Offsets>
+</CheatEntry>

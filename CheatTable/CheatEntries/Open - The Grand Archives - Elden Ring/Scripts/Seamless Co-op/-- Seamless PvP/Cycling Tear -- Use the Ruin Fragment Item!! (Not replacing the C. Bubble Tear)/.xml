@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>106158</ID>
+  <Description>"Cycling Tear -- Use the Ruin Fragment Item!! (Not replacing the C. Bubble Tear)"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsHex>1</ShowAsHex>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="106159"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

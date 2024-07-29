@@ -1,0 +1,27 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+function throwError(string, variation)
+	if variation == nil or variation == 0 then
+		ShowMessage(string)
+	elseif variation == 1 then
+		printf(string)
+	end
+	error(string, 2)
+end
+
+function missingDlc(dlc)
+	local dlcNames = {
+		[0] = "ELDEN RING Bonus Gesture",
+		[1] = "ELDEN RING Shadow of the Erdtree",
+		[2] = "ELDEN RING Shadow of the Erdtree Bonus Gesture"
+	}
+
+	local e = "You do not own "..dlcNames[dlc]
+
+	throwError(e)
+end
+
+[DISABLE]
+throwError = nil
+missingDlc = nil

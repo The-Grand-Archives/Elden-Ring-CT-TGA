@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103664</ID>
+  <Description>"bAdjustFaithAblity"</Description>
+  <Color>008080</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0160</Address>
+</CheatEntry>

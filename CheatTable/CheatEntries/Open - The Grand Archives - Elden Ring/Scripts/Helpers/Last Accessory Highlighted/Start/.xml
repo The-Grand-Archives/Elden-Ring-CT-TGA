@@ -1,0 +1,57 @@
+<CheatEntry>
+  <ID>104808</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>LastAccessoryHighlightedAddr</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="104809"/>
+    <id id="104810"/>
+    <id id="104811"/>
+    <id id="104812"/>
+    <id id="104813"/>
+    <id id="104814"/>
+    <id id="104815"/>
+    <id id="104816"/>
+    <id id="104817"/>
+    <id id="104818"/>
+    <id id="104819"/>
+    <id id="104820"/>
+    <id id="104821"/>
+    <id id="104822"/>
+    <id id="104823"/>
+    <id id="104824"/>
+    <id id="104825"/>
+    <id id="104826"/>
+    <id id="104827"/>
+    <id id="104828"/>
+    <id id="104829"/>
+    <id id="104830"/>
+    <id id="104831"/>
+    <id id="104832"/>
+    <id id="104833"/>
+    <id id="104834"/>
+    <id id="104835"/>
+    <id id="104836"/>
+    <id id="104837"/>
+    <id id="104838"/>
+    <id id="104839"/>
+    <id id="104840"/>
+    <id id="104841"/>
+    <id id="104842"/>
+    <id id="104843"/>
+    <id id="104844"/>
+    <id id="104845"/>
+    <id id="104846"/>
+    <id id="104847"/>
+    <id id="104848"/>
+    <id id="104849"/>
+    <id id="104850"/>
+    <id id="104851"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

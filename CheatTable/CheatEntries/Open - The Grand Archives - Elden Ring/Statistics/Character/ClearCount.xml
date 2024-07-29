@@ -1,0 +1,20 @@
+<CheatEntry>
+  <ID>100012</ID>
+  <Description>"ClearCount"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:Journey 1
+1:Journey 2
+2:Journey 3
+3:Journey 4
+4:Journey 5
+5:Journey 6
+6:Journey 7
+7:Journey 8
+8:Journey 9
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>120</Offset>
+  </Offsets>
+</CheatEntry>

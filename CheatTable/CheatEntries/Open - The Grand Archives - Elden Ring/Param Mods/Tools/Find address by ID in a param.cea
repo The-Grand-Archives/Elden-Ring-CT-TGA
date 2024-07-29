@@ -1,0 +1,18 @@
+{
+  Author: Igromanru
+  Description: Searches for an address by ID in a param
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local id =  --enter ID
+local paramName = "" -- enter Param Name here
+--------------------------------------------------------
+local address = paramUtils:getIdAddressInParam(paramName, id)
+if(address ~= nil and address > 0) then
+  print("Your address is "..address.." (0x"..paramUtils:toHex(address)..")")
+else
+  print("The address for ID "..id.." (0x"..paramUtils:toHex(id)..") couldn't be found in param "..paramName)
+end
+disableMemrec(memrec)
+[DISABLE]

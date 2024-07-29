@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104496</ID>
+  <Description>"staminaConsumptionRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+1F4</Address>
+</CheatEntry>

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108137</ID>
+  <Description>"ID:34 &lt; Leonine Misbegotten"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*22</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

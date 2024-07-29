@@ -1,0 +1,85 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local changeMagic_addr = AOBScanModuleUnique(process, "?? 89 5c ?? ?? ?? 89 74 ?? ?? 57 ?? 83 ec ?? ?? 8b c2 8b f9 ?? 8b c8")
+
+function changeMagic(magicSlot, magicId)
+	local function checkMagicSlot(PlayerGameData, slot)
+		local magicSlots = readInteger(PlayerGameData + 0xA74) - 1
+
+		if slot > magicSlots then slot = magicSlots end
+
+		if slot < 0 or slot > 13 then
+			error("invalid slot", 2)
+		end
+
+		return slot
+	end
+
+	local function isAttuned(EquipMagicData, id)
+		if id == -1 then return false end
+
+		for i=0,13 do
+			if readInteger(EquipMagicData + i*8 + 0x10) == id then
+				return true
+			end
+		end
+
+		return false
+	end
+
+	local GameDataMan = readPointer("GameDataMan")
+	local PlayerGameData = readPointer(GameDataMan + 0x8)
+	local EquipInventoryData = readPointer(PlayerGameData + 0x5D0)
+	local EquipMagicData = readPointer(PlayerGameData + 0x530)
+
+	local tailDataIdx = readInteger(EquipInventoryData + 0x1C)
+
+	if not magicSlot or magicSlot == nil then magicSlot = 0 end
+	if not magicId or magicId == nil then magicId = -1 end
+
+	if isAttuned(EquipMagicData, magicId) then return false end
+	magicSlot = checkMagicSlot(PlayerGameData, magicSlot)
+
+	local mem = allocateMemory(128, getAddress(process))
+	writeInteger(mem + 0x08, magicSlot)
+
+    if isDlcMagic(magicId) and not isOwnDlc(1) then
+		magicId = -1
+    end
+
+	if magicId and magicId ~= -1 and magicId ~= 0xFFFFFFFF then
+		if magicId > 0x40000000 then magicId = magicId - 0x40000000 end
+		local idx = getItemIdx(magicId + 0x40000000)
+		if idx then
+			writeInteger(mem + 0x48, idx + tailDataIdx - 1)
+            writeInteger(mem + 0x4C, magicId + 0x40000000)
+            writeInteger(mem + 0x50, magicId + 0xB0000000)
+		else
+			writeInteger(mem + 0x48, 0xFFFFFFFF)
+            writeInteger(mem + 0x4C, 0x4FFFFFFF)
+            writeInteger(mem + 0x50, 0xBFFFFFFF)
+		end
+   else
+		writeInteger(mem + 0x48, 0xFFFFFFFF)
+		writeInteger(mem + 0x4C, 0x4FFFFFFF)
+		writeInteger(mem + 0x50, 0xBFFFFFFF)
+	end
+
+	local r = executeCodeEx(0, 100, changeMagic_addr, magicSlot, mem)
+	deAlloc(mem)
+	return r
+end
+
+function addMagic(magicId)
+	changeMagic(13, magicId)
+end
+
+function removeMagic(magicSlot)
+	changeMagic(slot or 0, -1)
+end
+
+[DISABLE]
+changeMagic = nil
+addMagic = nil
+removeMagic = nil

@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>107582</ID>
+  <Description>"Melina"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>249</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107583"/>
+    <id id="107584"/>
+    <id id="107585"/>
+    <id id="107586"/>
+    <id id="107587"/>
+    <id id="107588"/>
+    <id id="107589"/>
+    <id id="107590"/>
+    <id id="107591"/>
+    <id id="107592"/>
+    <id id="107593"/>
+    <id id="107594"/>
+    <id id="107595"/>
+    <id id="107596"/>
+    <id id="107597"/>
+    <id id="107598"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,131 @@
+<CheatEntry>
+  <ID>104853</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>LastGoodsHighlightedAddr</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="104854"/>
+    <id id="104855"/>
+    <id id="104856"/>
+    <id id="104857"/>
+    <id id="104858"/>
+    <id id="104859"/>
+    <id id="104860"/>
+    <id id="104861"/>
+    <id id="104862"/>
+    <id id="104863"/>
+    <id id="104864"/>
+    <id id="104865"/>
+    <id id="104866"/>
+    <id id="104867"/>
+    <id id="104868"/>
+    <id id="104869"/>
+    <id id="104870"/>
+    <id id="104871"/>
+    <id id="104872"/>
+    <id id="104873"/>
+    <id id="104874"/>
+    <id id="104875"/>
+    <id id="104876"/>
+    <id id="104877"/>
+    <id id="104878"/>
+    <id id="104879"/>
+    <id id="104880"/>
+    <id id="104881"/>
+    <id id="104882"/>
+    <id id="104883"/>
+    <id id="104884"/>
+    <id id="104885"/>
+    <id id="104886"/>
+    <id id="104887"/>
+    <id id="104888"/>
+    <id id="104889"/>
+    <id id="104890"/>
+    <id id="104891"/>
+    <id id="104892"/>
+    <id id="104893"/>
+    <id id="104894"/>
+    <id id="104895"/>
+    <id id="104896"/>
+    <id id="104897"/>
+    <id id="104898"/>
+    <id id="104899"/>
+    <id id="104900"/>
+    <id id="104901"/>
+    <id id="104902"/>
+    <id id="104903"/>
+    <id id="104904"/>
+    <id id="104905"/>
+    <id id="104906"/>
+    <id id="104907"/>
+    <id id="104908"/>
+    <id id="104909"/>
+    <id id="104910"/>
+    <id id="104911"/>
+    <id id="104912"/>
+    <id id="104913"/>
+    <id id="104914"/>
+    <id id="104915"/>
+    <id id="104916"/>
+    <id id="104917"/>
+    <id id="104918"/>
+    <id id="104919"/>
+    <id id="104920"/>
+    <id id="104921"/>
+    <id id="104922"/>
+    <id id="104923"/>
+    <id id="104924"/>
+    <id id="104925"/>
+    <id id="104926"/>
+    <id id="104927"/>
+    <id id="104928"/>
+    <id id="104929"/>
+    <id id="104930"/>
+    <id id="104931"/>
+    <id id="104932"/>
+    <id id="104933"/>
+    <id id="104934"/>
+    <id id="104935"/>
+    <id id="104936"/>
+    <id id="104937"/>
+    <id id="104938"/>
+    <id id="104939"/>
+    <id id="104940"/>
+    <id id="104941"/>
+    <id id="104942"/>
+    <id id="104943"/>
+    <id id="104944"/>
+    <id id="104945"/>
+    <id id="104946"/>
+    <id id="104947"/>
+    <id id="104948"/>
+    <id id="104949"/>
+    <id id="104950"/>
+    <id id="104951"/>
+    <id id="104952"/>
+    <id id="104953"/>
+    <id id="104954"/>
+    <id id="104955"/>
+    <id id="104956"/>
+    <id id="104957"/>
+    <id id="104958"/>
+    <id id="104959"/>
+    <id id="104960"/>
+    <id id="104961"/>
+    <id id="104962"/>
+    <id id="104963"/>
+    <id id="104964"/>
+    <id id="104965"/>
+    <id id="104966"/>
+    <id id="104967"/>
+    <id id="104968"/>
+    <id id="104969"/>
+    <id id="104970"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

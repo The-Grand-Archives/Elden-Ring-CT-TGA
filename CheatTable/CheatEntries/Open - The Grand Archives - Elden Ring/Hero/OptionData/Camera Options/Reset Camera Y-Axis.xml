@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>100994</ID>
+  <Description>"Reset Camera Y-Axis"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>10</Offset>
+    <Offset>58</Offset>
+  </Offsets>
+</CheatEntry>

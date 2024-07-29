@@ -1,0 +1,10 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+for i=0,13 do
+	removeMagic(i)
+end
+
+disableMemrec(memrec)
+
+[DISABLE]

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100617</ID>
+  <Description>"MaxMp"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>20</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

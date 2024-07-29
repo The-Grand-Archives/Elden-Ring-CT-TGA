@@ -1,0 +1,14 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local GameDataMan = readPointer("GameDataMan")
+local PlayerGameData = readPointer(GameDataMan + 8)
+local GestureGameData = readPointer(PlayerGameData + 0x8D8)
+
+writeInteger(GestureGameData + 0x6C, 111) -- The Carian Oath
+writeInteger(GestureGameData + 0xA0, 193) -- Fetal Position
+writeInteger(GestureGameData + 0xD0, 221) -- ?GoodsName?
+
+disableMemrec(memrec)
+
+[DISABLE]

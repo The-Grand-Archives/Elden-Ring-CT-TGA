@@ -1,0 +1,497 @@
+{
+CSCRIPT QoL prefix (V2), by tremwil (minusone12)
+
+Allows one to prepend their auto assmbler scripts with the CSCRIPT header to
+obtain greater control over how C blocks are compiled/freed by Cheat Engine.
+Also fixes a bug with the normal C blocks regarding resolution of external
+functions, and allows including MinGW headers in C blocks.
+
+When the script is activated, a thread will be created with the on_enable
+function defined in the [ENABLE] body. When the script is deactivated, the
+on_disable function *also defined in the [ENABLE] body* will run, and the
+code will be freed once it exits. This cannot usually be achieved in regular
+CE C blocks, since they are freed instantly as soon as the script is disabled.
+}
+// {cscript sync=... timeout=... ontimeout=... gensymbols=...}
+//
+// sync (true/false, default true): If true, the lua script will wait (and thus
+// CE will "hang") until the C function returns, or the timeout expires.
+//
+// timeout: Amount of time (ms) to wait until the ontimeout action is called,
+// provided the script's thread is still running after this time. This applies
+// to both sync and async modes. Default is 1000. Set to 0/none to completely
+// disable timeout (e.g. if you need your thread to run forever).
+//
+// ontimeout: Action that will be performed when a script times out. Can be:
+// - "notify": Print a warning inside the console, and display a message when
+//   the thread does terminate. This is the default option.
+// - "kill": Kill the thread (and free the code if free=true).
+// - "break": Break the thread and open it inside the lua debugger. You
+//   need to have attached the debugger yourself previously for this.
+// - "lua(f)": Call the given lua function f with the following arguments (in order):
+//      - memrec ID (number)
+//      - thread ID (number)
+//      - isEnableThread (bool)
+//
+// gensymbols (true/false, default false): If true, will export all symbols
+// defined in this C script as CE user-defined symbols, and also generate lineinfo
+// for the script. This essentially places the C parts of the script in a hidden
+// memory record, and lets CE autocompile it. Good for debugging. Uses the uid
+// as the prefix tag for the generated code.
+{
+Other potentially relevant information:
+
+- C code that uses this header will be compiled (and executed, if an entry point
+  is set) before any auto assembler, lua or ccode/luacode, so you can interact
+  with it from AA/lua in the [ENABLE] section if you used gensymbols. However, for
+  the same reason you cannot interact with it from AA/lua in the disable section
+  if sync=true (but you can, albeit not safely, if sync=false).
+
+- If you still wish to use normal C blocks in your code, use the prefix=... option
+  with any string, and they will be omitted from the custom C block.
+
+- If you wish to have different sync/timeout settings for the [ENABLE] and [DISABLE]
+  sections, put a different CSCRIPT header under these labels, as with the example
+  below:
+}
+// Example: Thread that runs indefinitely until script is disabled:
+// [ENABLE]
+// {cscript sync=false timeout=none}
+// {$c}
+// int kill = 0;
+// int killed = 0;
+// int on_enable() {
+//     while (!kill) {
+//         // Do some epic thing
+//         Sleep(5);
+//     }
+//     killed = 1;
+//     return 0;
+// }
+// int on_disable() {
+//     kill = 1;
+//     while (!killed) {
+//         Sleep(5);
+//     }
+//     Sleep(10);
+//     return 0;
+// }
+// {$asm}
+// [DISABLE]
+// {cscript sync=true timeout=1000}
+//
+[ENABLE]
+{$c}
+#include <winapi/windows.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <tga/celua.h>
+
+typedef void (*ScriptEntryPoint)();
+
+typedef enum _CScriptTimeoutType {
+    timeoutType_Notify = 0,
+    timeoutType_Kill = 1,
+    timeoutType_Break = 2,
+    timeoutType_Lua = 3
+} CScriptTimeoutType;
+
+typedef struct _CScriptInitData {
+    BOOL isEnable;
+    UINT32 enableThreadId; // passed to disable thread only, 0 if thread was already terminated
+    UINT64 memrec;
+    BOOL isAutoAlloc; // if code was allocated by CE via a separate memrec
+    long timeoutMs;
+    CScriptTimeoutType timeoutType;
+    char luafun[128];
+} CScriptInitData;
+
+CScriptInitData CScript_StaticInitData;
+
+// Free a C script compiled via a lua call to `compile` given the address of
+// any of its symbols. Not used right now, we just mem leak when user fails
+// to provide the required symbols in manual compile mode
+DWORD CScript_FreeRegion(void* addr) {
+    MEMORY_BASIC_INFORMATION mbi;
+    if (!VirtualQuery(addr, &mbi, sizeof(mbi))) {
+        CELUA_ExecuteFunctionAsync("asyncPrint(\"CSCRIPT error: VirtualQuery failed\")", 0);
+        return 1;
+    }
+    if (!VirtualFree(mbi.AllocationBase, 0, MEM_RELEASE)) {
+        CELUA_ExecuteFunctionAsync("asyncPrint(\"CSCRIPT error: VirtualFree failed\")", 0);
+        return 2;
+    }
+    return 0;
+}
+
+void CScript_TimeOutEvtDispatch(HANDLE hThread, DWORD threadId, CScriptInitData* initData) {
+    char buffer[1024];
+    switch (initData->timeoutType) {
+    case timeoutType_Notify:
+        sprintf(buffer, "asyncPrint(\"CSCRIPT warning: thread %x (memrec %I64d) has timed out\")", threadId, initData->memrec);
+        break;
+    case timeoutType_Kill:
+        TerminateThread(hThread, 0);
+        sprintf(buffer, "asyncPrint(\"CSCRIPT warning: thread %x (memrec %I64d) has timed out and been killed\")", threadId, initData->memrec);
+        break;
+    case timeoutType_Break:
+        CELUA_ExecuteFunctionAsync("queue(function() debugProcess(); debug_breakThread(parameter); debug_updateGUI(); end)", threadId);
+        sprintf(buffer, "asyncPrint(\"CSCRIPT warning: thread %x (memrec %I64d) has timed out; breaking...\")", threadId, initData->memrec);
+        break;
+    case timeoutType_Lua:
+        sprintf(buffer, "queue(function() %s(%d, %d, %d) end)", initData->luafun, initData->memrec, threadId, initData->isEnable);
+        CELUA_ExecuteFunctionAsync(buffer, 0);
+        return;
+    default:
+        return;
+    }
+    CELUA_ExecuteFunctionAsync(buffer, 0);
+}
+
+// Automatically run and free C script according to initData
+DWORD CScript_RunAndFree(ScriptEntryPoint entry) {
+    // Firstly, copy the static CScriptInitData (not thread safe blah blah blah)
+    char buffer[1024];
+    CScriptInitData initData;
+    memcpy(&initData, &CScript_StaticInitData, sizeof(CScriptInitData));
+
+    // Get information on the memory pages the C block has been allocated in
+    MEMORY_BASIC_INFORMATION mbi;
+    if (!VirtualQuery(entry, &mbi, sizeof(mbi))) {
+        CELUA_ExecuteFunctionAsync("asyncPrint(\"CSCRIPT error: VirtualQuery failed\")", 0);
+        return 1;
+    }
+
+    // If we are the disable thread, make sure the enable thread has terminated before we free
+    HANDLE hEnableThread = 0;
+    if (!initData.isEnable && initData.enableThreadId) {
+        hEnableThread = OpenThread(THREAD_QUERY_INFORMATION, 0, initData.enableThreadId);
+    }
+
+    // Attempt to create a thread for the script
+    DWORD threadId;
+    HANDLE hThread = CreateThread(0, 0, entry, 0, 0, &threadId);
+
+    if (!hThread) {
+        CELUA_ExecuteFunctionAsync("asyncPrint(\"CSCRIPT error: CreateThread failed\")", 0);
+        return 2;
+    }
+    // If we are monitoring the enable thread, send our ID back to lua
+    if (initData.isEnable) {
+        sprintf(buffer, "CScript_RegisterEnableThreadId(%d, %d)", initData.memrec, threadId);
+        CELUA_ExecuteFunctionAsync(buffer, 0);
+    }
+
+    // Wait until thread exits, or timeout is reached
+    DWORD exitCode = 0, timeThreshold = clock() + initData.timeoutMs;
+    BOOL timedOut = 0;
+
+    while (GetExitCodeThread(hThread, &exitCode) && exitCode == STILL_ACTIVE) {
+        if (!timedOut && initData.timeoutMs != 0 && clock() > timeThreshold) {
+            CScript_TimeOutEvtDispatch(hThread, threadId, &initData);
+            timedOut = 1;
+        }
+        Sleep(10);
+    }
+    CloseHandle(hThread);
+
+    // If exit code is not 0 or we timed out without killing the thread, print return info to the CE console
+    if (exitCode != 0 || (timedOut && initData.timeoutType != timeoutType_Kill)) {
+        sprintf(buffer, "asyncPrint(\"CSCRIPT: thread returned with exit code %d\")", exitCode);
+        CELUA_ExecuteFunctionAsync(buffer, 0);
+    }
+
+    if (hEnableThread != 0) {
+        if (GetExitCodeThread(hEnableThread, &exitCode) && exitCode == STILL_ACTIVE) {
+            sprintf(buffer, "asyncPrint(\"CSCRIPT warning: enable thread %x (memrec %I64d) is still running\")", initData.enableThreadId, initData.memrec);
+            CELUA_ExecuteFunctionAsync(buffer, 0);
+        }
+        while (GetExitCodeThread(hEnableThread, &exitCode) && exitCode == STILL_ACTIVE) {
+            if (!timedOut && initData.timeoutMs != 0 && clock() > timeThreshold) {
+                CScript_TimeOutEvtDispatch(hEnableThread, initData.enableThreadId, &initData);
+                timedOut = 1;
+            }
+            Sleep(10);
+        }
+        CloseHandle(hEnableThread);
+    }
+
+    if (!initData.isEnable) {
+        // Automatically free script and return according to free method
+        if (!initData.isAutoAlloc && !VirtualFree(mbi.AllocationBase, 0, MEM_RELEASE)) {
+            CELUA_ExecuteFunctionAsync("asyncPrint(\"CSCRIPT error: VirtualFree failed\")", 0);
+            return 3;
+        }
+        sprintf(buffer, "CScript_NotifyScriptDisableComplete(%I64d)", initData.memrec);
+        CELUA_ExecuteFunctionAsync(buffer, 0);
+    }
+    return 0;
+}
+
+{$asm}
+{$lua}
+if syntaxcheck then return end
+
+autoAssemble([[
+loadlibrary(luaclient-x86_64.dll)
+loadlibrary(dbghelp.dll)
+]])
+openLuaServer('CELUASERVER')
+
+for i=0,memrec.Count-1 do
+    if not memrec.Child[i].Active then
+        memoryrecord_delete(memrec.Child[i])
+    end
+end
+
+local CScript_MainMemrec = memrec
+local lastClickedAAMemrec = 0
+local activeCScripts = {}
+
+local isBlocking = false
+function asyncPrint(str)
+    queue(function() print(str) end)
+    --else print(str) end
+end
+function asyncPrintf(fmt, ...)
+    asyncPrint(string.format(fmt, unpack(arg)))
+end
+
+function CScript_RegisterEnableThreadId(memrecId, threadId)
+    --print(string.format("thread id register: %d -> %d", memrecId, threadId))
+    if activeCScripts[memrecId] ~= nil then
+        activeCScripts[memrecId].threadId = threadId
+    end
+end
+
+function CScript_NotifyScriptDisableComplete(memrecId)
+    --print(string.format("Script notify disable: %d", memrecId))
+    local scriptObj = activeCScripts[memrecId]
+    if scriptObj == nil then return end
+    if scriptObj.codeMemrec ~= nil then
+        scriptObj.codeMemrec.Active = false
+        memoryrecord_delete(scriptObj.codeMemrec)
+    end
+    activeCScripts[memrecId] = nil
+end
+
+local function hardError(script, msg)
+    if script.Count == 0 then script.addText("ERROR")
+    else script.setString(0, "ERROR") end
+    error(msg)
+end
+
+-- parse the {CSCRIPT = ...} prefix
+local function getCScriptSettings(script, line)
+    local line = script.getString(line)
+    if not string.match(line:lower(), "^{cscript[^}]*}") then return nil end
+
+    local s = {
+        sync = true,
+        timeout = 1000,
+        ontimeout = 0,
+        gensymbols = false,
+        luafun = "",
+    }
+
+    local lookup = {}
+    lookup["notify"] = 0
+    lookup["kill"] = 1
+    lookup["break"] = 2
+
+    for k, v in string.gmatch(line, "([^%s}]+)%s*=%s*([^%s}]+)") do
+        if k:lower() == "sync" then
+            if v:lower() == "false" then s.sync = false
+            elseif v:lower() == "true" then s.sync = true
+            else
+                hardError(script, "CScript errror: Invalid value for parameter sync: \"" .. v .. "\"")
+            end
+        elseif k:lower() == "timeout" then
+            if v:lower() == "none" then
+                 s.timeout = 0
+            else
+                 s.timeout = math.floor(tonumber(v))
+            end
+        elseif k:lower() == "ontimeout" then
+            local p, f = string.match(v, "^(%l+)%(([_%w%.]+)%)")
+            if p ~= nil and p:lower() == "lua" then
+                if string.len(f) > 127 then error("CScript errror: provided lua function name too long") end
+                s.ontimeout = 3
+                s.luafun = f
+            elseif lookup[v:lower()] ~= nil then
+                s.ontimeout = lookup[v:lower()]
+            else
+                hardError(script, "CScript errror: Invalid value for parameter ontimeout: \"" .. v .. "\"")
+            end
+        elseif k:lower() == "gensymbols" then
+            if v:lower() == "false" then s.gensymbols = false
+            elseif v:lower() == "true" then s.gensymbols = true
+            else
+                hardError(script, "CScript errror: Invalid value for parameter gensymbols: \"" .. v .. "\"")
+            end
+        else
+            hardError(script, "CScript errror: Unknown parameter \"" .. k .. "\"")
+        end
+    end
+    return s
+end
+
+local function runCScript(scriptObj, params, isEnable)
+    local addr = isEnable and scriptObj.enableAddr or scriptObj.disableAddr
+
+    writeInteger("CScript_StaticInitData+00", isEnable and 1 or 0)
+
+    if (not isEnable) and scriptObj.enableThread.Result == 259 and scriptObj.threadId then
+        writeInteger("CScript_StaticInitData+04", scriptObj.threadId)
+    else
+        writeInteger("CScript_StaticInitData+04", 0)
+    end
+    writeInteger("CScript_StaticInitData+8", scriptObj.mr.Id)
+    writeQword("CScript_StaticInitData+10", scriptObj.codeMemrec and 1 or 0)
+    writeInteger("CScript_StaticInitData+14", params.timeout)
+    writeInteger("CScript_StaticInitData+18", params.ontimeout)
+    writeString("CScript_StaticInitData+1C", params.luafun)
+
+    local thread = createRemoteThread("CScript_RunAndFree", addr)
+    if isEnable then scriptObj.enableThread = thread
+    else scriptObj.disableThread = thread end
+
+    if (params.timeout ~= 0 and params.sync) then
+        local threshold = os.clock() + params.timeout/1000
+        while (thread.Result == 259 and os.clock() < threshold) do
+            Sleep(10)
+        end
+    end
+end
+
+local function prologue(script, syntaxcheck)
+    if syntaxcheck then return end
+    if script.Count == 0 then return end
+    -- Try to parse the header
+    local params = getCScriptSettings(script, 0)
+    if params == nil then return end
+    -- Copy the reference to the current memrec being enabled/disabled
+    -- probably not necessary, the callback shouldn't trigger unless some
+    -- async memrec nonsense is going on
+    local memrec = lastClickedAAMemrec
+
+    if not memrec.Active then
+        if activeCScripts[memrec.Id] ~= nil then
+            hardError(script, "CScript error: Trying to re-enable a CScript which is still running")
+        end
+
+        local cCode = {}
+        local otherCode = {}
+        local lang = "asm"
+        for i=0,script.Count-1 do
+            local line = script.getString(i)
+            -- Do not allow recursive CSCRIPT header
+            if getCScriptSettings(script, i) ~= nil then line = "" end
+            local lineLower = line:lower()
+            if (lang == "asm") then
+                if (lineLower == "{$c}") then
+                    lang = "c"
+                    table.insert(otherCode, "")
+                    goto continue
+                elseif (lineLower == "{$lua}") then
+                    lang = "lua"
+                end
+            elseif (lineLower == "{$asm}") then
+                lang = "asm"
+            end
+            -- Don't change the line count of the generated scripts to make
+            -- finding an error easier
+            if (lang == "c") then
+                table.insert(cCode, line)
+                table.insert(otherCode, "")
+            else
+                table.insert(otherCode, line)
+                table.insert(cCode, "")
+            end
+            ::continue::
+        end
+        script.setText(table.concat(otherCode, "\n"))
+
+        local scriptObj = { mr = memrec }
+
+        -- Manual compile
+        if not params.gensymbols then
+            local symbols, err = compile(table.concat(cCode, "\n"))
+            if (symbols == nil) then
+                hardError(script, string.format("CScript compilation error: %s", err))
+            else
+                scriptObj.enableAddr = symbols.on_enable
+                scriptObj.disableAddr = symbols.on_disable
+            end
+        -- auto compile via new memrec
+        else
+            local al = getAddressList()
+            local mr = al.createMemoryRecord()
+            mr.Description = memrec.Description
+            mr.Type = vtAutoAssembler
+            mr.Script = string.format("[ENABLE]\n{$c prefix=c%d}\n%s\n{$asm}\n[DISABLE]", memrec.Id, table.concat(cCode, "\n"))
+            mr.appendToEntry(CScript_MainMemrec)
+            CScript_MainMemrec.Options = "[moAlwaysHideChildren]"
+            mr.Active = true
+            -- Not even sure this works lmao
+            if not mr.Active then
+                memoryrecord_delete(mr)
+                hardError(script, "CScript compilation error (remove gensymbols flag for more info")
+            end
+            scriptObj.enableAddr = getAddressSafe(string.format("c%d.on_enable", memrec.Id))
+            scriptObj.disableAddr = getAddressSafe(string.format("c%d.on_disable", memrec.Id))
+            scriptObj.codeMemrec = mr
+        end
+
+        if (scriptObj.enableAddr == nil or scriptObj.enableAddr == nil) then
+            if (scriptObj.codeMemrec) then
+                scriptObj.codeMemrec.Active = false
+                memoryrecord_delete(scriptObj.codeMemrec)
+            end
+            hardError(script, "CScript error: \"on_enable\" or \"on_disable\" function not found")
+        end
+
+        -- Write info and start the thread
+        activeCScripts[memrec.Id] = scriptObj
+        runCScript(scriptObj, params, true)
+    else
+        local scriptObj = activeCScripts[memrec.Id]
+        if scriptObj == nil then
+             hardError(script, "CScript error: Trying to disable a script that was never registered")
+        end
+        runCScript(scriptObj, params, false)
+    end
+end
+
+if (CScript_PrologueHookId ~= nil) then
+    unregisterAutoAssemblerPrologue(CScript_PrologueHookId)
+end
+
+CScript_PrologueHookId = registerAutoAssemblerPrologue(prologue)
+
+function onMemRecPreExecute(memrec, newstate)
+    if (memrec.Type == vtAutoAssembler) then
+        lastClickedAAMemrec = memrec
+    end
+    if (CScript_mrPreExecPrvCallback) then
+        CScript_mrPreExecPrvCallback(memrec, newstate)
+    end
+end
+
+{$asm}
+[DISABLE]
+
+{$lua}
+if syntaxcheck then return end
+onMemRecPreExecute = nil
+
+if (CScript_PrologueHookId ~= nil) then
+    unregisterAutoAssemblerPrologue(CScript_PrologueHookId)
+end
+
+for i=0,memrec.Count-1 do
+    if not memrec.Child[i].Active then
+        memoryrecord_delete(memrec.Child[i])
+    end
+end

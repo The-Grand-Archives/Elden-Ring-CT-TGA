@@ -1,0 +1,557 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START PatchInfo class
+	Author: Igromanru
+	Description: Entity with informations (address, value and valueType).
+					Also enum TYPE, with all possible value types.
+]]--
+PatchInfo = {
+	address = 0,
+	value = 0,
+	valueType = 0,
+	binaryOffset = 0,
+	BINARYOFFSET = {
+		ONE = 1,
+		TWO = 2,
+		THREE = 4,
+		FOUR = 8,
+		FIVE = 16,
+		SIX = 32,
+		SEVEN = 64,
+		EIGHT = 128,
+	},
+	TYPE = {
+		BINARY = 0,
+		BYTE = 1,
+		TWO_BYTE = 2,
+		FOUR_BYTE = 3,
+		EIGHT_BYTE = 4,
+		FLOAT = 5,
+	}
+}
+
+function PatchInfo:new(address, value, valueType, binaryOffset)
+	local o = {}
+	setmetatable(o, self)
+	self.__index = self
+	if(address ~= nil) then
+		o.address = address
+	end
+	if(value ~= nil) then
+		o.value = value
+	end
+	if(valueType ~= nil) then
+		o.valueType = valueType
+	end
+	if(binaryOffset ~= nil) then
+		o.binaryOffset = binaryOffset
+	end
+
+	return o
+end
+
+function PatchInfo:getBinaryOffset(value)
+	local result = value
+	if(value == 0) then
+		result = PatchInfo.BINARYOFFSET.ONE
+	elseif(value == 1) then
+		result = PatchInfo.BINARYOFFSET.TWO
+	elseif(value == 2) then
+		result = PatchInfo.BINARYOFFSET.THREE
+	elseif(value == 3) then
+		result = PatchInfo.BINARYOFFSET.FOUR
+	elseif(value == 4) then
+		result = PatchInfo.BINARYOFFSET.FIVE
+	elseif(value == 5) then
+		result = PatchInfo.BINARYOFFSET.SIX
+	elseif(value == 6) then
+		result = PatchInfo.BINARYOFFSET.SEVEN
+	elseif(value == 7) then
+		result = PatchInfo.BINARYOFFSET.EIGHT
+	end
+	return result
+end
+
+--[[END PatchInfo class]]--
+
+--[[START ParamUtils class
+	Author: Igromanru
+	Description: Utils class for Params
+]]--
+ParamUtils = {
+	masterParamTable = {},
+	patchBackUp = {},
+    patchBackUpOld = {},
+}
+
+function ParamUtils:new()
+	local function readIntegerSafe(Input)
+		local Value = readInteger(Input)
+		if Value < 2147483647 then
+			return Value
+		else
+			return Value - 0x100000000
+		end
+	end
+	local function InitializeAddress()
+      registerSymbol("ParamPatch", "[CSRegulationManager]+18", true)
+	end
+	local o = {}
+	setmetatable(o, self)
+	self.__index = self
+
+    InitializeAddress()
+	o:paramIndexer()
+	return o
+end
+
+function ParamUtils:destroy()
+	unregisterSymbol("ParamPatch")
+end
+
+function ParamUtils:toHex(number, length)
+	local result = ""
+	if(length ~= nil and length > 0) then
+		result = string.format("%0"..length.."X",number)
+	else
+		result = string.format("%X",number)
+	end
+	return result
+end
+
+function ParamUtils:isEmpty(value)
+  local result = value == nil
+  if(not result) then
+    if(type(value) == "string") then
+	  result = value == ""
+	elseif(type(value) == "table") then
+	  result = true
+	  for key,tabl in pairs(value) do
+        result = key == nil
+        break
+      end
+	end
+  end
+  return result
+end
+
+function ParamUtils:isNotEmpty(value)
+  return not self:isEmpty(value)
+end
+
+function ParamUtils:logError(message)
+	local output = "ParamUtils Error:\r\n"..message
+	print(output)
+	error(output)
+end
+
+function ParamUtils:paramIndexer()
+	local SoloParamRepository = getAddress("ParamPatch")
+	local Start = readQword(SoloParamRepository)
+	local End = readQword(SoloParamRepository+8)
+	local Count = (End-Start)/8
+	self.masterParamTable = {}
+
+	for i = 0, Count - 1 do
+	  local ParamOffset = readQword(Start+i*8)
+	  local ParamString = "Unknown"
+	  if readInteger(ParamOffset+0x28) > 7 then
+		 ParamString = readString(readQword(ParamOffset+0x18),90,true)
+	  else
+		 ParamString = readString(ParamOffset+0x18,90,true)
+	  end
+	  self.masterParamTable[ParamString] = ParamOffset
+	end
+end
+
+function ParamUtils:getParamAddress(param)
+  return self.masterParamTable[param]
+end
+
+function ParamUtils:getIdAddress(idTable, Id)
+	local result = idTable[Id]
+	if(self:isEmpty(result) or result < 0) then
+		self:logError("ID: "..Id.." (0x"..self:toHex(Id) ..") couldn't be found")
+	end
+	return result
+end
+
+function ParamUtils:getIdFromAddress(idTable, address)
+  local result = 0
+  if(self:isNotEmpty(idTable) and self:isNotEmpty(address)) then
+    for id,addr in pairs(idTable) do
+	  if(addr == address) then
+	    result = id
+	    break
+	  end
+	end
+  end
+  if(result == 0) then
+    self:logError("ID for address: "..self:toHex(address).." couldn't be found")
+  end
+  return result
+end
+
+function ParamUtils:getParamIdTable(ParamName)
+	local IDTable = {}
+	local ParamAddr = readQword(readQword(self.masterParamTable[ParamName]+0x80)+0x80)
+	local TableCount = byteTableToWord(readBytes(ParamAddr+0x0A,2,true))
+	for i=0,TableCount-1 do
+		local PID = readInteger(ParamAddr+0x40+0x18*i)
+		local IDO = readInteger(ParamAddr+0x48+0x18*i)
+		IDTable[PID] = ParamAddr + IDO
+	end
+	return IDTable
+end
+
+function ParamUtils:getIdAddressInParam(paramName, id)
+	local result = 0
+	local idTable = self:getParamIdTable(paramName)
+
+	if(idTable ~= nil) then
+		result = self:getIdAddress(idTable, id)
+	else
+		self:logError("Addresses for SoloParamRepository: '"..paramName.."' couldn't be found")
+	end
+	return result
+end
+
+function ParamUtils:getIdFromAddressInParam(paramName, address)
+	local result = 0
+	local idTable = self:getParamIdTable(paramName)
+
+	if(self:isNotEmpty(idTable)) then
+		result = self:getIdFromAddress(idTable, address)
+	end
+	return result
+end
+
+function ParamUtils:getIdByAddressInAnyParam(address)
+  local result = 0
+  if(self.masterParamTable ~= nil) then
+    for param,paramAddr in pairs(self.masterParamTable) do
+	  local idTable = self:getParamIdTable(param)
+	  if(self:isNotEmpty(idTable)) then
+		local id = self:getIdFromAddress(idTable, address)
+		if(id > 0) then
+		  result = id
+		  break
+		end
+	  end
+	end
+  end
+  return result
+end
+
+function ParamUtils:getAllAddressFromParam(paramName)
+	local result = {}
+	local idTable = self:getParamIdTable(paramName)
+
+	if(self:isNotEmpty(idTable)) then
+		for id,address in pairs(idTable) do
+			table.insert(result, address)
+		end
+	end
+	return result
+end
+
+function ParamUtils:paramIterator(ParamName,ChangeTable,uuid)
+	local IDTable = self:getParamIdTable(ParamName)
+	if uuid ~= nil then --Make a table for backups
+		if self.patchBackUpOld == nil then
+			self.patchBackUpOld = {}
+		end
+		self.patchBackUpOld[uuid] = {}
+		for k,v in pairs(ChangeTable) do
+			local Backup = {}
+			local _,DataLength = string.gsub(v[3], "%x+","")
+			local idAddress = self:getIdAddress(IDTable,v[1])
+			if self:isNotEmpty(idAddress) then
+				Backup[1] = idAddress + v[2]
+				Backup[2] = readBytes(Backup[1],DataLength,true)
+				table.insert(self.patchBackUpOld[uuid],Backup)
+				self:paramPatcher(idAddress,v[2],v[3],v[4])
+			end
+		end
+	else
+		for k,v in pairs(ChangeTable) do
+			local idAddress = self:getIdAddress(IDTable,v[1])
+			if self:isNotEmpty(idAddress) then
+				self:paramPatcher(idAddress,v[2],v[3],v[4])
+			end
+		end
+	end
+end
+
+function ParamUtils:paramPatcher(idAddress,DataOffset,Data,Symbol)
+	local WriteAddr = idAddress+DataOffset
+	local HexTable = {}
+	if Symbol == nil then
+		for word in string.gmatch(Data, "%x+") do table.insert(HexTable,tonumber(word,16)) end
+		writeBytes(WriteAddr,HexTable)
+	else
+		registerSymbol(Symbol,WriteAddr,true)
+	end
+end
+
+function ParamUtils:paramDepatcher(uuid)
+  if(self.patchBackUpOld[uuid] ~= nil) then
+    for k,v in pairs(self.patchBackUpOld[uuid]) do
+	  if(self:isNotEmpty(v)) then
+        writeBytes(v[1],v[2])
+	  end
+    end
+    self.patchBackUpOld[uuid] = nil
+  end
+end
+
+function ParamUtils:patchMultipleOffsets(paramName, id, patchInfoTable, uuid)
+	if(self.patchBackUp[uuid] == nil) then
+		local address = getIdAddressInParam()
+		for key,patchInfo in pairs(patchInfoTable) do
+			patchInfo.address = address
+			self:patchValueWithBackup(patchInfo,uuid)
+		end
+	else
+        self:logError("The UUID "..uuid.." is already in use.")
+	end
+end
+
+function ParamUtils:restore(...)
+  local arg = table.pack(...)
+  for key,uuid in pairs(arg) do
+    if(self:isNotEmpty(self.patchBackUp[uuid])) then
+      for index,patchInfo in pairs(self.patchBackUp[uuid]) do
+	    self:patchValue(patchInfo)
+	  end
+	  self.patchBackUp[uuid] = nil
+	end
+  end
+end
+
+function ParamUtils:patchValueWithBackup(patchInfo, uuid)
+	local readValue = self:readValue(patchInfo)
+	local backup = true
+
+	self:patchValue(patchInfo)
+
+	for key,object in pairs(self.patchBackUp[uuid]) do
+		if(object.address == patchInfo.address) then
+			backup = false
+			break
+		end
+	end
+	if(backup) then
+		if(patchInfo.valueType == PatchInfo.TYPE.BINARY) then
+			patchInfo.valueType = PatchInfo.TYPE.BYTE
+		end
+		table.insert(self.patchBackUp[uuid], PatchInfo:new(patchInfo.address, readValue, patchInfo.valueType))
+	end
+end
+
+function ParamUtils:readValue(patchInfo)
+	local value = 0
+	if(patchInfo.valueType == PatchInfo.TYPE.BYTE or patchInfo.valueType == PatchInfo.TYPE.BINARY) then
+		value = self:readByte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.TWO_BYTE) then
+		value = self:read2Byte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.FOUR_BYTE) then
+		value = self:read4Byte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.EIGHT_BYTE) then
+		value = self:read8Byte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.FLOAT) then
+		value = self:readFloat(patchInfo)
+	end
+	return value
+end
+
+function ParamUtils:patchValue(patchInfo)
+	if(patchInfo.valueType == PatchInfo.TYPE.BINARY) then
+		self:writeBinary(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.BYTE) then
+		self:writeByte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.TWO_BYTE) then
+		self:write2Byte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.FOUR_BYTE) then
+		self:write4Byte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.EIGHT_BYTE) then
+		self:write8Byte(patchInfo)
+	elseif(patchInfo.valueType == PatchInfo.TYPE.FLOAT) then
+		self:writeFloat(patchInfo)
+	end
+end
+
+function ParamUtils:writeBinary(patchInfo)
+	if(patchInfo.binaryOffset > 0) then
+		local prevValue = self:readByte(patchInfo)
+		if(patchInfo.value == 0) then
+			patchInfo.value = bAnd(prevValue, ~patchInfo.binaryOffset)
+		else
+			patchInfo.value = bOr(prevValue,patchInfo.binaryOffset)
+		end
+		writeBytes(patchInfo.address, patchInfo.value)
+	else
+		self:logError("To write a binary you've to set the 'binaryOffset'")
+	end
+end
+
+function ParamUtils:writeByte(patchInfo)
+	if(patchInfo.value > 255) then
+		self:logError("Byte can't be bigger then 255")
+	elseif(patchInfo.value < -127) then
+		self:logError("Byte can't be smaller then -127")
+	else
+		writeBytes(patchInfo.address, patchInfo.value)
+	end
+end
+
+function ParamUtils:write2Byte(patchInfo)
+	if(patchInfo.value > 65535) then
+		self:logError("2 Bytes can't be bigger then 65535")
+	elseif(patchInfo.value < -32767) then
+		self:logError("2 Bytes can't be smaller then -32767")
+	else
+		writeBytes(patchInfo.address, wordToByteTable(patchInfo.value))
+	end
+end
+
+function ParamUtils:write4Byte(patchInfo)
+	if(patchInfo.value > 4294967295) then
+		self:logError("4 Bytes can't be bigger then 4294967295")
+	elseif(patchInfo.value < -2147483648) then
+		self:logError("4 Bytes can't be smaller then -2147483648")
+	else
+		writeInteger(patchInfo.address, patchInfo.value)
+	end
+end
+
+function ParamUtils:write8Byte(patchInfo)
+	if(patchInfo.value > 9223372036854775807) then
+		self:logError("8 Bytes can't be bigger then 9223372036854775807")
+	elseif(patchInfo.value < -9223372036854775808) then
+		self:logError("8 Bytes can't be smaller then -9223372036854775808")
+	else
+		writeQword(patchInfo.address, patchInfo.value)
+	end
+end
+
+function ParamUtils:writeFloat(patchInfo)
+	if(patchInfo.value > 3.4028235E38) then
+		self:logError("Float can't be bigger then 3.4028235E38")
+	elseif(patchInfo.value < -3.4028235E38) then
+		self:logError("Float can't be smaller then -3.4028235E38")
+	else
+		writeFloat(patchInfo.address, patchInfo.value)
+	end
+end
+
+-- read functions
+function ParamUtils:readByte(patchInfo)
+	return readBytes(patchInfo.address, 1)
+end
+
+function ParamUtils:read2Byte(patchInfo)
+	return byteTableToWord(readBytes(patchInfo.address, 2, true))
+end
+
+function ParamUtils:read4Byte(patchInfo)
+	return readInteger(patchInfo.address)
+end
+
+function ParamUtils:read8Byte(patchInfo)
+	return readQword(patchInfo.address)
+end
+
+function ParamUtils:readFloat(patchInfo)
+	return readFloat(patchInfo.address)
+end
+
+function ParamUtils:restoreAllBackups()
+  if(self:isNotEmpty(self.patchBackUp)) then
+    for uuid,tBackup in pairs(self.patchBackUp) do
+	  self:restore(uuid)
+    end
+  end
+  self.patchBackUp = {}
+end
+
+function ParamUtils:restoreAllOldBackups()
+  if(self:isNotEmpty(self.patchBackUpOld)) then
+    for uuid,tBackup in pairs(self.patchBackUpOld) do
+	  self:restore(uuid)
+    end
+  end
+  self.patchBackUpOld = {}
+end
+
+function ParamUtils:printAllBackups()
+  if(self:isNotEmpty(self.patchBackUp)) then
+    for uuid,tBackup in pairs(self.patchBackUp) do
+	  print("UUID: "..uuid)
+	  for key,object in pairs(tBackup) do
+	    print("Address: "..object.address.." Value: "..object.value.." Type: "..object.valueType)
+	  end
+    end
+  end
+end
+
+function ParamUtils:printAllOldBackups()
+  if(self:isNotEmpty(self.patchBackUpOld)) then
+    for uuid,tBackup in pairs(self.patchBackUpOld) do
+	  print("UUID: "..uuid)
+	  for address,byteArray in pairs(tBackup) do
+	    print("Address: "..address.." Byte Array: ")
+	  end
+    end
+  end
+end
+
+function ParamUtils:printParams(ret)
+  if(self:isNotEmpty(self.masterParamTable)) then
+    if not ret then
+      for key,address in pairs(self.masterParamTable) do
+	    print("Param: "..key.." Address: "..self:toHex(address))
+      end
+    else
+      local params = {}
+      for key in pairs(self.masterParamTable) do
+        table.insert(params,key)
+      end
+      return params
+    end
+  end
+end
+
+function ParamUtils:printParamsIds(param)
+  if(self:isNotEmpty(self.masterParamTable)) then
+    local idTable = self:getParamIdTable(param)
+    for id,address in pairs(idTable) do
+	  print("ID: "..id.." (0x"..self:toHex(id)..") Address: "..self:toHex(address))
+    end
+  end
+end
+
+function ParamUtils:printParamAddress(param)
+  local address = self:getParamAddress(param)
+  if(self:isNotEmpty(address)) then
+    print("Param: "..param..", Address: "..self:toHex(address))
+  else
+	print("Param: "..param.." couldn't be found.")
+  end
+end
+
+-- Creating an instance of ParamUtils
+paramUtils = ParamUtils:new()
+paramUtils:paramIndexer()
+--[[END ParamUtils class]]--
+enableRecord(252) -- Enable PP classes
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restoreAllBackups()
+paramUtils:printAllOldBackups()
+paramUtils:destroy()
+paramUtils = nil
+disableRecord(252) -- Disable PP classes

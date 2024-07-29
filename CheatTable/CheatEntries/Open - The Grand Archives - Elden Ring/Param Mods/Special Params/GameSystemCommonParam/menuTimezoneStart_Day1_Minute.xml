@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106665</ID>
+  <Description>"menuTimezoneStart_Day1_Minute"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+29D</Address>
+</CheatEntry>

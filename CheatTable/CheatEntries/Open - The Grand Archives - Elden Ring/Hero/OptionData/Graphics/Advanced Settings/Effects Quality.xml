@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>101043</ID>
+  <Description>"Effects Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>10C</Offset>
+  </Offsets>
+</CheatEntry>

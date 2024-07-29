@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103425</ID>
+  <Description>"actTypeOnNonBtlFailedPath"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+98</Address>
+</CheatEntry>

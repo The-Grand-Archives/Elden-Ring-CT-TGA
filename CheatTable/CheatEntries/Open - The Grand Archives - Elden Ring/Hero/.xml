@@ -1,0 +1,27 @@
+<CheatEntry>
+  <ID>100287</ID>
+  <Description>"Hero"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="100288"/>
+    <id id="100299"/>
+    <id id="100310"/>
+    <id id="100325"/>
+    <id id="100380"/>
+    <id id="100419"/>
+    <id id="100451"/>
+    <id id="100521"/>
+    <id id="100529"/>
+    <id id="100583"/>
+    <id id="100605"/>
+    <id id="100612"/>
+    <id id="100646"/>
+    <id id="100892"/>
+    <id id="100902"/>
+    <id id="100969"/>
+    <id id="100973"/>
+    <id id="100978"/>
+    <id id="100985"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

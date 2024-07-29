@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105114</ID>
+  <Description>"Max Immunity (Scarlet Rot)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>30</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

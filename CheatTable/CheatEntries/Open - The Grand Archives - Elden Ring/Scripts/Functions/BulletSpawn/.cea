@@ -1,0 +1,26 @@
+{
+    Author: inuNorii
+    Description: Spawn projectiles at specific coordinates or on yourself
+
+                 Essentially the same as DS3 table BulletSpawn, except lua
+                 Some issues are intentional, some are new
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+if BulletSpawn == nil then
+    getAddressList().getMemoryRecordByDescription("Bullet_code").active = true
+    throwError("'BulletSpawn' symbol was not found.\nTry enabling this script again.")
+end
+
+BulletSpawn.data = allocateMemory(0x12, getAddress(process))
+writeInteger(BulletSpawn.data, 10030001)
+
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- Bullet.create(id, coords)
+-- coords has to be a table, else it defaults to player coords
+
+[DISABLE]
+deAlloc(BulletSpawn.data)
+BulletSpawn.data = nil

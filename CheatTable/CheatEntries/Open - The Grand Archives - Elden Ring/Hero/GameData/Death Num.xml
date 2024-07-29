@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100606</ID>
+  <Description>"Death Num"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>94</Offset>
+  </Offsets>
+</CheatEntry>

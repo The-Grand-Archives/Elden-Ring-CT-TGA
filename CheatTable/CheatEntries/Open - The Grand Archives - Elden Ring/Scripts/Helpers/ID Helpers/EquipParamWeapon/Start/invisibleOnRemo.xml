@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>101516</ID>
+  <Description>"invisibleOnRemo"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+17C</Address>
+</CheatEntry>

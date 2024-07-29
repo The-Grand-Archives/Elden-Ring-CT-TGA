@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104623</ID>
+  <Description>"equipModelCategory"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+D4</Address>
+</CheatEntry>

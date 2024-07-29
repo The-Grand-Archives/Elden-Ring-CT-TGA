@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100819</ID>
+  <Description>"Lipstick_Color_g"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+D7</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

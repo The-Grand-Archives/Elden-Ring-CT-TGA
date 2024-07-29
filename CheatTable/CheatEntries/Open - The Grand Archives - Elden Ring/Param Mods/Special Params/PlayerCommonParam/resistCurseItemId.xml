@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106822</ID>
+  <Description>"resistCurseItemId"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+BC</Address>
+</CheatEntry>

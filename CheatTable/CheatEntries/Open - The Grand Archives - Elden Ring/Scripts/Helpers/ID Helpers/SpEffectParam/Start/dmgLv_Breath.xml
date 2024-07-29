@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102514</ID>
+  <Description>"dmgLv_Breath"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>+0153</Address>
+</CheatEntry>

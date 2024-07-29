@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>105688</ID>
+  <Description>"SecondaryBolt"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>3C0</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

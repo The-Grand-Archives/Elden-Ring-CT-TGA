@@ -1,0 +1,63 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local addr = {
+	GetTotalBonfireLevel = 0x0,
+	ActivateBonfire = AOBScanModuleUnique(process,"88 4c ?? ?? 53 ?? 83 ec ?? c6 44 ?? ?? 63 c6 44 ?? ?? 01 80 f9 01"),
+	ReplaceTool = AOBScanModuleUnique(process,"?? 0f b6 f1 ?? 8b d8 ?? 8b f9 81 e2 ff ff ff 0f 0f ba ea ?? 89 54 ?? ?? ?? 81 c1")-0x19,
+}
+
+addr.GetTotalBonfireLevel = addr.ActivateBonfire + 0x44 + readInteger(addr.ActivateBonfire+0x44 + 2, 1) + 5
+
+local function GetTotalBonfireLevel()
+	return readByte(addr.GetTotalBonfireLevel)
+end
+
+local function ActivateBonfire(bonfireLv)
+	executeCode(addr.ActivateBonfire, bonfireLv)
+end
+
+local function ReplaceTool(EquipGameData, currentId,replaceId)
+	executeCodeEx(0, 100, addr.ReplaceTool, EquipGameData, currentId, replaceId, 1)
+end
+
+local function SaveRequest()
+	local GameMan = getPointer("GameMan")
+	writeByte(GameMan + 0xB72, 1)
+end
+
+local function ReplaceFlasks(newFlaskLv)
+	local GameDataMan = readPointer("GameDataMan")
+	local PlayerGameData = readPointer(GameDataMan + 0x8)
+	local EquipGameData = getAddress(PlayerGameData + 0x2B0)
+	local flaskLv = GetTotalBonfireLevel() - 1
+	local flaskIds = {1000, 1001, 1050, 1051}
+	for _,v in pairs(flaskIds) do
+		local oldItem = v + flaskLv * 2
+		local newItem = v + (newFlaskLv-1) * 2
+		if oldItem ~= newItem then
+			ReplaceTool(EquipGameData, oldItem, newItem)
+		end
+	end
+end
+
+local function SetBonfireLv(bonfireLv)
+	if bonfireLv >= 13 then
+		bonfireLv = 13
+	elseif bonfireLv <= 1 then
+		bonfireLv = 1
+	end
+	if GetTotalBonfireLevel() <= 13 then
+		ReplaceFlasks(bonfireLv)
+		ActivateBonfire(bonfireLv)
+		SaveRequest()
+	end
+end
+
+local bonfireLv = inputQuery("Set Flask Level","Should be between 0 and 12",GetTotalBonfireLevel()-1)
+if bonfireLv ~= nil then
+	SetBonfireLv(tonumber(bonfireLv)+1)
+end
+disableMemrec(memrec)
+
+[DISABLE]

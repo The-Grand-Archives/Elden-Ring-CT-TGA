@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>102043</ID>
+  <Description>"itemGetTutorialFlagId"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+A4</Address>
+</CheatEntry>

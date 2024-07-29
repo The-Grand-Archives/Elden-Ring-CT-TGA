@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103399</ID>
+  <Description>"skipArrivalVisibleCheck"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+62</Address>
+</CheatEntry>

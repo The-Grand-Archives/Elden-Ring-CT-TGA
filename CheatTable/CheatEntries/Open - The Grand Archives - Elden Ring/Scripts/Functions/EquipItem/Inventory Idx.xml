@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101156</ID>
+  <Description>"Inventory Idx"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>equipItem_data+4</Address>
+</CheatEntry>

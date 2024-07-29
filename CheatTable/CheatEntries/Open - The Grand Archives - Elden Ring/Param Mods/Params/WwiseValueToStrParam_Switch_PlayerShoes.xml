@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>106327</ID>
+  <Description>"WwiseValueToStrParam_Switch_PlayerShoes"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>2050</Offset>
+  </Offsets>
+</CheatEntry>

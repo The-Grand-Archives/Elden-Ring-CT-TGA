@@ -1,0 +1,383 @@
+<CheatEntry>
+  <ID>26</ID>
+  <Description>"STATE_INFO"</Description>
+  <DropDownList DisplayValueAsItem="1">0:Default / None
+1:None
+2:Poison
+3:Unk
+4:Durability Damage
+5:Scarlet Rot
+6:Hemorrhage
+7:Ghost
+8:Enemy Sight Reduction
+9:Tranquil Walk of Peace
+10:Remove Poison
+11:Remove Scarlet Rot
+12:Remove Hemorrhage
+13:Remove All Status
+14:Humanity Stolen
+15:Telescope
+16:Warp to Grace
+17:Revival
+19:Dispel Black Phantom
+22:Unk
+23:On Revive Magic
+24:Disables Spell Usage
+28:Right-hand Buff Vfx
+29:Body Buff Vfx
+31:Ghost Parameter Change
+32:Imiddle of Paralysis
+34:Giant Slime Freezing
+35:Unk
+36:Unk
+37:Unk
+39:Sound Feed
+40:Greater Body Buff Vfx
+41:Flash Sweat
+42:Hp Recovery
+43:Unk
+44:Unk
+45:Unk
+46:Modify Target Priority
+47:Disable Fall Damage
+48:Increase Damage
+49:Increase Defense
+50:Hp/fp/stamina Recovery
+52:Pledge Effect Test
+54:Modify Enemy Listen Reduction
+55:Hostdeath
+58:Point Light Source Equipped
+59:Your Message Was Rated
+60:Magic Buff Vfx
+61:Magic Weapon Buff Vfx
+62:Fire Weapon Buff Vfx
+64:Enchanted Weapon Buff Vfx
+65:Unk
+66:Modify Item Discovery
+69:Tears of Denial Vfx
+70:Is Dead Test Condition
+71:Spell Power Boost
+72:Unk
+73:Unk
+74:Unk
+75:Green Blossom Vfx""Unknown","78"
+76:Modify Rune Gain
+77:Unk
+78:Unk
+79:Unk
+91:Unk
+95:Applies Chamelon Effect
+96:Applies Dragon Form Effect
+98:Mp Detection
+99:Mp Wait for Cooperation
+100:Mp Cooperation
+101:Mp Cooperation Sent
+102:Wax Slow Down
+103:Used for Evil Eye Effect
+104:Mp Wait for Cooperation
+105:Mp Cooperation Lv 1
+106:Mp Cooperation Lv 2
+107:Mp Cooperation Lv 3
+108:Used for Evil Eye Effect (1)
+109:Used for Evil Eye Effect (2)
+110:Counter Damage
+112:1409f7282_hks
+113:Unk
+114:Unk
+115:Backstep Animation Change
+116:Blight
+117:Blight Instant Death Animation
+118:Disable Blight
+119:Unk
+120:Damage Level Change Before Poise Break
+121:Damage Level Change
+122:Unk
+123:Trigger on Roll (Head)
+124:Trigger on Roll (Body)
+125:Trigger on Roll (Hands)
+126:Trigger on Roll (Legs)
+127:Mimic Sleep
+128:Mimic Sleep
+130:Mimic Sleep
+131:Mimic Sleep
+132:Change Team Type
+133:Enable Developer Messages
+134:Iron Flesh
+135:Mimic Sleep
+136:Blight
+137:Resonancelvl 0
+138:Resonancelvl 1
+139:Resonancelvl 2
+140:Resonancelvl 3
+141:Resonancelvl 4
+142:Npc Behavior Id Change
+143:Character Respawn
+144:Unk
+145:Holy
+146:Restore Durability
+147:Cast Light
+148:Unk
+149:White Relief Magic
+150:Black Relief Magic
+151:Lightning Weapon Buff Vfx
+152:Enable Attack Effect Against Enemy
+153:Enable Attack Effect Against Player
+154:Block Estus Usage
+155:Modify Poise
+156:Disable Durability
+157:Transient Curse
+158:Left  Hand Buff Vfx
+159:Destroy Accessory but Save Runes
+160:Rare Ring of Sacrifice [ds1]
+161:Warp to Grace
+162:Warp to Grace
+163:Warp to Grace
+164:Warp to Grace
+165:Warp to Grace
+166:Pledge Discarded
+167:Dragon Change Vfx
+168:Bow Distance Change
+169:Unk
+170:Karmic Justice Counter
+171:Karmic Justice Used for Behavior Change
+173:Ritual
+174:Power of Evil Spirits
+175:Revival Production
+176:Aural Decoy
+177:Unk
+179:Deatheffectlv1
+180:Deatheffectlv2
+181:Deatheffectlv3
+182:Deatheffectlv4
+183:Bluesignvisualization
+184:Hide Weapon
+185:Unk
+186:Unk
+187:Unk
+188:Unk
+189:Unk
+190:Unk
+191:Unk
+192:Unk
+193:Modify Effect Duration
+194:Comparewith203
+195:Unk
+196:Ifworldchrmannull
+197:Enhance Thrusting Counter Attacks
+198:Cure Blight
+199:Apply Kill Effect
+200:Power Within Vfx
+201:Vowofsilencevisual
+202:Dragon Roar
+203:Comparewith194
+204:Great Magic Shield
+205:Holy Weapon Buff Vfx
+206:Unk
+207:Jailer Hp Drain
+213:Trigger on Enemy Backstab
+221:Unk
+222:Item Ban
+223:Unk
+224:Unk
+232:Disableuseatcoliseum
+237:Calamity Ring
+252:Oil
+253:Fire
+258:Unk
+259:Unk
+260:Frostbite
+261:Remove Effect if Torch in Hand
+262:Wormrecovery(Torch)
+264:Setcultbool
+266:Falldeathisdisabled
+267:Aivisualdistancechange
+269:Unk
+270:Unk
+271:Unk
+272:Unk
+275:Player Behavior Id Change
+276:Disable Frostbite
+277:Trigger Great Rune
+278:Disablespelleffect
+280:Watchdogtriggerforhost
+281:Wetsystemtrigger
+282:Npc Correction for Coop
+283:Tears of Denial Trigger
+284:Heal Spell
+285:Unk
+286:Weak Movement Slow
+287:Strong Movement Slow
+288:Trigger on Critical Hit (Hp)
+289:Trigger on Critical Hit (Fp)
+290:Extend Roll Invincibility
+291:Grants Roll Invisibility
+292:Repair1
+293:Change Durability
+294:Unk
+295:Unk
+296:Unk
+297:Not in Multiplayer Session
+298:Trigger on Player Backstab
+299:Enemies Attack Invaders
+300:Enemies Attack Invaders
+301:Law of Regression
+302:Warp to Grace
+303:Conditional 1
+304:Conditional 2
+305:Conditional 3
+306:Conditional 4
+307:Conditional 5
+308:Conditional 6
+309:Conditional 7
+310:Conditional 8
+311:Conditional 9
+312:Unk
+313:Seek Guidance
+314:Add Guard Stability
+315:Scale Attack Power With Equip Load
+316:Calccorrectgraph_33
+317:Revoke Online Penalty
+318:Dead Again
+319:Unk
+320:Unk
+321:Reverse Hollowing
+322:Chrasmstyle_hks_lefthand
+323:Chrasmstyle_hks_righthand
+324:Unk
+325:Wet Aspect Param
+326:Switch Animation Gender
+327:Ember
+328:Change Durability
+329:Getestuscharge
+330:Online Check, Reset Event Flag 2100
+331:Aiparam1
+332:Aiparam_effect16189
+333:Spell Enhance (+6 to Id)
+334:Bullet Behavior Id Change
+335:Trigger During Critical Hit
+336:Summon Torrent
+337:Unk
+338:Unk
+339:Reload
+342:Unk
+343:Unk
+344:Unk
+345:Unk
+346:Unk
+347:Unk
+348:Unk
+349:Unk
+350:Unk
+351:Unk
+352:Unk
+353:Unk
+354:Unk
+355:Unk
+356:Unk
+357:Spirit Summon
+358:Unk
+359:Unk
+360:Unk
+361:Unk
+362:Unk
+363:Unk
+364:Unk
+365:Unk
+366:Unk
+367:Enhance Critical Attacks
+368:Unk
+369:Unk
+371:Unk
+372:Unk
+373:Unk
+375:Unk
+376:Unk
+377:Unk
+378:Unk
+379:Trigger in Presence of Blood Loss
+380:Trigger in Presence of Rot
+381:Unk
+382:Unk
+383:Unk
+384:Unk
+385:Unk
+387:Unk
+388:Unk
+389:Unk
+390:Pacify Wild Animals
+391:Unk
+392:Unk
+393:Unk
+394:Unk
+395:Unk
+396:Unk
+397:Unk
+398:Gravity Pull Towards Caster
+399:Unk
+402:Unk
+403:Unk
+404:Unk
+405:Reveal Phantom Signs
+406:Request Friendly Phantom
+407:Answer Phantom Request
+408:Encourage Invasion
+409:Send Summon Sign to Pool
+410:Send Invasion Sign to Pool
+411:Unk
+412:Unk
+413:Unk
+414:Unk
+415:Unk
+416:Unk
+417:Unk
+418:Unk
+419:Unk
+421:Unk
+422:Unk
+423:Unk
+424:Unk
+425:Unk
+426:Unk
+427:Unk
+428:Unk
+429:Unk
+430:Unk
+431:Unk
+432:Unk
+435:Unk
+436:Sleep
+437:Madness
+438:Disable Sleep
+439:Disable Madness
+440:Purify Mohg's Curse
+441:Mohg's Great Rune
+442:Unk
+443:Unk
+445:Unk
+446:Unk
+447:Phantom Great Rune
+448:Heal Invader When Blessed Enemy Kills Player
+449:Malenia's Great Rune
+450:Reduce Headshot Impact
+452:Recovery Damage
+453:Unk
+454:Unk
+455:Unk
+456:Unk
+457:No Combat
+458:Attempt Invasion
+459:Unk
+460:Unk
+461:Unk
+462:Unk
+463:Unk
+465:Unk
+466:Trigger on Crouch
+467:Bulletbehavior
+468:Unk
+469:Unk
+1000:Skipspcategorycheck1
+1001:Skipspcategorycheck2
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

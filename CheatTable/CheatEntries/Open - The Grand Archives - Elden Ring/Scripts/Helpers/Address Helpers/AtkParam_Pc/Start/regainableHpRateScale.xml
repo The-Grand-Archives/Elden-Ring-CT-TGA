@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104225</ID>
+  <Description>"regainableHpRateScale"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+01A8</Address>
+</CheatEntry>

@@ -1,0 +1,30 @@
+name: "Build and check"
+outputs:
+  release-tag: 
+    value: ${{ steps.collect_version.outputs.tag }}
+  build-artifact-name: 
+    value: ER_TGA_${{ steps.collect_version.outputs.tag }}
+
+runs:
+  using: "composite"
+  steps:    
+    - name: Install dependencies
+      shell: bash
+      run: ./scripts/install_deps.sh
+
+    - name: CE2FS build 
+      shell: bash
+      run: "python ./scripts/build.py --check"
+    
+    - name: Collect table version
+      id: collect_version
+      shell: bash
+      run: source BUILD_ENV && echo tag=v${TABLE_VERSION} >> $GITHUB_OUTPUT
+      
+    - name: Upload build
+      id: upload_build
+      uses: actions/upload-artifact@v4
+      with:
+        name: ER_TGA_${{ steps.collect_version.outputs.tag }}
+        path: dist
+        retention-days: 5

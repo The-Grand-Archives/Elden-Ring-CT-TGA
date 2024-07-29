@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>107455</ID>
+  <Description>"2. Liurnia - Academy Gate Town"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0</Address>
+</CheatEntry>

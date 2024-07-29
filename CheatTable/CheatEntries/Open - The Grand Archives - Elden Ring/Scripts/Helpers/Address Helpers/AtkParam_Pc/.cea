@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(AtkParam_PcHelper_addr,$8)
+registersymbol(AtkParam_PcHelper_addr)
+
+AtkParam_PcHelper_addr:
+dq #0
+
+[DISABLE]
+dealloc(AtkParam_PcHelper_addr)
+unregistersymbol(AtkParam_PcHelper_addr)

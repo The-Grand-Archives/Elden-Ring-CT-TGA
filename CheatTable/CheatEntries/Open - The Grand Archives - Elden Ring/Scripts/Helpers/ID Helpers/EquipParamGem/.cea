@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(EquipParamGemHelper,16)
+registersymbol(EquipParamGemHelper)
+
+EquipParamGemHelper:
+dq #10
+
+[DISABLE]
+dealloc(EquipParamGemHelper)
+unregistersymbol(EquipParamGemHelper)

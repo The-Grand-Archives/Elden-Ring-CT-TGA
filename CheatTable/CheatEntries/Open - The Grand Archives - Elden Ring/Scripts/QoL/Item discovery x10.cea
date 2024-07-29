@@ -1,0 +1,25 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    int multiplier = 10;
+    ParamPatchBegin("increased_item_discovery");
+    ParamPatch(CalcCorrectGraph, 140, {
+        param->stageMaxGrowVal0 *= multiplier;
+        param->stageMaxGrowVal1 *= multiplier;
+        param->stageMaxGrowVal2 *= multiplier;
+        param->stageMaxGrowVal3 *= multiplier;
+        param->stageMaxGrowVal4 *= multiplier;
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("increased_item_discovery");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

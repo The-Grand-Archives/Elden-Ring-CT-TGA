@@ -1,0 +1,241 @@
+<CheatEntry>
+  <ID>108216</ID>
+  <Description>"GEM_ID"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">10:test gem 1
+20:test gem 2
+30:test gem 3
+40:Special effects test Magic stone
+41:Special Effect Test Magic Stone 2
+80:Attribute Change Test _ Standard
+81:Attribute Change Test _ Muscle
+82:Attribute Change Test _ Time
+83:Attribute Change Test _ Quality
+84:Attribute change test _ Sacred
+85:Attribute Change Test _ Magic
+86:Attribute Change Test _ Spirit
+87:Attribute Change Test _ Warrior Flame
+88:Attribute Change Test _ Earth
+89:Attribute Change Testing _ Lightning
+90:Attribute Change Test _ Blood
+100:General-purpose arts test Magic stone _ Aerial preloading
+101:General purpose arts test Magic stone _ penetrating
+102:General-purpose arts test Magic stone _ through sword
+103:General-purpose arts test Magic stone _ rotary cutting
+104:General-purpose arts test Magic stone _ rotary mushroom
+105:General purpose arts test Magic stone _ assault
+106:General-purpose arts test Magic stone _ Depression + cut
+107:General purpose arts test Magic stone _ Depression + rotation
+108:General-purpose arts test Magic stone _ drain multi-stage thrust
+109:General purpose arts test Magic stone _ multi-stage
+110:General-purpose arts test Magic stone _ handling dance dance, ax
+111:General purpose arts test Magic stone _ handling dance dance
+112:General-purpose arts test Magic stone _ single dance dance
+113:General-purpose Arts Test Magic Stone _ Smow Train
+114:General purpose arts test Magic stone _
+115:General purpose arts test Magic stone _ hand (lineage)
+116:General-purpose arts test Magic stone _ stepping rising
+117:General-purpose Arts Test Magic Stone _ Matsushi Attack
+118:General-purpose arts test Magic stone _ jump enchashes
+119:General-purpose Arts Test Magic Stone Bond
+120:General purpose arts test Magic stone _ baton attack
+121:General purpose arts test Magic stone _ black knight
+122:General-purpose arts test Magic stone _ Arrow jumping down
+123:General-purpose arts test Magic stone _ storm rotary swamp
+124:General-purpose arts test Magic stone _ funnel + thrust
+125:General purpose arts test Magic stone _ magic attack + enchantment
+126:General purpose arts test Magic stone _ Gayborg
+127:General-purpose arts test Magic stone _ middle distance bullet + approach
+128:General purpose arts test Magic stone _ blood slashing
+129:General-purpose Arts Test Magic Stone _ Drain Attack
+130:General-purpose arts test Magic stone _ Lava installation
+131:General purpose arts test Magic stone _ big recovery
+132:General purpose arts test Magic stone _ gravity attraction
+133:General-purpose Arts Test Magic Stone _ Sonic Boom
+134:General purpose arts test Magic stone _ illusion double cut
+135:General purpose arts test Magic stone _ earthquake
+136:General purpose arts test Magic stone _ World tree earthquake
+137:General purpose arts test Magic stone _ Flame catfish +
+138:General-purpose arts test Magic stone _ continuous lightning
+139:General purpose arts test Magic stone _ lightning strike + cutting down
+140:General-purpose Arts Test Magic Stone _ Seoul Sword
+141:General-purpose Arts Test Magic Stone _ Seoul Sword _2 Stage
+142:General purpose arts test Magic stone _ vacuum wave cutting
+143:General purpose arts test Magic stone _ fire nade
+144:General-purpose Arts Test Magic Stone _ Michela
+146:General-purpose Arts Test Magic Stone _ Shield Bash
+147:General-purpose arts test Magic stone _ rigid power bullet
+148:General purpose arts test Magic stone _ Paris
+149:General-purpose arts test Magic stone _ backler Paris
+151:General-purpose arts test Magic stone _ Magic Paris
+152:General purpose arts test Magic stone _ flying tools Paris
+153:General purpose arts test Magic stone _ remote paris
+155:General-purpose arts test Magic stone _ penetrating shooting
+156:General purpose arts test Magic stone _ continuous shooting
+157:General purpose arts test Magic stone _
+158:General purpose arts test Magic stone _ induction shooting
+159:General-purpose arts test Magic stone _ shoot
+160:General-purpose arts test Magic stone _ alarin
+161:General purpose arts test Magic stone _ Invisible
+163:General-purpose arts test Magic stone _ seismic legs and land
+164:General-purpose arts test Magic stone _ seismic legs and frost
+165:General-purpose arts test Magic stone _ seismic leg · storm
+166:General-purpose arts test Magic stone _ kick
+167:General purpose arts test Magic stone _ rolling attack
+168:General-purpose Arts Test Magic Stone _ Single Scope Arts
+169:General purpose arts test Magic stone _ hip drop
+170:General purpose arts test Magic stone _ hip drop + magic bullet
+171:General-purpose arts test Magic stone _ ground focusing magic bullets
+173:General purpose arts test Magic stone _ Concentrate
+174:General purpose arts test Magic stone _ Self-injury / curse
+175:General-purpose arts test Magic stone _ Sun swear
+176:General-purpose Arts Test Magic Stone _ Holly Enchant
+177:General-purpose arts test Magic stone _ exercise enchants
+178:General purpose arts test Magic stone _ rock enchantment
+180:General-purpose Arts Test Magic Stone _ Wark Rice
+181:General-purpose Arts Test Magic Stone _ Ultrasonic Walkrage
+182:General-purpose Arts Test Magic Stone _ Thunder Walk Road
+183:General-purpose Arts Test Magic Stone _ Gender Warquer
+185:General purpose arts test Magic stone _ patient
+186:General-purpose arts test Magic stone _ a moment invincible
+187:General-purpose arts test Magic stone _ sanctuary
+190:General purpose arts test Magic stone _ quick step
+191:General-purpose Arts Test Magic Stone _ Gale Man Step
+192:General-purpose arts test Magic stone _ change
+194:General-purpose Arts Test Magic Stone _ Gantoku Summoner
+1000:Magic stone of lions
+1001:Magic stone of penetrating
+1002:Rotating Magic Stone
+1003:Rotating cracked magic stone
+1004:Magic stone of floating pyroxene
+1005:Blood-derived _ hemorrhage effect
+1006:Angou's Magic Stone
+1007:Gravitas Magic Stone
+1008:Storm blade magic stone
+1009:Magic stone of earthquake
+1010:Flame flame derivation _ Flame catfish +
+1011:Magic stone of lightning strikes
+1012:Magic stone of Curlia's bright sword
+1013:Magic stone of seismic legs
+1014:Magic stone of determination
+1015:Magic stone in the sanctuary
+1016:Quick Step Magic Stone
+1017:Various magic stones
+10000:Ash of War: Lion's Claw
+10100:Ash of War: Impaling Thrust
+10200:Ash of War: Piercing Fang
+10300:Ash of War: Spinning Slash
+10500:Ash of War: Charge Forth
+10600:Ash of War: Stamp (Upward Cut)
+10700:Ash of War: Stamp (Sweep)
+10800:Ash of War: Blood Tax
+10900:Ash of War: Repeating Thrust
+11000:Ash of War: Wild Strikes
+11100:Ash of War: Spinning Strikes
+11200:Ash of War: Double Slash
+11300:Ash of War: Prelate's Charge
+11400:Ash of War: Unsheathe
+11500:Ash of War: Square Off
+11600:Ash of War: Giant Hunt
+11800:Ash of War: Loretta's Slash
+11900:Ash of War: Poison Moth Flight
+12000:Ash of War: Spinning Weapon
+12200:Ash of War: Storm Assault
+12300:Ash of War: Stormcaller
+12400:Ash of War: Sword Dance
+20000:Ash of War: Glintblade Phalanx
+20100:Ash of War: Sacred Blade
+20200:Ash of War: Ice Spear
+20300:Ash of War: Glintstone Pebble
+20400:Ash of War: Bloody Slash
+20500:Ash of War: Lifesteal Fist
+20700:Ash of War: Eruption
+20800:Ash of War: Prayerful Strike
+20900:Ash of War: Gravitas
+21000:Ash of War: Storm Blade
+21200:Ash of War: Earthshaker
+21300:Ash of War: Golden Land
+21400:Ash of War: Flaming Strike
+21600:Ash of War: Thunderbolt
+21700:Ash of War: Lightning Slash
+21800:Ash of War: Carian Grandeur
+21900:Ash of War: Carian Greatsword
+22000:Ash of War: Vacuum Slice
+22100:Ash of War: Black Flame Tornado
+22200:Ash of War: Sacred Ring of Light
+22400:Ash of War: Blood Blade
+22500:Ash of War: Phantom Slash
+22600:Ash of War: Spectral Lance
+22700:Ash of War: Chilling Mist
+22800:Ash of War: Poisonous Mist
+30000:Ash of War: Shield Bash
+30100:Ash of War: Barricade Shield
+30200:Ash of War: Parry
+30500:Ash of War: Carian Retaliation
+30600:Ash of War: Storm Wall
+30700:Ash of War: Golden Parry
+30800:Ash of War: Shield Crash
+30900:Ash of War: No Skill
+31000:Ash of War: Thops's Barrier
+40000:Ash of War: Through and Through
+40100:Ash of War: Barrage
+40200:Ash of War: Mighty Shot
+40400:Ash of War: Enchanted Shot
+40500:Ash of War: Sky Shot
+40600:Ash of War: Rain of Arrows
+50100:Ash of War: Hoarfrost Stomp
+50200:Ash of War: Storm Stomp
+50300:Ash of War: Kick
+50400:Ash of War: Lightning Ram
+50500:Ash of War: Flame of the Redmanes
+50600:Ash of War: Ground Slam
+50700:Ash of War: Golden Slam
+50800:Ash of War: Waves of Darkness
+50900:Ash of War: Hoarah Loux's Earthshaker
+60000:Ash of War: Determination
+60100:Ash of War: Royal Knight's Resolve
+60200:Ash of War: Assassin's Gambit
+60300:Ash of War: Golden Vow
+60400:Ash of War: Sacred Order
+60500:Ash of War: Shared Order
+60600:Ash of War: Seppuku
+60700:Ash of War: Cragblade
+65000:Ash of War: Barbaric Roar
+65100:Ash of War: War Cry
+65200:Ash of War: Beast's Roar
+65300:Ash of War: Troll's Roar
+65400:Ash of War: Braggart's Roar
+70000:Ash of War: Endure
+70100:Ash of War: Vow of the Indomitable
+70200:Ash of War: Holy Ground
+80000:Ash of War: Quickstep
+80100:Ash of War: Bloodhound's Step
+80200:Ash of War: Raptor of the Mists
+85000:Ash of War: White Shadow's Lure
+200000:Ash of War: Dryleaf Whirlwind
+200100:Ash of War: Aspects of the Crucible: Wings
+400000:Ash of War: Spinning Gravity Thrust
+401000:Ash of War: Palm Blast
+402000:Ash of War: Piercing Throw
+403000:Ash of War: Scattershot Throw
+404000:Ash of War: Wall of Sparks
+405000:Ash of War: Rolling Sparks
+406000:Ash of War: Raging Beast
+407000:Ash of War: Savage Claws
+409000:Ash of War: Blind Spot
+410000:Ash of War: Swift Slash
+411000:Ash of War: Overhead Stance
+412000:Ash of War: Wing Stance
+413000:Ash of War: Blinkbolt
+414000:Ash of War: Flame Skewer
+415000:Ash of War: Savage Lion's Claw
+416000:Ash of War: Divine Beast Frost Stomp
+417000:Ash of War: Flame Spear
+418000:Ash of War: Carian Sovereignty
+419000:Ash of War: Shriek of Sorrow
+422000:Ash of War: Ghostflame Call
+505000:Ash of War: The Poison Flower Blooms Twice
+548000:Ash of War: Igon's Drake Hunt
+800000:Ash of War: Shield Strike
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>100970</ID>
+  <Description>"Current Animation"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>20</Offset>
+    <Offset>18</Offset>
+    <Offset>190</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="100971"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

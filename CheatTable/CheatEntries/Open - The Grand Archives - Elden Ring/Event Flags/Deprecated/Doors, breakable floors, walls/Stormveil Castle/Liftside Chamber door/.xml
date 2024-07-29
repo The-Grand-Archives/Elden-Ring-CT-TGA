@@ -1,0 +1,18 @@
+<CheatEntry>
+  <ID>107782</ID>
+  <Description>"Liftside Chamber door"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>151F80</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107783"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,109 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+  { 0x40001770, 1, 0, 0, -1 }, -- Catch Flame
+  { 0x40001771, 1, 0, 0, -1 }, -- O, Flame!
+  { 0x4000177A, 1, 0, 0, -1 }, -- Flame Sling
+  { 0x40001784, 1, 0, 0, -1 }, -- Flame, Fall Upon Them
+  { 0x4000178E, 1, 0, 0, -1 }, -- Whirl, O Flame!
+  { 0x40001798, 1, 0, 0, -1 }, -- Flame, Cleanse Me
+  { 0x400017A2, 1, 0, 0, -1 }, -- Flame, Grant Me Strength
+  { 0x400017AC, 1, 0, 0, -1 }, -- Flame, Protect Me
+  { 0x400017D4, 1, 0, 0, -1 }, -- Giantsflame Take Thee
+  { 0x400017DE, 1, 0, 0, -1 }, -- Flame of the Fell God
+  { 0x400017E8, 1, 0, 0, -1 }, -- Burn, O Flame!
+  { 0x40001842, 1, 0, 0, -1 }, -- Black Flame
+  { 0x4000184C, 1, 0, 0, -1 }, -- Surge, O Flame!
+  { 0x40001856, 1, 0, 0, -1 }, -- Scouring Black Flame
+  { 0x40001860, 1, 0, 0, -1 }, -- Black Flame Ritual
+  { 0x4000186A, 1, 0, 0, -1 }, -- Black Flame Blade
+  { 0x40001874, 1, 0, 0, -1 }, -- Black Flame's Protection
+  { 0x4000187E, 1, 0, 0, -1 }, -- Noble Presence
+  { 0x4000189C, 1, 0, 0, -1 }, -- Bloodflame Talons
+  { 0x400018A6, 1, 0, 0, -1 }, -- Bloodboon
+  { 0x400018B0, 1, 0, 0, -1 }, -- Bloodflame Blade
+  { 0x400018BA, 1, 0, 0, -1 }, -- Barrier of Gold
+  { 0x400018C4, 1, 0, 0, -1 }, -- Protection of the Erdtree
+  { 0x40001900, 1, 0, 0, -1 }, -- Rejection
+  { 0x4000190A, 1, 0, 0, -1 }, -- Wrath of Gold
+  { 0x40001914, 1, 0, 0, -1 }, -- Urgent Heal
+  { 0x40001915, 1, 0, 0, -1 }, -- Heal
+  { 0x40001916, 1, 0, 0, -1 }, -- Great Heal
+  { 0x40001917, 1, 0, 0, -1 }, -- Lord's Heal
+  { 0x40001918, 1, 0, 0, -1 }, -- Erdtree Heal
+  { 0x4000191E, 1, 0, 0, -1 }, -- Blessing's Boon
+  { 0x4000191F, 1, 0, 0, -1 }, -- Blessing of the Erdtree
+  { 0x40001928, 1, 0, 0, -1 }, -- Cure Poison
+  { 0x40001929, 1, 0, 0, -1 }, -- Lord's Aid
+  { 0x40001932, 1, 0, 0, -1 }, -- Flame Fortification
+  { 0x4000193C, 1, 0, 0, -1 }, -- Magic Fortification
+  { 0x40001946, 1, 0, 0, -1 }, -- Lightning Fortification
+  { 0x40001950, 1, 0, 0, -1 }, -- Divine Fortification
+  { 0x4000195A, 1, 0, 0, -1 }, -- Lord's Divine Fortification
+  { 0x4000196E, 1, 0, 0, -1 }, -- Assassin's Approach
+  { 0x40001978, 1, 0, 0, -1 }, -- Shadow Bait
+  { 0x40001982, 1, 0, 0, -1 }, -- Darkness
+  { 0x400019C8, 1, 0, 0, -1 }, -- Golden Vow
+  { 0x40001A2C, 1, 0, 0, -1 }, -- Discus of Light
+  { 0x40001A2D, 1, 0, 0, -1 }, -- Triple Rings of Light
+  { 0x40001A36, 1, 0, 0, -1 }, -- Radagon's Rings of Light
+  { 0x40001A40, 1, 0, 0, -1 }, -- Elden Stars
+  { 0x40001A4A, 1, 0, 0, -1 }, -- Law of Regression
+  { 0x40001A54, 1, 0, 0, -1 }, -- Immutable Shield
+  { 0x40001A5E, 1, 0, 0, -1 }, -- Litany of Proper Death
+  { 0x40001A68, 1, 0, 0, -1 }, -- Law of Causality
+  { 0x40001A72, 1, 0, 0, -1 }, -- Order's Blade
+  { 0x40001A7C, 1, 0, 0, -1 }, -- Order Healing
+  { 0x40001A90, 1, 0, 0, -1 }, -- Bestial Sling
+  { 0x40001A9A, 1, 0, 0, -1 }, -- Stone of Gurranq
+  { 0x40001AA4, 1, 0, 0, -1 }, -- Beast Claw
+  { 0x40001AAE, 1, 0, 0, -1 }, -- Gurranq's Beast Claw
+  { 0x40001AB8, 1, 0, 0, -1 }, -- Bestial Vitality
+  { 0x40001AC2, 1, 0, 0, -1 }, -- Bestial Constitution
+  { 0x40001AF4, 1, 0, 0, -1 }, -- Lightning Spear
+  { 0x40001AFE, 1, 0, 0, -1 }, -- Ancient Dragons' Lightning Strike
+  { 0x40001B08, 1, 0, 0, -1 }, -- Lightning Strike
+  { 0x40001B09, 1, 0, 0, -1 }, -- Frozen Lightning Spear
+  { 0x40001B12, 1, 0, 0, -1 }, -- Honed Bolt
+  { 0x40001B1C, 1, 0, 0, -1 }, -- Ancient Dragons' Lightning Spear
+  { 0x40001B1D, 1, 0, 0, -1 }, -- Fortissax's Lightning Spear
+  { 0x40001B26, 1, 0, 0, -1 }, -- Lansseax's Glaive
+  { 0x40001B30, 1, 0, 0, -1 }, -- Electrify Armament
+  { 0x40001B3A, 1, 0, 0, -1 }, -- Vyke's Dragonbolt
+  { 0x40001B3B, 1, 0, 0, -1 }, -- Dragonbolt Blessing
+  { 0x40001B58, 1, 0, 0, -1 }, -- Dragonfire
+  { 0x40001B59, 1, 0, 0, -1 }, -- Agheel's Flame
+  { 0x40001B62, 1, 0, 0, -1 }, -- Magma Breath
+  { 0x40001B63, 1, 0, 0, -1 }, -- Theodorix's Magma
+  { 0x40001B6C, 1, 0, 0, -1 }, -- Dragonice
+  { 0x40001B6D, 1, 0, 0, -1 }, -- Borealis's Mist
+  { 0x40001B76, 1, 0, 0, -1 }, -- Rotten Breath
+  { 0x40001B77, 1, 0, 0, -1 }, -- Ekzykes's Decay
+  { 0x40001B80, 1, 0, 0, -1 }, -- Glintstone Breath
+  { 0x40001B81, 1, 0, 0, -1 }, -- Smarag's Glintstone Breath
+  { 0x40001B8A, 1, 0, 0, -1 }, -- Placidusax's Ruin
+  { 0x40001B94, 1, 0, 0, -1 }, -- Dragonclaw
+  { 0x40001BA8, 1, 0, 0, -1 }, -- Dragonmaw
+  { 0x40001BB2, 1, 0, 0, -1 }, -- Greyoll's Roar
+  { 0x40001C20, 1, 0, 0, -1 }, -- Pest Threads
+  { 0x40001C2A, 1, 0, 0, -1 }, -- Swarm of Flies
+  { 0x40001C34, 1, 0, 0, -1 }, -- Poison Mist
+  { 0x40001C3E, 1, 0, 0, -1 }, -- Poison Armament
+  { 0x40001C48, 1, 0, 0, -1 }, -- Scarlet Aeonia
+  { 0x40001C84, 1, 0, 0, -1 }, -- Inescapable Frenzy
+  { 0x40001C8E, 1, 0, 0, -1 }, -- The Flame of Frenzy
+  { 0x40001C8F, 1, 0, 0, -1 }, -- Unendurable Frenzy
+  { 0x40001C98, 1, 0, 0, -1 }, -- Frenzied Burst
+  { 0x40001CA2, 1, 0, 0, -1 }, -- Howl of Shabriri
+  { 0x40001D4C, 1, 0, 0, -1 }, -- Aspects of the Crucible Tail
+  { 0x40001D56, 1, 0, 0, -1 }, -- Aspects of the Crucible Horns
+  { 0x40001D60, 1, 0, 0, -1 }, -- Aspects of the Crucible Breath
+  { 0x40001D6A, 1, 0, 0, -1 }, -- Black Blade
+  { 0x40001EDC, 1, 0, 0, -1 }, -- Fire's Deadly Sin
+  { 0x40001EDF, 1, 0, 0, -1 }, -- Golden Lightning Fortification
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

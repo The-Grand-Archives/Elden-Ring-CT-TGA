@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100662</ID>
+  <Description>"Outer Brow Ridge"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+3A</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102423</ID>
+  <Description>"neutralDamageCutRate"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+028</Address>
+</CheatEntry>

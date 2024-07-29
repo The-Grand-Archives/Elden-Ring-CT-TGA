@@ -1,0 +1,126 @@
+[ENABLE]
+aobscanmodule(ItemGib_Main_AOB,$process,8B 02 83 F8 0A)
+//aobscanmodule(WeaponLookup_AOB,$process,8B EA 48 8B F1 33 DB 41 83 CE FF 85 D2)
+define(ItemGib_Main_Call,ItemGib_Main_AOB-52)
+//define(WeaponLookup_Call,WeaponLookup_AOB-22)
+alloc(ItemGib,$300,$process)
+alloc(ItemGibData,$100)
+alloc(ItemGibArray,$10000)
+
+{$c prefix=item_gib}
+#include <tga/params.h>
+{$asm}
+ItemGib:
+registerSymbol(ItemGib)
+test rcx,rcx
+jne short ItemGib_set
+mov rcx,ItemGibArray
+ItemGib_set:
+mov r12,rcx
+call ItemGib_Insert
+mov rcx,ItemGibArray
+call ItemGib_Cleanup
+ret
+
+ItemGib_Insert:
+mov eax,[r12]
+test eax,eax
+je ItemGib_Insert_end
+mov r10,ItemGibData
+lea r11,[r10+20]
+mov ecx,0xA
+mov [r10+20],00
+ItemGib_Insert_Loop:
+mov eax,[r12]
+test eax,eax
+je short ItemGib_Insert_03
+mov [r11+04],eax
+mov eax,[r12+04]
+mov [r11+08],eax
+mov eax,FFFFFFFF
+mov [r11+0C],eax
+mov [r11+10],eax
+cmp dword ptr [r12+00],02FAF080
+jae short ItemGib_Insert_01
+call ItemGib_WeaponCheck
+movzx eax,word ptr [r12+08]
+add [r11+04],eax
+mov eax,[r12+0C]
+mov [r11+10],eax
+mov qword ptr [r11+08],0x1
+jmp short ItemGib_Insert_02
+ItemGib_Insert_01:
+cmp dword ptr [r12+00],10000000 // Protector
+jl short ItemGib_Insert_02
+cmp dword ptr [r12+00],40000000 // Goods
+jg short ItemGib_Insert_02
+mov [r11+08],0x1
+ItemGib_Insert_02:
+add r11,10
+add r12,10
+inc [r10+20]
+loop ItemGib_Insert_Loop
+ItemGib_Insert_03:
+call ItemGib_Main
+jmp ItemGib_Insert
+ItemGib_Insert_end:
+ret
+
+ItemGib_WeaponCheck:
+push ecx
+xor rcx,rcx
+mov edx,dword ptr [r11+04]
+movzx ebx,word ptr [r12+0A]
+{$ccode weapon_id=edx inputReinforceLv=ebx result=eax}
+extern uint8_t** GameDataMan;
+EquipParamWeapon* param = CParamUtils_GetRowData(L"EquipParamWeapon", weapon_id);
+if (param != 0) {
+	uint8_t playerReinforceLv = *(*(GameDataMan+0x1)+0xE2);
+	if (param->originEquipWep1 != -1) {
+		if (inputReinforceLv > 25) {
+			inputReinforceLv = playerReinforceLv;
+		}
+		result = inputReinforceLv;
+		if (param->originEquipWep16 == -1)
+			result = (int)(((float)inputReinforceLv + 0.5f) / 2.5f);
+	}
+	else {
+		result = 0;
+	}
+}
+{$asm}
+add [r11+04],eax
+pop ecx
+ret
+
+ItemGib_Cleanup:
+xor rax,rax
+mov qword ptr [rcx+10],rax
+mov eax,FFFFFFFF
+mov dword ptr [rcx+18],eax
+mov dword ptr [rcx+1C],eax
+ret
+
+ItemGib_Main:
+sub rsp,48
+xor r9d,r9d
+mov r8,ItemGibData
+lea rdx,[r8+20]
+mov r10,MapItemMan
+mov rcx,[r10]
+call ItemGib_Main_Call
+add rsp,48
+ret
+
+ItemGibArray:
+registerSymbol(ItemGibArray)
+// ID       Quantity Upgrade  AshOfWar
+dd 000F4240 00000001 FFFF0000 FFFFFFFF
+dd 00000000 00000000 00000000 FFFFFFFF
+
+[DISABLE]
+dealloc(ItemGib)
+dealloc(ItemGibData)
+dealloc(ItemGibArray)
+unregisterSymbol(ItemGib)
+unregisterSymbol(ItemGibArray)

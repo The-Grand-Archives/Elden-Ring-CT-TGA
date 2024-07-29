@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104713</ID>
+  <Description>"04 (Hide upper neck)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+04</Address>
+</CheatEntry>

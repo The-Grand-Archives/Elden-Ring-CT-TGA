@@ -1,0 +1,58 @@
+<CheatEntry>
+  <ID>108218</ID>
+  <Description>"GESTURE_ID"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">-2:-
+0:Bow
+2:Polite Bow
+4:My Thanks
+6:Curtsy
+8:Reverential Bow
+10:My Lord
+12:Warm Welcome
+14:Wave
+16:Casual Greeting
+18:Strength!
+20:As You Wish
+40:Point Forwards
+42:Point Upwards
+44:Point Downwards
+46:Beckon
+48:Wait
+50:Calm Down!
+60:Nod In Thought
+80:Extreme Repentance
+82:Grovel For Mercy
+100:Rallying Cry
+102:Heartening Cry
+104:By My Sword
+106:Hoslow's Oath
+108:Fire Spur Me
+110:The Carian Oath
+120:Bravo
+140:Jump For Joy
+142:Triumphant Delight
+144:Fancy Spin
+146:Finger Snap
+160:Dejection
+180:Patches' Crouch
+182:Crossed Legs
+184:Rest
+186:Sitting Sideways
+188:Dozing Cross-Legged
+190:Spread Out
+192:Fetal Position
+194:Balled Up
+196:What Do You Want?
+200:Prayer
+202:Desperate Prayer
+204:Rapture
+206:Erudition
+208:Outer Order
+210:Inner Order
+212:Golden Order Totality
+216:The Ring (Pre-Order)
+218:The Ring (Co-op)
+220:?GoodsName?
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

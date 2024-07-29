@@ -1,0 +1,19 @@
+{cscript}
+// Idea taken from https://www.nexusmods.com/eldenring/mods/3187
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("permanent_lantern");
+    ParamPatch(SpEffectParam, 3245, param->saveCategory = 0;);
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("permanent_lantern");
+    return 0;
+}
+
+{$asm}
+[DISABLE]

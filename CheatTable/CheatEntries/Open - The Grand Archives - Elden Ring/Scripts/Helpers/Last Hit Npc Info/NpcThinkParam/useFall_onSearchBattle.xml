@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106130</ID>
+  <Description>"useFall_onSearchBattle"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+A9</Address>
+</CheatEntry>

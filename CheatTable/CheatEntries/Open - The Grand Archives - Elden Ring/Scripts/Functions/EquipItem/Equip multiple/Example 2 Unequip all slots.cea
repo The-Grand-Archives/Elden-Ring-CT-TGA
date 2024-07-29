@@ -1,0 +1,10 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+for i=0,38 do
+    unequipItem(i)
+end
+
+disableMemrec(memrec)
+
+[DISABLE]

@@ -1,0 +1,55 @@
+{cscript timeout=2000}
+// Finds and registers static addresses for game singletons via null singleton error messages
+// Author: tremwil
+
+[ENABLE]
+{$c}
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <winapi/windows.h>
+
+#include <tga/celua.h>
+#include <tga/fd4_singleton.h>
+
+// Remove comment to print information about found classes
+// #define DEBUG
+
+#define MAX_SINGLETONS 0x400
+fd4_singleton_basic_info singletons[MAX_SINGLETONS];
+
+int on_enable() {
+    int num_found = find_fd4_singletons(singletons, MAX_SINGLETONS);
+
+    char buff[1024];
+#ifdef DEBUG
+    snprintf(buff, sizeof(buff), "asyncPrint(\"Addresses of %d singletons succesfully found\")", num_found);
+    CELUA_ExecuteFunctionAsync(buff, 0);
+#endif
+
+    // registerSymbol() found static addresses
+    for (int i = 0; i < num_found; i++) {
+        snprintf(buff, sizeof(buff), "tgaRegisterBase(\"%s\", 0x%p)",
+            singletons[i].simple_name, singletons[i].address);
+        CELUA_ExecuteFunctionAsync(buff, 0);
+
+#ifdef DEBUG
+        snprintf(buff, sizeof(buff), "asyncPrint(\"%s -> %p\")",
+            singletons[i].simple_name, singletons[i].address);
+        CELUA_ExecuteFunctionAsync(buff, 0);
+#endif
+    }
+#ifdef DEBUG
+    return num_found;
+#else
+    return 0;
+#endif
+};
+
+int on_disable() {
+    return 0;
+}
+
+
+{$asm}
+[DISABLE]

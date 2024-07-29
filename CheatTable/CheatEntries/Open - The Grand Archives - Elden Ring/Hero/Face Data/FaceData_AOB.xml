@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>100647</ID>
+  <Description>"FaceData_AOB"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>FF8000</Color>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>264</ByteLength>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>754</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

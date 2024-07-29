@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103101</ID>
+  <Description>"def_thrust"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+FE</Address>
+</CheatEntry>

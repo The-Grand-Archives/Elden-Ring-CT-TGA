@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102679</ID>
+  <Description>"defPlayerDmgCorrectRate_Thunder"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+026C</Address>
+</CheatEntry>

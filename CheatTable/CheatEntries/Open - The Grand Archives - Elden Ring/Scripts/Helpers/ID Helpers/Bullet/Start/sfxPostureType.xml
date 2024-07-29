@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102376</ID>
+  <Description>"sfxPostureType"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>+C0</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+[ENABLE]
+[[[FieldArea]+20]+D0]+40:
+readmem([[[FieldArea]+20]+20]+40,16)
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+[DISABLE]
+

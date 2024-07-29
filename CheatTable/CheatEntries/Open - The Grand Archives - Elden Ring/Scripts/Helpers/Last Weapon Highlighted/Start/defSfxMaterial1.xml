@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>104415</ID>
+  <Description>"defSfxMaterial1"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">100:Normal
+102:Wood
+103:Magic
+104:Shield
+105:Small Shield
+129:Greatshield
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+10A</Address>
+</CheatEntry>

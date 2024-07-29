@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(BulletHelper,16)
+registersymbol(BulletHelper)
+
+BulletHelper:
+dq #0
+
+[DISABLE]
+dealloc(BulletHelper)
+unregistersymbol(BulletHelper)

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106432</ID>
+  <Description>"onBuddySummon_inActivateRange_spEffectId_pc"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+4C</Address>
+</CheatEntry>

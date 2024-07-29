@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>100329</ID>
+  <Description>"CurrentWepSlotOffset &lt; LEFT_ARROW &gt;"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Primary
+1:Secondary
+2:Tertiary
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>330</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

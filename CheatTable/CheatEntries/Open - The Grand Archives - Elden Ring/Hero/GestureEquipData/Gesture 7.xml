@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>100528</ID>
+  <Description>"Gesture 7"</Description>
+  <DropDownListLink>GESTURE_ID</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>20</Offset>
+    <Offset>5E0</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

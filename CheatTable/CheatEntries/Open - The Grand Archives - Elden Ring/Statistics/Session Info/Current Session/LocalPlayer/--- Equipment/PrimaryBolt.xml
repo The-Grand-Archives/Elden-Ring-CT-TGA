@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>100059</ID>
+  <Description>"PrimaryBolt"</Description>
+  <DropDownListLink>WEAPON_ID</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>3B4</Offset>
+    <Offset>580</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102366</ID>
+  <Description>"bulletSfxDeleteType_byHit"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>+9E</Address>
+</CheatEntry>

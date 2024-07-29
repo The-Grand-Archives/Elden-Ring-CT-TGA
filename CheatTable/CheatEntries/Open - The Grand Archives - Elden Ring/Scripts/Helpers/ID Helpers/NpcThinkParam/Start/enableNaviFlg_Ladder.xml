@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103403</ID>
+  <Description>"enableNaviFlg_Ladder"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+64</Address>
+</CheatEntry>

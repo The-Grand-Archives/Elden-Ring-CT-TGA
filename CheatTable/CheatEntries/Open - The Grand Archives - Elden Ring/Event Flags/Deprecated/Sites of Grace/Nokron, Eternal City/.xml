@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>107206</ID>
+  <Description>"Nokron, Eternal City"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="107207"/>
+    <id id="107214"/>
+    <id id="107219"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

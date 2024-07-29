@@ -1,0 +1,125 @@
+{cscript sync=false timeout=0 gensymbols=true}
+// Script showcasing some TGA C library features
+// Author: tremwil
+[ENABLE]
+{$c}
+#include <tga/code_utils.h>
+#include <tga/pattern.h>
+
+// Globals for user interface
+
+typedef struct _ItemDropEntry {
+    uint32_t id;
+    uint32_t quantity;
+    uint32_t unused;
+    uint32_t ash_of_war;
+} ItemDropEntry;
+
+typedef struct _ItemDropList {
+    uint32_t count;
+    ItemDropEntry items[10];
+} ItemDropList;
+
+// copied game constructor, other defaults may also work
+void ItemDropList_init(ItemDropList* list) {
+    list->count = 0;
+    for (int i = 0; i < sizeof(list->items) / sizeof(typeof(list->items[0])); i++) {
+        list->items[i].id = -1;
+        list->items[i].quantity = 0;
+        list->items[i].unused = -1;
+        list->items[i].ash_of_war = -1;
+    }
+}
+
+fn_info item_drop_reloc;
+
+extern void* MapItemMan;
+typedef void(*ItemDropFun)(void*, ItemDropList*, bool, bool);
+
+ItemDropFun RelocatedItemDrop = NULL;
+ItemDropList ItemDrop_ItemList;
+bool ItemDrop_NoNetworking = false;
+bool ItemDrop_RandomSpread = false;
+bool ItemDrop_UseCustomCoords = false;
+
+uint32_t ItemDrop_CustomMapId = 0;
+float ItemDrop_CustomCoords[3] = { 0.f, 0.f, 0.f };
+
+int RelocatedItemDropCall() {
+    if (!MapItemMan) return 0;
+    RelocatedItemDrop(MapItemMan, &ItemDrop_ItemList, ItemDrop_NoNetworking, ItemDrop_RandomSpread);
+    return 0;
+}
+
+// Call hook on the local-to-map-relative coord conversion routine
+
+CALL_HOOK(bool(*)(float*, float*, uint32_t*)) coords_hook;
+
+uint32_t ItemDrop_LastMapId = 0;
+float ItemDrop_LastCoords[3] = { 0.f, 0.f, 0.f };
+
+bool on_convert_coords(float* global_out, float* local_in, uint32_t* map_id_ptr) {
+    bool ret = coords_hook.original(global_out, local_in, map_id_ptr);
+    ItemDrop_LastMapId = *map_id_ptr;
+    memcpy(ItemDrop_LastCoords, global_out, 12);
+
+    if (ItemDrop_UseCustomCoords) {
+        *map_id_ptr = ItemDrop_CustomMapId;
+        memcpy(global_out, ItemDrop_CustomCoords, 12);
+        return true;
+    }
+    else return ret;
+}
+
+// Activation & Deactivation
+
+int on_enable() {
+    // Init item list and insert default item
+
+    ItemDropList_init(&ItemDrop_ItemList);
+    ItemDrop_ItemList.count = 1;
+    ItemDrop_ItemList.items[0].id = 0x000F4240; // Dagger +0
+    ItemDrop_ItemList.items[0].quantity = 1;
+
+    // AOB scan for ItemDrop function in eldenring.exe .text section
+
+    ItemDropFun item_drop = (ItemDropFun)easy_aob_scan(NULL, ".text",
+        "48 8b c4 55 56 57 41 54 41 55 "
+        "41 56 41 57 48 8d a8 98 fd ff "
+        "ff 48 81 ec 30 03 00 00 48 c7 "
+        "44 24 60 fe ff ff ff 48 89 58 "
+        "20 0f 29 70 b8 0f 29 78 a8 44 "
+        "0f 29 40 98"
+    );
+    if (!item_drop) {
+        return 1;
+    }
+
+    // Relocate function to memory that is safe to hook
+
+    fn_info orig = { .function_begin = (intptr_t)item_drop };
+    if (!code_reloc(&orig, &item_drop_reloc, NULL, 0)) {
+        return 4;
+    }
+
+    // Install the call hook
+
+    RelocatedItemDrop = (void*)item_drop_reloc.function_begin;
+    coords_hook.hook = on_convert_coords;
+    call_hook_install(&coords_hook, (void*)(item_drop_reloc.function_begin + 0x1AC), NULL);
+
+    return 0;
+}
+
+int on_disable() {
+    // Free call hook thunk buffer & ItemDrop relocated code
+
+    call_hook_uninstall(&coords_hook);
+    if (item_drop_reloc.code_begin) {
+        VirtualFree(item_drop_reloc.code_begin, 0, MEM_RELEASE);
+    }
+    return 0;
+}
+
+{$asm}
+[DISABLE]

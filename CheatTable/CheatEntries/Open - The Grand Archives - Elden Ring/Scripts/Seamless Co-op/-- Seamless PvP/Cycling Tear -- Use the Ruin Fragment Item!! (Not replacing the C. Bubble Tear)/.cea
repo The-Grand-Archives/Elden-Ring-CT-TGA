@@ -1,0 +1,73 @@
+{
+  Author: Jacky Dima
+  Description: First Attempt to redo the DS3 Cycling Tears with Ruin Fragment item + Bubble tear normal function
+               needs more testing, especially for the Effect ID 41 and 46, they could be occupied
+
+               edit: 46 is used by the Serpeants that curses you!
+}
+
+{$lua}
+if syntaxcheck then return end
+[enable]
+
+local NodeadPtr = "[[[[[WorldChrMan]+10EF8]+0]+190]+0]19B" -- Nodead Pointer of Hero
+writeInteger(NodeadPtr, 1)
+getAddressList().getMemoryRecordByDescription('TearsNoDead 2').Active = true
+
+
+local maxHpPtr = "[[[[[WorldChrMan]+10EF8]+0]+190]+0]+13C"
+local hpActivate = 1 -- when tears should activate
+local percantage = 0.3 -- default
+
+local maxHp = readInteger(maxHpPtr)
+
+percantage = hpActivate*100/maxHp + 0.01 -- plus 0.01 for the rounding issue
+
+local A1 = EquipParamGoods:new("OK", 1760) -- Ruin Fragment
+A1:patch4Byte(0x4, 41) -- Effectid
+A1:patchByte(0x3F, 2)-- SpEffect
+A1:patchBinary(0x48,0,7) -- no comsume
+A1:patchByte(0x42, 0) -- eat animation
+
+
+local E1 = SpEffectParam:new("OK", 41) -- 41 is prob an unused effect id
+E1:patch4Byte(0x0, 20031) -- First icon, could be replaced with others like 20050
+E1:patchFloat(0x1F0, percantage) -- Sets the conditionHpRate to percantage (1 HP)
+E1:effectEndurance(-1) -- set the "Tears" to infinite
+E1:replaceSpEffectId(46)
+E1:spCategory(19) -- Needs more testing if it Replace some effects !!
+E1:patch4Byte(0x170, 5849) --vfx of Bubble Tears
+--E1:patchByte(0x149, 0) -- Some bytes that are different from regular Bubble
+--E1:patchByte(0x14A, 0)
+--E1:patchByte(0x14B, 0)
+--E1:patchByte(0x14D, 0)
+E1:patchBinary(0x16C, 1, 5) -- isContractSpEffectLife
+E1:patchBinary(0x16C, 1, 6) -- isWaitModeDelete
+
+
+local E2 = SpEffectParam:new("OK", 46) -- The Heal Effect after Chrimson Tear pops unused 46 prob
+E2:changeHpRate(-100) -- regen Hp to 100%
+E2:changeMpRate(-100) -- regen Mp to 100%
+E2:cycleOccurrenceSpEffectId(41) -- since duration is 0, it applies once new Tears on Effect
+E2:effectEndurance(0)
+E2:patch4Byte(0x170, 5890)
+
+local E3 = SpEffectParam:new("OK", 70) -- curse
+E3:effectEndurance(1)
+
+
+
+[disable]
+
+if syntaxcheck then return end
+local NodeadPtr = "[[[[[WorldChrMan]+10EF8]+0]+190]+0]19B"
+local hpPtr = "[[[[[WorldChrMan]+10EF8]+0]+190]+0]+138"
+
+local E2 = SpEffectParam:new("OK", 46)
+E2:cycleOccurrenceSpEffectId(-1) -- is important, so that Effect 41 is not Staying all the time on the Character
+-- -> deleted on Flag isWaitModeDelete bcs regualar
+writeInteger(NodeadPtr, 0)
+writeInteger(hpPtr, 1)
+getAddressList().getMemoryRecordByDescription('TearsNoDead 2').Active = false
+
+paramUtils:restore("OK")

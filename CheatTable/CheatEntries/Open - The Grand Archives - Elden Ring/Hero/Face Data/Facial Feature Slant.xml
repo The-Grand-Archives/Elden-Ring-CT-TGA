@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100684</ID>
+  <Description>"Facial Feature Slant"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+50</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

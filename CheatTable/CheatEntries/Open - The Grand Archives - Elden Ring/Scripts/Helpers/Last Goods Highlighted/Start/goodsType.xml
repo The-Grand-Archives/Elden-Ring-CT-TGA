@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>104878</ID>
+  <Description>"goodsType"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Tool
+1:Key Item
+2:Crafting Material
+5:Sorcery
+7:Ash
+10:Tear
+11:Container
+12:Info
+14:Bolstering  Material
+15:Great Rune
+18:Incantation
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+3E</Address>
+</CheatEntry>

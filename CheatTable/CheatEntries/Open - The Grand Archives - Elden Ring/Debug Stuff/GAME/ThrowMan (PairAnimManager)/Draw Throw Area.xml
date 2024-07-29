@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>107956</ID>
+  <Description>"Draw Throw Area"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSPairAnimManager</Address>
+  <Offsets>
+    <Offset>E5</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108127</ID>
+  <Description>"ID:24 &lt; Valiant Gargoyle"</Description>
+  <DropDownListLink>UNLOCKED_LOCKED</DropDownListLink>
+  <VariableType>Byte</VariableType>
+  <Address>CSTrophy</Address>
+  <Offsets>
+    <Offset>102*18</Offset>
+    <Offset>40</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

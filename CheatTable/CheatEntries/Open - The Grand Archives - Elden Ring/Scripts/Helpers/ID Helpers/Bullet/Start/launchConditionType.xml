@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>102345</ID>
+  <Description>"launchConditionType"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:0 : on hit
+3:3 : Enemy?
+254:254
+-1:-1 : on life end
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+99</Address>
+</CheatEntry>

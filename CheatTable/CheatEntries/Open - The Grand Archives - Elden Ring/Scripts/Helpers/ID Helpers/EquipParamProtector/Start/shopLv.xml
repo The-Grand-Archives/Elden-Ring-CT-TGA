@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101686</ID>
+  <Description>"shopLv"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+D0</Address>
+</CheatEntry>

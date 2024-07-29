@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107784</ID>
+  <Description>"Fog wall - Godskin Prayerbook, Godslayer's Seal"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>151C16</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

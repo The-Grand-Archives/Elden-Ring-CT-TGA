@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105111</ID>
+  <Description>"Immunity (Poison)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>10</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

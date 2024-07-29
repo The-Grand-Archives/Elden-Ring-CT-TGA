@@ -1,0 +1,94 @@
+name: "Release"
+on:
+  push:
+    branches: [master]
+  pull_request: 
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: "Build"
+        id: build
+        uses: "./.github/actions/build"
+    
+    outputs:
+      release-tag: ${{ steps.build.outputs.release-tag }}
+      build-artifact-name: ${{ steps.build.outputs.build-artifact-name }}
+  
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-tags: true
+          fetch-depth: 0
+          sparse-checkout: BUILD_ENV
+      
+      - name: Ensure version was updated
+        run: |
+          source BUILD_ENV
+          if git show-ref --tags --verify "refs/tags/v${TABLE_VERSION}"; then
+            echo "Release v${TABLE_VERSION} already exists"
+            exit 1
+          fi
+  
+  generate-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            CHANGELOG.md
+            BUILD_ENV
+      
+      - name: Extract changelog section
+        id: extract_changelog
+        run: |
+          source BUILD_ENV
+          escaped=$(echo "v${TABLE_VERSION}" | sed 's/\./\\./g')
+          changelog=$(grep -zoP "## \[$escaped\](?:.|\n)*?\n## " CHANGELOG.md | sed '1d; $ d')
+          if [ -z "${changelog}" ]; then
+            echo "No changelog written for release v${TABLE_VERSION}. Aborting."
+            exit 1
+          fi
+          {
+            echo 'changelog<<EOF'
+            echo "## Elden Ring app ver. ${GAME_VERSION}"
+            echo "${changelog}"
+            echo EOF
+          } >> $GITHUB_OUTPUT
+        
+    outputs:
+      changelog: ${{ steps.extract_changelog.outputs.changelog }}
+
+  publish-release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - check-version
+      - generate-changelog
+    if: github.event_name == 'push'
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.build.outputs.build-artifact-name }}
+          path: dist
+      
+      - name: Create zip
+        run: zip ${{ needs.build.outputs.build-artifact-name }}.zip dist/* -r
+      
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ needs.build.outputs.release-tag }}
+          tag_name: ${{ needs.build.outputs.release-tag }}
+          body: ${{ needs.generate-changelog.outputs.changelog }}
+          files: ${{ needs.build.outputs.build-artifact-name }}.zip

@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>106959</ID>
+  <Description>"Ranni's Chamber"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>CD0</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

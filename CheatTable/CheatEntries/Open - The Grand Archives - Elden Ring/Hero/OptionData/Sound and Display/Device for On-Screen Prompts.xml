@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>101011</ID>
+  <Description>"Device for On-Screen Prompts"</Description>
+  <DropDownListLink>ON_OFF</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Byte</VariableType>
+  <Address/>
+</CheatEntry>

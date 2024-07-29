@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100638</ID>
+  <Description>"Focus"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>90</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

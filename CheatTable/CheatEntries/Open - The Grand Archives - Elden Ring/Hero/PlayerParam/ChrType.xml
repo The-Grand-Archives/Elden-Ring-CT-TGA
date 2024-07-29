@@ -1,0 +1,26 @@
+<CheatEntry>
+  <ID>100639</ID>
+  <Description>"ChrType"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:Host
+1:White Phantom
+2:Dark Spirit
+3:Ghost
+4:Ghost
+8:Hollow
+10:Transparent
+11:Invisible
+12:Dragon
+13:Arena
+16:Dark Spirit
+
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>98</Offset>
+    <Offset>580</Offset>
+    <Offset>0*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

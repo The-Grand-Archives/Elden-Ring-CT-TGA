@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>105259</ID>
+  <Description>"stamina"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+F4</Address>
+</CheatEntry>

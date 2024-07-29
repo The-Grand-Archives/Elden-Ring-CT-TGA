@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101520</ID>
+  <Description>"correctType_Thunder"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+17F</Address>
+</CheatEntry>

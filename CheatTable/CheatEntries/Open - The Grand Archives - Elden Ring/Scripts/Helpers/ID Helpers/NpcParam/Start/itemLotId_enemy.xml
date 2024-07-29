@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103042</ID>
+  <Description>"itemLotId_enemy"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+30</Address>
+</CheatEntry>

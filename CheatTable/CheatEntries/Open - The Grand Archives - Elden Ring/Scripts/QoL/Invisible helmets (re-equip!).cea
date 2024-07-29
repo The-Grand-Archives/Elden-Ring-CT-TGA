@@ -1,0 +1,27 @@
+{cscript}
+// Idea from Arzock
+[ENABLE]
+{$c}
+#include <tga/params.h>
+
+int on_enable() {
+    ParamPatchBegin("invisible_helmets");
+    ParamPatchAll(EquipParamProtector, {
+        if (param->headEquip) {
+            param->equipModelId = 0;
+            // Clear the face mask -- invisibleFlag_SexVer00 to invisibleFlag_SexVer95
+            memset(&param->invisibleFlag_SexVer00, 0, 96);
+        }
+    });
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("invisible_helmets");
+    return 0;
+}
+
+{$asm}
+[DISABLE]
+

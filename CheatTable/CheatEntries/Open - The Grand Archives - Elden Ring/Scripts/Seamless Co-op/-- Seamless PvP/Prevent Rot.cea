@@ -1,0 +1,60 @@
+//Author: Jacky Dima
+[ENABLE]
+aobscanmodule(ItemGib_Main_AOB,$process,8B 02 83 F8 0A)
+define(ItemGib_Main_Call,ItemGib_Main_AOB-52)
+//registersymbol(ItemGib_Main_Call)
+alloc(newmem,512,$process)
+
+label(Fuckrot)
+label(returnhere)
+label(originalcode)
+
+
+newmem:
+cmp [rdx+4],04000000C
+je Fuckrot
+
+cmp [rdx+4],04000000D
+je Fuckrot
+
+cmp [rdx+4],04000000E
+je Fuckrot
+
+cmp [rdx+4],04000000F
+je Fuckrot
+
+cmp [rdx+4],040000010
+je Fuckrot
+
+push rbp
+push rsi
+push rdi
+push r12
+jmp returnhere
+
+Fuckrot:
+ret
+
+originalcode:
+push rbp
+push rsi
+push rdi
+push r12
+
+ItemGib_Main_Call:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+ItemGib_Main_Call:
+push rbp
+push rsi
+push rdi
+push r12
+//Alt: db 40 55 56 57 41 54

@@ -1,0 +1,18 @@
+<CheatEntry>
+  <ID>100645</ID>
+  <Description>"Voice Type"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Young Voice 1
+1:Young Voice 2
+2:Mature Voice 1
+3:Mature Voice 2
+4:Aged Voice 1
+5:Aged Voice 2
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>C2</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

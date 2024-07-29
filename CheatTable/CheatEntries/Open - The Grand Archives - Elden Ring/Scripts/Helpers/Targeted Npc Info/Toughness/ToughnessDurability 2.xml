@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>105180</ID>
+  <Description>"ToughnessDurability /"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Float</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>14</Offset>
+    <Offset>48</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

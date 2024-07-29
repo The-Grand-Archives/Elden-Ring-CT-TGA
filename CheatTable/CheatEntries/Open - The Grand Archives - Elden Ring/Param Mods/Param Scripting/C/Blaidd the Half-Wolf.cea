@@ -1,0 +1,37 @@
+{cscript}
+[ENABLE]
+{$c}
+#include <tga/params.h>
+int on_enable() {
+    ParamPatchBegin("blaidd_summon");
+    ParamPatch(BuddyParam, 20200000, {
+        param->npcParamId = 20109110;
+        param->npcThinkParamId = 20108000;
+        param->generateAnimId = 20039;
+    });
+    ParamPatch(NpcParam, 20109110, {
+        param->teamType = 47;
+        param->spEffectID2 = 5130;
+        param->spEffectID4 = 4302;
+        param->spEffectID5 = 295000;
+        param->spEffectID6 = 296000;
+        param->spEffectID7 = 297000;
+    });
+    for (int id = 202000; id <= 202010; id++ ) {
+        ParamPatch(EquipParamGoods, id, {
+            param->iconId = 13170;
+            param->consumeMP = -1;
+        });
+    }
+    ParamPatchEnd();
+    return 0;
+}
+
+int on_disable() {
+    ParamRestore("blaidd_summon");
+    return 0;
+}
+
+{$asm}
+[DISABLE]
+

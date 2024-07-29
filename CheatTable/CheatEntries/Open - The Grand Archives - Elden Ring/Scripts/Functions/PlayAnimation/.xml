@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>101119</ID>
+  <Description>"PlayAnimation"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="101120"/>
+    <id id="101121"/>
+    <id id="101122"/>
+    <id id="101123"/>
+    <id id="101124"/>
+    <id id="101125"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

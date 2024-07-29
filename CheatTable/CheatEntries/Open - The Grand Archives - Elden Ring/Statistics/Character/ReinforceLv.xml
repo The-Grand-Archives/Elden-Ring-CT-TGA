@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>100005</ID>
+  <Description>"ReinforceLv"</Description>
+  <DropDownListLink>ChrReinforceLv</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>E2</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

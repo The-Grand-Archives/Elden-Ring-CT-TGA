@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106693</ID>
+  <Description>"blockClearBonusDelayTime"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+2E8</Address>
+</CheatEntry>

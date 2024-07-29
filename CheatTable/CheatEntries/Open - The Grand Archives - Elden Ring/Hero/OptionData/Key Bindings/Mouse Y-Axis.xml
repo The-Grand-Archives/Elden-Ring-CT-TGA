@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>101025</ID>
+  <Description>"Mouse Y-Axis"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Reverse
+1:Normal
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>CSPcKeyConfig</Address>
+  <Offsets>
+    <Offset>832</Offset>
+  </Offsets>
+</CheatEntry>

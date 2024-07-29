@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100824</ID>
+  <Description>"Decal_Scale"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+DC</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

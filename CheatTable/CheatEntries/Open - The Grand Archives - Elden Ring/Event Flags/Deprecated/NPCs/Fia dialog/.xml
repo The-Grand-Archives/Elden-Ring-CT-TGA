@@ -1,0 +1,46 @@
+<CheatEntry>
+  <ID>107484</ID>
+  <Description>"Fia dialog"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>153A15</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107485"/>
+    <id id="107486"/>
+    <id id="107487"/>
+    <id id="107488"/>
+    <id id="107489"/>
+    <id id="107490"/>
+    <id id="107491"/>
+    <id id="107492"/>
+    <id id="107493"/>
+    <id id="107494"/>
+    <id id="107495"/>
+    <id id="107496"/>
+    <id id="107497"/>
+    <id id="107498"/>
+    <id id="107499"/>
+    <id id="107500"/>
+    <id id="107501"/>
+    <id id="107502"/>
+    <id id="107503"/>
+    <id id="107504"/>
+    <id id="107505"/>
+    <id id="107506"/>
+    <id id="107507"/>
+    <id id="107508"/>
+    <id id="107509"/>
+    <id id="107510"/>
+    <id id="107511"/>
+    <id id="107512"/>
+    <id id="107513"/>
+    <id id="107514"/>
+    <id id="107515"/>
+    <id id="107516"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

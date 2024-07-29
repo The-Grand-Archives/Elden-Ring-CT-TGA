@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>104998</ID>
+  <Description>"spEffectCategory"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:None
+3:Sorcery
+4:Miracle
+10:Pyromancy
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+28</Address>
+</CheatEntry>

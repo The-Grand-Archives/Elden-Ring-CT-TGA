@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106558</ID>
+  <Description>"invincibleTimer_forNetPC"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+183</Address>
+</CheatEntry>

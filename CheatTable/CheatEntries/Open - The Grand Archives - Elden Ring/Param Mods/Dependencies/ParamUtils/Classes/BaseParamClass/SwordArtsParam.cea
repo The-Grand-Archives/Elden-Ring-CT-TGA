@@ -1,0 +1,36 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START SwordArtsParam class]]--
+SwordArtsParam = BaseParamClass:new()
+
+function SwordArtsParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("SwordArtsParam", uuid, id, address)
+	return o
+end
+
+function SwordArtsParam:WeaponArtId(value)
+    self:patchByte(0x0,value)
+end
+
+function SwordArtsParam:FPcost(value)
+    self:patch2Byte(0xE,value)
+end
+
+function SwordArtsParam:R1FP(value)
+    self:patch2Byte(0x10,value)
+end
+
+function SwordArtsParam:R2FP(value)
+    self:patch2Byte(0x12,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102435</ID>
+  <Description>"physicsAttackPower"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+058</Address>
+</CheatEntry>

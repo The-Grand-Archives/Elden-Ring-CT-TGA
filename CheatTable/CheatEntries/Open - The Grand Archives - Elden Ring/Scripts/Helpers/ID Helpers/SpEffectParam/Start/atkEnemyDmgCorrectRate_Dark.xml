@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102696</ID>
+  <Description>"atkEnemyDmgCorrectRate_Dark"</Description>
+  <VariableType>Float</VariableType>
+  <Address>+02B0</Address>
+</CheatEntry>

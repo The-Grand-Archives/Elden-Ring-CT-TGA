@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103140</ID>
+  <Description>"guardLevel"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+13C</Address>
+</CheatEntry>

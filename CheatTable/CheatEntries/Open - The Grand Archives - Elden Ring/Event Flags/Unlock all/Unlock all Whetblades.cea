@@ -1,0 +1,29 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+65600, -- Upgrade - Standard
+65610, -- Iron Whetblade (Heavy)
+65620, -- Iron Whetblade (Keen)
+65630, -- Iron Whetblade (Quality)
+65640, -- Red-Hot Whetblade (Fire)
+65650, -- Red-Hot Whetblade (Flame Art)
+65660, -- Sanctified Whetblade (Lightning)
+65670, -- Sanctified Whetblade (Sacred)
+65680, -- Glintstone Whetblade (Magic)
+65690, -- Glintstone Whetblade (Frost)
+65700, -- Black Whetblade (Poison)
+65710, -- Black Whetblade (Blood)
+65720, -- Black Whetblade (Occult)
+}
+
+local flags = {flagsBase}
+--if isOwnDlc(1) then table.insert(flags, flagsDLC1) end
+--if isOwnDlc(3) == 1 then table.insert(flags, flagsDLC2) end
+
+ef.batchSetFlags(flags, 1, "WhetbladesThread")
+disableMemrec(memrec, function() return not ef.WhetbladesThread end)
+
+[DISABLE]
+ef.WhetbladesThread = false

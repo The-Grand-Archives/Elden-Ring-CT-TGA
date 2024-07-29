@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100855</ID>
+  <Description>"Eye_Left_Sclera_g"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+FB</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

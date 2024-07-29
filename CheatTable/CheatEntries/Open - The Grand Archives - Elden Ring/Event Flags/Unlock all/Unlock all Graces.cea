@@ -1,0 +1,440 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+82001, -- Show underground
+71190, -- Table of Lost Grace / Roundtable Hold
+76101, -- Limgrave - Limgrave - The First Step
+76100, -- Limgrave - Limgrave - Church of Elleh
+76111, -- Limgrave - Limgrave - Gatefront
+76120, -- Limgrave - Limgrave - Waypoint Ruins Cellar
+76103, -- Limgrave - Limgrave - Artist's Shack (Limgrave)
+76104, -- Limgrave - Limgrave - Third Church of Marika
+76105, -- Limgrave - Limgrave - Fort Haight West
+76106, -- Limgrave - Limgrave - Agheel Lake South
+76108, -- Limgrave - Limgrave - Agheel Lake North
+76110, -- Limgrave - Limgrave - Church of Dragon Communion
+76113, -- Limgrave - Limgrave - Seaside Ruins
+76114, -- Limgrave - Limgrave - Mistwood Outskirts
+76116, -- Limgrave - Limgrave - Murkwater Coast
+76119, -- Limgrave - Limgrave - Summonwater Village Outskirts
+73002, -- Limgrave - Limgrave - Stormfoot Catacombs
+73004, -- Limgrave - Limgrave - Murkwater Catacombs
+73103, -- Limgrave - Limgrave - Groveside Cave
+73115, -- Limgrave - Limgrave - Coastal Cave
+73100, -- Limgrave - Limgrave - Murkwater Cave
+73117, -- Limgrave - Limgrave - Highroad Cave
+73201, -- Limgrave - Limgrave - Limgrave Tunnels
+71800, -- Limgrave - Stranded Graveyard - Cave of Knowledge
+71801, -- Limgrave - Stranded Graveyard - Stranded Graveyard
+76102, -- Limgrave - Stormhill - Stormhill Shack
+71002, -- Limgrave - Stormhill - Castleward Tunnel
+71001, -- Limgrave - Stormhill - Margit, the Fell Omen
+76118, -- Limgrave - Stormhill - Warmaster's Shack
+76117, -- Limgrave - Stormhill - Saintsbridge
+73011, -- Limgrave - Stormhill - Deathtouched Catacombs
+73410, -- Limgrave - Stormhill - Limgrave Tower Bridge
+73412, -- Limgrave - Stormhill - Divine Tower of Limgrave
+76150, -- Limgrave - Weeping Peninsula - Church of Pilgrimage
+76151, -- Limgrave - Weeping Peninsula - Castle Morne Rampart
+76152, -- Limgrave - Weeping Peninsula - Tombsward
+76153, -- Limgrave - Weeping Peninsula - South of the Lookout Tower
+76154, -- Limgrave - Weeping Peninsula - Ailing Village Outskirts
+76155, -- Limgrave - Weeping Peninsula - Beside the Crater-Pocked Glade
+76156, -- Limgrave - Weeping Peninsula - Isolated Merchant's Shack (Limgrave)
+76162, -- Limgrave - Weeping Peninsula - Fourth Church of Marika
+76157, -- Limgrave - Weeping Peninsula - Bridge of Sacrifice
+76158, -- Limgrave - Weeping Peninsula - Castle Morne Lift
+76159, -- Limgrave - Weeping Peninsula - Behind The Castle
+76160, -- Limgrave - Weeping Peninsula - Beside the Rampart Gaol
+76161, -- Limgrave - Weeping Peninsula - Morne Moangrave
+73001, -- Limgrave - Weeping Peninsula - Impaler's Catacombs
+73000, -- Limgrave - Weeping Peninsula - Tombsward Catacombs
+73101, -- Limgrave - Weeping Peninsula - Earthbore Cave
+73102, -- Limgrave - Weeping Peninsula - Tombsward Cave
+73200, -- Limgrave - Weeping Peninsula - Morne Tunnel
+71008, -- Stormveil Castle - Stormveil Main Gate
+71003, -- Stormveil Castle - Gateside Chamber
+71004, -- Stormveil Castle - Stormveil Cliffside
+71005, -- Stormveil Castle - Rampart Tower
+71006, -- Stormveil Castle - Liftside Chamber
+71007, -- Stormveil Castle - Secluded Cell
+71000, -- Stormveil Castle - Godrick the Grafted
+76200, -- Liurnia of the Lakes - Liurnia of the Lakes - Lake-Facing Cliffs
+76202, -- Liurnia of the Lakes - Liurnia of the Lakes - Laskyar Ruins
+76201, -- Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Lake Shore
+76204, -- Liurnia of the Lakes - Liurnia of the Lakes - Academy Gate Town
+76217, -- Liurnia of the Lakes - Liurnia of the Lakes - Artist's Shack (Liurnia of the Lakes)
+76223, -- Liurnia of the Lakes - Liurnia of the Lakes - Eastern Liurnia Lake Shore
+76222, -- Liurnia of the Lakes - Liurnia of the Lakes - Gate Town Bridge
+76221, -- Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Highway North
+76244, -- Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Highway South
+76206, -- Liurnia of the Lakes - Liurnia of the Lakes - Main Academy Gate
+76203, -- Liurnia of the Lakes - Liurnia of the Lakes - Scenic Isle
+76205, -- Liurnia of the Lakes - Liurnia of the Lakes - South Raya Lucaria Gate
+76225, -- Liurnia of the Lakes - Liurnia of the Lakes - Ruined Labyrinth
+76216, -- Liurnia of the Lakes - Liurnia of the Lakes - Boilprawn Shack
+76224, -- Liurnia of the Lakes - Liurnia of the Lakes - Church of Vows
+76237, -- Liurnia of the Lakes - Liurnia of the Lakes - Converted Tower
+76234, -- Liurnia of the Lakes - Liurnia of the Lakes - Eastern Tableland
+76236, -- Liurnia of the Lakes - Liurnia of the Lakes - Fallen Ruins of the Lake
+76219, -- Liurnia of the Lakes - Liurnia of the Lakes - Folly on the Lake
+76245, -- Liurnia of the Lakes - Liurnia of the Lakes - Jarburg
+76226, -- Liurnia of the Lakes - Liurnia of the Lakes - Mausoleum Compound
+76247, -- Liurnia of the Lakes - Liurnia of the Lakes - Ranni's Chamber
+76218, -- Liurnia of the Lakes - Liurnia of the Lakes - Revenger's Shack
+76215, -- Liurnia of the Lakes - Liurnia of the Lakes - Slumbering Wolf's Shack
+76220, -- Liurnia of the Lakes - Liurnia of the Lakes - Village of the Albinaurics
+76243, -- Liurnia of the Lakes - Liurnia of the Lakes - Crystalline Woods
+76242, -- Liurnia of the Lakes - Liurnia of the Lakes - East Gate Bridge Trestle
+76210, -- Liurnia of the Lakes - Liurnia of the Lakes - Foot of the Four Belfries
+76233, -- Liurnia of the Lakes - Liurnia of the Lakes - Gate Town North
+76214, -- Liurnia of the Lakes - Liurnia of the Lakes - Main Caria Manor Gate
+76231, -- Liurnia of the Lakes - Liurnia of the Lakes - Manor Lower Level
+76230, -- Liurnia of the Lakes - Liurnia of the Lakes - Manor Upper Level
+76212, -- Liurnia of the Lakes - Liurnia of the Lakes - Northern Liurnia Lake Shore
+76213, -- Liurnia of the Lakes - Liurnia of the Lakes - Road to the Manor
+76232, -- Liurnia of the Lakes - Liurnia of the Lakes - Royal Moongazing Grounds
+76211, -- Liurnia of the Lakes - Liurnia of the Lakes - Sorcerer's Isle
+76241, -- Liurnia of the Lakes - Liurnia of the Lakes - Temple Quarter
+76227, -- Liurnia of the Lakes - Liurnia of the Lakes - The Four Belfries
+73106, -- Liurnia of the Lakes - Liurnia of the Lakes - Academy Crystal Cave
+76238, -- Liurnia of the Lakes - Liurnia of the Lakes - Behind Caria Manor
+73005, -- Liurnia of the Lakes - Liurnia of the Lakes - Black Knife Catacombs
+73006, -- Liurnia of the Lakes - Liurnia of the Lakes - Cliffbottom Catacombs
+73105, -- Liurnia of the Lakes - Liurnia of the Lakes - Lakeside Crystal Cave
+73421, -- Liurnia of the Lakes - Liurnia of the Lakes - Liurnia Tower Bridge
+76228, -- Liurnia of the Lakes - Liurnia of the Lakes - Ranni's Rise
+76229, -- Liurnia of the Lakes - Liurnia of the Lakes - Ravine-Veiled Village
+73202, -- Liurnia of the Lakes - Liurnia of the Lakes - Raya Lucaria Crystal Tunnel
+73003, -- Liurnia of the Lakes - Liurnia of the Lakes - Road's End Catacombs
+73104, -- Liurnia of the Lakes - Liurnia of the Lakes - Stillwater Cave
+73420, -- Liurnia of the Lakes - Liurnia of the Lakes - Study Hall Entrance
+76235, -- Liurnia of the Lakes - Liurnia of the Lakes - The Ravine
+73422, -- Liurnia of the Lakes - Liurnia of the Lakes - Divine Tower of Liurnia
+76208, -- Liurnia of the Lakes - Bellum Highway - Bellum Church
+76240, -- Liurnia of the Lakes - Bellum Highway - Church of Inhibition
+76207, -- Liurnia of the Lakes - Bellum Highway - East Raya Lucaria Gate
+76239, -- Liurnia of the Lakes - Bellum Highway - Frenzied Flame Village Outskirts
+76209, -- Liurnia of the Lakes - Bellum Highway - Grand Lift of Dectus
+73900, -- Liurnia of the Lakes - Ruin-Strewn Precipice - Magma Wyrm
+73901, -- Liurnia of the Lakes - Ruin-Strewn Precipice - Ruin-Strewn Precipice
+73902, -- Liurnia of the Lakes - Ruin-Strewn Precipice - Ruin-Strewn Precipice Overlook
+76252, -- Liurnia of the Lakes - Moonlight Altar - Altar South
+76251, -- Liurnia of the Lakes - Moonlight Altar - Cathedral of Manus Celes
+76250, -- Liurnia of the Lakes - Moonlight Altar - Moonlight Altar
+71402, -- Academy of Raya Lucaria - Church of the Cuckoo
+71401, -- Academy of Raya Lucaria - Debate Parlour
+71400, -- Academy of Raya Lucaria - Raya Lucaria Grand Library
+71403, -- Academy of Raya Lucaria - Schoolhouse Classroom
+76300, -- Altus Plateau - Altus Plateau - Abandoned Coffin
+76303, -- Altus Plateau - Altus Plateau - Altus Highway Junction
+76301, -- Altus Plateau - Altus Plateau - Altus Plateau
+76306, -- Altus Plateau - Altus Plateau - Bower of Bounty
+76302, -- Altus Plateau - Altus Plateau - Erdtree-Gazing Hill
+76304, -- Altus Plateau - Altus Plateau - Forest-Spanning Greatbridge
+76305, -- Altus Plateau - Altus Plateau - Rampartside Path
+76307, -- Altus Plateau - Altus Plateau - Road of Iniquity Side Path
+76321, -- Altus Plateau - Altus Plateau - Shaded Castle Inner Gate
+76320, -- Altus Plateau - Altus Plateau - Shaded Castle Ramparts
+76313, -- Altus Plateau - Altus Plateau - Windmill Heights
+76308, -- Altus Plateau - Altus Plateau - Windmill Village
+73205, -- Altus Plateau - Altus Plateau - Altus Tunnel
+76322, -- Altus Plateau - Altus Plateau - Castellan's Hall
+73204, -- Altus Plateau - Altus Plateau - Old Altus Tunnel
+73118, -- Altus Plateau - Altus Plateau - Perfumer's Grotto
+73119, -- Altus Plateau - Altus Plateau - Sage's Cave
+73008, -- Altus Plateau - Altus Plateau - Sainted Hero's Grave
+73012, -- Altus Plateau - Altus Plateau - Unsightly Catacombs
+76350, -- Altus Plateau - Mt. Gelmir - Bridge of Iniquity
+76356, -- Altus Plateau - Mt. Gelmir - Craftsman's Shack
+76351, -- Altus Plateau - Mt. Gelmir - First Mt. Gelmir Campsite
+73009, -- Altus Plateau - Mt. Gelmir - Gelmir Hero's Grave
+76352, -- Altus Plateau - Mt. Gelmir - Ninth Mt. Gelmir Campsite
+76357, -- Altus Plateau - Mt. Gelmir - Primeval Sorcerer Azur
+76353, -- Altus Plateau - Mt. Gelmir - Road of Iniquity
+73107, -- Altus Plateau - Mt. Gelmir - Seethewater Cave
+76354, -- Altus Plateau - Mt. Gelmir - Seethewater River
+76355, -- Altus Plateau - Mt. Gelmir - Seethewater Terminus
+73109, -- Altus Plateau - Mt. Gelmir - Volcano Cave
+73007, -- Altus Plateau - Mt. Gelmir - Wyndham Catacombs
+73013, -- Altus Plateau - Leyndell, Royal Capital - Auriza Side Tomb
+73010, -- Altus Plateau - Leyndell, Royal Capital - Auzira Hero's Grave
+76314, -- Altus Plateau - Leyndell, Royal Capital - Capital Rampart
+73430, -- Altus Plateau - Leyndell, Royal Capital - Divine Tower of West Altus
+73432, -- Altus Plateau - Leyndell, Royal Capital - Divine Tower of West Altus, --  Gate
+76311, -- Altus Plateau - Leyndell, Royal Capital - Hermit Merchant's Shack
+76310, -- Altus Plateau - Leyndell, Royal Capital - Minor Erdtree Church
+76312, -- Altus Plateau - Leyndell, Royal Capital - Outer Wall Battleground
+76309, -- Altus Plateau - Leyndell, Royal Capital - Outer Wall Phantom Tree
+73431, -- Altus Plateau - Leyndell, Royal Capital - Sealed Tunnel
+71606, -- Volcano Manor - Abductor Virgin
+71605, -- Volcano Manor - Audience Pathway
+71604, -- Volcano Manor - Guest Hall
+71603, -- Volcano Manor - Prison Town Church
+71600, -- Volcano Manor - Rykard, Lord of Blasphemy
+71607, -- Volcano Manor - Subterranean Inquisition Chamber
+71601, -- Volcano Manor - Temple of Eiglay
+71602, -- Volcano Manor - Volcano Manor
+71103, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Lower Capital Church
+71102, -- Leyndell, Royal Capital - Leyndell, Royal Capital - East Capital Rampart
+71101, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Erdtree Sanctuary
+71100, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Elden Throne
+71109, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Divine Bridge
+71108, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Fortified Manor, First Floor
+71107, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Queen's Bedchamber
+71105, -- Leyndell, Royal Capital - Leyndell, Royal Capital - West Capital Rampart
+71104, -- Leyndell, Royal Capital - Leyndell, Royal Capital - Avenue Balcony
+73500, -- Leyndell, Royal Capital - Subterranean Shunning-Grounds - Cathedral of the Forsaken
+73502, -- Leyndell, Royal Capital - Subterranean Shunning-Grounds - Forsaken Depths
+73504, -- Leyndell, Royal Capital - Subterranean Shunning-Grounds - Frenzied Flame Proscription
+73503, -- Leyndell, Royal Capital - Subterranean Shunning-Grounds - Leyndell Catacombs
+73501, -- Leyndell, Royal Capital - Subterranean Shunning-Grounds - Underground Roadside
+71125, -- Leyndell, Royal Capital - Leyndell, Ashen Capital - Divine Bridge
+71122, -- Leyndell, Royal Capital - Leyndell, Ashen Capital - East Capital Rampart
+71120, -- Leyndell, Royal Capital - Leyndell, Ashen Capital - Elden Throne
+71121, -- Leyndell, Royal Capital - Leyndell, Ashen Capital - Erdtree Sanctuary
+71123, -- Leyndell, Royal Capital - Leyndell, Ashen Capital - Leyendell, Capital of Ash
+71124, -- Leyndell, Royal Capital - Leyndell, Ashen Capital - Queen's Bedchamber
+71900, -- Leyndell, Royal Capital - Stone Platform - Fractured Marika
+76403, -- Caelid - Caelid - Caelem Ruins
+76405, -- Caelid - Caelid - Caelid Highway South
+76404, -- Caelid - Caelid - Cathedral of Dragon Communion
+76415, -- Caelid - Caelid - Chair-Crypt of Sellia
+76418, -- Caelid - Caelid - Church of the Plague
+76402, -- Caelid - Caelid - Fort Gael North
+76401, -- Caelid - Caelid - Rotview Balcony
+76414, -- Caelid - Caelid - Sellia Backstreets
+76416, -- Caelid - Caelid - Sellia Under-Stair
+76400, -- Caelid - Caelid - Smoldering Church
+76409, -- Caelid - Caelid - Smoldering Wall
+76411, -- Caelid - Caelid - Southern Aeonia Swamp Bank
+73120, -- Caelid - Caelid - Abandoned Cave
+73015, -- Caelid - Caelid - Caelid Catacombs
+76420, -- Caelid - Caelid - Chamber Outside the Plaza
+76410, -- Caelid - Caelid - Deep Siofra Well
+73207, -- Caelid - Caelid - Gael Tunnel
+73121, -- Caelid - Caelid - Gaol Cave
+76417, -- Caelid - Caelid - Impassable Greatbridge
+73014, -- Caelid - Caelid - Minor Erdtree Catacombs
+73257, -- Caelid - Caelid - Rear Gael Tunnel Entrance
+76419, -- Caelid - Caelid - Redmane Castle Plaza
+73208, -- Caelid - Caelid - Sellia Crystal Tunnel
+76422, -- Caelid - Caelid - Starscourge Radahn
+73016, -- Caelid - Caelid - War-Dead Catacombs
+76406, -- Caelid - Swamp of Aeonia - Aeonia Swamp Shore
+76407, -- Caelid - Swamp of Aeonia - Astray from Caelid Highway North
+76412, -- Caelid - Swamp of Aeonia - Heart of Aeonia
+76413, -- Caelid - Swamp of Aeonia - Inner Aeonia
+76454, -- Caelid - Greyoll's Dragonbarrow - Bestial Sanctum
+73440, -- Caelid - Greyoll's Dragonbarrow - Divine Tower of Caelid, --  Basement
+73441, -- Caelid - Greyoll's Dragonbarrow - Divine Tower of Caelid, --  Center
+73110, -- Caelid - Greyoll's Dragonbarrow - Dragonbarrow Cave
+76452, -- Caelid - Greyoll's Dragonbarrow - Dragonbarrow Fork
+76450, -- Caelid - Greyoll's Dragonbarrow - Dragonbarrow West
+76456, -- Caelid - Greyoll's Dragonbarrow - Farum Greatbridge
+76453, -- Caelid - Greyoll's Dragonbarrow - Fort Faroth
+73460, -- Caelid - Greyoll's Dragonbarrow - Isolated Divine Tower
+76451, -- Caelid - Greyoll's Dragonbarrow - Isolated Merchant's Shack (Greyoll's Dragonbarrow)
+76455, -- Caelid - Greyoll's Dragonbarrow - Lenne's Rise
+73111, -- Caelid - Greyoll's Dragonbarrow - Sellia Hideaway
+73451, -- Mountaintops of the Giants - Forbiden Lands - Divine Tower of the East Altus
+73450, -- Mountaintops of the Giants - Forbiden Lands - Divine Tower of the East Altus, --  Gate
+76500, -- Mountaintops of the Giants - Forbiden Lands - Forbidden Lands
+76502, -- Mountaintops of the Giants - Forbiden Lands - Grand Lift of Rold
+73020, -- Mountaintops of the Giants - Forbiden Lands - Hidden Path to the Haligtree
+76503, -- Mountaintops of the Giants - Mountaintops of the Giants - Ancient Snow Valley Ruins
+76522, -- Mountaintops of the Giants - Mountaintops of the Giants - Castle Sol Main Gate
+76524, -- Mountaintops of the Giants - Mountaintops of the Giants - Castle Sol Rooftop
+76523, -- Mountaintops of the Giants - Mountaintops of the Giants - Church of the Eclipse
+76505, -- Mountaintops of the Giants - Mountaintops of the Giants - First Church of Marika
+76504, -- Mountaintops of the Giants - Mountaintops of the Giants - Freezing Lake
+76521, -- Mountaintops of the Giants - Mountaintops of the Giants - Snow Valley Ruins Overlook
+73122, -- Mountaintops of the Giants - Mountaintops of the Giants - Spiritcaller's Cave
+76520, -- Mountaintops of the Giants - Mountaintops of the Giants - Whiteridge Road
+76501, -- Mountaintops of the Giants - Mountaintops of the Giants - Zamor Ruins
+76507, -- Mountaintops of the Giants - Flame Peak - Church of Repose
+76509, -- Mountaintops of the Giants - Flame Peak - Fire Giant
+76508, -- Mountaintops of the Giants - Flame Peak - Foot of the Forge
+76510, -- Mountaintops of the Giants - Flame Peak - Forge of the Giants
+76506, -- Mountaintops of the Giants - Flame Peak - Giant's Gravepost
+73018, -- Mountaintops of the Giants - Flame Peak - Giant's Mountaintop Catacombs
+73017, -- Mountaintops of the Giants - Flame Peak - Giant-Conquering Hero's Grave
+76653, -- Mountaintops of the Giants - Consecrated Snowfield - Apostate Derelict
+73112, -- Mountaintops of the Giants - Consecrated Snowfield - Cave of the Forlorn
+76550, -- Mountaintops of the Giants - Consecrated Snowfield - Consecrated Snowfield
+73019, -- Mountaintops of the Giants - Consecrated Snowfield - Consecrated Snowfield Catacombs
+76551, -- Mountaintops of the Giants - Consecrated Snowfield - Inner Consecrated Snowfield
+76652, -- Mountaintops of the Giants - Consecrated Snowfield - Ordina, Liturgical Town
+73211, -- Mountaintops of the Giants - Consecrated Snowfield - Yelough Anix Tunnel
+71506, -- Miquella's Haligtree - Miquella's Haligtree - Haligtree Canopy
+71505, -- Miquella's Haligtree - Miquella's Haligtree - Haligtree Promenade
+71507, -- Miquella's Haligtree - Miquella's Haligtree - Haligtree Town
+71508, -- Miquella's Haligtree - Miquella's Haligtree - Haligtree Town Plaza
+71503, -- Miquella's Haligtree - Elphael, Brace of the Haligtree - Drainage Channel
+71502, -- Miquella's Haligtree - Elphael, Brace of the Haligtree - Elphael Inner Wall
+71504, -- Miquella's Haligtree - Elphael, Brace of the Haligtree - Haligtree Roots
+71500, -- Miquella's Haligtree - Elphael, Brace of the Haligtree - Malenia, Goddess of Rot
+71501, -- Miquella's Haligtree - Elphael, Brace of the Haligtree - Prayer Room
+71310, -- Crumbling Farum Azula - Beside the great Bridge
+71303, -- Crumbling Farum Azula - Crumbling Beast Grave
+71304, -- Crumbling Farum Azula - Crumbling Beast Grave Depths
+71306, -- Crumbling Farum Azula - Dragon Temple
+71302, -- Crumbling Farum Azula - Dragon Temple Altar
+71308, -- Crumbling Farum Azula - Dragon Temple Lift
+71309, -- Crumbling Farum Azula - Dragon Temple Rooftop
+71307, -- Crumbling Farum Azula - Dragon Temple Transept
+71301, -- Crumbling Farum Azula - Dragonlord Placidusax
+71300, -- Crumbling Farum Azula - Maliketh, the Black Blade
+71305, -- Crumbling Farum Azula - Tempest-Facing Balcony
+71213, -- Ainsel River - Ainsel River - Ainsel River Downstream
+71212, -- Ainsel River - Ainsel River - Ainsel River Sluice Gate
+71211, -- Ainsel River - Ainsel River - Ainsel River Well Depths
+71240, -- Ainsel River - Ainsel River - Astel, Naturalborn of the Void
+71210, -- Ainsel River - Ainsel River - Dragonkin Soldier of Nokstella
+71214, -- Ainsel River - Ainsel River Main - Ainsel River Main
+71215, -- Ainsel River - Ainsel River Main - Nokstella, Eternal City
+71219, -- Ainsel River - Ainsel River Main - Nokstella Waterfall Basin
+71218, -- Ainsel River - Lake of Rot - Grand Cloister
+71216, -- Ainsel River - Lake of Rot - Lake of Rot Shoreside
+71271, -- Nokron, Eternal City - Nokron, Eternal City - Nokron, Eternal City
+71224, -- Nokron, Eternal City - Nokron, Eternal City - Ancestral Woods
+71225, -- Nokron, Eternal City - Nokron, Eternal City - Aqueduct-Facing Cliffs
+71220, -- Nokron, Eternal City - Nokron, Eternal City - Great Waterfall Basin
+71221, -- Nokron, Eternal City - Nokron, Eternal City - Mimic Tear
+71226, -- Nokron, Eternal City - Nokron, Eternal City - Night's Sacred Ground
+71227, -- Nokron, Eternal City - Siofra River - Below the Well
+71222, -- Nokron, Eternal City - Siofra River - Siofra River Bank
+71270, -- Nokron, Eternal City - Siofra River - Siofra River Well Depths
+71223, -- Nokron, Eternal City - Siofra River - Worshippers' Woods
+71250, -- Nokron, Eternal City - Mohgwyn Palace - Cocoon of the Empyrean
+71252, -- Nokron, Eternal City - Mohgwyn Palace - Dynasty Mausoleum Entrance
+71253, -- Nokron, Eternal City - Mohgwyn Palace - Dynasty Mausoleum Midpoint
+71251, -- Nokron, Eternal City - Mohgwyn Palace - Palace Approach Ledge-Road
+71235, -- Deeproot Depths - Across the Roots
+71233, -- Deeproot Depths - Deeproot Depths
+71232, -- Deeproot Depths - Great Waterfall Crest
+71230, -- Deeproot Depths - Prince of Death's Throne
+71231, -- Deeproot Depths - Root-Facing Cliffs
+71234 -- Deeproot Depths - The Nameless Eternal City
+}
+
+-- provided by Signum
+local flagsDLC1 = {
+72000, -- Belurat, Tower Settlement - Theatre of the Divine Beast
+72001, -- Belurat, Tower Settlement - Belurat, Tower Settlement
+72002, -- Belurat, Tower Settlement - Small Private Altar
+72003, -- Belurat, Tower Settlement - Stagefront
+72010, -- Enir-Ilim - Gate of Divinity
+72012, -- Enir-Ilim - Enir-Ilim: Outer Wall
+72013, -- Enir-Ilim - First Rise
+72014, -- Enir-Ilim - Spiral Rise
+72015, -- Enir-Ilim - Cleansing Chamber Anteroom
+72016, -- Enir-Ilim - Divine Gate Front Staircase
+72101, -- Shadow Keep - Main Gate Plaza
+72102, -- Shadow Keep - Shadow Keep Main Gate
+72106, -- Shadow Keep, Church District - Church District Entrance
+72107, -- Shadow Keep, Church District - Sunken Chapel
+72108, -- Shadow Keep, Church District - Tree,Worship Passage
+72109, -- Shadow Keep, Church District - Tree,Worship Sanctum
+72110, -- Specimen Storehouse - Messmer's Dark Chamber
+72111, -- Specimen Storehouse - Storehouse, First Floor
+72112, -- Specimen Storehouse - Storehouse, Fourth Floor
+72113, -- Specimen Storehouse - Storehouse, Seventh Floor
+72114, -- Specimen Storehouse - Dark Chamber Entrance
+72116, -- Specimen Storehouse - Storehouse, Back Section
+72117, -- Specimen Storehouse - Storehouse, Loft
+72120, -- Specimen Storehouse - West Rampart
+72200, -- Stone Coffin Fissure - Garden of Deep Purple
+72201, -- Stone Coffin Fissure - Stone Coffin Fissure
+72202, -- Stone Coffin Fissure - Fissure Cross
+72203, -- Stone Coffin Fissure - Fissure Waypoint
+72204, -- Stone Coffin Fissure - Fissure Depths
+72500, -- Scadu Altus - Finger Birthing Grounds
+72800, -- Midra's Manse - Discussion Chamber
+72801, -- Midra's Manse - Manse Hall
+72802, -- Midra's Manse - Midra's Library
+72803, -- Midra's Manse - Second Floor Chamber
+74000, -- Gravesite Plain - Fog Rift Catacombs
+74200, -- Gravesite Plain - Ruined Forge Lava Intake
+74300, -- Gravesite Plain - Rivermouth Cave
+74301, -- Gravesite Plain - Dragon's Pit
+74351, -- Gravesite Plain - Dragon's Pit Terminus
+76804, -- Gravesite Plain - Cliffroad Terminus
+76803, -- Gravesite Plain - Main Gate Cross
+76800, -- Gravesite Plain - Gravesite Plain
+76802, -- Gravesite Plain - Three,Path Cross
+76805, -- Gravesite Plain - Greatbridge, North
+76801, -- Gravesite Plain - Scorched Ruins
+76812, -- Gravesite Plain - Ellac River Cave
+76813, -- Gravesite Plain - Castle Front
+76811, -- Gravesite Plain - Pillar Path Waypoint
+76810, -- Gravesite Plain - Pillar Path Cross
+74100, -- Gravesite Plain - Belurat Gaol
+76830, -- Gravesite Plain - Ellac River Downstream
+76841, -- Charo's Hidden Grave - Charo's Hidden Grave
+74102, -- Charo's Hidden Grave - Lamenter's Gaol
+76821, -- Castle Ensis - Castle Ensis Checkpoint
+76823, -- Castle Ensis - Ensis Moongazing Grounds
+76822, -- Castle Ensis - Castle,Lord's Chamber
+76832, -- Cerulean Coast - Cerulean Coast West
+76833, -- Cerulean Coast - The Fissure
+76835, -- Cerulean Coast - Cerulean Coast Cross
+76831, -- Cerulean Coast - Cerulean Coast
+76834, -- Cerulean Coast - Finger Ruins of Rhia
+76840, -- Foot of the Jagged Peak - Grand Altar of Dragon Communion
+76861, -- Abyssal Woods - Divided Falls
+76860, -- Abyssal Woods - Abyssal Woods
+76862, -- Abyssal Woods - Forsaken Graveyard
+76864, -- Abyssal Woods - Church Ruins
+76863, -- Abyssal Woods - Woodland Trail
+76850, -- Foot of the Jagged Peak - Foot of the Jagged Peak
+76851, -- Jagged Peak - Jagged Peak Mountainside
+76852, -- Jagged Peak - Jagged Peak Summit
+76853, -- Jagged Peak - Rest of the Dread Dragon
+76944, -- Ancient Ruins of Rauh - Ancient Ruins, Grand Stairway
+76945, -- Ancient Ruins of Rauh - Church of the Bud
+76943, -- Ancient Ruins of Rauh - Church of the Bud, Main Entrance
+76942, -- Ancient Ruins of Rauh - Rauh Ancient Ruins, West
+76941, -- Ancient Ruins of Rauh - Rauh Ancient Ruins, East
+76940, -- Ancient Ruins of Rauh - Viaduct Minor Tower
+76913, -- Rauh Base - Temple Town Ruins
+76914, -- Rauh Base - Ravine North
+74001, -- Rauh Base - Scorpion River Catacombs
+74203, -- Rauh Base - Taylew's Ruined Forge
+76912, -- Rauh Base - Ancient Ruins Base
+74002, -- Scadu Altus - Darklight Catacombs
+74101, -- Scadu Altus - Bonny Gaol
+76900, -- Scadu Altus - Highroad Cross
+76907, -- Scadu Altus - Scadu Altus, West
+76908, -- Scadu Altus - Moorth Highway, South
+76909, -- Scadu Altus - Fort of Reprimand
+76910, -- Scadu Altus - Behind the Fort of Reprimand
+76902, -- Scadu Altus - Moorth Ruins
+76903, -- Scadu Altus - Bonny Village
+76916, -- Scadu Altus - Castle Watering Hole
+74202, -- Scadu Altus - Ruined Forge of Starfall Past
+76911, -- Scadu Altus - Scaduview Cross
+76918, -- Scadu Altus - Recluses' River Downstream
+76917, -- Scadu Altus - Recluses' River Upstream
+76904, -- Scadu Altus - Bridge Leading to the Village
+76906, -- Scadu Altus - Cathedral of Manus Metyr
+76905, -- Scadu Altus - Church District Highroad
+76930, -- Scaduview - Scaduview
+76931, -- Scaduview - Shadow Keep, Back Gate
+76936, -- Scaduview - Fingerstone Hill
+76937, -- Scaduview - Hinterland Bridge
+76935, -- Scaduview - Hinterland
+76960, -- Scaduview - Scadutree Base
+}
+
+local flags = {flagsBase}
+if isOwnDlc(1) then table.insert(flags, flagsDLC1) end
+--if isOwnDlc(3) == 1 then table.insert(flags, flagsDLC2) end
+
+ef.batchSetFlags(flags, 1, "GracesThread")
+disableMemrec(memrec, function() return not ef.GracesThread end)
+
+[DISABLE]
+ef.GracesThread = false

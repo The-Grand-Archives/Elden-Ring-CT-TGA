@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106749</ID>
+  <Description>"autoHideMpThresholdRatio"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+B8</Address>
+</CheatEntry>

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>103282</ID>
+  <Description>"isUseFootIKNormalByUnduration"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>0</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+22D</Address>
+</CheatEntry>

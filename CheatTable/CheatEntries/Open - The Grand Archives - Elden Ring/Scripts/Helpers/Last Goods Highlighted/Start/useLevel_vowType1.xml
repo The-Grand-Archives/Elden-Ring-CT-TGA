@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>104952</ID>
+  <Description>"useLevel_vowType1"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+91</Address>
+</CheatEntry>

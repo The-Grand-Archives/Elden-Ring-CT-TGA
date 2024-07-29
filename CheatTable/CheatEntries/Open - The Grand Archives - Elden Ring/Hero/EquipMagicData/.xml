@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100419</ID>
+  <Description>"EquipMagicData"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="100420"/>
+    <id id="100421"/>
+    <id id="100436"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

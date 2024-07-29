@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102145</ID>
+  <Description>"dummy8 pad6"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>8 Bytes</VariableType>
+  <Address>+3D</Address>
+</CheatEntry>

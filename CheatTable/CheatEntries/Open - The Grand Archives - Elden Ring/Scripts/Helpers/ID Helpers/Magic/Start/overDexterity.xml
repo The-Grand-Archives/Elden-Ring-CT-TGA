@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102172</ID>
+  <Description>"overDexterity"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+1F</Address>
+</CheatEntry>

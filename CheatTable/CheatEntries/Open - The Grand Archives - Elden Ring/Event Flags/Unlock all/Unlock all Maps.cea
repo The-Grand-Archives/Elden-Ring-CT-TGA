@@ -1,0 +1,54 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+62004, -- Map: Center
+62005, -- Map: SW
+62006, -- Map: NW
+62007, -- Map: SE
+62008, -- Map: NE
+62009, -- Map: N
+62010, -- Map: Limgrave, West
+62011, -- Map: Weeping Peninsula
+62012, -- Map: Limgrave, East
+62022, -- Map: Liurnia, West
+62021, -- Map: Liurnia, North
+62020, -- Map: Liurnia, East
+62031, -- Map: Leyndell, Royal Capital
+62030, -- Map: Altus Plateur
+62032, -- Map: Mt. Gelmir
+62041, -- Map: Dragonbarrow
+62040, -- Map: Caelid
+62052, -- Map: Mountaintops of the Giants, North
+62051, -- Map: Mountaintops of the Giants, East
+62050, -- Map: Mountaintops of the Giants, West
+62063, -- Map: Siofra River
+62062, -- Map: Mohgwyn Palace
+62061, -- Map: Lake of Rot
+62060, -- Map: Ainsel River
+62064, -- Map: Deeprooth Depths
+62103, -- Map: Stormfoot Catacombs
+62102, -- Map: Fringefolk Hero's Cave
+82001, -- Show underground
+}
+
+-- provided by Signum
+local flagsDLC1 = {
+62080, -- Map: Gravesite Plain
+62081, -- Map: Scadu Altus
+62082, -- Map: Southern Shore
+62083, -- Map: Rauh Ruins
+62084, -- Map: Abyss
+82002, -- Show DLC Map
+}
+
+local flags = {flagsBase}
+if isOwnDlc(1) then table.insert(flags, flagsDLC1) end
+--if isOwnDlc(3) == 1 then table.insert(flags, flagsDLC2) end
+
+ef.batchSetFlags(flags, 1, "MapsThread")
+disableMemrec(memrec, function() return not ef.MapsThread end)
+
+[DISABLE]
+ef.MapsThread = false

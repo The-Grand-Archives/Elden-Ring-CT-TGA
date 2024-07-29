@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>107378</ID>
+  <Description>"Nomadic Merchant 4"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>250</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107379"/>
+    <id id="107380"/>
+    <id id="107381"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106621</ID>
+  <Description>"weatherLotConditionStart_DayBreak_Hour"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+264</Address>
+</CheatEntry>

@@ -1,0 +1,6 @@
+<CheatEntry>
+  <ID>102330</ID>
+  <Description>"fireDamageDamp"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>+8c</Address>
+</CheatEntry>

@@ -1,0 +1,121 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+ef = {}
+
+local function makeEventFlagAccessor(address, bitpos)
+	local isValid = function (self)
+		return readByte(self.address) ~= nil
+	end
+	local getValue = function (self)
+		return (readByte(self.address) & self.bit) ~= 0
+	end
+	local setValue = function(self, value)
+		writeByte(self.address, readByte(self.address) & ~self.bit
+			| ((value == false or value == 0) and 0 or self.bit))
+	end
+	return {
+		isValid = isValid,
+		getValue = getValue,
+		setValue = setValue,
+		address = address,
+		bit = 1 << bitpos
+	}
+end
+
+function ef.getFlag(id)
+	local virtualMemoryFlag = readPointer("CSFD4VirtualMemoryFlag")
+	if virtualMemoryFlag == nil then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	local mod = readInteger(virtualMemoryFlag + 0x1C)
+	local block = id // mod
+	local index = id - block * mod
+	local tree = readPointer(virtualMemoryFlag + 0x38)
+	if tree == nil then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	-- tree root from head
+	local node = readPointer(tree + 0x8)
+	-- while (!_Trynode->_Isnil) {
+	while readByte(node + 0x19) == 0 do
+		-- _Trynode->_Myval < _Keyval
+		local nodeBlock = readInteger(node + 0x20)
+		if nodeBlock < block then
+			-- _Trynode = _Trynode->_Right;
+			node = readPointer(node + 0x10)
+		elseif nodeBlock == block then
+			break
+		else
+			-- _Trynode = _Trynode->_Left;
+			node = readPointer(node)
+		end
+	end
+	if readInteger(node + 0x20) ~= block then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	local blockInfo = node + 0x28
+	-- blockInfo + 0x8 is a union, getting the address
+	-- of the block depends on the mode (blockInfo + 0x0)
+	local addressMode = readInteger(blockInfo)
+	local blockAddress = readPointer(blockInfo + 0x8)
+	if addressMode == 1 then
+		local blockSize = readInteger(virtualMemoryFlag + 0x20)
+		local blocks = readPointer(virtualMemoryFlag + 0x28)
+		local blockIndex = blockAddress & 0xFFFFFFFF
+		blockAddress = blocks + blockIndex * blockSize
+	elseif addressMode ~= 2 or blockAddress == 0 then
+		return makeEventFlagAccessor(nil, 0)
+	end
+	local byteIndex = index // 8
+	local bitIndex = index - byteIndex * 8
+	bitIndex = 7 - bitIndex -- big endian
+	return makeEventFlagAccessor(blockAddress + byteIndex, bitIndex)
+end
+
+function ef.setFlag(id, state)
+	if state == nil then state = true end
+	local flag = ef.getFlag(id)
+	if flag:isValid() then
+		flag:setValue(state)
+		return true
+	end
+	return false
+end
+
+-- Sets the flag IDs from tables in the flagTable table to the specified state
+-- Examples:
+-- ef.batchSetFlags({{62000, 62001, 62002, 62003}, {63000, 63001}}, 1, thread1)
+-- ef.batchSetFlags({bossDeathFlags}, true, thread2)
+-- @param flagTable | table | table of tables with signed int32, positive entries
+-- @param state | 0/1 or false/true
+-- @param threadName | string
+function ef.batchSetFlags(flagTable, state, threadName)
+	state = state and state ~= 0 and 1 or 0
+	threadName = threadName or "thread"
+  ef[threadName] = true
+  local thread = createThread(function()
+	  local results = {}
+    local total = 0
+	  for i,v in ipairs(flagTable) do
+		  if not ef[threadName] then break end
+  	  n = #v
+      table.insert(results, n)
+      local p1, p2, count = 0, 0
+      local t = os.clock()
+      for i,v in ipairs(v) do
+		    if not ef[threadName] then break end
+  			assert(type(v) == "number" and v > 0 and v < 0x80000000, "ef.setFlag: bad argument")
+        ef.setFlag(v, state)
+        p1 = i*100//n
+        if p1 ~= p2 and tga.config.printProgress then print(p1.."% "..(os.clock() - t)*100//1/100) p2 = p1 end
+      end
+	  end
+    for i,v in ipairs(results) do total = total + v end
+    if tga.config.printProgress then print(string.format("Set %s flags!", total)) end
+	  ef[threadName] = false
+  end)
+end
+
+[DISABLE]
+ef = nil

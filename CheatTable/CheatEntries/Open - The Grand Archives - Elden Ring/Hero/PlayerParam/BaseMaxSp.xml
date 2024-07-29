@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>100619</ID>
+  <Description>"BaseMaxSp"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>34</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(SpEffectParamHelper_addr,$8)
+registersymbol(SpEffectParamHelper_addr)
+
+SpEffectParamHelper_addr:
+dq #0
+
+[DISABLE]
+dealloc(SpEffectParamHelper_addr)
+unregistersymbol(SpEffectParamHelper_addr)

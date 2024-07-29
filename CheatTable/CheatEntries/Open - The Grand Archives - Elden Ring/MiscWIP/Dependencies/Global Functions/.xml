@@ -1,0 +1,23 @@
+<CheatEntry>
+  <ID>300</ID>
+  <Description>"Global Functions"</Description>
+  <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="108235"/>
+    <id id="108236"/>
+    <id id="108237"/>
+    <id id="108238"/>
+    <id id="108239"/>
+    <id id="108240"/>
+    <id id="108241"/>
+    <id id="108242"/>
+    <id id="108243"/>
+    <id id="108244"/>
+    <id id="108245"/>
+    <id id="108246"/>
+    <id id="108247"/>
+    <id id="108248"/>
+    <id id="108249"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106485</ID>
+  <Description>"enemyDetectionSpEffect_BulletId_byInvadeOrb_None"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+DC</Address>
+</CheatEntry>

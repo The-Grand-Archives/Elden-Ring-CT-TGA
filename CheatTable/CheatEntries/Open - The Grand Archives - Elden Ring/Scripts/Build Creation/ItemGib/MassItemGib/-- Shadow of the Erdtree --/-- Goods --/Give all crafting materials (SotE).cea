@@ -1,0 +1,50 @@
+//Author: Bearmageddon
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local items = {
+  { 0x401EBF18, 1998, 0, 0, -1 }, -- Beast Horn
+  { 0x401EBF22, 1998, 0, 0, -1 }, -- Spirit Calculus
+  { 0x401EBF2C, 1998, 0, 0, -1 }, -- Pearlescent Scale
+  { 0x401EBF36, 1998, 0, 0, -1 }, -- Scorpion Liver
+  { 0x401EBF40, 1998, 0, 0, -1 }, -- Fly Mold
+  { 0x401ED2A1, 1998, 0, 0, -1 }, -- Rada Fruit
+  { 0x401ED2A2, 1998, 0, 0, -1 }, -- Redflesh Mushroom
+  { 0x401ED2A3, 1998, 0, 0, -1 }, -- Whiteflesh Mushroom
+  { 0x401ED2A4, 1998, 0, 0, -1 }, -- Knot Resin
+  { 0x401ED2A5, 1998, 0, 0, -1 }, -- Dewgem
+  { 0x401ED2A6, 1998, 0, 0, -1 }, -- Black Pyrefly
+  { 0x401ED2A7, 1998, 0, 0, -1 }, -- Glintslab Firefly
+  { 0x401ED2A8, 1998, 0, 0, -1 }, -- Yellow Fulgurbloom
+  { 0x401ED2A9, 1998, 0, 0, -1 }, -- Shadow Sunflower
+  { 0x401ED2AA, 1998, 0, 0, -1 }, -- Toxic Mossling
+  { 0x401ED2AB, 1998, 0, 0, -1 }, -- Scarlet Bud
+  { 0x401ED2AC, 1998, 0, 0, -1 }, -- Sanguine Amaryllis
+  { 0x401ED2AD, 1998, 0, 0, -1 }, -- Frozen Maggot
+  { 0x401ED2AE, 1998, 0, 0, -1 }, -- Deep-Purple Lily
+  { 0x401ED2AF, 1998, 0, 0, -1 }, -- Nectarblood Burgeon
+  { 0x401ED2B0, 1998, 0, 0, -1 }, -- Winter-Lantern Fly
+  { 0x401ED2B1, 1998, 0, 0, -1 }, -- Swollen Grape
+  { 0x401ED2B2, 1998, 0, 0, -1 }, -- Grave Keeper's Brainpan
+  { 0x401ED2B3, 1998, 0, 0, -1 }, -- Horn-Strewn Excrement
+  { 0x401ED2B4, 1998, 0, 0, -1 }, -- Gas Stone
+  { 0x401ED2B5, 1998, 0, 0, -1 }, -- Ghostflame Bloom
+  { 0x401ED2B6, 1998, 0, 0, -1 }, -- Grave Cricket
+  { 0x401ED2B7, 1998, 0, 0, -1 }, -- Dragon's Calorbloom
+  { 0x401ED2B8, 1998, 0, 0, -1 }, -- Finger Mimic
+  { 0x401ED2B9, 1998, 0, 0, -1 }, -- Empyrean-Blood Burgeon
+  { 0x401ED2BA, 1998, 0, 0, -1 }, -- Congealed Putrescence
+  { 0x401ED2BB, 1998, 0, 0, -1 }, -- Roundrock
+  { 0x401ED2BC, 1998, 0, 0, -1 }, -- Spiritgrave Stone
+  { 0x401ED2BD, 1998, 0, 0, -1 }, -- Rauh Burrow
+  { 0x401ED2BE, 1998, 0, 0, -1 }, -- Ember of Messmer
+  { 0x401ED2BF, 1998, 0, 0, -1 }, -- Blessed Bone Shard
+  { 0x401ED2C0, 1998, 0, 0, -1 }, -- Red Fulgurbloom
+  { 0x401ED2C1, 1998, 0, 0, -1 }, -- Nailstone
+  { 0x401ED2C2, 1998, 0, 0, -1 }, -- Sharp Gravel Stone
+  { 0x401ED2C3, 1998, 0, 0, -1 }, -- Furnace Visage
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

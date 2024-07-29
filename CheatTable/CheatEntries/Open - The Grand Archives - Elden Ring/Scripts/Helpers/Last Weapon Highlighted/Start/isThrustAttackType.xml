@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>104395</ID>
+  <Description>"isThrustAttackType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>6</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+106</Address>
+</CheatEntry>

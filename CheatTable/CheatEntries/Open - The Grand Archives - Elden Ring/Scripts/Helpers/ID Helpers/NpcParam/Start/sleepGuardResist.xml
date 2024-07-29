@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103125</ID>
+  <Description>"sleepGuardResist"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+12A</Address>
+</CheatEntry>

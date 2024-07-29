@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101398</ID>
+  <Description>"parryDamageLife"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+C6</Address>
+</CheatEntry>

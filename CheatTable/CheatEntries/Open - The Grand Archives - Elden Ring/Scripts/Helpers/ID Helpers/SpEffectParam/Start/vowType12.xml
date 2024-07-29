@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>102584</ID>
+  <Description>"vowType12"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0166</Address>
+</CheatEntry>

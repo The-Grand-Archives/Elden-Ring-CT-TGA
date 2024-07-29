@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>107063</ID>
+  <Description>"Leyndell, Royal Capital"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="107064"/>
+    <id id="107074"/>
+    <id id="107080"/>
+    <id id="107087"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

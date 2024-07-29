@@ -1,0 +1,58 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+disableMemrec(memrec)
+showText("Table Info",[[
+                              Elden Ring Cheat Engine Table
+                                           By inuNorii
+
+                             Maintained by The Grand Archives
+                          https://discord.io/the-grand-archives
+
+                         This table is meant for offline use only
+                      using it online will most likely get you banned
+
+
+Table Updates:
+https://github.com/inunorii/Elden-Ring-CT-TGA
+
+Changelog:
+https://github.com/inunorii/Elden-Ring-CT-TGA/blob/main/CHANGELOG.md
+
+Notable Features:
+
+Scroll to: Search table entries by ID or description
+Press Ctrl+F or find it in Edit>Scroll to
+
+Scripts->Build Creation:
+AddSoul: Increase your souls in a safe way
+ItemGib: Spawn items directly into your inventory
+Warp: Teleport to any Grace
+
+
+Q: What do the colours mean?
+A: Blue = highlighting/info
+     Green = Param script outside of param headers, these are safe
+     Dark Red = likely unsafe
+     Red = Warning
+     Blue = Info, probably important
+     grey = WIP/dummy, ignore unless advanced user
+
+Q: What parts of the table get me banned?
+A: Who knows.
+
+Q: Where is the Param Spreadsheet for Effects, Bullets, etc ?
+A: https://docs.google.com/spreadsheets/d/1c7rIV3bBKDxP9ngixgigd7ZmczH3DYhDmMt8HY4ijV0
+
+Q: Where is Unlimited HP / Stamina / Focus Points / Unlimited
+     Consumables?
+A: Hero -> Character Flags
+
+TGA table contributors
+----------------------
+ametalon, Careless Esper, Coinsworth, hery, Igromanru,
+Relinquished001, sfix, Silence
+]])
+
+[DISABLE]

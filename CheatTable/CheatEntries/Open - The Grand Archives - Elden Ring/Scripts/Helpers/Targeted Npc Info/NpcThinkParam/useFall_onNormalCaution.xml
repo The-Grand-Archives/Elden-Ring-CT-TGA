@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>105596</ID>
+  <Description>"useFall_onNormalCaution"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+A8</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102337</ID>
+  <Description>"prevVelocityDirRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+93</Address>
+</CheatEntry>

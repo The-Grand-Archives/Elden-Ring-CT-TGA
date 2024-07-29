@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100685</ID>
+  <Description>"Horizontal Face Ratio"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+51</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

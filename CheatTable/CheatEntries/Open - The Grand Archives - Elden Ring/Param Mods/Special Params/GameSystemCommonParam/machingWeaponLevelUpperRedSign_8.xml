@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106546</ID>
+  <Description>"machingWeaponLevelUpperRedSign_8"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+16F</Address>
+</CheatEntry>

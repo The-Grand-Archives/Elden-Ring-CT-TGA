@@ -1,0 +1,220 @@
+<CheatEntry>
+  <ID>108215</ID>
+  <Description>"MAGIC_ID"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">-1:None
+4000:Glintstone Pebble
+4001:Great Glintstone Shard
+4010:Swift Glintstone Shard
+4020:Glintstone Cometshard
+4021:Comet
+4030:Shard Spiral
+4040:Glintstone Stars
+4050:Star Shower
+4060:Crystal Barrage
+4070:Glintstone Arc
+4080:Cannon of Haima
+4090:Crystal Burst
+4100:Shatter Earth
+4110:Rock Blaster
+4120:Gavel of Haima
+4130:Terra Magicus
+4140:Starlight
+4200:Comet Azur
+4210:Founding Rain of Stars
+4220:Stars of Ruin
+4300:Glintblade Phalanx
+4301:Carian Phalanx
+4302:Greatblade Phalanx
+4360:Rennala's Full Moon
+4361:Ranni's Dark Moon
+4370:Magic Downpour
+4380:Loretta's Greatbow
+4381:Loretta's Mastery
+4390:Magic Glintblade
+4400:Glintstone Icecrag
+4410:Zamor Ice Storm
+4420:Freezing Mist
+4430:Carian Greatsword
+4431:Adula's Moonblade
+4440:Carian Slicer
+4450:Carian Piercer
+4460:Scholar's Armament
+4470:Scholar's Shield
+4480:Lucidity
+4490:Frozen Armament
+4500:Shattering Crystal
+4510:Crystal Release
+4520:Crystal Torrent
+4600:Ambush Shard
+4610:Night Shard
+4620:Night Comet
+4630:Thops's Barrier
+4640:Carian Retaliation
+4650:Eternal Darkness
+4660:Unseen Blade
+4670:Unseen Form
+4700:Meteorite
+4701:Meteorite of Astel
+4710:Rock Sling
+4720:Gravity Well
+4721:Collapsing Stars
+4800:Magma Shot
+4810:Gelmir's Fury
+4820:Roiling Magma
+4830:Rykard's Rancor
+4900:Briars of Sin
+4910:Briars of Punishment
+5000:Rancorcall
+5001:Ancient Death Rancor
+5010:Explosive Ghostflame
+5020:Fia's Mist
+5030:Tibia's Summons
+5040:Death Lightning
+5100:Oracle Bubbles
+5110:Great Oracular Bubble
+6000:Catch Flame
+6001:O, Flame!
+6010:Flame Sling
+6020:Flame, Fall Upon Them
+6030:Whirl, O Flame!
+6040:Flame, Cleanse Me
+6050:Flame, Grant Me Strength
+6060:Flame, Protect Me
+6100:Giantsflame Take Thee
+6110:Flame of the Fell God
+6120:Burn, O Flame!
+6210:Black Flame
+6220:Surge, O Flame!
+6230:Scouring Black Flame
+6240:Black Flame Ritual
+6250:Black Flame Blade
+6260:Black Flame's Protection
+6270:Noble Presence
+6300:Bloodflame Talons
+6310:Bloodboon
+6320:Bloodflame Blade
+6330:Barrier of Gold
+6340:Protection of the Erdtree
+6400:Rejection
+6410:Wrath of Gold
+6420:Urgent Heal
+6421:Heal
+6422:Great Heal
+6423:Lord's Heal
+6424:Erdtree Heal
+6430:Blessing's Boon
+6431:Blessing of the Erdtree
+6440:Cure Poison
+6441:Lord's Aid
+6450:Flame Fortification
+6460:Magic Fortification
+6470:Lightning Fortification
+6480:Divine Fortification
+6490:Lord's Divine Fortification
+6500:Night Maiden's Mist
+6510:Assassin's Approach
+6520:Shadow Bait
+6530:Darkness
+6600:Golden Vow
+6700:Discus of Light
+6701:Triple Rings of Light
+6710:Radagon's Rings of Light
+6720:Elden Stars
+6730:Law of Regression
+6740:Immutable Shield
+6750:Litany of Proper Death
+6760:Law of Causality
+6770:Order's Blade
+6780:Order Healing
+6800:Bestial Sling
+6810:Stone of Gurranq
+6820:Beast Claw
+6830:Gurranq's Beast Claw
+6840:Bestial Vitality
+6850:Bestial Constitution
+6900:Lightning Spear
+6910:Ancient Dragons' Lightning Strike
+6920:Lightning Strike
+6921:Frozen Lightning Spear
+6930:Honed Bolt
+6940:Ancient Dragons' Lightning Spear
+6941:Fortissax's Lightning Spear
+6950:Lansseax's Glaive
+6960:Electrify Armament
+6970:Vyke's Dragonbolt
+6971:Dragonbolt Blessing
+7000:Dragonfire
+7001:Agheel's Flame
+7010:Magma Breath
+7011:Theodorix's Magma
+7020:Dragonice
+7021:Borealis's Mist
+7030:Rotten Breath
+7031:Ekzykes's Decay
+7040:Glintstone Breath
+7041:Smarag's Glintstone Breath
+7050:Placidusax's Ruin
+7060:Dragonclaw
+7080:Dragonmaw
+7090:Greyoll's Roar
+7200:Pest Threads
+7210:Swarm of Flies
+7220:Poison Mist
+7230:Poison Armament
+7240:Scarlet Aeonia
+7300:Inescapable Frenzy
+7310:The Flame of Frenzy
+7311:Unendurable Frenzy
+7320:Frenzied Burst
+7330:Howl of Shabriri
+7500:Aspects of the Crucible: Tail
+7510:Aspects of the Crucible: Horns
+7520:Aspects of the Crucible: Breath
+7530:Black Blade
+7900:Fire's Deadly Sin
+7903:Golden Lightning Fortification
+2004300:Miriam's Vanishing
+2004310:Glintblade Trio
+2004320:Rellana's Twin Moons
+2004500:Glintstone Nail
+2004510:Glintstone Nails
+2004700:Blades of Stone
+2004710:Gravitational Missile
+2004900:Mantle of Thorns
+2004910:Impenetrable Thorns
+2005000:Rings of Spectral Light
+2006200:Vortex of Putrescence
+2006210:Mass of Putrescence
+2006300:Furious Blade of Ansbach
+2006400:Heal from Afar
+2006650:Aspects of the Crucible: Thorns
+2006660:Aspects of the Crucible: Bloom
+2006670:Minor Erdtree
+2006680:Land of Shadow
+2006690:Wrath from Afar
+2006700:Light of Miquella
+2006710:Multilayered Ring of Light
+2006800:Roar of Rugalea
+2006900:Knight's Lightning Spear
+2006910:Dragonbolt of Florissax
+2006920:Electrocharge
+2007000:Bayle's Tyranny
+2007010:Bayle's Flame Lightning
+2007020:Ghostflame Breath
+2007200:Rotten Butterflies
+2007210:Pest-Thread Spears
+2007300:Midra's Flame of Frenzy
+2007410:Fleeting Microcosm
+2007420:Cherishing Fingers
+2007600:Watchful Spirit
+2007700:Golden Arcs
+2007710:Giant Golden Arc
+2007720:Spira
+2007730:Divine Beast Tornado
+2007740:Divine Bird Feathers
+2007800:Fire Serpent
+2007810:Rain of Fire
+2007820:Messmer's Orb
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

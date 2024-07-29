@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107256</ID>
+  <Description>"Missionary's Cookbook [5]"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>89B</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

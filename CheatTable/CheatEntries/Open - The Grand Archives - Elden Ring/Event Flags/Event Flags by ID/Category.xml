@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>106864</ID>
+  <Description>"Category"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:All
+1:Sites of Grace
+2:Whetblades
+3:Cookbooks
+4:Maps
+5:Illusory Walls/Doors/Fog Walls
+6:NPCs
+7:Bosses
+8:Colosseums
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>ef.flag_data+8</Address>
+</CheatEntry>

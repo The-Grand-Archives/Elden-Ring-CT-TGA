@@ -1,0 +1,15 @@
+{
+  Author: Igromanru
+  Description: Searches for an ID by address in all params
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local address = 0x --enter address to search for the ID
+--------------------------------------------------------
+local id = paramUtils:getIdByAddressInAnyParam(address)
+if(id ~= nil and id > 0) then
+  print("Your ID is "..id.."(0x"..paramUtils:toHex(id)..")")
+end
+disableMemrec(memrec)
+[DISABLE]

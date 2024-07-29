@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>107963</ID>
+  <Description>"TgtHeightMax"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>LockTgtMan</Address>
+  <Offsets>
+    <Offset>2914</Offset>
+  </Offsets>
+</CheatEntry>

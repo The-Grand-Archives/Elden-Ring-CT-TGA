@@ -1,0 +1,15 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local id = readInteger(BulletSpawn.data)
+local coords = {
+	readFloat(BulletSpawn.data +  4),
+	readFloat(BulletSpawn.data +  8),
+	readFloat(BulletSpawn.data + 12)
+}
+local r = BulletSpawn.create(id, coords)
+if readInteger(r) == 0xFFFFFFFF then
+	print("Failed to create bullet")
+end
+disableMemrec(memrec)
+[DISABLE]

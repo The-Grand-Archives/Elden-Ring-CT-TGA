@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>105123</ID>
+  <Description>"Focus (Madness)"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>28</Offset>
+    <Offset>20</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+</CheatEntry>

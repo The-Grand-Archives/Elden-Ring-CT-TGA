@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103119</ID>
+  <Description>"knockbackRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+122</Address>
+</CheatEntry>

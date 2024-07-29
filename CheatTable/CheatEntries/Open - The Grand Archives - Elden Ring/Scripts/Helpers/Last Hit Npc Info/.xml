@@ -1,0 +1,32 @@
+<CheatEntry>
+  <ID>105618</ID>
+  <Description>"Last Hit Npc Info"</Description>
+  <Options moHideChildren="1"/>
+  <VariableType>Auto Assembler Script</VariableType>
+  <x-ce2fs-child-order>
+    <id id="105619"/>
+    <id id="105620"/>
+    <id id="105621"/>
+    <id id="105622"/>
+    <id id="105623"/>
+    <id id="105624"/>
+    <id id="105625"/>
+    <id id="105626"/>
+    <id id="105627"/>
+    <id id="105628"/>
+    <id id="105629"/>
+    <id id="105630"/>
+    <id id="105631"/>
+    <id id="105632"/>
+    <id id="105643"/>
+    <id id="105658"/>
+    <id id="105668"/>
+    <id id="105678"/>
+    <id id="105697"/>
+    <id id="105711"/>
+    <id id="105716"/>
+    <id id="105723"/>
+    <id id="106042"/>
+    <id id="106147"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

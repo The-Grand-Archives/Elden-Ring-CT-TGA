@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>102129</ID>
+  <Description>"canMountWep_Ballista"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>4</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+3B</Address>
+</CheatEntry>

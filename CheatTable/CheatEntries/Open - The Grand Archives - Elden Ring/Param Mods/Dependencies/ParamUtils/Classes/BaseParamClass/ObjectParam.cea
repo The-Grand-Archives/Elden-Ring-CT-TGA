@@ -1,0 +1,28 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START ObjectParam class]]--
+ObjectParam = BaseParamClass:new()
+
+function ObjectParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("ObjectParam", uuid, id, address)
+	return o
+end
+
+function ObjectParam:HP(value)
+    self:patch2Byte(0x0, value)
+end
+
+function ObjectParam:IsBreakbyPlayerCollide(value)
+    self:patchBinary(0x9, value, 1)
+end
+
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

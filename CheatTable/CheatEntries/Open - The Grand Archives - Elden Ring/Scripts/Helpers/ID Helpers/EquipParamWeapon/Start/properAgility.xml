@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101427</ID>
+  <Description>"properAgility"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+F3</Address>
+</CheatEntry>

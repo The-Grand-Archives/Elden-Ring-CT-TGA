@@ -1,0 +1,10 @@
+[ENABLE]
+alloc(EquipParamGoodsHelper,16)
+registersymbol(EquipParamGoodsHelper)
+
+EquipParamGoodsHelper:
+dq #0
+
+[DISABLE]
+dealloc(EquipParamGoodsHelper)
+unregistersymbol(EquipParamGoodsHelper)

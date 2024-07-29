@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>107944</ID>
+  <Description>"Display debug information | デバッグ情報表示"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Disable
+1:Enable
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>000080</Color>
+  <VariableType>Byte</VariableType>
+  <Address>DamageCtrl</Address>
+  <Offsets>
+    <Offset>A2</Offset>
+  </Offsets>
+</CheatEntry>

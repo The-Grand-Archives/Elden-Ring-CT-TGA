@@ -1,0 +1,38 @@
+{
+  Author: Jacky Dima
+  Description: Lets you regen Healh and Mana, hits everyone nearby and lets them heal/regen and get them "Tears" + Pers.
+               Effect ID 40 might not be unoccupied
+}
+
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local good = EquipParamGoods:new("Knifeheal", 1710) -- Bone Dart
+good:patchBinary(0x48,0, 7) -- no comsume
+good:patch2Byte(0x30, 400) -- TearHeal
+
+-- Icon funny: 610, 400, 420, 3510,
+
+local E1 = SpEffectParam:new("Knifeheal", 40) -- Prob unused
+E1:changeHpRate(-100)
+E1:changeMpRate(-100)
+E1:effectEndurance(0.1)
+E1:cycleOccurrenceSpEffectId(3512) -- Chrimson Bubble Tear
+E1:replaceSpEffectId(1650)
+
+local Bullet = Bullet:new("Knifeheal", 10171000) -- Bone Dart
+Bullet:hitRadius(150)
+Bullet:hitRadiusMax(150)
+Bullet:spEffectIDForShooter(40)
+Bullet:spEffectId0(3512) -- Tears
+Bullet:spEffectId1(1650) -- Pers.
+Bullet:spEffectId2(110) -- Regen By Grace effect { might work only for Hosts }
+Bullet:isHitBothTeam(1)
+Bullet:isPenetrateMap(1)
+
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+paramUtils:restore("Knifeheal")

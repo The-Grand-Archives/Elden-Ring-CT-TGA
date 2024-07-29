@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>108223</ID>
+  <Description>"CHAR_TYPE"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Host
+1:White Phantom
+2:Dark Spirit?
+3:Ghost
+4:Ghost
+5:NPC
+16:Dark Spirit
+17:Blue
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

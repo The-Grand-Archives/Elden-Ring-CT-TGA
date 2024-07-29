@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107797</ID>
+  <Description>"Cliffbottom Catabombs 2"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>3</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>169600</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

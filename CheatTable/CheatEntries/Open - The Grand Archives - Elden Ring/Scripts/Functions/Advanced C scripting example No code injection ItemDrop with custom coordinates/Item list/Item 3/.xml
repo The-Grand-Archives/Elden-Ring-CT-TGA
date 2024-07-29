@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>101201</ID>
+  <Description>"Item 3"</Description>
+  <Options moManualExpandCollapse="1"/>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>16</ByteLength>
+  <Address>ItemDrop_ItemList+34</Address>
+  <x-ce2fs-child-order>
+    <id id="101202"/>
+    <id id="101203"/>
+    <id id="101204"/>
+    <id id="101205"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

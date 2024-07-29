@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>107628</ID>
+  <Description>"1. In Stormveil"</Description>
+  <DropDownListLink>?</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+1</Address>
+</CheatEntry>

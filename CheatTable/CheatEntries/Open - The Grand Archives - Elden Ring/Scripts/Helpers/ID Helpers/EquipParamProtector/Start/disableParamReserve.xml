@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>101621</ID>
+  <Description>"disableParamReserve"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>7</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+00</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>104602</ID>
+  <Description>"knockbackBounceRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+AC</Address>
+</CheatEntry>

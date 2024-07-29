@@ -1,0 +1,7 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+lua_warp(readInteger(warp_data))
+disableMemrec(memrec)
+[DISABLE]
+

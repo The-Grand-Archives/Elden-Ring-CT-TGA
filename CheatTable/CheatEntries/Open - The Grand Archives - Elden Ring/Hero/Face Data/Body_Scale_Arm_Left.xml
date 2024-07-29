@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100789</ID>
+  <Description>"Body_Scale_Arm_Left"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+B9</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

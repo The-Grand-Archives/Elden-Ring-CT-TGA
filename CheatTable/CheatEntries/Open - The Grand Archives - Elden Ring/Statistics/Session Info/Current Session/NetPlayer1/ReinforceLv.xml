@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>100077</ID>
+  <Description>"ReinforceLv"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>WorldChrMan</Address>
+  <Offsets>
+    <Offset>E2</Offset>
+    <Offset>580</Offset>
+    <Offset>1*10</Offset>
+    <Offset>10EF8</Offset>
+  </Offsets>
+</CheatEntry>

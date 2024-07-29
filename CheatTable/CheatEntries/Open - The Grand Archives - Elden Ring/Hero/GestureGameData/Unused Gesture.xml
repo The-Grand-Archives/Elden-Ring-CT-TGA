@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>100514</ID>
+  <Description>"Unused Gesture"</Description>
+  <DropDownListLink>Unused_Gesture</DropDownListLink>
+  <ShowAsSigned>1</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>EC</Offset>
+    <Offset>8D8</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

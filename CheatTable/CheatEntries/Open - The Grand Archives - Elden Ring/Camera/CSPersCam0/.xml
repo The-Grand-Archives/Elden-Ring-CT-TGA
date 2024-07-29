@@ -1,0 +1,26 @@
+<CheatEntry>
+  <ID>107808</ID>
+  <Description>"CSPersCam0"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>FieldArea</Address>
+  <Offsets>
+    <Offset>0</Offset>
+    <Offset>18</Offset>
+    <Offset>20</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107809"/>
+    <id id="107814"/>
+    <id id="107819"/>
+    <id id="107824"/>
+    <id id="107825"/>
+    <id id="107826"/>
+    <id id="107827"/>
+    <id id="107828"/>
+    <id id="107829"/>
+    <id id="107830"/>
+    <id id="107831"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

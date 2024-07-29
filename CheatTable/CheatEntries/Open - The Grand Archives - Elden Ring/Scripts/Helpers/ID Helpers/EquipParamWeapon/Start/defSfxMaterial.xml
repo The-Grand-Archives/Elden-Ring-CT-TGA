@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101420</ID>
+  <Description>"defSfxMaterial"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+EB</Address>
+</CheatEntry>

@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>101045</ID>
+  <Description>"Reflection Quality"</Description>
+  <DropDownListLink>GRAPHICS_OPTION</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>CSWindow</Address>
+  <Offsets>
+    <Offset>110</Offset>
+  </Offsets>
+</CheatEntry>

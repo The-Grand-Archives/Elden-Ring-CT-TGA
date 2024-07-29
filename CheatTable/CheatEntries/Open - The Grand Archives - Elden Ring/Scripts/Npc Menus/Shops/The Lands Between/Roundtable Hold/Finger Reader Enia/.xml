@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>101300</ID>
+  <Description>"Finger Reader Enia"</Description>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="101301"/>
+    <id id="101302"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

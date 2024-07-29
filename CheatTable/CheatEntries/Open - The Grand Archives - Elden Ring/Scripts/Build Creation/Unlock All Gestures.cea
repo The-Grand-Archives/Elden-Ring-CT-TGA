@@ -1,0 +1,114 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+-- change these for options
+local give_cut_gestures = false
+local give_dlc_gestures = true
+
+-- do not change the rest
+
+local gestures = {
+	{ 1, 0x40002328 }, -- Bow
+	{ 3, 0x40002329 }, -- Polite Bow
+	{ 5, 0x4000232A }, -- My Thanks
+	{ 7, 0x4000232B }, -- Curtsy
+	{ 9, 0x4000232C }, -- Reverential Bow
+	{ 11, 0x4000232D }, -- My Lord
+	{ 13, 0x4000232E }, -- Warm Welcome
+	{ 15, 0x4000232F }, -- Wave
+	{ 17, 0x40002330 }, -- Casual Greeting
+	{ 19, 0x40002331 }, -- Strength!
+	{ 21, 0x40002332 }, -- As You Wish
+	{ 41, 0x40002333 }, -- Point Forwards
+	{ 43, 0x40002334 }, -- Point Upwards
+	{ 45, 0x40002335 }, -- Point Downwards
+	{ 47, 0x40002336 }, -- Beckon
+	{ 49, 0x40002337 }, -- Wait!
+	{ 51, 0x40002338 }, -- Calm Down!
+	{ 61, 0x40002339 }, -- Nod In Thought
+	{ 81, 0x4000233A }, -- Extreme Repentance
+	{ 83, 0x4000233B }, -- Grovel For Mercy
+	{ 101, 0x4000233C }, -- Rallying Cry
+	{ 103, 0x4000233D }, -- Heartening Cry
+	{ 105, 0x4000233E }, -- By My Sword
+	{ 107, 0x4000233F }, -- Hoslow's Oath
+	{ 109, 0x40002340 }, -- Fire Spur Me
+	{ -1, 0x40002341 }, -- The Carian Oath (Cut content)
+	{ 121, 0x40002342 }, -- Bravo!
+	{ 141, 0x40002343 }, -- Jump for Joy
+	{ 143, 0x40002344 }, -- Triumphant Delight
+	{ 145, 0x40002345 }, -- Fancy Spin
+	{ 147, 0x40002346 }, -- Finger Snap
+	{ 161, 0x40002347 }, -- Dejection
+	{ 181, 0x40002348 }, -- Patches' Crouch
+	{ 183, 0x40002349 }, -- Crossed Legs
+	{ 185, 0x4000234A }, -- Rest
+	{ 187, 0x4000234B }, -- Sitting Sideways
+	{ 189, 0x4000234C }, -- Dozing Cross-Legged
+	{ 191, 0x4000234D }, -- Spread Out
+	{ -1, 0x4000234E }, -- Fetal Position (Cut content)
+	{ 195, 0x4000234F }, -- Balled Up
+	{ 197, 0x40002350 }, -- What Do You Want?
+	{ 201, 0x40002351 }, -- Prayer
+	{ 203, 0x40002352 }, -- Desperate Prayer
+	{ 205, 0x40002353 }, -- Rapture
+	{ 207, 0x40002355 }, -- Erudition
+	{ 209, 0x40002356 }, -- Outer Order
+	{ 211, 0x40002357 }, -- Inner Order
+	{ 213, 0x40002358 }, -- Golden Order Totality
+	{ -1, 0x40002359 }, -- The Ring
+	{ -1, 0x4000235A }, -- The Ring
+	{ -1, 0x40002354 }, -- ?GoodsName? (Cut content)
+}
+
+local gesturesDLC1 = {
+	{223, 0x401EA7A9}, -- May the Best Win
+	{225, 0x401EA7AA}, -- The Two Fingers
+	{-1,  0x401EA7A8}, -- Ring of Miquella (Pre-order)
+	{229, 0x401EA7AB}, -- Let Us Go Together
+	{231, 0x401EA7AC}, -- O Mother
+	{-1,  0x401EA7A8}, -- Ring of Miquella
+}
+
+local GameDataMan = readPointer("GameDataMan")
+local PlayerGameData = readPointer(GameDataMan + 8)
+local GestureGameData = readPointer(PlayerGameData + 0x8D8)
+
+-- cut content gestures
+if give_cut_gestures then
+	gestures[26][1] = 111
+	gestures[39][1] = 193
+	gestures[51][1] = 221
+end
+
+-- The Ring pre-order gesture
+if isOwnDlc(0) then
+	gestures[49][1] = 217
+else
+	gestures[50][1] = 219
+end
+
+-- Ring of Miquella pre-order gesture
+if isOwnDlc(2) then
+	gesturesDLC1[3][1] = 227
+else
+	gesturesDLC1[6][1] = 233
+end
+
+if give_dlc_gestures and isOwnDlc(1) then
+	for _,v in ipairs(gesturesDLC1) do
+		table.insert(gestures, v)
+	end
+end
+
+for i,v in ipairs(gestures) do
+	if v[1] ~= -1 then
+		writeInteger(GestureGameData + 4 + i * 4, v[1])
+		ItemPopup(v[2],1)
+	end
+end
+
+disableMemrec(memrec)
+
+[DISABLE]

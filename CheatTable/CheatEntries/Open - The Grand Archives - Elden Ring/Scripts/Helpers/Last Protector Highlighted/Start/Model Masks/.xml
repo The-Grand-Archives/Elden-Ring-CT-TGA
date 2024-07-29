@@ -1,0 +1,110 @@
+<CheatEntry>
+  <ID>104708</ID>
+  <Description>"Model Masks"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>+130</Address>
+  <x-ce2fs-child-order>
+    <id id="104709"/>
+    <id id="104710"/>
+    <id id="104711"/>
+    <id id="104712"/>
+    <id id="104713"/>
+    <id id="104714"/>
+    <id id="104715"/>
+    <id id="104716"/>
+    <id id="104717"/>
+    <id id="104718"/>
+    <id id="104719"/>
+    <id id="104720"/>
+    <id id="104721"/>
+    <id id="104722"/>
+    <id id="104723"/>
+    <id id="104724"/>
+    <id id="104725"/>
+    <id id="104726"/>
+    <id id="104727"/>
+    <id id="104728"/>
+    <id id="104729"/>
+    <id id="104730"/>
+    <id id="104731"/>
+    <id id="104732"/>
+    <id id="104733"/>
+    <id id="104734"/>
+    <id id="104735"/>
+    <id id="104736"/>
+    <id id="104737"/>
+    <id id="104738"/>
+    <id id="104739"/>
+    <id id="104740"/>
+    <id id="104741"/>
+    <id id="104742"/>
+    <id id="104743"/>
+    <id id="104744"/>
+    <id id="104745"/>
+    <id id="104746"/>
+    <id id="104747"/>
+    <id id="104748"/>
+    <id id="104749"/>
+    <id id="104750"/>
+    <id id="104751"/>
+    <id id="104752"/>
+    <id id="104753"/>
+    <id id="104754"/>
+    <id id="104755"/>
+    <id id="104756"/>
+    <id id="104757"/>
+    <id id="104758"/>
+    <id id="104759"/>
+    <id id="104760"/>
+    <id id="104761"/>
+    <id id="104762"/>
+    <id id="104763"/>
+    <id id="104764"/>
+    <id id="104765"/>
+    <id id="104766"/>
+    <id id="104767"/>
+    <id id="104768"/>
+    <id id="104769"/>
+    <id id="104770"/>
+    <id id="104771"/>
+    <id id="104772"/>
+    <id id="104773"/>
+    <id id="104774"/>
+    <id id="104775"/>
+    <id id="104776"/>
+    <id id="104777"/>
+    <id id="104778"/>
+    <id id="104779"/>
+    <id id="104780"/>
+    <id id="104781"/>
+    <id id="104782"/>
+    <id id="104783"/>
+    <id id="104784"/>
+    <id id="104785"/>
+    <id id="104786"/>
+    <id id="104787"/>
+    <id id="104788"/>
+    <id id="104789"/>
+    <id id="104790"/>
+    <id id="104791"/>
+    <id id="104792"/>
+    <id id="104793"/>
+    <id id="104794"/>
+    <id id="104795"/>
+    <id id="104796"/>
+    <id id="104797"/>
+    <id id="104798"/>
+    <id id="104799"/>
+    <id id="104800"/>
+    <id id="104801"/>
+    <id id="104802"/>
+    <id id="104803"/>
+    <id id="104804"/>
+    <id id="104805"/>
+    <id id="104806"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

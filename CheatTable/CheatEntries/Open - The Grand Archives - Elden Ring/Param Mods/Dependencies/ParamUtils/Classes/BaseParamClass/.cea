@@ -1,0 +1,156 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START BaseParamClass class]]--
+BaseParamClass = {
+	id = 0,
+	param = "",
+	backupUuid = "",
+	address = 0
+}
+
+function BaseParamClass:new(param, uuid, id, address)
+  local o = {}
+  self.__index = self
+  setmetatable(o, self)
+
+  o:init(param, uuid, id, address)
+  return o
+end
+
+function BaseParamClass:init(param, uuid, id, address)
+  if(param ~= nil) then
+    self.param = param
+  end
+  if(uuid ~= nil) then
+    self.backupUuid = uuid
+  end
+  if(id ~= nil) then
+    self.id = id
+  end
+  if(self.param ~= "" and self.backupUuid ~= "") then
+    if(paramUtils.patchBackUp[self.backupUuid] == nil) then
+      paramUtils.patchBackUp[self.backupUuid] = {}
+    end
+	if(address ~= nil and address > 0) then
+	  self.address = address
+    elseif(self.id ~= nil and self.id > 0) then
+	  self:stripSelfIdForParams()
+      self.address = paramUtils:getIdAddressInParam(self.param, self.id)
+    end
+  end
+end
+
+-- Removes first Hex digit of the ID
+function BaseParamClass:stripIdForParams(id)
+	local idHex = paramUtils:toHex(id, 8)
+	return tonumber(idHex:sub(2),16)
+end
+
+function BaseParamClass:stripSelfIdForParams()
+  if(self.id ~= nil and self.id > 0) then
+    self.id = self:stripIdForParams(self.id)
+  end
+end
+
+--Patch all values
+function BaseParamClass:patchAll(offset, value, valueType, binaryOffset)
+	local addresses = paramUtils:getAllAddressFromParam(self.param)
+	for key,address in pairs(addresses) do
+		local patchInfo = PatchInfo:new(address + offset, value, valueType, PatchInfo:getBinaryOffset(binaryOffset))
+		paramUtils:patchValueWithBackup(patchInfo, self.backupUuid)
+	end
+end
+
+function BaseParamClass:patchAllBinary(offset, value, binaryOffset)
+	self:patchAll(offset, value, PatchInfo.TYPE.BINARY, binaryOffset)
+end
+
+function BaseParamClass:patchAllByte(offset, value)
+	self:patchAll(offset, value, PatchInfo.TYPE.BYTE)
+end
+
+function BaseParamClass:patchAll2Byte(offset, value)
+	self:patchAll(offset, value, PatchInfo.TYPE.TWO_BYTE)
+end
+
+function BaseParamClass:patchAll4Byte(offset, value)
+	self:patchAll(offset, value, PatchInfo.TYPE.FOUR_BYTE)
+end
+
+function BaseParamClass:patchAll8Byte(offset, value)
+	self:patchAll(offset, value, PatchInfo.TYPE.EIGHT_BYTE)
+end
+
+function BaseParamClass:patchAllFloat(offset, value)
+	self:patchAll(offset, value, PatchInfo.TYPE.FLOAT)
+end
+
+-- Patch value
+function BaseParamClass:patchValue(offset, value, valueType, binaryOffset)
+	local patchInfo = PatchInfo:new(self.address + offset, value, valueType, PatchInfo:getBinaryOffset(binaryOffset))
+	paramUtils:patchValueWithBackup(patchInfo, self.backupUuid)
+end
+
+function BaseParamClass:patchBinary(offset, value, binaryOffset)
+	self:patchValue(offset, value, PatchInfo.TYPE.BINARY, binaryOffset)
+end
+
+function BaseParamClass:patchByte(offset, value)
+	self:patchValue(offset, value, PatchInfo.TYPE.BYTE)
+end
+
+function BaseParamClass:patch2Byte(offset, value)
+	self:patchValue(offset, value, PatchInfo.TYPE.TWO_BYTE)
+end
+
+function BaseParamClass:patch4Byte(offset, value)
+	self:patchValue(offset, value, PatchInfo.TYPE.FOUR_BYTE)
+end
+
+function BaseParamClass:patch8Byte(offset, value)
+	self:patchValue(offset, value, PatchInfo.TYPE.EIGHT_BYTE)
+end
+
+function BaseParamClass:patchFloat(offset, value)
+	self:patchValue(offset, value, PatchInfo.TYPE.FLOAT)
+end
+
+-- Read value
+function BaseParamClass:readValue(offset, valueType, binaryOffset)
+	local patchInfo = PatchInfo:new(self.address + offset, nil, valueType, PatchInfo:getBinaryOffset(binaryOffset))
+	return paramUtils:readValue(patchInfo)
+end
+
+function BaseParamClass:readBinary(offset, binaryOffset)
+	local bByte = self:readValue(offset, PatchInfo.TYPE.BINARY, binaryOffset)
+	return bAnd(bByte, PatchInfo:getBinaryOffset(binaryOffset)) ~= 0
+end
+
+function BaseParamClass:readByte(offset)
+	return self:readValue(offset, PatchInfo.TYPE.BYTE)
+end
+
+function BaseParamClass:read2Byte(offset)
+	return self:readValue(offset, PatchInfo.TYPE.TWO_BYTE)
+end
+
+function BaseParamClass:read4Byte(offset)
+	return self:readValue(offset, PatchInfo.TYPE.FOUR_BYTE)
+end
+
+function BaseParamClass:read8Byte(offset)
+	return self:readValue(offset, PatchInfo.TYPE.EIGHT_BYTE)
+end
+
+function BaseParamClass:readFloat(offset)
+	return self:readValue(offset, PatchInfo.TYPE.FLOAT)
+end
+
+--[[END BaseParamClass class]]--
+
+[DISABLE]
+{$lua}
+--if syntaxcheck then return end
+

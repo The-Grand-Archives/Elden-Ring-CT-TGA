@@ -1,0 +1,30 @@
+<CheatEntry>
+  <ID>107559</ID>
+  <Description>"Irina / Hyetta"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>1A6</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="107560"/>
+    <id id="107561"/>
+    <id id="107562"/>
+    <id id="107563"/>
+    <id id="107564"/>
+    <id id="107565"/>
+    <id id="107566"/>
+    <id id="107567"/>
+    <id id="107568"/>
+    <id id="107569"/>
+    <id id="107570"/>
+    <id id="107571"/>
+    <id id="107572"/>
+    <id id="107573"/>
+    <id id="107574"/>
+    <id id="107575"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

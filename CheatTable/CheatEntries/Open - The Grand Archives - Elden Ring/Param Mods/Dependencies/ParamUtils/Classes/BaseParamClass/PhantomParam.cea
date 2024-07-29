@@ -1,0 +1,118 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+PhantomParam = BaseParamClass:new()
+
+function PhantomParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("PhantomParam", uuid, id, address)
+	return o
+end
+
+function PhantomParam:Brightness(value)
+    self:patchFloat(0x00,value)
+end
+
+function PhantomParam:Brightness1(value)
+    self:patchFloat(0x04,value)
+end
+
+function PhantomParam:Brightness2(value)
+    self:patchFloat(0x08,value)
+end
+
+function PhantomParam:Brightness3(value)
+    self:patchFloat(0x0C,value)
+end
+
+function PhantomParam:Brightness4(value)
+    self:patchFloat(0x10,value)
+end
+
+function PhantomParam:Red(value)
+    self:patchByte(0x14,value)
+end
+
+function PhantomParam:Green(value)
+    self:patchByte(0x15,value)
+end
+
+function PhantomParam:Blue(value)
+    self:patchByte(0x16,value)
+end
+
+function PhantomParam:Red1(value)
+    self:patchByte(0x17,value)
+end
+
+function PhantomParam:Green1(value)
+    self:patchByte(0x18,value)
+end
+
+function PhantomParam:Blue1(value)
+    self:patchByte(0x19,value)
+end
+
+function PhantomParam:Red2(value)
+    self:patchByte(0x1A,value)
+end
+
+function PhantomParam:Green2(value)
+    self:patchByte(0x1B,value)
+end
+
+function PhantomParam:Blue2(value)
+    self:patchByte(0x1C,value)
+end
+
+function PhantomParam:Red3(value)
+    self:patchByte(0x1D,value)
+end
+
+function PhantomParam:Green3(value)
+    self:patchByte(0x1E,value)
+end
+
+function PhantomParam:Blue3(value)
+    self:patchByte(0x1F,value)
+end
+
+function PhantomParam:Red4(value)
+    self:patchByte(0x20,value)
+end
+
+function PhantomParam:Green4(value)
+    self:patchByte(0x21,value)
+end
+
+function PhantomParam:Blue4(value)
+    self:patchByte(0x1F,value)
+end
+
+function PhantomParam:Fade(value)
+    self:patchFloat(0x24,value)
+end
+
+function PhantomParam:Fade1(value)
+    self:patchFloat(0x28,value)
+end
+
+function PhantomParam:FadeType(value)
+    self:patchByte(0x2C,value)
+end
+
+function PhantomParam:Flag(value)
+    self:patchByte(0x2D,value)
+end
+
+function PhantomParam:Flag1(value)
+    self:patchByte(0x2E,value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106744</ID>
+  <Description>"compassEnemyHostInnerDistance"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+A4</Address>
+</CheatEntry>

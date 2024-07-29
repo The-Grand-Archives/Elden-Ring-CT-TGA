@@ -1,0 +1,116 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local reinforceLv = -1	-- non-somber values
+local upgrade = 0
+local gem = -1
+
+local items = {
+  { 0x0016E360, 1, reinforceLv, upgrade, gem }, -- Main-gauche
+  { 0x00170A70, 1, reinforceLv, upgrade, gem }, -- Fire Knight's Shortsword
+  { 0x00264CB0, 1, reinforceLv, upgrade, gem }, -- Velvet Sword of St. Trina
+  { 0x002673C0, 1, reinforceLv, upgrade, gem }, -- Star-Lined Sword
+  { 0x00269AD0, 1, reinforceLv, upgrade, gem }, -- Carian Sorcery Sword
+  { 0x0026C1E0, 1, reinforceLv, upgrade, gem }, -- Stone-Sheathed Sword
+  { 0x0026E8F0, 1, reinforceLv, upgrade, gem }, -- Sword of Light
+  { 0x00271000, 1, reinforceLv, upgrade, gem }, -- Sword of Darkness
+  { 0x003567E0, 1, reinforceLv, upgrade, gem }, -- Sword Lance
+  { 0x00358EF0, 1, reinforceLv, upgrade, gem }, -- Greatsword of Damnation
+  { 0x0035B600, 1, reinforceLv, upgrade, gem }, -- Lizard Greatsword
+  { 0x00362B30, 1, reinforceLv, upgrade, gem }, -- Greatsword of Solitude
+  { 0x0044AA20, 1, reinforceLv, upgrade, gem }, -- Ancient Meteoric Ore Greatsword
+  { 0x0044F840, 1, reinforceLv, upgrade, gem }, -- Fire Knight's Greatsword
+  { 0x00451F50, 1, reinforceLv, upgrade, gem }, -- Greatsword of Radahn (Lord)
+  { 0x00454660, 1, reinforceLv, upgrade, gem }, -- Moonrithyll's Knight Sword
+  { 0x00456D70, 1, reinforceLv, upgrade, gem }, -- Greatsword of Radahn (Light)
+  { 0x00632EA0, 1, reinforceLv, upgrade, gem }, -- Queelign's Greatsword
+  { 0x007270E0, 1, reinforceLv, upgrade, gem }, -- Spirit Sword
+  { 0x007297F0, 1, reinforceLv, upgrade, gem }, -- Falx
+  { 0x0072BF00, 1, reinforceLv, upgrade, gem }, -- Dancing Blade of Ranah
+  { 0x0072E610, 1, reinforceLv, upgrade, gem }, -- Horned Warrior's Sword
+  { 0x0081B320, 1, reinforceLv, upgrade, gem }, -- Putrescence Cleaver
+  { 0x0081DA30, 1, reinforceLv, upgrade, gem }, -- Freyja's Greatsword
+  { 0x00820140, 1, reinforceLv, upgrade, gem }, -- Horned Warrior's Greatsword
+  { 0x0090F560, 1, reinforceLv, upgrade, gem }, -- Sword of Night
+  { 0x00A037A0, 1, reinforceLv, upgrade, gem }, -- Euporia
+  { 0x00A05EB0, 1, reinforceLv, upgrade, gem }, -- Black Steel Twinblade
+  { 0x00AF79E0, 1, reinforceLv, upgrade, gem }, -- Flowerstone Gavel
+  { 0x00BEBC20, 1, reinforceLv, upgrade, gem }, -- Smithscript Greathammer
+  { 0x00BEE330, 1, reinforceLv, upgrade, gem }, -- Anvil Hammer
+  { 0x00BF0A40, 1, reinforceLv, upgrade, gem }, -- Black Steel Greathammer
+  { 0x00BF3150, 1, reinforceLv, upgrade, gem }, -- Bloodfiend's Arm
+  { 0x00CDFE60, 1, reinforceLv, upgrade, gem }, -- Serpent Flail
+  { 0x00DD40A0, 1, reinforceLv, upgrade, gem }, -- Smithscript Axe
+  { 0x00DD67B0, 1, reinforceLv, upgrade, gem }, -- Death Knight's Twin Axes
+  { 0x00DD8EC0, 1, reinforceLv, upgrade, gem }, -- Messmer Soldier's Axe
+  { 0x00DDDCE0, 1, reinforceLv, upgrade, gem }, -- Forked-Tongue Hatchet
+  { 0x00EC82E0, 1, reinforceLv, upgrade, gem }, -- Death Knight's Longhaft Axe
+  { 0x00ECA9F0, 1, reinforceLv, upgrade, gem }, -- Bonny Butchering Knife
+  { 0x00FBC520, 1, reinforceLv, upgrade, gem }, -- Smithscript Spear
+  { 0x00FC1340, 1, reinforceLv, upgrade, gem }, -- Swift Spear
+  { 0x00FC6160, 1, reinforceLv, upgrade, gem }, -- Bloodfiend's Fork
+  { 0x010B0760, 1, reinforceLv, upgrade, gem }, -- Spear of the Impaler
+  { 0x00FC8870, 1, reinforceLv, upgrade, gem }, -- Bloodfiend's Sacred Spear
+  { 0x010B2E70, 1, reinforceLv, upgrade, gem }, -- Messmer Soldier's Spear
+  { 0x010B5580, 1, reinforceLv, upgrade, gem }, -- Barbed Staff-Spear
+  { 0x011A49A0, 1, reinforceLv, upgrade, gem }, -- Spirit Glaive
+  { 0x011A70B0, 1, reinforceLv, upgrade, gem }, -- Poleblade of the Bud
+  { 0x01298BE0, 1, reinforceLv, upgrade, gem }, -- Obsidian Lamina
+  { 0x0138CE20, 1, reinforceLv, upgrade, gem }, -- Tooth Whip
+  { 0x01481060, 1, reinforceLv, upgrade, gem }, -- Thiollier's Hidden Needle
+  { 0x01483770, 1, reinforceLv, upgrade, gem }, -- Pata
+  { 0x01485E80, 1, reinforceLv, upgrade, gem }, -- Poisoned Hand
+  { 0x01488590, 1, reinforceLv, upgrade, gem }, -- Madding Hand
+  { 0x0148ACA0, 1, reinforceLv, upgrade, gem }, -- Golem Fist
+  { 0x0148D3B0, 1, reinforceLv, upgrade, gem }, -- Shield of Night
+  { 0x015752A0, 1, reinforceLv, upgrade, gem }, -- Claws of Night
+  { 0x016694E0, 1, reinforceLv, upgrade, gem }, -- Devonia's Hammer
+  { 0x0166BBF0, 1, reinforceLv, upgrade, gem }, -- Shadow Sunflower Blossom
+  { 0x0166E300, 1, reinforceLv, upgrade, gem }, -- Gazing Finger
+  { 0x0175D720, 1, reinforceLv, upgrade, gem }, -- Nanaya's Torch
+  { 0x0175FE30, 1, reinforceLv, upgrade, gem }, -- Lamenting Visage
+  { 0x01D18BB0, 1, reinforceLv, upgrade, gem }, -- Smithscript Shield
+  { 0x01E0A6E0, 1, reinforceLv, upgrade, gem }, -- Messmer Soldier Shield
+  { 0x01E0CDF0, 1, reinforceLv, upgrade, gem }, -- Wolf Crest Shield
+  { 0x01E0F500, 1, reinforceLv, upgrade, gem }, -- Serpent Crest Shield
+  { 0x01E11C10, 1, reinforceLv, upgrade, gem }, -- Golden Lion Shield
+  { 0x01EFE920, 1, reinforceLv, upgrade, gem }, -- Black Steel Greatshield
+  { 0x01F03740, 1, reinforceLv, upgrade, gem }, -- Verdigris Greatshield
+  { 0x01FF5270, 1, reinforceLv, upgrade, gem }, -- Staff of the Great Beyond
+  { 0x01FF7980, 1, reinforceLv, upgrade, gem }, -- Maternal Staff
+  { 0x020E6DA0, 1, reinforceLv, upgrade, gem }, -- Dryleaf Seal
+  { 0x020E94B0, 1, reinforceLv, upgrade, gem }, -- Fire Knight's Seal
+  { 0x020EBBC0, 1, reinforceLv, upgrade, gem }, -- Spiraltree Seal
+  { 0x0269FB20, 1, reinforceLv, upgrade, gem }, -- Bone Bow
+  { 0x02796470, 1, reinforceLv, upgrade, gem }, -- Ansbach's Longbow
+  { 0x02887FA0, 1, reinforceLv, upgrade, gem }, -- Igon's Greatbow
+  { 0x0297C1E0, 1, reinforceLv, upgrade, gem }, -- Repeating Crossbow
+  { 0x0297E8F0, 1, reinforceLv, upgrade, gem }, -- Spread Crossbow
+  { 0x02A70420, 1, reinforceLv, upgrade, gem }, -- Rabbath's Cannon
+  { 0x039B2820, 1, reinforceLv, upgrade, gem }, -- Dryleaf Arts
+  { 0x039B4F30, 1, reinforceLv, upgrade, gem }, -- Dane's Footwork
+  { 0x03AA6A60, 1, reinforceLv, upgrade, gem }, -- Firespark Perfume Bottle
+  { 0x03AA9170, 1, reinforceLv, upgrade, gem }, -- Chilling Perfume Bottle
+  { 0x03AAB880, 1, reinforceLv, upgrade, gem }, -- Frenzyflame Perfume Bottle
+  { 0x03AADF90, 1, reinforceLv, upgrade, gem }, -- Lightning Perfume Bottle
+  { 0x03AB06A0, 1, reinforceLv, upgrade, gem }, -- Deadly Poison Perfume Bottle
+  { 0x03B9ACA0, 1, reinforceLv, upgrade, gem }, -- Dueling Shield
+  { 0x03B9D3B0, 1, reinforceLv, upgrade, gem }, -- Carian Thrusting Shield
+  { 0x03C8EEE0, 1, reinforceLv, upgrade, gem }, -- Smithscript Dagger
+  { 0x03D83120, 1, reinforceLv, upgrade, gem }, -- Backhand Blade
+  { 0x03D85830, 1, reinforceLv, upgrade, gem }, -- Smithscript Cirque
+  { 0x03D87F40, 1, reinforceLv, upgrade, gem }, -- Curseblade's Cirque
+  { 0x03F6B5A0, 1, reinforceLv, upgrade, gem }, -- Great Katana
+  { 0x03F6DCB0, 1, reinforceLv, upgrade, gem }, -- Dragon-Hunter's Great Katana
+  { 0x03F703C0, 1, reinforceLv, upgrade, gem }, -- Rakshasa's Great Katana
+  { 0x0405F7E0, 1, reinforceLv, upgrade, gem }, -- Milady
+  { 0x04061EF0, 1, reinforceLv, upgrade, gem }, -- Leda's Sword
+  { 0x04064600, 1, reinforceLv, upgrade, gem }, -- Rellana's Twin Blades
+  { 0x04153A20, 1, reinforceLv, upgrade, gem }, -- Beast Claw
+  { 0x04156130, 1, reinforceLv, upgrade, gem }, -- Red Bear's Claw
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>104839</ID>
+  <Description>"showLogCondType"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+40</Address>
+</CheatEntry>

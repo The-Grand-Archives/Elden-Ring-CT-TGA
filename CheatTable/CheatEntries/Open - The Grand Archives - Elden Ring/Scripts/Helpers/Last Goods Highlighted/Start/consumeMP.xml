@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>104946</ID>
+  <Description>"consumeMP"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+80</Address>
+</CheatEntry>

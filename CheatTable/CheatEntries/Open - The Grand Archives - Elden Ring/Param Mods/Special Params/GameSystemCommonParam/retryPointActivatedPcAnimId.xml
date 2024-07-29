@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106491</ID>
+  <Description>"retryPointActivatedPcAnimId"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+F4</Address>
+</CheatEntry>

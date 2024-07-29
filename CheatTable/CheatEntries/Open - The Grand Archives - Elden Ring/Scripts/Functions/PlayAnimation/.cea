@@ -1,0 +1,13 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+if PlayAnimation == nil then
+    getAddressList().getMemoryRecordByDescription("PlayAnimation_code").active = true
+    throwError("'PlayAnimation' symbol was not found.\nTry enabling this script again.")
+end
+
+-- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
+
+-- PlayAnimation(str)
+
+[DISABLE]

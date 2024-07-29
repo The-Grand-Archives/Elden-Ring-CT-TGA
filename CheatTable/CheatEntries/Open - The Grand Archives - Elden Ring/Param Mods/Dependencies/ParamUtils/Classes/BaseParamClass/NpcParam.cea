@@ -1,0 +1,1049 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+--[[START NpcParam class]]--
+NpcParam = BaseParamClass:new()
+
+function NpcParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("NpcParam", uuid, id, address)
+	return o
+end
+
+function NpcParam:behaviorVariationId(value)
+	self:patch4Byte(0x0, value)
+end
+
+function NpcParam:AiThinkId(value)
+	self:patch4Byte(0x4, value)
+end
+
+function NpcParam:NameId(value)
+	self:patch4Byte(0x8, value)
+end
+
+function NpcParam:turnVellocity(value)
+	self:patchFloat(0xC, value)
+end
+
+function NpcParam:hitHeight(value)
+	self:patchFloat(0x10, value)
+end
+
+function NpcParam:hitRadius(value)
+	self:patchFloat(0x14, value)
+end
+
+function NpcParam:weight(value)
+	self:patch4Byte(0x18, value)
+end
+
+function NpcParam:hitOffset(value)
+	self:patchFloat(0x1C, value)
+end
+
+function NpcParam:Hp(value)
+	self:patch4Byte(0x20, value)
+end
+
+function NpcParam:Mp(value)
+	self:patch4Byte(0x24, value)
+end
+
+function NpcParam:getSoul(value)
+	self:patch4Byte(0x28, value)
+end
+
+function NpcParam:ItemLotId1(value)
+	self:patch4Byte(0x2C, value)
+end
+
+function NpcParam:ItemLotId2(value)
+	self:patch4Byte(0x30, value)
+end
+
+function NpcParam:ItemLotId3(value)
+	self:patch4Byte(0x34, value)
+end
+
+function NpcParam:ItemLotId4(value)
+	self:patch4Byte(0x38, value)
+end
+
+function NpcParam:ItemLotId5(value)
+	self:patch4Byte(0x3C, value)
+end
+
+function NpcParam:ItemLotId6(value)
+	self:patch4Byte(0x40, value)
+end
+
+function NpcParam:humanityLotId(value)
+	self:patch4Byte(0x44, value)
+end
+
+function NpcParam:spEffectId0(value)
+	self:patch4Byte(0x48, value)
+end
+
+function NpcParam:spEffectId1(value)
+	self:patch4Byte(0x4C, value)
+end
+
+function NpcParam:spEffectId2(value)
+	self:patch4Byte(0x50, value)
+end
+
+function NpcParam:spEffectId3(value)
+	self:patch4Byte(0x54, value)
+end
+
+function NpcParam:spEffectId4(value)
+	self:patch4Byte(0x58, value)
+end
+
+function NpcParam:spEffectId5(value)
+	self:patch4Byte(0x5C, value)
+end
+
+function NpcParam:spEffectId6(value)
+	self:patch4Byte(0x60, value)
+end
+
+function NpcParam:spEffectId7(value)
+	self:patch4Byte(0x64, value)
+end
+
+function NpcParam:GameClearSpEffectID(value)
+	self:patch4Byte(0x68, value)
+end
+
+function NpcParam:physGuardCutRate(value)
+	self:patchFloat(0x6C, value)
+end
+
+function NpcParam:magGuardCutRate(value)
+	self:patchFloat(0x70, value)
+end
+
+function NpcParam:fireGuardCutRate(value)
+	self:patchFloat(0x74, value)
+end
+
+function NpcParam:thunGuardCutRate(value)
+	self:patchFloat(0x78, value)
+end
+
+function NpcParam:animidOffset(value)
+	self:patch4Byte(0x7C, value)
+end
+
+function NpcParam:moveAnimId(value)
+	self:patch4Byte(0x80, value)
+end
+
+function NpcParam:spMoveAnimId1(value)
+	self:patch4Byte(0x84, value)
+end
+
+function NpcParam:spMoveAnimId2(value)
+	self:patch4Byte(0x88, value)
+end
+
+function NpcParam:networkWarpDisp(value)
+	self:patchFloat(0x8C, value)
+end
+
+function NpcParam:dbgBehaviorR1(value)
+	self:patch4Byte(0x90, value)
+end
+
+function NpcParam:dbgBehaviorL1(value)
+	self:patch4Byte(0x94, value)
+end
+
+function NpcParam:dbgBehaviorR2(value)
+	self:patch4Byte(0x98, value)
+end
+
+function NpcParam:dbgBehaviorL2(value)
+	self:patch4Byte(0x9C, value)
+end
+
+function NpcParam:dbgBehaviorRL(value)
+	self:patch4Byte(0xA0, value)
+end
+
+function NpcParam:dbgBehaviorRR(value)
+	self:patch4Byte(0xA4, value)
+end
+
+function NpcParam:dbgBehaviorRD(value)
+	self:patch4Byte(0xA8, value)
+end
+
+function NpcParam:dbgBehaviorRU(value)
+	self:patch4Byte(0xAC, value)
+end
+
+function NpcParam:dbgBehaviorLL(value)
+	self:patch4Byte(0xB0, value)
+end
+
+function NpcParam:dbgBehaviorLR(value)
+	self:patch4Byte(0xB4, value)
+end
+
+function NpcParam:dbgBehaviorLD(value)
+	self:patch4Byte(0xB8, value)
+end
+
+function NpcParam:dbgBehaviorLU(value)
+	self:patch4Byte(0xBC, value)
+end
+
+function NpcParam:animIdOffset(value)
+	self:patch4Byte(0xC0, value)
+end
+
+function NpcParam:partsDamageRate1(value)
+	self:patchFloat(0xC4, value)
+end
+
+function NpcParam:partsDamageRate2(value)
+	self:patchFloat(0xC8, value)
+end
+
+function NpcParam:partsDamageRate3(value)
+	self:patchFloat(0xCC, value)
+end
+
+function NpcParam:partsDamageRate4(value)
+	self:patchFloat(0xD0, value)
+end
+
+function NpcParam:partsDamageRate5(value)
+	self:patchFloat(0xD4, value)
+end
+
+function NpcParam:partsDamageRate6(value)
+	self:patchFloat(0xD8, value)
+end
+
+function NpcParam:partsDamageRate7(value)
+	self:patchFloat(0xDC, value)
+end
+
+function NpcParam:partsDamageRate8(value)
+	self:patchFloat(0xE0, value)
+end
+
+function NpcParam:weakPartsDamageRate(value)
+	self:patchFloat(0xE4, value)
+end
+
+function NpcParam:SuperArmorRecoverCorrection(value)
+	self:patchFloat(0xE8, value)
+end
+
+function NpcParam:SuperArmorBrakeKnockbackDist(value)
+	self:patchFloat(0xEC, value)
+end
+
+function NpcParam:stamina(value)
+	self:patch2Byte(0xF0, value)
+end
+
+function NpcParam:staminaRecoverBaseVal(value)
+	self:patch2Byte(0xF2, value)
+end
+
+function NpcParam:defPhys(value)
+	self:patch2Byte(0xF4, value)
+end
+
+function NpcParam:defSlash(value)
+	self:patch2Byte(0xF6, value)
+end
+
+function NpcParam:defBlow(value)
+	self:patch2Byte(0xF8, value)
+end
+
+function NpcParam:defThrust(value)
+	self:patch2Byte(0xFA, value)
+end
+
+function NpcParam:defMag(value)
+	self:patch2Byte(0xFC, value)
+end
+
+function NpcParam:defFire(value)
+	self:patch2Byte(0xFE, value)
+end
+
+function NpcParam:defThunder(value)
+	self:patch2Byte(0x100, value)
+end
+
+function NpcParam:defFlickPower(value)
+	self:patch2Byte(0x102, value)
+end
+
+function NpcParam:resistPoison(value)
+	self:patch2Byte(0x104, value)
+end
+
+function NpcParam:resistToxic(value)
+	self:patch2Byte(0x106, value)
+end
+
+function NpcParam:resistBlood(value)
+	self:patch2Byte(0x108, value)
+end
+
+function NpcParam:resistCurse(value)
+	self:patch2Byte(0x10A, value)
+end
+
+function NpcParam:ghostModelId(value)
+	self:patch2Byte(0x10C, value)
+end
+
+function NpcParam:normalChangeResourceId(value)
+	self:patch2Byte(0x10E, value)
+end
+
+function NpcParam:guardAngle(value)
+	self:patch2Byte(0x110, value)
+end
+
+function NpcParam:slashGuardCutRate(value)
+	self:patch2Byte(0x112, value)
+end
+
+function NpcParam:blowGuardCutRate(value)
+	self:patch2Byte(0x114, value)
+end
+
+function NpcParam:thrustGuardCutRate(value)
+	self:patch2Byte(0x116, value)
+end
+
+function NpcParam:superArmorDurability(value)
+	self:patch2Byte(0x118, value)
+end
+
+function NpcParam:normalChangeTexChrId(value)
+	self:patch2Byte(0x11A, value)
+end
+
+function NpcParam:dropType(value)
+	self:patch2Byte(0x11C, value)
+end
+
+function NpcParam:knockbackRate(value)
+	self:patchByte(0x11E, value)
+end
+
+function NpcParam:knockbackParamId(value)
+	self:patchByte(0x11F, value)
+end
+
+function NpcParam:fallDamageDamp(value)
+	self:patchByte(0x120, value)
+end
+
+function NpcParam:staminaGuardDef(value)
+	self:patchByte(0x121, value)
+end
+
+function NpcParam:pcAttrB(value)
+	self:patchByte(0x122, value)
+end
+
+function NpcParam:pcAttrW(value)
+	self:patchByte(0x123, value)
+end
+
+function NpcParam:pcAttrL(value)
+	self:patchByte(0x124, value)
+end
+
+function NpcParam:pcAttrR(value)
+	self:patchByte(0x125, value)
+end
+
+function NpcParam:areaAttrB(value)
+	self:patchByte(0x126, value)
+end
+
+function NpcParam:areaAttrW(value)
+	self:patchByte(0x127, value)
+end
+
+function NpcParam:areaAttrL(value)
+	self:patchByte(0x128, value)
+end
+
+function NpcParam:areaAttrR(value)
+	self:patchByte(0x129, value)
+end
+
+function NpcParam:mpRecoverBaseVal(value)
+	self:patchByte(0x12A, value)
+end
+
+function NpcParam:flickDamageCutRate(value)
+	self:patchByte(0x12B, value)
+end
+
+function NpcParam:defaultLodParamId(value)
+	self:patchByte(0x12C, value)
+end
+
+function NpcParam:drawType(value)
+	self:patchByte(0x12D, value)
+end
+
+function NpcParam:npcType(value)
+	self:patchByte(0x12E, value)
+end
+
+function NpcParam:teamType(value)
+	self:patchByte(0x12F, value)
+end
+
+function NpcParam:moveType(value)
+	self:patchByte(0x130, value)
+end
+
+function NpcParam:lockDist(value)
+	self:patchByte(0x131, value)
+end
+
+function NpcParam:material(value)
+	self:patch2Byte(0x132, value)
+end
+
+function NpcParam:materialSfx(value)
+	self:patch2Byte(0x134, value)
+end
+
+function NpcParam:partsDamageType(value)
+	self:patchByte(0x136, value)
+end
+
+function NpcParam:maxUndurationAng(value)
+	self:patchByte(0x137, value)
+end
+
+function NpcParam:guardLevel(value)
+	self:patchByte(0x138, value)
+end
+
+function NpcParam:burnsfxType(value)
+	self:patchByte(0x139, value)
+end
+
+function NpcParam:poisonGuardResist(value)
+	self:patchByte(0x13A, value)
+end
+
+function NpcParam:toxicGuardResist(value)
+	self:patchByte(0x13B, value)
+end
+
+function NpcParam:bloodGuardResist(value)
+	self:patchByte(0x13C, value)
+end
+
+function NpcParam:curseGuardResist(value)
+	self:patchByte(0x13D, value)
+end
+
+function NpcParam:parryAttack(value)
+	self:patchByte(0x13E, value)
+end
+
+function NpcParam:parryDefense(value)
+	self:patchByte(0x13F, value)
+end
+
+function NpcParam:sfxSize(value)
+	self:patchByte(0x140, value)
+end
+
+function NpcParam:pushOutCamRegionRadius(value)
+	self:patchByte(0x141, value)
+end
+
+function NpcParam:hitStopType(value)
+	self:patchByte(0x142, value)
+end
+
+function NpcParam:ladderEndChkOffsetTop(value)
+	self:patchByte(0x143, value)
+end
+
+function NpcParam:ladderEndChkOffsetLow(value)
+	self:patchByte(0x144, value)
+end
+
+function NpcParam:UseRagdollCamHit(value)
+	self:patchBinary(0x145, value, 0)
+end
+
+function NpcParam:disableClothRigidHit(value)
+	self:patchBinary(0x145, value, 1)
+end
+
+function NpcParam:UseRagdoll(value)
+	self:patchBinary(0x145, value, 2)
+end
+function NpcParam:isDemon(value)
+	self:patchBinary(0x145, value, 3)
+end
+function NpcParam:isGhost(value)
+	self:patchBinary(0x145, value, 4)
+end
+function NpcParam:isNoDamageMotion(value)
+	self:patchBinary(0x145, value, 5)
+end
+function NpcParam:isUnduration(value)
+	self:patchBinary(0x145, value, 6)
+end
+function NpcParam:isChangeWanderGhost(value)
+	self:patchBinary(0x145, value, 7)
+end
+
+function NpcParam:ModelDispMask0(value)
+	self:patchBinary(0x146, value, 0)
+end
+
+function NpcParam:ModelDispMask1(value)
+	self:patchBinary(0x146, value, 1)
+end
+
+function NpcParam:ModelDispMask2(value)
+	self:patchBinary(0x146, value, 2)
+end
+
+function NpcParam:ModelDispMask3(value)
+	self:patchBinary(0x146, value, 3)
+end
+
+function NpcParam:ModelDispMask4(value)
+	self:patchBinary(0x146, value, 4)
+end
+
+function NpcParam:ModelDispMask5(value)
+	self:patchBinary(0x146, value, 5)
+end
+
+function NpcParam:ModelDispMask6(value)
+	self:patchBinary(0x146, value, 6)
+end
+
+function NpcParam:ModelDispMask7(value)
+	self:patchBinary(0x146, value, 7)
+end
+
+function NpcParam:ModelDispMask8(value)
+	self:patchBinary(0x147, value, 0)
+end
+
+function NpcParam:ModelDispMask9(value)
+	self:patchBinary(0x147, value, 1)
+end
+
+function NpcParam:ModelDispMask10(value)
+	self:patchBinary(0x147, value, 2)
+end
+
+function NpcParam:ModelDispMask11(value)
+	self:patchBinary(0x147, value, 3)
+end
+
+function NpcParam:ModelDispMask12(value)
+	self:patchBinary(0x147, value, 4)
+end
+
+function NpcParam:ModelDispMask13(value)
+	self:patchBinary(0x147, value, 5)
+end
+
+function NpcParam:ModelDispMask14(value)
+	self:patchBinary(0x147, value, 6)
+end
+
+function NpcParam:ModelDispMask15(value)
+	self:patchBinary(0x147, value, 7)
+end
+
+function NpcParam:isEnableNeckTurn(value)
+	self:patchBinary(0x148, value, 0)
+end
+
+function NpcParam:disableRespawn(value)
+	self:patchBinary(0x148, value, 1)
+end
+
+function NpcParam:isMoveAnimWait(value)
+	self:patchBinary(0x148, value, 2)
+end
+
+function NpcParam:isCrowd(value)
+	self:patchBinary(0x148, value, 3)
+end
+
+function NpcParam:isWeakSaint(value)
+	self:patchBinary(0x148, value, 4)
+end
+
+function NpcParam:isWeakA(value)
+	self:patchBinary(0x148, value, 5)
+end
+
+function NpcParam:isWeakB(value)
+	self:patchBinary(0x148, value, 6)
+end
+
+function NpcParam:isEnableDropSoulCapture(value)
+	self:patchBinary(0x148, value, 7)
+end
+
+function NpcParam:VowType0(value)
+	self:patchBinary(0x149, value, 0)
+end
+
+function NpcParam:VowType1(value)
+	self:patchBinary(0x149, value, 1)
+end
+
+function NpcParam:VowType2(value)
+	self:patchBinary(0x149, value, 2)
+end
+
+function NpcParam:disableIntiliazeDead(value)
+	self:patchBinary(0x149, value, 3)
+end
+
+function NpcParam:isSoulGetByBoss(value)
+	self:patchBinary(0x149, value, 4)
+end
+
+function NpcParam:isMultilingual(value)
+	self:patchBinary(0x149, value, 5)
+end
+
+function NpcParam:Unk1(value)
+	self:patchBinary(0x149, value, 6)
+end
+
+function NpcParam:Unk2(value)
+	self:patchBinary(0x149, value, 7)
+end
+
+function NpcParam:ModelDispMask16(value)
+	self:patchBinary(0x14A, value, 0)
+end
+
+function NpcParam:ModelDispMask17(value)
+	self:patchBinary(0x14A, value, 1)
+end
+
+function NpcParam:ModelDispMask18(value)
+	self:patchBinary(0x14A, value, 2)
+end
+
+function NpcParam:ModelDispMask19(value)
+	self:patchBinary(0x14A, value, 3)
+end
+
+function NpcParam:ModelDispMask20(value)
+	self:patchBinary(0x14A, value, 4)
+end
+
+function NpcParam:ModelDispMask21(value)
+	self:patchBinary(0x14A, value, 5)
+end
+
+function NpcParam:ModelDispMask22(value)
+	self:patchBinary(0x14A, value, 6)
+end
+
+function NpcParam:ModelDispMask23(value)
+	self:patchBinary(0x14A, value, 7)
+end
+
+function NpcParam:ModelDispMask24(value)
+	self:patchBinary(0x14B, value, 0)
+end
+
+function NpcParam:ModelDispMask25(value)
+	self:patchBinary(0x14B, value, 1)
+end
+
+function NpcParam:ModelDispMask26(value)
+	self:patchBinary(0x14B, value, 2)
+end
+
+function NpcParam:ModelDispMask27(value)
+	self:patchBinary(0x14B, value, 3)
+end
+
+function NpcParam:ModelDispMask28(value)
+	self:patchBinary(0x14B, value, 4)
+end
+
+function NpcParam:ModelDispMask29(value)
+	self:patchBinary(0x14B, value, 5)
+end
+
+function NpcParam:ModelDispMask30(value)
+	self:patchBinary(0x14B, value, 6)
+end
+
+function NpcParam:ModelDispMask31(value)
+	self:patchBinary(0x14B, value, 7)
+end
+
+function NpcParam:itemSearchRadius(value)
+	self:patchFloat(0x14C, value)
+end
+
+function NpcParam:subHitHeight(value)
+	self:patchFloat(0x150, value)
+end
+
+function NpcParam:subHitRadius(value)
+	self:patchFloat(0x154, value)
+end
+
+function NpcParam:turnVelocityType(value)
+	self:patchByte(0x158, value)
+end
+
+function NpcParam:isMultModeBoss(value)
+    self:patchBinary(0x159, value, 0)
+end
+
+function NpcParam:Unk3(value)
+    self:patchBinary(0x159, value, 1)
+end
+
+function NpcParam:behMemSize(value)
+    self:patchBinary(0x159, value, 2)
+end
+
+function NpcParam:Unk4(value)
+    self:patchBinary(0x159, value, 3)
+end
+
+function NpcParam:isUseFeetData(value)
+    self:patchBinary(0x159, value, 4)
+end
+
+function NpcParam:Unk5(value)
+    self:patchBinary(0x159, value, 5)
+end
+
+function NpcParam:Unk6(value)
+    self:patchBinary(0x159, value, 6)
+end
+
+function NpcParam:Unk7(value)
+    self:patchBinary(0x159, value, 7)
+end
+
+function NpcParam:defDark(value)
+	self:patch2Byte(0x15A, value)
+end
+
+function NpcParam:subTurnVelocity(value)
+	self:patchFloat(0x15C, value)
+end
+
+function NpcParam:footStepId(value)
+	self:patch4Byte(0x160, value)
+end
+
+function NpcParam:subMaterial(value)
+	self:patch2Byte(0x164, value)
+end
+
+function NpcParam:subMaterialSfx(value)
+	self:patch2Byte(0x166, value)
+end
+
+function NpcParam:material_Weak(value)
+	self:patch2Byte(0x168, value)
+end
+
+function NpcParam:materialSfx_Weak(value)
+	self:patch2Byte(0x16A, value)
+end
+
+function NpcParam:subMaterial_weak(value)
+	self:patch2Byte(0x16C, value)
+end
+
+function NpcParam:subMaterialSfx_weak(value)
+	self:patch2Byte(0x16E, value)
+end
+
+function NpcParam:spEffectId8(value)
+	self:patch4Byte(0x170, value)
+end
+
+function NpcParam:spEffectId9(value)
+	self:patch4Byte(0x174, value)
+end
+
+function NpcParam:spEffectId10(value)
+	self:patch4Byte(0x178, value)
+end
+
+function NpcParam:spEffectId11(value)
+	self:patch4Byte(0x17C, value)
+end
+
+function NpcParam:spEffectId12(value)
+	self:patch4Byte(0x180, value)
+end
+function NpcParam:spEffectId13(value)
+	self:patch4Byte(0x184, value)
+end
+function NpcParam:spEffectId14(value)
+	self:patch4Byte(0x188, value)
+end
+function NpcParam:spEffectId15(value)
+	self:patch4Byte(0x18C, value)
+end
+function NpcParam:TentativePlayerId(value)
+	self:patch4Byte(0x190, value)
+end
+function NpcParam:basicToughnessValue(value)
+	self:patch4Byte(0x194, value)
+end
+
+function NpcParam:gameSystemParamCorrection(value)
+	self:patchFloat(0x198, value)
+end
+
+function NpcParam:regainRate_PhysNeutral(value)
+	self:patchFloat(0x19C, value)
+end
+
+function NpcParam:regainRate_PhysSlash(value)
+	self:patchFloat(0x1A0, value)
+end
+
+function NpcParam:regainRate_PhysBlow(value)
+	self:patchFloat(0x1A4, value)
+end
+
+function NpcParam:regainRate_PhysThrust(value)
+	self:patchFloat(0x1A8, value)
+end
+
+function NpcParam:regainRate_Magic(value)
+	self:patchFloat(0x1AC, value)
+end
+
+function NpcParam:regainRate_Fire(value)
+	self:patchFloat(0x1B0, value)
+end
+
+function NpcParam:regainRate_Thunder(value)
+	self:patchFloat(0x1B4, value)
+end
+
+function NpcParam:regainRate_Dark(value)
+	self:patchFloat(0x1B8, value)
+end
+
+function NpcParam:maxAnkleAngle(value)
+	self:patchFloat(0x1BC, value)
+end
+
+function NpcParam:clothUpdateOffset(value)
+	self:patchByte(0x1C0, value)
+end
+
+ -- ON/OFF
+function NpcParam:spNpcType(value)
+	self:patchByte(0x1C1, value)
+end
+
+function NpcParam:normalChangeModelId(value)
+	self:patch2Byte(0x1C2, value)
+end
+
+function NpcParam:normalChangeAnimChrId(value)
+	self:patch2Byte(0x1C4, value)
+end
+
+function NpcParam:staminaGuardDefVal(value)
+	self:patch2Byte(0x1C6, value)
+end
+
+function NpcParam:CultSettingId(value)
+	self:patch4Byte(0x1C8, value)
+end
+
+function NpcParam:PhantomParamId(value)
+	self:patch4Byte(0x1CC, value)
+end
+
+function NpcParam:MultiPlayCorrectionId(value)
+	self:patch4Byte(0x1D0, value)
+end
+
+function NpcParam:FootAnkle(value)
+	self:patchFloat(0x1D4, value)
+end
+
+function NpcParam:resistFrost(value)
+	self:patch2Byte(0x1D8, value)
+end
+
+function NpcParam:subNpcType(value)
+	self:patchByte(0x1DA, value)
+end
+
+function NpcParam:subTeamType(value)
+	self:patchByte(0x1DB, value)
+end
+
+function NpcParam:lockCamParamId(value)
+	self:patch4Byte(0x1DC, value)
+end
+
+function NpcParam:spEffectId16(value)
+	self:patch4Byte(0x1E0, value)
+end
+
+function NpcParam:spEffectId17(value)
+	self:patch4Byte(0x1E4, value)
+end
+
+function NpcParam:spEffectId18(value)
+	self:patch4Byte(0x1E8, value)
+end
+
+function NpcParam:spEffectId19(value)
+	self:patch4Byte(0x1EC, value)
+end
+
+function NpcParam:spEffectId20(value)
+	self:patch4Byte(0x1F0, value)
+end
+
+function NpcParam:spEffectId21(value)
+	self:patch4Byte(0x1F4, value)
+end
+
+function NpcParam:spEffectId22(value)
+    self:patch4Byte(0x1F8, value)
+end
+
+function NpcParam:spEffectId23(value)
+	self:patch4Byte(0x1FC, value)
+end
+
+function NpcParam:spEffectId24(value)
+	self:patch4Byte(0x200, value)
+end
+
+function NpcParam:spEffectId25(value)
+	self:patch4Byte(0x204, value)
+end
+
+function NpcParam:spEffectId26(value)
+	self:patch4Byte(0x208, value)
+end
+
+function NpcParam:spEffectId27(value)
+	self:patch4Byte(0x20C, value)
+end
+
+function NpcParam:spEffectId28(value)
+	self:patch4Byte(0x210, value)
+end
+
+function NpcParam:spEffectId29(value)
+	self:patch4Byte(0x214, value)
+end
+
+function NpcParam:spEffectId30(value)
+	self:patch4Byte(0x218, value)
+end
+
+function NpcParam:spEffectId31(value)
+	self:patch4Byte(0x21C, value)
+end
+
+function NpcParam:lockCorrection(value)
+	self:patchFloat(0x220, value)
+end
+
+function NpcParam:subClothUpdateOffset(value)
+	self:patchByte(0x224, value)
+end
+
+function NpcParam:EstusFlaskParamId(value)
+	self:patch2Byte(0x225, value)
+end
+
+function NpcParam:TextId(value)
+	self:patch4Byte(0x227, value)
+end
+
+function NpcParam:HPandMP_RestoreId0(value)
+	self:patch2Byte(0x22B, value)
+end
+
+function NpcParam:HP_RestoreId0(value)
+	self:patch2Byte(0x22D, value)
+end
+
+function NpcParam:MP_RestoreId0(value)
+	self:patch2Byte(0x22F, value)
+end
+
+function NpcParam:HPandMP_RestoreId1(value)
+	self:patch2Byte(0x231, value)
+end
+
+function NpcParam:HP_RestoreId1(value)
+	self:patch2Byte(0x233, value)
+end
+
+function NpcParam:MP_RestoreId1(value)
+	self:patch2Byte(0x235, value)
+end
+
+function NpcParam:subPhantomParamId(value)
+	self:patch4Byte(0x237, value)
+end
+
+function NpcParam:activateDistance(value)
+	self:patch2Byte(0x23B, value)
+end
+
+function NpcParam:DeactivateDistance(value)
+	self:patch2Byte(0x23D, value)
+end
+
+--[[END NpcParam class]]--
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+

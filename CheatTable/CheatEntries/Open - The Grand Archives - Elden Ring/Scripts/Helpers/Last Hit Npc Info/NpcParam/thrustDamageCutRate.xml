@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>105941</ID>
+  <Description>"thrustDamageCutRate"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+1B0</Address>
+</CheatEntry>

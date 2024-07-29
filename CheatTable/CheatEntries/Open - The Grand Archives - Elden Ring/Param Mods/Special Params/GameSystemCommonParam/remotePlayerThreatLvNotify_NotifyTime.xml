@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>106679</ID>
+  <Description>"remotePlayerThreatLvNotify_NotifyTime"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>2 Bytes</VariableType>
+  <Address>+2B8</Address>
+</CheatEntry>

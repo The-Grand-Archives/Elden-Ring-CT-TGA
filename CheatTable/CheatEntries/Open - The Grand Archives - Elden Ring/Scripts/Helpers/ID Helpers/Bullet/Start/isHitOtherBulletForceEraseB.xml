@@ -1,0 +1,9 @@
+<CheatEntry>
+  <ID>102355</ID>
+  <Description>"isHitOtherBulletForceEraseB"</Description>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+9b</Address>
+</CheatEntry>

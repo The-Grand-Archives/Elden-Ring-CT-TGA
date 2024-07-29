@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>105519</ID>
+  <Description>"targetAILockDmyPoly"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>2</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+0F</Address>
+</CheatEntry>

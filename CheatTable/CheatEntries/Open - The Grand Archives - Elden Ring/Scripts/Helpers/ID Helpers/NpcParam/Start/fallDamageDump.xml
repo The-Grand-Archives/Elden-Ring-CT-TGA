@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103121</ID>
+  <Description>"fallDamageDump"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+124</Address>
+</CheatEntry>

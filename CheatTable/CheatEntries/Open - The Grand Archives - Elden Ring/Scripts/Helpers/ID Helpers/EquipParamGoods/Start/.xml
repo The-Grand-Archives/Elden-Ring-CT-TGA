@@ -1,0 +1,131 @@
+<CheatEntry>
+  <ID>101923</ID>
+  <Description>"Start"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>EquipParamGoodsHelper+8</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="101924"/>
+    <id id="101925"/>
+    <id id="101926"/>
+    <id id="101927"/>
+    <id id="101930"/>
+    <id id="101931"/>
+    <id id="101932"/>
+    <id id="101933"/>
+    <id id="101934"/>
+    <id id="101935"/>
+    <id id="101936"/>
+    <id id="101937"/>
+    <id id="101938"/>
+    <id id="101939"/>
+    <id id="101940"/>
+    <id id="101941"/>
+    <id id="101942"/>
+    <id id="101943"/>
+    <id id="101944"/>
+    <id id="101945"/>
+    <id id="101946"/>
+    <id id="101947"/>
+    <id id="101948"/>
+    <id id="101949"/>
+    <id id="101950"/>
+    <id id="101951"/>
+    <id id="101952"/>
+    <id id="101953"/>
+    <id id="101954"/>
+    <id id="101955"/>
+    <id id="101956"/>
+    <id id="101957"/>
+    <id id="101958"/>
+    <id id="101959"/>
+    <id id="101960"/>
+    <id id="101961"/>
+    <id id="101962"/>
+    <id id="101963"/>
+    <id id="101964"/>
+    <id id="101965"/>
+    <id id="101966"/>
+    <id id="101967"/>
+    <id id="101968"/>
+    <id id="101969"/>
+    <id id="101970"/>
+    <id id="101971"/>
+    <id id="101972"/>
+    <id id="101973"/>
+    <id id="101974"/>
+    <id id="101975"/>
+    <id id="101976"/>
+    <id id="101977"/>
+    <id id="101978"/>
+    <id id="101979"/>
+    <id id="101980"/>
+    <id id="101981"/>
+    <id id="101982"/>
+    <id id="101983"/>
+    <id id="101984"/>
+    <id id="101987"/>
+    <id id="101988"/>
+    <id id="101989"/>
+    <id id="101990"/>
+    <id id="101991"/>
+    <id id="101992"/>
+    <id id="101993"/>
+    <id id="101994"/>
+    <id id="101995"/>
+    <id id="101996"/>
+    <id id="101997"/>
+    <id id="101998"/>
+    <id id="101999"/>
+    <id id="102000"/>
+    <id id="102001"/>
+    <id id="102002"/>
+    <id id="102003"/>
+    <id id="102004"/>
+    <id id="102005"/>
+    <id id="102006"/>
+    <id id="102007"/>
+    <id id="102008"/>
+    <id id="102009"/>
+    <id id="102010"/>
+    <id id="102011"/>
+    <id id="102012"/>
+    <id id="102013"/>
+    <id id="102014"/>
+    <id id="102015"/>
+    <id id="102016"/>
+    <id id="102017"/>
+    <id id="102018"/>
+    <id id="102019"/>
+    <id id="102020"/>
+    <id id="102021"/>
+    <id id="102022"/>
+    <id id="102023"/>
+    <id id="102024"/>
+    <id id="102025"/>
+    <id id="102026"/>
+    <id id="102027"/>
+    <id id="102028"/>
+    <id id="102029"/>
+    <id id="102030"/>
+    <id id="102031"/>
+    <id id="102032"/>
+    <id id="102033"/>
+    <id id="102034"/>
+    <id id="102035"/>
+    <id id="102036"/>
+    <id id="102037"/>
+    <id id="102038"/>
+    <id id="102039"/>
+    <id id="102040"/>
+    <id id="102041"/>
+    <id id="102042"/>
+    <id id="102043"/>
+    <id id="102044"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

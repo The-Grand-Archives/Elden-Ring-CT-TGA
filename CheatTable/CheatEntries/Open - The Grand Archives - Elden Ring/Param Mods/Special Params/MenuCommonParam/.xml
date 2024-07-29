@@ -1,0 +1,76 @@
+<CheatEntry>
+  <ID>106701</ID>
+  <Description>"MenuCommonParam"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>0</ShowAsSigned>
+  <GroupHeader>1</GroupHeader>
+  <Address>SoloParamRepository</Address>
+  <Offsets>
+    <Offset>58</Offset>
+    <Offset>80</Offset>
+    <Offset>80</Offset>
+    <Offset>28C0</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="106702"/>
+    <id id="106703"/>
+    <id id="106704"/>
+    <id id="106705"/>
+    <id id="106706"/>
+    <id id="106707"/>
+    <id id="106708"/>
+    <id id="106709"/>
+    <id id="106710"/>
+    <id id="106711"/>
+    <id id="106712"/>
+    <id id="106713"/>
+    <id id="106714"/>
+    <id id="106715"/>
+    <id id="106716"/>
+    <id id="106717"/>
+    <id id="106718"/>
+    <id id="106719"/>
+    <id id="106720"/>
+    <id id="106721"/>
+    <id id="106722"/>
+    <id id="106723"/>
+    <id id="106724"/>
+    <id id="106725"/>
+    <id id="106726"/>
+    <id id="106727"/>
+    <id id="106728"/>
+    <id id="106729"/>
+    <id id="106730"/>
+    <id id="106731"/>
+    <id id="106732"/>
+    <id id="106733"/>
+    <id id="106734"/>
+    <id id="106735"/>
+    <id id="106736"/>
+    <id id="106737"/>
+    <id id="106738"/>
+    <id id="106739"/>
+    <id id="106740"/>
+    <id id="106741"/>
+    <id id="106742"/>
+    <id id="106743"/>
+    <id id="106744"/>
+    <id id="106745"/>
+    <id id="106746"/>
+    <id id="106747"/>
+    <id id="106748"/>
+    <id id="106749"/>
+    <id id="106750"/>
+    <id id="106751"/>
+    <id id="106752"/>
+    <id id="106753"/>
+    <id id="106754"/>
+    <id id="106755"/>
+    <id id="106756"/>
+    <id id="106757"/>
+    <id id="106758"/>
+    <id id="106759"/>
+    <id id="106760"/>
+    <id id="106761"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

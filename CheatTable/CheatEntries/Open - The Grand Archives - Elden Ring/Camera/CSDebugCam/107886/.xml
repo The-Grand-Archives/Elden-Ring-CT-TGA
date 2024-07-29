@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107886</ID>
+  <Description>""</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>16</ByteLength>
+  <Address>+20</Address>
+  <x-ce2fs-child-order>
+    <id id="107887"/>
+    <id id="107888"/>
+    <id id="107889"/>
+    <id id="107890"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>103418</ID>
+  <Description>"battleEye_updateAngY"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+7D</Address>
+</CheatEntry>

@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101434</ID>
+  <Description>"attackBaseRepel"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+FA</Address>
+</CheatEntry>

@@ -1,0 +1,50 @@
+<CheatEntry>
+  <ID>108100</ID>
+  <Description>"Trophy ID"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0:Elden Ring
+1:Elden Lord
+2:Age of the Stars
+3:Lord of Frenzied Flame
+4:Shardbearer Godrick
+5:Shardbearer Radahn
+6:Shardbearer Morgott
+7:Shardbearer Rykard
+8:Shardbearer Malenia
+9:Shardbearer Mohg
+10:Maliketh the Black Blade
+11:Hoarah Loux the Warrior
+12:Dragonlord Placidusax
+13:God-Slaying Armament
+14:Legendary Armaments
+15:Legendary Ashen Remains
+16:Legendary Sorceries and Incantations
+17:Legendary Talismans
+18:Rennala, Queen of the Full Moon
+19:Lichdragon Fortissax
+20:Godskin Duo
+21:Fire Giant
+22:Dragonkin Soldier of Nokstella
+23:Regal Ancestor Spirit
+24:Valiant Gargoyle
+25:Margit the Fell Omen
+26:Red Wolf of Radagon
+27:Godskin Noble
+28:Magma Wyrm Makar
+29:Godfrey the First Lord
+30:Mohg, the Omen
+31:Mimic Tear
+32:Loretta, Knight of the Haligtree
+33:Astel, Naturalborn of the Void
+34:Leonine Misbegotten
+35:Royal Knight Loretta
+36:Elemer of the Briar
+37:Ancestor Spirit
+38:Commander Niall
+39:Roundtable Hold
+40:Great Rune
+41:Erdtree Aflame
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>TrophyData</Address>
+</CheatEntry>

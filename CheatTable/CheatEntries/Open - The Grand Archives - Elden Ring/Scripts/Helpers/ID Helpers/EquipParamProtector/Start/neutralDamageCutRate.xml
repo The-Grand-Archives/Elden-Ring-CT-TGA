@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>101715</ID>
+  <Description>"neutralDamageCutRate"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>+E4</Address>
+</CheatEntry>

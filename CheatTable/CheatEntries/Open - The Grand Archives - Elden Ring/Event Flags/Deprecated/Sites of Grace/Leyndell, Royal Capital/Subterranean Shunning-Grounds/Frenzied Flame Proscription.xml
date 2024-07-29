@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>107077</ID>
+  <Description>"Frenzied Flame Proscription"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>7</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B7A</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>101015</ID>
+  <Description>"Voice Chat"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Restricted
+1:Allowed
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>C0C0C0</Color>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>14</Offset>
+    <Offset>58</Offset>
+  </Offsets>
+</CheatEntry>

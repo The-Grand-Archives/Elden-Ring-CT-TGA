@@ -1,0 +1,35 @@
+[ENABLE]
+aobscanmodule(TargetedNpcInfo,$process,48 8B 48 08 49 89 8D)
+alloc(newmem,$100,TargetedNpcInfo)
+
+newmem:
+mov [TargetedNpcInfo_Data],rax
+push rbx
+mov ebx,[TargetedNpcInfo_Data+8]
+
+code:
+mov rcx,[rax+08]
+mov [r13+rbx],rcx
+pop rbx
+jmp return
+
+TargetedNpcInfo_Data:
+registersymbol(TargetedNpcInfo_Data)
+dq 0000000000000000
+readmem(TargetedNpcInfo+7,4)
+
+TargetedNpcInfo:
+jmp newmem
+nop 6
+return:
+registersymbol(TargetedNpcInfo)
+
+[DISABLE]
+TargetedNpcInfo:
+db 48 8B 48 08 // mov rcx,[rax+08]
+db 49 89 8D    // mov [r13+...],rcx
+readmem(TargetedNpcInfo_Data+8,4)
+
+unregistersymbol(TargetedNpcInfo)
+unregistersymbol(TargetedNpcInfo_Data)
+dealloc(newmem)

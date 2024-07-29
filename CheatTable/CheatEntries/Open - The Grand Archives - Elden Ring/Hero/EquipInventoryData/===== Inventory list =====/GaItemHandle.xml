@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>100590</ID>
+  <Description>"GaItemHandle"</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+00</Address>
+</CheatEntry>

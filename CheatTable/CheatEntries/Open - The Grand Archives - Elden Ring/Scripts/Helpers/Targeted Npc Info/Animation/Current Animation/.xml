@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>105616</ID>
+  <Description>"Current Animation"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>20</Offset>
+    <Offset>18</Offset>
+    <Offset>190</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="105617"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

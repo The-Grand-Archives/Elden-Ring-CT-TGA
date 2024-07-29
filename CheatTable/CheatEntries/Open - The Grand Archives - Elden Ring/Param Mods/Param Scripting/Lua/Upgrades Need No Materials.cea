@@ -1,0 +1,12 @@
+{
+	Author: Gáté
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local NoCost = EquipMtrlSetParam:new("UpgradeCost")
+NoCost:patchAll4Byte(0x0,-1)  -- materialId01
+NoCost:patchAllByte(0x20,255) -- itemNum01
+
+[DISABLE]
+paramUtils:restore("UpgradeCost")

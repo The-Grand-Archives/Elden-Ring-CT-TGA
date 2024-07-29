@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>104942</ID>
+  <Description>"rarity"</Description>
+  <Options moHideChildren="1"/>
+  <DropDownList DisplayValueAsItem="1">259:Ashes
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+78</Address>
+</CheatEntry>

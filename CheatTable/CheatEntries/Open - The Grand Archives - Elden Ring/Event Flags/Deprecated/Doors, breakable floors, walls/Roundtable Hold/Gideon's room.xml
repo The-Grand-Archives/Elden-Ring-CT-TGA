@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>107774</ID>
+  <Description>"Gideon's room?"</Description>
+  <DropDownListLink>TRUE_FALSE</DropDownListLink>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>153772</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

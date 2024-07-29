@@ -1,0 +1,23 @@
+<CheatEntry>
+  <ID>101170</ID>
+  <Description>"Slot"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">-1:Auto
+0:Slot 1
+1:Slot 2
+2:Slot 3
+3:Slot 4
+4:Slot 5
+5:Slot 6
+6:Slot 7
+7:Slot 8
+8:Slot 9
+9:Slot 10
+10:Slot 11
+11:Slot 12
+12:Slot 13
+13:Slot 14
+</DropDownList>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>changeMagic_data</Address>
+</CheatEntry>

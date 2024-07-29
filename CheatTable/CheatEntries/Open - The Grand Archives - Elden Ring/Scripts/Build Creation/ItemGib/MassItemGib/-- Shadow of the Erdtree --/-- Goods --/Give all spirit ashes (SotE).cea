@@ -1,0 +1,31 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+if not isOwnDlc(1) then missingDlc(1) end
+
+local items = {
+  { 0x402191C0, 1, 0, 0, -1 }, -- Curseblade Meera
+  { 0x402195A8, 1, 0, 0, -1 }, -- Bloodfiend Hexer's Ashes
+  { 0x40219990, 1, 0, 0, -1 }, -- Gravebird Ashes
+  { 0x40219D78, 1, 0, 0, -1 }, -- Fire Knight Hilde
+  { 0x4021A160, 1, 0, 0, -1 }, -- Spider Scorpion Ashes
+  { 0x4021A548, 1, 0, 0, -1 }, -- Inquisitor Ashes
+  { 0x4021A930, 1, 0, 0, -1 }, -- Demi-Human Swordsman Yosh
+  { 0x4021AD18, 1, 0, 0, -1 }, -- Messmer Soldier Ashes
+  { 0x4021B100, 1, 0, 0, -1 }, -- Black Knight Commander Andreas
+  { 0x4021B4E8, 1, 0, 0, -1 }, -- Black Knight Captain Huw
+  { 0x4021B8D0, 1, 0, 0, -1 }, -- Bigmouth Imp Ashes
+  { 0x4021BCB8, 1, 0, 0, -1 }, -- Man-Fly Ashes
+  { 0x4021C0A0, 1, 0, 0, -1 }, -- Taylew the Golem Smith
+  { 0x4021C488, 1, 0, 0, -1 }, -- Divine Bird Warrior Ornis
+  { 0x4021C870, 1, 0, 0, -1 }, -- Horned Warrior Ashes
+  { 0x4021CC58, 1, 0, 0, -1 }, -- Ancient Dragon Florissax
+  { 0x4021D428, 1, 0, 0, -1 }, -- Fingercreeper Ashes
+  { 0x4021D810, 1, 0, 0, -1 }, -- Fire Knight Queelign
+  { 0x4021DBF8, 1, 0, 0, -1 }, -- Swordhand of Night Jolán
+  { 0x4021DFE0, 1, 0, 0, -1 }, -- Jolán and Anna
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

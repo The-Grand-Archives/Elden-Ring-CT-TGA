@@ -1,0 +1,25 @@
+// Author: inuNorii
+[ENABLE]
+aobscanmodule(LastWeaponHighlighted,$process,F3 0F 10 70 10 4C)
+alloc(newmem,$100,LastWeaponHighlighted)
+
+newmem:
+mov [LastWeaponHighlightedAddr],rax
+movss xmm6,[rax+10]
+jmp return
+
+LastWeaponHighlightedAddr:
+registersymbol(LastWeaponHighlightedAddr)
+dq 0000000000000000
+
+LastWeaponHighlighted:
+jmp newmem
+return:
+registersymbol(LastWeaponHighlighted)
+
+[DISABLE]
+LastWeaponHighlighted:
+db F3 0F 10 70 10
+unregistersymbol(LastWeaponHighlighted)
+unregistersymbol(LastWeaponHighlightedAddr)
+dealloc(newmem)

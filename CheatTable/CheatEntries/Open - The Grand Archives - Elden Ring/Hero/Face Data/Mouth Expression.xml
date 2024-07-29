@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100697</ID>
+  <Description>"Mouth Expression"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+5D</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

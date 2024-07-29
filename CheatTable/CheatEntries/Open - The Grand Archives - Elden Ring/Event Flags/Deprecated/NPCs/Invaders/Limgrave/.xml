@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>107396</ID>
+  <Description>"Limgrave"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="107397"/>
+    <id id="107398"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

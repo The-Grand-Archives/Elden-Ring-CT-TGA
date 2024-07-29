@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>104948</ID>
+  <Description>"reinforceGoodsId"</Description>
+  <Options moHideChildren="1"/>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>+84</Address>
+</CheatEntry>

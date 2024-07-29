@@ -1,0 +1,10 @@
+{
+  Author: Igromanru
+  Description: Prints a list of all params
+}
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+paramUtils:printParams()
+disableMemrec(memrec)
+[DISABLE]

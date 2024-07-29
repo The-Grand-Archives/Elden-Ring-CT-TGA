@@ -1,0 +1,78 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+HitEffectSfxParam = BaseParamClass:new()
+
+function HitEffectSfxParam:new(uuid, id, address)
+	local o = {}
+	self.__index = self
+	setmetatable(o, self)
+
+	o:init("HitEffectSfxParam", uuid, id, address)
+	return o
+end
+
+function HitEffectSfxParam:Sfx1(value)
+    self:patch4Byte(0x0, value)
+end
+
+function HitEffectSfxParam:Sfx2(value)
+    self:patch4Byte(0x4, value)
+end
+
+function HitEffectSfxParam:Sfx3(value)
+    self:patch4Byte(0x8, value)
+end
+
+function HitEffectSfxParam:Sfx4(value)
+    self:patch4Byte(0xC, value)
+end
+
+function HitEffectSfxParam:Sfx5(value)
+    self:patch4Byte(0x10, value)
+end
+
+function HitEffectSfxParam:Sfx6(value)
+    self:patch4Byte(0x14, value)
+end
+
+function HitEffectSfxParam:Sfx7(value)
+    self:patch4Byte(0x18, value)
+end
+
+function HitEffectSfxParam:Sfx8(value)
+    self:patch4Byte(0x1C, value)
+end
+
+function HitEffectSfxParam:Sfx9(value)
+    self:patch4Byte(0x20, value)
+end
+
+function HitEffectSfxParam:Sfx10(value)
+    self:patch4Byte(0x24, value)
+end
+
+function HitEffectSfxParam:Sfx11(value)
+    self:patch4Byte(0x28, value)
+end
+
+function HitEffectSfxParam:Sfx12(value)
+    self:patch4Byte(0x2C, value)
+end
+
+function HitEffectSfxParam:Sfx13(value)
+    self:patch4Byte(0x30, value)
+end
+
+function HitEffectSfxParam:Sfx14(value)
+    self:patch4Byte(0x34, value)
+end
+
+function HitEffectSfxParam:Sfx15(value)
+    self:patch4Byte(0x38, value)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end

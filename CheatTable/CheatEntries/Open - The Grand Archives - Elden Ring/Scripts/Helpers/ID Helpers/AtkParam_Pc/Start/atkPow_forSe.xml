@@ -1,0 +1,7 @@
+<CheatEntry>
+  <ID>102900</ID>
+  <Description>"atkPow_forSe"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>+083</Address>
+</CheatEntry>

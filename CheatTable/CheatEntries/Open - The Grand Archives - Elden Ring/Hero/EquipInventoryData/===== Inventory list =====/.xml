@@ -1,0 +1,24 @@
+<CheatEntry>
+  <ID>100588</ID>
+  <Description>"===== Inventory list ====="</Description>
+  <ShowAsHex>1</ShowAsHex>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>Array of byte</VariableType>
+  <ByteLength>0</ByteLength>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>readInteger("EquipInventoryDataIdx")*0x18</Offset>
+    <Offset>10</Offset>
+    <Offset>readInteger("EquipInventoryDataIdx+4")</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+  <x-ce2fs-child-order>
+    <id id="100589"/>
+    <id id="100590"/>
+    <id id="100591"/>
+    <id id="100595"/>
+    <id id="100596"/>
+    <id id="100597"/>
+    <id id="100598"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

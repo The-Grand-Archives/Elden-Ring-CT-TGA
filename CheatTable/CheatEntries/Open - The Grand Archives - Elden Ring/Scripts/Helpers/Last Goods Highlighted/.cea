@@ -1,0 +1,27 @@
+// Author: inuNorii
+[ENABLE]
+aobscanmodule(LastGoodsHighlighted,$process,0F B6 4A 4A 83 E1 01)
+alloc(newmem,$100,LastGoodsHighlighted)
+
+newmem:
+mov [LastGoodsHighlightedAddr],rdx
+movzx ecx,byte ptr [rdx+4A]
+and ecx,01
+jmp return
+
+LastGoodsHighlightedAddr:
+registersymbol(LastGoodsHighlightedAddr)
+dq 0000000000000000
+
+LastGoodsHighlighted:
+jmp newmem
+nop 2
+return:
+registersymbol(LastGoodsHighlighted)
+
+[DISABLE]
+LastGoodsHighlighted:
+db 0F B6 4A 4A 83 E1 01
+unregistersymbol(LastGoodsHighlighted)
+unregistersymbol(LastGoodsHighlightedAddr)
+dealloc(newmem)

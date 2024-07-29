@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>106976</ID>
+  <Description>"Academy Crystal Cave"</Description>
+  <DropDownListLink>ENABLED_DISABLED</DropDownListLink>
+  <VariableType>Binary</VariableType>
+  <BitStart>5</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>CSFD4VirtualMemoryFlag</Address>
+  <Offsets>
+    <Offset>B48</Offset>
+    <Offset>28</Offset>
+  </Offsets>
+</CheatEntry>

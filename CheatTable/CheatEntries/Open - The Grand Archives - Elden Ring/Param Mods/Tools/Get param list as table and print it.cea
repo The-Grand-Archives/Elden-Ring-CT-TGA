@@ -1,0 +1,7 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local p = paramUtils:printParams(true) -- set to true to return as table
+print(table.concat(p,"\n"))
+disableMemrec(memrec)
+[DISABLE]

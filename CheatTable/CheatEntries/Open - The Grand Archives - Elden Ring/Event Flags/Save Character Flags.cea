@@ -1,0 +1,62 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function readNodeBlocks(node, out)
+    if readByte(node + 0x19) ~= 0 then return end
+    local blockInfo = node + 0x28
+    local addressMode = readInteger(blockInfo)
+    if addressMode == 1 then
+        out[readInteger(node + 0x20)] = readInteger(blockInfo + 0x8)
+    end
+    readNodeBlocks(readPointer(node), out)
+    readNodeBlocks(readPointer(node + 0x10), out)
+end
+
+local function saveEventFlags()
+    local virtualMemoryFlag = readPointer("CSFD4VirtualMemoryFlag")
+    if virtualMemoryFlag == nil then
+        return
+    end
+    local tree = readPointer(virtualMemoryFlag + 0x38)
+    if tree == nil then
+        return
+    end
+    local node = readPointer(tree + 0x8)
+    local blocks = {}
+    readNodeBlocks(node, blocks)
+    local mod = readInteger(virtualMemoryFlag + 0x1C)
+    local blockIdSize = mod // 8
+    local blockIdRemainder = mod - blockIdSize * 8
+    local blockMemSize = readInteger(virtualMemoryFlag + 0x20)
+    local memory = readPointer(virtualMemoryFlag + 0x28)
+    local dialog = createSaveDialog(getMainForm())
+    dialog.InitialDir = TrainerOrigin
+    if not dialog:execute() then return end
+    local f = io.open(dialog.FileName, "w+")
+    assert(f, "unable to open file")
+    for block, index in pairs(blocks) do
+        local idBase = block * mod
+        local blockBase = memory + index * blockMemSize
+        local blockEnd = blockBase + blockIdSize - 1
+        for byte = blockBase, blockEnd - 1 do
+            local value = readByte(byte)
+            for bit = 0, 7 do
+                if value & (1 << (7 - bit)) ~= 0 then
+                    f:write(idBase + (byte - blockBase) * 8 + bit, "\n")
+                end
+            end
+        end
+        local value = readByte(blockEnd)
+        for bit = 0, blockIdRemainder do
+            if value & (1 << (blockIdRemainder - bit)) ~= 0 then
+                f:write(idBase + (blockEnd - blockBase) * 8 + bit, "\n")
+            end
+        end
+    end
+    f:close()
+end
+
+saveEventFlags()
+disableMemrec(memrec)
+
+[DISABLE]

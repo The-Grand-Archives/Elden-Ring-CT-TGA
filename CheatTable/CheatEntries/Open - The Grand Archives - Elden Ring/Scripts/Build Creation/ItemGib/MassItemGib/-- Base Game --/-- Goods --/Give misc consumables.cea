@@ -1,0 +1,72 @@
+//Author: The-Raid-Boss
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+-- Consumables
+  { 0x400003AC, 699, 0, 0, -1 }, -- Preserving Boluses
+  { 0x400003B6, 699, 0, 0, -1 }, -- Rejuvenating Boluses
+  { 0x400003C0, 699, 0, 0, -1 }, -- Clarifying Boluses
+  { 0x400003A2, 699, 0, 0, -1 }, -- Stimulating Boluses
+  { 0x40000398, 699, 0, 0, -1 }, -- Thawfrost Boluses
+  { 0x4000038E, 699, 0, 0, -1 }, -- Stanching Boluses
+  { 0x40000384, 699, 0, 0, -1 }, -- Neutralizing Boluses
+  { 0x400000BE, 699, 0, 0, -1 }, -- Rune Arc
+  { 0x40000096, 999, 0, 0, -1 }, -- Furlcalling Finger Remedy
+  { 0x40000334, 699, 0, 0, -1 }, -- Boiled Crab
+  { 0x40000D21, 601, 0, 0, -1 }, -- Radiant Baldachin's Blessing
+  { 0x4000032C, 630, 0, 0, -1 }, -- Frozen Raisin
+  { 0x4000050A, 610, 0, 0, -1 }, -- Starlight Shards
+  { 0x40000CEE, 610, 0, 0, -1 }, -- Warming Stone
+  { 0x40000CEF, 610, 0, 0, -1 }, -- Frenzyflame Stone
+  { 0x40000CF8, 610, 0, 0, -1 }, -- Scriptstone
+  { 0x40000D16, 610, 0, 0, -1 }, -- Bewitching Branch
+  { 0x400004A6, 1009, 0, 0, -1 }, -- Silver-Pickled Fowl Foot
+  { 0x400004B0, 1009, 0, 0, -1 }, -- Gold-Pickled Fowl Foot
+  { 0x400006E0, 1998, 0, 0, -1 }, -- Ruin Fragment
+  { 0x40000B67, 699, 0, 0, -1 }, -- Lord's Rune
+  { 0x40001F40, 699, 0, 0, -1 }, -- Stonesword Key
+  { 0x40000834, 699, 0, 0, -1 }, -- Soft Cotton
+  { 0x40000802, 699, 0, 0, -1 }, -- Grace Mimic
+-- Meats
+  { 0x4000044C, 1009, 0, 0, -1 }, -- Pickled Turtle Neck
+  { 0x40000460, 1009, 0, 0, -1 }, -- Invigorating Cured Meat
+  { 0x40000456, 1009, 0, 0, -1 }, -- Immunizing Cured Meat
+  { 0x4000046A, 1009, 0, 0, -1 }, -- Clarifying Cured Meat
+  { 0x40000474, 1009, 0, 0, -1 }, -- Dappled Cured Meat
+  { 0x400004BA, 1009, 0, 0, -1 }, -- Exalted Flesh
+--{ 0x400004C4, 1009, 0, 0, -1 }, -- Deathsbane Jerky
+  { 0x400004D3, 1009, 0, 0, -1 }, -- Raw Meat Dumpling
+  { 0x4000051E, 1009, 0, 0, -1 }, -- Immunizing White Cured Meat
+  { 0x40000528, 1009, 0, 0, -1 }, -- Invigorating White Cured Meat
+  { 0x40000532, 1009, 0, 0, -1 }, -- Clarifying White Cured Meat
+  { 0x4000053C, 1009, 0, 0, -1 }, -- Dappled White Cured Meat
+--{ 0x40000546, 1009, 0, 0, -1 }, -- Deathsbane White Jerky
+  { 0x4000047E, 1004, 0, 0, -1 }, -- Spellproof Dried Liver
+  { 0x40000488, 1004, 0, 0, -1 }, -- Fireproof Dried Liver
+  { 0x40000492, 1004, 0, 0, -1 }, -- Lightningproof Dried Liver
+  { 0x4000049C, 1004, 0, 0, -1 }, -- Holyproof Dried Liver
+-- Throwables
+  { 0x400006A4, 640, 0, 0, -1 }, -- Throwing Dagger
+  { 0x400006AE, 640, 0, 0, -1 }, -- Bone Dart
+  { 0x400006B8, 640, 0, 0, -1 }, -- Poisonbone Dart
+  { 0x400006C2, 630, 0, 0, -1 }, -- Kukri
+  { 0x400006CC, 640, 0, 0, -1 }, -- Crystal Dart
+  { 0x400006D6, 640, 0, 0, -1 }, -- Fan Daggers
+  { 0x40000726, 620, 0, 0, -1 }, -- Explosive Stone
+  { 0x40000727, 620, 0, 0, -1 }, -- Explosive Stone Clump
+  { 0x40000730, 620, 0, 0, -1 }, -- Poisoned Stone
+  { 0x40000731, 620, 0, 0, -1 }, -- Poisoned Stone Clump
+  { 0x400007E4, 699, 0, 0, -1 }, -- Rainbow Stone
+  { 0x400007EE, 699, 0, 0, -1 }, -- Glowstone
+--{ 0x40000BCC,    1, 0, 0, -1 }, -- Miranda's Prayer
+  { 0x40000BD6, 610, 0, 0, -1 }, -- Cuckoo Glintstone
+  { 0x40000BEA, 610, 0, 0, -1 }, -- Glintstone Scrap
+  { 0x40000BEB, 610, 0, 0, -1 }, -- Large Glintstone Scrap
+  { 0x40000BF4, 610, 0, 0, -1 }, -- Gravity Stone Fan
+  { 0x40000BFE, 610, 0, 0, -1 }, -- Gravity Stone Chunk
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

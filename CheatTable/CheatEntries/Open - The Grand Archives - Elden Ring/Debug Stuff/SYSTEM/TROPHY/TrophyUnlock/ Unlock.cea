@@ -1,0 +1,6 @@
+[ENABLE]
+createthread(TrophyUnlock)
+{$lua}
+if not syntaxcheck then disableMemrec(memrec) end
+[DISABLE]
+

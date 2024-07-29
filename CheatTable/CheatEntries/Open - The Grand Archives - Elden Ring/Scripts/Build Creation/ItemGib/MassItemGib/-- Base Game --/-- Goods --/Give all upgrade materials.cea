@@ -1,0 +1,52 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+local items = {
+-- Smithing Stone
+  { 0x40002774, 1998, 0, 0, -1 }, -- Smithing Stone [1]
+  { 0x40002775, 1998, 0, 0, -1 }, -- Smithing Stone [2]
+  { 0x40002776, 1998, 0, 0, -1 }, -- Smithing Stone [3]
+  { 0x40002777, 1998, 0, 0, -1 }, -- Smithing Stone [4]
+  { 0x40002778, 1998, 0, 0, -1 }, -- Smithing Stone [5]
+  { 0x40002779, 1998, 0, 0, -1 }, -- Smithing Stone [6]
+  { 0x4000277A, 1998, 0, 0, -1 }, -- Smithing Stone [7]
+  { 0x4000277B, 1998, 0, 0, -1 }, -- Smithing Stone [8]
+  { 0x4000279C, 1998, 0, 0, -1 }, -- Ancient Dragon Smithing Stone
+-- Somber Smithing Stone
+  { 0x400027B0, 1998, 0, 0, -1 }, -- Somber Smithing Stone [1]
+  { 0x400027B1, 1998, 0, 0, -1 }, -- Somber Smithing Stone [2]
+  { 0x400027B2, 1998, 0, 0, -1 }, -- Somber Smithing Stone [3]
+  { 0x400027B3, 1998, 0, 0, -1 }, -- Somber Smithing Stone [4]
+  { 0x400027B4, 1998, 0, 0, -1 }, -- Somber Smithing Stone [5]
+  { 0x400027B5, 1998, 0, 0, -1 }, -- Somber Smithing Stone [6]
+  { 0x400027B6, 1998, 0, 0, -1 }, -- Somber Smithing Stone [7]
+  { 0x400027B7, 1998, 0, 0, -1 }, -- Somber Smithing Stone [8]
+  { 0x400027B8, 1998, 0, 0, -1 }, -- Somber Ancient Dragon Smithing Stone
+  { 0x400027D8, 1998, 0, 0, -1 }, -- Somber Smithing Stone [9]
+-- Grave Glovewort
+  { 0x40002A94, 1998, 0, 0, -1 }, -- Grave Glovewort [1]
+  { 0x40002A95, 1998, 0, 0, -1 }, -- Grave Glovewort [2]
+  { 0x40002A96, 1998, 0, 0, -1 }, -- Grave Glovewort [3]
+  { 0x40002A97, 1998, 0, 0, -1 }, -- Grave Glovewort [4]
+  { 0x40002A98, 1998, 0, 0, -1 }, -- Grave Glovewort [5]
+  { 0x40002A99, 1998, 0, 0, -1 }, -- Grave Glovewort [6]
+  { 0x40002A9A, 1998, 0, 0, -1 }, -- Grave Glovewort [7]
+  { 0x40002A9B, 1998, 0, 0, -1 }, -- Grave Glovewort [8]
+  { 0x40002A9C, 1998, 0, 0, -1 }, -- Grave Glovewort [9]
+  { 0x40002A9D, 1998, 0, 0, -1 }, -- Great Grave Glovewort
+-- Ghost Glovewort
+  { 0x40002A9E, 1998, 0, 0, -1 }, -- Ghost Glovewort [1]
+  { 0x40002A9F, 1998, 0, 0, -1 }, -- Ghost Glovewort [2]
+  { 0x40002AA0, 1998, 0, 0, -1 }, -- Ghost Glovewort [3]
+  { 0x40002AA1, 1998, 0, 0, -1 }, -- Ghost Glovewort [4]
+  { 0x40002AA2, 1998, 0, 0, -1 }, -- Ghost Glovewort [5]
+  { 0x40002AA3, 1998, 0, 0, -1 }, -- Ghost Glovewort [6]
+  { 0x40002AA4, 1998, 0, 0, -1 }, -- Ghost Glovewort [7]
+  { 0x40002AA5, 1998, 0, 0, -1 }, -- Ghost Glovewort [8]
+  { 0x40002AA6, 1998, 0, 0, -1 }, -- Ghost Glovewort [9]
+  { 0x40002AA7, 1998, 0, 0, -1 }, -- Great Ghost Glovewort
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

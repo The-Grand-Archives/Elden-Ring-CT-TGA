@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>100683</ID>
+  <Description>"Vertical Face Ratio"</Description>
+  <VariableType>Byte</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>740+4F</Offset>
+    <Offset>08</Offset>
+  </Offsets>
+</CheatEntry>

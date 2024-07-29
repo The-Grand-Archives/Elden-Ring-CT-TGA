@@ -1,0 +1,10 @@
+<CheatEntry>
+  <ID>101697</ID>
+  <Description>"headEquip"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Binary</VariableType>
+  <BitStart>1</BitStart>
+  <BitLength>1</BitLength>
+  <ShowAsBinary>0</ShowAsBinary>
+  <Address>+DC</Address>
+</CheatEntry>
