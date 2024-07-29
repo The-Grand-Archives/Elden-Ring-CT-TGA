@@ -343,7 +343,7 @@ wex.PlayRegions = {
 {Map = "Stormveil Castle", Name = "Liftside Chamber, Secluded Cell", PlayRegion = 1000005, BonfireFlags = {71006, 71007}, isBoss = true},
 {Map = "Stormveil Castle", Name = "Godrick the Grafted", PlayRegion = 1000000, BonfireFlags = {71000}, isBoss = true},
 {Map = "Liurnia of the Lakes", Name = "Liurnia South-East", PlayRegion = 6200001, BonfireFlags = {76217, 76200, 76201, 76202, 76203, 76244, 76221, 76222}, isOpenWorld = true},
-{Map = "Liurnia of the Lakes", Name v= "Liurnia East", PlayRegion = 6200004, BonfireFlags = {76223, 76234, 76224, 76225, 76226}, isOpenWorld = true},
+{Map = "Liurnia of the Lakes", Name = "Liurnia East", PlayRegion = 6200004, BonfireFlags = {76223, 76234, 76224, 76225, 76226}, isOpenWorld = true},
 {Map = "Liurnia of the Lakes", Name = "Behind Caria Manor", PlayRegion = 6200008, BonfireFlags = {76247, 76228, 76238}},
 {Map = "Liurnia of the Lakes", Name = "Slumbering Wolf's Shack", PlayRegion = 3105090, BonfireFlags = {76215}},
 {Map = "Liurnia of the Lakes", Name = "Liurnia South", PlayRegion = 6200000, BonfireFlags = {76205, 76204, 76216, 76236, 76241, 76243, 76242, 76233}, isOpenWorld = true},
