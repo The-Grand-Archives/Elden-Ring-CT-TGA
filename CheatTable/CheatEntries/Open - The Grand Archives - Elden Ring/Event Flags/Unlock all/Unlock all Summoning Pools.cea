@@ -263,7 +263,8 @@ local flags = {flagsBase}
 if isOwnDlc(1) then table.insert(flags, flagsDLC1) end
 --if isOwnDlc(3) == 1 then table.insert(flags, flagsDLC2) end
 
-setEventFlags(flags, true)
-disableMemrec(memrec)
+ef.batchSetFlags(flags, 1, "SummoningPoolsThread")
+disableMemrec(memrec, function() return not ef.SummoningPoolsThread end)
 
 [DISABLE]
+ef.SummoningPoolsThread = false

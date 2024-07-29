@@ -2,8 +2,6 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-ef = ef or {}
-
 ef.flag_data = allocateMemory(12)
 writeInteger(ef.flag_data, 71190)
 writeInteger(ef.flag_data + 4, 0)
@@ -1158,7 +1156,7 @@ end
 ef.updateTimer = createTimer(getMainForm())
 ef.updateTimer.Interval = 500
 ef.updateTimer.OnTimer = function()
-	if getAddressSafe(process) and getEventFlag == nil then
+	if getAddressSafe(process) and ef.getFlag == nil then
 		ef.updateTimer.destroy()
 	end
 end
@@ -1179,7 +1177,6 @@ ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
 
 ef.flagCategoryRec.OnGetDisplayValue = function(sender, newValue)
 	if newValue == "??" or newValue == nil then return end
-    newValue = tonumber(newValue)
 	if ef.oldCategory ~= newValue then
 		ef.flagIDDropdown.DropDownList.setText(ef.categories[newValue + 1])
 		ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
@@ -1190,8 +1187,7 @@ end
 
 ef.flagIDRec.OnGetDisplayValue = function(sender, newValue)
 	if newValue == "??" or newValue == nil then return end
-    newValue = tonumber(newValue)
-    local flag = getEventFlag(readInteger(ef.flag_data))
+    local flag = ef.getFlag(readInteger(ef.flag_data))
 	if flag:isValid() and ef.oldID ~= newValue then
         writeInteger(ef.flag_data + 4, booltonumber(flag:getValue()))
         ef.idChanged = true
@@ -1202,10 +1198,9 @@ end
 
 ef.flagStateRec.OnGetDisplayValue = function(sender, newValue)
 	if newValue == "??" or newValue == nil then return end
-    newValue = tonumber(newValue)
-    local flag = getEventFlag(readInteger(ef.flag_data))
-	if flag:isValid() and ef.oldState ~= newValue and not ef.idChanged then
-        flag:setValue(newValue)
+    local flag = ef.getFlag(readInteger(ef.flag_data))
+	if flag:isValid() and ef.oldState ~= tonumber(newValue) and not ef.idChanged then
+        flag:setValue(tonumber(newValue))
     end
 	ef.idChanged = false
 	ef.oldState = newValue
@@ -1215,4 +1210,3 @@ end
 [DISABLE]
 if ef.updateTimer then ef.updateTimer.destroy() end
 deAlloc(ef.flag_data)
-ef = nil
