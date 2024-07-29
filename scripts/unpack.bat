@@ -1,3 +1,3 @@
-pip install -r ./ce2fs/requirements.txt
+pip install --upgrade -r .\scripts\pip_build_deps.txt
 for /f %%i in ('where .\dist:ER_TGA_v*.CT') do set RESULT=%%i
-python ./ce2fs/ce2fs.py -i "%RESULT%" %*
+ce2fs -i "%RESULT%" %*
