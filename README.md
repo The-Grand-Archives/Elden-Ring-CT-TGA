@@ -80,6 +80,40 @@ I expect you to already have Steam, Wine, Proton, and the game installed
 3. Rename `eldenring.exe` to `start_protected_game.exe`
 4. Run the game via Steam or `start_protected_game.exe`
 
+## For Contributors
+
+### Development Environment
+
+This table uses [CE2FS](https://pypi.org/project/ce2fs/) to build the table from a file system 
+representation. This and some of the TGA-specific build scripts require Python 3.10+. 
+You can install the required dependencies using the `./scripts/install_deps.[sh/bat]` script.
+
+### Scripts
+
+#### `install_deps.sh`
+- Installs required dependencies to use the other scripts.
+
+#### `build.py`
+- Builds the Cheat Engine table in the `dist` folder. You can forward CE2FS arguments to the script. 
+- Run with `--fixup` to generate missing XML metadata files after adding scripts / group headers.
+
+#### `check.sh`
+- Checks that your `CheatTable` folder is not missing any XML files or important tags within them. 
+
+#### `unpack.sh -o PATH/TO/FOLDER`
+- Unpacks the cheat table currently present in the `dist` folder to the file system in `PATH/TO/FOLDER`.
+- **WARNING**: Currently, **this wipes the existing contents of `FOLDER/CheatTable`** and cannot "merge" with an existing unpacked table. **DO NOT PASS `-o .`!** Instead, follow the instructions in the [Contribution Workflow](#contribution-workflow) section.
+
+#### `pack_table_files.py`
+- Packs the files/folders in `table_files` to the Cheat Engine table files directory (`CheatTable/Files`).
+- Files are simply copied, while folders are packed using the TGA archiving protocol (see script). 
+
+### Contribution Workflow
+
+Make a pull request to the `dev` branch of this repository. Run `./scripts/check.sh` or `python build.py --fixup` first to make sure all the required XML files have been generated.
+
+For merging changes made to the built table in Cheat Engine is to run `unpack.sh -o dist`, manually nagivate to the folder where you made your changes, and copy them to the `CheatTable` folder.
+
 ## Credits
 
 The Grand Archives | Reason
