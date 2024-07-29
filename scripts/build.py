@@ -15,7 +15,6 @@ pack_table_files(p("./table_files"), p("./CheatTable/Files"))
 with open(p("./BUILD_ENV"), "r") as f: build_env = f.read().splitlines()
 tbl_ver = [s.split("=", 1)[1] for s in build_env if s.split("=", 1)[0] == "TABLE_VERSION"][0]
 
-subprocess.run(["pip", "install", "--upgrade", "-r", p("./scripts/pip_build_deps.txt")], check=True)
 subprocess.run(
     ["ce2fs", "-i", p("./CheatTable"), "-o", p(f"./dist/ER_TGA_v{tbl_ver}.CT")] 
         + build_env
