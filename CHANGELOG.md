@@ -5,9 +5,6 @@
    - Save Character Flags, saves a list of all your flags to a file
    - Event Flags lua rewrite
  - New lua functions:
-   - getEventFlag(id)
-   - setEventFlag(id, state)
-   - setEventFlags/setMultipleFlags(tbl, state)
    - booltonumber(bool)
    - getPlayerIns(addr_or_slot) / getEnemyIns(addr)
 ### Changed
@@ -17,7 +14,10 @@
    - Lua rewrite of ItemDrop
    - SpEffect.add, SpEffect.erase, SpEffect.remove
    - PlayAnimation
-   - Bullet.create
+   - BulletSpawn.create
+   - ef.getFlag rewrite
+   - ef.setFlag rewrite
+   - ef.batchSetFlags
 ### Fixed
  - "Remove by Item ID" for Storage Chest
  - "Unlock all Summoning Pools" thanks to [ivi](https://github.com/ividyon), also includes DLC summoning pools now
