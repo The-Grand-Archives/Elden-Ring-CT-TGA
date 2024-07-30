@@ -2,6 +2,7 @@
 ## [Unreleased]
 ### Fixed
  - A copypaste error in Invasion Regions that prevent the script from working
+ - ItemGib, getGoodsAddr_func AOB broke
 
 ## [v1.14.0] - 2024-07-29
 ### Added
