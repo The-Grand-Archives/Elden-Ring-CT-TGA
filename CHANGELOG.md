@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - ItemGib: Container item max quantity counted against its own limit
 
 ## [v1.14.1] - 2024-07-30
 ### Changed
