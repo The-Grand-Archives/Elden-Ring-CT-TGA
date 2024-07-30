@@ -1,12 +1,7 @@
 <CheatEntry>
   <ID>100594</ID>
   <Description>"Type"</Description>
-  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Weapon
-1:Protector
-2:Accessory
-4:Goods
-8:Gem
-</DropDownList>
+  <DropDownListLink>ItemType</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Binary</VariableType>
   <BitStart>4</BitStart>

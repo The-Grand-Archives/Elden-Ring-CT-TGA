@@ -22,28 +22,15 @@ function isDlcMagic(id)
 end
 
 function isInventoryFull(inv)
+	inv = getInvData(inv)
+	if not inv then return false end
+
 	local GameDataMan = readPointer("GameDataMan")
 	local PlayerGameData = readPointer(GameDataMan + 8)
-	local EquipInventoryData = 0
+	local EquipInventoryData = readPointer(PlayerGameData + inv[1])
+	local inventoryNum = readInteger(EquipInventoryData + 0x18 + inv[2] * 0x10)
 
-	if inv == 0 or inv == nil then
-		-- player inventory
-		EquipInventoryData = readPointer(PlayerGameData + 0x5D0)
-	elseif inv == 1 then
-		-- player storage
-		EquipInventoryData = readPointer(PlayerGameData + 0x8D0)
-	else
-		error("invalid inventory", 2)
-	end
-
-	local inventoryNum = readInteger(EquipInventoryData + 0x18)
-
-	if inv == 0 or inv == nil and inventoryNum >= 2688 then
-		return true
-	elseif inv == 1 and inventoryNum >= 1920 then
-		return true
-	end
-
+	if inventoryNum >= inv[3] then return true end
 	return false
 end
 

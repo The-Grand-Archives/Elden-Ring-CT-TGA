@@ -3,6 +3,8 @@
   <Description>"Inventory"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Player
 1:Chest
+2:Key Items (Player)
+3:Key Items (Chest)
 </DropDownList>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>
