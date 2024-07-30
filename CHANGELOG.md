@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.14.1] - 2024-07-30
+### Changed
+ - Supported version to 1.13.0
 ### Fixed
  - A copypaste error in Invasion Regions that prevent the script from working
  - ItemGib, getGoodsAddr_func AOB broke
