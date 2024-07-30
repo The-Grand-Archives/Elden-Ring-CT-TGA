@@ -22,7 +22,7 @@ local function ReplaceTool(EquipGameData, currentId,replaceId)
 end
 
 local function SaveRequest()
-	local GameMan = getPointer("GameMan")
+	local GameMan = readPointer("GameMan")
 	writeByte(GameMan + 0xB72, 1)
 end
 
