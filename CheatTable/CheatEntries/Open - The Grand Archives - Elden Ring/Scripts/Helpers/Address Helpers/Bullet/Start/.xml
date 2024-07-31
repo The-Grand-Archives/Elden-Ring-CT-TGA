@@ -6,6 +6,9 @@
   <VariableType>Array of byte</VariableType>
   <ByteLength>0</ByteLength>
   <Address>BulletHelper_addr</Address>
+  <Offsets>
+    <Offset>0</Offset>
+  </Offsets>
   <x-ce2fs-child-order>
     <id id="103903"/>
     <id id="103904"/>
