@@ -10,15 +10,20 @@ if symbols == nil then
 end
 
 function executeEzStateEvent(id, parameterArray);
-    parameterArray = parameterArray or {}
-    table.insert(parameterArray, 1, id)
-    local args = allocateMemory(16 * #parameterArray)
+    local allParams = { id }
+    if parameterArray ~= nil then
+        for i, v in ipairs(parameterArray) do
+            allParams[i+1] = v
+        end
+    end
+    
+    local args = allocateMemory(16 * #allParams)
     local encoderMap = { 
         integer = { n = 2, fun = writeInteger }, 
         number = { n = 1, fun = writeFloat }
     }
 
-    for i, param in ipairs(parameterArray) do
+    for i, param in ipairs(allParams) do
         local encoder = encoderMap[math.type(param)]
         if encoder == nil then
             deAlloc(args)
@@ -30,7 +35,7 @@ function executeEzStateEvent(id, parameterArray);
         writeInteger(args + 0x10 * (i - 1) + 8, encoder.n)
     end
 
-    executeCodeEx(0, nil, symbols.ezstate_execute_event, args, 1 + #parameterArray);
+    executeCodeEx(0, nil, symbols.ezstate_execute_event, args, #allParams);
     deAlloc(args)
 end
 
