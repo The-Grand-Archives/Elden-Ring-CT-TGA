@@ -1,0 +1,45 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+
+local symbols, err = compile('#include "tga/ezstate.h"');
+if symbols == nil then
+    print(err)
+    error(err)
+end
+
+--- @param id integer EzState external event ID
+--- @param parameterArray table Array of integer or floating point arguments
+--- @param chrInsHandle integer ChrIns handle to build the fake NpcTalkIns with (default -1)
+function executeEzStateEvent(id, parameterArray, chrInsHandle);
+    local allParams = { id }
+    if parameterArray ~= nil then
+        for i, v in ipairs(parameterArray) do
+            allParams[i+1] = v
+        end
+    end
+    
+    local args = allocateMemory(16 * #allParams)
+    local encoderMap = { 
+        integer = { n = 2, fun = writeInteger }, 
+        number = { n = 1, fun = writeFloat }
+    }
+
+    for i, param in ipairs(allParams) do
+        local encoder = encoderMap[math.type(param)]
+        if encoder == nil then
+            deAlloc(args)
+            local msg = ("executeEzStateEvent: argument %d has unsupported type (%s)"):format(i, type(param))
+            print(msg)
+            error(msg)
+        end
+        encoder.fun(args + 0x10 * (i - 1), param)
+        writeInteger(args + 0x10 * (i - 1) + 8, encoder.n)
+    end
+
+    executeCodeEx(0, nil, symbols.ezstate_execute_event, {type=0, value=chrInsHandle or -1}, args, #allParams);
+    deAlloc(args)
+end
+
+[DISABLE]
