@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+
+local symbols, err = compile('#include "tga/ezstate.h"');
+if symbols == nil then
+    print(err)
+    error(err)
+end
+
+function executeEzStateEvent(id, parameterArray);
+    parameterArray = parameterArray or {}
+    table.insert(parameterArray, 1, id)
+    local args = allocateMemory(12 * #parameterArray)
+    local encoderMap = { 
+        integer = { n = 2, fun = writeInteger }, 
+        number = { n = 1, fun = writeFloat }
+    }
+
+    for i, param in ipairs(parameterArray) do
+        local encoder = encoderMap[math.type(param)]
+        if encoder == nil then
+            deAlloc(args)
+            local msg = ("executeEzStateEvent: argument %d has unsupported type (%s)"):format(i, type(param))
+            print(msg)
+            error(msg)
+        end
+        encoder.fun(args + 0x10 * (i - 1), param)
+        writeInteger(args + 0x10 * (i - 1) + 8, encoder.n)
+    end
+
+    executeCodeEx(0, nil, symbols.ezstate_execute_event, args, 1 + #parameterArray);
+    deAlloc(args)
+end
+
+[DISABLE]
