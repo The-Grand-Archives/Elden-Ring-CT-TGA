@@ -12,7 +12,7 @@ end
 function executeEzStateEvent(id, parameterArray);
     parameterArray = parameterArray or {}
     table.insert(parameterArray, 1, id)
-    local args = allocateMemory(12 * #parameterArray)
+    local args = allocateMemory(16 * #parameterArray)
     local encoderMap = { 
         integer = { n = 2, fun = writeInteger }, 
         number = { n = 1, fun = writeFloat }
