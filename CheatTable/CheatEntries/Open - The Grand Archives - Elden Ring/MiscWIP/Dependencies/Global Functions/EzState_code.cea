@@ -9,7 +9,10 @@ if symbols == nil then
     error(err)
 end
 
-function executeEzStateEvent(id, parameterArray);
+--- @param id integer EzState external event ID
+--- @param parameterArray table Array of integer or floating point arguments
+--- @param chrInsHandle integer ChrIns handle to build the fake NpcTalkIns with (default -1)
+function executeEzStateEvent(id, parameterArray, chrInsHandle);
     local allParams = { id }
     if parameterArray ~= nil then
         for i, v in ipairs(parameterArray) do
@@ -35,7 +38,7 @@ function executeEzStateEvent(id, parameterArray);
         writeInteger(args + 0x10 * (i - 1) + 8, encoder.n)
     end
 
-    executeCodeEx(0, nil, symbols.ezstate_execute_event, args, #allParams);
+    executeCodeEx(0, nil, symbols.ezstate_execute_event, {type=0, value=chrInsHandle or -1}, args, #allParams);
     deAlloc(args)
 end
 

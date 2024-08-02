@@ -99,14 +99,14 @@ EzStateExternalEventTemp_VMT FAKE_EZSTATE_EXT_EVENT_VTABLE = {
     .arg_at = (void*)fake_ezstate_ext_event_arg_at
 };
 
-void init_ezstate_talk_event(EzStateTalkEvent* evt) {
+void init_ezstate_talk_event(EzStateTalkEvent* evt, uint64_t chr_ins_handle) {
     evt->vtable = 0;
     
     evt->unk08 = calloc(1, sizeof(*evt->unk08));
-    evt->unk08->unk_chr_ins_handle = -1;
+    evt->unk08->unk_chr_ins_handle = chr_ins_handle;
     
     evt->npc_talk_ins = calloc(1, sizeof(*evt->npc_talk_ins));
-    evt->npc_talk_ins->chr_ins_handle = -1;
+    evt->npc_talk_ins->chr_ins_handle = chr_ins_handle;
     evt->npc_talk_ins->active_menu_job = calloc(1, sizeof(*evt->npc_talk_ins->active_menu_job));
     evt->npc_talk_ins->active_menu_job->parent_talk_ins = evt->npc_talk_ins;
     
@@ -122,7 +122,7 @@ void destroy_ezstate_talk_event(EzStateTalkEvent* evt) {
     memset(evt, 0, sizeof(*evt));
 }
 
-void ezstate_execute_event(EzStateExternalFuncArg* args, int arg_count) {
+void ezstate_execute_event(uint64_t chr_ins_handle, EzStateExternalFuncArg* args, int arg_count) {
     // TODO: Find via vtable scan instead (CS::CSEzStateTalkEvent)
     if (EZSTATE_TALK_EVENT_DISPATCH == NULL) {
         intptr_t aob_result = easy_aob_scan(NULL, ".text", "48 8B DA 4C 8B F1 33 FF 89 7D");
