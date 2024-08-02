@@ -134,7 +134,7 @@ void ezstate_execute_event(uint64_t chr_ins_handle, EzStateExternalFuncArg* args
     }
     
     EzStateTalkEvent talk_event;
-    init_ezstate_talk_event(&talk_event);
+    init_ezstate_talk_event(&talk_event, chr_ins_handle);
 
     fake_ezstate_ext_event ext_event = {
         .vtable = &FAKE_EZSTATE_EXT_EVENT_VTABLE,
