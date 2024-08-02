@@ -8,8 +8,8 @@
   <Address>GameDataMan</Address>
   <Offsets>
     <Offset>readInteger("EquipInventoryDataIdx")*0x18</Offset>
-    <Offset>10</Offset>
-    <Offset>readInteger("EquipInventoryDataIdx+4")</Offset>
+    <Offset>getInvOffset(readByte("EquipInventoryDataIdx+4"))[2]*0x10+0x10</Offset>
+    <Offset>getInvOffset(readByte("EquipInventoryDataIdx+4"))[1]</Offset>
     <Offset>8</Offset>
   </Offsets>
   <x-ce2fs-child-order>

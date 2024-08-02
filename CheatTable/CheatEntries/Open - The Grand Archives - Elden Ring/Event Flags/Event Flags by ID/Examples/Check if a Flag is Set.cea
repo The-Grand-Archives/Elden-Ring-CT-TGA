@@ -4,7 +4,7 @@ if syntaxcheck then return end
 [ENABLE]
 local id = 62000 -- the id of the flag to check
 
-if ef.getFlag(id, "boolean") then
+if ef.getFlag(id):getValue() then
 	print(id.." is set!")
 else
 	print(id.." is not set!")

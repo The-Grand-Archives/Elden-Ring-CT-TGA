@@ -1,8 +1,8 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-local id = readInteger(Bullet.data)
-local r = Bullet.create(id)
+local id = readInteger(BulletSpawn.data)
+local r = BulletSpawn.create(id)
 if readInteger(r) == 0xFFFFFFFF then
 	print("Failed to create bullet")
 end

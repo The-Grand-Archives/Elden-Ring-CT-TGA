@@ -46,11 +46,11 @@ function SpEffect.remove(id, ptr)
 end
 
 -- temporary for backwards compat
-SpEffect.add = SpEffect_addForSelf
-SpEffect.add = SpEffect_add
-SpEffect.erase = SpEffect_eraseAll
-SpEffect.erase = SpEffect_erase
-SpEffect.remove = SpEffect_remove
+SpEffect_addForSelf = SpEffect.addForSelf
+SpEffect_add = SpEffect.add
+SpEffect_eraseAll = SpEffect.eraseAll
+SpEffect_erase = SpEffect.erase
+SpEffect_remove = SpEffect.remove
 
 [DISABLE]
 SpEffect = nil

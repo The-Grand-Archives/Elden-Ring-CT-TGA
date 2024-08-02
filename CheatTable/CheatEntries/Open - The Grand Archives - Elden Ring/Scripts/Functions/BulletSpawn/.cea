@@ -8,8 +8,13 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-Bullet.data = allocateMemory(0x12, getAddress(process))
-writeInteger(Bullet.data, 10030001)
+if BulletSpawn == nil then
+    getAddressList().getMemoryRecordByDescription("Bullet_code").active = true
+    throwError("'BulletSpawn' symbol was not found.\nTry enabling this script again.")
+end
+
+BulletSpawn.data = allocateMemory(0x12, getAddress(process))
+writeInteger(BulletSpawn.data, 10030001)
 
 -- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
 
@@ -17,5 +22,5 @@ writeInteger(Bullet.data, 10030001)
 -- coords has to be a table, else it defaults to player coords
 
 [DISABLE]
-deAlloc(Bullet.data)
-Bullet.data = nil
+deAlloc(BulletSpawn.data)
+BulletSpawn.data = nil

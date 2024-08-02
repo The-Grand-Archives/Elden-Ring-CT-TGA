@@ -15,7 +15,7 @@ local thread = createThread(function()
   local t = os.clock()
   for id = start, total do
 	  if not ef.runThread then break end
-    if ef.getFlag(id) == state then table.insert(r, id) end
+    if booltonumber(ef.getFlag(id):getValue()) == state then table.insert(r, id) end
     p1 = (id - start)*100//range
     if p1 ~= p2 then print(p1.."% "..(os.clock() - t)*100//1/100) p2 = p1 end
   end
