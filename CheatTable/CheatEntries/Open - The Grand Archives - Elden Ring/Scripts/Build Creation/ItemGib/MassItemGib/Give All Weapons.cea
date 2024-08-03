@@ -524,6 +524,6 @@ local items = {
   { 0x04156130, 1, reinforceLv, upgrade, gem }, -- Red Bear's Claw
 }
 
-ItemGive(items)
+if isOwnDlc(1) then ItemGive(items) end
 disableMemrec(memrec)
 [DISABLE]
