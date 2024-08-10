@@ -1,7 +1,7 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-BonfireMenu(1)
+executeEzStateEvent(EzStateEvent.OpenRepository, {})
 disableMemrec(memrec)
 [DISABLE]
 
