@@ -1,7 +1,7 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-NpcMenu(1)
+executeEzStateEvent(EzStateEvent.OpenCharaMakeMenu, {0})
 disableMemrec(memrec)
 [DISABLE]
 

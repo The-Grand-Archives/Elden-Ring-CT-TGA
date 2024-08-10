@@ -1,7 +1,7 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-NpcMenu(6)
+executeEzStateEvent(EzStateEvent.OpenSellShop, {0,0}, readQword(getPlayerIns() + 8))
 disableMemrec(memrec)
 [DISABLE]
 

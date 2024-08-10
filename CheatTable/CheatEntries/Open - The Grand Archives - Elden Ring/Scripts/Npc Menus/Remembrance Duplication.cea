@@ -1,7 +1,8 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-ShopMenu_duplicate(102800,102830)
+--executeEzStateEvent(EzStateEvent.OpenDupeShop, {102800,102830})
+executeEzStateEvent(EzStateEvent.OpenPuppetShop, {1,102800,102830})
 disableMemrec(memrec)
 [DISABLE]
 

@@ -1,0 +1,111 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function findByFmgIndex(fmgIndex, id)
+    if fmgIndex < 0 or fmgIndex >= 512 or id < 0 then
+        return nil
+    end
+    local fmgTable = readPointer("[[MsgRepository]+8]")
+    if fmgTable == nil or fmgTable == 0 then
+        return nil
+    end
+    local fmg = readPointer(fmgTable + fmgIndex * 0x8)
+    if fmg == nil or fmg == 0 then
+        return nil
+    end
+    -- look up table for id ranges with entries:
+    -- 0x0     | 0x4 | 0x8         | 0xC
+    -- firstId | unk | offsetIndex | lastId
+    local lut = fmg + 0x30
+    local offsets = readPointer(fmg + 0x18)
+    local rightIndex = readInteger(fmg + 0xC) - 1
+    -- biggest and smallest id in fmg
+    if readInteger(lut + rightIndex * 0x10) < id
+        or readInteger(fmg + 0x2C) > id then
+        return nil
+    end
+    -- bsearch for range, then get offset
+    local leftIndex = 0
+    local middleIndex = (rightIndex + leftIndex) // 2
+    repeat
+        if readInteger(lut + middleIndex * 0x10) < id then
+            leftIndex = middleIndex + 1
+        else
+            local prevIndex = middleIndex - 1
+            local prevId = readInteger(lut + prevIndex * 0x10 + 0xC)
+            if prevId <= id then
+                local prevOffset = readInteger(lut + prevIndex * 0x10 + 0x8)
+                local offsetIndex = id - prevId + prevOffset
+                local offset = readQword(offsets + offsetIndex * 0x8)
+                if offset == 0 then
+                    return nil
+                end
+                return fmg + offset
+            end
+            rightIndex = prevIndex
+        end
+        middleIndex = (rightIndex + leftIndex) // 2
+    until leftIndex > rightIndex
+    return nil
+end
+
+local function findInFmgs(fmgIndexTable, id)
+    for _,v in ipairs(fmgIndexTable) do
+        local pName = findByFmgIndex(v, id)
+        if pName ~= nil then
+            return pName
+        end
+    end
+    return nil
+end
+
+local function getThingName(fmgIndices, id, length, default)
+    if type(id) ~= "number" then return default end
+    local pName = findInFmgs(fmgIndices, id)
+    if pName ~= nil then
+        return readString(pName, length, true)
+    end
+    return default
+end
+
+function getGoodsName(goodsId)
+    return getThingName({111, 10, 319, 419}, goodsId, 128, "?GoodsName?")
+end
+
+function getWeaponName(weaponId)
+    return getThingName({115, 11, 310, 410}, weaponId, 128, "?WeaponName?")
+end
+
+function getProtectorName(protectorId)
+    return getThingName({117, 12, 313, 413}, protectorId, 128, "?ProtectorName?")
+end
+
+function getAccessoryName(accessoryId)
+    return getThingName({113, 13, 316, 416}, accessoryId, 128, "?AccessoryName?")
+end
+
+function getMagicName(magicId)
+    return getThingName({118, 14, 325, 425}, magicId, 128, "?MagicName?")
+end
+
+function getArtsName(artsId)
+    return getThingName({42, 331, 431}, artsId, 128, "?ArtsName?")
+end
+
+function getNpcName(npcId)
+    return getThingName({119, 18, 328, 428}, npcId, 128, "?NpcName?")
+end
+
+function getPlaceName(placeId)
+    return getThingName({120, 19, 329, 429}, placeId, 128, "?PlaceName?")
+end
+
+[DISABLE]
+getGoodsName = nil
+getWeaponName = nil
+getProtectorName = nil
+getAccessoryName = nil
+getMagicName = nil
+getArtsName = nil
+getNpcName = nil
+getPlaceName = nil

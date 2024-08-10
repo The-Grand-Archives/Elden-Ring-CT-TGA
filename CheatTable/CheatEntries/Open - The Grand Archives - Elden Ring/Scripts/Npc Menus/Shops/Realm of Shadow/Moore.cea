@@ -2,7 +2,7 @@
 if syntaxcheck then return end
 [ENABLE]
 if not isOwnDlc(1) then missingDlc(1) end
-ShopMenu(102250,102289)
+executeEzStateEvent(EzStateEvent.OpenRegularShop, {102250,102289})
 disableMemrec(memrec)
 [DISABLE]
 

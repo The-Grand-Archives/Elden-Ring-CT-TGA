@@ -1,0 +1,177 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+
+local symbols, err = compile('#include "tga/ezstate.h"');
+if symbols == nil then
+    print(err)
+    error(err)
+end
+
+--- @param id integer EzState external event ID
+--- @param parameterArray table Array of integer or floating point arguments
+--- @param chrInsHandle integer ChrIns handle to build the fake NpcTalkIns with (default -1)
+function executeEzStateEvent(id, parameterArray, chrInsHandle);
+    local allParams = { id }
+    if parameterArray ~= nil then
+        for i, v in ipairs(parameterArray) do
+            allParams[i+1] = v
+        end
+    end
+    
+    local args = allocateMemory(16 * #allParams)
+    local encoderMap = { 
+        integer = { n = 2, fun = writeInteger }, 
+        number = { n = 1, fun = writeFloat }
+    }
+
+    for i, param in ipairs(allParams) do
+        local encoder = encoderMap[math.type(param)]
+        if encoder == nil then
+            deAlloc(args)
+            local msg = ("executeEzStateEvent: argument %d has unsupported type (%s)"):format(i, type(param))
+            print(msg)
+            error(msg)
+        end
+        encoder.fun(args + 0x10 * (i - 1), param)
+        writeInteger(args + 0x10 * (i - 1) + 8, encoder.n)
+    end
+
+    executeCodeEx(0, nil, symbols.ezstate_execute_event, {type=0, value=chrInsHandle or -1}, args, #allParams);
+    deAlloc(args)
+end
+
+EzStateEvent = {
+    DebugEvent = 0,
+    TalkToPlayer = 1,
+    -- InvokeEvent = 2,
+    StopAttacking = 3,
+    Attack = 4,
+    RemoveMyAggro = 5,
+    -- DisplayOneLineHelp = 6,
+    TurnToFacePlayer = 7,
+    ForceEndTalk = 8,
+    ClearTalkProgressData = 9,
+    ShowShopMessage = 10,
+    SetEventFlag = 11,
+    CloseShopMessage = 12,
+    -- OpenCampMenu = 13,
+    -- CloseCampMenu = 14,
+    ChangeTeamType = 15,
+    SetDefaultTeamType = 16,
+    OpenGenericDialog = 17,
+    ForceCloseGenericDialog = 18,
+    AddTalkListData = 19,
+    ClearTalkListData = 20,
+    -- RequestMoviePlayback = 21,
+    OpenRegularShop = 22,
+    OpenRepairShop = 23,
+    OpenEnhanceShop = 24,
+    -- OpenHumanityMenu = 25,
+    -- OpenMagicShop = 26,
+    -- OpenMiracleShop = 27,
+    OpenMagicEquip = 28,
+    -- OpenMiracleEquip = 29,
+    OpenRepository = 30,
+    OpenSoul = 31,
+    CloseMenu = 32,
+    SetEventFlagRange = 33,
+    OpenDepository = 34,
+    ClearTalkActionState = 35,
+    ClearTalkDisabledState = 36,
+    SetTalkDisableStateMaxDuration = 37,
+    SetUpdateDistance = 38,
+    ClearPlayerDamageInfo = 39,
+    Lua_BonfireFirstInjectAnim = 40,
+    StartWarpMenuInit = 41,
+    StartBonfireAnimLoop = 42,
+    EndBonfireKindleAnimLoop = 43,
+    OpenSellShop = 46,
+    ChangePlayerStat = 47,
+    OpenEquipmentChangeOfPurposeShop = 48,
+    CombineMenuFlagAndEventFlag = 49,
+    RequestSave = 50,
+    ChangeMotionOffsetID = 51,
+    PlayerEquipmentQuantityChange = 52,
+    RequestUnlockTrophy = 53,
+    -- EnterBonfireEventRange = 54,
+    SetAquittalCostMessageTag = 55,
+    SubtractAcquittalCostFromPlayerSouls = 56,
+    ShuffleRNGSeed = 57,
+    SetRNGSeed = 58,
+    ReplaceTool = 59,
+    -- BreakCovenantPledge = 60,
+    PlayerRespawn = 61,
+    GiveSpEffectToPlayer = 62,
+    ShowGrandioseTextPresentation = 63,
+    -- AddIzalithRankingPoints = 64,
+    -- OpenItemAcquisitionMenu = 65,
+    -- AcquireGestureOld = 66,
+    ForceCloseMenu = 67,
+    SetTalkTime = 68,
+    CollectJustPyromancyFlame = 69,
+    -- OpenArenaRanking = 70,
+    ReportConversationEndToHavokBehavior = 71,
+    OpenConversationChoicesMenu = 76,
+    StopEventAnimWithoutForcingConversationEnd = 80,
+    OpenCharaMakeMenu = 81,
+    OpenChooseQuantityDialog = 82,
+    ClearQuantityValueOfChooseQuantityDialog = 83,
+    SetWorkValue = 100,
+    UpdatePlayerRespawnPoint = 101,
+    SetMessageTagValue = 102,
+    TurnCharacterToFaceEntity = 103,
+    AwardItemLot = 104,
+    OpenEstusAllotMenu = 105,
+    -- AddRankingPoints = 106,
+    -- OpenHollowLevelUpMenu = 107,
+    EstusAllocationUpdate = 108,
+    BonfireActivation = 109,
+    MainBonfireMenuFlag = 110,
+    OpenTranspositionShop = 111,
+    SetBonfireMenuData = 112,
+    ReallocateAttributes = 113,
+    UndeadMatch = 114,
+    OpenBonfireMenu = 115,
+    Unknown116_MatchRelated = 116,
+    Unknown117_WorldAreaTime = 117,
+    OpenUnusedShop = 118,
+    Unknown119 = 119,
+    Unknown120 = 120,
+    ClearSpEffectFromPlayer = 121,
+    Unknown122 = 122,
+    RequestAnimation = 123,
+    ClearSpEffectFromEntity = 124,
+    Unknown125_AiRelated = 125,
+    Unknown126_EventRelated = 126,
+    Unknown127_EventRelated = 127,
+    Unknown128 = 128,
+    Unknown129 = 129,
+    OpenPhysickMenu = 130,
+    AcquireGesture = 131,
+    Unknown132_FeManRelated = 132,
+    Unknown133_FeManRelated = 133,
+    Unknown134 = 134,
+    OpenDragonCommunionShop = 135,
+    OpenSpiritTuning = 136,
+    OpenEquipGreatRune = 137,
+    Unknown138 = 138,
+    Unknown139 = 139,
+    Unknown140_MenuRelated = 140,
+    Unknown141_PlaylogRelated = 141,
+    OpenTailoringShop = 142,
+    OpenAshOfWarShop = 143,
+    OpenPuppetShop = 144,
+    Unknown145_OpenUnknownShop = 145,
+    OpenDupeShop = 146,
+    SetEventFlagValue = 147,
+    OpenChampionsEquipmentShop = 148,
+    Unknown149_EventFlagRelated = 149,
+    Unknown150_OpenUnknownShop = 150, -- 2 args, like shops
+    Unknown151_OpenUnknownMenu = 151, -- int, bool, bool, bool
+    Unknown152 = 152,
+    Unknown153 = 153,
+}
+
+[DISABLE]

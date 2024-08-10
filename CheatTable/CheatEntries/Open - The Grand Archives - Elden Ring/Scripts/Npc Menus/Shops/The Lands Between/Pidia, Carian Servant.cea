@@ -1,7 +1,7 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-ShopMenu(100325,100349)
+executeEzStateEvent(EzStateEvent.OpenRegularShop, {100325,100349})
 disableMemrec(memrec)
 [DISABLE]
 

@@ -6,8 +6,9 @@ local func_addr = AOBScanModuleUnique(process,"?? 83 ec ?? 8b f2 ?? 8b e9 ?? 85 
 function RemoveItem(idx, inv)
 	local GameDataMan = readPointer("GameDataMan")
 	local PlayerGameData = readPointer(GameDataMan + 8)
-	local EquipInventoryData = readPointer(PlayerGameData + getInvOffset(inv))
-	local tailDataIdx = readInteger(EquipInventoryData + 0x1C)
+	inv = getInvData(inv)
+	local EquipInventoryData = readPointer(PlayerGameData + inv[1])
+	local tailDataIdx = readInteger(EquipInventoryData + 0x1C + inv[2] * 0x10)
 	return executeCodeEx(0, 100, func_addr, EquipInventoryData, idx + tailDataIdx, 1)
 end
 
