@@ -3,7 +3,10 @@
 ### Added
  - Support for "key items" in EquipInventoryData header and RemoveItem, getItemIdx, getItemByIdx, isInventoryFull functions
  - getInvData function, returns inventory offset, if it's a key item inventory, and inventory size
- - by [Dasaav](https://github.com/Dasaav-dsv/): getGoodsName, getWeaponName, getProtectorName, getAccessoryName, getMagicName, getArtsName, getNpcName, getPlaceName
+ - by [tremwil](https://github.com/tremwil): 
+   - executeEzStateEvent(id, parameterArray, chrInsHandle), replacing the code for Npc Menus
+ - by [Dasaav](https://github.com/Dasaav-dsv/):
+   - getGoodsName, getWeaponName, getProtectorName, getAccessoryName, getMagicName, getArtsName, getNpcName, getPlaceName
 ### Fixed
  - ItemGib: Container item max quantity counted against its own limit
 
@@ -646,7 +649,8 @@
  - Custom FPS Limit
 
 
-[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.14.0...dev
+[unreleased]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.14.1...dev
+[v1.14.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.14.0...v1.14.1
 [v1.14.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.13.0...v1.14.0
 [v1.13.0]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.1...v1.13.0
 [v1.12.1]: https://github.com/inunorii/Elden-Ring-CT-TGA/compare/v1.12.0...v1.12.1
