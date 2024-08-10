@@ -3,6 +3,7 @@
 ### Added
  - Support for "key items" in EquipInventoryData header and RemoveItem, getItemIdx, getItemByIdx, isInventoryFull functions
  - getInvData function, returns inventory offset, if it's a key item inventory, and inventory size
+ - by [Dasaav](https://github.com/Dasaav-dsv/): getGoodsName, getWeaponName, getProtectorName, getAccessoryName, getMagicName, getArtsName, getNpcName, getPlaceName
 ### Fixed
  - ItemGib: Container item max quantity counted against its own limit
 
