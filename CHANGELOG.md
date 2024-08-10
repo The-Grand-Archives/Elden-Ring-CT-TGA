@@ -7,6 +7,10 @@
    - executeEzStateEvent(id, parameterArray, chrInsHandle), replacing the code for Npc Menus
  - by [Dasaav](https://github.com/Dasaav-dsv/):
    - getGoodsName, getWeaponName, getProtectorName, getAccessoryName, getMagicName, getArtsName, getNpcName, getPlaceName
+### Deprecated
+ - Npc Menus code
+### Removed
+ - Seamless PvP header
 ### Fixed
  - ItemGib: Container item max quantity counted against its own limit
 
