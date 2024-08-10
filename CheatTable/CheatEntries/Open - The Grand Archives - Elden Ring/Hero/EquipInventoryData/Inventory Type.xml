@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>100587</ID>
+  <Description>"Inventory Type"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Player
+1:Chest
+2:Key Items (Player)
+3:Key Items (Chest)
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <Color>FF8000</Color>
+  <VariableType>4 Bytes</VariableType>
+  <Address>EquipInventoryDataIdx+4</Address>
+</CheatEntry>

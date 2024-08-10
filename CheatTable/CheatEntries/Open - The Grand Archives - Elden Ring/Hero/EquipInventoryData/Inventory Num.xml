@@ -5,8 +5,8 @@
   <VariableType>4 Bytes</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>getInvOffset(readByte("EquipInventoryDataIdx+4"))[2]*0x10+0x18</Offset>
-    <Offset>getInvOffset(readByte("EquipInventoryDataIdx+4"))[1]</Offset>
+    <Offset>getInvData(readByte("EquipInventoryDataIdx+4"))[2]*0x10+0x18</Offset>
+    <Offset>getInvData(readByte("EquipInventoryDataIdx+4"))[1]</Offset>
     <Offset>8</Offset>
   </Offsets>
 </CheatEntry>
