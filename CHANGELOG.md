@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.15.0] - 2024-08-10
 ### Added
  - Support for "key items" in EquipInventoryData header and RemoveItem, getItemIdx, getItemByIdx, isInventoryFull functions
  - getInvData function, returns inventory offset, if it's a key item inventory, and inventory size
