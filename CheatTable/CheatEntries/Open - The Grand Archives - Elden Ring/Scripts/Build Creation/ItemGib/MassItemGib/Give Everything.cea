@@ -1,0 +1,2256 @@
+[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local reinforceLv = -1	-- non-somber values
+local upgrade = 0
+local gem = -1
+
+local items = {
+    -- Base items
+    { 0x400000FA,  1, 0, 0, -1 }, -- Flask of Wondrous Physick
+    { 0x40000816,  1, 0, 0, -1 }, -- Lantern
+    { 0x40000820,  1, 0, 0, -1 }, -- Blasphemous Claw
+    { 0x4000085C,  1, 0, 0, -1 }, -- Margit's Shackle
+    { 0x40000866,  1, 0, 0, -1 }, -- Mohg's Shackle
+    { 0x40000BB8,  1, 0, 0, -1 }, -- Ancestral Infant's Head
+    { 0x40000BC2,  1, 0, 0, -1 }, -- Omen Bairn
+    { 0x40000BC3,  1, 0, 0, -1 }, -- Regal Omen Bairn
+    { 0x40000BE0,  1, 0, 0, -1 }, -- Mimic's Veil
+    { 0x40000C08,  1, 0, 0, -1 }, -- Wraith Calling Bell
+    { 0x40001FF9, 18, 0, 0, -1 }, -- Larval Tear
+    { 0x4000251C, 20, 0, 0, -1 }, -- Cracked Pot
+    { 0x4000251D, 10, 0, 0, -1 }, -- Ritual Pot
+    { 0x40002526, 10, 0, 0, -1 }, -- Perfume Bottle
+    { 0x4000271A, 30, 0, 0, -1 }, -- Golden Seed
+    { 0x40002724, 12, 0, 0, -1 }, -- Sacred Tear
+    { 0x4000272E,  8, 0, 0, -1 }, -- Memory Stone
+    { 0x40002738,  3, 0, 0, -1 }, -- Talisman Pouch
+    { 0x4000274C, 23, 0, 0, -1 }, -- Dragon Heart
+    { 0x40002756, 18, 0, 0, -1 }, -- Lost Ashes of War
+    { 0x4000218E,  1, 0, 0, -1 }, -- Whetstone knife
+
+    { 0x401E8C5A,  1, 0, 0, -1 }, -- Rock Heart
+    { 0x401E8C64,  1, 0, 0, -1 }, -- Priestess Heart
+    { 0x401E8C6E,  1, 0, 0, -1 }, -- Lamenter's Mask
+    { 0x401EA3E1,  8, 0, 0, -1 }, -- Larval Tear
+    { 0x401EA99C, 10, 0, 0, -1 }, -- Hefty Cracked Pot
+    { 0x401EAB90, 50, 0, 0, -1 }, -- Scadutree Fragment
+    { 0x401EABF4, 25, 0, 0, -1 }, -- Revered Spirit Ash
+
+    -- Consumables
+    { 0x400003AC, 699, 0, 0, -1 }, -- Preserving Boluses
+    { 0x400003B6, 699, 0, 0, -1 }, -- Rejuvenating Boluses
+    { 0x400003C0, 699, 0, 0, -1 }, -- Clarifying Boluses
+    { 0x400003A2, 699, 0, 0, -1 }, -- Stimulating Boluses
+    { 0x40000398, 699, 0, 0, -1 }, -- Thawfrost Boluses
+    { 0x4000038E, 699, 0, 0, -1 }, -- Stanching Boluses
+    { 0x40000384, 699, 0, 0, -1 }, -- Neutralizing Boluses
+    { 0x400000BE, 699, 0, 0, -1 }, -- Rune Arc
+    { 0x40000096, 999, 0, 0, -1 }, -- Furlcalling Finger Remedy
+    { 0x40000334, 699, 0, 0, -1 }, -- Boiled Crab
+    { 0x40000D21, 601, 0, 0, -1 }, -- Radiant Baldachin's Blessing
+    { 0x4000032C, 630, 0, 0, -1 }, -- Frozen Raisin
+    { 0x4000050A, 610, 0, 0, -1 }, -- Starlight Shards
+    { 0x40000CEE, 610, 0, 0, -1 }, -- Warming Stone
+    { 0x40000CEF, 610, 0, 0, -1 }, -- Frenzyflame Stone
+    { 0x40000CF8, 610, 0, 0, -1 }, -- Scriptstone
+    { 0x40000D16, 610, 0, 0, -1 }, -- Bewitching Branch
+    { 0x400004A6, 1009, 0, 0, -1 }, -- Silver-Pickled Fowl Foot
+    { 0x400004B0, 1009, 0, 0, -1 }, -- Gold-Pickled Fowl Foot
+    { 0x400006E0, 1998, 0, 0, -1 }, -- Ruin Fragment
+    { 0x40000B67, 699, 0, 0, -1 }, -- Lord's Rune
+    { 0x40001F40, 699, 0, 0, -1 }, -- Stonesword Key
+    { 0x40000834, 699, 0, 0, -1 }, -- Soft Cotton
+    { 0x40000802, 699, 0, 0, -1 }, -- Grace Mimic
+    -- Meats
+    { 0x4000044C, 1009, 0, 0, -1 }, -- Pickled Turtle Neck
+    { 0x40000460, 1009, 0, 0, -1 }, -- Invigorating Cured Meat
+    { 0x40000456, 1009, 0, 0, -1 }, -- Immunizing Cured Meat
+    { 0x4000046A, 1009, 0, 0, -1 }, -- Clarifying Cured Meat
+    { 0x40000474, 1009, 0, 0, -1 }, -- Dappled Cured Meat
+    { 0x400004BA, 1009, 0, 0, -1 }, -- Exalted Flesh
+    --{ 0x400004C4, 1009, 0, 0, -1 }, -- Deathsbane Jerky
+    { 0x400004D3, 1009, 0, 0, -1 }, -- Raw Meat Dumpling
+    { 0x4000051E, 1009, 0, 0, -1 }, -- Immunizing White Cured Meat
+    { 0x40000528, 1009, 0, 0, -1 }, -- Invigorating White Cured Meat
+    { 0x40000532, 1009, 0, 0, -1 }, -- Clarifying White Cured Meat
+    { 0x4000053C, 1009, 0, 0, -1 }, -- Dappled White Cured Meat
+    --{ 0x40000546, 1009, 0, 0, -1 }, -- Deathsbane White Jerky
+    { 0x4000047E, 1004, 0, 0, -1 }, -- Spellproof Dried Liver
+    { 0x40000488, 1004, 0, 0, -1 }, -- Fireproof Dried Liver
+    { 0x40000492, 1004, 0, 0, -1 }, -- Lightningproof Dried Liver
+    { 0x4000049C, 1004, 0, 0, -1 }, -- Holyproof Dried Liver
+    -- Throwables
+    { 0x400006A4, 640, 0, 0, -1 }, -- Throwing Dagger
+    { 0x400006AE, 640, 0, 0, -1 }, -- Bone Dart
+    { 0x400006B8, 640, 0, 0, -1 }, -- Poisonbone Dart
+    { 0x400006C2, 630, 0, 0, -1 }, -- Kukri
+    { 0x400006CC, 640, 0, 0, -1 }, -- Crystal Dart
+    { 0x400006D6, 640, 0, 0, -1 }, -- Fan Daggers
+    { 0x40000726, 620, 0, 0, -1 }, -- Explosive Stone
+    { 0x40000727, 620, 0, 0, -1 }, -- Explosive Stone Clump
+    { 0x40000730, 620, 0, 0, -1 }, -- Poisoned Stone
+    { 0x40000731, 620, 0, 0, -1 }, -- Poisoned Stone Clump
+    { 0x400007E4, 699, 0, 0, -1 }, -- Rainbow Stone
+    { 0x400007EE, 699, 0, 0, -1 }, -- Glowstone
+    --{ 0x40000BCC,    1, 0, 0, -1 }, -- Miranda's Prayer
+    { 0x40000BD6, 610, 0, 0, -1 }, -- Cuckoo Glintstone
+    { 0x40000BEA, 610, 0, 0, -1 }, -- Glintstone Scrap
+    { 0x40000BEB, 610, 0, 0, -1 }, -- Large Glintstone Scrap
+    { 0x40000BF4, 610, 0, 0, -1 }, -- Gravity Stone Fan
+    { 0x40000BFE, 610, 0, 0, -1 }, -- Gravity Stone Chunk
+
+    -- Perfumes
+    { 0x40000DAC, 699, 0, 0, -1 }, -- Uplifting Aromatic
+    { 0x40000DB6, 699, 0, 0, -1 }, -- Spark Aromatic
+    { 0x40000DC0, 699, 0, 0, -1 }, -- Ironjar Aromatic
+    { 0x40000DDE, 699, 0, 0, -1 }, -- Bloodboil Aromatic
+    { 0x40000DFC, 699, 0, 0, -1 }, -- Poison Spraymist
+    { 0x40000E1A, 699, 0, 0, -1 }, -- Acid Spraymist
+    { 0x40000DC0, 699, 0, 0, -1 }, -- Ironjar Aromatic
+    -- Pots
+    { 0x4000012C, 699, 0, 0, -1 }, -- Fire Pot
+    { 0x4000012D, 699, 0, 0, -1 }, -- Redmane Fire Pot
+    { 0x4000012E, 699, 0, 0, -1 }, -- Giantsflame Fire Pot
+    { 0x40000140, 699, 0, 0, -1 }, -- Lightning Pot
+    { 0x40000141, 699, 0, 0, -1 }, -- Ancient Dragonbolt Pot
+    { 0x4000014A, 699, 0, 0, -1 }, -- Fetid Pot
+    { 0x4000015E, 699, 0, 0, -1 }, -- Holy Water Pot
+    { 0x4000015F, 699, 0, 0, -1 }, -- Sacred Order Pot
+    { 0x40000168, 699, 0, 0, -1 }, -- Freezing Pot
+    { 0x40000172, 699, 0, 0, -1 }, -- Poison Pot
+    { 0x4000017C, 699, 0, 0, -1 }, -- Oil Pot
+    { 0x40000186, 699, 0, 0, -1 }, -- Alluring Pot
+    { 0x40000187, 699, 0, 0, -1 }, -- Beastlure Pot
+    { 0x40000190, 699, 0, 0, -1 }, -- Roped Fire Pot
+    { 0x40000154, 699, 0, 0, -1 }, -- Swarm Pot
+    { 0x40000280, 699, 0, 0, -1 }, -- Sleep Pot
+    { 0x400001A4, 699, 0, 0, -1 }, -- Roped Lightning Pot
+    { 0x400001AE, 699, 0, 0, -1 }, -- Roped Fetid Pot
+    { 0x400001B8, 699, 0, 0, -1 }, -- Roped Poison Pot
+    { 0x400001C2, 699, 0, 0, -1 }, -- Roped Oil Pot
+    { 0x400001CC, 699, 0, 0, -1 }, -- Roped Magic Pot
+    { 0x400001D6, 699, 0, 0, -1 }, -- Roped Fly Pot
+    --{ 0x400001E0, 699, 0, 0, -1 }, -- Roped Freezing Pot
+    { 0x400001EA, 699, 0, 0, -1 }, -- Roped Volcano Pot
+    { 0x400001FE, 699, 0, 0, -1 }, -- Roped Holy Water Pot
+    { 0x40000258, 699, 0, 0, -1 }, -- Volcano Pot
+    { 0x40000262, 699, 0, 0, -1 }, -- Albinauric Pot
+    { 0x40000276, 699, 0, 0, -1 }, -- Cursed-Blood Pot
+    { 0x40000294, 699, 0, 0, -1 }, -- Magic Pot
+    { 0x40000295, 699, 0, 0, -1 }, -- Academy Magic Pot
+
+    { 0x40000578, 610, 0, 0, -1 }, -- Fire Grease
+    { 0x40000582, 610, 0, 0, -1 }, -- Lightning Grease
+    { 0x4000058C, 610, 0, 0, -1 }, -- Magic Grease
+    { 0x40000596, 610, 0, 0, -1 }, -- Holy Grease
+    { 0x400005A0, 610, 0, 0, -1 }, -- Blood Grease
+    { 0x400005AA, 610, 0, 0, -1 }, -- Soporific Grease
+    { 0x400005B4, 610, 0, 0, -1 }, -- Poison Grease
+    { 0x400005BE, 610, 0, 0, -1 }, -- Freezing Grease
+    { 0x400005C8, 610, 0, 0, -1 }, -- Dragonwound Grease
+    { 0x400005D2, 610, 0, 0, -1 }, -- Rot Grease
+    { 0x400005DC, 610, 0, 0, -1 }, -- Drawstring Fire Grease
+    { 0x400005E6, 610, 0, 0, -1 }, -- Drawstring Lightning Grease
+    { 0x400005F0, 610, 0, 0, -1 }, -- Drawstring Magic Grease
+    { 0x400005FA, 610, 0, 0, -1 }, -- Drawstring Holy Grease
+    { 0x40000604, 610, 0, 0, -1 }, -- Drawstring Blood Grease
+    { 0x4000060E, 610, 0, 0, -1 }, -- Drawstring Soporific Grease
+    { 0x40000618, 610, 0, 0, -1 }, -- Drawstring Poison Grease
+    --{ 0x40000622, 610, 0, 0, -1 }, -- Drawstring Freezing Grease
+    { 0x40000636, 610, 0, 0, -1 }, -- Drawstring Rot Grease
+    { 0x4000069A, 610, 0, 0, -1 }, -- Shield Grease
+    --{ 0x40000CE4, 610, 0, 0, -1 }, -- Holy Water Grease
+
+    -- Smithing Stone
+    { 0x40002774, 1998, 0, 0, -1 }, -- Smithing Stone [1]
+    { 0x40002775, 1998, 0, 0, -1 }, -- Smithing Stone [2]
+    { 0x40002776, 1998, 0, 0, -1 }, -- Smithing Stone [3]
+    { 0x40002777, 1998, 0, 0, -1 }, -- Smithing Stone [4]
+    { 0x40002778, 1998, 0, 0, -1 }, -- Smithing Stone [5]
+    { 0x40002779, 1998, 0, 0, -1 }, -- Smithing Stone [6]
+    { 0x4000277A, 1998, 0, 0, -1 }, -- Smithing Stone [7]
+    { 0x4000277B, 1998, 0, 0, -1 }, -- Smithing Stone [8]
+    { 0x4000279C, 1998, 0, 0, -1 }, -- Ancient Dragon Smithing Stone
+    -- Somber Smithing Stone
+    { 0x400027B0, 1998, 0, 0, -1 }, -- Somber Smithing Stone [1]
+    { 0x400027B1, 1998, 0, 0, -1 }, -- Somber Smithing Stone [2]
+    { 0x400027B2, 1998, 0, 0, -1 }, -- Somber Smithing Stone [3]
+    { 0x400027B3, 1998, 0, 0, -1 }, -- Somber Smithing Stone [4]
+    { 0x400027B4, 1998, 0, 0, -1 }, -- Somber Smithing Stone [5]
+    { 0x400027B5, 1998, 0, 0, -1 }, -- Somber Smithing Stone [6]
+    { 0x400027B6, 1998, 0, 0, -1 }, -- Somber Smithing Stone [7]
+    { 0x400027B7, 1998, 0, 0, -1 }, -- Somber Smithing Stone [8]
+    { 0x400027B8, 1998, 0, 0, -1 }, -- Somber Ancient Dragon Smithing Stone
+    { 0x400027D8, 1998, 0, 0, -1 }, -- Somber Smithing Stone [9]
+
+    -- Grave Glovewort
+    { 0x40002A94, 1998, 0, 0, -1 }, -- Grave Glovewort [1]
+    { 0x40002A95, 1998, 0, 0, -1 }, -- Grave Glovewort [2]
+    { 0x40002A96, 1998, 0, 0, -1 }, -- Grave Glovewort [3]
+    { 0x40002A97, 1998, 0, 0, -1 }, -- Grave Glovewort [4]
+    { 0x40002A98, 1998, 0, 0, -1 }, -- Grave Glovewort [5]
+    { 0x40002A99, 1998, 0, 0, -1 }, -- Grave Glovewort [6]
+    { 0x40002A9A, 1998, 0, 0, -1 }, -- Grave Glovewort [7]
+    { 0x40002A9B, 1998, 0, 0, -1 }, -- Grave Glovewort [8]
+    { 0x40002A9C, 1998, 0, 0, -1 }, -- Grave Glovewort [9]
+    { 0x40002A9D, 1998, 0, 0, -1 }, -- Great Grave Glovewort
+
+    -- Ghost Glovewort
+    { 0x40002A9E, 1998, 0, 0, -1 }, -- Ghost Glovewort [1]
+    { 0x40002A9F, 1998, 0, 0, -1 }, -- Ghost Glovewort [2]
+    { 0x40002AA0, 1998, 0, 0, -1 }, -- Ghost Glovewort [3]
+    { 0x40002AA1, 1998, 0, 0, -1 }, -- Ghost Glovewort [4]
+    { 0x40002AA2, 1998, 0, 0, -1 }, -- Ghost Glovewort [5]
+    { 0x40002AA3, 1998, 0, 0, -1 }, -- Ghost Glovewort [6]
+    { 0x40002AA4, 1998, 0, 0, -1 }, -- Ghost Glovewort [7]
+    { 0x40002AA5, 1998, 0, 0, -1 }, -- Ghost Glovewort [8]
+    { 0x40002AA6, 1998, 0, 0, -1 }, -- Ghost Glovewort [9]
+    { 0x40002AA7, 1998, 0, 0, -1 }, -- Great Ghost Glovewort
+
+
+    -- Prattling Pates
+    { 0x40000898, 1, -1, 0, -1 }, -- Prattling Pate "Hello"
+    { 0x40000899, 1, -1, 0, -1 }, -- Prattling Pate "Thank you"
+    { 0x4000089A, 1, -1, 0, -1 }, -- Prattling Pate "Apologies"
+    { 0x4000089B, 1, -1, 0, -1 }, -- Prattling Pate "Wonderful"
+    { 0x4000089C, 1, -1, 0, -1 }, -- Prattling Pate "Please help"
+    { 0x4000089D, 1, -1, 0, -1 }, -- Prattling Pate "My beloved"
+    { 0x4000089E, 1, -1, 0, -1 }, -- Prattling Pate "Let's get to it"
+    { 0x4000089F, 1, -1, 0, -1 }, -- Prattling Pate "You're beautiful"
+    { 0x401E8CE6, 1,  0, 0, -1 },  -- Prattling Pate "Lamentation"
+
+    -- Arrows
+    { 0x02FAF080, 699, 0, 0, -1 }, -- Arrow
+    { 0x02FB1790, 699, 0, 0, -1 }, -- Fire Arrow
+    { 0x02FB3EA0, 699, 0, 0, -1 }, -- Serpent Arrow
+    { 0x02FB65B0, 699, 0, 0, -1 }, -- Bone Arrow (Fletched)
+    { 0x02FB8CC0, 699, 0, 0, -1 }, -- St. Trina's Arrow
+    { 0x02FBDAE0, 699, 0, 0, -1 }, -- Shattershard Arrow (Fletched)
+    { 0x02FC2900, 699, 0, 0, -1 }, -- Rainbow Stone Arrow (Fletched)
+    { 0x02FC5010, 699, 0, 0, -1 }, -- Golden Arrow
+    { 0x02FC7720, 699, 0, 0, -1 }, -- Dwelling Arrow
+    { 0x02FC9E30, 699, 0, 0, -1 }, -- Bone Arrow
+    { 0x02FCEC50, 699, 0, 0, -1 }, -- Firebone Arrow (Fletched)
+    { 0x02FD1360, 699, 0, 0, -1 }, -- Firebone Arrow
+    { 0x02FD3A70, 699, 0, 0, -1 }, -- Poisonbone Arrow (Fletched)
+    { 0x02FD6180, 699, 0, 0, -1 }, -- Poisonbone Arrow
+    { 0x02FD8890, 699, 0, 0, -1 }, -- Sleepbone Arrow (Fletched)
+    { 0x02FDAFA0, 699, 0, 0, -1 }, -- Sleepbone Arrow
+    { 0x02FDD6B0, 699, 0, 0, -1 }, -- Stormwing Bone Arrow
+    { 0x02FDFDC0, 699, 0, 0, -1 }, -- Lightningbone Arrow (Fletched)
+    { 0x02FE24D0, 699, 0, 0, -1 }, -- Lightningbone Arrow
+    { 0x02FE4BE0, 699, 0, 0, -1 }, -- Rainbow Stone Arrow
+    { 0x02FE72F0, 699, 0, 0, -1 }, -- Shattershard Arrow
+    { 0x02FE9A00, 699, 0, 0, -1 }, -- Spiritflame Arrow
+    { 0x02FEE820, 699, 0, 0, -1 }, -- Magicbone Arrow (Fletched)
+    { 0x02FF0F30, 699, 0, 0, -1 }, -- Magicbone Arrow
+    { 0x02FF3640, 699, 0, 0, -1 }, -- Haligbone Arrow (Fletched)
+    { 0x02FF5D50, 699, 0, 0, -1 }, -- Haligbone Arrow
+    { 0x02FF8460, 699, 0, 0, -1 }, -- Bloodbone Arrow (Fletched)
+    { 0x02FFAB70, 699, 0, 0, -1 }, -- Bloodbone Arrow
+    { 0x02FFD280, 699, 0, 0, -1 }, -- Coldbone Arrow (Fletched)
+    { 0x02FFF990, 699, 0, 0, -1 }, -- Coldbone Arrow
+    { 0x030020A0, 699, 0, 0, -1 }, -- Rotbone Arrow (Fletched)
+    { 0x030047B0, 699, 0, 0, -1 }, -- Rotbone Arrow
+
+    -- Greatarrows
+    { 0x030A32C0, 630, 0, 0, -1 }, -- Great Arrow
+    { 0x030A59D0, 630, 0, 0, -1 }, -- Golem's Great Arrow
+    { 0x030A80E0, 630, 0, 0, -1 }, -- Golden Great Arrow
+    { 0x030AA7F0, 630, 0, 0, -1 }, -- Golem's Magic Arrow
+    { 0x030ACF00, 630, 0, 0, -1 }, -- Radahn's Spear
+    { 0x030AF610, 630, 0, 0, -1 }, -- Bone Great Arrow (Fletched)
+    { 0x030B1D20, 630, 0, 0, -1 }, -- Bone Great Arrow
+    -- Bolts
+    { 0x03197500, 699, 0, 0, -1 }, -- Bolt
+    { 0x03199C10, 699, 0, 0, -1 }, -- Lightning Bolt
+    { 0x0319C320, 699, 0, 0, -1 }, -- Perfumer's Bolt
+    { 0x0319EA30, 699, 0, 0, -1 }, -- Black-Key Bolt
+    { 0x031A1140, 699, 0, 0, -1 }, -- Burred Bolt
+    { 0x031A3850, 699, 0, 0, -1 }, -- Meteor Bolt
+    { 0x031A5F60, 699, 0, 0, -1 }, -- Explosive Bolt
+    { 0x031A8670, 699, 0, 0, -1 }, -- Golden Bolt
+    { 0x031AAD80, 699, 0, 0, -1 }, -- Lordsworn's Bolt
+    { 0x031AD490, 699, 0, 0, -1 }, -- Bone Bolt
+    { 0x031AFBA0, 699, 0, 0, -1 }, -- Firebone Bolt
+    { 0x031B22B0, 699, 0, 0, -1 }, -- Lightningbone Bolt
+    { 0x031B49C0, 699, 0, 0, -1 }, -- Magicbone Bolt
+    { 0x031B70D0, 699, 0, 0, -1 }, -- Haligbone Bolt
+    { 0x031B97E0, 699, 0, 0, -1 }, -- Poisonbone Bolt
+    { 0x031BBEF0, 699, 0, 0, -1 }, -- Bloodbone Bolt
+    { 0x031BE600, 699, 0, 0, -1 }, -- Coldbone Bolt
+    { 0x031C0D10, 699, 0, 0, -1 }, -- Rotbone Bolt
+    { 0x031C3420, 699, 0, 0, -1 }, -- Sleepbone Bolt
+    { 0x031C5B30, 699, 0, 0, -1 }, -- Flaming Bolt
+
+    -- Greatbolts
+    { 0x0328B740, 620, 0, 0, -1 }, -- Ballista Bolt
+    { 0x0328DE50, 620, 0, 0, -1 }, -- Lightning Greatbolt
+    { 0x03290560, 620, 0, 0, -1 }, -- Explosive Greatbolt
+    { 0x03292C70, 620, 0, 0, -1 }, -- Bone Ballista Bolt
+
+    -- DLC Projectiles
+    { 0x03032DE0, 999, 0, 0, -1 }, -- Piquebone Arrow (Fletched)
+    { 0x030354F0, 999, 0, 0, -1 }, -- Piquebone Arrow
+    { 0x0311D3E0, 630, 0, 0, -1 }, -- Igon's Harpoon
+    { 0x03216440, 999, 0, 0, -1 }, -- Piquebone Bolt
+    { 0x03305860, 620, 0, 0, -1 }, -- Rabbath's Greatbolt
+
+    -- Armor
+    { 0x10009C40, 1, 0, 0, -1 }, -- Iron Helmet
+    { 0x10009CA4, 1, 0, 0, -1 }, -- Scale Armor
+    { 0x10009D08, 1, 0, 0, -1 }, -- Iron Gauntlets
+    { 0x10009D6C, 1, 0, 0, -1 }, -- Leather Trousers
+    { 0x1000C350, 1, 0, 0, -1 }, -- Kaiden Helm
+    { 0x1000C3B4, 1, 0, 0, -1 }, -- Kaiden Armor
+    { 0x1000C418, 1, 0, 0, -1 }, -- Kaiden Gauntlets
+    { 0x1000C47C, 1, 0, 0, -1 }, -- Kaiden Trousers
+    { 0x1000EA60, 1, 0, 0, -1 }, -- Drake Knight Helm
+    { 0x1000EAC4, 1, 0, 0, -1 }, -- Drake Knight Armor
+    { 0x1000EB28, 1, 0, 0, -1 }, -- Drake Knight Gauntlets
+    { 0x1000EB8C, 1, 0, 0, -1 }, -- Drake Knight Greaves
+    { 0x1000EE48, 1, 0, 0, -1 }, -- Drake Knight Helm (Altered)
+    { 0x1000EEAC, 1, 0, 0, -1 }, -- Drake Knight Armor (Altered)
+    { 0x10013880, 1, 0, 0, -1 }, -- Scaled Helm
+    { 0x100138E4, 1, 0, 0, -1 }, -- Scaled Armor
+    { 0x10013948, 1, 0, 0, -1 }, -- Scaled Gauntlets
+    { 0x100139AC, 1, 0, 0, -1 }, -- Scaled Greaves
+    { 0x10013CCC, 1, 0, 0, -1 }, -- Scaled Armor (Altered)
+    { 0x10015F90, 1, 0, 0, -1 }, -- Perfumer Hood
+    { 0x10015FF4, 1, 0, 0, -1 }, -- Perfumer Robe
+    { 0x10016058, 1, 0, 0, -1 }, -- Perfumer Gloves
+    { 0x100160BC, 1, 0, 0, -1 }, -- Perfumer Sarong
+    { 0x100163DC, 1, 0, 0, -1 }, -- Perfumer Robe (Altered)
+    { 0x100186A0, 1, 0, 0, -1 }, -- Traveler's Hat
+    { 0x10018704, 1, 0, 0, -1 }, -- Perfumer's Traveling Garb
+    { 0x10018768, 1, 0, 0, -1 }, -- Traveler's Gloves
+    { 0x100187CC, 1, 0, 0, -1 }, -- Traveler's Slops
+    { 0x10018AEC, 1, 0, 0, -1 }, -- Perfumer's Traveling Garb (Altered)
+    { 0x1001D4C0, 1, 0, 0, -1 }, -- Alberich's Pointed Hat
+    { 0x1001D524, 1, 0, 0, -1 }, -- Alberich's Robe
+    { 0x1001D588, 1, 0, 0, -1 }, -- Alberich's Bracers
+    { 0x1001D5EC, 1, 0, 0, -1 }, -- Alberich's Trousers
+    { 0x1001D8A8, 1, 0, 0, -1 }, -- Alberich's Pointed Hat (Altered)
+    { 0x1001D90C, 1, 0, 0, -1 }, -- Alberich's Robe (Altered)
+    { 0x1001FBD0, 1, 0, 0, -1 }, -- Spellblade's Pointed Hat
+    { 0x1001FC34, 1, 0, 0, -1 }, -- Spellblade's Traveling Attire
+    { 0x1001FC98, 1, 0, 0, -1 }, -- Spellblade's Gloves
+    { 0x1001FCFC, 1, 0, 0, -1 }, -- Spellblade's Trousers
+    { 0x1002001C, 1, 0, 0, -1 }, -- Spellblade's Traveling Attire (Altered)
+    { 0x100222E0, 1, 0, 0, -1 }, -- Bull-Goat Helm
+    { 0x10022344, 1, 0, 0, -1 }, -- Bull-Goat Armor
+    { 0x100223A8, 1, 0, 0, -1 }, -- Bull-Goat Gauntlets
+    { 0x1002240C, 1, 0, 0, -1 }, -- Bull-Goat Greaves
+    { 0x100249F0, 1, 0, 0, -1 }, -- Iron Kasa
+    { 0x10024A54, 1, 0, 0, -1 }, -- Ronin's Armor
+    { 0x10024AB8, 1, 0, 0, -1 }, -- Ronin's Gauntlets
+    { 0x10024B1C, 1, 0, 0, -1 }, -- Ronin's Greaves
+    { 0x10024E3C, 1, 0, 0, -1 }, -- Ronin's Armor (Altered)
+    { 0x10027100, 1, 0, 0, -1 }, -- Guilty Hood
+    { 0x10027164, 1, 0, 0, -1 }, -- Cloth Garb
+    { 0x1002722C, 1, 0, 0, -1 }, -- Cloth Trousers
+    { 0x10029810, 1, 0, 0, -1 }, -- Black Wolf Mask
+    { 0x10029874, 1, 0, 0, -1 }, -- Blaidd's Armor
+    { 0x100298D8, 1, 0, 0, -1 }, -- Blaidd's Gauntlets
+    { 0x1002993C, 1, 0, 0, -1 }, -- Blaidd's Greaves
+    { 0x10029C5C, 1, 0, 0, -1 }, -- Blaidd's Armor (Altered)
+    { 0x1002BF20, 1, 0, 0, -1 }, -- Black Knife Hood
+    { 0x1002BF84, 1, 0, 0, -1 }, -- Black Knife Armor
+    { 0x1002BFE8, 1, 0, 0, -1 }, -- Black Knife Gauntlets
+    { 0x1002C04C, 1, 0, 0, -1 }, -- Black Knife Greaves
+    { 0x1002C36C, 1, 0, 0, -1 }, -- Black Knife Armor (Altered)
+    { 0x1002E630, 1, 0, 0, -1 }, -- Exile Hood
+    { 0x1002E694, 1, 0, 0, -1 }, -- Exile Armor
+    { 0x1002E6F8, 1, 0, 0, -1 }, -- Exile Gauntlets
+    { 0x1002E75C, 1, 0, 0, -1 }, -- Exile Greaves
+    { 0x10030D40, 1, 0, 0, -1 }, -- Banished Knight Helm
+    { 0x10030DA4, 1, 0, 0, -1 }, -- Banished Knight Armor
+    { 0x10030E08, 1, 0, 0, -1 }, -- Banished Knight Gauntlets
+    { 0x10030E6C, 1, 0, 0, -1 }, -- Banished Knight Greaves
+    { 0x10031128, 1, 0, 0, -1 }, -- Banished Knight Helm (Altered)
+    { 0x1003118C, 1, 0, 0, -1 }, -- Banished Knight Armor (Altered)
+    { 0x10033450, 1, 0, 0, -1 }, -- Briar Helm
+    { 0x100334B4, 1, 0, 0, -1 }, -- Briar Armor
+    { 0x10033518, 1, 0, 0, -1 }, -- Briar Gauntlets
+    { 0x1003357C, 1, 0, 0, -1 }, -- Briar Greaves
+    { 0x1003389C, 1, 0, 0, -1 }, -- Briar Armor (Altered)
+    { 0x10035B60, 1, 0, 0, -1 }, -- Page Hood
+    { 0x10035BC4, 1, 0, 0, -1 }, -- Page Garb
+    { 0x10035C8C, 1, 0, 0, -1 }, -- Page Trousers
+    { 0x10035FAC, 1, 0, 0, -1 }, -- Page Garb (Altered)
+    { 0x10038270, 1, 0, 0, -1 }, -- Night's Cavalry Helm
+    { 0x100382D4, 1, 0, 0, -1 }, -- Night's Cavalry Armor
+    { 0x10038338, 1, 0, 0, -1 }, -- Night's Cavalry Gauntlets
+    { 0x1003839C, 1, 0, 0, -1 }, -- Night's Cavalry Greaves
+    { 0x10038658, 1, 0, 0, -1 }, -- Night's Cavalry Helm (Altered)
+    { 0x100386BC, 1, 0, 0, -1 }, -- Night's Cavalry Armor (Altered)
+    { 0x1003A980, 1, 0, 0, -1 }, -- Blue Silver Mail Hood
+    { 0x1003A9E4, 1, 0, 0, -1 }, -- Blue Silver Mail Armor
+    { 0x1003AA48, 1, 0, 0, -1 }, -- Blue Silver Bracelets
+    { 0x1003AAAC, 1, 0, 0, -1 }, -- Blue Silver Mail Skirt
+    { 0x1003ADCC, 1, 0, 0, -1 }, -- Blue Silver Mail Armor (Altered)
+    { 0x1003D090, 1, 0, 0, -1 }, -- Nomadic Merchant's Chapeau
+    { 0x1003D0F4, 1, 0, 0, -1 }, -- Nomadic Merchant's Finery
+    { 0x1003D1BC, 1, 0, 0, -1 }, -- Nomadic Merchant's Trousers
+    { 0x1003D4DC, 1, 0, 0, -1 }, -- Nomadic Merchant's Finery (Altered)
+    { 0x1003F7A0, 1, 0, 0, -1 }, -- Malformed Dragon Helm
+    { 0x1003F804, 1, 0, 0, -1 }, -- Malformed Dragon Armor
+    { 0x1003F868, 1, 0, 0, -1 }, -- Malformed Dragon Gauntlets
+    { 0x1003F8CC, 1, 0, 0, -1 }, -- Malformed Dragon Greaves
+    { 0x10041EB0, 1, 0, 0, -1 }, -- Tree Sentinel Helm
+    { 0x10041F14, 1, 0, 0, -1 }, -- Tree Sentinel Armor
+    { 0x10041F78, 1, 0, 0, -1 }, -- Tree Sentinel Gauntlets
+    { 0x10041FDC, 1, 0, 0, -1 }, -- Tree Sentinel Greaves
+    { 0x100422FC, 1, 0, 0, -1 }, -- Tree Sentinel Armor (Altered)
+    { 0x100445C0, 1, 0, 0, -1 }, -- Royal Knight Helm
+    { 0x10044624, 1, 0, 0, -1 }, -- Royal Knight Armor
+    { 0x10044688, 1, 0, 0, -1 }, -- Royal Knight Gauntlets
+    { 0x100446EC, 1, 0, 0, -1 }, -- Royal Knight Greaves
+    { 0x10044A0C, 1, 0, 0, -1 }, -- Royal Knight Armor (Altered)
+    { 0x10046CD0, 1, 0, 0, -1 }, -- Nox Monk Hood
+    { 0x10046D34, 1, 0, 0, -1 }, -- Nox Monk Armor
+    { 0x10046D98, 1, 0, 0, -1 }, -- Nox Monk Bracelets
+    { 0x10046DFC, 1, 0, 0, -1 }, -- Nox Monk Greaves
+    { 0x100470B8, 1, 0, 0, -1 }, -- Nox Monk Hood (Altered)
+    { 0x1004711C, 1, 0, 0, -1 }, -- Nox Monk Armor (Altered)
+    { 0x100474A0, 1, 0, 0, -1 }, -- Nox Swordstress Crown
+    { 0x10047504, 1, 0, 0, -1 }, -- Nox Swordstress Armor
+    { 0x10047888, 1, 0, 0, -1 }, -- Night Maiden Twin Crown
+    { 0x100478EC, 1, 0, 0, -1 }, -- Night Maiden Armor
+    { 0x10047C70, 1, 0, 0, -1 }, -- Nox Swordstress Crown (Altered)
+    { 0x10047CD4, 1, 0, 0, -1 }, -- Nox Swordstress Armor (Altered)
+    { 0x100493E0, 1, 0, 0, -1 }, -- Great Horned Headband
+    { 0x10049444, 1, 0, 0, -1 }, -- Fur Raiment
+    { 0x1004950C, 1, 0, 0, -1 }, -- Fur Leggings
+    { 0x100497C8, 1, 0, 0, -1 }, -- Shining Horned Headband
+    { 0x1004982C, 1, 0, 0, -1 }, -- Shaman Furs
+    { 0x100498F4, 1, 0, 0, -1 }, -- Shaman Leggings
+    { 0x1004BAF0, 1, 0, 0, -1 }, -- Duelist Helm
+    { 0x1004BB54, 1, 0, 0, -1 }, -- Gravekeeper Cloak
+    { 0x1004BC1C, 1, 0, 0, -1 }, -- Duelist Greaves
+    { 0x1004BF3C, 1, 0, 0, -1 }, -- Gravekeeper Cloak (Altered)
+    { 0x1004E200, 1, 0, 0, -1 }, -- Sanguine Noble Hood
+    { 0x1004E264, 1, 0, 0, -1 }, -- Sanguine Noble Robe
+    { 0x1004E32C, 1, 0, 0, -1 }, -- Sanguine Noble Waistcloth
+    { 0x10050910, 1, 0, 0, -1 }, -- Guardian Mask
+    { 0x10050974, 1, 0, 0, -1 }, -- Guardian Garb (Full Bloom)
+    { 0x100509D8, 1, 0, 0, -1 }, -- Guardian Bracers
+    { 0x10050A3C, 1, 0, 0, -1 }, -- Guardian Greaves
+    { 0x10050D5C, 1, 0, 0, -1 }, -- Guardian Garb
+    { 0x10053020, 1, 0, 0, -1 }, -- Cleanrot Helm
+    { 0x10053084, 1, 0, 0, -1 }, -- Cleanrot Armor
+    { 0x100530E8, 1, 0, 0, -1 }, -- Cleanrot Gauntlets
+    { 0x1005314C, 1, 0, 0, -1 }, -- Cleanrot Greaves
+    { 0x10053408, 1, 0, 0, -1 }, -- Cleanrot Helm (Altered)
+    { 0x1005346C, 1, 0, 0, -1 }, -- Cleanrot Armor (Altered)
+    { 0x10055730, 1, 0, 0, -1 }, -- Fire Monk Hood
+    { 0x10055794, 1, 0, 0, -1 }, -- Fire Monk Armor
+    { 0x100557F8, 1, 0, 0, -1 }, -- Fire Monk Gauntlets
+    { 0x1005585C, 1, 0, 0, -1 }, -- Fire Monk Greaves
+    { 0x10055B18, 1, 0, 0, -1 }, -- Blackflame Monk Hood
+    { 0x10055B7C, 1, 0, 0, -1 }, -- Blackflame Monk Armor
+    { 0x10055BE0, 1, 0, 0, -1 }, -- Blackflame Monk Gauntlets
+    { 0x10055C44, 1, 0, 0, -1 }, -- Blackflame Monk Greaves
+    { 0x10057E40, 1, 0, 0, -1 }, -- Fire Prelate Helm
+    { 0x10057EA4, 1, 0, 0, -1 }, -- Fire Prelate Armor
+    { 0x10057F08, 1, 0, 0, -1 }, -- Fire Prelate Gauntlets
+    { 0x10057F6C, 1, 0, 0, -1 }, -- Fire Prelate Greaves
+    { 0x1005828C, 1, 0, 0, -1 }, -- Fire Prelate Armor (Altered)
+    { 0x1005A550, 1, 0, 0, -1 }, -- Aristocrat Headband
+    { 0x1005A5B4, 1, 0, 0, -1 }, -- Aristocrat Garb
+    { 0x1005A67C, 1, 0, 0, -1 }, -- Aristocrat Boots
+    { 0x1005A99C, 1, 0, 0, -1 }, -- Aristocrat Garb (Altered)
+    { 0x1005CC60, 1, 0, 0, -1 }, -- Aristocrat Hat
+    { 0x1005CCC4, 1, 0, 0, -1 }, -- Aristocrat Coat
+    { 0x1005F370, 1, 0, 0, -1 }, -- Old Aristocrat Cowl
+    { 0x1005F3D4, 1, 0, 0, -1 }, -- Old Aristocrat Gown
+    { 0x1005F49C, 1, 0, 0, -1 }, -- Old Aristocrat Shoes
+    { 0x100668A0, 1, 0, 0, -1 }, -- Vulgar Militia Helm
+    { 0x10066904, 1, 0, 0, -1 }, -- Vulgar Militia Armor
+    { 0x10066968, 1, 0, 0, -1 }, -- Vulgar Militia Gauntlets
+    { 0x100669CC, 1, 0, 0, -1 }, -- Vulgar Militia Greaves
+    { 0x10068FB0, 1, 0, 0, -1 }, -- Sage Hood
+    { 0x10069014, 1, 0, 0, -1 }, -- Sage Robe
+    { 0x100690DC, 1, 0, 0, -1 }, -- Sage Trousers
+    { 0x1006B6C0, 1, 0, 0, -1 }, -- Pumpkin Helm
+    { 0x100704E0, 1, 0, 0, -1 }, -- Elden Lord Crown
+    { 0x10070544, 1, 0, 0, -1 }, -- Elden Lord Armor
+    { 0x100705A8, 1, 0, 0, -1 }, -- Elden Lord Bracers
+    { 0x1007060C, 1, 0, 0, -1 }, -- Elden Lord Greaves
+    { 0x1007092C, 1, 0, 0, -1 }, -- Elden Lord Armor (Altered)
+    { 0x10072BF0, 1, 0, 0, -1 }, -- Radahn's Redmane Helm
+    { 0x10072C54, 1, 0, 0, -1 }, -- Radahn's Lion Armor
+    { 0x10072CB8, 1, 0, 0, -1 }, -- Radahn's Gauntlets
+    { 0x10072D1C, 1, 0, 0, -1 }, -- Radahn's Greaves
+    { 0x1007303C, 1, 0, 0, -1 }, -- Radahn's Lion Armor (Altered)
+    { 0x10075364, 1, 0, 0, -1 }, -- Lord of Blood's Robe
+    { 0x1007574C, 1, 0, 0, -1 }, -- Lord of Blood's Robe (Altered)
+    { 0x1007C830, 1, 0, 0, -1 }, -- Queen's Crescent Crown
+    { 0x1007C894, 1, 0, 0, -1 }, -- Queen's Robe
+    { 0x1007C8F8, 1, 0, 0, -1 }, -- Queen's Bracelets
+    { 0x1007C95C, 1, 0, 0, -1 }, -- Queen's Leggings
+    { 0x1007EF40, 1, 0, 0, -1 }, -- Godskin Apostle Hood
+    { 0x1007EFA4, 1, 0, 0, -1 }, -- Godskin Apostle Robe
+    { 0x1007F008, 1, 0, 0, -1 }, -- Godskin Apostle Bracelets
+    { 0x1007F06C, 1, 0, 0, -1 }, -- Godskin Apostle Trousers
+    { 0x10081650, 1, 0, 0, -1 }, -- Godskin Noble Hood
+    { 0x100816B4, 1, 0, 0, -1 }, -- Godskin Noble Robe
+    { 0x10081718, 1, 0, 0, -1 }, -- Godskin Noble Bracelets
+    { 0x1008177C, 1, 0, 0, -1 }, -- Godskin Noble Trousers
+    { 0x10083D60, 1, 0, 0, -1 }, -- Depraved Perfumer Headscarf
+    { 0x10083DC4, 1, 0, 0, -1 }, -- Depraved Perfumer Robe
+    { 0x10083E28, 1, 0, 0, -1 }, -- Depraved Perfumer Gloves
+    { 0x10083E8C, 1, 0, 0, -1 }, -- Depraved Perfumer Trousers
+    { 0x100841AC, 1, 0, 0, -1 }, -- Depraved Perfumer Robe (Altered)
+    { 0x1008B290, 1, 0, 0, -1 }, -- Crucible Axe Helm
+    { 0x1008B2F4, 1, 0, 0, -1 }, -- Crucible Axe Armor
+    { 0x1008B358, 1, 0, 0, -1 }, -- Crucible Gauntlets
+    { 0x1008B3BC, 1, 0, 0, -1 }, -- Crucible Greaves
+    { 0x1008B678, 1, 0, 0, -1 }, -- Crucible Tree Helm
+    { 0x1008B6DC, 1, 0, 0, -1 }, -- Crucible Tree Armor
+    { 0x1008BAC4, 1, 0, 0, -1 }, -- Crucible Axe Armor (Altered)
+    { 0x1008BEAC, 1, 0, 0, -1 }, -- Crucible Tree Armor (Altered)
+    { 0x1008D9A0, 1, 0, 0, -1 }, -- Lusat's Glintstone Crown
+    { 0x1008DA04, 1, 0, 0, -1 }, -- Lusat's Robe
+    { 0x1008DA68, 1, 0, 0, -1 }, -- Lusat's Manchettes
+    { 0x1008DACC, 1, 0, 0, -1 }, -- Old Sorcerer's Legwraps
+    { 0x1008DD88, 1, 0, 0, -1 }, -- Azur's Glintstone Crown
+    { 0x1008DDEC, 1, 0, 0, -1 }, -- Azur's Glintstone Robe
+    { 0x1008DE50, 1, 0, 0, -1 }, -- Azur's Manchettes
+    { 0x100900B0, 1, 0, 0, -1 }, -- All-Knowing Helm
+    { 0x10090114, 1, 0, 0, -1 }, -- All-Knowing Armor
+    { 0x10090178, 1, 0, 0, -1 }, -- All-Knowing Gauntlets
+    { 0x100901DC, 1, 0, 0, -1 }, -- All-Knowing Greaves
+    { 0x100904FC, 1, 0, 0, -1 }, -- All-Knowing Armor (Altered)
+    { 0x100927C0, 1, 0, 0, -1 }, -- Twinned Helm
+    { 0x10092824, 1, 0, 0, -1 }, -- Twinned Armor
+    { 0x10092888, 1, 0, 0, -1 }, -- Twinned Gauntlets
+    { 0x100928EC, 1, 0, 0, -1 }, -- Twinned Greaves
+    { 0x10092C0C, 1, 0, 0, -1 }, -- Twinned Armor (Altered)
+    --{ 0x10094ED0, 1, 0, 0, -1 }, -- Ragged Hat
+    --{ 0x10094F34, 1, 0, 0, -1 }, -- Ragged Armor
+    --{ 0x10094F98, 1, 0, 0, -1 }, -- Ragged Gloves
+    --{ 0x10094FFC, 1, 0, 0, -1 }, -- Ragged Loincloth
+    --{ 0x100952B8, 1, 0, 0, -1 }, -- Ragged Hat (Altered)
+    --{ 0x1009531C, 1, 0, 0, -1 }, -- Ragged Armor (Altered)
+    { 0x100975E0, 1, 0, 0, -1 }, -- Prophet Blindfold
+    { 0x10097644, 1, 0, 0, -1 }, -- Corhyn's Robe
+    { 0x1009770C, 1, 0, 0, -1 }, -- Prophet Trousers
+    { 0x10097A2C, 1, 0, 0, -1 }, -- Prophet Robe (Altered)
+    { 0x10097E14, 1, 0, 0, -1 }, -- Prophet Robe
+    { 0x10099CF0, 1, 0, 0, -1 }, -- Astrologer Hood
+    { 0x10099D54, 1, 0, 0, -1 }, -- Astrologer Robe
+    { 0x10099DB8, 1, 0, 0, -1 }, -- Astrologer Gloves
+    { 0x10099E1C, 1, 0, 0, -1 }, -- Astrologer Trousers
+    { 0x1009A13C, 1, 0, 0, -1 }, -- Astrologer Robe (Altered)
+    { 0x1009C400, 1, 0, 0, -1 }, -- Lionel's Helm
+    { 0x1009C464, 1, 0, 0, -1 }, -- Lionel's Armor
+    { 0x1009C4C8, 1, 0, 0, -1 }, -- Lionel's Gauntlets
+    { 0x1009C52C, 1, 0, 0, -1 }, -- Lionel's Greaves
+    { 0x1009C84C, 1, 0, 0, -1 }, -- Lionel's Armor (Altered)
+    { 0x1009EB10, 1, 0, 0, -1 }, -- Hoslow's Helm
+    { 0x1009EB74, 1, 0, 0, -1 }, -- Hoslow's Armor
+    { 0x1009EBD8, 1, 0, 0, -1 }, -- Hoslow's Gauntlets
+    { 0x1009EC3C, 1, 0, 0, -1 }, -- Hoslow's Greaves
+    { 0x1009EEF8, 1, 0, 0, -1 }, -- Diallos's Mask
+    { 0x1009F344, 1, 0, 0, -1 }, -- Hoslow's Armor (Altered)
+    { 0x100A1220, 1, 0, 0, -1 }, -- Vagabond Knight Helm
+    { 0x100A1284, 1, 0, 0, -1 }, -- Vagabond Knight Armor
+    { 0x100A12E8, 1, 0, 0, -1 }, -- Vagabond Knight Gauntlets
+    { 0x100A134C, 1, 0, 0, -1 }, -- Vagabond Knight Greaves
+    { 0x100A166C, 1, 0, 0, -1 }, -- Vagabond Knight Armor (Altered)
+    { 0x100A3930, 1, 0, 0, -1 }, -- Blue Cloth Cowl
+    { 0x100A3994, 1, 0, 0, -1 }, -- Blue Cloth Vest
+    { 0x100A39F8, 1, 0, 0, -1 }, -- Warrior Gauntlets
+    { 0x100A3A5C, 1, 0, 0, -1 }, -- Warrior Greaves
+    { 0x100A6040, 1, 0, 0, -1 }, -- White Mask
+    { 0x100A60A4, 1, 0, 0, -1 }, -- War Surgeon Gown
+    { 0x100A6108, 1, 0, 0, -1 }, -- War Surgeon Gloves
+    { 0x100A616C, 1, 0, 0, -1 }, -- War Surgeon Trousers
+    { 0x100A648C, 1, 0, 0, -1 }, -- War Surgeon Gown (Altered)
+    { 0x100A8750, 1, 0, 0, -1 }, -- Royal Remains Helm
+    { 0x100A87B4, 1, 0, 0, -1 }, -- Royal Remains Armor
+    { 0x100A8818, 1, 0, 0, -1 }, -- Royal Remains Gauntlets
+    { 0x100A887C, 1, 0, 0, -1 }, -- Royal Remains Greaves
+    --{ 0x100AAE60, 1, 0, 0, -1 }, -- Brave's Cord Circlet
+    --{ 0x100AAEC4, 1, 0, 0, -1 }, -- Brave's Battlewear
+    --{ 0x100AAF28, 1, 0, 0, -1 }, -- Brave's Bracer
+    --{ 0x100AAF8C, 1, 0, 0, -1 }, -- Brave's Legwraps
+    --{ 0x100AB248, 1, 0, 0, -1 }, -- Brave's Leather Helm
+    --{ 0x100AB630, 1, 0, 0, -1 }, -- Brave's Battlewear (Altered)
+    { 0x100AFC80, 1, 0, 0, -1 }, -- Beast Champion Helm
+    { 0x100AFCE4, 1, 0, 0, -1 }, -- Beast Champion Armor
+    { 0x100AFD48, 1, 0, 0, -1 }, -- Beast Champion Gauntlets
+    { 0x100AFDAC, 1, 0, 0, -1 }, -- Beast Champion Greaves
+    { 0x100B00CC, 1, 0, 0, -1 }, -- Beast Champion Armor (Altered)
+    { 0x100B2390, 1, 0, 0, -1 }, -- Champion Headband
+    { 0x100B23F4, 1, 0, 0, -1 }, -- Champion Pauldron
+    { 0x100B2458, 1, 0, 0, -1 }, -- Champion Bracers
+    { 0x100B24BC, 1, 0, 0, -1 }, -- Champion Gaiters
+    { 0x100B4AA0, 1, 0, 0, -1 }, -- Crimson Hood
+    { 0x100B4B04, 1, 0, 0, -1 }, -- Noble's Traveling Garb
+    { 0x100B4B68, 1, 0, 0, -1 }, -- Noble's Gloves
+    { 0x100B4BCC, 1, 0, 0, -1 }, -- Noble's Trousers
+    { 0x100B4E88, 1, 0, 0, -1 }, -- Navy Hood
+    { 0x100B98C0, 1, 0, 0, -1 }, -- Maliketh's Helm
+    { 0x100B9924, 1, 0, 0, -1 }, -- Maliketh's Armor
+    { 0x100B9988, 1, 0, 0, -1 }, -- Maliketh's Gauntlets
+    { 0x100B99EC, 1, 0, 0, -1 }, -- Maliketh's Greaves
+    { 0x100B9D0C, 1, 0, 0, -1 }, -- Maliketh's Armor (Altered)
+    { 0x100BBFD0, 1, 0, 0, -1 }, -- Malenia's Winged Helm
+    { 0x100BC034, 1, 0, 0, -1 }, -- Malenia's Armor
+    { 0x100BC098, 1, 0, 0, -1 }, -- Malenia's Gauntlet
+    { 0x100BC0FC, 1, 0, 0, -1 }, -- Malenia's Greaves
+    { 0x100BC41C, 1, 0, 0, -1 }, -- Malenia's Armor (Altered)
+    { 0x100BE6E0, 1, 0, 0, -1 }, -- Veteran's Helm
+    { 0x100BE744, 1, 0, 0, -1 }, -- Veteran's Armor
+    { 0x100BE7A8, 1, 0, 0, -1 }, -- Veteran's Gauntlets
+    { 0x100BE80C, 1, 0, 0, -1 }, -- Veteran's Greaves
+    { 0x100BEB2C, 1, 0, 0, -1 }, -- Veteran's Armor (Altered)
+    { 0x100C0DF0, 1, 0, 0, -1 }, -- Bloodhound Knight Helm
+    { 0x100C0E54, 1, 0, 0, -1 }, -- Bloodhound Knight Armor
+    { 0x100C0EB8, 1, 0, 0, -1 }, -- Bloodhound Knight Gauntlets
+    { 0x100C0F1C, 1, 0, 0, -1 }, -- Bloodhound Knight Greaves
+    { 0x100C123C, 1, 0, 0, -1 }, -- Bloodhound Knight Armor (Altered)
+    { 0x100C3500, 1, 0, 0, -1 }, -- Festive Hood
+    { 0x100C3564, 1, 0, 0, -1 }, -- Festive Garb
+    { 0x100C38E8, 1, 0, 0, -1 }, -- Festive Hood (Altered)
+    { 0x100C394C, 1, 0, 0, -1 }, -- Festive Garb (Altered)
+    { 0x100C3CD0, 1, 0, 0, -1 }, -- Blue Festive Hood
+    { 0x100C3D34, 1, 0, 0, -1 }, -- Blue Festive Garb
+    { 0x100C5C10, 1, 0, 0, -1 }, -- Commoner's Headband
+    { 0x100C5C74, 1, 0, 0, -1 }, -- Commoner's Garb
+    { 0x100C5D3C, 1, 0, 0, -1 }, -- Commoner's Shoes
+    { 0x100C5FF8, 1, 0, 0, -1 }, -- Commoner's Headband (Altered)
+    { 0x100C605C, 1, 0, 0, -1 }, -- Commoner's Garb (Altered)
+    { 0x100C63E0, 1, 0, 0, -1 }, -- Commoner's Simple Garb
+    { 0x100C6444, 1, 0, 0, -1 }, -- Commoner's Simple Garb (Altered)
+    { 0x100C8320, 1, 0, 0, -1 }, -- Envoy Crown
+    { 0x100CAA30, 1, 0, 0, -1 }, -- Twinsage Glintstone Crown
+    { 0x100CAA94, 1, 0, 0, -1 }, -- Raya Lucarian Robe
+    { 0x100CAAF8, 1, 0, 0, -1 }, -- Sorcerer Manchettes
+    { 0x100CAB5C, 1, 0, 0, -1 }, -- Sorcerer Leggings
+    { 0x100CAE18, 1, 0, 0, -1 }, -- Olivinus Glintstone Crown
+    { 0x100CB200, 1, 0, 0, -1 }, -- Lazuli Glintstone Crown
+    { 0x100CB5E8, 1, 0, 0, -1 }, -- Karolos Glintstone Crown
+    { 0x100CB9D0, 1, 0, 0, -1 }, -- Witch's Glintstone Crown
+    { 0x100CD140, 1, 0, 0, -1 }, -- Marionette Soldier Helm
+    { 0x100CD1A4, 1, 0, 0, -1 }, -- Marionette Soldier Armor
+    { 0x100CF850, 1, 0, 0, -1 }, -- Marionette Soldier Birdhelm
+    { 0x100D1F60, 1, 0, 0, -1 }, -- Raging Wolf Helm
+    { 0x100D1FC4, 1, 0, 0, -1 }, -- Raging Wolf Armor
+    { 0x100D2028, 1, 0, 0, -1 }, -- Raging Wolf Gauntlets
+    { 0x100D208C, 1, 0, 0, -1 }, -- Raging Wolf Greaves
+    { 0x100D23AC, 1, 0, 0, -1 }, -- Raging Wolf Armor (Altered)
+    { 0x100D4670, 1, 0, 0, -1 }, -- Land of Reeds Helm
+    { 0x100D46D4, 1, 0, 0, -1 }, -- Land of Reeds Armor
+    { 0x100D4738, 1, 0, 0, -1 }, -- Land of Reeds Gauntlets
+    { 0x100D479C, 1, 0, 0, -1 }, -- Land of Reeds Greaves
+    { 0x100D4ABC, 1, 0, 0, -1 }, -- Land of Reeds Armor (Altered)
+    { 0x100D4E40, 1, 0, 0, -1 }, -- Okina Mask
+    { 0x100D4EA4, 1, 0, 0, -1 }, -- White Reed Armor
+    { 0x100D4F08, 1, 0, 0, -1 }, -- White Reed Gauntlets
+    { 0x100D4F6C, 1, 0, 0, -1 }, -- White Reed Greaves
+    { 0x100D6D80, 1, 0, 0, -1 }, -- Confessor Hood
+    { 0x100D6DE4, 1, 0, 0, -1 }, -- Confessor Armor
+    { 0x100D6E48, 1, 0, 0, -1 }, -- Confessor Gloves
+    { 0x100D6EAC, 1, 0, 0, -1 }, -- Confessor Boots
+    { 0x100D7168, 1, 0, 0, -1 }, -- Confessor Hood (Altered)
+    { 0x100D71CC, 1, 0, 0, -1 }, -- Confessor Armor (Altered)
+    { 0x100D9490, 1, 0, 0, -1 }, -- Prisoner Iron Mask
+    { 0x100D94F4, 1, 0, 0, -1 }, -- Prisoner Clothing
+    { 0x100D95BC, 1, 0, 0, -1 }, -- Prisoner Trousers
+    { 0x100D9878, 1, 0, 0, -1 }, -- Blackguard's Iron Mask
+    { 0x100DBBA0, 1, 0, 0, -1 }, -- Traveling Maiden Hood
+    { 0x100DBC04, 1, 0, 0, -1 }, -- Traveling Maiden Robe
+    { 0x100DBC68, 1, 0, 0, -1 }, -- Traveling Maiden Gloves
+    { 0x100DBCCC, 1, 0, 0, -1 }, -- Traveling Maiden Boots
+    { 0x100DBFEC, 1, 0, 0, -1 }, -- Traveling Maiden Robe (Altered)
+    { 0x100DC370, 1, 0, 0, -1 }, -- Finger Maiden Fillet
+    { 0x100DC3D4, 1, 0, 0, -1 }, -- Finger Maiden Robe
+    { 0x100DC49C, 1, 0, 0, -1 }, -- Finger Maiden Shoes
+    { 0x100DC7BC, 1, 0, 0, -1 }, -- Finger Maiden Robe (Altered)
+    { 0x100DE2B0, 1, 0, 0, -1 }, -- Preceptor's Big Hat
+    { 0x100DE314, 1, 0, 0, -1 }, -- Preceptor's Long Gown
+    { 0x100DE378, 1, 0, 0, -1 }, -- Preceptor's Gloves
+    { 0x100DE3DC, 1, 0, 0, -1 }, -- Preceptor's Trousers
+    { 0x100DE698, 1, 0, 0, -1 }, -- Mask of Confidence
+    { 0x100DE6FC, 1, 0, 0, -1 }, -- Preceptor's Long Gown (Altered)
+    --{ 0x100E09C0, 1, 0, 0, -1 }, -- Grass Hair Ornament
+    { 0x100E30D0, 1, 0, 0, -1 }, -- Skeletal Mask
+    { 0x100E3134, 1, 0, 0, -1 }, -- Raptor's Black Feathers
+    { 0x100E3198, 1, 0, 0, -1 }, -- Bandit Manchettes
+    { 0x100E31FC, 1, 0, 0, -1 }, -- Bandit Boots
+    { 0x100E351C, 1, 0, 0, -1 }, -- Bandit Garb
+    { 0x100E57E0, 1, 0, 0, -1 }, -- Eccentric's Hood
+    { 0x100E5844, 1, 0, 0, -1 }, -- Eccentric's Armor
+    { 0x100E58A8, 1, 0, 0, -1 }, -- Eccentric's Manchettes
+    { 0x100E590C, 1, 0, 0, -1 }, -- Eccentric's Breeches
+    { 0x100E5BC8, 1, 0, 0, -1 }, -- Eccentric's Hood (Altered)
+    { 0x100E7EF0, 1, 0, 0, -1 }, -- Fingerprint Helm
+    { 0x100E7F54, 1, 0, 0, -1 }, -- Fingerprint Armor
+    { 0x100E7FB8, 1, 0, 0, -1 }, -- Fingerprint Gauntlets
+    { 0x100E801C, 1, 0, 0, -1 }, -- Fingerprint Greaves
+    { 0x100E833C, 1, 0, 0, -1 }, -- Fingerprint Armor (Altered)
+    { 0x100EA600, 1, 0, 0, -1 }, -- Consort's Mask
+    { 0x100EA664, 1, 0, 0, -1 }, -- Consort's Robe
+    { 0x100EA72C, 1, 0, 0, -1 }, -- Consort's Trousers
+    { 0x100EA9E8, 1, 0, 0, -1 }, -- Ruler's Mask
+    { 0x100EAA4C, 1, 0, 0, -1 }, -- Ruler's Robe
+    { 0x100EAE34, 1, 0, 0, -1 }, -- Upper-Class Robe
+    { 0x100EB1B8, 1, 0, 0, -1 }, -- Marais Mask
+    { 0x100EB21C, 1, 0, 0, -1 }, -- Marais Robe
+    { 0x100EB280, 1, 0, 0, -1 }, -- Bloodsoaked Manchettes
+    { 0x100EB5A0, 1, 0, 0, -1 }, -- Bloodsoaked Mask
+    { 0x100EB604, 1, 0, 0, -1 }, -- Official's Attire
+    { 0x100ECD10, 1, 0, 0, -1 }, -- Omen Helm
+    { 0x100ECD74, 1, 0, 0, -1 }, -- Omen Armor
+    { 0x100ECDD8, 1, 0, 0, -1 }, -- Omen Gauntlets
+    { 0x100ECE3C, 1, 0, 0, -1 }, -- Omen Greaves
+    { 0x100EF420, 1, 0, 0, -1 }, -- Carian Knight Helm
+    { 0x100EF484, 1, 0, 0, -1 }, -- Carian Knight Armor
+    { 0x100EF4E8, 1, 0, 0, -1 }, -- Carian Knight Gauntlets
+    { 0x100EF54C, 1, 0, 0, -1 }, -- Carian Knight Greaves
+    { 0x100EF86C, 1, 0, 0, -1 }, -- Carian Knight Armor (Altered)
+    { 0x100F1B30, 1, 0, 0, -1 }, -- Hierodas Glintstone Crown
+    { 0x100F1B94, 1, 0, 0, -1 }, -- Errant Sorcerer Robe
+    { 0x100F1BF8, 1, 0, 0, -1 }, -- Errant Sorcerer Manchettes
+    { 0x100F1C5C, 1, 0, 0, -1 }, -- Errant Sorcerer Boots
+    { 0x100F1F7C, 1, 0, 0, -1 }, -- Errant Sorcerer Robe (Altered)
+    { 0x100F4240, 1, 0, 0, -1 }, -- Haima Glintstone Crown
+    { 0x100F42A4, 1, 0, 0, -1 }, -- Battlemage Robe
+    { 0x100F4308, 1, 0, 0, -1 }, -- Battlemage Manchettes
+    { 0x100F436C, 1, 0, 0, -1 }, -- Battlemage Legwraps
+    { 0x100F6950, 1, 0, 0, -1 }, -- Snow Witch Hat
+    { 0x100F69B4, 1, 0, 0, -1 }, -- Snow Witch Robe
+    { 0x100F6A7C, 1, 0, 0, -1 }, -- Snow Witch Skirt
+    { 0x100F6D9C, 1, 0, 0, -1 }, -- Snow Witch Robe (Altered)
+    { 0x100F90C4, 1, 0, 0, -1 }, -- Traveler's Clothes
+    { 0x100F9128, 1, 0, 0, -1 }, -- Traveler's Manchettes
+    { 0x100F918C, 1, 0, 0, -1 }, -- Traveler's Boots
+    { 0x100FB770, 1, 0, 0, -1 }, -- Juvenile Scholar Cap
+    { 0x100FB7D4, 1, 0, 0, -1 }, -- Juvenile Scholar Robe
+    { 0x100FDE80, 1, 0, 0, -1 }, -- Radiant Gold Mask
+    { 0x100FDEE4, 1, 0, 0, -1 }, -- Goldmask's Rags
+    { 0x100FDF48, 1, 0, 0, -1 }, -- Gold Bracelets
+    { 0x100FDFAC, 1, 0, 0, -1 }, -- Gold Waistwrap
+    { 0x101005F4, 1, 0, 0, -1 }, -- Fell Omen Cloak
+    { 0x10102CA0, 1, 0, 0, -1 }, -- Albinauric Mask
+    { 0x10102D04, 1, 0, 0, -1 }, -- Dirty Chainmail
+    { 0x101053B0, 1, 0, 0, -1 }, -- Zamor Mask
+    { 0x10105414, 1, 0, 0, -1 }, -- Zamor Armor
+    { 0x10105478, 1, 0, 0, -1 }, -- Zamor Bracelets
+    { 0x101054DC, 1, 0, 0, -1 }, -- Zamor Legwraps
+    { 0x10107AC0, 1, 0, 0, -1 }, -- Imp Head (Cat)
+    { 0x10107EA8, 1, 0, 0, -1 }, -- Imp Head (Fanged)
+    { 0x10108290, 1, 0, 0, -1 }, -- Imp Head (Long-Tongued)
+    { 0x10108678, 1, 0, 0, -1 }, -- Imp Head (Corpse)
+    { 0x10108A60, 1, 0, 0, -1 }, -- Imp Head (Wolf)
+    { 0x10108E48, 1, 0, 0, -1 }, -- Imp Head (Elder)
+    { 0x1010A1D0, 1, 0, 0, -1 }, -- Silver Tear Mask
+    { 0x1010C8E0, 1, 0, 0, -1 }, -- Chain Coif
+    { 0x1010C944, 1, 0, 0, -1 }, -- Chain Armor
+    { 0x1010C9A8, 1, 0, 0, -1 }, -- Chain Gauntlets
+    { 0x1010CA0C, 1, 0, 0, -1 }, -- Chain Leggings
+    { 0x1010CCC8, 1, 0, 0, -1 }, -- Greathelm
+    { 0x1010CD2C, 1, 0, 0, -1 }, -- Eye Surcoat
+    { 0x1010D114, 1, 0, 0, -1 }, -- Tree Surcoat
+    { 0x1010EFF0, 1, 0, 0, -1 }, -- Octopus Head
+    { 0x10111700, 1, 0, 0, -1 }, -- Jar
+    { 0x10113E10, 1, 0, 0, -1 }, -- Mushroom Head
+    { 0x10113E74, 1, 0, 0, -1 }, -- Mushroom Body
+    { 0x10113ED8, 1, 0, 0, -1 }, -- Mushroom Arms
+    { 0x10113F3C, 1, 0, 0, -1 }, -- Mushroom Legs
+    { 0x1013D620, 1, 0, 0, -1 }, -- Nox Mirrorhelm
+    { 0x1013DA08, 1, 0, 0, -1 }, -- Iji's Mirrorhelm
+    { 0x10155CC0, 1, 0, 0, -1 }, -- Black Hood
+    { 0x10155D24, 1, 0, 0, -1 }, -- Leather Armor
+    { 0x10155D88, 1, 0, 0, -1 }, -- Leather Gloves
+    { 0x10155DEC, 1, 0, 0, -1 }, -- Leather Boots
+    { 0x101560A8, 1, 0, 0, -1 }, -- Bandit Mask
+    { 0x1016E360, 1, 0, 0, -1 }, -- Knight Helm
+    { 0x1016E3C4, 1, 0, 0, -1 }, -- Knight Armor
+    { 0x1016E428, 1, 0, 0, -1 }, -- Knight Gauntlets
+    { 0x1016E48C, 1, 0, 0, -1 }, -- Knight Greaves
+    { 0x10186A00, 1, 0, 0, -1 }, -- Greathood
+    { 0x1019F0A0, 1, 0, 0, -1 }, -- Godrick Soldier Helm
+    { 0x1019F104, 1, 0, 0, -1 }, -- Tree-and-Beast Surcoat
+    { 0x1019F168, 1, 0, 0, -1 }, -- Godrick Soldier Gauntlets
+    { 0x1019F1CC, 1, 0, 0, -1 }, -- Godrick Soldier Greaves
+    { 0x101A17B0, 1, 0, 0, -1 }, -- Raya Lucarian Helm
+    { 0x101A1814, 1, 0, 0, -1 }, -- Cuckoo Surcoat
+    { 0x101A1878, 1, 0, 0, -1 }, -- Raya Lucarian Gauntlets
+    { 0x101A18DC, 1, 0, 0, -1 }, -- Raya Lucarian Greaves
+    { 0x101A3EC0, 1, 0, 0, -1 }, -- Leyndell Soldier Helm
+    { 0x101A3F24, 1, 0, 0, -1 }, -- Erdtree Surcoat
+    { 0x101A3F88, 1, 0, 0, -1 }, -- Leyndell Soldier Gauntlets
+    { 0x101A3FEC, 1, 0, 0, -1 }, -- Leyndell Soldier Greaves
+    { 0x101A65D0, 1, 0, 0, -1 }, -- Radahn Soldier Helm
+    { 0x101A6634, 1, 0, 0, -1 }, -- Redmane Surcoat
+    { 0x101A6698, 1, 0, 0, -1 }, -- Radahn Soldier Gauntlets
+    { 0x101A66FC, 1, 0, 0, -1 }, -- Radahn Soldier Greaves
+    { 0x101A8D44, 1, 0, 0, -1 }, -- Mausoleum Surcoat
+    { 0x101A8DA8, 1, 0, 0, -1 }, -- Mausoleum Gauntlets
+    { 0x101A8E0C, 1, 0, 0, -1 }, -- Mausoleum Greaves
+    { 0x101AB3F0, 1, 0, 0, -1 }, -- Haligtree Helm
+    { 0x101AB454, 1, 0, 0, -1 }, -- Haligtree Crest Surcoat
+    { 0x101AB4B8, 1, 0, 0, -1 }, -- Haligtree Gauntlets
+    { 0x101AB51C, 1, 0, 0, -1 }, -- Haligtree Greaves
+    { 0x101ADB00, 1, 0, 0, -1 }, -- Gelmir Knight Helm
+    { 0x101ADB64, 1, 0, 0, -1 }, -- Gelmir Knight Armor
+    { 0x101ADBC8, 1, 0, 0, -1 }, -- Gelmir Knight Gauntlets
+    { 0x101ADC2C, 1, 0, 0, -1 }, -- Gelmir Knight Greaves
+    { 0x101ADF4C, 1, 0, 0, -1 }, -- Gelmir Knight Armor (Altered)
+    { 0x101B0210, 1, 0, 0, -1 }, -- Godrick Knight Helm
+    { 0x101B0274, 1, 0, 0, -1 }, -- Godrick Knight Armor
+    { 0x101B02D8, 1, 0, 0, -1 }, -- Godrick Knight Gauntlets
+    { 0x101B033C, 1, 0, 0, -1 }, -- Godrick Knight Greaves
+    { 0x101B065C, 1, 0, 0, -1 }, -- Godrick Knight Armor (Altered)
+    { 0x101B2920, 1, 0, 0, -1 }, -- Cuckoo Knight Helm
+    { 0x101B2984, 1, 0, 0, -1 }, -- Cuckoo Knight Armor
+    { 0x101B29E8, 1, 0, 0, -1 }, -- Cuckoo Knight Gauntlets
+    { 0x101B2A4C, 1, 0, 0, -1 }, -- Cuckoo Knight Greaves
+    { 0x101B2D6C, 1, 0, 0, -1 }, -- Cuckoo Knight Armor (Altered)
+    { 0x101B5030, 1, 0, 0, -1 }, -- Leyndell Knight Helm
+    { 0x101B5094, 1, 0, 0, -1 }, -- Leyndell Knight Armor
+    { 0x101B50F8, 1, 0, 0, -1 }, -- Leyndell Knight Gauntlets
+    { 0x101B515C, 1, 0, 0, -1 }, -- Leyndell Knight Greaves
+    { 0x101B547C, 1, 0, 0, -1 }, -- Leyndell Knight Armor (Altered)
+    { 0x101B7740, 1, 0, 0, -1 }, -- Redmane Knight Helm
+    { 0x101B77A4, 1, 0, 0, -1 }, -- Redmane Knight Armor
+    { 0x101B7808, 1, 0, 0, -1 }, -- Redmane Knight Gauntlets
+    { 0x101B786C, 1, 0, 0, -1 }, -- Redmane Knight Greaves
+    { 0x101B7B8C, 1, 0, 0, -1 }, -- Redmane Knight Armor (Altered)
+    { 0x101B9EB4, 1, 0, 0, -1 }, -- Mausoleum Knight Armor
+    { 0x101B9F18, 1, 0, 0, -1 }, -- Mausoleum Knight Gauntlets
+    { 0x101B9F7C, 1, 0, 0, -1 }, -- Mausoleum Knight Greaves
+    { 0x101BA29C, 1, 0, 0, -1 }, -- Mausoleum Knight Armor (Altered)
+    { 0x101BC560, 1, 0, 0, -1 }, -- Haligtree Knight Helm
+    { 0x101BC5C4, 1, 0, 0, -1 }, -- Haligtree Knight Armor
+    { 0x101BC628, 1, 0, 0, -1 }, -- Haligtree Knight Gauntlets
+    { 0x101BC68C, 1, 0, 0, -1 }, -- Haligtree Knight Greaves
+    { 0x101BC9AC, 1, 0, 0, -1 }, -- Haligtree Knight Armor (Altered)
+    { 0x101BEC70, 1, 0, 0, -1 }, -- Foot Soldier Cap
+    { 0x101BECD4, 1, 0, 0, -1 }, -- Chain-Draped Tabard
+    { 0x101BED38, 1, 0, 0, -1 }, -- Foot Soldier Gauntlets
+    { 0x101BED9C, 1, 0, 0, -1 }, -- Foot Soldier Greaves
+    { 0x101C1380, 1, 0, 0, -1 }, -- Foot Soldier Helmet
+    { 0x101C13E4, 1, 0, 0, -1 }, -- Foot Soldier Tabard
+    { 0x101C3A90, 1, 0, 0, -1 }, -- Gilded Foot Soldier Cap
+    { 0x101C3AF4, 1, 0, 0, -1 }, -- Leather-Draped Tabard
+    { 0x101C61A0, 1, 0, 0, -1 }, -- Foot Soldier Helm
+    { 0x101C6204, 1, 0, 0, -1 }, -- Scarlet Tabard
+    { 0x101C8914, 1, 0, 0, -1 }, -- Bloodsoaked Tabard
+    { 0x101CAFC0, 1, 0, 0, -1 }, -- Sacred Crown Helm
+    { 0x101CB024, 1, 0, 0, -1 }, -- Ivory-Draped Tabard
+    { 0x101CD6D0, 1, 0, 0, -1 }, -- Omensmirk Mask
+    { 0x101CD734, 1, 0, 0, -1 }, -- Omenkiller Robe
+    { 0x101CD798, 1, 0, 0, -1 }, -- Omenkiller Long Gloves
+    { 0x101CD7FC, 1, 0, 0, -1 }, -- Omenkiller Boots
+    { 0x101CFDE0, 1, 0, 0, -1 }, -- Ash-of-War Scarab
+    { 0x101D01C8, 1, 0, 0, -1 }, -- Incantation Scarab
+    { 0x101D05B0, 1, 0, 0, -1 }, -- Glintstone Scarab
+    { 0x101D24F0, 1, 0, 0, -1 }, -- Crimson Tear Scarab
+    { 0x101D4C00, 1, 0, 0, -1 }, -- Cerulean Tear Scarab
+    { 0x101D7374, 1, 0, 0, -1 }, -- Deathbed Dress
+    --{ 0x101D743C, 1, 0, 0, -1 }, -- Deathbed Smalls
+    { 0x101D9A20, 1, 0, 0, -1 }, -- Fia's Hood
+    { 0x101D9A84, 1, 0, 0, -1 }, -- Fia's Robe
+    { 0x101D9E6C, 1, 0, 0, -1 }, -- Fia's Robe (Altered)
+    --{ 0x101DC194, 1, 0, 0, -1 }, -- Millicent's Robe
+    --{ 0x101DC1F8, 1, 0, 0, -1 }, -- Millicent's Gloves
+    --{ 0x101DC25C, 1, 0, 0, -1 }, -- Millicent's Boots
+    --{ 0x101E0FB4, 1, 0, 0, -1 }, -- Millicent's Tunic
+    --{ 0x101E1018, 1, 0, 0, -1 }, -- Golden Prosthetic
+    { 0x101E3660, 1, 0, 0, -1 }, -- Highwayman Hood
+    { 0x101E36C4, 1, 0, 0, -1 }, -- Highwayman Cloth Armor
+    { 0x101E3728, 1, 0, 0, -1 }, -- Highwayman Gauntlets
+    { 0x101E5D70, 1, 0, 0, -1 }, -- High Page Hood
+    { 0x101E5DD4, 1, 0, 0, -1 }, -- High Page Clothes
+    { 0x101E61BC, 1, 0, 0, -1 }, -- High Page Clothes (Altered)
+    { 0x101E8480, 1, 0, 0, -1 }, -- Rotten Duelist Helm
+    { 0x101E84E4, 1, 0, 0, -1 }, -- Rotten Gravekeeper Cloak
+    { 0x101E85AC, 1, 0, 0, -1 }, -- Rotten Duelist Greaves
+    { 0x101E88CC, 1, 0, 0, -1 }, -- Rotten Gravekeeper Cloak (Altered)
+    { 0x101EAB90, 1, 0, 0, -1 }, -- Mushroom Crown
+    { 0x101ED2A0, 1, 0, 0, -1 }, -- Black Dumpling
+    { 0x101EF9B0, 1, 0, 0, -1 }, -- Lazuli Robe
+
+    -- Talismans
+    { 0x200003E8, 1, 0, 0, -1 }, -- Crimson Amber Medallion
+    { 0x200003E9, 1, 0, 0, -1 }, -- Crimson Amber Medallion +1
+    { 0x200003EA, 1, 0, 0, -1 }, -- Crimson Amber Medallion +2
+    { 0x200003F2, 1, 0, 0, -1 }, -- Cerulean Amber Medallion
+    { 0x200003F3, 1, 0, 0, -1 }, -- Cerulean Amber Medallion +1
+    { 0x200003F4, 1, 0, 0, -1 }, -- Cerulean Amber Medallion +2
+    { 0x200003FC, 1, 0, 0, -1 }, -- Viridian Amber Medallion
+    { 0x200003FD, 1, 0, 0, -1 }, -- Viridian Amber Medallion +1
+    { 0x200003FE, 1, 0, 0, -1 }, -- Viridian Amber Medallion +2
+    { 0x20000406, 1, 0, 0, -1 }, -- Arsenal Charm
+    { 0x20000407, 1, 0, 0, -1 }, -- Arsenal Charm +1
+    { 0x20000408, 1, 0, 0, -1 }, -- Great-Jar's Arsenal
+    { 0x20000410, 1, 0, 0, -1 }, -- Erdtree's Favor
+    { 0x20000411, 1, 0, 0, -1 }, -- Erdtree's Favor +1
+    { 0x20000412, 1, 0, 0, -1 }, -- Erdtree's Favor +2
+    { 0x2000041A, 1, 0, 0, -1 }, -- Radagon's Scarseal
+    { 0x2000041B, 1, 0, 0, -1 }, -- Radagon's Soreseal
+    { 0x20000424, 1, 0, 0, -1 }, -- Starscourge Heirloom
+    { 0x2000042E, 1, 0, 0, -1 }, -- Prosthesis-Wearer Heirloom
+    { 0x20000438, 1, 0, 0, -1 }, -- Stargazer Heirloom
+    { 0x20000442, 1, 0, 0, -1 }, -- Two Fingers Heirloom
+    { 0x2000044C, 1, 0, 0, -1 }, -- Silver Scarab
+    { 0x20000456, 1, 0, 0, -1 }, -- Gold Scarab
+    { 0x20000474, 1, 0, 0, -1 }, -- Moon of Nokstella
+    { 0x2000047E, 1, 0, 0, -1 }, -- Green Turtle Talisman
+    { 0x20000488, 1, 0, 0, -1 }, -- Stalwart Horn Charm
+    { 0x20000489, 1, 0, 0, -1 }, -- Stalwart Horn Charm +1
+    { 0x20000492, 1, 0, 0, -1 }, -- Immunizing Horn Charm
+    { 0x20000493, 1, 0, 0, -1 }, -- Immunizing Horn Charm +1
+    { 0x2000049C, 1, 0, 0, -1 }, -- Clarifying Horn Charm
+    { 0x2000049D, 1, 0, 0, -1 }, -- Clarifying Horn Charm +1
+    { 0x200004A6, 1, 0, 0, -1 }, -- Prince of Death's Pustule
+    { 0x200004A7, 1, 0, 0, -1 }, -- Prince of Death's Cyst
+    { 0x200004B0, 1, 0, 0, -1 }, -- Mottled Necklace
+    { 0x200004B1, 1, 0, 0, -1 }, -- Mottled Necklace +1
+    { 0x200004BA, 1, 0, 0, -1 }, -- Bull-Goat's Talisman
+    { 0x200004C4, 1, 0, 0, -1 }, -- Marika's Scarseal
+    { 0x200004C5, 1, 0, 0, -1 }, -- Marika's Soreseal
+    { 0x200004CE, 1, 0, 0, -1 }, -- Warrior Jar Shard
+    { 0x200004CF, 1, 0, 0, -1 }, -- Shard of Alexander
+    { 0x200004E2, 1, 0, 0, -1 }, -- Millicent's Prosthesis
+    { 0x200007D0, 1, 0, 0, -1 }, -- Magic Scorpion Charm
+    { 0x200007DA, 1, 0, 0, -1 }, -- Lightning Scorpion Charm
+    { 0x200007E4, 1, 0, 0, -1 }, -- Fire Scorpion Charm
+    { 0x200007EE, 1, 0, 0, -1 }, -- Sacred Scorpion Charm
+    { 0x200007F8, 1, 0, 0, -1 }, -- Red-Feathered Branchsword
+    { 0x20000802, 1, 0, 0, -1 }, -- Ritual Sword Talisman
+    { 0x2000080C, 1, 0, 0, -1 }, -- Spear Talisman
+    { 0x20000816, 1, 0, 0, -1 }, -- Hammer Talisman
+    { 0x20000820, 1, 0, 0, -1 }, -- Winged Sword Insignia
+    { 0x20000821, 1, 0, 0, -1 }, -- Rotten Winged Sword Insignia
+    { 0x2000082A, 1, 0, 0, -1 }, -- Dagger Talisman
+    { 0x20000834, 1, 0, 0, -1 }, -- Arrow's Reach Talisman
+    { 0x2000083E, 1, 0, 0, -1 }, -- Blue Dancer Charm
+    { 0x20000848, 1, 0, 0, -1 }, -- Twinblade Talisman
+    { 0x20000852, 1, 0, 0, -1 }, -- Axe Talisman
+    { 0x2000085C, 1, 0, 0, -1 }, -- Lance Talisman
+    { 0x20000866, 1, 0, 0, -1 }, -- Arrow's Sting Talisman
+    { 0x20000870, 1, 0, 0, -1 }, -- Lord of Blood's Exultation
+    { 0x2000087A, 1, 0, 0, -1 }, -- Kindred of Rot's Exultation
+    { 0x20000884, 1, 0, 0, -1 }, -- Claw Talisman
+    { 0x2000088E, 1, 0, 0, -1 }, -- Roar Medallion
+    { 0x20000898, 1, 0, 0, -1 }, -- Curved Sword Talisman
+    { 0x200008A2, 1, 0, 0, -1 }, -- Companion Jar
+    { 0x200008AC, 1, 0, 0, -1 }, -- Perfumer's Talisman
+    { 0x20000BB8, 1, 0, 0, -1 }, -- Graven-School Talisman
+    { 0x20000BB9, 1, 0, 0, -1 }, -- Graven-Mass Talisman
+    { 0x20000BE0, 1, 0, 0, -1 }, -- Faithful's Canvas Talisman
+    { 0x20000BEA, 1, 0, 0, -1 }, -- Flock's Canvas Talisman
+    { 0x20000BF4, 1, 0, 0, -1 }, -- Old Lord's Talisman
+    { 0x20000BFE, 1, 0, 0, -1 }, -- Radagon Icon
+    { 0x20000C08, 1, 0, 0, -1 }, -- Primal Glintstone Blade
+    { 0x20000C12, 1, 0, 0, -1 }, -- Godfrey Icon
+    { 0x20000FA0, 1, 0, 0, -1 }, -- Dragoncrest Shield Talisman
+    { 0x20000FA1, 1, 0, 0, -1 }, -- Dragoncrest Shield Talisman +1
+    { 0x20000FA2, 1, 0, 0, -1 }, -- Dragoncrest Shield Talisman +2
+    { 0x20000FA3, 1, 0, 0, -1 }, -- Dragoncrest Greatshield Talisman
+    { 0x20000FAA, 1, 0, 0, -1 }, -- Spelldrake Talisman
+    { 0x20000FAB, 1, 0, 0, -1 }, -- Spelldrake Talisman +1
+    { 0x20000FAC, 1, 0, 0, -1 }, -- Spelldrake Talisman +2
+    { 0x20000FB4, 1, 0, 0, -1 }, -- Flamedrake Talisman
+    { 0x20000FB5, 1, 0, 0, -1 }, -- Flamedrake Talisman +1
+    { 0x20000FB6, 1, 0, 0, -1 }, -- Flamedrake Talisman +2
+    { 0x20000FBE, 1, 0, 0, -1 }, -- Boltdrake Talisman
+    { 0x20000FBF, 1, 0, 0, -1 }, -- Boltdrake Talisman +1
+    { 0x20000FC0, 1, 0, 0, -1 }, -- Boltdrake Talisman +2
+    { 0x20000FC8, 1, 0, 0, -1 }, -- Haligdrake Talisman
+    { 0x20000FC9, 1, 0, 0, -1 }, -- Haligdrake Talisman +1
+    { 0x20000FCA, 1, 0, 0, -1 }, -- Haligdrake Talisman +2
+    { 0x20000FD2, 1, 0, 0, -1 }, -- Pearldrake Talisman
+    { 0x20000FD3, 1, 0, 0, -1 }, -- Pearldrake Talisman +1
+    { 0x20000FD4, 1, 0, 0, -1 }, -- Pearldrake Talisman +2
+    { 0x20000FDC, 1, 0, 0, -1 }, -- Crucible Scale Talisman
+    { 0x20000FE6, 1, 0, 0, -1 }, -- Crucible Feather Talisman
+    { 0x20000FF0, 1, 0, 0, -1 }, -- Blue-Feathered Branchsword
+    { 0x20000FFA, 1, 0, 0, -1 }, -- Ritual Shield Talisman
+    { 0x20001004, 1, 0, 0, -1 }, -- Greatshield Talisman
+    { 0x2000100E, 1, 0, 0, -1 }, -- Crucible Knot Talisman
+    { 0x20001388, 1, 0, 0, -1 }, -- Crimson Seed Talisman
+    { 0x20001392, 1, 0, 0, -1 }, -- Cerulean Seed Talisman
+    { 0x2000139C, 1, 0, 0, -1 }, -- Blessed Dew Talisman
+    { 0x200013A6, 1, 0, 0, -1 }, -- Taker's Cameo
+    { 0x200013B0, 1, 0, 0, -1 }, -- Godskin Swaddling Cloth
+    { 0x200013BA, 1, 0, 0, -1 }, -- Assassin's Crimson Dagger
+    { 0x200013C4, 1, 0, 0, -1 }, -- Assassin's Cerulean Dagger
+    { 0x20001770, 1, 0, 0, -1 }, -- Crepus's Vial
+    { 0x2000177A, 1, 0, 0, -1 }, -- Concealing Veil
+    { 0x20001784, 1, 0, 0, -1 }, -- Carian Filigreed Crest
+    { 0x20001798, 1, 0, 0, -1 }, -- Longtail Cat Talisman
+    { 0x200017A2, 1, 0, 0, -1 }, -- Shabriri's Woe
+    { 0x200017AC, 1, 0, 0, -1 }, -- Daedicar's Woe
+    { 0x200017B6, 1, 0, 0, -1 }, -- Sacrificial Twig
+    { 0x200017C0, 1, 0, 0, -1 }, -- Furled Finger's Trick-Mirror
+    { 0x200017CA, 1, 0, 0, -1 }, -- Host's Trick-Mirror
+    --{ 0x200017D4, 1, 0, 0, -1 }, -- Entwining Umbilical Cord
+    { 0x200017DE, 1, 0, 0, -1 }, -- Ancestral Spirit's Horn
+
+    { 0x80002710, 3, 0, 0, -1 }, -- Ash of War: Lion's Claw
+    { 0x80002774, 3, 0, 0, -1 }, -- Ash of War: Impaling Thrust
+    { 0x800027D8, 3, 0, 0, -1 }, -- Ash of War: Piercing Fang
+    { 0x8000283C, 3, 0, 0, -1 }, -- Ash of War: Spinning Slash
+    { 0x80002904, 3, 0, 0, -1 }, -- Ash of War: Charge Forth
+    { 0x80002968, 3, 0, 0, -1 }, -- Ash of War: Stamp (Upward Cut)
+    { 0x800029CC, 3, 0, 0, -1 }, -- Ash of War: Stamp (Sweep)
+    { 0x80002A30, 3, 0, 0, -1 }, -- Ash of War: Blood Tax
+    { 0x80002A94, 3, 0, 0, -1 }, -- Ash of War: Repeating Thrust
+    { 0x80002AF8, 3, 0, 0, -1 }, -- Ash of War: Wild Strikes
+    { 0x80002B5C, 3, 0, 0, -1 }, -- Ash of War: Spinning Strikes
+    { 0x80002BC0, 3, 0, 0, -1 }, -- Ash of War: Double Slash
+    { 0x80002C24, 3, 0, 0, -1 }, -- Ash of War: Prelate's Charge
+    { 0x80002C88, 3, 0, 0, -1 }, -- Ash of War: Unsheathe
+    { 0x80002CEC, 3, 0, 0, -1 }, -- Ash of War: Square Off
+    { 0x80002D50, 3, 0, 0, -1 }, -- Ash of War: Giant Hunt
+    { 0x80002E18, 3, 0, 0, -1 }, -- Ash of War: Loretta's Slash
+    { 0x80002E7C, 3, 0, 0, -1 }, -- Ash of War: Poison Moth Flight
+    { 0x80002EE0, 3, 0, 0, -1 }, -- Ash of War: Spinning Weapon
+    { 0x80002FA8, 3, 0, 0, -1 }, -- Ash of War: Storm Assault
+    { 0x8000300C, 3, 0, 0, -1 }, -- Ash of War: Stormcaller
+    { 0x80003070, 3, 0, 0, -1 }, -- Ash of War: Sword Dance
+    { 0x80004E20, 3, 0, 0, -1 }, -- Ash of War: Glintblade Phalanx
+    { 0x80004E84, 3, 0, 0, -1 }, -- Ash of War: Sacred Blade
+    { 0x80004EE8, 3, 0, 0, -1 }, -- Ash of War: Ice Spear
+    { 0x80004F4C, 3, 0, 0, -1 }, -- Ash of War: Glintstone Pebble
+    { 0x80004FB0, 3, 0, 0, -1 }, -- Ash of War: Bloody Slash
+    { 0x80005014, 3, 0, 0, -1 }, -- Ash of War: Lifesteal Fist
+    { 0x800050DC, 3, 0, 0, -1 }, -- Ash of War: Eruption
+    { 0x80005140, 3, 0, 0, -1 }, -- Ash of War: Prayerful Strike
+    { 0x800051A4, 3, 0, 0, -1 }, -- Ash of War: Gravitas
+    { 0x80005208, 3, 0, 0, -1 }, -- Ash of War: Storm Blade
+    { 0x800052D0, 3, 0, 0, -1 }, -- Ash of War: Earthshaker
+    { 0x80005334, 3, 0, 0, -1 }, -- Ash of War: Golden Land
+    { 0x80005398, 3, 0, 0, -1 }, -- Ash of War: Flaming Strike
+    { 0x80005460, 3, 0, 0, -1 }, -- Ash of War: Thunderbolt
+    { 0x800054C4, 3, 0, 0, -1 }, -- Ash of War: Lightning Slash
+    { 0x80005528, 3, 0, 0, -1 }, -- Ash of War: Carian Grandeur
+    { 0x8000558C, 3, 0, 0, -1 }, -- Ash of War: Carian Greatsword
+    { 0x800055F0, 3, 0, 0, -1 }, -- Ash of War: Vacuum Slice
+    { 0x80005654, 3, 0, 0, -1 }, -- Ash of War: Black Flame Tornado
+    { 0x800056B8, 3, 0, 0, -1 }, -- Ash of War: Sacred Ring of Light
+    { 0x80005780, 3, 0, 0, -1 }, -- Ash of War: Blood Blade
+    { 0x800057E4, 3, 0, 0, -1 }, -- Ash of War: Phantom Slash
+    { 0x80005848, 3, 0, 0, -1 }, -- Ash of War: Spectral Lance
+    { 0x800058AC, 3, 0, 0, -1 }, -- Ash of War: Chilling Mist
+    { 0x80005910, 3, 0, 0, -1 }, -- Ash of War: Poisonous Mist
+    { 0x80007530, 3, 0, 0, -1 }, -- Ash of War: Shield Bash
+    { 0x80007594, 3, 0, 0, -1 }, -- Ash of War: Barricade Shield
+    { 0x800075F8, 3, 0, 0, -1 }, -- Ash of War: Parry
+    { 0x80007724, 3, 0, 0, -1 }, -- Ash of War: Carian Retaliation
+    { 0x80007788, 3, 0, 0, -1 }, -- Ash of War: Storm Wall
+    { 0x800077EC, 3, 0, 0, -1 }, -- Ash of War: Golden Parry
+    { 0x80007850, 3, 0, 0, -1 }, -- Ash of War: Shield Crash
+    { 0x800078B4, 3, 0, 0, -1 }, -- Ash of War: No Skill
+    { 0x80007918, 3, 0, 0, -1 }, -- Ash of War: Thops's Barrier
+    { 0x80009C40, 3, 0, 0, -1 }, -- Ash of War: Through and Through
+    { 0x80009CA4, 3, 0, 0, -1 }, -- Ash of War: Barrage
+    { 0x80009D08, 3, 0, 0, -1 }, -- Ash of War: Mighty Shot
+    { 0x80009DD0, 3, 0, 0, -1 }, -- Ash of War: Enchanted Shot
+    { 0x80009E34, 3, 0, 0, -1 }, -- Ash of War: Sky Shot
+    { 0x80009E98, 3, 0, 0, -1 }, -- Ash of War: Rain of Arrows
+    { 0x8000C3B4, 3, 0, 0, -1 }, -- Ash of War: Hoarfrost Stomp
+    { 0x8000C418, 3, 0, 0, -1 }, -- Ash of War: Storm Stomp
+    { 0x8000C47C, 3, 0, 0, -1 }, -- Ash of War: Kick
+    { 0x8000C4E0, 3, 0, 0, -1 }, -- Ash of War: Lightning Ram
+    { 0x8000C544, 3, 0, 0, -1 }, -- Ash of War: Flame of the Redmanes
+    { 0x8000C5A8, 3, 0, 0, -1 }, -- Ash of War: Ground Slam
+    { 0x8000C60C, 3, 0, 0, -1 }, -- Ash of War: Golden Slam
+    { 0x8000C670, 3, 0, 0, -1 }, -- Ash of War: Waves of Darkness
+    { 0x8000C6D4, 3, 0, 0, -1 }, -- Ash of War: Hoarah Loux's Earthshaker
+    { 0x8000EA60, 3, 0, 0, -1 }, -- Ash of War: Determination
+    { 0x8000EAC4, 3, 0, 0, -1 }, -- Ash of War: Royal Knight's Resolve
+    { 0x8000EB28, 3, 0, 0, -1 }, -- Ash of War: Assassin's Gambit
+    { 0x8000EB8C, 3, 0, 0, -1 }, -- Ash of War: Golden Vow
+    { 0x8000EBF0, 3, 0, 0, -1 }, -- Ash of War: Sacred Order
+    { 0x8000EC54, 3, 0, 0, -1 }, -- Ash of War: Shared Order
+    { 0x8000ECB8, 3, 0, 0, -1 }, -- Ash of War: Seppuku
+    { 0x8000ED1C, 3, 0, 0, -1 }, -- Ash of War: Cragblade
+    { 0x8000FDE8, 3, 0, 0, -1 }, -- Ash of War: Barbaric Roar
+    { 0x8000FE4C, 3, 0, 0, -1 }, -- Ash of War: War Cry
+    { 0x8000FEB0, 3, 0, 0, -1 }, -- Ash of War: Beast's Roar
+    { 0x8000FF14, 3, 0, 0, -1 }, -- Ash of War: Troll's Roar
+    { 0x8000FF78, 3, 0, 0, -1 }, -- Ash of War: Braggart's Roar
+    { 0x80011170, 3, 0, 0, -1 }, -- Ash of War: Endure
+    { 0x800111D4, 3, 0, 0, -1 }, -- Ash of War: Vow of the Indomitable
+    { 0x80011238, 3, 0, 0, -1 }, -- Ash of War: Holy Ground
+    { 0x80013880, 3, 0, 0, -1 }, -- Ash of War: Quickstep
+    { 0x800138E4, 3, 0, 0, -1 }, -- Ash of War: Bloodhound's Step
+    { 0x80013948, 3, 0, 0, -1 }, -- Ash of War: Raptor of the Mists
+    { 0x80014C08, 3, 0, 0, -1 }, -- Ash of War: White Shadow's Lure
+
+    -- Sorceries
+    { 0x40000FA0, 1, 0, 0, -1 }, -- Glintstone Pebble
+    { 0x40000FA1, 1, 0, 0, -1 }, -- Great Glintstone Shard
+    { 0x40000FAA, 1, 0, 0, -1 }, -- Swift Glintstone Shard
+    { 0x40000FB4, 1, 0, 0, -1 }, -- Glintstone Cometshard
+    { 0x40000FB5, 1, 0, 0, -1 }, -- Comet
+    { 0x40000FBE, 1, 0, 0, -1 }, -- Shard Spiral
+    { 0x40000FC8, 1, 0, 0, -1 }, -- Glintstone Stars
+    { 0x40000FD2, 1, 0, 0, -1 }, -- Star Shower
+    { 0x40000FDC, 1, 0, 0, -1 }, -- Crystal Barrage
+    { 0x40000FE6, 1, 0, 0, -1 }, -- Glintstone Arc
+    { 0x40000FF0, 1, 0, 0, -1 }, -- Cannon of Haima
+    { 0x40000FFA, 1, 0, 0, -1 }, -- Crystal Burst
+    { 0x40001004, 1, 0, 0, -1 }, -- Shatter Earth
+    { 0x4000100E, 1, 0, 0, -1 }, -- Rock Blaster
+    { 0x40001018, 1, 0, 0, -1 }, -- Gavel of Haima
+    { 0x40001022, 1, 0, 0, -1 }, -- Terra Magicus
+    { 0x4000102C, 1, 0, 0, -1 }, -- Starlight
+    { 0x40001068, 1, 0, 0, -1 }, -- Comet Azur
+    { 0x40001072, 1, 0, 0, -1 }, -- Founding Rain of Stars
+    { 0x4000107C, 1, 0, 0, -1 }, -- Stars of Ruin
+    { 0x400010CC, 1, 0, 0, -1 }, -- Glintblade Phalanx
+    { 0x400010CD, 1, 0, 0, -1 }, -- Carian Phalanx
+    { 0x400010CE, 1, 0, 0, -1 }, -- Greatblade Phalanx
+    { 0x40001108, 1, 0, 0, -1 }, -- Rennala's Full Moon
+    { 0x40001109, 1, 0, 0, -1 }, -- Ranni's Dark Moon
+    { 0x40001112, 1, 0, 0, -1 }, -- Magic Downpour
+    { 0x4000111C, 1, 0, 0, -1 }, -- Loretta's Greatbow
+    { 0x4000111D, 1, 0, 0, -1 }, -- Loretta's Mastery
+    { 0x40001126, 1, 0, 0, -1 }, -- Magic Glintblade
+    { 0x40001130, 1, 0, 0, -1 }, -- Glintstone Icecrag
+    { 0x4000113A, 1, 0, 0, -1 }, -- Zamor Ice Storm
+    { 0x40001144, 1, 0, 0, -1 }, -- Freezing Mist
+    { 0x4000114E, 1, 0, 0, -1 }, -- Carian Greatsword
+    { 0x4000114F, 1, 0, 0, -1 }, -- Adula's Moonblade
+    { 0x40001158, 1, 0, 0, -1 }, -- Carian Slicer
+    { 0x40001162, 1, 0, 0, -1 }, -- Carian Piercer
+    { 0x4000116C, 1, 0, 0, -1 }, -- Scholar's Armament
+    { 0x40001176, 1, 0, 0, -1 }, -- Scholar's Shield
+    { 0x40001180, 1, 0, 0, -1 }, -- Lucidity
+    { 0x4000118A, 1, 0, 0, -1 }, -- Frozen Armament
+    { 0x40001194, 1, 0, 0, -1 }, -- Shattering Crystal
+    { 0x4000119E, 1, 0, 0, -1 }, -- Crystal Release
+    { 0x400011A8, 1, 0, 0, -1 }, -- Crystal Torrent
+    { 0x400011F8, 1, 0, 0, -1 }, -- Ambush Shard
+    { 0x40001202, 1, 0, 0, -1 }, -- Night Shard
+    { 0x4000120C, 1, 0, 0, -1 }, -- Night Comet
+    { 0x40001216, 1, 0, 0, -1 }, -- Thops's Barrier
+    { 0x40001220, 1, 0, 0, -1 }, -- Carian Retaliation
+    { 0x4000122A, 1, 0, 0, -1 }, -- Eternal Darkness
+    { 0x40001234, 1, 0, 0, -1 }, -- Unseen Blade
+    { 0x4000123E, 1, 0, 0, -1 }, -- Unseen Form
+    { 0x4000125C, 1, 0, 0, -1 }, -- Meteorite
+    { 0x4000125D, 1, 0, 0, -1 }, -- Meteorite of Astel
+    { 0x40001266, 1, 0, 0, -1 }, -- Rock Sling
+    { 0x40001270, 1, 0, 0, -1 }, -- Gravity Well
+    { 0x40001271, 1, 0, 0, -1 }, -- Collapsing Stars
+    { 0x400012C0, 1, 0, 0, -1 }, -- Magma Shot
+    { 0x400012CA, 1, 0, 0, -1 }, -- Gelmir's Fury
+    { 0x400012D4, 1, 0, 0, -1 }, -- Roiling Magma
+    { 0x400012DE, 1, 0, 0, -1 }, -- Rykard's Rancor
+    { 0x40001324, 1, 0, 0, -1 }, -- Briars of Sin
+    { 0x4000132E, 1, 0, 0, -1 }, -- Briars of Punishment
+    { 0x40001388, 1, 0, 0, -1 }, -- Rancorcall
+    { 0x40001389, 1, 0, 0, -1 }, -- Ancient Death Rancor
+    { 0x40001392, 1, 0, 0, -1 }, -- Explosive Ghostflame
+    { 0x4000139C, 1, 0, 0, -1 }, -- Fia's Mist
+    { 0x400013A6, 1, 0, 0, -1 }, -- Tibia's Summons
+    { 0x400013B0, 1, 0, 0, -1 }, -- Death Lightning
+    { 0x400013EC, 1, 0, 0, -1 }, -- Oracle Bubbles
+    { 0x400013F6, 1, 0, 0, -1 }, -- Great Oracular Bubble
+    { 0x40001964, 1, 0, 0, -1 }, -- Night Maiden's Mist
+
+    -- Incantations
+    { 0x40001770, 1, 0, 0, -1 }, -- Catch Flame
+    { 0x40001771, 1, 0, 0, -1 }, -- O, Flame!
+    { 0x4000177A, 1, 0, 0, -1 }, -- Flame Sling
+    { 0x40001784, 1, 0, 0, -1 }, -- Flame, Fall Upon Them
+    { 0x4000178E, 1, 0, 0, -1 }, -- Whirl, O Flame!
+    { 0x40001798, 1, 0, 0, -1 }, -- Flame, Cleanse Me
+    { 0x400017A2, 1, 0, 0, -1 }, -- Flame, Grant Me Strength
+    { 0x400017AC, 1, 0, 0, -1 }, -- Flame, Protect Me
+    { 0x400017D4, 1, 0, 0, -1 }, -- Giantsflame Take Thee
+    { 0x400017DE, 1, 0, 0, -1 }, -- Flame of the Fell God
+    { 0x400017E8, 1, 0, 0, -1 }, -- Burn, O Flame!
+    { 0x40001842, 1, 0, 0, -1 }, -- Black Flame
+    { 0x4000184C, 1, 0, 0, -1 }, -- Surge, O Flame!
+    { 0x40001856, 1, 0, 0, -1 }, -- Scouring Black Flame
+    { 0x40001860, 1, 0, 0, -1 }, -- Black Flame Ritual
+    { 0x4000186A, 1, 0, 0, -1 }, -- Black Flame Blade
+    { 0x40001874, 1, 0, 0, -1 }, -- Black Flame's Protection
+    { 0x4000187E, 1, 0, 0, -1 }, -- Noble Presence
+    { 0x4000189C, 1, 0, 0, -1 }, -- Bloodflame Talons
+    { 0x400018A6, 1, 0, 0, -1 }, -- Bloodboon
+    { 0x400018B0, 1, 0, 0, -1 }, -- Bloodflame Blade
+    { 0x400018BA, 1, 0, 0, -1 }, -- Barrier of Gold
+    { 0x400018C4, 1, 0, 0, -1 }, -- Protection of the Erdtree
+    { 0x40001900, 1, 0, 0, -1 }, -- Rejection
+    { 0x4000190A, 1, 0, 0, -1 }, -- Wrath of Gold
+    { 0x40001914, 1, 0, 0, -1 }, -- Urgent Heal
+    { 0x40001915, 1, 0, 0, -1 }, -- Heal
+    { 0x40001916, 1, 0, 0, -1 }, -- Great Heal
+    { 0x40001917, 1, 0, 0, -1 }, -- Lord's Heal
+    { 0x40001918, 1, 0, 0, -1 }, -- Erdtree Heal
+    { 0x4000191E, 1, 0, 0, -1 }, -- Blessing's Boon
+    { 0x4000191F, 1, 0, 0, -1 }, -- Blessing of the Erdtree
+    { 0x40001928, 1, 0, 0, -1 }, -- Cure Poison
+    { 0x40001929, 1, 0, 0, -1 }, -- Lord's Aid
+    { 0x40001932, 1, 0, 0, -1 }, -- Flame Fortification
+    { 0x4000193C, 1, 0, 0, -1 }, -- Magic Fortification
+    { 0x40001946, 1, 0, 0, -1 }, -- Lightning Fortification
+    { 0x40001950, 1, 0, 0, -1 }, -- Divine Fortification
+    { 0x4000195A, 1, 0, 0, -1 }, -- Lord's Divine Fortification
+    { 0x4000196E, 1, 0, 0, -1 }, -- Assassin's Approach
+    { 0x40001978, 1, 0, 0, -1 }, -- Shadow Bait
+    { 0x40001982, 1, 0, 0, -1 }, -- Darkness
+    { 0x400019C8, 1, 0, 0, -1 }, -- Golden Vow
+    { 0x40001A2C, 1, 0, 0, -1 }, -- Discus of Light
+    { 0x40001A2D, 1, 0, 0, -1 }, -- Triple Rings of Light
+    { 0x40001A36, 1, 0, 0, -1 }, -- Radagon's Rings of Light
+    { 0x40001A40, 1, 0, 0, -1 }, -- Elden Stars
+    { 0x40001A4A, 1, 0, 0, -1 }, -- Law of Regression
+    { 0x40001A54, 1, 0, 0, -1 }, -- Immutable Shield
+    { 0x40001A5E, 1, 0, 0, -1 }, -- Litany of Proper Death
+    { 0x40001A68, 1, 0, 0, -1 }, -- Law of Causality
+    { 0x40001A72, 1, 0, 0, -1 }, -- Order's Blade
+    { 0x40001A7C, 1, 0, 0, -1 }, -- Order Healing
+    { 0x40001A90, 1, 0, 0, -1 }, -- Bestial Sling
+    { 0x40001A9A, 1, 0, 0, -1 }, -- Stone of Gurranq
+    { 0x40001AA4, 1, 0, 0, -1 }, -- Beast Claw
+    { 0x40001AAE, 1, 0, 0, -1 }, -- Gurranq's Beast Claw
+    { 0x40001AB8, 1, 0, 0, -1 }, -- Bestial Vitality
+    { 0x40001AC2, 1, 0, 0, -1 }, -- Bestial Constitution
+    { 0x40001AF4, 1, 0, 0, -1 }, -- Lightning Spear
+    { 0x40001AFE, 1, 0, 0, -1 }, -- Ancient Dragons' Lightning Strike
+    { 0x40001B08, 1, 0, 0, -1 }, -- Lightning Strike
+    { 0x40001B09, 1, 0, 0, -1 }, -- Frozen Lightning Spear
+    { 0x40001B12, 1, 0, 0, -1 }, -- Honed Bolt
+    { 0x40001B1C, 1, 0, 0, -1 }, -- Ancient Dragons' Lightning Spear
+    { 0x40001B1D, 1, 0, 0, -1 }, -- Fortissax's Lightning Spear
+    { 0x40001B26, 1, 0, 0, -1 }, -- Lansseax's Glaive
+    { 0x40001B30, 1, 0, 0, -1 }, -- Electrify Armament
+    { 0x40001B3A, 1, 0, 0, -1 }, -- Vyke's Dragonbolt
+    { 0x40001B3B, 1, 0, 0, -1 }, -- Dragonbolt Blessing
+    { 0x40001B58, 1, 0, 0, -1 }, -- Dragonfire
+    { 0x40001B59, 1, 0, 0, -1 }, -- Agheel's Flame
+    { 0x40001B62, 1, 0, 0, -1 }, -- Magma Breath
+    { 0x40001B63, 1, 0, 0, -1 }, -- Theodorix's Magma
+    { 0x40001B6C, 1, 0, 0, -1 }, -- Dragonice
+    { 0x40001B6D, 1, 0, 0, -1 }, -- Borealis's Mist
+    { 0x40001B76, 1, 0, 0, -1 }, -- Rotten Breath
+    { 0x40001B77, 1, 0, 0, -1 }, -- Ekzykes's Decay
+    { 0x40001B80, 1, 0, 0, -1 }, -- Glintstone Breath
+    { 0x40001B81, 1, 0, 0, -1 }, -- Smarag's Glintstone Breath
+    { 0x40001B8A, 1, 0, 0, -1 }, -- Placidusax's Ruin
+    { 0x40001B94, 1, 0, 0, -1 }, -- Dragonclaw
+    { 0x40001BA8, 1, 0, 0, -1 }, -- Dragonmaw
+    { 0x40001BB2, 1, 0, 0, -1 }, -- Greyoll's Roar
+    { 0x40001C20, 1, 0, 0, -1 }, -- Pest Threads
+    { 0x40001C2A, 1, 0, 0, -1 }, -- Swarm of Flies
+    { 0x40001C34, 1, 0, 0, -1 }, -- Poison Mist
+    { 0x40001C3E, 1, 0, 0, -1 }, -- Poison Armament
+    { 0x40001C48, 1, 0, 0, -1 }, -- Scarlet Aeonia
+    { 0x40001C84, 1, 0, 0, -1 }, -- Inescapable Frenzy
+    { 0x40001C8E, 1, 0, 0, -1 }, -- The Flame of Frenzy
+    { 0x40001C8F, 1, 0, 0, -1 }, -- Unendurable Frenzy
+    { 0x40001C98, 1, 0, 0, -1 }, -- Frenzied Burst
+    { 0x40001CA2, 1, 0, 0, -1 }, -- Howl of Shabriri
+    { 0x40001D4C, 1, 0, 0, -1 }, -- Aspects of the Crucible Tail
+    { 0x40001D56, 1, 0, 0, -1 }, -- Aspects of the Crucible Horns
+    { 0x40001D60, 1, 0, 0, -1 }, -- Aspects of the Crucible Breath
+    { 0x40001D6A, 1, 0, 0, -1 }, -- Black Blade
+    { 0x40001EDC, 1, 0, 0, -1 }, -- Fire's Deadly Sin
+    { 0x40001EDF, 1, 0, 0, -1 }, -- Golden Lightning Fortification
+
+    -- Crystal Tears
+    { 0x40002AF8, 1, 0, 0, -1 }, -- Crimsonspill Crystal Tear
+    { 0x40002AF9, 1, 0, 0, -1 }, -- Greenspill Crystal Tear
+    { 0x40002AFA, 1, 0, 0, -1 }, -- Crimson Crystal Tear
+    { 0x40002AFB, 1, 0, 0, -1 }, -- Crimson Crystal Tear
+    { 0x40002AFC, 1, 0, 0, -1 }, -- Cerulean Crystal Tear
+    { 0x40002AFD, 1, 0, 0, -1 }, -- Cerulean Crystal Tear
+    { 0x40002AFE, 1, 0, 0, -1 }, -- Speckled Hardtear
+    { 0x40002AFF, 1, 0, 0, -1 }, -- Crimson Bubbletear
+    { 0x40002B00, 1, 0, 0, -1 }, -- Opaline Bubbletear
+    { 0x40002B01, 1, 0, 0, -1 }, -- Crimsonburst Crystal Tear
+    { 0x40002B02, 1, 0, 0, -1 }, -- Greenburst Crystal Tear
+    { 0x40002B03, 1, 0, 0, -1 }, -- Opaline Hardtear
+    { 0x40002B04, 1, 0, 0, -1 }, -- Winged Crystal Tear
+    { 0x40002B05, 1, 0, 0, -1 }, -- Thorny Cracked Tear
+    { 0x40002B06, 1, 0, 0, -1 }, -- Spiked Cracked Tear
+    { 0x40002B07, 1, 0, 0, -1 }, -- Windy Crystal Tear
+    { 0x40002B08, 1, 0, 0, -1 }, -- Ruptured Crystal Tear
+    { 0x40002B09, 1, 0, 0, -1 }, -- Ruptured Crystal Tear
+    { 0x40002B0A, 1, 0, 0, -1 }, -- Leaden Hardtear
+    { 0x40002B0B, 1, 0, 0, -1 }, -- Twiggy Cracked Tear
+    { 0x40002B0C, 1, 0, 0, -1 }, -- Crimsonwhorl Bubbletear
+    { 0x40002B0D, 1, 0, 0, -1 }, -- Strength-knot Crystal Tear
+    { 0x40002B0E, 1, 0, 0, -1 }, -- Dexterity-knot Crystal Tear
+    { 0x40002B0F, 1, 0, 0, -1 }, -- Intelligence-knot Crystal Tear
+    { 0x40002B10, 1, 0, 0, -1 }, -- Faith-knot Crystal Tear
+    { 0x40002B11, 1, 0, 0, -1 }, -- Cerulean Hidden Tear
+    { 0x40002B12, 1, 0, 0, -1 }, -- Stonebarb Cracked Tear
+    { 0x40002B13, 1, 0, 0, -1 }, -- Purifying Crystal Tear
+    { 0x40002B14, 1, 0, 0, -1 }, -- Flame-Shrouding Cracked Tear
+    { 0x40002B15, 1, 0, 0, -1 }, -- Magic-Shrouding Cracked Tear
+    { 0x40002B16, 1, 0, 0, -1 }, -- Lightning-Shrouding Cracked Tear
+    { 0x40002B17, 1, 0, 0, -1 }, -- Holy-Shrouding Cracked Tear
+
+    -- DLC Crystal Tear
+    { 0x401EAF78, 1, 0, 0, -1 }, -- Viridian Hidden Tear
+    { 0x401EAF82, 1, 0, 0, -1 }, -- Crimsonburst Dried Tear
+    { 0x401EAF8C, 1, 0, 0, -1 }, -- Crimson-SapFping Cracked Tear
+    { 0x401EAF96, 1, 0, 0, -1 }, -- Cerulean-Sapping Cracked Tear
+    { 0x401EAFA0, 1, 0, 0, -1 }, -- Oil-Soaked Tear
+    { 0x401EAFAA, 1, 0, 0, -1 }, -- Bloodsucking Cracked Tear
+    { 0x401EAFB4, 1, 0, 0, -1 }, -- Glovewort Crystal Tear
+    { 0x401EAFBE, 1, 0, 0, -1 }, -- Deflecting Hardtear
+
+    -- Bell Bearings
+    { 0x400022CE, 1, 0, 0, -1 }, -- Pidia's Bell Bearing
+    { 0x400022CF, 1, 0, 0, -1 }, -- Seluvis's Bell Bearing
+    { 0x400022D0, 1, 0, 0, -1 }, -- Patches' Bell Bearing
+    { 0x400022D1, 1, 0, 0, -1 }, -- Sellen's Bell Bearing
+    { 0x400022D3, 1, 0, 0, -1 }, -- D's Bell Bearing
+    { 0x400022D4, 1, 0, 0, -1 }, -- Bernahl's Bell Bearing
+    { 0x400022D5, 1, 0, 0, -1 }, -- Miriel's Bell Bearing
+    { 0x400022D6, 1, 0, 0, -1 }, -- Gostoc's Bell Bearing
+    { 0x400022D7, 1, 0, 0, -1 }, -- Thops's Bell Bearing
+    { 0x400022D8, 1, 0, 0, -1 }, -- Kalé's Bell Bearing
+    { 0x400022D9, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [1]
+    { 0x400022DA, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [2]
+    { 0x400022DB, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [3]
+    { 0x400022DC, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [4]
+    { 0x400022DD, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [5]
+    { 0x400022DE, 1, 0, 0, -1 }, -- Isolated Merchant's Bell Bearing [1]
+    { 0x400022DF, 1, 0, 0, -1 }, -- Isolated Merchant's Bell Bearing [2]
+    { 0x400022E0, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [6]
+    { 0x400022E1, 1, 0, 0, -1 }, -- Hermit Merchant's Bell Bearing [1]
+    { 0x400022E2, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [7]
+    { 0x400022E3, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [8]
+    { 0x400022E4, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [9]
+    { 0x400022E5, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [10]
+    --{ 0x400022E6, 1, 0, 0, -1 }, -- Nomadic Merchant's Bell Bearing [11]
+    { 0x400022E7, 1, 0, 0, -1 }, -- Isolated Merchant's Bell Bearing [3]
+    { 0x400022E8, 1, 0, 0, -1 }, -- Hermit Merchant's Bell Bearing [2]
+    { 0x400022E9, 1, 0, 0, -1 }, -- Abandoned Merchant's Bell Bearing
+    { 0x400022EA, 1, 0, 0, -1 }, -- Hermit Merchant's Bell Bearing [3]
+    { 0x400022EB, 1, 0, 0, -1 }, -- Imprisoned Merchant's Bell Bearing
+    { 0x400022EC, 1, 0, 0, -1 }, -- Iji's Bell Bearing
+    { 0x400022ED, 1, 0, 0, -1 }, -- Rogier's Bell Bearing
+    { 0x400022EE, 1, 0, 0, -1 }, -- Blackguard's Bell Bearing
+    { 0x400022EF, 1, 0, 0, -1 }, -- Corhyn's Bell Bearing
+    { 0x400022F0, 1, 0, 0, -1 }, -- Gowry's Bell Bearing
+    { 0x400022F1, 1, 0, 0, -1 }, -- Bone Peddler's Bell Bearing
+    { 0x400022F2, 1, 0, 0, -1 }, -- Meat Peddler's Bell Bearing
+    { 0x400022F3, 1, 0, 0, -1 }, -- Medicine Peddler's Bell Bearing
+    { 0x400022F4, 1, 0, 0, -1 }, -- Gravity Stone Peddler's Bell Bearing
+    { 0x400022F7, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [1]
+    { 0x400022F8, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [2]
+    { 0x400022F9, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [3]
+    { 0x400022FA, 1, 0, 0, -1 }, -- Smithing-Stone Miner's Bell Bearing [4]
+    { 0x400022FB, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [1]
+    { 0x400022FC, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [2]
+    { 0x400022FD, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [3]
+    { 0x400022FE, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [4]
+    { 0x400022FF, 1, 0, 0, -1 }, -- Somberstone Miner's Bell Bearing [5]
+    { 0x40002300, 1, 0, 0, -1 }, -- Glovewort Picker's Bell Bearing [1]
+    { 0x40002301, 1, 0, 0, -1 }, -- Glovewort Picker's Bell Bearing [2]
+    { 0x40002302, 1, 0, 0, -1 }, -- Glovewort Picker's Bell Bearing [3]
+    { 0x40002303, 1, 0, 0, -1 }, -- Ghost-Glovewort Picker's Bell Bearing [1]
+    { 0x40002304, 1, 0, 0, -1 }, -- Ghost-Glovewort Picker's Bell Bearing [2]
+    { 0x40002305, 1, 0, 0, -1 }, -- Ghost-Glovewort Picker's Bell Bearing [3]
+
+    -- DLC Bell Bearings
+    { 0x401EA744, 1, 0, 0, -1 }, -- Moore's Bell Bearing
+    { 0x401EA745, 1, 0, 0, -1 }, -- Ymir's Bell Bearing
+    { 0x401EA746, 1, 0, 0, -1 }, -- Herbalist's Bell Bearing
+    { 0x401EA747, 1, 0, 0, -1 }, -- Mushroom-Seller's Bell Bearing [1]
+    { 0x401EA748, 1, 0, 0, -1 }, -- Mushroom-Seller's Bell Bearing [2]
+    { 0x401EA749, 1, 0, 0, -1 }, -- Greasemonger's Bell Bearing
+    { 0x401EA74A, 1, 0, 0, -1 }, -- Moldmonger's Bell Bearing
+    { 0x401EA74B, 1, 0, 0, -1 }, -- Igon's Bell Bearing
+    { 0x401EA74C, 1, 0, 0, -1 }, -- Spellmachinist's Bell Bearing
+    { 0x401EA74D, 1, 0, 0, -1 }, -- String-Seller's Bell Bearing
+
+
+    -- DLC Armor
+    { 0x102DC6C0, 1, 0, 0, -1 }, -- Dane's Hat
+    { 0x102DC724, 1, 0, 0, -1 }, -- Dryleaf Robe
+    { 0x102DC788, 1, 0, 0, -1 }, -- Dryleaf Arm Wraps
+    { 0x102DC7EC, 1, 0, 0, -1 }, -- Dryleaf Cuissardes
+    { 0x102DCB0C, 1, 0, 0, -1 }, -- Dryleaf Robe (Altered)
+    { 0x102DEDD0, 1, 0, 0, -1 }, -- Gaius's Helm
+    { 0x102DEE34, 1, 0, 0, -1 }, -- Gaius's Armor
+    { 0x102DEE98, 1, 0, 0, -1 }, -- Gaius's Gauntlets
+    { 0x102DEEFC, 1, 0, 0, -1 }, -- Gaius's Greaves
+    { 0x104C4B40, 1, 0, 0, -1 }, -- Oathseeker Knight Helm
+    { 0x104C4BA4, 1, 0, 0, -1 }, -- Leda's Armor
+    { 0x104C4C08, 1, 0, 0, -1 }, -- Oathseeker Knight Gauntlets
+    { 0x104C4C6C, 1, 0, 0, -1 }, -- Oathseeker Knight Greaves
+    { 0x104C5374, 1, 0, 0, -1 }, -- Oathseeker Knight Armor
+    { 0x104C7250, 1, 0, 0, -1 }, -- Verdigris Helm
+    { 0x104C72B4, 1, 0, 0, -1 }, -- Verdigris Armor
+    { 0x104C7318, 1, 0, 0, -1 }, -- Verdigris Gauntlets
+    { 0x104C737C, 1, 0, 0, -1 }, -- Verdigris Greaves
+    { 0x104C9960, 1, 0, 0, -1 }, -- Pelt of Ralva
+    { 0x104C99C4, 1, 0, 0, -1 }, -- Iron Rivet Armor
+    { 0x104C9A28, 1, 0, 0, -1 }, -- Iron Rivet Gauntlets
+    { 0x104C9A8C, 1, 0, 0, -1 }, -- Iron Rivet Greaves
+    { 0x104C9D48, 1, 0, 0, -1 }, -- Fang Helm
+    { 0x104CC070, 1, 0, 0, -1 }, -- Thiollier's Mask
+    { 0x104CC0D4, 1, 0, 0, -1 }, -- Thiollier's Garb
+    { 0x104CC138, 1, 0, 0, -1 }, -- Thiollier's Gloves
+    { 0x104CC19C, 1, 0, 0, -1 }, -- Thiollier's Trousers
+    { 0x104CC4BC, 1, 0, 0, -1 }, -- Thiollier's Garb (Altered)
+    { 0x104D35A0, 1, 0, 0, -1 }, -- High Priest Hat
+    { 0x104D3604, 1, 0, 0, -1 }, -- High Priest Robe
+    { 0x104D3668, 1, 0, 0, -1 }, -- High Priest Gloves
+    { 0x104D36CC, 1, 0, 0, -1 }, -- High Priest Undergarments
+    { 0x104D3DD4, 1, 0, 0, -1 }, -- Finger Robe
+    { 0x104D5CB0, 1, 0, 0, -1 }, -- Caterpillar Mask
+    { 0x104D5D14, 1, 0, 0, -1 }, -- Braided Cord Robe
+    { 0x104D5D78, 1, 0, 0, -1 }, -- Braided Arm Wraps
+    { 0x104D5DDC, 1, 0, 0, -1 }, -- Soiled Loincloth
+    { 0x104D83C0, 1, 0, 0, -1 }, -- Dancer's Hood
+    { 0x104D8424, 1, 0, 0, -1 }, -- Dancer's Dress
+    { 0x104D8488, 1, 0, 0, -1 }, -- Dancer's Bracer
+    { 0x104D84EC, 1, 0, 0, -1 }, -- Dancer's Trousers
+    { 0x104D880C, 1, 0, 0, -1 }, -- Dancer's Dress (Altered)
+    { 0x104DAAD0, 1, 0, 0, -1 }, -- Helm of Night
+    { 0x104DAB34, 1, 0, 0, -1 }, -- Armor of Night
+    { 0x104DAB98, 1, 0, 0, -1 }, -- Gauntlets of Night
+    { 0x104DABFC, 1, 0, 0, -1 }, -- Greaves of Night
+    { 0x104DD1E0, 1, 0, 0, -1 }, -- Igon's Helm
+    { 0x104DD244, 1, 0, 0, -1 }, -- Igon's Armor
+    { 0x104DD2A8, 1, 0, 0, -1 }, -- Igon's Gauntlets
+    { 0x104DD30C, 1, 0, 0, -1 }, -- Igon's Loincloth
+    { 0x104DD5C8, 1, 0, 0, -1 }, -- Igon's Helm (Altered)
+    { 0x104DD62C, 1, 0, 0, -1 }, -- Igon's Armor (Altered)
+    { 0x104DF8F0, 1, 0, 0, -1 }, -- Wise Man's Mask
+    { 0x104DF954, 1, 0, 0, -1 }, -- Ansbach's Attire
+    { 0x104DF9B8, 1, 0, 0, -1 }, -- Ansbach's Manchettes
+    { 0x104DFA1C, 1, 0, 0, -1 }, -- Ansbach's Boots
+    { 0x104DFD3C, 1, 0, 0, -1 }, -- Ansbach's Attire (Altered)
+    { 0x104E2000, 1, 0, 0, -1 }, -- Freyja's Helm
+    { 0x104E2064, 1, 0, 0, -1 }, -- Freyja's Armor
+    { 0x104E20C8, 1, 0, 0, -1 }, -- Freyja's Gauntlets
+    { 0x104E212C, 1, 0, 0, -1 }, -- Freyja's Greaves
+    { 0x104E244C, 1, 0, 0, -1 }, -- Freyja's Armor (Altered)
+    { 0x104E4710, 1, 0, 0, -1 }, -- Helm of Solitude
+    { 0x104E4774, 1, 0, 0, -1 }, -- Armor of Solitude
+    { 0x104E47D8, 1, 0, 0, -1 }, -- Gauntlets of Solitude
+    { 0x104E483C, 1, 0, 0, -1 }, -- Greaves of Solitude
+    { 0x104E4B5C, 1, 0, 0, -1 }, -- Armor of Solitude (Altered)
+    { 0x104E6E20, 1, 0, 0, -1 }, -- Messmer Soldier Helm
+    { 0x104E6E84, 1, 0, 0, -1 }, -- Messmer Soldier Armor
+    { 0x104E6EE8, 1, 0, 0, -1 }, -- Messmer Soldier Gauntlets
+    { 0x104E6F4C, 1, 0, 0, -1 }, -- Messmer Soldier Greaves
+    { 0x104E726C, 1, 0, 0, -1 }, -- Messmer Soldier Armor (Altered)
+    { 0x104E9530, 1, 0, 0, -1 }, -- Black Knight Helm
+    { 0x104E9594, 1, 0, 0, -1 }, -- Black Knight Armor
+    { 0x104E95F8, 1, 0, 0, -1 }, -- Black Knight Gauntlets
+    { 0x104E965C, 1, 0, 0, -1 }, -- Black Knight Greaves
+    { 0x104EBC40, 1, 0, 0, -1 }, -- Rakshasa Helm
+    { 0x104EBCA4, 1, 0, 0, -1 }, -- Rakshasa Armor
+    { 0x104EBD08, 1, 0, 0, -1 }, -- Rakshasa Gauntlets
+    { 0x104EBD6C, 1, 0, 0, -1 }, -- Rakshasa Greaves
+    { 0x104F0A60, 1, 0, 0, -1 }, -- Fire Knight Helm
+    { 0x104F0AC4, 1, 0, 0, -1 }, -- Fire Knight Armor
+    { 0x104F0B28, 1, 0, 0, -1 }, -- Fire Knight Gauntlets
+    { 0x104F0B8C, 1, 0, 0, -1 }, -- Fire Knight Greaves
+    { 0x104F0EAC, 1, 0, 0, -1 }, -- Fire Knight Armor (Altered)
+    { 0x104F1230, 1, 0, 0, -1 }, -- Death Mask Helm
+    { 0x104F1618, 1, 0, 0, -1 }, -- Winged Serpent Helm
+    { 0x104F1A00, 1, 0, 0, -1 }, -- Salza's Hood
+    { 0x104F3170, 1, 0, 0, -1 }, -- Leather Headband
+    { 0x104F31D4, 1, 0, 0, -1 }, -- Gloried Attire
+    { 0x104F3238, 1, 0, 0, -1 }, -- Leather Arm Wraps
+    { 0x104F329C, 1, 0, 0, -1 }, -- Leather Leg Wraps
+    { 0x104F3558, 1, 0, 0, -1 }, -- Leather Crown
+    { 0x104F35BC, 1, 0, 0, -1 }, -- Highland Attire
+    { 0x104F5880, 1, 0, 0, -1 }, -- Death Knight Helm
+    { 0x104F58E4, 1, 0, 0, -1 }, -- Death Knight Armor
+    { 0x104F5948, 1, 0, 0, -1 }, -- Death Knight Gauntlets
+    { 0x104F59AC, 1, 0, 0, -1 }, -- Death Knight Greaves
+    { 0x104F7F90, 1, 0, 0, -1 }, -- Curseblade Mask
+    { 0x104F7FF4, 1, 0, 0, -1 }, -- Ascetic's Loincloth
+    { 0x104F8058, 1, 0, 0, -1 }, -- Ascetic's Wrist Guards
+    { 0x104F80BC, 1, 0, 0, -1 }, -- Ascetic's Ankle Guards
+    { 0x104FA6A0, 1, 0, 0, -1 }, -- Messmer's Helm
+    { 0x104FA704, 1, 0, 0, -1 }, -- Messmer's Armor
+    { 0x104FA768, 1, 0, 0, -1 }, -- Messmer's Gauntlets
+    { 0x104FA7CC, 1, 0, 0, -1 }, -- Messmer's Greaves
+    { 0x104FAA88, 1, 0, 0, -1 }, -- Messmer's Helm (Altered)
+    { 0x104FCDB0, 1, 0, 0, -1 }, -- Gravebird Helm
+    { 0x104FCE14, 1, 0, 0, -1 }, -- Gravebird's Blackquill Armor
+    { 0x104FCE78, 1, 0, 0, -1 }, -- Gravebird Bracelets
+    { 0x104FCEDC, 1, 0, 0, -1 }, -- Gravebird Anklets
+    { 0x104FD1FC, 1, 0, 0, -1 }, -- Gravebird Armor
+    { 0x104FF4C0, 1, 0, 0, -1 }, -- Common Soldier Helm
+    { 0x104FF524, 1, 0, 0, -1 }, -- Common Soldier Cloth Armor
+    { 0x104FF588, 1, 0, 0, -1 }, -- Common Soldier Gauntlets
+    { 0x104FF5EC, 1, 0, 0, -1 }, -- Common Soldier Greaves
+    { 0x10501BD0, 1, 0, 0, -1 }, -- Horned Warrior Helm
+    { 0x10501C34, 1, 0, 0, -1 }, -- Horned Warrior Armor
+    { 0x10501C98, 1, 0, 0, -1 }, -- Horned Warrior Gauntlets
+    { 0x10501CFC, 1, 0, 0, -1 }, -- Horned Warrior Greaves
+    { 0x105023A0, 1, 0, 0, -1 }, -- Divine Beast Helm
+    { 0x10502404, 1, 0, 0, -1 }, -- Divine Beast Warrior Armor
+    { 0x10502788, 1, 0, 0, -1 }, -- Divine Bird Helm
+    { 0x105027EC, 1, 0, 0, -1 }, -- Divine Bird Warrior Armor
+    { 0x10502850, 1, 0, 0, -1 }, -- Divine Bird Warrior Gauntlets
+    { 0x105028B4, 1, 0, 0, -1 }, -- Divine Bird Warrior Greaves
+    { 0x105042E0, 1, 0, 0, -1 }, -- Rellana's Helm
+    { 0x10504344, 1, 0, 0, -1 }, -- Rellana's Armor
+    { 0x105043A8, 1, 0, 0, -1 }, -- Rellana's Gloves
+    { 0x1050440C, 1, 0, 0, -1 }, -- Rellana's Greaves
+    { 0x105069F0, 1, 0, 0, -1 }, -- Young Lion's Helm
+    { 0x10506A54, 1, 0, 0, -1 }, -- Young Lion's Armor
+    { 0x10506AB8, 1, 0, 0, -1 }, -- Young Lion's Gauntlets
+    { 0x10506B1C, 1, 0, 0, -1 }, -- Young Lion's Greaves
+    { 0x10506E3C, 1, 0, 0, -1 }, -- Young Lion's Armor (Altered)
+    { 0x105071C0, 1, 0, 0, -1 }, -- Circlet of Light
+    { 0x10509100, 1, 0, 0, -1 }, -- Shadow Militiaman Helm
+    { 0x10509164, 1, 0, 0, -1 }, -- Shadow Militiaman Armor
+    { 0x105091C8, 1, 0, 0, -1 }, -- Shadow Militiaman Gauntlets
+    { 0x1050922C, 1, 0, 0, -1 }, -- Shadow Militiaman Greaves
+    { 0x1050B810, 1, 0, 0, -1 }, -- Divine Beast Head
+    { 0x1050DF20, 1, 0, 0, -1 }, -- St. Trina's Blossom
+    { 0x10510630, 1, 0, 0, -1 }, -- Crucible Hammer-Helm
+    { 0x10512D40, 1, 0, 0, -1 }, -- Greatjar
+    { 0x10515450, 1, 0, 0, -1 }, -- Imp Head (Lion)
+
+    --{ 0x200008AC, 1, 0, 0, -1 }, -- Perfumer's Talisman
+    { 0x20001B58, 1, 0, 0, -1 }, -- Crimson Amber Medallion +3
+    { 0x20001B62, 1, 0, 0, -1 }, -- Cerulean Amber Medallion +3
+    { 0x20001B6C, 1, 0, 0, -1 }, -- Viridian Amber Medallion +3
+    { 0x20001B76, 1, 0, 0, -1 }, -- Two-Headed Turtle Talisman
+    { 0x20001B80, 1, 0, 0, -1 }, -- Stalwart Horn Charm +2
+    { 0x20001B8A, 1, 0, 0, -1 }, -- Immunizing Horn Charm +2
+    { 0x20001B94, 1, 0, 0, -1 }, -- Clarifying Horn Charm +2
+    { 0x20001BA8, 1, 0, 0, -1 }, -- Mottled Necklace +2
+    { 0x20001BB2, 1, 0, 0, -1 }, -- Spelldrake Talisman +3
+    { 0x20001BBC, 1, 0, 0, -1 }, -- Flamedrake Talisman +3
+    { 0x20001BC6, 1, 0, 0, -1 }, -- Boltdrake Talisman +3
+    { 0x20001BD0, 1, 0, 0, -1 }, -- Golden Braid
+    { 0x20001BDA, 1, 0, 0, -1 }, -- Pearldrake Talisman +3
+    { 0x20001BE4, 1, 0, 0, -1 }, -- Crimson Seed Talisman +1
+    { 0x20001BEE, 1, 0, 0, -1 }, -- Cerulean Seed Talisman +1
+    { 0x20001F40, 1, 0, 0, -1 }, -- Blessed Blue Dew Talisman
+    { 0x20001F4A, 1, 0, 0, -1 }, -- Fine Crucible Feather Talisman
+    { 0x20001F54, 1, 0, 0, -1 }, -- Outer God Heirloom
+    { 0x20001F5E, 1, 0, 0, -1 }, -- Shattered Stone Talisman
+    { 0x20001F68, 1, 0, 0, -1 }, -- Two-Handed Sword Talisman
+    { 0x20001F72, 1, 0, 0, -1 }, -- Crusade Insignia
+    { 0x20001F7C, 1, 0, 0, -1 }, -- Aged One's Exultation
+    { 0x20001F86, 1, 0, 0, -1 }, -- Arrow's Soaring Sting Talisman
+    { 0x20001F9A, 1, 0, 0, -1 }, -- Pearl Shield Talisman
+    { 0x20001FA4, 1, 0, 0, -1 }, -- Dried Bouquet
+    { 0x20001FAE, 1, 0, 0, -1 }, -- Smithing Talisman
+    { 0x20001FB8, 1, 0, 0, -1 }, -- Ailment Talisman
+    { 0x20001FC2, 1, 0, 0, -1 }, -- Retaliatory Crossed-Tree
+    { 0x20001FCC, 1, 0, 0, -1 }, -- Lacerating Crossed-Tree
+    { 0x20001FD6, 1, 0, 0, -1 }, -- Sharpshot Talisman
+    { 0x20001FE0, 1, 0, 0, -1 }, -- St. Trina's Smile
+    { 0x20001FEA, 1, 0, 0, -1 }, -- Talisman of the Dread
+    { 0x20001FF4, 1, 0, 0, -1 }, -- Enraged Divine Beast
+    { 0x20001FFE, 1, 0, 0, -1 }, -- Beloved Stardust
+    { 0x20002008, 1, 0, 0, -1 }, -- Talisman of Lord's Bestowal
+    { 0x20002012, 1, 0, 0, -1 }, -- Verdigris Discus
+    { 0x2000201C, 1, 0, 0, -1 }, -- Rellana's Cameo
+    { 0x20002026, 1, 0, 0, -1 }, -- Blade of Mercy
+    { 0x20002030, 1, 0, 0, -1 }, -- Talisman of All Crucibles
+
+    { 0x80030D40, 3, 0, 0, -1 }, -- Ash of War: Dryleaf Whirlwind
+    { 0x80030DA4, 3, 0, 0, -1 }, -- Ash of War: Aspects of the Crucible: Wings
+    { 0x80061A80, 3, 0, 0, -1 }, -- Ash of War: Spinning Gravity Thrust
+    { 0x80061E68, 3, 0, 0, -1 }, -- Ash of War: Palm Blast
+    { 0x80062250, 3, 0, 0, -1 }, -- Ash of War: Piercing Throw
+    { 0x80062638, 3, 0, 0, -1 }, -- Ash of War: Scattershot Throw
+    { 0x80062A20, 3, 0, 0, -1 }, -- Ash of War: Wall of Sparks
+    { 0x80062E08, 3, 0, 0, -1 }, -- Ash of War: Rolling Sparks
+    { 0x800631F0, 3, 0, 0, -1 }, -- Ash of War: Raging Beast
+    { 0x800635D8, 3, 0, 0, -1 }, -- Ash of War: Savage Claws
+    { 0x80063DA8, 3, 0, 0, -1 }, -- Ash of War: Blind Spot
+    { 0x80064190, 3, 0, 0, -1 }, -- Ash of War: Swift Slash
+    { 0x80064578, 3, 0, 0, -1 }, -- Ash of War: Overhead Stance
+    { 0x80064960, 3, 0, 0, -1 }, -- Ash of War: Wing Stance
+    { 0x80064D48, 3, 0, 0, -1 }, -- Ash of War: Blinkbolt
+    { 0x80065130, 3, 0, 0, -1 }, -- Ash of War: Flame Skewer
+    { 0x80065518, 3, 0, 0, -1 }, -- Ash of War: Savage Lion's Claw
+    { 0x80065900, 3, 0, 0, -1 }, -- Ash of War: Divine Beast Frost Stomp
+    { 0x80065CE8, 3, 0, 0, -1 }, -- Ash of War: Flame Spear
+    { 0x800660D0, 3, 0, 0, -1 }, -- Ash of War: Carian Sovereignty
+    { 0x800664B8, 3, 0, 0, -1 }, -- Ash of War: Shriek of Sorrow
+    { 0x80067070, 3, 0, 0, -1 }, -- Ash of War: Ghostflame Call
+    { 0x8007B4A8, 3, 0, 0, -1 }, -- Ash of War: The Poison Flower Blooms Twice
+    { 0x80085CA0, 3, 0, 0, -1 }, -- Ash of War: Igon's Drake Hunt
+    { 0x800C3500, 3, 0, 0, -1 }, -- Ash of War: Shield Strike
+
+    { 0x401E87A0, 630, 0, 0, -1 }, -- Spirit Raisin
+    { 0x401E8804, 601, 0, 0, -1 }, -- Blessing of Marika
+    { 0x401E880E, 610, 0, 0, -1 }, -- Lulling Branch
+    { 0x401E88CC, 1009, 0, 0, -1 }, -- Dragon Communion Flesh
+    { 0x401E88D1, 1009, 0, 0, -1 }, -- Dragonscale Flesh
+    { 0x401E88D6, 1009, 0, 0, -1 }, -- Fingerprint Nostrum
+    { 0x401E88E0, 1004, 0, 0, -1 }, -- Spellproof Pickled Liver
+    { 0x401E88EA, 1004, 0, 0, -1 }, -- Fireproof Pickled Liver
+    { 0x401E88F4, 1004, 0, 0, -1 }, -- Lightningproof Pickled Liver
+    { 0x401E88FE, 1004, 0, 0, -1 }, -- Holyproof Pickled Liver
+    { 0x401E8908, 1004, 0, 0, -1 }, -- Opaline Pickled Liver
+    { 0x401E8912, 1009, 0, 0, -1 }, -- Well-Pickled Turtle Neck
+    { 0x401E8930, 2, 0, 0, -1 }, -- Scorpion Stew
+    { 0x401E8931, 2, 0, 0, -1 }, -- Gourmet Scorpion Stew
+    { 0x401E8932, 2, 0, 0, -1 }, -- Scorpion Stew
+    { 0x401E8933, 2, 0, 0, -1 }, -- Gourmet Scorpion Stew
+    { 0x401E893A, 610, 0, 0, -1 }, -- Sacred Bloody Flesh
+    { 0x401E8944, 1009, 0, 0, -1 }, -- Silver Horn Tender
+    { 0x401E894E, 1009, 0, 0, -1 }, -- Golden Horn Tender
+    { 0x401E8B24, 640, 0, 0, -1 }, -- Innard Meat
+    { 0x401E8B2E, 605, 0, 0, -1 }, -- Dragon Communion Harpoon
+    { 0x401E8C50, 699, 0, 0, -1 }, -- Polter Stone
+    { 0x401E8CC8, 699, 0, 0, -1 }, -- Iris of Grace
+    { 0x401E8CD2, 699, 0, 0, -1 }, -- Iris of Occultation
+    { 0x401E8CDC, 699, 0, 0, -1 }, -- Thiollier's Concoction
+    { 0x401E9039, 610, 0, 0, -1 }, -- Spritestone
+    { 0x401E90CE, 610, 0, 0, -1 }, -- Call of Tibia
+    { 0x401E90D8, 610, 0, 0, -1 }, -- Surging Frenzied Flame
+    { 0x401E90E2, 610, 0, 0, -1 }, -- Golden Vow
+    { 0x401E90EC, 610, 0, 0, -1 }, -- Fire Coil
+    { 0x401E90F6, 610, 0, 0, -1 }, -- Fire Spritestone
+    { 0x401E9100, 610, 0, 0, -1 }, -- Glinting Nail
+    { 0x401E916E, 610, 0, 0, -1 }, -- Sunwarmth Stone
+    { 0x401E9196, 610, 0, 0, -1 }, -- Charming Branch
+
+    { 0x401E9038, 1, 0, 0, -1 }, -- Bondstone
+    { 0x401E90BA, 1, 0, 0, -1 }, -- Horned Bairn
+    { 0x401E90C4, 1, 0, 0, -1 }, -- Perfumed Oil of Ranah
+
+    { 0x401E85AC, 610, 0, 0, -1 }, -- Hefty Fire Pot
+    { 0x401E85B6, 610, 0, 0, -1 }, -- Hefty Rock Pot
+    { 0x401E85C0, 610, 0, 0, -1 }, -- Hefty Lightning Pot
+    { 0x401E85CA, 610, 0, 0, -1 }, -- Hefty Fetid Pot
+    { 0x401E85D4, 610, 0, 0, -1 }, -- Hefty Fly Pot
+    { 0x401E85E8, 610, 0, 0, -1 }, -- Hefty Freezing Pot
+    { 0x401E85F2, 610, 0, 0, -1 }, -- Hefty Poison Pot
+    { 0x401E85FC, 610, 0, 0, -1 }, -- Hefty Oil Pot
+    { 0x401E86D8, 610, 0, 0, -1 }, -- Hefty Volcano Pot
+    { 0x401E86EC, 610, 0, 0, -1 }, -- Hefty Frenzied Flame Pot
+    { 0x401E870A, 610, 0, 0, -1 }, -- Hefty Rancor Pot
+    { 0x401E8714, 610, 0, 0, -1 }, -- Hefty Magic Pot
+    { 0x401E871E, 610, 0, 0, -1 }, -- Hefty Rot Pot
+    { 0x401E8728, 610, 0, 0, -1 }, -- Hefty Furnace Pot
+    { 0x401E8732, 610, 0, 0, -1 }, -- Hefty Red Lightning Pot
+    { 0x401E873C, 610, 0, 0, -1 }, -- Red Lightning Pot
+    { 0x401E8746, 610, 0, 0, -1 }, -- Frenzied Flame Pot
+    { 0x401E8764, 610, 0, 0, -1 }, -- Eternal Sleep Pot
+    { 0x401E8778, 610, 0, 0, -1 }, -- Roped Frenzied Flame Pot
+
+    { 0x401E89F8, 610, 0, 0, -1 }, -- Messmerfire Grease
+    { 0x401E8A02, 610, 0, 0, -1 }, -- Dragonbolt Grease
+    { 0x401E8A0C, 610, 0, 0, -1 }, -- Royal Magic Grease
+    { 0x401E8A16, 610, 0, 0, -1 }, -- Golden Grease
+    { 0x401E8A2A, 610, 0, 0, -1 }, -- Eternal Sleep Grease
+    { 0x401E8A48, 610, 0, 0, -1 }, -- Dragon Communion Grease
+    { 0x401E8A5C, 610, 0, 0, -1 }, -- Drawstring Messmerfire Grease
+    { 0x401E8A66, 610, 0, 0, -1 }, -- Drawstring Dragonbolt Grease
+    { 0x401E8A70, 610, 0, 0, -1 }, -- Drawstring Royal Magic Grease
+    { 0x401E8A7A, 610, 0, 0, -1 }, -- Drawstring Golden Grease
+    { 0x401E8A8E, 610, 0, 0, -1 }, -- Drawstring Eternal Sleep Grease
+    { 0x401E8AC0, 610, 0, 0, -1 }, -- Festive Grease
+
+    { 0x402191C0, 1, 0, 0, -1 }, -- Curseblade Meera
+    { 0x402195A8, 1, 0, 0, -1 }, -- Bloodfiend Hexer's Ashes
+    { 0x40219990, 1, 0, 0, -1 }, -- Gravebird Ashes
+    { 0x40219D78, 1, 0, 0, -1 }, -- Fire Knight Hilde
+    { 0x4021A160, 1, 0, 0, -1 }, -- Spider Scorpion Ashes
+    { 0x4021A548, 1, 0, 0, -1 }, -- Inquisitor Ashes
+    { 0x4021A930, 1, 0, 0, -1 }, -- Demi-Human Swordsman Yosh
+    { 0x4021AD18, 1, 0, 0, -1 }, -- Messmer Soldier Ashes
+    { 0x4021B100, 1, 0, 0, -1 }, -- Black Knight Commander Andreas
+    { 0x4021B4E8, 1, 0, 0, -1 }, -- Black Knight Captain Huw
+    { 0x4021B8D0, 1, 0, 0, -1 }, -- Bigmouth Imp Ashes
+    { 0x4021BCB8, 1, 0, 0, -1 }, -- Man-Fly Ashes
+    { 0x4021C0A0, 1, 0, 0, -1 }, -- Taylew the Golem Smith
+    { 0x4021C488, 1, 0, 0, -1 }, -- Divine Bird Warrior Ornis
+    { 0x4021C870, 1, 0, 0, -1 }, -- Horned Warrior Ashes
+    { 0x4021CC58, 1, 0, 0, -1 }, -- Ancient Dragon Florissax
+    { 0x4021D428, 1, 0, 0, -1 }, -- Fingercreeper Ashes
+    { 0x4021D810, 1, 0, 0, -1 }, -- Fire Knight Queelign
+    { 0x4021DBF8, 1, 0, 0, -1 }, -- Swordhand of Night Jolán
+    { 0x4021DFE0, 1, 0, 0, -1 }, -- Jolán and Anna
+
+    { 0x401E954C, 1, 0, 0, -1 }, -- Miriam's Vanishing
+    { 0x401E9556, 1, 0, 0, -1 }, -- Glintblade Trio
+    { 0x401E9560, 1, 0, 0, -1 }, -- Rellana's Twin Moons
+
+    { 0x401E9614, 1, 0, 0, -1 }, -- Glintstone Nail
+    { 0x401E961E, 1, 0, 0, -1 }, -- Glintstone Nails
+    { 0x401E96DC, 1, 0, 0, -1 }, -- Blades of Stone
+    { 0x401E96E6, 1, 0, 0, -1 }, -- Gravitational Missile
+    { 0x401E97A4, 1, 0, 0, -1 }, -- Mantle of Thorns
+    { 0x401E97AE, 1, 0, 0, -1 }, -- Impenetrable Thorns
+    { 0x401EA172, 1, 0, 0, -1 }, -- Fleeting Microcosm
+    { 0x401EA17C, 1, 0, 0, -1 }, -- Cherishing Fingers
+
+    { 0x401E9808, 1, 0, 0, -1 }, -- Rings of Spectral Light
+    { 0x401E9CB8, 1, 0, 0, -1 }, -- Vortex of Putrescence
+    { 0x401E9CC2, 1, 0, 0, -1 }, -- Mass of Putrescence
+
+    { 0x401E9D80, 1, 0, 0, -1 }, -- Heal from Afar
+    { 0x401E9E7A, 1, 0, 0, -1 }, -- Aspects of the Crucible: Thorns
+    { 0x401E9E84, 1, 0, 0, -1 }, -- Aspects of the Crucible: Bloom
+    { 0x401E9E8E, 1, 0, 0, -1 }, -- Minor Erdtree
+    { 0x401E9E98, 1, 0, 0, -1 }, -- Land of Shadow
+    { 0x401E9EA2, 1, 0, 0, -1 }, -- Wrath from Afar
+    { 0x401E9EB6, 1, 0, 0, -1 }, -- Multilayered Ring of Light
+
+    { 0x401E9EAC, 1, 0, 0, -1 }, -- Light of Miquella
+
+    { 0x401E9F74, 1, 0, 0, -1 }, -- Knight's Lightning Spear
+    { 0x401E9F7E, 1, 0, 0, -1 }, -- Dragonbolt of Florissax
+    { 0x401E9F88, 1, 0, 0, -1 }, -- Electrocharge
+
+    { 0x401EA230, 1, 0, 0, -1 }, -- Watchful Spirit
+    { 0x401EA294, 1, 0, 0, -1 }, -- Golden Arcs
+    { 0x401EA29E, 1, 0, 0, -1 }, -- Giant Golden Arc
+    { 0x401EA2A8, 1, 0, 0, -1 }, -- Spira
+    { 0x401EA2B2, 1, 0, 0, -1 }, -- Divine Beast Tornado
+    { 0x401EA2BC, 1, 0, 0, -1 }, -- Divine Bird Feathers
+
+    { 0x401EA2F8, 1, 0, 0, -1 }, -- Fire Serpent
+    { 0x401EA302, 1, 0, 0, -1 }, -- Rain of Fire
+    { 0x401EA30C, 1, 0, 0, -1 }, -- Messmer's Orb
+
+    { 0x401E9F10, 1, 0, 0, -1 }, -- Roar of Rugalea
+
+    { 0x401E9D1C, 1, 0, 0, -1 }, -- Furious Blade of Ansbach
+    { 0x401EA0A0, 1, 0, 0, -1 }, -- Rotten Butterflies
+    { 0x401EA0AA, 1, 0, 0, -1 }, -- Pest-Thread Spears
+
+    { 0x401EA104, 1, 0, 0, -1 }, -- Midra's Flame of Frenzy
+
+    { 0x401E9FD8, 1, 0, 0, -1 }, -- Bayle's Tyranny
+    { 0x401E9FE2, 1, 0, 0, -1 }, -- Bayle's Flame Lightning
+    { 0x401E9FEC, 1, 0, 0, -1 }, -- Ghostflame Breath
+-- Daggers
+  { 0x000F4240, 1, reinforceLv, upgrade, gem }, -- Dagger
+  { 0x000F6950, 1, reinforceLv, upgrade, gem }, -- Black Knife
+  { 0x000F9060, 1, reinforceLv, upgrade, gem }, -- Parrying Dagger
+  { 0x000FB770, 1, reinforceLv, upgrade, gem }, -- Miséricorde
+  { 0x000FDE80, 1, reinforceLv, upgrade, gem }, -- Reduvia
+  { 0x00100590, 1, reinforceLv, upgrade, gem }, -- Crystal Knife
+  { 0x00102CA0, 1, reinforceLv, upgrade, gem }, -- Celebrant's Sickle
+  { 0x001053B0, 1, reinforceLv, upgrade, gem }, -- Glintstone Kris
+  { 0x00107AC0, 1, reinforceLv, upgrade, gem }, -- Scorpion's Stinger
+  { 0x0010A1D0, 1, reinforceLv, upgrade, gem }, -- Great Knife
+  { 0x0010C8E0, 1, reinforceLv, upgrade, gem }, -- Wakizashi
+  { 0x0010EFF0, 1, reinforceLv, upgrade, gem }, -- Cinquedea
+  { 0x00113E10, 1, reinforceLv, upgrade, gem }, -- Ivory Sickle
+  { 0x00116520, 1, reinforceLv, upgrade, gem }, -- Bloodstained Dagger
+  { 0x00118C30, 1, reinforceLv, upgrade, gem }, -- Erdsteel Dagger
+  { 0x0011B340, 1, reinforceLv, upgrade, gem }, -- Blade of Calling
+-- Straight Swords
+  { 0x001E8480, 1, reinforceLv, upgrade, gem }, -- Longsword
+  { 0x001EAB90, 1, reinforceLv, upgrade, gem }, -- Short Sword
+  { 0x001ED2A0, 1, reinforceLv, upgrade, gem }, -- Broadsword
+  { 0x001F20C0, 1, reinforceLv, upgrade, gem }, -- Lordsworn's Straight Sword
+  { 0x001F47D0, 1, reinforceLv, upgrade, gem }, -- Weathered Straight Sword
+  { 0x001F6EE0, 1, reinforceLv, upgrade, gem }, -- Ornamental Straight Sword
+  { 0x001F95F0, 1, reinforceLv, upgrade, gem }, -- Golden Epitaph
+  { 0x001FBD00, 1, reinforceLv, upgrade, gem }, -- Nox Flowing Sword
+  { 0x001FE410, 1, reinforceLv, upgrade, gem }, -- Inseparable Sword
+  { 0x00203230, 1, reinforceLv, upgrade, gem }, -- Coded Sword
+  { 0x0020A760, 1, reinforceLv, upgrade, gem }, -- Sword of Night and Flame
+  { 0x0020CE70, 1, reinforceLv, upgrade, gem }, -- Crystal Sword
+  { 0x002143A0, 1, reinforceLv, upgrade, gem }, -- Carian Knight's Sword
+  { 0x00216AB0, 1, reinforceLv, upgrade, gem }, -- Sword of St. Trina
+  { 0x002191C0, 1, reinforceLv, upgrade, gem }, -- Miquellan Knight's Sword
+  { 0x0021B8D0, 1, reinforceLv, upgrade, gem }, -- Cane Sword
+  { 0x0021DFE0, 1, reinforceLv, upgrade, gem }, -- Regalia of Eochaid
+  { 0x002206F0, 1, reinforceLv, upgrade, gem }, -- Noble's Slender Sword
+  { 0x00222E00, 1, reinforceLv, upgrade, gem }, -- Warhawk's Talon
+  { 0x00225510, 1, reinforceLv, upgrade, gem }, -- Lazuli Glintstone Sword
+  { 0x00227C20, 1, reinforceLv, upgrade, gem }, -- Rotten Crystal Sword
+-- Greatswords
+  { 0x002DC6C0, 1, reinforceLv, upgrade, gem }, -- Bastard Sword
+  { 0x002DEDD0, 1, reinforceLv, upgrade, gem }, -- Forked Greatsword
+  { 0x002E14E0, 1, reinforceLv, upgrade, gem }, -- Iron Greatsword
+  { 0x002E3BF0, 1, reinforceLv, upgrade, gem }, -- Lordsworn's Greatsword
+  { 0x002E6300, 1, reinforceLv, upgrade, gem }, -- Knight's Greatsword
+  { 0x002E8A10, 1, reinforceLv, upgrade, gem }, -- Flamberge
+  { 0x002EB120, 1, reinforceLv, upgrade, gem }, -- Ordovis's Greatsword
+  { 0x002ED830, 1, reinforceLv, upgrade, gem }, -- Alabaster Lord's Sword
+  { 0x002EFF40, 1, reinforceLv, upgrade, gem }, -- Banished Knight's Greatsword
+  { 0x002F2650, 1, reinforceLv, upgrade, gem }, -- Dark Moon Greatsword
+  { 0x002F4D60, 1, reinforceLv, upgrade, gem }, -- Sacred Relic Sword
+  { 0x002FC290, 1, reinforceLv, upgrade, gem }, -- Helphen's Steeple
+  { 0x002FE9A0, 1, reinforceLv, upgrade, gem }, -- Blasphemous Blade
+  { 0x003010B0, 1, reinforceLv, upgrade, gem }, -- Marais Executioner's Sword
+  { 0x003037C0, 1, reinforceLv, upgrade, gem }, -- Sword of Milos
+  { 0x00305ED0, 1, reinforceLv, upgrade, gem }, -- Golden Order Greatsword
+  { 0x003085E0, 1, reinforceLv, upgrade, gem }, -- Claymore
+  { 0x0030ACF0, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Greatsword
+  { 0x0030D400, 1, reinforceLv, upgrade, gem }, -- Death's Poker
+  { 0x0030FB10, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Blackblade
+-- Colossal Swords
+  { 0x003D0900, 1, reinforceLv, upgrade, gem }, -- Greatsword
+  { 0x003D3010, 1, reinforceLv, upgrade, gem }, -- Watchdog's Greatsword
+  { 0x003D5720, 1, reinforceLv, upgrade, gem }, -- Maliketh's Black Blade
+  { 0x003D7E30, 1, reinforceLv, upgrade, gem }, -- Troll's Golden Sword
+  { 0x003DA540, 1, reinforceLv, upgrade, gem }, -- Zweihander
+  { 0x003DCC50, 1, reinforceLv, upgrade, gem }, -- Starscourge Greatsword
+  { 0x003DF360, 1, reinforceLv, upgrade, gem }, -- Royal Greatsword
+  { 0x003E1A70, 1, reinforceLv, upgrade, gem }, -- Godslayer's Greatsword
+  { 0x003E4180, 1, reinforceLv, upgrade, gem }, -- Ruins Greatsword
+  { 0x003E8FA0, 1, reinforceLv, upgrade, gem }, -- Grafted Blade Greatsword
+  { 0x003EB6B0, 1, reinforceLv, upgrade, gem }, -- Troll Knight's Sword
+-- Thrusting Swords
+  { 0x004C4B40, 1, reinforceLv, upgrade, gem }, -- Estoc
+  { 0x004C7250, 1, reinforceLv, upgrade, gem }, -- Cleanrot Knight's Sword
+  { 0x004C9960, 1, reinforceLv, upgrade, gem }, -- Rapier
+  { 0x004CC070, 1, reinforceLv, upgrade, gem }, -- Rogier's Rapier
+  { 0x004CE780, 1, reinforceLv, upgrade, gem }, -- Antspur Rapier
+  { 0x004D0E90, 1, reinforceLv, upgrade, gem }, -- Frozen Needle
+  { 0x004D35A0, 1, reinforceLv, upgrade, gem }, -- Noble's Estoc
+-- Heavy Thrusting Swords
+  { 0x005B8D80, 1, reinforceLv, upgrade, gem }, -- Bloody Helice
+  { 0x005BB490, 1, reinforceLv, upgrade, gem }, -- Godskin Stitcher
+  { 0x005BDBA0, 1, reinforceLv, upgrade, gem }, -- Great Épée
+  { 0x005C29C0, 1, reinforceLv, upgrade, gem }, -- Dragon King's Cragblade
+-- Curved Swords
+  { 0x006ACFC0, 1, reinforceLv, upgrade, gem }, -- Falchion
+  { 0x006AF6D0, 1, reinforceLv, upgrade, gem }, -- Beastman's Curved Sword
+  { 0x006B1DE0, 1, reinforceLv, upgrade, gem }, -- Shotel
+  { 0x006B44F0, 1, reinforceLv, upgrade, gem }, -- Shamshir
+  { 0x006B6C00, 1, reinforceLv, upgrade, gem }, -- Bandit's Curved Sword
+  { 0x006B9310, 1, reinforceLv, upgrade, gem }, -- Magma Blade
+  { 0x006BBA20, 1, reinforceLv, upgrade, gem }, -- Flowing Curved Sword
+  { 0x006BE130, 1, reinforceLv, upgrade, gem }, -- Wing of Astel
+  { 0x006C0840, 1, reinforceLv, upgrade, gem }, -- Scavenger's Curved Sword
+  { 0x006C5660, 1, reinforceLv, upgrade, gem }, -- Eclipse Shotel
+  { 0x006C7D70, 1, reinforceLv, upgrade, gem }, -- Serpent-God's Curved Sword
+  { 0x006CA480, 1, reinforceLv, upgrade, gem }, -- Mantis Blade
+  { 0x006CF2A0, 1, reinforceLv, upgrade, gem }, -- Scimitar
+  { 0x006D19B0, 1, reinforceLv, upgrade, gem }, -- Grossmesser
+-- Curved Greatswords
+  { 0x007A3910, 1, reinforceLv, upgrade, gem }, -- Onyx Lord's Greatsword
+  { 0x007A6020, 1, reinforceLv, upgrade, gem }, -- Dismounter
+  { 0x007A8730, 1, reinforceLv, upgrade, gem }, -- Bloodhound's Fang
+  { 0x007AAE40, 1, reinforceLv, upgrade, gem }, -- Magma Wyrm's Scalesword
+  { 0x007AD550, 1, reinforceLv, upgrade, gem }, -- Zamor Curved Sword
+  { 0x007AFC60, 1, reinforceLv, upgrade, gem }, -- Omen Cleaver
+  { 0x007B2370, 1, reinforceLv, upgrade, gem }, -- Monk's Flameblade
+  { 0x007B4A80, 1, reinforceLv, upgrade, gem }, -- Beastman's Cleaver
+  { 0x007B98A0, 1, reinforceLv, upgrade, gem }, -- Morgott's Cursed Sword
+-- Katana
+  { 0x00895440, 1, reinforceLv, upgrade, gem }, -- Uchigatana
+  { 0x00897B50, 1, reinforceLv, upgrade, gem }, -- Nagakiba
+  { 0x0089A260, 1, reinforceLv, upgrade, gem }, -- Hand of Malenia
+  { 0x0089C970, 1, reinforceLv, upgrade, gem }, -- Meteoric Ore Blade
+  { 0x0089F080, 1, reinforceLv, upgrade, gem }, -- Rivers of Blood
+  { 0x008A3EA0, 1, reinforceLv, upgrade, gem }, -- Moonveil
+  { 0x008A65B0, 1, reinforceLv, upgrade, gem }, -- Dragonscale Blade
+  { 0x008A8CC0, 1, reinforceLv, upgrade, gem }, -- Serpentbone Blade
+-- Twinblades
+  { 0x00989680, 1, reinforceLv, upgrade, gem }, -- Twinblade
+  { 0x0098BD90, 1, reinforceLv, upgrade, gem }, -- Godskin Peeler
+  { 0x00990BB0, 1, reinforceLv, upgrade, gem }, -- Twinned Knight Swords
+  { 0x009959D0, 1, reinforceLv, upgrade, gem }, -- Eleonora's Poleblade
+  { 0x0099CF00, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Twinblade
+  { 0x0099F610, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Black Blades
+-- Hammers
+  { 0x00A7D8C0, 1, reinforceLv, upgrade, gem }, -- Mace
+  { 0x00A7FFD0, 1, reinforceLv, upgrade, gem }, -- Club
+  { 0x00A84DF0, 1, reinforceLv, upgrade, gem }, -- Curved Club
+  { 0x00A87500, 1, reinforceLv, upgrade, gem }, -- Warpick
+  { 0x00A89C10, 1, reinforceLv, upgrade, gem }, -- Morning Star
+  { 0x00A8C320, 1, reinforceLv, upgrade, gem }, -- Varré's Bouquet
+  { 0x00A8EA30, 1, reinforceLv, upgrade, gem }, -- Spiked Club
+  { 0x00A91140, 1, reinforceLv, upgrade, gem }, -- Hammer
+  { 0x00A93850, 1, reinforceLv, upgrade, gem }, -- Monk's Flamemace
+  { 0x00A95F60, 1, reinforceLv, upgrade, gem }, -- Envoy's Horn
+  { 0x00A98670, 1, reinforceLv, upgrade, gem }, -- Scepter of the All-Knowing
+  { 0x00A9AD80, 1, reinforceLv, upgrade, gem }, -- Nox Flowing Hammer
+  { 0x00A9D490, 1, reinforceLv, upgrade, gem }, -- Ringed Finger
+  { 0x00A9FBA0, 1, reinforceLv, upgrade, gem }, -- Stone Club
+  { 0x00AA22B0, 1, reinforceLv, upgrade, gem }, -- Marika's Hammer
+-- Great Hammers
+  { 0x00B71B00, 1, reinforceLv, upgrade, gem }, -- Large Club
+  { 0x00B74210, 1, reinforceLv, upgrade, gem }, -- Greathorn Hammer
+  { 0x00B76920, 1, reinforceLv, upgrade, gem }, -- Battle Hammer
+  { 0x00B80560, 1, reinforceLv, upgrade, gem }, -- Great Mace
+  { 0x00B85380, 1, reinforceLv, upgrade, gem }, -- Curved Great Club
+  { 0x00B916D0, 1, reinforceLv, upgrade, gem }, -- Celebrant's Skull
+-- Warhammers
+  { 0x00B93DE0, 1, reinforceLv, upgrade, gem }, -- Pickaxe
+  { 0x00B964F0, 1, reinforceLv, upgrade, gem }, -- Beastclaw Greathammer
+  { 0x00B98C00, 1, reinforceLv, upgrade, gem }, -- Envoy's Long Horn
+  { 0x00B9B310, 1, reinforceLv, upgrade, gem }, -- Cranial Vessel Candlestand
+  { 0x00B9DA20, 1, reinforceLv, upgrade, gem }, -- Great Stars
+  { 0x00BA0130, 1, reinforceLv, upgrade, gem }, -- Brick Hammer
+  { 0x00BA2840, 1, reinforceLv, upgrade, gem }, -- Devourer's Scepter
+  { 0x00BA4F50, 1, reinforceLv, upgrade, gem }, -- Rotten Battle Hammer
+-- Flails
+  { 0x00C65D40, 1, reinforceLv, upgrade, gem }, -- Nightrider Flail
+  { 0x00C68450, 1, reinforceLv, upgrade, gem }, -- Flail
+  { 0x00C6AB60, 1, reinforceLv, upgrade, gem }, -- Family Heads
+  { 0x00C6D270, 1, reinforceLv, upgrade, gem }, -- Bastard's Stars
+  { 0x00C6F980, 1, reinforceLv, upgrade, gem }, -- Chainlink Flail
+-- Axes
+  { 0x00D59F80, 1, reinforceLv, upgrade, gem }, -- Battle Axe
+  { 0x00D5C690, 1, reinforceLv, upgrade, gem }, -- Forked Hatchet
+  { 0x00D5EDA0, 1, reinforceLv, upgrade, gem }, -- Hand Axe
+  { 0x00D614B0, 1, reinforceLv, upgrade, gem }, -- Jawbone Axe
+  { 0x00D63BC0, 1, reinforceLv, upgrade, gem }, -- Iron Cleaver
+  { 0x00D662D0, 1, reinforceLv, upgrade, gem }, -- Ripple Blade
+  { 0x00D689E0, 1, reinforceLv, upgrade, gem }, -- Celebrant's Cleaver
+  { 0x00D6D800, 1, reinforceLv, upgrade, gem }, -- Icerind Hatchet
+  { 0x00D72620, 1, reinforceLv, upgrade, gem }, -- Highland Axe
+  { 0x00D74D30, 1, reinforceLv, upgrade, gem }, -- Sacrificial Axe
+  { 0x00D77440, 1, reinforceLv, upgrade, gem }, -- Rosus' Axe
+  { 0x00D7C260, 1, reinforceLv, upgrade, gem }, -- Stormhawk Axe
+-- Greataxes
+  { 0x00E4E1C0, 1, reinforceLv, upgrade, gem }, -- Greataxe
+  { 0x00E508D0, 1, reinforceLv, upgrade, gem }, -- Warped Axe
+  { 0x00E52FE0, 1, reinforceLv, upgrade, gem }, -- Great Omenkiller Cleaver
+  { 0x00E556F0, 1, reinforceLv, upgrade, gem }, -- Crescent Moon Axe
+  { 0x00E57E00, 1, reinforceLv, upgrade, gem }, -- Axe of Godrick
+  { 0x00E5A510, 1, reinforceLv, upgrade, gem }, -- Longhaft Axe
+  { 0x00E5CC20, 1, reinforceLv, upgrade, gem }, -- Rusted Anchor
+  { 0x00E61A40, 1, reinforceLv, upgrade, gem }, -- Executioner's Greataxe
+  { 0x00E68F70, 1, reinforceLv, upgrade, gem }, -- Winged Greathorn
+  { 0x00E6B680, 1, reinforceLv, upgrade, gem }, -- Butchering Knife
+  { 0x00E6DD90, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Great Axe
+  { 0x00E704A0, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Black Axe
+-- Spears
+  { 0x00F42400, 1, reinforceLv, upgrade, gem }, -- Short Spear
+  { 0x00F44B10, 1, reinforceLv, upgrade, gem }, -- Spear
+  { 0x00F47220, 1, reinforceLv, upgrade, gem }, -- Crystal Spear
+  { 0x00F49930, 1, reinforceLv, upgrade, gem }, -- Clayman's Harpoon
+  { 0x00F4C040, 1, reinforceLv, upgrade, gem }, -- Cleanrot Spear
+  { 0x00F4E750, 1, reinforceLv, upgrade, gem }, -- Partisan
+  { 0x00F50E60, 1, reinforceLv, upgrade, gem }, -- Celebrant's Rib-Rake
+  { 0x00F53570, 1, reinforceLv, upgrade, gem }, -- Pike
+  { 0x00F55C80, 1, reinforceLv, upgrade, gem }, -- Torchpole
+  { 0x00F58390, 1, reinforceLv, upgrade, gem }, -- Bolt of Gransax
+  { 0x00F5D1B0, 1, reinforceLv, upgrade, gem }, -- Cross-Naginata
+  { 0x00F5F8C0, 1, reinforceLv, upgrade, gem }, -- Death Ritual Spear
+  { 0x00F61FD0, 1, reinforceLv, upgrade, gem }, -- Inquisitor's Girandole
+  { 0x00F646E0, 1, reinforceLv, upgrade, gem }, -- Spiked Spear
+  { 0x00F66DF0, 1, reinforceLv, upgrade, gem }, -- Iron Spear
+  { 0x00F69500, 1, reinforceLv, upgrade, gem }, -- Rotten Crystal Spear
+-- Great Spears
+  { 0x01038D50, 1, reinforceLv, upgrade, gem }, -- Mohgwyn's Sacred Spear
+  { 0x0103B460, 1, reinforceLv, upgrade, gem }, -- Siluria's Tree
+  { 0x0103DB70, 1, reinforceLv, upgrade, gem }, -- Serpent-Hunter
+  { 0x01042990, 1, reinforceLv, upgrade, gem }, -- Vyke's War Spear
+  { 0x010450A0, 1, reinforceLv, upgrade, gem }, -- Lance
+  { 0x010477B0, 1, reinforceLv, upgrade, gem }, -- Treespear
+-- Halberds
+  { 0x0112A880, 1, reinforceLv, upgrade, gem }, -- Halberd
+  { 0x0112CF90, 1, reinforceLv, upgrade, gem }, -- Pest's Glaive
+  { 0x0112F6A0, 1, reinforceLv, upgrade, gem }, -- Lucerne
+  { 0x01131DB0, 1, reinforceLv, upgrade, gem }, -- Banished Knight's Halberd
+  { 0x011344C0, 1, reinforceLv, upgrade, gem }, -- Commander's Standard
+  { 0x01136BD0, 1, reinforceLv, upgrade, gem }, -- Nightrider Glaive
+  { 0x011392E0, 1, reinforceLv, upgrade, gem }, -- Ripple Crescent Halberd
+  { 0x0113B9F0, 1, reinforceLv, upgrade, gem }, -- Vulgar Militia Saw
+  { 0x0113E100, 1, reinforceLv, upgrade, gem }, -- Golden Halberd
+  { 0x01140810, 1, reinforceLv, upgrade, gem }, -- Glaive
+  { 0x01142F20, 1, reinforceLv, upgrade, gem }, -- Loretta's War Sickle
+  { 0x01145630, 1, reinforceLv, upgrade, gem }, -- Guardian's Swordspear
+  { 0x0114A450, 1, reinforceLv, upgrade, gem }, -- Vulgar Militia Shotel
+  { 0x0114CB60, 1, reinforceLv, upgrade, gem }, -- Dragon Halberd
+  { 0x0114F270, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Halberd
+  { 0x01151980, 1, reinforceLv, upgrade, gem }, -- Gargoyle's Black Halberd
+-- Reapers
+  { 0x0121EAC0, 1, reinforceLv, upgrade, gem }, -- Scythe
+  { 0x012211D0, 1, reinforceLv, upgrade, gem }, -- Grave Scythe
+  { 0x012238E0, 1, reinforceLv, upgrade, gem }, -- Halo Scythe
+  { 0x0122D520, 1, reinforceLv, upgrade, gem }, -- Winged Scythe
+-- Whips
+  { 0x01312D00, 1, reinforceLv, upgrade, gem }, -- Whip
+  { 0x01317B20, 1, reinforceLv, upgrade, gem }, -- Thorned Whip
+  { 0x0131A230, 1, reinforceLv, upgrade, gem }, -- Magma Whip Candlestick
+  { 0x0131F050, 1, reinforceLv, upgrade, gem }, -- Hoslow's Petal Whip
+  { 0x01321760, 1, reinforceLv, upgrade, gem }, -- Giant's Red Braid
+  { 0x01323E70, 1, reinforceLv, upgrade, gem }, -- Urumi
+-- Fists
+  { 0x01406F40, 1, reinforceLv, upgrade, gem }, -- Caestus
+  { 0x01409650, 1, reinforceLv, upgrade, gem }, -- Spiked Caestus
+  { 0x014159A0, 1, reinforceLv, upgrade, gem }, -- Grafted Dragon
+  { 0x014180B0, 1, reinforceLv, upgrade, gem }, -- Iron Ball
+  { 0x0141A7C0, 1, reinforceLv, upgrade, gem }, -- Star Fist
+  { 0x0141F5E0, 1, reinforceLv, upgrade, gem }, -- Katar
+  { 0x01421CF0, 1, reinforceLv, upgrade, gem }, -- Clinging Bone
+  { 0x01424400, 1, reinforceLv, upgrade, gem }, -- Veteran's Prosthesis
+  { 0x01426B10, 1, reinforceLv, upgrade, gem }, -- Cipher Pata
+-- Claws
+  { 0x014FB180, 1, reinforceLv, upgrade, gem }, -- Hookclaws
+  { 0x014FD890, 1, reinforceLv, upgrade, gem }, -- Venomous Fang
+  { 0x014FFFA0, 1, reinforceLv, upgrade, gem }, -- Bloodhound Claws
+  { 0x015026B0, 1, reinforceLv, upgrade, gem }, -- Raptor Talons
+-- Colossal Weapons
+  { 0x015EF3C0, 1, reinforceLv, upgrade, gem }, -- Prelate's Inferno Crozier
+  { 0x015F1AD0, 1, reinforceLv, upgrade, gem }, -- Watchdog's Staff
+  { 0x015F41E0, 1, reinforceLv, upgrade, gem }, -- Great Club
+  { 0x015F68F0, 1, reinforceLv, upgrade, gem }, -- Envoy's Greathorn
+  { 0x015F9000, 1, reinforceLv, upgrade, gem }, -- Duelist Greataxe
+  { 0x015FB710, 1, reinforceLv, upgrade, gem }, -- Axe of Godfrey
+  { 0x015FDE20, 1, reinforceLv, upgrade, gem }, -- Dragon Greatclaw
+  { 0x01600530, 1, reinforceLv, upgrade, gem }, -- Staff of the Avatar
+  { 0x01602C40, 1, reinforceLv, upgrade, gem }, -- Fallingstar Beast Jaw
+  { 0x01607A60, 1, reinforceLv, upgrade, gem }, -- Ghiza's Wheel
+  { 0x0160A170, 1, reinforceLv, upgrade, gem }, -- Giant-Crusher
+  { 0x0160C880, 1, reinforceLv, upgrade, gem }, -- Golem's Halberd
+  { 0x0160EF90, 1, reinforceLv, upgrade, gem }, -- Troll's Hammer
+  { 0x016116A0, 1, reinforceLv, upgrade, gem }, -- Rotten Staff
+  { 0x01613DB0, 1, reinforceLv, upgrade, gem }, -- Rotten Greataxe
+-- Torches
+  { 0x016E3600, 1, reinforceLv, upgrade, gem }, -- Torch
+  { 0x016E8420, 1, reinforceLv, upgrade, gem }, -- Steel-Wire Torch
+  { 0x016ED240, 1, reinforceLv, upgrade, gem }, -- St. Trina's Torch
+  { 0x016EF950, 1, reinforceLv, upgrade, gem }, -- Ghostflame Torch
+  { 0x016F2060, 1, reinforceLv, upgrade, gem }, -- Beast-Repellent Torch
+  { 0x016F4770, 1, reinforceLv, upgrade, gem }, -- Sentry's Torch
+-- Shields
+  { 0x01C9C380, 1, reinforceLv, upgrade, gem }, -- Buckler
+  { 0x01C9EA90, 1, reinforceLv, upgrade, gem }, -- Perfumer's Shield
+  { 0x01CA11A0, 1, reinforceLv, upgrade, gem }, -- Man-Serpent's Shield
+  { 0x01CA38B0, 1, reinforceLv, upgrade, gem }, -- Rickety Shield
+  { 0x01CA5FC0, 1, reinforceLv, upgrade, gem }, -- Pillory Shield
+  { 0x01CAADE0, 1, reinforceLv, upgrade, gem }, -- Beastman's Jar-Shield
+  { 0x01CAD4F0, 1, reinforceLv, upgrade, gem }, -- Red Thorn Roundshield
+  { 0x01CAFC00, 1, reinforceLv, upgrade, gem }, -- Scripture Wooden Shield
+  { 0x01CB2310, 1, reinforceLv, upgrade, gem }, -- Riveted Wooden Shield
+  { 0x01CB4A20, 1, reinforceLv, upgrade, gem }, -- Blue-White Wooden Shield
+  { 0x01CB7130, 1, reinforceLv, upgrade, gem }, -- Rift Shield
+  { 0x01CB9840, 1, reinforceLv, upgrade, gem }, -- Iron Roundshield
+  { 0x01CBBF50, 1, reinforceLv, upgrade, gem }, -- Gilded Iron Shield
+  { 0x01CBE660, 1, reinforceLv, upgrade, gem }, -- Ice Crest Shield
+  { 0x01CC0D70, 1, reinforceLv, upgrade, gem }, -- Smoldering Shield
+  { 0x01CCA9B0, 1, reinforceLv, upgrade, gem }, -- Spiralhorn Shield
+  { 0x01CCD0C0, 1, reinforceLv, upgrade, gem }, -- Coil Shield
+  { 0x01D905C0, 1, reinforceLv, upgrade, gem }, -- Kite Shield
+  { 0x01D92CD0, 1, reinforceLv, upgrade, gem }, -- Marred Leather Shield
+  { 0x01D953E0, 1, reinforceLv, upgrade, gem }, -- Marred Wooden Shield
+  { 0x01D97AF0, 1, reinforceLv, upgrade, gem }, -- Banished Knight's Shield
+  { 0x01D9A200, 1, reinforceLv, upgrade, gem }, -- Albinauric Shield
+  { 0x01D9C910, 1, reinforceLv, upgrade, gem }, -- Sun Realm Shield
+  { 0x01D9F020, 1, reinforceLv, upgrade, gem }, -- Silver Mirrorshield
+  { 0x01DA1730, 1, reinforceLv, upgrade, gem }, -- Round Shield
+  { 0x01DA3E40, 1, reinforceLv, upgrade, gem }, -- Scorpion Kite Shield
+  { 0x01DA6550, 1, reinforceLv, upgrade, gem }, -- Twinbird Kite Shield
+  { 0x01DA8C60, 1, reinforceLv, upgrade, gem }, -- Blue-Gold Kite Shield
+  { 0x01DB0190, 1, reinforceLv, upgrade, gem }, -- Brass Shield
+  { 0x01DB28A0, 1, reinforceLv, upgrade, gem }, -- Great Turtle Shell
+  { 0x01DB9DD0, 1, reinforceLv, upgrade, gem }, -- Shield of the Guilty
+  { 0x01DBEBF0, 1, reinforceLv, upgrade, gem }, -- Carian Knight's Shield
+  { 0x01DC8830, 1, reinforceLv, upgrade, gem }, -- Large Leather Shield
+  { 0x01DCAF40, 1, reinforceLv, upgrade, gem }, -- Horse Crest Wooden Shield
+  { 0x01DCD650, 1, reinforceLv, upgrade, gem }, -- Candletree Wooden Shield
+  { 0x01DCFD60, 1, reinforceLv, upgrade, gem }, -- Flame Crest Wooden Shield
+  { 0x01DD2470, 1, reinforceLv, upgrade, gem }, -- Hawk Crest Wooden Shield
+  { 0x01DD4B80, 1, reinforceLv, upgrade, gem }, -- Beast Crest Heater Shield
+  { 0x01DD7290, 1, reinforceLv, upgrade, gem }, -- Red Crest Heater Shield
+  { 0x01DD99A0, 1, reinforceLv, upgrade, gem }, -- Blue Crest Heater Shield
+  { 0x01DDC0B0, 1, reinforceLv, upgrade, gem }, -- Eclipse Crest Heater Shield
+  { 0x01DDE7C0, 1, reinforceLv, upgrade, gem }, -- Inverted Hawk Heater Shield
+  { 0x01DE0ED0, 1, reinforceLv, upgrade, gem }, -- Heater Shield
+  { 0x01DE35E0, 1, reinforceLv, upgrade, gem }, -- Black Leather Shield
+-- Greatshields
+  { 0x01E84800, 1, reinforceLv, upgrade, gem }, -- Dragon Towershield
+  { 0x01E89620, 1, reinforceLv, upgrade, gem }, -- Distinguished Greatshield
+  { 0x01E8BD30, 1, reinforceLv, upgrade, gem }, -- Crucible Hornshield
+  { 0x01E8E440, 1, reinforceLv, upgrade, gem }, -- Dragonclaw Shield
+  { 0x01E90B50, 1, reinforceLv, upgrade, gem }, -- Briar Greatshield
+  { 0x01E98080, 1, reinforceLv, upgrade, gem }, -- Erdtree Greatshield
+  { 0x01E9A790, 1, reinforceLv, upgrade, gem }, -- Golden Beast Crest Shield
+  { 0x01EA1CC0, 1, reinforceLv, upgrade, gem }, -- Jellyfish Shield
+  { 0x01EA43D0, 1, reinforceLv, upgrade, gem }, -- Fingerprint Stone Shield
+  { 0x01EA6AE0, 1, reinforceLv, upgrade, gem }, -- Icon Shield
+  { 0x01EA91F0, 1, reinforceLv, upgrade, gem }, -- One-Eyed Shield
+  { 0x01EAB900, 1, reinforceLv, upgrade, gem }, -- Visage Shield
+  { 0x01EAE010, 1, reinforceLv, upgrade, gem }, -- Spiked Palisade Shield
+  { 0x01EB2E30, 1, reinforceLv, upgrade, gem }, -- Manor Towershield
+  { 0x01EB5540, 1, reinforceLv, upgrade, gem }, -- Crossed-Tree Towershield
+  { 0x01EB7C50, 1, reinforceLv, upgrade, gem }, -- Inverted Hawk Towershield
+  { 0x01EBA360, 1, reinforceLv, upgrade, gem }, -- Ant's Skull Plate
+  { 0x01EBCA70, 1, reinforceLv, upgrade, gem }, -- Redmane Greatshield
+  { 0x01EBF180, 1, reinforceLv, upgrade, gem }, -- Eclipse Crest Greatshield
+  { 0x01EC1890, 1, reinforceLv, upgrade, gem }, -- Cuckoo Greatshield
+  { 0x01EC3FA0, 1, reinforceLv, upgrade, gem }, -- Golden Greatshield
+  { 0x01EC66B0, 1, reinforceLv, upgrade, gem }, -- Gilded Greatshield
+  { 0x01EC8DC0, 1, reinforceLv, upgrade, gem }, -- Haligtree Crest Greatshield
+  { 0x01ECB4D0, 1, reinforceLv, upgrade, gem }, -- Wooden Greatshield
+  { 0x01ECDBE0, 1, reinforceLv, upgrade, gem }, -- Lordsworn's Shield
+-- Staves
+  { 0x01F78A40, 1, reinforceLv, upgrade, gem }, -- Glintstone Staff
+  { 0x01F82680, 1, reinforceLv, upgrade, gem }, -- Crystal Staff
+  { 0x01F84D90, 1, reinforceLv, upgrade, gem }, -- Gelmir Glintstone Staff
+  { 0x01F874A0, 1, reinforceLv, upgrade, gem }, -- Demi-Human Queen's Staff
+  { 0x01F8E9D0, 1, reinforceLv, upgrade, gem }, -- Carian Regal Scepter
+  { 0x01F95F00, 1, reinforceLv, upgrade, gem }, -- Digger's Staff
+  { 0x01F98610, 1, reinforceLv, upgrade, gem }, -- Astrologer's Staff
+  { 0x01FA2250, 1, reinforceLv, upgrade, gem }, -- Carian Glintblade Staff
+  { 0x01FA4960, 1, reinforceLv, upgrade, gem }, -- Prince of Death's Staff
+  { 0x01FA7070, 1, reinforceLv, upgrade, gem }, -- Albinauric Staff
+  { 0x01FA9780, 1, reinforceLv, upgrade, gem }, -- Academy Glintstone Staff
+  { 0x01FABE90, 1, reinforceLv, upgrade, gem }, -- Carian Glintstone Staff
+  { 0x01FB0CB0, 1, reinforceLv, upgrade, gem }, -- Azur's Glintstone Staff
+  { 0x01FB33C0, 1, reinforceLv, upgrade, gem }, -- Lusat's Glintstone Staff
+  { 0x01FB5AD0, 1, reinforceLv, upgrade, gem }, -- Meteorite Staff
+  { 0x01FB81E0, 1, reinforceLv, upgrade, gem }, -- Staff of the Guilty
+  { 0x01FBA8F0, 1, reinforceLv, upgrade, gem }, -- Rotten Crystal Staff
+  { 0x01FBD000, 1, reinforceLv, upgrade, gem }, -- Staff of Loss
+-- Seals
+  { 0x0206CC80, 1, reinforceLv, upgrade, gem }, -- Finger Seal
+  { 0x0206F390, 1, reinforceLv, upgrade, gem }, -- Godslayer's Seal
+  { 0x02071AA0, 1, reinforceLv, upgrade, gem }, -- Giant's Seal
+  { 0x020741B0, 1, reinforceLv, upgrade, gem }, -- Gravel Stone Seal
+  { 0x020768C0, 1, reinforceLv, upgrade, gem }, -- Clawmark Seal
+  { 0x0207B6E0, 1, reinforceLv, upgrade, gem }, -- Golden Order Seal
+  { 0x0207DDF0, 1, reinforceLv, upgrade, gem }, -- Erdtree Seal
+  { 0x02080500, 1, reinforceLv, upgrade, gem }, -- Dragon Communion Seal
+  { 0x02082C10, 1, reinforceLv, upgrade, gem }, -- Frenzied Flame Seal
+-- Light Bows
+  { 0x02625A00, 1, reinforceLv, upgrade, gem }, -- Shortbow
+  { 0x02628110, 1, reinforceLv, upgrade, gem }, -- Misbegotten Shortbow
+  { 0x0262A820, 1, reinforceLv, upgrade, gem }, -- Red Branch Shortbow
+  { 0x0262CF30, 1, reinforceLv, upgrade, gem }, -- Harp Bow
+  { 0x02631D50, 1, reinforceLv, upgrade, gem }, -- Composite Bow
+-- Bows
+  { 0x02719C40, 1, reinforceLv, upgrade, gem }, -- Longbow
+  { 0x0271C350, 1, reinforceLv, upgrade, gem }, -- Albinauric Bow
+  { 0x0271EA60, 1, reinforceLv, upgrade, gem }, -- Horn Bow
+  { 0x02721170, 1, reinforceLv, upgrade, gem }, -- Erdtree Bow
+  { 0x02723880, 1, reinforceLv, upgrade, gem }, -- Serpent Bow
+  { 0x027286A0, 1, reinforceLv, upgrade, gem }, -- Pulley Bow
+  { 0x0272ADB0, 1, reinforceLv, upgrade, gem }, -- Black Bow
+-- Greatbows
+  { 0x0280DE80, 1, reinforceLv, upgrade, gem }, -- Lion Greatbow
+  { 0x02810590, 1, reinforceLv, upgrade, gem }, -- Golem Greatbow
+  { 0x028153B0, 1, reinforceLv, upgrade, gem }, -- Erdtree Greatbow
+  { 0x02817AC0, 1, reinforceLv, upgrade, gem }, -- Greatbow
+-- Crossbows
+  { 0x029020C0, 1, reinforceLv, upgrade, gem }, -- Soldier's Crossbow
+  { 0x02906EE0, 1, reinforceLv, upgrade, gem }, -- Light Crossbow
+  { 0x029095F0, 1, reinforceLv, upgrade, gem }, -- Heavy Crossbow
+  { 0x0290E410, 1, reinforceLv, upgrade, gem }, -- Pulley Crossbow
+  { 0x02910B20, 1, reinforceLv, upgrade, gem }, -- Full Moon Crossbow
+  { 0x02915940, 1, reinforceLv, upgrade, gem }, -- Arbalest
+  { 0x0291CE70, 1, reinforceLv, upgrade, gem }, -- Crepus's Black-Key Crossbow
+-- Ballistae
+  { 0x029F6300, 1, reinforceLv, upgrade, gem }, -- Hand Ballista
+  { 0x029F8A10, 1, reinforceLv, upgrade, gem }, -- Jar Cannon
+--- DLC Weapons
+  { 0x0016E360, 1, reinforceLv, upgrade, gem }, -- Main-gauche
+  { 0x00170A70, 1, reinforceLv, upgrade, gem }, -- Fire Knight's Shortsword
+  { 0x00264CB0, 1, reinforceLv, upgrade, gem }, -- Velvet Sword of St. Trina
+  { 0x002673C0, 1, reinforceLv, upgrade, gem }, -- Star-Lined Sword
+  { 0x00269AD0, 1, reinforceLv, upgrade, gem }, -- Carian Sorcery Sword
+  { 0x0026C1E0, 1, reinforceLv, upgrade, gem }, -- Stone-Sheathed Sword
+  { 0x0026E8F0, 1, reinforceLv, upgrade, gem }, -- Sword of Light
+  { 0x00271000, 1, reinforceLv, upgrade, gem }, -- Sword of Darkness
+  { 0x003567E0, 1, reinforceLv, upgrade, gem }, -- Sword Lance
+  { 0x00358EF0, 1, reinforceLv, upgrade, gem }, -- Greatsword of Damnation
+  { 0x0035B600, 1, reinforceLv, upgrade, gem }, -- Lizard Greatsword
+  { 0x00362B30, 1, reinforceLv, upgrade, gem }, -- Greatsword of Solitude
+  { 0x0044AA20, 1, reinforceLv, upgrade, gem }, -- Ancient Meteoric Ore Greatsword
+  { 0x0044F840, 1, reinforceLv, upgrade, gem }, -- Fire Knight's Greatsword
+  { 0x00451F50, 1, reinforceLv, upgrade, gem }, -- Greatsword of Radahn (Lord)
+  { 0x00454660, 1, reinforceLv, upgrade, gem }, -- Moonrithyll's Knight Sword
+  { 0x00456D70, 1, reinforceLv, upgrade, gem }, -- Greatsword of Radahn (Light)
+  { 0x00632EA0, 1, reinforceLv, upgrade, gem }, -- Queelign's Greatsword
+  { 0x007270E0, 1, reinforceLv, upgrade, gem }, -- Spirit Sword
+  { 0x007297F0, 1, reinforceLv, upgrade, gem }, -- Falx
+  { 0x0072BF00, 1, reinforceLv, upgrade, gem }, -- Dancing Blade of Ranah
+  { 0x0072E610, 1, reinforceLv, upgrade, gem }, -- Horned Warrior's Sword
+  { 0x0081B320, 1, reinforceLv, upgrade, gem }, -- Putrescence Cleaver
+  { 0x0081DA30, 1, reinforceLv, upgrade, gem }, -- Freyja's Greatsword
+  { 0x00820140, 1, reinforceLv, upgrade, gem }, -- Horned Warrior's Greatsword
+  { 0x0090F560, 1, reinforceLv, upgrade, gem }, -- Sword of Night
+  { 0x00A037A0, 1, reinforceLv, upgrade, gem }, -- Euporia
+  { 0x00A05EB0, 1, reinforceLv, upgrade, gem }, -- Black Steel Twinblade
+  { 0x00AF79E0, 1, reinforceLv, upgrade, gem }, -- Flowerstone Gavel
+  { 0x00BEBC20, 1, reinforceLv, upgrade, gem }, -- Smithscript Greathammer
+  { 0x00BEE330, 1, reinforceLv, upgrade, gem }, -- Anvil Hammer
+  { 0x00BF0A40, 1, reinforceLv, upgrade, gem }, -- Black Steel Greathammer
+  { 0x00BF3150, 1, reinforceLv, upgrade, gem }, -- Bloodfiend's Arm
+  { 0x00CDFE60, 1, reinforceLv, upgrade, gem }, -- Serpent Flail
+  { 0x00DD40A0, 1, reinforceLv, upgrade, gem }, -- Smithscript Axe
+  { 0x00DD67B0, 1, reinforceLv, upgrade, gem }, -- Death Knight's Twin Axes
+  { 0x00DD8EC0, 1, reinforceLv, upgrade, gem }, -- Messmer Soldier's Axe
+  { 0x00DDDCE0, 1, reinforceLv, upgrade, gem }, -- Forked-Tongue Hatchet
+  { 0x00EC82E0, 1, reinforceLv, upgrade, gem }, -- Death Knight's Longhaft Axe
+  { 0x00ECA9F0, 1, reinforceLv, upgrade, gem }, -- Bonny Butchering Knife
+  { 0x00FBC520, 1, reinforceLv, upgrade, gem }, -- Smithscript Spear
+  { 0x00FC1340, 1, reinforceLv, upgrade, gem }, -- Swift Spear
+  { 0x00FC6160, 1, reinforceLv, upgrade, gem }, -- Bloodfiend's Fork
+  { 0x010B0760, 1, reinforceLv, upgrade, gem }, -- Spear of the Impaler
+  { 0x00FC8870, 1, reinforceLv, upgrade, gem }, -- Bloodfiend's Sacred Spear
+  { 0x010B2E70, 1, reinforceLv, upgrade, gem }, -- Messmer Soldier's Spear
+  { 0x010B5580, 1, reinforceLv, upgrade, gem }, -- Barbed Staff-Spear
+  { 0x011A49A0, 1, reinforceLv, upgrade, gem }, -- Spirit Glaive
+  { 0x011A70B0, 1, reinforceLv, upgrade, gem }, -- Poleblade of the Bud
+  { 0x01298BE0, 1, reinforceLv, upgrade, gem }, -- Obsidian Lamina
+  { 0x0138CE20, 1, reinforceLv, upgrade, gem }, -- Tooth Whip
+  { 0x01481060, 1, reinforceLv, upgrade, gem }, -- Thiollier's Hidden Needle
+  { 0x01483770, 1, reinforceLv, upgrade, gem }, -- Pata
+  { 0x01485E80, 1, reinforceLv, upgrade, gem }, -- Poisoned Hand
+  { 0x01488590, 1, reinforceLv, upgrade, gem }, -- Madding Hand
+  { 0x0148ACA0, 1, reinforceLv, upgrade, gem }, -- Golem Fist
+  { 0x0148D3B0, 1, reinforceLv, upgrade, gem }, -- Shield of Night
+  { 0x015752A0, 1, reinforceLv, upgrade, gem }, -- Claws of Night
+  { 0x016694E0, 1, reinforceLv, upgrade, gem }, -- Devonia's Hammer
+  { 0x0166BBF0, 1, reinforceLv, upgrade, gem }, -- Shadow Sunflower Blossom
+  { 0x0166E300, 1, reinforceLv, upgrade, gem }, -- Gazing Finger
+  { 0x0175D720, 1, reinforceLv, upgrade, gem }, -- Nanaya's Torch
+  { 0x0175FE30, 1, reinforceLv, upgrade, gem }, -- Lamenting Visage
+  { 0x01D18BB0, 1, reinforceLv, upgrade, gem }, -- Smithscript Shield
+  { 0x01E0A6E0, 1, reinforceLv, upgrade, gem }, -- Messmer Soldier Shield
+  { 0x01E0CDF0, 1, reinforceLv, upgrade, gem }, -- Wolf Crest Shield
+  { 0x01E0F500, 1, reinforceLv, upgrade, gem }, -- Serpent Crest Shield
+  { 0x01E11C10, 1, reinforceLv, upgrade, gem }, -- Golden Lion Shield
+  { 0x01EFE920, 1, reinforceLv, upgrade, gem }, -- Black Steel Greatshield
+  { 0x01F03740, 1, reinforceLv, upgrade, gem }, -- Verdigris Greatshield
+  { 0x01FF5270, 1, reinforceLv, upgrade, gem }, -- Staff of the Great Beyond
+  { 0x01FF7980, 1, reinforceLv, upgrade, gem }, -- Maternal Staff
+  { 0x020E6DA0, 1, reinforceLv, upgrade, gem }, -- Dryleaf Seal
+  { 0x020E94B0, 1, reinforceLv, upgrade, gem }, -- Fire Knight's Seal
+  { 0x020EBBC0, 1, reinforceLv, upgrade, gem }, -- Spiraltree Seal
+  { 0x0269FB20, 1, reinforceLv, upgrade, gem }, -- Bone Bow
+  { 0x02796470, 1, reinforceLv, upgrade, gem }, -- Ansbach's Longbow
+  { 0x02887FA0, 1, reinforceLv, upgrade, gem }, -- Igon's Greatbow
+  { 0x0297C1E0, 1, reinforceLv, upgrade, gem }, -- Repeating Crossbow
+  { 0x0297E8F0, 1, reinforceLv, upgrade, gem }, -- Spread Crossbow
+  { 0x02A70420, 1, reinforceLv, upgrade, gem }, -- Rabbath's Cannon
+  { 0x039B2820, 1, reinforceLv, upgrade, gem }, -- Dryleaf Arts
+  { 0x039B4F30, 1, reinforceLv, upgrade, gem }, -- Dane's Footwork
+  { 0x03AA6A60, 1, reinforceLv, upgrade, gem }, -- Firespark Perfume Bottle
+  { 0x03AA9170, 1, reinforceLv, upgrade, gem }, -- Chilling Perfume Bottle
+  { 0x03AAB880, 1, reinforceLv, upgrade, gem }, -- Frenzyflame Perfume Bottle
+  { 0x03AADF90, 1, reinforceLv, upgrade, gem }, -- Lightning Perfume Bottle
+  { 0x03AB06A0, 1, reinforceLv, upgrade, gem }, -- Deadly Poison Perfume Bottle
+  { 0x03B9ACA0, 1, reinforceLv, upgrade, gem }, -- Dueling Shield
+  { 0x03B9D3B0, 1, reinforceLv, upgrade, gem }, -- Carian Thrusting Shield
+  { 0x03C8EEE0, 1, reinforceLv, upgrade, gem }, -- Smithscript Dagger
+  { 0x03D83120, 1, reinforceLv, upgrade, gem }, -- Backhand Blade
+  { 0x03D85830, 1, reinforceLv, upgrade, gem }, -- Smithscript Cirque
+  { 0x03D87F40, 1, reinforceLv, upgrade, gem }, -- Curseblade's Cirque
+  { 0x03F6B5A0, 1, reinforceLv, upgrade, gem }, -- Great Katana
+  { 0x03F6DCB0, 1, reinforceLv, upgrade, gem }, -- Dragon-Hunter's Great Katana
+  { 0x03F703C0, 1, reinforceLv, upgrade, gem }, -- Rakshasa's Great Katana
+  { 0x0405F7E0, 1, reinforceLv, upgrade, gem }, -- Milady
+  { 0x04061EF0, 1, reinforceLv, upgrade, gem }, -- Leda's Sword
+  { 0x04064600, 1, reinforceLv, upgrade, gem }, -- Rellana's Twin Blades
+  { 0x04153A20, 1, reinforceLv, upgrade, gem }, -- Beast Claw
+  { 0x04156130, 1, reinforceLv, upgrade, gem }, -- Red Bear's Claw
+}
+
+if isOwnDlc(1) then ItemGive(items) end
+disableMemrec(memrec)
+[DISABLE]
