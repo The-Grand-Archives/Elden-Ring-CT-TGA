@@ -1618,12 +1618,12 @@ local items = {
     { 0x401E9FE2, 1, 0, 0, -1 }, -- Bayle's Flame Lightning
     { 0x401E9FEC, 1, 0, 0, -1 }, -- Ghostflame Breath
 
-    { 0x400000AC, 1, 0, 0, -1 }, -- Bloody Finger
+    { 0x40000066, 1, 0, 0, -1 }, -- Bloody Finger
     { 0x40000070, 1, 0, 0, -1 }, -- Recusant Finger
-    { 0x400000AE, 1, 0, 0, -1 }, -- White Cipher Ring
-    { 0x400000AF, 1, 0, 0, -1 }, -- Blue Cipher Ring
-    { 0x400000B3, 1, 0, 0, -1 }, -- Small Golden Effigy
-    { 0x400000B4, 1, 0, 0, -1 }, -- Small Red Effigy
+    { 0x40000068, 1, 0, 0, -1 }, -- White Cipher Ring
+    { 0x40000069, 1, 0, 0, -1 }, -- Blue Cipher Ring
+    { 0x4000006D, 1, 0, 0, -1 }, -- Small Golden Effigy
+    { 0x4000006E, 1, 0, 0, -1 }, -- Small Red Effigy
 }
 
 if isOwnDlc(1) then ItemGive(items) end
