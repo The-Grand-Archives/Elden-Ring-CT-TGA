@@ -110,36 +110,36 @@ local items = {
     { 0x40000E1A, 699, 0, 0, -1 }, -- Acid Spraymist
     { 0x40000DC0, 699, 0, 0, -1 }, -- Ironjar Aromatic
     -- Pots
-    { 0x4000012C, 699, 0, 0, -1 }, -- Fire Pot
-    { 0x4000012D, 699, 0, 0, -1 }, -- Redmane Fire Pot
-    { 0x4000012E, 699, 0, 0, -1 }, -- Giantsflame Fire Pot
-    { 0x40000140, 699, 0, 0, -1 }, -- Lightning Pot
-    { 0x40000141, 699, 0, 0, -1 }, -- Ancient Dragonbolt Pot
-    { 0x4000014A, 699, 0, 0, -1 }, -- Fetid Pot
-    { 0x4000015E, 699, 0, 0, -1 }, -- Holy Water Pot
-    { 0x4000015F, 699, 0, 0, -1 }, -- Sacred Order Pot
-    { 0x40000168, 699, 0, 0, -1 }, -- Freezing Pot
-    { 0x40000172, 699, 0, 0, -1 }, -- Poison Pot
-    { 0x4000017C, 699, 0, 0, -1 }, -- Oil Pot
-    { 0x40000186, 699, 0, 0, -1 }, -- Alluring Pot
-    { 0x40000187, 699, 0, 0, -1 }, -- Beastlure Pot
-    { 0x40000190, 699, 0, 0, -1 }, -- Roped Fire Pot
-    { 0x40000154, 699, 0, 0, -1 }, -- Swarm Pot
-    { 0x40000280, 699, 0, 0, -1 }, -- Sleep Pot
-    { 0x400001A4, 699, 0, 0, -1 }, -- Roped Lightning Pot
-    { 0x400001AE, 699, 0, 0, -1 }, -- Roped Fetid Pot
-    { 0x400001B8, 699, 0, 0, -1 }, -- Roped Poison Pot
-    { 0x400001C2, 699, 0, 0, -1 }, -- Roped Oil Pot
-    { 0x400001CC, 699, 0, 0, -1 }, -- Roped Magic Pot
-    { 0x400001D6, 699, 0, 0, -1 }, -- Roped Fly Pot
-    --{ 0x400001E0, 699, 0, 0, -1 }, -- Roped Freezing Pot
-    { 0x400001EA, 699, 0, 0, -1 }, -- Roped Volcano Pot
-    { 0x400001FE, 699, 0, 0, -1 }, -- Roped Holy Water Pot
-    { 0x40000258, 699, 0, 0, -1 }, -- Volcano Pot
-    { 0x40000262, 699, 0, 0, -1 }, -- Albinauric Pot
-    { 0x40000276, 699, 0, 0, -1 }, -- Cursed-Blood Pot
-    { 0x40000294, 699, 0, 0, -1 }, -- Magic Pot
-    { 0x40000295, 699, 0, 0, -1 }, -- Academy Magic Pot
+    { 0x4000012C, 600, 0, 0, -1 }, -- Fire Pot
+    { 0x4000012D, 600, 0, 0, -1 }, -- Redmane Fire Pot
+    { 0x4000012E, 600, 0, 0, -1 }, -- Giantsflame Fire Pot
+    { 0x40000140, 600, 0, 0, -1 }, -- Lightning Pot
+    { 0x40000141, 600, 0, 0, -1 }, -- Ancient Dragonbolt Pot
+    { 0x4000014A, 600, 0, 0, -1 }, -- Fetid Pot
+    { 0x4000015E, 600, 0, 0, -1 }, -- Holy Water Pot
+    { 0x4000015F, 600, 0, 0, -1 }, -- Sacred Order Pot
+    { 0x40000168, 600, 0, 0, -1 }, -- Freezing Pot
+    { 0x40000172, 600, 0, 0, -1 }, -- Poison Pot
+    { 0x4000017C, 600, 0, 0, -1 }, -- Oil Pot
+    { 0x40000186, 600, 0, 0, -1 }, -- Alluring Pot
+    { 0x40000187, 600, 0, 0, -1 }, -- Beastlure Pot
+    { 0x40000190, 600, 0, 0, -1 }, -- Roped Fire Pot
+    { 0x40000154, 600, 0, 0, -1 }, -- Swarm Pot
+    { 0x40000280, 600, 0, 0, -1 }, -- Sleep Pot
+    { 0x400001A4, 600, 0, 0, -1 }, -- Roped Lightning Pot
+    { 0x400001AE, 600, 0, 0, -1 }, -- Roped Fetid Pot
+    { 0x400001B8, 600, 0, 0, -1 }, -- Roped Poison Pot
+    { 0x400001C2, 600, 0, 0, -1 }, -- Roped Oil Pot
+    { 0x400001CC, 600, 0, 0, -1 }, -- Roped Magic Pot
+    { 0x400001D6, 600, 0, 0, -1 }, -- Roped Fly Pot
+    --{ 0x400001E0, 600, 0, 0, -1 }, -- Roped Freezing Pot
+    { 0x400001EA, 600, 0, 0, -1 }, -- Roped Volcano Pot
+    { 0x400001FE, 600, 0, 0, -1 }, -- Roped Holy Water Pot
+    { 0x40000258, 600, 0, 0, -1 }, -- Volcano Pot
+    { 0x40000262, 600, 0, 0, -1 }, -- Albinauric Pot
+    { 0x40000276, 600, 0, 0, -1 }, -- Cursed-Blood Pot
+    { 0x40000294, 600, 0, 0, -1 }, -- Magic Pot
+    { 0x40000295, 600, 0, 0, -1 }, -- Academy Magic Pot
 
     { 0x40000578, 610, 0, 0, -1 }, -- Fire Grease
     { 0x40000582, 610, 0, 0, -1 }, -- Lightning Grease
@@ -1749,25 +1749,25 @@ local items = {
     { 0x401E90BA, 1, 0, 0, -1 }, -- Horned Bairn
     { 0x401E90C4, 1, 0, 0, -1 }, -- Perfumed Oil of Ranah
 
-    { 0x401E85AC, 610, 0, 0, -1 }, -- Hefty Fire Pot
-    { 0x401E85B6, 610, 0, 0, -1 }, -- Hefty Rock Pot
-    { 0x401E85C0, 610, 0, 0, -1 }, -- Hefty Lightning Pot
-    { 0x401E85CA, 610, 0, 0, -1 }, -- Hefty Fetid Pot
-    { 0x401E85D4, 610, 0, 0, -1 }, -- Hefty Fly Pot
-    { 0x401E85E8, 610, 0, 0, -1 }, -- Hefty Freezing Pot
-    { 0x401E85F2, 610, 0, 0, -1 }, -- Hefty Poison Pot
-    { 0x401E85FC, 610, 0, 0, -1 }, -- Hefty Oil Pot
-    { 0x401E86D8, 610, 0, 0, -1 }, -- Hefty Volcano Pot
-    { 0x401E86EC, 610, 0, 0, -1 }, -- Hefty Frenzied Flame Pot
-    { 0x401E870A, 610, 0, 0, -1 }, -- Hefty Rancor Pot
-    { 0x401E8714, 610, 0, 0, -1 }, -- Hefty Magic Pot
-    { 0x401E871E, 610, 0, 0, -1 }, -- Hefty Rot Pot
-    { 0x401E8728, 610, 0, 0, -1 }, -- Hefty Furnace Pot
-    { 0x401E8732, 610, 0, 0, -1 }, -- Hefty Red Lightning Pot
-    { 0x401E873C, 610, 0, 0, -1 }, -- Red Lightning Pot
-    { 0x401E8746, 610, 0, 0, -1 }, -- Frenzied Flame Pot
-    { 0x401E8764, 610, 0, 0, -1 }, -- Eternal Sleep Pot
-    { 0x401E8778, 610, 0, 0, -1 }, -- Roped Frenzied Flame Pot
+    { 0x401E85AC, 600, 0, 0, -1 }, -- Hefty Fire Pot
+    { 0x401E85B6, 600, 0, 0, -1 }, -- Hefty Rock Pot
+    { 0x401E85C0, 600, 0, 0, -1 }, -- Hefty Lightning Pot
+    { 0x401E85CA, 600, 0, 0, -1 }, -- Hefty Fetid Pot
+    { 0x401E85D4, 600, 0, 0, -1 }, -- Hefty Fly Pot
+    { 0x401E85E8, 600, 0, 0, -1 }, -- Hefty Freezing Pot
+    { 0x401E85F2, 600, 0, 0, -1 }, -- Hefty Poison Pot
+    { 0x401E85FC, 600, 0, 0, -1 }, -- Hefty Oil Pot
+    { 0x401E86D8, 600, 0, 0, -1 }, -- Hefty Volcano Pot
+    { 0x401E86EC, 600, 0, 0, -1 }, -- Hefty Frenzied Flame Pot
+    { 0x401E870A, 600, 0, 0, -1 }, -- Hefty Rancor Pot
+    { 0x401E8714, 600, 0, 0, -1 }, -- Hefty Magic Pot
+    { 0x401E871E, 600, 0, 0, -1 }, -- Hefty Rot Pot
+    { 0x401E8728, 600, 0, 0, -1 }, -- Hefty Furnace Pot
+    { 0x401E8732, 600, 0, 0, -1 }, -- Hefty Red Lightning Pot
+    { 0x401E873C, 600, 0, 0, -1 }, -- Red Lightning Pot
+    { 0x401E8746, 600, 0, 0, -1 }, -- Frenzied Flame Pot
+    { 0x401E8764, 600, 0, 0, -1 }, -- Eternal Sleep Pot
+    { 0x401E8778, 600, 0, 0, -1 }, -- Roped Frenzied Flame Pot
 
     { 0x401E89F8, 610, 0, 0, -1 }, -- Messmerfire Grease
     { 0x401E8A02, 610, 0, 0, -1 }, -- Dragonbolt Grease
@@ -1856,6 +1856,13 @@ local items = {
     { 0x401E9FD8, 1, 0, 0, -1 }, -- Bayle's Tyranny
     { 0x401E9FE2, 1, 0, 0, -1 }, -- Bayle's Flame Lightning
     { 0x401E9FEC, 1, 0, 0, -1 }, -- Ghostflame Breath
+
+    { 0x400000AC, 1, 0, 0, -1 }, -- Bloody Finger
+    { 0x40000070, 1, 0, 0, -1 }, -- Recusant Finger
+    { 0x400000AE, 1, 0, 0, -1 }, -- White Cipher Ring
+    { 0x400000AF, 1, 0, 0, -1 }, -- Blue Cipher Ring
+    { 0x400000B3, 1, 0, 0, -1 }, -- Small Golden Effigy
+    { 0x400000B4, 1, 0, 0, -1 }, -- Small Red Effigy
 -- Daggers
   { 0x000F4240, 1, reinforceLv, upgrade, gem }, -- Dagger
   { 0x000F6950, 1, reinforceLv, upgrade, gem }, -- Black Knife
