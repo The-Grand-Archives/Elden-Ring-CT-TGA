@@ -1,6 +1,59 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
+ThingName = {}
+
+function ThingName:new(pName, length, fallback)
+    local o = {}
+    setmetatable(o, self)
+    self.__index = self
+    local str = fallback and tostring(fallback) or "?ThingName?"
+    self.fallback = str
+    if pName ~= nil then
+        local read = readString(pName, length, true)
+        if read ~= nil then
+            str = read
+            self.ptr = pName
+        end
+    end
+    self.length = str:len()
+    return o
+end
+
+function ThingName:len()
+    return self.length
+end
+
+function ThingName:default()
+    return self.fallback
+end
+
+function ThingName:read()
+    if self:len() <= 0 then
+        return ""
+    end
+    return self.ptr and tga.readWCStr(self.ptr, self.length) or self:default()
+end
+
+ThingName.__tostring = ThingName.read
+
+function ThingName:write(name)
+    name = name and tostring(name)
+    if name == nil then return end
+    local len = self.length - string.len(name)
+    if len > 0 then
+        -- pad with spaces (or we lose null terminated length information)
+        name = table.concat{name, string.rep(" ", len)}
+    end
+    -- already does boundary checking
+    tga.writeWCStr(self.ptr, name, self.length)
+end
+
+-- minimal buffer size in bytes to store the name or its default
+function ThingName:buf()
+    return (math.max(self.length, self.fallback:len()) + 1) * 2
+end
+
 local function findByFmgIndex(fmgIndex, id)
     if fmgIndex < 0 or fmgIndex >= 512 or id < 0 then
         return nil
@@ -59,48 +112,45 @@ local function findInFmgs(fmgIndexTable, id)
     return nil
 end
 
-local function getThingName(fmgIndices, id, length, default)
-    if type(id) ~= "number" then return default end
+local function getThingName(fmgIndices, id, length, fallback)
     local pName = findInFmgs(fmgIndices, id)
-    if pName ~= nil then
-        return readString(pName, length, true)
-    end
-    return default
+    return ThingName:new(pName, length, fallback)
 end
 
 function getGoodsName(goodsId)
-    return getThingName({111, 10, 319, 419}, goodsId, 128, "?GoodsName?")
+    return getThingName({111, 10, 319, 419}, goodsId, 256, "?GoodsName?")
 end
 
 function getWeaponName(weaponId)
-    return getThingName({115, 11, 310, 410}, weaponId, 128, "?WeaponName?")
+    return getThingName({115, 11, 310, 410}, weaponId, 256, "?WeaponName?")
 end
 
 function getProtectorName(protectorId)
-    return getThingName({117, 12, 313, 413}, protectorId, 128, "?ProtectorName?")
+    return getThingName({117, 12, 313, 413}, protectorId, 256, "?ProtectorName?")
 end
 
 function getAccessoryName(accessoryId)
-    return getThingName({113, 13, 316, 416}, accessoryId, 128, "?AccessoryName?")
+    return getThingName({113, 13, 316, 416}, accessoryId, 256, "?AccessoryName?")
 end
 
 function getMagicName(magicId)
-    return getThingName({118, 14, 325, 425}, magicId, 128, "?MagicName?")
+    return getThingName({118, 14, 325, 425}, magicId, 256, "?MagicName?")
 end
 
 function getArtsName(artsId)
-    return getThingName({42, 331, 431}, artsId, 128, "?ArtsName?")
+    return getThingName({42, 331, 431}, artsId, 256, "?ArtsName?")
 end
 
 function getNpcName(npcId)
-    return getThingName({119, 18, 328, 428}, npcId, 128, "?NpcName?")
+    return getThingName({119, 18, 328, 428}, npcId, 256, "?NpcName?")
 end
 
 function getPlaceName(placeId)
-    return getThingName({120, 19, 329, 429}, placeId, 128, "?PlaceName?")
+    return getThingName({120, 19, 329, 429}, placeId, 256, "?PlaceName?")
 end
 
 [DISABLE]
+ThingName = nil
 getGoodsName = nil
 getWeaponName = nil
 getProtectorName = nil
