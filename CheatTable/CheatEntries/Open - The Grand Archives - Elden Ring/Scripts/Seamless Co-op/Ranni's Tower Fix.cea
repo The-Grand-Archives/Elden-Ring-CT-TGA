@@ -1,0 +1,67 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local flagsBaseOn = {
+-- Choosing to enter Ranni's service
+1034509410,
+1034509412,
+1034500738,
+1034500732,
+1034500736,
+1034505015,
+1034509361,
+1034500715,
+1034500710,
+1034500700,
+1034490701,
+1034490700,
+1034509413,
+1034509418,
+
+-- Exhausting Iji's dialogue in Ranni's Rise
+1034509355,
+1034509357,
+1034509358,
+
+-- Exhausting Blaidd's dialogue in Ranni's Rise
+1034509205,
+1045379208,
+
+-- Exhausting Seluvis' dialogue in Ranni's Rise
+1034509305,
+1034509306,
+
+-- Exhausting all 3 dialogues activating Ranni's next dialogue/step
+1034509417,
+1034500734,
+
+-- Exhausting Ranni's dialogue after talking to all 3 spirits
+1034509416,
+1034500739,
+1034500733,
+1034502610,
+1034505002,
+1034505003,
+1034505004,
+1034500716,
+1034503600,
+}
+
+local flagsOn = {flagsBaseOn}
+local flagsOff = 1034500738 -- Toggled on when choosing to enter, and off when exhausting dialogue
+ef.batchSetFlags(flagsOn, 1, "RanniFlagsThread")
+
+local t = createTimer(nil)
+t.interval = 100
+t.onTimer = function (t)
+    if function() return not ef.RanniFlagsThread end then
+        ef.setFlag(flagsOff, 0)
+        lua_warp(1034502950) -- [Liurnia of the Lakes] Ranni's Rise
+        t.destroy()
+    end
+end
+disableMemrec(memrec)
+
+[DISABLE]
+ef.RanniFlagsThread = false
+
