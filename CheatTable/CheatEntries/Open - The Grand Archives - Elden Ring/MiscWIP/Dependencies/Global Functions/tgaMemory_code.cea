@@ -1,0 +1,125 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+tga = tga or {}
+
+-- read the n-th bit starting at an address (integer or CEAddressString)
+-- and return its numeric value or nil on failure
+function tga.readBit(address, bit)
+    if type(bit) ~= "number" then
+        return nil
+    end
+    local index = bit >> 3
+    if type(address) == "number" then
+        address = address + index
+    elseif type(address) == "string" then
+        address = string.format("%s+%x", address, index)
+    else
+        return nil
+    end
+    -- test(mem[bit / 8], bit % 8)
+    local byte = readByte(address)
+    return byte
+        and (byte >> (bit & 7)) & 1
+        or nil
+end
+
+-- set the n-th bit starting at an address (integer or CEAddressString)
+-- to a numeric value of 0 or 1 or 1 for a truthy input and 0 otherwise
+function tga.writeBit(address, bit, value)
+    if type(bit) ~= "number" then
+        return
+    end
+    local index = bit >> 3
+    if type(address) == "number" then
+        address = address + index
+    elseif type(address) == "string" then
+        address = string.format("%s+%x", address, index)
+    else
+        return
+    end
+    local byte = readByte(address)
+    if byte ~= nil then
+        local set = 1 << (bit & 7)
+        -- map 0 => false 
+        value = value and value ~= 0
+        writeByte(address,
+            value
+            and byte | set
+            or byte & ~set)
+    end
+end
+
+-- read count >= 0 characters at address from a null terminated
+-- char string, excluding the null terminator and return a lua
+-- string or nil on failure
+function tga.readCStr(address, count)
+    if type(count) ~= "number" then
+        return nil
+    end
+    count = count // 1
+    return count >= 0
+        and readString(address, count, false)
+        or nil
+end
+
+-- read count >= 0 characters at address from a null terminated 
+-- wchar string, excluding the null terminator and return a lua
+-- string or nil on failure
+function tga.readWCStr(address, count)
+    if type(count) ~= "number" then
+        return nil
+    end
+    count = (count // 1) * 2
+    return count >= 0
+        and readString(address, count, true)
+        or nil
+end
+
+-- copy characters from a lua string to a null terminated
+-- char string up to its length or count >= 0 as the capacity
+-- of the target in characters and append a null terminator
+-- 
+-- count does not include the null terminator, e.g.
+-- the capacity of the char string "Start" is 5
+function tga.writeCStr(address, str, count)
+    if type(count) ~= "number" or count < 0 then
+        error("invalid character count")
+    end
+    str = stringToByteTable(str)
+    if str == nil then
+        return
+    end
+    -- add the null terminator and truncate if needed
+    count = math.min(count // 1, #str) + 1
+    str[count] = 0
+    for i = count + 1, #str do
+        str[i] = nil
+    end
+    writeBytes(address, str)
+end
+
+-- copy characters from a lua string to a null terminated
+-- wchar string up to its length or count >= 0 as the capacity
+-- of the target in characters and append a null terminator
+-- 
+-- count does not include the null terminator, e.g.
+-- the capacity of the wchar string L"Start" is 5
+function tga.writeWCStr(address, str, count)
+    if type(count) ~= "number" or count < 0 then
+        error("invalid character count")
+    end
+    str = wideStringToByteTable(str)
+    if str == nil then
+        return
+    end
+    -- add the null terminator and truncate if needed
+    count = math.min((count // 1) * 2, #str) + 2
+    str[count] = 0; str[count - 1] = 0
+    for i = count + 1, #str do
+        str[i] = nil
+    end
+    writeBytes(address, str)
+end
+
+[DISABLE]
