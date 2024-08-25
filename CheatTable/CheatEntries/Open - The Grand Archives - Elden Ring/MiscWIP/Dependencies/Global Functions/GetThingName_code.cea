@@ -40,9 +40,12 @@ ThingName.__tostring = ThingName.read
 function ThingName:write(name)
     name = name and tostring(name)
     if name == nil then return end
-    if string.len(name) > self.length then
-        error(string.format("ThingName:write length error: length of %s (%d) is greater than %d", name, string.len(name), self:len()))
+    local len = self.length - string.len(name)
+    if len > 0 then
+        -- pad with spaces (or we lose null terminated length information)
+        name = table.concat{name, string.rep(" ", len)}
     end
+    -- already does boundary checking
     tga.writeWCStr(self.ptr, name, self.length)
 end
 
