@@ -63,3 +63,4 @@ t.onTimer = function (t)
 end
 [DISABLE]
 ef.RanniFlagsThread = false
+t.destroy()
