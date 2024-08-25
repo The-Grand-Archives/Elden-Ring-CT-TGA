@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - "Print player inventory items" has been renamed to "Print items" and now prints the currently selected type of inventory
+### Removed
+ - "Print storage chest items
 
 ## [v1.15.0] - 2024-08-10
 ### Added

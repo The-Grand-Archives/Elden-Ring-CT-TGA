@@ -9,7 +9,7 @@ function getInvData(value)
 		[2] = { 0x5D0, 1, 384}, -- key items on player
 		[3] = { 0x8D0, 1, 128}  -- key items in chest
 	}
-	if value ~= nil and value >= 0 and value <= 4 then
+	if value ~= nil and value >= 0 and value < 4 then
 		return inv[value]
 	else
 		return false
