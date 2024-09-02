@@ -1,12 +1,21 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - by [Umgak](https://github.com/Umgak):
+   - Ranni's Tower Fix script for Seamless Co-op
+ - by [Dasaav](https://github.com/Dasaav-dsv/):
+   - TGA read/write extensions for C strings and singular bits
 ### Changed
  - "Print player inventory items" has been renamed to "Print items" and now prints the currently selected type of inventory
+ - by [Dasaav](https://github.com/Dasaav-dsv/):
+   - ThingName to support writes (and never return nil) 
 ### Removed
  - "Print storage chest items
 ### Fixed
  - getItemIdx, getItemByIdx, RemoveItem when no inventory specified
  - equipItem when missing the "empty slot" weapons and protectors
+ - by [Umgak](https://github.com/Umgak):
+   - Model Masks offset in Last Protector Highlighted
 
 ## [v1.15.0] - 2024-08-10
 ### Added
