@@ -24,7 +24,7 @@ function getItemIdx(inputId, inv)
 	local GameDataMan = readPointer("GameDataMan")
 	local PlayerGameData = readPointer(GameDataMan + 0x8)
 
-	local inv = getInvData(inv)
+	local inv = getInvData(inv or 0)
 	local invOffset = inv[1]
 	local keyOffset = inv[2] * 0x10
 
@@ -53,7 +53,7 @@ function getItemByIdx(idx, inv)
 	local GameDataMan = readPointer("GameDataMan")
 	local PlayerGameData = readPointer(GameDataMan + 0x8)
 
-	local inv = getInvData(inv)
+	local inv = getInvData(inv or 0)
 	local invOffset = inv[1]
 	local keyOffset = inv[2] * 0x10
 

@@ -22,6 +22,15 @@ function equipItem(slot, invIdx)
 		return false
 	end
 
+	local function getItemIfMissing(id)
+		local idx = getItemIdx(id)
+		if not idx then
+			ItemGive(id)
+			return getItemIdx(id)
+		end
+		return idx
+	end
+
 	local GameDataMan = readPointer("GameDataMan")
 	local PlayerGameData = readPointer(GameDataMan + 0x8)
 	local EquipGameData = PlayerGameData + 0x2B0
@@ -40,31 +49,20 @@ function equipItem(slot, invIdx)
 		local protector_type = 0x10000000
 		if slot <= 5 then
 			item = 110000
-			invIdx = getItemIdx(item)
 		elseif slot == 12 then
 			item = 10000 + protector_type
-			invIdx = getItemIdx(item)
 		elseif slot == 13 then
 			item = 10100 + protector_type
-			invIdx = getItemIdx(item)
 		elseif slot == 14 then
 			item = 10200 + protector_type
-			invIdx = getItemIdx(item)
 		elseif slot == 15 then
 			item = 10300 + protector_type
-			invIdx = getItemIdx(item)
-
 		else
 			invIdx = 0xFFFFFFFF
 			tailDataIdx = 0
 		end
-
-        if not invIdx then
-            local e = "Item not found"
-            print(e)
-			error(e, 2)
-        end
-
+		if invIdx ~= 0xFFFFFFFF then invIdx = getItemIfMissing(item) end
+		if not invIdx then throwError("Item not found") end
 		writeInteger(equipItem_data + 0x10, item)
 	end
 
