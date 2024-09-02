@@ -4,6 +4,9 @@
  - "Print player inventory items" has been renamed to "Print items" and now prints the currently selected type of inventory
 ### Removed
  - "Print storage chest items
+### Fixed
+ - getItemIdx, getItemByIdx, RemoveItem when no inventory specified
+ - equipItem when missing the "empty slot" weapons and protectors
 
 ## [v1.15.0] - 2024-08-10
 ### Added
