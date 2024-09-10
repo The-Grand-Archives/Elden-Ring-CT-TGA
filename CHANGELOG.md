@@ -9,6 +9,7 @@
  - "Print player inventory items" has been renamed to "Print items" and now prints the currently selected type of inventory
  - by [Dasaav](https://github.com/Dasaav-dsv/):
    - ThingName to support writes (and never return nil) 
+ - Change position of "Sword of Night" in ItemDropdownDLC and WEAPON_ID dropdowns
 ### Removed
  - "Print storage chest items
 ### Fixed
