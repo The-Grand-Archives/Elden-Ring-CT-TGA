@@ -10,6 +10,7 @@
  - by [Dasaav](https://github.com/Dasaav-dsv/):
    - ThingName to support writes (and never return nil) 
  - Change position of "Sword of Night" in ItemDropdownDLC and WEAPON_ID dropdowns
+ - Supported version to v1.14.0
 ### Removed
  - "Print storage chest items
 ### Fixed
