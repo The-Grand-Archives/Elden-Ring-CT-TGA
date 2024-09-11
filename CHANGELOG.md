@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.16.0] - 2024-09-11
 ### Added
  - by [Umgak](https://github.com/Umgak):
    - Ranni's Tower Fix script for Seamless Co-op
