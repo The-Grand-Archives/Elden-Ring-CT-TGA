@@ -2,6 +2,7 @@
 ## [Unreleased]
 ### Fixed
  - optional dlc arg isOwnDlc
+ - "Memorize Spells" npc menu
 
 ## [v1.16.0] - 2024-09-11
 ### Added
