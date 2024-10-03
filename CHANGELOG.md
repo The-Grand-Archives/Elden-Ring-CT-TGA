@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - Supported version to v1.15.0
 ### Fixed
  - optional dlc arg isOwnDlc
  - "Memorize Spells" npc menu
