@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - optional dlc arg isOwnDlc
 
 ## [v1.16.0] - 2024-09-11
 ### Added

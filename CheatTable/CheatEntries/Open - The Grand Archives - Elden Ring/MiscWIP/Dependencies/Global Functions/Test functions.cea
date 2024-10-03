@@ -3,8 +3,7 @@ if syntaxcheck then return end
 [ENABLE]
 function isOwnDlc(dlc)
 	local CsDlc = readPointer("CsDlc")
-
-	if dlc == nil then local dlc = 1 end
+	local dlc = dlc or 1
 
 	if readByte(CsDlc + 0x10 + dlc) == 1 then
 		return true
