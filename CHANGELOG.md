@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.16.1] - 2024-10-03
 ### Changed
  - Supported version to v1.15.0
 ### Fixed
