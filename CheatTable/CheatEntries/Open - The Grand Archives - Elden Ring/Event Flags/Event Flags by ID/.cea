@@ -1,4 +1,4 @@
-//authors: sfix and Dasaav
+//Authors: sfix and Dasaav (original), Dasaav (rewrite)
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
@@ -7,9 +7,8 @@ writeInteger(ef.flag_data, 71190)
 writeInteger(ef.flag_data + 4, 0)
 writeInteger(ef.flag_data + 8, 0)
 
-ef.categories = {
-[[]],
-[[71190:Table of Lost Grace / Roundtable Hold
+local flagsBase = {
+["Sites of Grace"] = [[71190:Table of Lost Grace / Roundtable Hold
 76101:Limgrave - Limgrave - The First Step
 76100:Limgrave - Limgrave - Church of Elleh
 76111:Limgrave - Limgrave - Gatefront
@@ -322,113 +321,8 @@ ef.categories = {
 71232:Deeproot Depths - Great Waterfall Crest
 71230:Deeproot Depths - Prince of Death's Throne
 71231:Deeproot Depths - Root-Facing Cliffs
-71234:Deeproot Depths - The Nameless Eternal City
-72000:Realm of Shadow - Belurat, Tower Settlement - Theatre of the Divine Beast
-72001:Realm of Shadow - Belurat, Tower Settlement - Belurat, Tower Settlement
-72002:Realm of Shadow - Belurat, Tower Settlement - Small Private Altar
-72003:Realm of Shadow - Belurat, Tower Settlement - Stagefront
-72010:Realm of Shadow - Enir-Ilim - Gate of Divinity
-72012:Realm of Shadow - Enir-Ilim - Enir-Ilim: Outer Wall
-72013:Realm of Shadow - Enir-Ilim - First Rise
-72014:Realm of Shadow - Enir-Ilim - Spiral Rise
-72015:Realm of Shadow - Enir-Ilim - Cleansing Chamber Anteroom
-72016:Realm of Shadow - Enir-Ilim - Divine Gate Front Staircase
-72101:Realm of Shadow - Shadow Keep - Main Gate Plaza
-72102:Realm of Shadow - Shadow Keep - Shadow Keep Main Gate
-72106:Realm of Shadow - Shadow Keep, Church District - Church District Entrance
-72107:Realm of Shadow - Shadow Keep, Church District - Sunken Chapel
-72108:Realm of Shadow - Shadow Keep, Church District - Tree,Worship Passage
-72109:Realm of Shadow - Shadow Keep, Church District - Tree,Worship Sanctum
-72110:Realm of Shadow - Specimen Storehouse - Messmer's Dark Chamber
-72111:Realm of Shadow - Specimen Storehouse - Storehouse, First Floor
-72112:Realm of Shadow - Specimen Storehouse - Storehouse, Fourth Floor
-72113:Realm of Shadow - Specimen Storehouse - Storehouse, Seventh Floor
-72114:Realm of Shadow - Specimen Storehouse - Dark Chamber Entrance
-72116:Realm of Shadow - Specimen Storehouse - Storehouse, Back Section
-72117:Realm of Shadow - Specimen Storehouse - Storehouse, Loft
-72120:Realm of Shadow - Specimen Storehouse - West Rampart
-72200:Realm of Shadow - Stone Coffin Fissure - Garden of Deep Purple
-72201:Realm of Shadow - Stone Coffin Fissure - Stone Coffin Fissure
-72202:Realm of Shadow - Stone Coffin Fissure - Fissure Cross
-72203:Realm of Shadow - Stone Coffin Fissure - Fissure Waypoint
-72204:Realm of Shadow - Stone Coffin Fissure - Fissure Depths
-72500:Realm of Shadow - Scadu Altus - Finger Birthing Grounds
-72800:Realm of Shadow - Midra's Manse - Discussion Chamber
-72801:Realm of Shadow - Midra's Manse - Manse Hall
-72802:Realm of Shadow - Midra's Manse - Midra's Library
-72803:Realm of Shadow - Midra's Manse - Second Floor Chamber
-74000:Realm of Shadow - Gravesite Plain - Fog Rift Catacombs
-74200:Realm of Shadow - Gravesite Plain - Ruined Forge Lava Intake
-74300:Realm of Shadow - Gravesite Plain - Rivermouth Cave
-74301:Realm of Shadow - Gravesite Plain - Dragon's Pit
-74351:Realm of Shadow - Gravesite Plain - Dragon's Pit Terminus
-76804:Realm of Shadow - Gravesite Plain - Cliffroad Terminus
-76803:Realm of Shadow - Gravesite Plain - Main Gate Cross
-76800:Realm of Shadow - Gravesite Plain - Gravesite Plain
-76802:Realm of Shadow - Gravesite Plain - Three,Path Cross
-76805:Realm of Shadow - Gravesite Plain - Greatbridge, North
-76801:Realm of Shadow - Gravesite Plain - Scorched Ruins
-76812:Realm of Shadow - Gravesite Plain - Ellac River Cave
-76813:Realm of Shadow - Gravesite Plain - Castle Front
-76811:Realm of Shadow - Gravesite Plain - Pillar Path Waypoint
-76810:Realm of Shadow - Gravesite Plain - Pillar Path Cross
-74100:Realm of Shadow - Gravesite Plain - Belurat Gaol
-76830:Realm of Shadow - Gravesite Plain - Ellac River Downstream
-76841:Realm of Shadow - Charo's Hidden Grave - Charo's Hidden Grave
-74102:Realm of Shadow - Charo's Hidden Grave - Lamenter's Gaol
-76821:Realm of Shadow - Castle Ensis - Castle Ensis Checkpoint
-76823:Realm of Shadow - Castle Ensis - Ensis Moongazing Grounds
-76822:Realm of Shadow - Castle Ensis - Castle,Lord's Chamber
-76832:Realm of Shadow - Cerulean Coast - Cerulean Coast West
-76833:Realm of Shadow - Cerulean Coast - The Fissure
-76835:Realm of Shadow - Cerulean Coast - Cerulean Coast Cross
-76831:Realm of Shadow - Cerulean Coast - Cerulean Coast
-76834:Realm of Shadow - Cerulean Coast - Finger Ruins of Rhia
-76840:Realm of Shadow - Foot of the Jagged Peak - Grand Altar of Dragon Communion
-76861:Realm of Shadow - Abyssal Woods - Divided Falls
-76860:Realm of Shadow - Abyssal Woods - Abyssal Woods
-76862:Realm of Shadow - Abyssal Woods - Forsaken Graveyard
-76864:Realm of Shadow - Abyssal Woods - Church Ruins
-76863:Realm of Shadow - Abyssal Woods - Woodland Trail
-76850:Realm of Shadow - Foot of the Jagged Peak - Foot of the Jagged Peak
-76851:Realm of Shadow - Jagged Peak - Jagged Peak Mountainside
-76852:Realm of Shadow - Jagged Peak - Jagged Peak Summit
-76853:Realm of Shadow - Jagged Peak - Rest of the Dread Dragon
-76944:Realm of Shadow - Ancient Ruins of Rauh - Ancient Ruins, Grand Stairway
-76945:Realm of Shadow - Ancient Ruins of Rauh - Church of the Bud
-76943:Realm of Shadow - Ancient Ruins of Rauh - Church of the Bud, Main Entrance
-76942:Realm of Shadow - Ancient Ruins of Rauh - Rauh Ancient Ruins, West
-76941:Realm of Shadow - Ancient Ruins of Rauh - Rauh Ancient Ruins, East
-76940:Realm of Shadow - Ancient Ruins of Rauh - Viaduct Minor Tower
-76913:Realm of Shadow - Rauh Base - Temple Town Ruins
-76914:Realm of Shadow - Rauh Base - Ravine North
-74001:Realm of Shadow - Rauh Base - Scorpion River Catacombs
-74203:Realm of Shadow - Rauh Base - Taylew's Ruined Forge
-76912:Realm of Shadow - Rauh Base - Ancient Ruins Base
-74002:Realm of Shadow - Scadu Altus - Darklight Catacombs
-74101:Realm of Shadow - Scadu Altus - Bonny Gaol
-76900:Realm of Shadow - Scadu Altus - Highroad Cross
-76907:Realm of Shadow - Scadu Altus - Scadu Altus, West
-76908:Realm of Shadow - Scadu Altus - Moorth Highway, South
-76909:Realm of Shadow - Scadu Altus - Fort of Reprimand
-76910:Realm of Shadow - Scadu Altus - Behind the Fort of Reprimand
-76902:Realm of Shadow - Scadu Altus - Moorth Ruins
-76903:Realm of Shadow - Scadu Altus - Bonny Village
-76916:Realm of Shadow - Scadu Altus - Castle Watering Hole
-74202:Realm of Shadow - Scadu Altus - Ruined Forge of Starfall Past
-76911:Realm of Shadow - Scadu Altus - Scaduview Cross
-76918:Realm of Shadow - Scadu Altus - Recluses' River Downstream
-76917:Realm of Shadow - Scadu Altus - Recluses' River Upstream
-76904:Realm of Shadow - Scadu Altus - Bridge Leading to the Village
-76906:Realm of Shadow - Scadu Altus - Cathedral of Manus Metyr
-76905:Realm of Shadow - Scadu Altus - Church District Highroad
-76930:Realm of Shadow - Scaduview - Scaduview
-76931:Realm of Shadow - Scaduview - Shadow Keep, Back Gate
-76936:Realm of Shadow - Scaduview - Fingerstone Hill
-76937:Realm of Shadow - Scaduview - Hinterland Bridge
-76935:Realm of Shadow - Scaduview - Hinterland
-76960:Realm of Shadow - Scaduview - Scadutree Base]],
-[[65600:Upgrade - Standard
+71234:Deeproot Depths - The Nameless Eternal City]],
+["Whetblades"] = [[65600:Upgrade - Standard
 65610:Iron Whetblade (Heavy)
 65620:Iron Whetblade (Keen)
 65630:Iron Whetblade (Quality)
@@ -441,7 +335,7 @@ ef.categories = {
 65700:Black Whetblade (Poison)
 65710:Black Whetblade (Blood)
 65720:Black Whetblade (Occult)]],
-[[67610:Missionary's Cookbook [1]
+["Cookbooks"] = [[67610:Missionary's Cookbook [1]
 67600:Missionary's Cookbook [2]
 67650:Missionary's Cookbook [3]
 67640:Missionary's Cookbook [4]
@@ -497,55 +391,8 @@ ef.categories = {
 67420:Glintstone Craftsman's Cookbook [5]
 67460:Glintstone Craftsman's Cookbook [6]
 67470:Glintstone Craftsman's Cookbook [7]
-67440:Glintstone Craftsman's Cookbook [8]
-68400:Frenzied's Cookbook [1]
-68410:Frenzied's Cookbook [2]
-68590:Greater Potentate's Cookbook [1]
-68730:Greater Potentate's Cookbook [2]
-68690:Greater Potentate's Cookbook [3]
-68600:Greater Potentate's Cookbook [4]
-68610:Greater Potentate's Cookbook [5]
-68720:Greater Potentate's Cookbook [6]
-68630:Greater Potentate's Cookbook [7]
-68680:Greater Potentate's Cookbook [8]
-68640:Greater Potentate's Cookbook [9]
-68650:Greater Potentate's Cookbook [10]
-68660:Greater Potentate's Cookbook [11]
-68620:Greater Potentate's Cookbook [12]
-68700:Greater Potentate's Cookbook [13]
-68710:Greater Potentate's Cookbook [14]
-68750:Mad Craftsman's Cookbook [1]
-68670:Mad Craftsman's Cookbook [2]
-68880:Mad Craftsman's Cookbook [3]
-68740:Ancient Dragon Knight's Cookbook [1]
-68780:Ancient Dragon Knight's Cookbook [2]
-68760:St. Trina Desciple's Cookbook [1]
-68950:St. Trina Desciple's Cookbook [2]
-68840:St. Trina Desciple's Cookbook [3]
-68520:Forager Brood Cookbook [1]
-68530:Forager Brood Cookbook [2]
-68540:Forager Brood Cookbook [3]
-68550:Forager Brood Cookbook [4]
-68560:Forager Brood Cookbook [5]
-68510:Forager Brood Cookbook [6]
-68830:Forager Brood Cookbook [7]
-68810:Igon's Cookbook [1]
-68570:Igon's Cookbook [2]
-68920:Finger-Weaver's Cookbook [1]
-68580:Finger-Weaver's Cookbook [2]
-68770:Fire Knight's Cookbook [1]
-68900:Fire Knight's Cookbook [2]
-68800:Battlefield Priest's Cookbook [1]
-68820:Battlefield Priest's Cookbook [2]
-68890:Battlefield Priest's Cookbook [3]
-68930:Battlefield Priest's Cookbook [4]
-68940:Grave Keeper's Cookbook [1]
-68850:Grave Keeper's Cookbook [2]
-68910:Antiquity Scholar's Cookbook [1]
-68860:Antiquity Scholar's Cookbook [2]
-68870:Tibia's Cookbook
-68790:Loyal Knight's Cookbook]],
-[[62004:Map: Center
+67440:Glintstone Craftsman's Cookbook [8]],
+["Maps"] = [[62004:Map: Center
 62005:Map: SW
 62006:Map: NW
 62007:Map: SE
@@ -569,16 +416,9 @@ ef.categories = {
 62061:Map: Lake of Rot
 62062:Map: Mohgwyn Palace
 62063:Map: Siofra River
-62064:Map: Deeprooth Depths
-62080:Map: Gravesite Plain
-62081:Map: Scadu Altus
-62082:Map: Southern Shore
-62083:Map: Rauh Ruins
-62084:Map: Abyss
-62102:Map: Fringefolk Hero's Cave
-62103:Map: Stormfoot Catacombs
+62064:Map: Deeproot Depths
 82001:Show underground]],
-[[10010540: Limgrave - Chapel of Anticipation
+["Illusory Walls/Doors/Fog Walls"] = [[10010540: Limgrave - Chapel of Anticipation
 5613540: Limgrave - Deathtouched Catacombs 1
 30110540: Limgrave - Deathtouched Catacombs 2
 5606540: Limgrave - Murkwater Catacombs 1
@@ -613,7 +453,7 @@ ef.categories = {
 30060540: Liurnia - Cliffbottom Catabombs 2
 4502560: Liurnia - Purified Ruins
 3949560: Liurnia - Laskyar Ruins]],
-[[4700:Nomadic merchants - Limgrave - Kalé - Alive, friendly
+["NPCs"] = [[4700:Nomadic merchants - Limgrave - Kalé - Alive, friendly
 4701:Nomadic merchants - Limgrave - Kalé - Alive, hostile
 4703:Nomadic merchants - Limgrave - Kalé - Dead
 4720:Nomadic merchants - Limgrave - Nomadic Merchant 1 - Alive, friendly
@@ -965,248 +805,686 @@ ef.categories = {
 3627:Yura - 3. Liurnia - Main Academy Gate
 3630:Yura - 4. 4th location
 3631:Yura - If killed in Limgrave?]],
-[[10000800:
-10000850:
-10010800:
-11000800:
-11000850:
-11050800:
-11050850:
-12010800:
-12010850:
-12020800:
-12020830:
-12020850:
-12030390:
-12030800:
-12030850:
-12040800:
-12050800:
-12080800:
-12090800:
-13000800:
-13000830:
-13000850:
-14000800:
-14000850:
-15000800:
-15000850:
-16000800:
-16000850:
-16000860:
-18000800:
-18000850:
-19000800:
-35000800:
-35000850:
-39200800:
-30000800:
-30010800:
-30020800:
-30110800:
-30040800:
-30050800:
-30050850:
-30030800:
-30060800:
-30080800:
-30090800:
-30100800:
-30100801:
-30120800:
-30120801:
-30070800:
-30130800:
-30140800:
-30150800:
-30160800:
-30170800:
-30180800:
-30190800:
-30200800:
-31000800:
-31010800:
-31020800:
-31030800:
-31150800:
-31170800:
-31040800:
-31050800:
-31060800:
-31070800:
-31090800:
-31180800:
-31190800:
-31190850:
-31210800:
-31100800:
-31200800:
-31110800:
-31120800:
-31220800:
-32000800:
-32010800:
-32020800:
-32040800:
-34120800:
-32050800:
-32050801:
-32070800:
-32080800:
-32110800:
-34130800:
-34140850:
-1044360800:
-1043370340:
-1042380800:
-1042380850:
-1042330800:
-1044350800:
-1042370800:
-1043330800:
-1044320342:
-1044320340:
-1043300800:
-1042360800:
-1043360800:
-1045390800:
-1034480800:
-1038410800:
-1033450800:
-1036500800:
-1033420800:
-1033430800:
-1038480800:
-1035500800:
-1037460800:
-1039430340:
-1036480340:
-1037420340:
-1036450340:
-1034450800:
-1034500800:
-1034420800:
-1035420800:
-1039440800:
-1037510800:
-1041520800:
-1038510800:
-1041500800:
-1040530800:
-1041510800:
-1042550800:
-1040520800:
-1045520800:
-1039500800:
-1041530800:
-1039510800:
-1044530800:
-1043530800:
-1037530800:
-1035530800:
-1036540800:
-1039540800:
-1037540810:
-1038520340:
-1047409800:
-1048379800:
-1048409800:
-1049379800:
-1049370850:
-1049389800:
-1051369800:
-1052380800:
-1049390800:
-1048410800:
-1049390850:
-1051400800:
-1052410800:
-1052410850:
-1051430800:
-1048510800:
-1049520800:
-1054560800:
-1053560800:
-1052520800:
-1052560800:
-1050570800:
-1050570850:
-1051570800:
-1050560800:
-1248550800:
-1048570800:
-20000800:Dancing Lion
-20010800:Radahn
-21000850:Golden Hippo
-21010800:Messmer
-28000800:Midra
-2044450800:Romina
-2048440800:Rellana
-2049480800:Gaius
-2054390800:Bayle]],
-[[60360:Limgrave Colosseum
+["Bosses"] = [[10000800:Godrick the Grafted (Stormveil Castle)
+10000850:Margit the Fell (Stormhill)
+10010800:Grafted Scion (Chapel of Anticipation)
+11000800:Morgott, the Omen King (Leyndell, Royal Capital)
+11000850:Godfrey, First Elden Lord (Leyndell, Royal Capital)
+11050800:Hoarah Loux, Warrior (Leyndell, Capital of Ash)
+11050850:Sir Gideon Ofnir, the All-Knowing (Leyndell, Capital of Ash)
+12010850:Dragonkin Soldier (Lake of Rot)
+12020800:Valiant Gargoyles (Siofra Aqueduct)
+12020830:Dragonkin Soldier (Siofra River)
+12020850:Mimic Tear (Nokron, Eternal City)
+12030390:Crucible Knight Siluria (Deeproot Depths)
+12030800:Fia's Champions (Deeproot Depths)
+12030850:Lichdragon Fortissax (Deeproot Depths)
+12040800:Astel, Naturalborn of the Void (Lake of Rot)
+12050800:Mohg, Lord of Blood (Mohgwyn Dynasty Mausoleum)
+12080800:Ancestor Spirit (Siofra River)
+12090800:Regal Ancestor Spirit (Ancestral Woods)
+13000800:Maliketh, the Black Blade (Crumbling Farum Azula)
+13000830:Dragonlord Placidusax (Crumbling Farum Azula)
+13000850:Godskin Duo (Crumbling Farum Azula)
+14000800:Rennala, Queen of the Full Moon (Academy of Raya Lucaria)
+14000850:Red Wolf of Radagon (Academy of Raya Lucaria)
+15000800:Malenia, Blade of Miquella (Miquella's Haligtree)
+15000850:Loretta, Knight of the Haligtree (Miquella's Haligtree)
+16000800:Rykard, Lord of Blasphemy (Volcano Manor)
+16000850:Godskin Noble (Volcano Manor)
+16000860:Abductor Virgins (Volcano Manor)
+18000800:Ulcerated Tree Spirit (Fringefolk Hero's Grave)
+18000850:Soldier of Godrick (Cave of Knowledge)
+19000800:Elden Beast (Stone Platform)
+35000800:Mohg, the Omen (Subterranean Shunning-Grounds)
+35000850:Esgar, Priest of Blood (Leyndell Catacombs)
+30000800:Cemetery Shade (Tombsward Catacombs)
+30010800:Erdtree Burial Watchdog (Impaler's Catacombs)
+30020800:Erdtree Burial Watchdog (Stormfoot Catacombs)
+30110800:Black Knife Assassin (Deathtouched Catacombs)
+30040800:Grave Warden Duelist (Murkwater Catacombs)
+30050800:Cemetery Shade (Black Knife Catacombs)
+30050850:Black Knife Assaassin (Black Knife Catacombs)
+30030800:Spirit-Caller Snail (Road's End Catacombs)
+30060800:Erdtree Burial Watchdog (Cliffbottom Catacombs)
+30080800:Ancient Hero of Zamor (Sainted Hero's Grave)
+30090800:Red Wolf of the Champion (Gelmir Hero's Grave)
+30100800:Crucible Knight & Crucible Knight Ordovis (Auriza Hero's Grave)
+30120800:Perfumer Tricia & Misbegotten Warrior (Unsightly Catacombs)
+30070800:Erdtree Burial Watchdog (Wyndham Catacombs)
+30140800:Erdtree Burial Watchdog Duo (Minor Erdtree Catacombs)
+30150800:Cemetery Shade (Caelid Catacombs)
+30160800:Putrid Tree Spirit (War-Dead Catacombs)
+30170800:Ancient Hero of Zamor (Giant-Conquering Hero's Grave)
+30180800:Ulcerated Tree Spirit (Giants' Mountaintop Catacombs)
+30190800:Putrid Grave Warden Duelist (Consecrated Snowfield Catacombs)
+30200800:Stray Mimic Tear (Hidden Path to the Haligtree)
+31000800:Patches (Murkwater Cave)
+31010800:Runebear (Earthbore Cave)
+31020800:Miranda the Blighted Bloom (Tombsward Cave)
+31030800:Beastman of Farum Azula (Groveside Cave)
+31150800:Demi-Human Chiefs (Coastal Cave)
+31170800:Guardian Golem (Highroad Cave)
+31040800:Cleanrot Knight (Stillwater Cave)
+31060800:Crystalian Duo (Academy Crystal Cave)
+31070800:Kindred of Rot Duo (Seethewater Cave)
+31090800:Demi-Human Queen Margot (Volcano Cave)
+31180800:Omenkiller & Miranda the Blighted Bloom (Perfumer's Grotto)
+31190800:Black Knife Assassin (Sage's Cave)
+31190850:Necromancer Garris (Sage's Cave)
+31210800:Frenzied Duelist (Gaol Cave)
+31200800:Cleanrot Knight Duo (Abandoned Cave)
+31110800:Putrid Crystallian Trio (Sellia Hideaway)
+31220800:Spirit-Caller Snail (Spiritcaller Cave)
+32000800:Scaly Misbegotten (Morne Tunnel)
+32020800:Crystalian (Raya Lucaria Crystal Tunnel)
+32040800:Stonedigger Troll (Old Altus Tunnel)
+34120800:Onyx Lord (Sealed Tunnel)
+32050800:Crystalian Duo (Altus Tunnel)
+32070800:Magma Wyrm (Gael Tunnel)
+32080800:Fallingstar Beast (Sellia Crystal Tunnel)
+32110800:Astel, Stars of Darkness (Yelough Anix Tunnel)
+34130800:Godskin Apostle (Divine Tower of Caelid)
+34140850:Fell Twins (Capital Outskirts)
+1044320850:Night's Cavalry (Weeping Peninsula)
+1044360800:Mad Pumpkin Head (Waypoint Ruins)
+1042380800:Deathbird (Stormhill)
+1042380850:Bell Bearing Hunter (Warmaster's Shack)
+1042330800:Ancient Hero of Zamor (Weeping Evergaol)
+1044350800:Bloodhound Knight Darriwil (Forlorn Hound's Evergaol)
+1042370800:Crucible Knight (Stormhill Evergaol)
+1043330800:Erdtree Avatar (Weeping Peninsula)
+1043300800:Leonine Misbegotten (Castle Morne)
+1042360800:Tree Sentinel (Limgrave)
+1044320800:Deathbird (Weeping Peninsula)
+1043360800:Flying Dragon Agheel (Limgrave)
+1043370800:Night's Cavalry (Limgrave)
+1045390800:Tibia Mariner (Summonwater Village)
+1034480800:Royal Revenant (Kingsrealm Ruins)
+1038410800:Adan, Thief of Fire (Malefactor's Evergaol)
+1033450800:Bols, Carian Knight (Cuckoo's Evergaol)
+1036500800:Onyx Lord (Royal Grave Evergaol)
+1033420800:Alecto, Black Knife Ringleader (Ringleader's Evergaol)
+1033430800:Erdtree Avatar (Liurnia of the Lakes)
+1038480800:Erdtree Avatar (Uld Palace Ruins)
+1035500800:Royal Knight Loretta (Caria Manor)
+1036450800:Death Rite Bird (Academy Gate Town)
+1037420800:Deathbird (Liurnia of the Lakes)
+1037460800:Bell Bearing Hunter (Church of Vows)
+1039430800:Night's Cavalry (Liurnia of the Lakes)
+1036480800:Night's Cavalry (Bellum Highway)
+1034450800:Glintstone Dragon Smarag (Liurnia of the Lakes)
+1034500800:Glintstone Dragon Adula (Three Sisters) (First encounter)
+1034420800:Glintstone Dragon Adula (Moonlight Altar) (Second encounter)
+1035420800:Omenkiller (Village of the Albinaurics)
+1039440800:Tibia Mariner (Liurnia of the Lakes)
+1037510800:Ancient Dragon Lansseax (Altus Plateau)
+1038510800:Demi-Human Queen Gilika (Lux Ruins)
+1041500800:Fallingstar Beast (Altus Plateau)
+1040530800:Sanguine Noble (Writheblood Ruins)
+1041510800:Tree Sentinel Duo (Altus Plateau)
+1042550800:Godskin Apostle (Dominula, Windmill Village)
+1040520800:Black Knife Assassin (Sainted Hero's Grave)
+1045520800:Draconic Tree Sentinel (Capital Outskirts)
+1038520800:Tibia Mariner (Wyndham Ruins)
+1039500800:Godefroy the Grafted (Golden Lineage Evergaol)
+1041530800:Wormface (Altus Plateau)
+1039510800:Night's Cavalry (Altus Plateau)
+1044530800:Deathbird (Capital Outskirts)
+1043530800:Bell Bearing Hunter (Hermit Merchant's Shack)
+1037530800:Demi-Human Queen Maggie (Mt. Gelmir)
+1035530800:Magma Wyrm (Mt. Gelmir)
+1036540800:Full-Grown Fallingstar Beast (Mt. Gelmir)
+1039540800:Elemer of the Briar (The Shaded Castle)
+1037540810:Ulcerated Tree Spirit (Mt. Gelmir)
+1047400800:Putrid Avatar (Caelid)
+1048370800:Dekaying Ekzykes (Caelid)
+1048400800:Mad Pumpkin Head Duo (Caelem Ruins)
+1049370800:Night's Cavalry (Caelid)
+1049370850:Death Rite Bird (Caelid)
+1049380800:Commander O'Niel (Swamp of Aeonia)
+1049390800:Nox Swordstress & Nox Priest (Sellia, Town of Sorcery)
+1048410800:Bell Bearing Hunter (Isolated Merchant's Shack)
+1049390850:Battlemage Hugues (Sellia Evergaol)
+1051400800:Putrid Avatar (Greyoll's Dragonbarrow)
+1052410800:Flying Dragon Greyll (Greyoll's Dragonbarrow)
+1052410850:Night's Cavalry (Greyoll's Dragonbarrow)
+1051430800:Black Blade Kindred (Greyoll's Dragonbarrow)
+1048510800:Night's Cavalry (Forbidden Lands)
+1049520800:Black Blade Kindred (Forbidden Lands)
+1050400800:Elder Dragon Greyoll (Greyoll's Dragonbarrow)
+1053560800:Roundtable Knight Vyke (Lord Contender's Evergaol)
+1052560800:Erdtree Avatar (Mountaintops of the Giants)
+1050570800:Death Rite Bird (Mountaintops of the Giants)
+1050570850:Putrid Avatar (Consecrated Snowfield)
+1051360800:Crucible Knight & Misbegotten Warrior (Redmane Castle)
+1051570800:Commander Niall (Castle Sol)
+1050560800:Great Wyrm Theodorix (Consecrated Snowfield)
+1248550800:Night's Cavalry (Consecrated Snowfield)
+1048570800:Death Rite Bird (Consecrated Snowfield)
+1252380800:Starscourge Radahn (Wailing Dunes)
+1252520800:Fire Giant (Flame Peak)
+1254560800:Borealis the Freezing Fog (Mountaintops of the Giants)]],
+["Colosseums"] = [[60360:Limgrave Colosseum
 60350:Caelid Colosseum
-60370:Leyndell Colosseum]]
+60370:Leyndell Colosseum]],
+["Ashes of War"] = [[65800:Ash of War Duplication Menu Visble
+65810:Ash of War: Impaling Thrust
+65811:Ash of War: Piercing Fang
+65812:Ash of War: Spinning Slash
+65813:Ash of War: Repeating Thrust
+65814:Ash of War: Double Slash
+65815:Ash of War: Unsheathe
+65816:Ash of War: Sword Dance
+65818:Ash of War: Quickstep
+65819:Ash of War: Bloodhound's Step
+65820:Ash of War: Lion's Claw
+65821:Ash of War: Stamp (Upward Cut)
+65822:Ash of War: Stamp (Sweep)
+65823:Ash of War: Wild Strikes
+65824:Ash of War: Earthshaker
+65825:Ash of War: Kick
+65826:Ash of War: Ground Slam
+65827:Ash of War: Hoarah Loux's Earthshaker
+65828:Ash of War: Barbaric Roar
+65829:Ash of War: War Cry
+65830:Ash of War: Troll's Roar
+65831:Ash of War: Braggart's Roar
+65832:Ash of War: Endure
+65833:Ash of War: Charge Forth
+65834:Ash of War: Square Off
+65835:Ash of War: Giant Hunt
+65836:Ash of War: Spinning Strikes
+65837:Ash of War: Storm Assault
+65838:Ash of War: Stormcaller
+65839:Ash of War: Storm Blade
+65840:Ash of War: Vacuum Strike
+65841:Ash of War: Storm Stomp
+65842:Ash of War: Determination
+65843:Ash of War: Royal Knight's Resolve
+65844:Ash of War: Prelate's Charge
+65845:Ash of War: Eruption
+65846:Ash of War: Flaming Strike
+65847:Ash of War: Black Flame Tornado
+65848:Ash of War: Flame of the Redmanes
+65849:Ash of War: Thunderbolt
+65850:Ash of War: Lightning Slash
+65851:Ash of War: Lightning Ram
+65852:Ash of War: Loretta's Slash
+65853:Ash of War: Spinning Weapon
+65854:Ash of War: Glintblade Phalanx
+65855:Ash of War: Glintstone Pebble
+65856:Ash of War: Gravitas
+65857:Ash of War: Carian Grandeur
+65858:Ash of War: Carian Greatsword
+65859:Ash of War: Waves of Darkness
+65860:Ash of War: Cragblade
+65861:Ash of War: Sacred Blade
+65862:Ash of War: Prayerful Strike
+65863:Ash of War: Golden Land
+65864:Ash of War: Sacred Ring of Light
+65865:Ash of War: Golden Slam
+65866:Ash of War: Golden Vow
+65867:Ash of War: Sacred Order
+65868:Ash of War: Shared Order
+65869:Ash of War: Beast's Roar
+65870:Ash of War: Phantom Slash
+65871:Ash of War: Spectral Lance
+65872:Ash of War: Raptor of the Mists
+65873:Ash of War: White Shadow's Lure
+65874:Ash of War: Poison Moth Flight
+65875:Ash of War: Poison Mist
+65876:Ash of War: Blood Tax
+65877:Ash of War: Bloody Slash
+65878:Ash of War: Lifesteal Fist
+65879:Ash of War: Blood Blade
+65880:Ash of War: Assassin's Gambit
+65881:Ash of War: Seppuku
+65882:Ash of War: Ice Spear
+65883:Ash of War: Chilling Mist
+65884:Ash of War: Hoarfrost Stomp
+65885:Ash of War: No Skill
+65886:Ash of War: Shield Bash
+65887:Ash of War: Shield Crash
+65888:Ash of War: Barricade Shield
+65889:Ash of War: Parry
+65890:Ash of War: Carian Retaliation
+65891:Ash of War: Storm Wall
+65892:Ash of War: Golden Parry
+65893:Ash of War: Thops's Barrier
+65894:Ash of War: Holy Ground
+65895:Ash of War: Vow of the Indomitable
+65896:Ash of War: Barrage
+65897:Ash of War: Mighty Shot
+65898:Ash of War: Sky Shot
+65899:Ash of War: Through and Through
+65900:Ash of War: Enchanted Shot
+65901:Ash of War: Rain of Arrows]],
+["Bell Bearings"] = [[60701:NG+ Persistence: Smithing-Stone Miner's Bell Bearing [1]
+60702:NG+ Persistence: Smithing-Stone Miner's Bell Bearing [2]
+60703:NG+ Persistence: Smithing-Stone Miner's Bell Bearing [3]
+60704:NG+ Persistence: Smithing-Stone Miner's Bell Bearing [4]
+60705:NG+ Persistence: Somberstone Miner's Bell Bearing [1]
+60706:NG+ Persistence: Somberstone Miner's Bell Bearing [2]
+60707:NG+ Persistence: Somberstone Miner's Bell Bearing [3]
+60708:NG+ Persistence: Somberstone Miner's Bell Bearing [4]
+60709:NG+ Persistence: Somberstone Miner's Bell Bearing [5]
+60710:NG+ Persistence: Glovewort Picker's Bell Bearing [1]
+60711:NG+ Persistence: Glovewort Picker's Bell Bearing [2]
+60712:NG+ Persistence: Glovewort Picker's Bell Bearing [3]
+60713:NG+ Persistence: Ghost-Glovewort Picker's Bell Bearing [1]
+60714:NG+ Persistence: Ghost-Glovewort Picker's Bell Bearing [2]
+60715:NG+ Persistence: Ghost-Glovewort Picker's Bell Bearing [3]
+60730:NG+ Persistence: Bone-Peddler's Bell Bearing
+60731:NG+ Persistence: Meat Peddler's Bell Bearing
+60732:NG+ Persistence: Medicine Peddler's Bell Bearing
+60733:NG+ Persistence: Gravity Stone Peddler's Bell Bearing
+11109710:Pidia's Bell Bearing
+11109711:Seluvis's Bell Bearing
+11109712:Patches' Bell Bearing
+11109713:Sellen's Bell Bearing
+11109715:D's Bell Bearing
+11109716:Bernahl's Bell Bearing
+11109717:Miriel's Bell Bearing
+11109718:Gostoc's Bell Bearing
+11109719:Thops's Bell Bearing
+11109720:Kalé's Bell Bearing
+11109721:Nomadic Merchant's Bell Bearing [1]
+11109722:Nomadic Merchant's Bell Bearing [2]
+11109723:Nomadic Merchant's Bell Bearing [3]
+11109724:Nomadic Merchant's Bell Bearing [4]
+11109725:Nomadic Merchant's Bell Bearing [5]
+11109726:Isolated Merchant's Bell Bearing [1]
+11109727:Isolated Merchant's Bell Bearing [2]
+11109728:Nomadic Merchant's Bell Bearing [6]
+11109729:Hermit Merchant's Bell Bearing [1]
+11109730:Nomadic Merchant's Bell Bearing [7]
+11109731:Nomadic Merchant's Bell Bearing [8]
+11109732:Nomadic Merchant's Bell Bearing [9]
+11109733:Nomadic Merchant's Bell Bearing [10]
+11109735:Isolated Merchant's Bell Bearing [3]
+11109736:Hermit Merchant's Bell Bearing [2]
+11109737:Abandoned Merchant's Bell Bearing
+11109738:Hermit Merchant's Bell Bearing [3]
+11109739:Imprisoned Merchant's Bell Bearing
+11109740:Iji's Bell Bearing
+11109741:Rogier's Bell Bearing
+11109742:Blackguard's Bell Bearing
+11109743:Corhyn's Bell Bearing
+11109744:Gowry's Bell Bearing
+11109745:Bone Peddler's Bell Bearing
+11109746:Meat Peddler's Bell Bearing
+11109747:Medicine Peddler's Bell Bearing
+11109748:Gravity Stone Peddler's Bell Bearing
+11109751:Smithing-Stone Miner's Bell Bearing [1]
+11109752:Smithing-Stone Miner's Bell Bearing [2]
+11109753:Smithing-Stone Miner's Bell Bearing [3]
+11109754:Smithing-Stone Miner's Bell Bearing [4]
+11109755:Somberstone Miner's Bell Bearing [1]
+11109756:Somberstone Miner's Bell Bearing [2]
+11109757:Somberstone Miner's Bell Bearing [3]
+11109758:Somberstone Miner's Bell Bearing [4]
+11109759:Somberstone Miner's Bell Bearing [5]
+11109760:Glovewort Picker's Bell Bearing [1]
+11109761:Glovewort Picker's Bell Bearing [2]
+11109762:Glovewort Picker's Bell Bearing [3]
+11109763:Ghost-Glovewort Picker's Bell Bearing [1]
+11109764:Ghost-Glovewort Picker's Bell Bearing [2]
+11109765:Ghost-Glovewort Picker's Bell Bearing [3] ]]
 }
 
-for i,v in ipairs(ef.categories) do
-	ef.categories[1] = ef.categories[1] == "" and v or ef.categories[1].."\n"..v
+local flagsDlc = {
+["Sites of Grace"] = [[72000:Realm of Shadow - Belurat, Tower Settlement - Theatre of the Divine Beast
+72001:Realm of Shadow - Belurat, Tower Settlement - Belurat, Tower Settlement
+72002:Realm of Shadow - Belurat, Tower Settlement - Small Private Altar
+72003:Realm of Shadow - Belurat, Tower Settlement - Stagefront
+72010:Realm of Shadow - Enir-Ilim - Gate of Divinity
+72012:Realm of Shadow - Enir-Ilim - Enir-Ilim: Outer Wall
+72013:Realm of Shadow - Enir-Ilim - First Rise
+72014:Realm of Shadow - Enir-Ilim - Spiral Rise
+72015:Realm of Shadow - Enir-Ilim - Cleansing Chamber Anteroom
+72016:Realm of Shadow - Enir-Ilim - Divine Gate Front Staircase
+72101:Realm of Shadow - Shadow Keep - Main Gate Plaza
+72102:Realm of Shadow - Shadow Keep - Shadow Keep Main Gate
+72106:Realm of Shadow - Shadow Keep, Church District - Church District Entrance
+72107:Realm of Shadow - Shadow Keep, Church District - Sunken Chapel
+72108:Realm of Shadow - Shadow Keep, Church District - Tree,Worship Passage
+72109:Realm of Shadow - Shadow Keep, Church District - Tree,Worship Sanctum
+72110:Realm of Shadow - Specimen Storehouse - Messmer's Dark Chamber
+72111:Realm of Shadow - Specimen Storehouse - Storehouse, First Floor
+72112:Realm of Shadow - Specimen Storehouse - Storehouse, Fourth Floor
+72113:Realm of Shadow - Specimen Storehouse - Storehouse, Seventh Floor
+72114:Realm of Shadow - Specimen Storehouse - Dark Chamber Entrance
+72116:Realm of Shadow - Specimen Storehouse - Storehouse, Back Section
+72117:Realm of Shadow - Specimen Storehouse - Storehouse, Loft
+72120:Realm of Shadow - Specimen Storehouse - West Rampart
+72200:Realm of Shadow - Stone Coffin Fissure - Garden of Deep Purple
+72201:Realm of Shadow - Stone Coffin Fissure - Stone Coffin Fissure
+72202:Realm of Shadow - Stone Coffin Fissure - Fissure Cross
+72203:Realm of Shadow - Stone Coffin Fissure - Fissure Waypoint
+72204:Realm of Shadow - Stone Coffin Fissure - Fissure Depths
+72500:Realm of Shadow - Scadu Altus - Finger Birthing Grounds
+72800:Realm of Shadow - Midra's Manse - Discussion Chamber
+72801:Realm of Shadow - Midra's Manse - Manse Hall
+72802:Realm of Shadow - Midra's Manse - Midra's Library
+72803:Realm of Shadow - Midra's Manse - Second Floor Chamber
+74000:Realm of Shadow - Gravesite Plain - Fog Rift Catacombs
+74200:Realm of Shadow - Gravesite Plain - Ruined Forge Lava Intake
+74300:Realm of Shadow - Gravesite Plain - Rivermouth Cave
+74301:Realm of Shadow - Gravesite Plain - Dragon's Pit
+74351:Realm of Shadow - Gravesite Plain - Dragon's Pit Terminus
+76804:Realm of Shadow - Gravesite Plain - Cliffroad Terminus
+76803:Realm of Shadow - Gravesite Plain - Main Gate Cross
+76800:Realm of Shadow - Gravesite Plain - Gravesite Plain
+76802:Realm of Shadow - Gravesite Plain - Three,Path Cross
+76805:Realm of Shadow - Gravesite Plain - Greatbridge, North
+76801:Realm of Shadow - Gravesite Plain - Scorched Ruins
+76812:Realm of Shadow - Gravesite Plain - Ellac River Cave
+76813:Realm of Shadow - Gravesite Plain - Castle Front
+76811:Realm of Shadow - Gravesite Plain - Pillar Path Waypoint
+76810:Realm of Shadow - Gravesite Plain - Pillar Path Cross
+74100:Realm of Shadow - Gravesite Plain - Belurat Gaol
+76830:Realm of Shadow - Gravesite Plain - Ellac River Downstream
+76841:Realm of Shadow - Charo's Hidden Grave - Charo's Hidden Grave
+74102:Realm of Shadow - Charo's Hidden Grave - Lamenter's Gaol
+76821:Realm of Shadow - Castle Ensis - Castle Ensis Checkpoint
+76823:Realm of Shadow - Castle Ensis - Ensis Moongazing Grounds
+76822:Realm of Shadow - Castle Ensis - Castle,Lord's Chamber
+76832:Realm of Shadow - Cerulean Coast - Cerulean Coast West
+76833:Realm of Shadow - Cerulean Coast - The Fissure
+76835:Realm of Shadow - Cerulean Coast - Cerulean Coast Cross
+76831:Realm of Shadow - Cerulean Coast - Cerulean Coast
+76834:Realm of Shadow - Cerulean Coast - Finger Ruins of Rhia
+76840:Realm of Shadow - Foot of the Jagged Peak - Grand Altar of Dragon Communion
+76861:Realm of Shadow - Abyssal Woods - Divided Falls
+76860:Realm of Shadow - Abyssal Woods - Abyssal Woods
+76862:Realm of Shadow - Abyssal Woods - Forsaken Graveyard
+76864:Realm of Shadow - Abyssal Woods - Church Ruins
+76863:Realm of Shadow - Abyssal Woods - Woodland Trail
+76850:Realm of Shadow - Foot of the Jagged Peak - Foot of the Jagged Peak
+76851:Realm of Shadow - Jagged Peak - Jagged Peak Mountainside
+76852:Realm of Shadow - Jagged Peak - Jagged Peak Summit
+76853:Realm of Shadow - Jagged Peak - Rest of the Dread Dragon
+76944:Realm of Shadow - Ancient Ruins of Rauh - Ancient Ruins, Grand Stairway
+76945:Realm of Shadow - Ancient Ruins of Rauh - Church of the Bud
+76943:Realm of Shadow - Ancient Ruins of Rauh - Church of the Bud, Main Entrance
+76942:Realm of Shadow - Ancient Ruins of Rauh - Rauh Ancient Ruins, West
+76941:Realm of Shadow - Ancient Ruins of Rauh - Rauh Ancient Ruins, East
+76940:Realm of Shadow - Ancient Ruins of Rauh - Viaduct Minor Tower
+76913:Realm of Shadow - Rauh Base - Temple Town Ruins
+76914:Realm of Shadow - Rauh Base - Ravine North
+74001:Realm of Shadow - Rauh Base - Scorpion River Catacombs
+74203:Realm of Shadow - Rauh Base - Taylew's Ruined Forge
+76912:Realm of Shadow - Rauh Base - Ancient Ruins Base
+74002:Realm of Shadow - Scadu Altus - Darklight Catacombs
+74101:Realm of Shadow - Scadu Altus - Bonny Gaol
+76900:Realm of Shadow - Scadu Altus - Highroad Cross
+76907:Realm of Shadow - Scadu Altus - Scadu Altus, West
+76908:Realm of Shadow - Scadu Altus - Moorth Highway, South
+76909:Realm of Shadow - Scadu Altus - Fort of Reprimand
+76910:Realm of Shadow - Scadu Altus - Behind the Fort of Reprimand
+76902:Realm of Shadow - Scadu Altus - Moorth Ruins
+76903:Realm of Shadow - Scadu Altus - Bonny Village
+76916:Realm of Shadow - Scadu Altus - Castle Watering Hole
+74202:Realm of Shadow - Scadu Altus - Ruined Forge of Starfall Past
+76911:Realm of Shadow - Scadu Altus - Scaduview Cross
+76918:Realm of Shadow - Scadu Altus - Recluses' River Downstream
+76917:Realm of Shadow - Scadu Altus - Recluses' River Upstream
+76904:Realm of Shadow - Scadu Altus - Bridge Leading to the Village
+76906:Realm of Shadow - Scadu Altus - Cathedral of Manus Metyr
+76905:Realm of Shadow - Scadu Altus - Church District Highroad
+76930:Realm of Shadow - Scaduview - Scaduview
+76931:Realm of Shadow - Scaduview - Shadow Keep, Back Gate
+76936:Realm of Shadow - Scaduview - Fingerstone Hill
+76937:Realm of Shadow - Scaduview - Hinterland Bridge
+76935:Realm of Shadow - Scaduview - Hinterland
+76960:Realm of Shadow - Scaduview - Scadutree Base]],
+["Cookbooks"] = [[68400:Frenzied's Cookbook [1]
+68410:Frenzied's Cookbook [2]
+68590:Greater Potentate's Cookbook [1]
+68730:Greater Potentate's Cookbook [2]
+68690:Greater Potentate's Cookbook [3]
+68600:Greater Potentate's Cookbook [4]
+68610:Greater Potentate's Cookbook [5]
+68720:Greater Potentate's Cookbook [6]
+68630:Greater Potentate's Cookbook [7]
+68680:Greater Potentate's Cookbook [8]
+68640:Greater Potentate's Cookbook [9]
+68650:Greater Potentate's Cookbook [10]
+68660:Greater Potentate's Cookbook [11]
+68620:Greater Potentate's Cookbook [12]
+68700:Greater Potentate's Cookbook [13]
+68710:Greater Potentate's Cookbook [14]
+68750:Mad Craftsman's Cookbook [1]
+68670:Mad Craftsman's Cookbook [2]
+68880:Mad Craftsman's Cookbook [3]
+68740:Ancient Dragon Knight's Cookbook [1]
+68780:Ancient Dragon Knight's Cookbook [2]
+68760:St. Trina Desciple's Cookbook [1]
+68950:St. Trina Desciple's Cookbook [2]
+68840:St. Trina Desciple's Cookbook [3]
+68520:Forager Brood Cookbook [1]
+68530:Forager Brood Cookbook [2]
+68540:Forager Brood Cookbook [3]
+68550:Forager Brood Cookbook [4]
+68560:Forager Brood Cookbook [5]
+68510:Forager Brood Cookbook [6]
+68830:Forager Brood Cookbook [7]
+68810:Igon's Cookbook [1]
+68570:Igon's Cookbook [2]
+68920:Finger-Weaver's Cookbook [1]
+68580:Finger-Weaver's Cookbook [2]
+68770:Fire Knight's Cookbook [1]
+68900:Fire Knight's Cookbook [2]
+68800:Battlefield Priest's Cookbook [1]
+68820:Battlefield Priest's Cookbook [2]
+68890:Battlefield Priest's Cookbook [3]
+68930:Battlefield Priest's Cookbook [4]
+68940:Grave Keeper's Cookbook [1]
+68850:Grave Keeper's Cookbook [2]
+68910:Antiquity Scholar's Cookbook [1]
+68860:Antiquity Scholar's Cookbook [2]
+68870:Tibia's Cookbook
+68790:Loyal Knight's Cookbook]],
+["Maps"] = [[62080:Map: Gravesite Plain
+62081:Map: Scadu Altus
+62082:Map: Southern Shore
+62083:Map: Rauh Ruins
+62084:Map: Abyss
+82002:Show Realm of Shadow]],
+["Bosses"] = [[40000800:Death Knight (Fog Rift Catacombs)
+41000800:Demi-Human Swordmaster Onze (Belurat Gaol)
+43000800:Chief Bloodfiend (Rivermouth Cave)
+43010800:Ancient Dragon-Man (Dragon Pit)
+2045440800:Ghostflame Dragon (Gravesite Plain)
+2046410800:Knight of the Solitary Gaol (Western Nameless Mausoleum)
+2046450800:Red Bear (Northern Nameless Mausoleum)
+20000800:Divine Beast Dancing Lion (Belurat, Tower Settlement)
+2048440800:Rellana, Twin Moon Knight (Castle Ensis)
+2049430800:Ghostflame Dragon (Scadu Altus)
+2049440800:Dryleaf Dane (Scadu Altus)
+2049450800:Ralva the Great Red Bear (Scadu Altus)
+2051440800:Rakshasa (Eastern Nameless Mausoleum)
+2051450800:Count Ymir, Mother of Fingers (Cathedral of Manus Metyr)
+2047450800:Black Knight Garrew (Fog Rift Fort)
+2049430850:Black Knight Edreed (Fort of Reprimand)
+25000800:Metyr, Mother of Fingers (Finger Ruins of Miyr)
+21000850:Golden Hippopotamus (Shadow Keep)
+21010800:Messmer the Impaler (Shadow Keep)
+2050480800:Scadutree Avatar (Scadutree Base)
+2049480800:Commander Gaius (Scaduview)
+2050470800:Tree Sentinel (Ambush) (Scaduview)
+2050480860:Tree Sentinel (Exposed) (Scaduview)
+2052480800:Fallingstar Beast (Scaduview)
+2049410800:Jagged Peak Drake (Foot of the Jagged Peak)
+2052400800:Jagged Peak Drake Duo (Foot of the Jagged Peak)
+2054390800:Bayle, the Dread (Jagged Peak)
+2054390850:Ancient Dragon Senessax (Jagged Peak)
+2047390800:Death Rite Bird (Charo's Hidden Grave)
+41020800:Lamenter (Lamenter's Gaol)
+2046380800:Dancer of Ranah (Southern Nameless Mausoleum)
+2046400800:Demi-Human Queen Marigga (Cerulean Coast)
+2048380850:Ghostflame Dragon (Cerulean Coast)
+22000800:Putrescent Knight (Stone Coffin Fissure)
+2052430800:Jori, Elder Inquisitor (Abyssal Woods)
+28000800:Midra, Lord of Frenzied Flame (Midra's Manse)
+40010800:Death Knight (Scorpion River Catacombs)
+2044470800:Rugalea the Great Red Bear (Rauh Base)
+2046460800:Divine Beast Dancing Lion (Ancient Ruins of Rauh)
+2044450800:Romina, Saint of the Bud (Ancient Ruins of Rauh)
+20010800:Promised Consort Radahn (Enir-Ilim)]],
+["Ashes of War"] = [[65910:Ash of War: Dryleaf Whirlwind
+65911:Ash of War: Aspects of the Crucible: Wings
+65912:Ash of War: Spinning Gravity Thrust
+65913:Ash of War: Palm Blast
+65914:Ash of War: Piercing Throw
+65915:Ash of War: Scattershot Throw
+65916:Ash of War: Wall of Sparks
+65917:Ash of War: Rolling Sparks
+65918:Ash of War: Raging Beast
+65919:Ash of War: Savage Claws
+65920:Ash of War: Blind Spot
+65921:Ash of War: Swift Slash
+65922:Ash of War: Overhead Stance
+65923:Ash of War: Wing Stance
+65924:Ash of War: Blinkbolt
+65925:Ash of War: Flame Skewer
+65926:Ash of War: Savage Lion's Claw
+65927:Ash of War: Divine Beast Frost Stomp
+65928:Ash of War: Flame Spear
+65929:Ash of War: Carian Sovereignty
+65930:Ash of War: Shriek of Sorrow
+65931:Ash of War: Ghostflame Call
+65932:Ash of War: The Poison Flower Blooms Twice
+65933:Ash of War: Igon's Drake Hunt
+65934:Ash of War: Shield Strike]],
+["Bell Bearings"] = [[60742:NG+ Persistence: Herbalist's Bell Bearing
+60743:NG+ Persistence: Mushroom-Seller's Bell Bearing [1]
+60744:NG+ Persistence: Mushroom-Seller's Bell Bearing [2]
+60745:NG+ Persistence: Greasemonger's Bell Bearing
+60746:NG+ Persistence: Moldmonger's Bell Bearing
+60748:NG+ Persistence: Spell-Machinist Bell Bearing
+60749:NG+ Persistence: String-seller's Bell Bearing
+11109790:Moore's Bell Bearing
+11109791:Ymir's Bell Bearing
+11109792:Herbalist's Bell Bearing
+11109793:Mushroom-Seller's Bell Bearing [1]
+11109794:Mushroom-Seller's Bell Bearing [2]
+11109795:Greasemonger's Bell Bearing
+11109796:Moldmonger's Bell Bearing
+11109797:Igon's Bell Bearing
+11109798:Spell-Machinist Bell Bearing
+11109799:String-seller's Bell Bearing]]
+}
+
+if isOwnDlc(1) then
+    for k, v in pairs(flagsDlc) do
+        if flagsBase[k] ~= nil then
+            v = string.format("%s\n%s", flagsBase[k], v)
+        end
+        flagsBase[k] = v
+    end
 end
 
-ef.updateTimer = createTimer(getMainForm())
-ef.updateTimer.Interval = 500
-ef.updateTimer.OnTimer = function()
-	if getAddressSafe(process) and ef.getFlag == nil then
-		ef.updateTimer.destroy()
-	end
+local flags = {}
+local categories = {"0:All"}
+for k, v in pairs(flagsBase) do
+    table.insert(categories, string.format("%d:%s", #categories, k))
+    table.insert(flags, v)
 end
+
+-- "All":
+table.insert(flags, 1, table.concat(flags, "\n"))
 
 local memrec = getAddressList().getMemoryRecordByDescription("Event Flags by ID")
 ef.flagIDDropdown = getAddressList().getMemoryRecordByDescription("EventFlagId")
-for i = 1, memrec.Count do
-	local child = memrec.Child[i - 1]
+for i = 0, memrec.Count - 1 do
+	local child = memrec.Child[i]
 	local desc = child.Description
 	if desc == "Category" then ef.flagCategoryRec = child
 	elseif desc == "Event Flag ID" then ef.flagIDRec = child
 	elseif desc == "State" then ef.flagStateRec = child end
 end
 
+ef.flagCategoryRec.DropDownList.setText(table.concat(categories, "\n"))
 ef.flagCategoryRec.Value = 0
-ef.flagIDDropdown.DropDownList.setText(ef.categories[1])
-ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
+ef.flagIDDropdown.DropDownList.setText(table.concat(flags, "\n"))
+ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0] or 71190
 
-ef.flagCategoryRec.OnGetDisplayValue = function(sender, newValue)
-	if newValue == "??" or newValue == nil then return end
-	if ef.oldCategory ~= newValue then
-		ef.flagIDDropdown.DropDownList.setText(ef.categories[newValue + 1])
-		ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
-	end
-	ef.oldCategory = newValue
-	return false, newValue
+local function setMemrecValueSilent(memrec, value)
+    local tmp = memrec.OnValueChangedByUser
+    memrec.OnValueChangedByUser = nil
+    memrec.Value = value
+    memrec.OnValueChangedByUser = tmp
 end
 
-ef.flagIDRec.OnGetDisplayValue = function(sender, newValue)
-	if newValue == "??" or newValue == nil then return end
-    local flag = ef.getFlag(readInteger(ef.flag_data))
-	if flag:isValid() and ef.oldID ~= newValue then
-        writeInteger(ef.flag_data + 4, booltonumber(flag:getValue()))
-        ef.idChanged = true
-    end
-	ef.oldID = newValue
-	return false, newValue
+ef.flagCategoryRec.OnValueChangedByUser = function(memrec, oldValue, newValue)
+    pcall(function()
+        if newValue == oldValue then
+            return
+        end
+        newValue = tonumber(newValue)
+	    if newValue == nil or flags[newValue + 1] == nil then
+	        setMemrecValueSilent(memrec, oldValue)
+            return
+        end
+	    ef.flagIDDropdown.DropDownList.setText(flags[newValue + 1])
+	    ef.flagIDRec.Value = ef.flagIDDropdown.DropDownValue[0]
+    end)
 end
 
-ef.flagStateRec.OnGetDisplayValue = function(sender, newValue)
-	if newValue == "??" or newValue == nil then return end
-    local flag = ef.getFlag(readInteger(ef.flag_data))
-	if flag:isValid() and ef.oldState ~= tonumber(newValue) and not ef.idChanged then
-        flag:setValue(tonumber(newValue))
-    end
-	ef.idChanged = false
-	ef.oldState = newValue
-	return false, newValue
+ef.flagIDRec.OnValueChangedByUser = function(memrec, oldValue, newValue)
+    pcall(function()
+        if newValue == oldValue then
+            return
+        end
+        newValue = tonumber(newValue)
+	    if newValue == nil then
+	        setMemrecValueSilent(memrec, oldValue)
+            return
+        end
+        local flag = ef.getFlag(newValue)
+	    if not flag:isValid() then
+	        setMemrecValueSilent(memrec, oldValue)
+            return
+        end
+        setMemrecValueSilent(ef.flagStateRec, booltonumber(flag:getValue()))
+    end)
+end
+
+ef.flagStateRec.OnGetDisplayValue = function(memrec, value)
+    pcall(function()
+        local flag = ef.getFlag(ef.flagIDRec.Value)
+        local newValue = nil
+        if flag:isValid() then
+            if flag:getValue() then
+                newValue = 1
+            else
+                newValue = 0
+            end
+        end
+        setMemrecValueSilent(memrec, newValue)
+        return newValue == nil, ""
+    end)
+end
+
+ef.flagStateRec.OnValueChangedByUser = function(memrec, oldValue, newValue)
+    pcall(function() if newValue == oldValue then
+            return
+        end
+        if newValue ~= "0" and newValue ~= "1" then
+			setMemrecValueSilent(memrec, oldValue)
+            return
+        end
+        newValue = newValue == "1"
+        local flag = ef.getFlag(ef.flagIDRec.Value)
+        if not flag:isValid() then
+            return
+        end
+        flag:setValue(newValue)
+    end)
 end
 
 [DISABLE]
-if ef.updateTimer then ef.updateTimer.destroy() end
 deAlloc(ef.flag_data)
+ef.flag_data = nil
