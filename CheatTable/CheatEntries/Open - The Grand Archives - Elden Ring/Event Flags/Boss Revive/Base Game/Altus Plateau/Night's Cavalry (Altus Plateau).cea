@@ -1,0 +1,31 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1039510800,
+
+-- Reward Flags
+1039517200,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "NCAltusThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "NCAltusThread")
+
+disableMemrec(memrec, function() return not ef.NCAltusThread end)
+
+[DISABLE]
+ef.NCAltusThread = false

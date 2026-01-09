@@ -1,0 +1,32 @@
+<CheatEntry>
+  <ID>1337318834</ID>
+  <Description>"Base Game"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318835"/>
+    <id id="1337318839"/>
+    <id id="1337318838"/>
+    <id id="1337318836"/>
+    <id id="1337318844"/>
+    <id id="1337318837"/>
+    <id id="1337318840"/>
+    <id id="1337318842"/>
+    <id id="1337318845"/>
+    <id id="1337318664"/>
+    <id id="1337318848"/>
+    <id id="1337318847"/>
+    <id id="1337318846"/>
+    <id id="1337318849"/>
+    <id id="1337318841"/>
+    <id id="1337318858"/>
+    <id id="1337318854"/>
+    <id id="1337318853"/>
+    <id id="1337318852"/>
+    <id id="1337318856"/>
+    <id id="1337318855"/>
+    <id id="1337318850"/>
+    <id id="1337318857"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

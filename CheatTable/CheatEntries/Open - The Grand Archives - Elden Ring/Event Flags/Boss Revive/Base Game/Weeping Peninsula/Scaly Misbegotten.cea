@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+32000590,
+32000801,
+-- Defeat Flags
+32000800,
+
+-- Reward Flags
+9260,
+520600,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "ScalyThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "ScalyThread")
+
+disableMemrec(memrec, function() return not ef.ScalyThread end)
+
+[DISABLE]
+ef.ScalyThread = false

@@ -1,0 +1,31 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+15000851,
+-- Defeat Flags
+15000850,
+-- Reward Flags
+9119,
+510190,
+-- Extra
+71505,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "LorettaThread")
+
+--local flagsToOne = {
+--4130,
+--}
+-- local flags2 = {flagsToOne}
+-- sleep(200)
+--ef.batchSetFlags(flags2, 1, "LorettaThread")
+
+disableMemrec(memrec, function() return not ef.LorettaThread end)
+
+[DISABLE]
+ef.LorettaThread = false

@@ -1,0 +1,21 @@
+<CheatEntry>
+  <ID>1337318840</ID>
+  <Description>"Mt. Gelmir"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318680"/>
+    <id id="1337318747"/>
+    <id id="1337318746"/>
+    <id id="1337318763"/>
+    <id id="1337318769"/>
+    <id id="1337318785"/>
+    <id id="1337318788"/>
+    <id id="1337318811"/>
+    <id id="1337318815"/>
+    <id id="1337318826"/>
+    <id id="1337318651"/>
+    <id id="1337318652"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

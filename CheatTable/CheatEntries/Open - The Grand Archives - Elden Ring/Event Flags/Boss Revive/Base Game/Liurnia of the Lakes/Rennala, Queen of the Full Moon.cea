@@ -1,0 +1,25 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+14008556, -- Door
+14000800, -- Rennala
+14000801, -- Rennala Cutscene
+177, -- Player Reward
+197, -- Player Reward
+61118, -- Warp Related Flag
+14000804, -- Mark the end of the fight P2
+14003915, -- Remove Test Dummy
+9118, -- Remove NPC Rennala
+14000702, -- NPC Rennala Talk event
+14002800, -- Rennala Defeat Flag
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "RennalaThread")
+disableMemrec(memrec, function() return not ef.RennalaThread end)
+
+[DISABLE]
+ef.GodrickThread = false

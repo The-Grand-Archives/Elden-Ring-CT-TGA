@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1037530800,
+
+-- Reward Flags
+
+60450,
+-- Extra Flags
+
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "MaggieThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "MaggieThread")
+
+disableMemrec(memrec, function() return not ef.MaggieThread end)
+
+[DISABLE]
+ef.MaggieThread = false

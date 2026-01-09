@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+
+-- Defeat Flags
+31120800,
+
+-- Reward Flags
+9247,
+520470,
+-- Extra Flags
+
+
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "CrusaderThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "CrusaderThread")
+
+disableMemrec(memrec, function() return not ef.CrusaderThread end)
+
+[DISABLE]
+ef.CrusaderThread = false

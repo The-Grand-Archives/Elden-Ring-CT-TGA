@@ -1,0 +1,32 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+31110800,
+
+-- Reward Flags
+9246,
+520460,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "PutriCrystalThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "PutriCrystalThread")
+
+disableMemrec(memrec, function() return not ef.PutriCrystalThread end)
+
+[DISABLE]
+ef.PutriCrystalThread = false

@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+
+-- Defeat Flags
+18000800,
+
+-- Reward Flags
+9128,
+510280,
+-- Extras
+
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "SpiritLThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "SpiritLThread")
+
+disableMemrec(memrec, function() return not ef.SpiritLThread end)
+
+[DISABLE]
+ef.SpiritLThread = false

@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+2048440800,
+
+-- Reward Flags
+9190,
+510900,
+
+-- Remove Grace from warp list
+76823,
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "RellanaThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "RellanaThread")
+
+disableMemrec(memrec, function() return not ef.RellanaThread end)
+
+[DISABLE]
+ef.RellanaThread = false

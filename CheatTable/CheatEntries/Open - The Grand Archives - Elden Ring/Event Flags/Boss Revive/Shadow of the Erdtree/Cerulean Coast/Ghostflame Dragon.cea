@@ -1,0 +1,38 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+2048380870,
+-- Defeat Flags
+2048380850,
+
+-- Reward Flags
+530840,
+
+
+-- Remove Grace from warp list
+
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "CCGhostflameThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "CCGhostflameThread")
+
+disableMemrec(memrec, function() return not ef.CCGhostflameThread end)
+
+[DISABLE]
+ef.CCGhostflameThread = false

@@ -1,0 +1,18 @@
+<CheatEntry>
+  <ID>1337318849</ID>
+  <Description>"Mountaintops of the Giants"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318687"/>
+    <id id="1337318690"/>
+    <id id="1337318684"/>
+    <id id="1337318721"/>
+    <id id="1337318737"/>
+    <id id="1337318754"/>
+    <id id="1337318812"/>
+    <id id="1337318820"/>
+    <id id="1337318829"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,38 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1051360800,
+
+-- Reward Flags
+9183,
+510830,
+-- Extra Flags
+76419,
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "CruciMisbegottenThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+
+--}
+
+--local flags2 = {flagsToOne}
+
+ --sleep(300)
+
+--ef.batchSetFlags(flags2, 1, "CruciMisbegottenThread")
+
+disableMemrec(memrec, function() return not ef.CruciMisbegottenThread end)
+
+[DISABLE]
+ef.CruciMisbegottenThread = false

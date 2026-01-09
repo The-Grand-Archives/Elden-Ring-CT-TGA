@@ -1,0 +1,31 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1248550800,
+
+-- Reward Flags
+1048557710,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "NCDuoThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "NCDuoThread")
+
+disableMemrec(memrec, function() return not ef.NCDuoThread end)
+
+[DISABLE]
+ef.NCDuoThread = false

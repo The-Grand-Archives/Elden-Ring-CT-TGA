@@ -1,0 +1,29 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+-- Defeat Flags
+12080800,
+12082800,
+-- Reward Flags
+9132,
+510320,
+
+12085005,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "AncestorThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "AncestorThread")
+
+disableMemrec(memrec, function() return not ef.AncestorThread end)
+
+[DISABLE]
+ef.AncestorThread = false

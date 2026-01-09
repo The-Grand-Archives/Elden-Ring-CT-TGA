@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+2046410800,
+
+-- Reward Flags
+
+530820,
+
+-- Remove Grace from warp list
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "GaolKnightThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "GaolKnightThread")
+
+disableMemrec(memrec, function() return not ef.GaolKnightThread end)
+
+[DISABLE]
+ef.GaolKnightThread = false

@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+2049480801,
+-- Defeat Flags
+2049480800,
+
+-- Reward Flags
+9164,
+510640,
+
+-- Remove Grace from warp list
+76930,
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "GaiusThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "GaiusThread")
+
+disableMemrec(memrec, function() return not ef.GaiusThread end)
+
+[DISABLE]
+ef.GaiusThread = false

@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+30050800,
+
+-- Reward Flags
+9205,
+520050,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "ShadeLThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+
+--}
+
+--local flags2 = {flagsToOne}
+
+ --sleep(300)
+
+--ef.batchSetFlags(flags2, 1, "ShadeWPThread")
+
+disableMemrec(memrec, function() return not ef.ShadeLThread end)
+
+[DISABLE]
+ef.ShadeLThread = false

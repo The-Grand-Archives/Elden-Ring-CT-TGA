@@ -1,0 +1,38 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+2049430800,
+
+-- Reward Flags
+530945,
+
+-- Remove Grace from warp list
+
+
+-- Extra
+
+
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "SAGhostflameThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "SAGhostflameThread")
+
+disableMemrec(memrec, function() return not ef.SAGhostflameThread end)
+
+[DISABLE]
+ef.SAGhostflameThread = false

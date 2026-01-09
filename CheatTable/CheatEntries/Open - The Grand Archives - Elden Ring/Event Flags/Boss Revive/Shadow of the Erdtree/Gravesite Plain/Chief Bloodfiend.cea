@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+43000800,
+
+-- Reward Flags
+9280,
+520800,
+
+-- Remove Grace from warp list
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "BloodfiendThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "BloodfiendThread")
+
+disableMemrec(memrec, function() return not ef.BloodfiendThread end)
+
+[DISABLE]
+ef.BloodfiendThread = false

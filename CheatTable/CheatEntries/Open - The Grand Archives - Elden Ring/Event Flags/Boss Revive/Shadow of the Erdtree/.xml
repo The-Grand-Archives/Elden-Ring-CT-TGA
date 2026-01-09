@@ -1,0 +1,18 @@
+<CheatEntry>
+  <ID>1337318861</ID>
+  <Description>"Shadow of the Erdtree"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318869"/>
+    <id id="1337318922"/>
+    <id id="1337318938"/>
+    <id id="1337318943"/>
+    <id id="1337318947"/>
+    <id id="1337318950"/>
+    <id id="1337318955"/>
+    <id id="1337318958"/>
+    <id id="1337318963"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

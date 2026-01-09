@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+2049440800,
+
+-- Reward Flags
+400730,
+
+-- Remove Grace from warp list
+
+
+-- Extra
+2049442703,
+4909,
+2049449211,
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "DaneThread")
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(600)
+--ef.batchSetFlags(flags2, 1, "DaneThread")
+
+disableMemrec(memrec, function() return not ef.DaneThread end)
+
+[DISABLE]
+ef.DaneThread = false

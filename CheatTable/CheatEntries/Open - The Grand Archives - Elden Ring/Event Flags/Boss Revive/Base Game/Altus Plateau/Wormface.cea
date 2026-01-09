@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+
+-- Defeat Flags
+1041530800,
+
+-- Reward Flags
+65060,
+65000,
+-- Extras
+
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "WormfaceThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "WormfaceThread")
+
+disableMemrec(memrec, function() return not ef.WormfaceThread end)
+
+[DISABLE]
+ef.WormfaceThread = false

@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+2052400800,
+530800,
+
+-- Reward Flags
+
+
+-- Remove Grace from warp list
+
+
+-- Extra
+4267, -- get rid of the piece of shit called igon
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "WhatsbetterthanonedragonThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "WhatsbetterthanonedragonThread")
+
+disableMemrec(memrec, function() return not ef.WhatsbetterthanonedragonThread end)
+
+[DISABLE]
+ef.WhatsbetterthanonedragonThread = false

@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1044360800,
+
+-- Reward Flags
+
+-- Extra Flags
+76120,
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "PumpkinThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "PumpkinThread")
+
+disableMemrec(memrec, function() return not ef.PumpkinThread end)
+
+[DISABLE]
+ef.PumpkinThread = false

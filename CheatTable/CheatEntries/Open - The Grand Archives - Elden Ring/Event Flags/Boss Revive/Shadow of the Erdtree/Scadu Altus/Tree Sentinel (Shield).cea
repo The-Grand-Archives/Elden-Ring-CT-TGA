@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+2050480860,
+
+-- Reward Flags
+530950,
+
+-- Remove Grace from warp list
+
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "ShieldTSThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "ShieldTSThread")
+
+disableMemrec(memrec, function() return not ef.ShieldTSThread end)
+
+[DISABLE]
+ef.ShieldTSThread = false

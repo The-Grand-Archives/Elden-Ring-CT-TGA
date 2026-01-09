@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+21000851,
+-- Defeat Flags
+21000850,
+
+-- Reward Flags
+9144,
+510440,
+-- Remove Grace from warp list
+72101,
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "HippopotamusThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "HippopotamusThread")
+
+disableMemrec(memrec, function() return not ef.HippopotamusThread end)
+
+[DISABLE]
+ef.HippopotamusThread = false

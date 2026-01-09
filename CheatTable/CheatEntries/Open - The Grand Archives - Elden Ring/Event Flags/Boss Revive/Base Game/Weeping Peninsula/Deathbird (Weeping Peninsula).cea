@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1044320800,
+
+-- Reward Flags
+1044327400,
+-- Extra Flags
+
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "DBWPThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "DBWPThread")
+
+disableMemrec(memrec, function() return not ef.DBWPThread end)
+
+[DISABLE]
+ef.DBWPThread = false

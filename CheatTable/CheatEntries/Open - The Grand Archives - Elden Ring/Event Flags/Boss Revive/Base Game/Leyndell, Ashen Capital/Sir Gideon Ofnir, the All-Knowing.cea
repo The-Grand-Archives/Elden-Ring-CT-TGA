@@ -1,0 +1,19 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+11050851, -- First Encounter
+11050850, -- Death Flag
+9106, -- Wait until boss is dead for reward
+510060, -- Reward
+71121, -- Grace
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "GideonThread")
+disableMemrec(memrec, function() return not ef.GideonThread end)
+
+[DISABLE]
+ef.GideonThread = false

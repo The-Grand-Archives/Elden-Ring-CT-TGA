@@ -1,0 +1,38 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+40010800,
+
+-- Reward Flags
+9271,
+520710,
+520711,
+
+-- Remove Grace from warp list
+
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "LonghaftDKThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "LonghaftDKThread")
+
+disableMemrec(memrec, function() return not ef.LonghaftDKThread end)
+
+[DISABLE]
+ef.LonghaftDKThread = false

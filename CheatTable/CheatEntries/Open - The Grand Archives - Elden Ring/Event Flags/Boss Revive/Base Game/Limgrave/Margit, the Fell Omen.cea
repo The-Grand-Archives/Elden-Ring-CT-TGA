@@ -1,0 +1,19 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+10000851, -- First Encounter
+10000850, -- Margit Death Flag
+9100, -- Wait until Margit is dead to give reward
+60510, -- Talisman Pouch
+71001, -- Grace
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "MargitThread")
+disableMemrec(memrec, function() return not ef.MargitThread end)
+
+[DISABLE]
+ef.MargitThread = false

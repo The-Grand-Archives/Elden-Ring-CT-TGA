@@ -1,0 +1,32 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+16000801,
+
+-- Boss Death
+16000800,
+
+--Reward Stuff
+9122, -- Wait until Boss is dead
+510220, -- Remembrance
+
+-- Remove grace from the unlocked list
+71600,
+
+-- Remove Rykard's Corpse/Move Tanith back to manor
+3109,3110,3111,
+
+--
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "RichardThread")
+disableMemrec(memrec, function() return not ef.RichardThread end)
+
+[DISABLE]
+ef.RichardThread = false

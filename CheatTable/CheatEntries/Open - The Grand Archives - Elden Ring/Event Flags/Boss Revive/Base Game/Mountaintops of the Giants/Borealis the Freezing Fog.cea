@@ -1,0 +1,35 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1254560800,
+
+-- Reward Flags
+530510,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "BorealisThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+
+--}
+
+--local flags2 = {flagsToOne}
+
+ --sleep(300)
+
+--ef.batchSetFlags(flags2, 1, "BorealisThread")
+
+disableMemrec(memrec, function() return not ef.BorealisThread end)
+
+[DISABLE]
+ef.BorealisThread = false

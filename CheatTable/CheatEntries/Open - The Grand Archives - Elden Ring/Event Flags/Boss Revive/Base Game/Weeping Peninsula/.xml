@@ -1,0 +1,19 @@
+<CheatEntry>
+  <ID>1337318839</ID>
+  <Description>"Weeping Peninsula"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318685"/>
+    <id id="1337318722"/>
+    <id id="1337318742"/>
+    <id id="1337318753"/>
+    <id id="1337318765"/>
+    <id id="1337318786"/>
+    <id id="1337318790"/>
+    <id id="1337318793"/>
+    <id id="1337318813"/>
+    <id id="1337318816"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

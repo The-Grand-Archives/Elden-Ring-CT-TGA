@@ -1,0 +1,35 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+41020800,
+
+-- Reward Flags
+9277,
+520770,
+-- Remove Grace from warp list
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "LamenterThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "LamenterThread")
+
+disableMemrec(memrec, function() return not ef.LamenterThread end)
+
+[DISABLE]
+ef.LamenterThread = false

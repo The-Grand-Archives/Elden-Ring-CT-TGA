@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+12030801,
+
+-- Defeat Flags
+12030800,
+-- Reward Flags
+9135,
+510350,
+-- Extra
+71230,
+4138,
+4139,
+4128,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "FiasThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "FiasThread")
+
+disableMemrec(memrec, function() return not ef.FiasThread end)
+
+[DISABLE]
+ef.FiasThread = false

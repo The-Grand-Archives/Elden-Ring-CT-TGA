@@ -1,0 +1,32 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+
+-- Defeat Flags
+1038520800,
+
+-- Reward Flags
+530385,
+-- Extras
+
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "BoatAThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "BoatAThread")
+
+disableMemrec(memrec, function() return not ef.BoatAThread end)
+
+[DISABLE]
+ef.BoatAThread = false

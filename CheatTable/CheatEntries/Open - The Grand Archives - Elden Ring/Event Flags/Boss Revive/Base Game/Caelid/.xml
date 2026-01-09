@@ -1,0 +1,23 @@
+<CheatEntry>
+  <ID>1337318848</ID>
+  <Description>"Caelid"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318648"/>
+    <id id="1337318723"/>
+    <id id="1337318727"/>
+    <id id="1337318731"/>
+    <id id="1337318738"/>
+    <id id="1337318743"/>
+    <id id="1337318759"/>
+    <id id="1337318762"/>
+    <id id="1337318766"/>
+    <id id="1337318772"/>
+    <id id="1337318780"/>
+    <id id="1337318787"/>
+    <id id="1337318796"/>
+    <id id="1337318802"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

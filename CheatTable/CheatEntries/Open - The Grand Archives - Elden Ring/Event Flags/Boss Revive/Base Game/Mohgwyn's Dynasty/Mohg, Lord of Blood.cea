@@ -1,0 +1,42 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+12050801,
+
+-- Defeat Flags
+12050800,
+
+-- Reward Flags
+9112,
+510120,
+
+-- Remove Grace from warp list
+71250,
+
+-- remove leda, hopefully
+12050700,
+12050750,
+12059261,
+4440,
+4445,
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "AmohgusThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "AmohgusThread")
+
+disableMemrec(memrec, function() return not ef.AmohgusThread end)
+
+[DISABLE]
+ef.AmohgusThread = false

@@ -1,0 +1,36 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+1041520800,
+
+-- Reward Flags
+530300,
+
+-- Extra fixes
+
+}
+
+local flags = {flagsBase}
+
+local flagsToOne = {
+9290,
+}
+
+
+ef.batchSetFlags(flags, 0, "LansseaxThread")
+
+local flagsToOne = {}
+local flags2 = {flagsToOne}
+
+ --sleep(300)
+--ef.batchSetFlags(flags2, 1, "LansseaxThread")
+
+disableMemrec(memrec, function() return not ef.LansseaxThread end)
+
+[DISABLE]
+ef.LansseaxThread = false

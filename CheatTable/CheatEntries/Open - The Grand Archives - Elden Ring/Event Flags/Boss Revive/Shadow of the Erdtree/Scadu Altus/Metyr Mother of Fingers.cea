@@ -1,0 +1,38 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+25000800,
+
+-- Reward Flags
+9155,
+510550,
+
+
+-- Remove Grace from warp list
+72500,
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "MetyrThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "MetyrThread")
+
+disableMemrec(memrec, function() return not ef.MetyrThread end)
+
+[DISABLE]
+ef.MetyrThread = false

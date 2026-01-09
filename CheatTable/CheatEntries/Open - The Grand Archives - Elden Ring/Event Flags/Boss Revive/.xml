@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337318642</ID>
+  <Description>"Boss Revive"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318641"/>
+    <id id="1337318834"/>
+    <id id="1337318861"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

@@ -1,0 +1,39 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- InitializeDeadInit = 0 (Reload area with TT or warp to a grace)
+
+-- First Encounter Flags
+
+-- Defeat Flags
+30110800,
+
+-- Reward Flags
+9203,
+520030,
+-- Extra Flags
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "BKALimThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+
+--}
+
+--local flags2 = {flagsToOne}
+
+ --sleep(300)
+
+--ef.batchSetFlags(flags2, 1, "BKALimThread")
+
+disableMemrec(memrec, function() return not ef.BKALimThread end)
+
+[DISABLE]
+ef.BKALimThread = false

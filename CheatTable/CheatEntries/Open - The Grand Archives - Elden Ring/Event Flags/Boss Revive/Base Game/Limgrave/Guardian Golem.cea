@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+31170800,
+
+-- Reward Flags
+9235,
+
+-- Extra Flags
+520350,
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "GGThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "GGThread")
+
+disableMemrec(memrec, function() return not ef.GGThread end)
+
+[DISABLE]
+ef.GGThread = false

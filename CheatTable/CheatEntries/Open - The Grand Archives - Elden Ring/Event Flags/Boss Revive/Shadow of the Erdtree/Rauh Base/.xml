@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337318938</ID>
+  <Description>"Rauh Base"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318928"/>
+    <id id="1337318940"/>
+    <id id="1337318941"/>
+    <id id="1337318942"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

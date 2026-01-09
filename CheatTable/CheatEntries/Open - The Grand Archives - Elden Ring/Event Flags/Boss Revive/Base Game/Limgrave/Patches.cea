@@ -1,0 +1,53 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+31008521, -- chest
+31003702, -- fight flag?
+31008821, -- hp bar?
+31009210, -- yap?
+-- Defeat Flags
+31000800,
+3683, -- revive if dead
+-- Reward Flags
+9232,
+400183,
+400189,
+520320,
+
+-- Get rid of npc patches from the arena
+3680,
+3686,
+
+--fix patches showing up earlier than he should if you make him angry after surrender
+31008820,
+
+
+
+}
+
+
+local flagsToOne = {
+
+-- First Encounter stuff
+3682,
+3685,
+
+}
+
+local flags = {flagsBase}
+
+local flags2 = {flagsToOne}
+
+ef.batchSetFlags(flags, 0, "PatchesThread")
+
+sleep(1400)
+
+ef.batchSetFlags(flags2, 1, "PatchesThread")
+
+disableMemrec(memrec, function() return not ef.PatchesThread end)
+
+[DISABLE]
+ef.PatchesThread = false

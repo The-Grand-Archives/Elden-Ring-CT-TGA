@@ -1,0 +1,17 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+10010800, -- Death Flag
+9103, -- Wait until boss is dead to give reward
+510030, -- Reward
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "ScionThread")
+disableMemrec(memrec, function() return not ef.ScionThread end)
+
+[DISABLE]
+ef.ScionThread = false

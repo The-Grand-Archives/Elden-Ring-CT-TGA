@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+28000801,
+-- Defeat Flags
+28000800,
+
+-- Reward Flags
+9156,
+510560,
+
+-- Remove Grace from warp list
+72800,
+
+-- Extra
+28009212, -- mini midra screaming because funneh xdd
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "MidThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "MidThread")
+
+disableMemrec(memrec, function() return not ef.MidThread end)
+
+[DISABLE]
+ef.MidThread = false

@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+41010800,
+
+-- Reward Flags
+9276,
+520760,
+
+-- Remove Grace from warp list
+
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "CursebladeThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "CursebladeThread")
+
+disableMemrec(memrec, function() return not ef.CursebladeThread end)
+
+[DISABLE]
+ef.CursebladeThread = false

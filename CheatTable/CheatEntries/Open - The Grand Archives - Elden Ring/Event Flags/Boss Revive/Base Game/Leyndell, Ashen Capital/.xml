@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>1337318853</ID>
+  <Description>"Leyndell, Ashen Capital"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318647"/>
+    <id id="1337318692"/>
+    <id id="1337318688"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

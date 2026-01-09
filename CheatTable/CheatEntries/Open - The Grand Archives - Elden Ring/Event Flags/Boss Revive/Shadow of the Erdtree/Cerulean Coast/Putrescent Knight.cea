@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+22000802,
+-- Defeat Flags
+22000800,
+
+-- Reward Flags
+9148,
+510480,
+
+-- Remove Grace from warp list
+72200,
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "PKThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "PKThread")
+
+disableMemrec(memrec, function() return not ef.PKThread end)
+
+[DISABLE]
+ef.PKThread = false

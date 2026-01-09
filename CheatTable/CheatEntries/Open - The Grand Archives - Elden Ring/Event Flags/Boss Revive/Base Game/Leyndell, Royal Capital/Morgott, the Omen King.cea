@@ -1,0 +1,42 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+11000801,
+
+-- Defeat Flags
+11000800,
+
+-- Reward Flags
+9104,
+510040,
+
+-- Remove Grace from warp list
+71100,
+
+-- Restore Fogwall
+11000501,
+
+-- Needed to remove grace
+11000500,
+11005000,
+11002500,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "MorgannyThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "MorgannyThread")
+
+disableMemrec(memrec, function() return not ef.MorgannyThread end)
+
+[DISABLE]
+ef.MorgannyThread = false

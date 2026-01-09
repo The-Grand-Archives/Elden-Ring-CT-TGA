@@ -1,0 +1,32 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+1036540800,
+
+-- Reward Flags
+530375,
+-- Extra Flags
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "FGSBThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "FGSBThread")
+
+disableMemrec(memrec, function() return not ef.FGSBThread end)
+
+[DISABLE]
+ef.FGSBThread = false

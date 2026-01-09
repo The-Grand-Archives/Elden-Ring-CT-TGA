@@ -1,0 +1,17 @@
+<CheatEntry>
+  <ID>1337318841</ID>
+  <Description>"Consecrated Snowfields"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318705"/>
+    <id id="1337318736"/>
+    <id id="1337318783"/>
+    <id id="1337318791"/>
+    <id id="1337318794"/>
+    <id id="1337318757"/>
+    <id id="1337318810"/>
+    <id id="1337318822"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

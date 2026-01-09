@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337318846</ID>
+  <Description>"Forbidden Lands"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318713"/>
+    <id id="1337318797"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

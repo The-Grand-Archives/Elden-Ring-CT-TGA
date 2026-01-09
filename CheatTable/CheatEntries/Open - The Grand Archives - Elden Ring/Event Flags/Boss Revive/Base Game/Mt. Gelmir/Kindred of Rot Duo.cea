@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+31070800,
+
+-- Reward Flags
+9239,
+
+-- Extra Flags
+520390,
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "KoRThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "KoRThread")
+
+disableMemrec(memrec, function() return not ef.KoRThread end)
+
+[DISABLE]
+ef.KoRThread = false

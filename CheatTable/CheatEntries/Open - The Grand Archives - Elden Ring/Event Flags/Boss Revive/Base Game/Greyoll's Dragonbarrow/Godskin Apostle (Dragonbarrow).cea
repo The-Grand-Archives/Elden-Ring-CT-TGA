@@ -1,0 +1,34 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+
+-- Defeat Flags
+34130800,
+
+-- Reward Flags
+9173,
+510730,
+-- Extra Flags
+
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "ApossumDBThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "ApossumDBThread")
+
+disableMemrec(memrec, function() return not ef.ApossumDBThread end)
+
+[DISABLE]
+ef.ApossumDBThread = false

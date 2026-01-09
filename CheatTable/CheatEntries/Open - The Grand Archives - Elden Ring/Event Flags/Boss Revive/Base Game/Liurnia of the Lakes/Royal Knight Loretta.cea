@@ -1,0 +1,30 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+1035500801,
+
+-- Defeat Flags
+1035500800,
+-- Reward Flags
+9181,
+510810,
+-- Extra
+76232,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "RKRThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "RKRThread")
+
+disableMemrec(memrec, function() return not ef.RKRThread end)
+
+[DISABLE]
+ef.RKRThread = false

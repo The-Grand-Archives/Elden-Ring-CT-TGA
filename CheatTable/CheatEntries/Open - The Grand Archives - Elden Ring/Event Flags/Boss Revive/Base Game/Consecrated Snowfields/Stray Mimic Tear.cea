@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+
+-- Defeat Flags
+30200800,
+
+-- Reward Flags
+9220,
+520200,
+-- Extras
+
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "StrayMimicThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "StrayMimicThread")
+
+disableMemrec(memrec, function() return not ef.StrayMimicThread end)
+
+[DISABLE]
+ef.StrayMimicThread = false

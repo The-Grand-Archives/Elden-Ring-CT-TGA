@@ -1,0 +1,27 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+16000851,
+
+-- Boss Death
+16000850,
+
+--Reward Stuff
+9121, -- Wait until Boss is dead
+510210, -- Stitchah
+
+-- Remove grace from the unlocked list
+71601,
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "GodskinNobleThread")
+disableMemrec(memrec, function() return not ef.GodskinNobleThread end)
+
+[DISABLE]
+ef.GodskinNobleThread = false

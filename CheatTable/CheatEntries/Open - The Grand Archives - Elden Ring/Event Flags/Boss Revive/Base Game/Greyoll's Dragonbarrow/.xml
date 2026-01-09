@@ -1,0 +1,20 @@
+<CheatEntry>
+  <ID>1337318847</ID>
+  <Description>"Greyoll's Dragonbarrow"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337318706"/>
+    <id id="1337318707"/>
+    <id id="1337318711"/>
+    <id id="1337318712"/>
+    <id id="1337318726"/>
+    <id id="1337318773"/>
+    <id id="1337318777"/>
+    <id id="1337318795"/>
+    <id id="1337318758"/>
+    <id id="1337318808"/>
+    <id id="1337318809"/>
+  </x-ce2fs-child-order>
+</CheatEntry>

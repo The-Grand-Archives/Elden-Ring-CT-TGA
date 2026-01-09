@@ -1,0 +1,24 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+13003700,
+13002805,
+9365, --Dialogue stuff
+13009205, --Dialogue stuff
+13002120, -- Dialogue stuff
+13000801, -- First Encounter
+13000800, -- Death Flag
+9116, -- Wait until boss is dead for reward
+510160, -- Reward
+71300, -- Disable Grace
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "MalikethThread")
+disableMemrec(memrec, function() return not ef.MalikethThread end)
+
+[DISABLE]
+ef.MalikethThread = false

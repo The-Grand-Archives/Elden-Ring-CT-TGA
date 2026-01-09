@@ -1,0 +1,32 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter Flags
+34120801,
+-- Defeat Flags
+34120800,
+
+-- Reward Flags
+9264,
+520640,
+-- Extra Flags
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "OnyxTunnelThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "OnyxTunnelThread")
+
+disableMemrec(memrec, function() return not ef.OnyxTunnelThread end)
+
+[DISABLE]
+ef.OnyxTunnelThread = false

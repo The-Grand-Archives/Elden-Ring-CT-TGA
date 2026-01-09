@@ -1,0 +1,27 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+14000851,
+
+-- Boss Death
+14000850,
+
+--Reward Stuff
+9117, -- Wait until Boss is dead
+60440, -- Memory Stone
+
+-- Remove grace from the unlocked list
+71401,
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "RedWolfofRadagonThread")
+disableMemrec(memrec, function() return not ef.RedWolfofRadagonThread end)
+
+[DISABLE]
+ef.RedWolfofRadagonThread = false

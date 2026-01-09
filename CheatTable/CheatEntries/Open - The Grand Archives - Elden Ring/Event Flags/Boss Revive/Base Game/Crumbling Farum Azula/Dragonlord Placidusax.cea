@@ -1,0 +1,29 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+-- Defeat Flags
+13000830,
+-- Reward Flags
+9115,
+510150,
+
+71301,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "PlaciThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "PlaciThread")
+
+disableMemrec(memrec, function() return not ef.PlaciThread end)
+
+[DISABLE]
+ef.PlaciThread = false

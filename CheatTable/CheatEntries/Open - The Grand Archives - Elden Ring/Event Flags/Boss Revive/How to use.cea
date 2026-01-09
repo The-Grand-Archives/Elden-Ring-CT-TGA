@@ -1,0 +1,28 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+disableMemrec(memrec)
+showText("Boss Revival Important Readme", [[
+I'm stupid so I don't know how to make this work perfectly, read so you don't complain to me later. I'm trying my best here...
+
+To revive a boss just toggle the script and reload the area.
+
+Important info:
+Some bosses have the param 'disableInitializeDead' turned off, what this does is essentially decide whether a boss will be revived (or "regenerated") on a quitout or not.
+That means bosses like Godrick and Mohg will instantly die if you revive and quitout to reload the area.
+However if you teleport to a nearby grace the boss will function just fine and will remain functional even if you quitout afterwards.
+Why? I don't know.
+
+For best results enable the "Warp out of uncleared mini-dungeons" script which can be found in Scripts >> QoL and warp back to the nearest grace when reviving a boss. Or revive before warping to the boss.
+Even if you're next to a grace preferably warp out instead of resting because some events require a full area reload to actually initalize (idk the details).
+
+You can visit this google sheet to confirm if a boss needs a full reload with a warp or if a quitout is enough https://docs.google.com/spreadsheets/d/1C6Q_z3Ko8oXhfVji8U4VMSR4BxnCCi5-spGKMKeQVKo/
+
+Rennala is slightly buggy to revive, after you quitout the scholars will spawn before you even trigger the fight, but only up to 6 and that sometimes affects performance, I don't know why that happens or how to prevent it without closing the door of the boss room, I've tried many things trust me.
+Anyway... one or two scholars will always spawn at the very back (directly in front of you when you open the door) but that's a vanilla interaction so don't worry about it, if they are spawning from other locations then please reload the area again.
+
+Documented by Recycle
+]])
+
+[DISABLE]

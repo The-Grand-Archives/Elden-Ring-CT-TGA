@@ -1,0 +1,51 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+
+-- Move Ymir?
+2050400600,
+2053460600,
+2051459226,
+2051459228,
+2051459229,
+2051459230,
+2051455023,
+2051459249,
+2051452717,
+2050407000,
+400662,
+4856,
+4855,
+4854,
+4849,
+2051452718,
+
+
+-- Move Chair?
+2051459213,
+2051450715,
+
+-- Activate Horn
+9440,
+
+-- Kill Invader & Award Player
+2051450180,
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 1, "MetyrQuestThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "MetyrQuestThread")
+
+disableMemrec(memrec, function() return not ef.MetyrQuestThread end)
+
+[DISABLE]
+ef.MetyrQuestThread = false

@@ -1,0 +1,33 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+
+
+-- Defeat Flags
+32040800,
+
+-- Reward Flags
+9263,
+520630,
+-- Extras
+
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "StoneDiggerAltusThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "StoneDiggerAltusThread")
+
+disableMemrec(memrec, function() return not ef.StoneDiggerAltusThread end)
+
+[DISABLE]
+ef.StoneDiggerAltusThread = false

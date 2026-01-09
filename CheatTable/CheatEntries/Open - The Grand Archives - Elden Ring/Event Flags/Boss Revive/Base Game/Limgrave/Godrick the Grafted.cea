@@ -1,0 +1,26 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+3269, -- Remvoe Gostoc from Arena
+3265, -- Move Gostoc to Original Location
+10000720, -- Remove Godrick's Dead Body
+10000800, -- Godrick the Grafted
+10000801, -- Godrick Cutscene
+10002802, -- Godrick Phase 2
+9101,
+61101,
+510010,
+9391,
+9304,
+71000, -- Grace
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "GodrickThread")
+disableMemrec(memrec, function() return not ef.GodrickThread end)
+
+[DISABLE]
+ef.GodrickThread = false

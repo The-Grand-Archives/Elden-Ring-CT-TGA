@@ -1,0 +1,31 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+12020801,
+
+-- Defeat Flags
+12020800,
+-- Reward Flags
+9110,
+510100,
+-- Extra
+71220,
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "GargsThread")
+
+--local flagsToOne = {}
+-- local flags2 = {flagsToOne}
+-- sleep(1200)
+-- ef.batchSetFlags(flags2, 1, "GargsThread")
+
+disableMemrec(memrec, function() return not ef.GargsThread end)
+
+[DISABLE]
+ef.GargsThread = false

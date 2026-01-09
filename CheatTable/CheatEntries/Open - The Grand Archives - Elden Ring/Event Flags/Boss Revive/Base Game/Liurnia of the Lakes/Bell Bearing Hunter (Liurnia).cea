@@ -1,0 +1,38 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- InitializeDeadInit = 1 (Reload area with Quitout, TT or warp to a grace)
+
+-- First Encounter Flags
+
+-- Defeat Flags
+1037460800,
+
+-- Reward Flags
+1037467400,
+-- Extra Flags
+
+
+}
+
+local flags = {flagsBase}
+ef.batchSetFlags(flags, 0, "BBHLiuThread")
+
+-- Extra section if I need flags set to 1
+
+--local flagsToOne = {
+
+--}
+
+--local flags2 = {flagsToOne}
+
+ --sleep(300)
+
+--ef.batchSetFlags(flags2, 1, "BBHLThread")
+
+disableMemrec(memrec, function() return not ef.BBHLiuThread end)
+
+[DISABLE]
+ef.BBHLiuThread = false

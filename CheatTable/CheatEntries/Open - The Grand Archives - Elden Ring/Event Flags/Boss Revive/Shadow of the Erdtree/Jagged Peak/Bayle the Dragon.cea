@@ -1,0 +1,37 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+-- First Encounter
+2054390801,
+-- Defeat Flags
+2054390800,
+
+-- Reward Flags
+9163,
+510630,
+
+-- Remove Grace from warp list
+
+
+-- Extra
+
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "BayleThread")
+
+--local flagsToOne = {
+
+--}
+--local flags2 = {flagsToOne}
+--sleep(200)
+--ef.batchSetFlags(flags2, 1, "BayleThread")
+
+disableMemrec(memrec, function() return not ef.BayleThread end)
+
+[DISABLE]
+ef.BayleThread = false

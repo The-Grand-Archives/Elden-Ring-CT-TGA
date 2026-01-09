@@ -1,0 +1,22 @@
+{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+local flagsBase = {
+
+-- Boss Death
+1045520800,
+
+--Reward Stuff
+9290, -- Wait until Boss is dead
+530315, -- Dragon Claw and Shield
+
+}
+
+local flags = {flagsBase}
+
+ef.batchSetFlags(flags, 0, "DTSThread")
+disableMemrec(memrec, function() return not ef.DTSThread end)
+
+[DISABLE]
+ef.DTSThread = false
