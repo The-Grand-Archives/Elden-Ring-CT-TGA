@@ -1,0 +1,167 @@
+// author: Umgak
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+eventLog = {}
+function eventLog:new()
+	o = {
+		ctrl = {}
+	}
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
+
+function eventLog:create(typ, parent, properties, customName)
+	parent = self.ctrl[parent]
+	local control = createComponentClass(typ, parent)
+	control.Parent = parent
+	self:initialize(control, properties)
+	control.x = control.Left + control.Width
+	control.y = control.Top + control.Height
+	local name = customName or properties.Caption
+	if name then
+		name = string.gsub(name, "%s", "")
+		self.ctrl[name] = control
+	end
+	return control
+end
+
+function eventLog:initialize(control, properties)
+	if(type(control) == "string") then control = self.ctrl[control] end
+	for propertyName, property in pairs(properties) do
+		if (type(property) == "table") then
+			for subPropertyName, subProperty in pairs(property) do
+				control[propertyName][subPropertyName] = subProperty
+			end
+		else
+			control[propertyName] = property
+		end
+	end
+end
+
+function eventLog:initDefaultForm(formName)
+	self.ctrl[formName].show()
+	self.ctrl[formName].centerScreen()
+	self.ctrl[formName].OnClose = function(sender)
+		disableMemrec(memrec)
+		return caFree
+	end
+end
+
+function eventLog:initListBox(listBox)
+	listBox.ViewStyle = "vsReport"
+	listBox.ReadOnly = true
+	listBox.RowSelect = true
+	listBox.ShowColumnHeaders = true
+	listBox.GridLines = true
+	listBox.flagCol = listBox.Columns.add()
+	listBox.flagCol.Caption = "Event Flag"
+	listBox.valCol = listBox.Columns.add()
+	listBox.valCol.Caption = "State"
+end
+
+function eventLog:insertRow(flag, state)
+	local listBox = self.ListBox
+	local shouldMakeVisible = true
+	if listBox.TopItem then
+		shouldMakeVisible = (listBox.TopItem.Index == listBox.Items.Count - listBox.VisibleRowCount) and true or false
+	end
+	local listItem = listBox.Items.add()
+	local stateStr
+	if state == 0 then stateStr = "OFF" else stateStr = "ON" end
+	listItem.Caption = string.format("%d", flag)
+	listItem.SubItems.add(stateStr)
+	if shouldMakeVisible then listItem.makeVisible() end
+end
+
+function eventLog:onResize()
+	local win = self.Window
+	local ctrl = self.Main.ctrl
+	ctrl['Clear'].Width = win.Width / 2 - 15
+	ctrl['Close'].Width = win.Width / 2 - 15
+	ctrl['Close'].Left = win.Width - (win.Width / 2 - 15) - 10
+	local listBox = self.ListBox
+	for i = 0, listBox.Columns.Count - 1 do
+		listBox.Columns[i].Width = listBox.Width / listBox.Columns.Count
+	end
+end
+
+function eventLog:createWindow(win)
+	local formName = 'EventLog'
+	self.Window = win:create('TCEForm', nil, {Caption = 'Event Flag Log'}, formName)
+	win:initDefaultForm(formName)
+	self.ListBox = win:create('TCEListView', formName, {
+		Caption = 'Event Flags',
+		Anchors = '[akTop, akBottom, akLeft, akRight]',
+		Width = self.Window.Width - 20,
+		Height = self.Window.Height - 70,
+		Left = 10,
+		Top = 10,
+	})
+	win:initListBox(self.ListBox)
+	win:create('TButton', formName, {
+		Caption = 'Clear',
+		Anchors = '[akBottom, akLeft, akRight]',
+		-- width set in onResize
+		Height = 40,
+		Left = 10,
+		Top = self.Window.Height - 50,
+	})
+	win.ctrl['Clear'].onClick = self.ListBox.clear
+	win:create('TButton', formName, {
+		Caption = 'Close',
+		Anchors = '[akBottom, akLeft, akRight]',
+		-- width set in onResize
+		Height = 40,
+		-- left also set in onResize
+		Top = self.Window.Height - 50,
+	})
+	win.ctrl['Close'].onClick = self.Window.close
+	self.Window.OnResize = function(sender) self:onResize() end
+	self.Window.Width = 300
+	self.Window.Height = 720
+end
+
+eventLog.Main = eventLog:new()
+eventLog:createWindow(eventLog.Main)
+
+{$asm}
+// cheat engine is stupid, if this asm block isn't here it fails to compile
+// no I'm not kidding
+{$c}
+#include <tga/celua.h>;
+
+void printFlag(unsigned int flag, int value) {
+	char buff[1024];
+	snprintf(buff, sizeof(buff), "eventLog:insertRow(%d, %d)", flag, value);
+	CELUA_ExecuteFunctionAsync(buff, 0);
+	return;
+}
+
+{$asm}
+aobscanModule(setEventFlagBit, $process, 33 d2 41 8b c2 41 f7 f1 41 8b d8)
+alloc(setEventFlagBitHook, $1000, $process)
+
+setEventFlagBitHook:
+xor edx,edx
+mov eax,r10d
+{$ccode flag=r10 value=r8}
+printFlag(flag, value)
+{$asm}
+jmp setEventFlagBit+5
+
+setEventFlagBit:
+jmp setEventFlagBitHook
+
+[DISABLE]
+{$asm}
+// similarly this {$asm} has to be here or it doesn't work.
+// despite the last keyword above this also being {$asm}
+setEventFlagBit:
+db 33 d2 41 8b c2 // cheat engine encodes this xor as a 31, which breaks the aob scan
+dealloc(setEventFlagBitHook)
+
+{$lua}
+if syntaxcheck then return end
+eventLog.Window.destroy()
