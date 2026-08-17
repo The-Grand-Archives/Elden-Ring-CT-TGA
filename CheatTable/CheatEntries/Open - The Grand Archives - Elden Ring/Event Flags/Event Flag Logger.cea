@@ -61,6 +61,20 @@ function eventLog:initListBox(columns)
 	end
 end
 
+function eventLog:batchAdd(win, typ, parent, props, sharedprops)
+	local created = {}
+	for _,prop in ipairs(props) do
+		local properties = {}
+		if sharedprops then
+			for k,v in pairs(sharedprops) do properties[k] = v end
+		end
+		for k,v in pairs(prop) do properties[k] = v end
+		local elem = win:create(typ, parent, properties)
+		table.insert(created, elem)
+	end
+	return created
+end
+
 function eventLog:insertRow(columns)
 	local listBox = self.ListBox
 	local shouldMakeVisible = true
@@ -100,24 +114,27 @@ function eventLog:createWindow(win)
 		Left = 10,
 		Top = 10,
 	})
-	win:initListBox('Time', 'Event Flag', 'State')
-	win:create('TButton', formName, {
-		Caption = 'Clear',
-		Anchors = '[akBottom, akLeft, akRight]',
-		-- width set in onResize
-		Height = 40,
+	win:initListBox({'Time', 'Event Flag', 'State'})
+	self.Buttons = self:batchAdd(win, 'TButton', formName, {
+		{
+			Caption = 'Clear',
+			onClick = self.ListBox.clear,
+		},
+		{
+			Caption = 'Close',
+			onClick = self.Window.close,
+		}
+	},
+	{
+		Anchors = '[akLeft,akRight,akBottom]',
+		--[[ 
+			defining a Left here really only matters for the first button
+				as it defines the spacing between buttons for onResize,
+				which will reset all of the rest automatically
+		]]
 		Left = 10,
-		Top = self.Window.Height - 50,
-		onClick = self.ListBox.clear,
-	})
-	win:create('TButton', formName, {
-		Caption = 'Close',
-		Anchors = '[akBottom, akLeft, akRight]',
-		-- width set in onResize
 		Height = 40,
-		-- left also set in onResize
 		Top = self.Window.Height - 50,
-		onClick = self.Window.close,
 	})
 	self.Window.OnResize = function(sender) self:onResize() end
 	self.Window.Width = 300
