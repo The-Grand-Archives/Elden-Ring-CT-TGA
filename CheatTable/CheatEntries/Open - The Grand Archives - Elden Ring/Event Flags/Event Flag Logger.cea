@@ -49,33 +49,30 @@ function eventLog:initDefaultForm(formName)
 	end
 end
 
-function eventLog:initListBox(listBox)
+function eventLog:initListBox(columns)
+	local listBox = self.ListBox
 	listBox.ViewStyle = 'vsReport'
 	listBox.ReadOnly = true
 	listBox.RowSelect = true
 	listBox.ShowColumnHeaders = true
 	listBox.GridLines = true
-	local function insertColumn(name)
-		local newCol = listBox.Columns.add()
-		newCol.Caption = name
+	for _,name in ipairs(columns) do
+		listBox.Columns.add().Caption = name
 	end
-	insertColumn('Time')
-	insertColumn('Event Flag')
-	insertColumn('State')
 end
 
-function eventLog:insertRow(flag, state)
+function eventLog:insertRow(columns)
 	local listBox = self.ListBox
 	local shouldMakeVisible = true
 	if listBox.TopItem then
 		shouldMakeVisible = (listBox.TopItem.Index == listBox.Items.Count - listBox.VisibleRowCount) and true or false
 	end
 	local listItem = listBox.Items.add()
-	local stateStr
-	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
-	listItem.Caption = os.date('%H:%M:%S')
-	listItem.SubItems.add(flag)
-	listItem.SubItems.add(stateStr)
+	listItem.Caption = columns[1]
+	table.remove(columns, 1)
+	for _,value in ipairs(columns) do
+		listItem.SubItems.add(value)
+	end
 	if shouldMakeVisible then listItem.makeVisible() end
 end
 
@@ -103,7 +100,7 @@ function eventLog:createWindow(win)
 		Left = 10,
 		Top = 10,
 	})
-	win:initListBox(self.ListBox)
+	win:initListBox('Time', 'Event Flag', 'State')
 	win:create('TButton', formName, {
 		Caption = 'Clear',
 		Anchors = '[akBottom, akLeft, akRight]',
@@ -111,8 +108,8 @@ function eventLog:createWindow(win)
 		Height = 40,
 		Left = 10,
 		Top = self.Window.Height - 50,
+		onClick = self.ListBox.clear,
 	})
-	win.ctrl['Clear'].onClick = self.ListBox.clear
 	win:create('TButton', formName, {
 		Caption = 'Close',
 		Anchors = '[akBottom, akLeft, akRight]',
@@ -120,11 +117,17 @@ function eventLog:createWindow(win)
 		Height = 40,
 		-- left also set in onResize
 		Top = self.Window.Height - 50,
+		onClick = self.Window.close,
 	})
-	win.ctrl['Close'].onClick = self.Window.close
 	self.Window.OnResize = function(sender) self:onResize() end
 	self.Window.Width = 300
 	self.Window.Height = 720
+end
+
+function eventLog:logFlag(flag, state)
+	local stateStr
+	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
+	eventLog:insertRow({os.date('%H:%M:%S'), flag, stateStr})
 end
 
 eventLog.Main = eventLog:new()
@@ -134,11 +137,11 @@ eventLog:createWindow(eventLog.Main)
 // cheat engine is stupid, if this asm block isn't here it fails to compile
 // no I'm not kidding
 {$c}
-#include <tga/celua.h>;
+#include <tga/celua.h>
 
 void printFlag(unsigned int flag, int value) {
 	char buff[1024];
-	snprintf(buff, sizeof(buff), "eventLog:insertRow(%d, %d)", flag, value);
+	snprintf(buff, sizeof(buff), "eventLog:logFlag(%d, %d)", flag, value);
 	CELUA_ExecuteFunctionAsync(buff, 0);
 	return;
 }
