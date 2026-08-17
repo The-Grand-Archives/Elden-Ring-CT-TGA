@@ -91,12 +91,22 @@ function eventLog:insertRow(columns)
 end
 
 function eventLog:onResize()
-	local win = self.Window
-	local ctrl = self.Main.ctrl
-	ctrl['Clear'].Width = win.Width / 2 - 15
-	ctrl['Close'].Width = win.Width / 2 - 15
-	ctrl['Close'].Left = win.Width - (win.Width / 2 - 15) - 10
+	local window = self.Window
+	local buttons = self.Buttons
+	local spacing = buttons[1].Left
+	local trim = (spacing * (#buttons + 1)) / #buttons
+	local width = window.Width / #buttons - trim
+	for i,button in ipairs(buttons) do
+		button.Left = buttons[1].Left + (width + spacing) * (i-1)
+		button.Width = width
+	end
 	local listBox = self.ListBox
+	--[[ 
+		pascal arrays are 0-base and I didn't store the columns
+		explicitly in a table because this is the only place they're
+		accessed directly, so this unfortunately can't be a nice lua-y
+		for i,v in ipairs(y) loop
+	]]
 	for i = 0, listBox.Columns.Count - 1 do
 		listBox.Columns[i].Width = listBox.Width / listBox.Columns.Count
 	end
