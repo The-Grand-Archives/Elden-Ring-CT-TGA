@@ -50,15 +50,18 @@ function eventLog:initDefaultForm(formName)
 end
 
 function eventLog:initListBox(listBox)
-	listBox.ViewStyle = "vsReport"
+	listBox.ViewStyle = 'vsReport'
 	listBox.ReadOnly = true
 	listBox.RowSelect = true
 	listBox.ShowColumnHeaders = true
 	listBox.GridLines = true
-	listBox.flagCol = listBox.Columns.add()
-	listBox.flagCol.Caption = "Event Flag"
-	listBox.valCol = listBox.Columns.add()
-	listBox.valCol.Caption = "State"
+	local function insertColumn(name)
+		local newCol = listBox.Columns.add()
+		newCol.Caption = name
+	end
+	insertColumn('Time')
+	insertColumn('Event Flag')
+	insertColumn('State')
 end
 
 function eventLog:insertRow(flag, state)
@@ -69,8 +72,9 @@ function eventLog:insertRow(flag, state)
 	end
 	local listItem = listBox.Items.add()
 	local stateStr
-	if state == 0 then stateStr = "OFF" else stateStr = "ON" end
-	listItem.Caption = string.format("%d", flag)
+	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
+	listItem.Caption = os.date('%H:%M:%S')
+	listItem.SubItems.add(flag)
 	listItem.SubItems.add(stateStr)
 	if shouldMakeVisible then listItem.makeVisible() end
 end
