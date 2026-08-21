@@ -1,56 +1,12 @@
-//Author: Dasaav, updated for DLC by Joel/SeriouslyCasual
-//UI base by Grish
-//2022-10-12
+// Author: Dasaav, updated for DLC by Joel/SeriouslyCasual
+// UI base by Grish
+// 2022-10-12
+// Rewritten to use new UI base by Umgak
+// 2026-08-21
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-
-wex = {ctrl}
-function wex:new()
-	o = {
-		ctrl = {}
-	}
-	setmetatable(o, self)
-	self.__index = self
-	return o
-end
-
-function wex:create(typ, parent, properties, customName)
-	parent = self.ctrl[parent]
-	local control = createComponentClass(typ, parent)
-	control.Parent = parent
-	self:initialize(control, properties)
-	control.x = control.Left + control.Width
-	control.y = control.Top + control.Height
-	local name = customName or properties.Caption
-	name = string.gsub(name, "%s", "")
-	self.ctrl[name] = control
-	return control
-end
-
-function wex:initialize(control, properties)
-	if(type(control) == "string") then control = self.ctrl[control] end
-	for propertyName, property in pairs(properties) do
-		if (type(property) == "table") then
-			for subPropertyName, subProperty in pairs(property) do
-				control[propertyName][subPropertyName] = subProperty
-			end
-		else
-			control[propertyName] = property
-		end
-	end
-end
-
-function wex:initDefaultForm(formName)
-	self.ctrl[formName].BorderStyle = bsDialog
-	self.ctrl[formName].show()
-	self.ctrl[formName].centerScreen()
-	self.ctrl[formName].BorderStyle = bsDialog
-	self.ctrl[formName].OnClose = function(sender)
-		disableMemrec(wex.memrec)
-		return caFree
-	end
-end
+local wex = uiBase:new(memrec)
 
 function wex:addItems(control, items, checked)
 	checked = checked or false
@@ -59,38 +15,6 @@ function wex:addItems(control, items, checked)
 		control.items.add(item)
 	end
 	control.setItemIndex(0)
-end
-
-function wex:fixSize(parentName, x, y)
-	x = x or 0
-	y = y or 0
-	local parent = self.ctrl[parentName]
-	local width, height = 0, 0
-	local tempWidth, tempHeight
-	for i = 0, parent.ComponentCount - 1 do
-		tempWidth = parent.Component[i].Left + parent.Component[i].Width
-		if (tempWidth > width) then
-				width = tempWidth
-		end
-		tempHeight =	parent.Component[i].Top + parent.Component[i].Height
-		if (tempHeight > height) then
-			 height = tempHeight
-		end
-	end
-	parent.Width = width + x
-	parent.x = parent.Width + parent.Left
-	parent.Height = height + y
-	parent.y = parent.Height + parent.Top
-end
-
-function wex:fillGap(controlName, targetName)
-	local control = self.ctrl[controlName]
-	local target = {
-		x = self.ctrl[targetName.x] or nil,
-		y = self.ctrl[targetName.y] or nil
-	}
-	if(target.x) then control.Width = control.Width + target.x.Width + target.x.Left - control.Width - control.Left end
-	if(target.y) then control.Height = control.Height + target.y.Height + target.y.Top - control.Height - control.Top end
 end
 
 local function changeRegionCheckbox(t)
@@ -105,7 +29,7 @@ local function setMapPool(t)
 	for i,v in ipairs(wex.Checkboxes) do v.destroy() end
 	wex.Checkboxes = {}
 	for i,v in ipairs(wex.PlayRegions) do
-		if v.Map == wex.Maps[t] then table.insert(wex.Checkboxes, wex.Main:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
+		if v.Map == wex.Maps[t] then table.insert(wex.Main.Checkboxes, wex.Main:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
 	end
 	wex.MapList.Visible = true
 end
@@ -167,10 +91,6 @@ local function loadTemplate()
 		changeAllCheckboxes()
 		f:close()
 	end
-end
-
-local function cancel()
-	wex.Window.close()
 end
 
 local function showGuide()
@@ -243,35 +163,87 @@ local function writeRegions()
  	writeByte(wex.SaveDisablePtr, 0)
 	writeByte(wex.SaveRequestPtr, 1)
 	writeByte(wex.DisableControls, 0)
-	wex.Window.close()
+	wex.Main.Window.close()
 	if tga.config.printProgress then print("Done!") end
 end
 
-function wex:createWindow(win, formName)
-	wex.Window = win:create("TCEForm", nil, {Caption = "Invasion Areas"}, formName)
-	win:initDefaultForm(formName)
-	win:fixSize(formName, 400, 300)
-	win:create("TCEComboBox", formName, {Caption = "Map", Width = 240, Height = 40, Left = 10, Top = 9, OnChange = setMapPool})
-	win:addItems("Map", wex.Maps)
-	wex.MapList = win:create("TScrollBox", formName, {Caption = "MapList", Width = 240, Height = win.ctrl[formName].Height - 40, Left = 10, Top = 30})
-	win:create("TCheckBox", "MapList", {AllowGrayed = true, State = 2, OnChange = changeAllCheckboxes}, "CheckAll")
-	wex.Checkboxes = {}
-	for i,v in ipairs(wex.PlayRegions) do
-		if v.Map == wex.Maps[1] then table.insert(wex.Checkboxes, win:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
+function wex:createWindow(formName)
+	self.Window = self:create("TCEForm", nil, {
+		Caption = "Invasion Areas",
+		Width = 400,
+		Height = 300,
+		BorderStyle = 'bsDialog'
+	}, formName)
+	self:create("TCEComboBox", formName, {
+		Caption = "Map",
+		Width = 240,
+		Height = 40,
+		Left = 10,
+		Top = 9,
+		OnChange = setMapPool
+	})
+	self:addItems("Map", self.Maps)
+	self.MapList = self:create("TScrollBox", formName, {
+		Caption = "MapList",
+		Width = 240,
+		Height = self.ctrl[formName].Height - 40,
+		Left = 10,
+		Top = 30,
+		ChildSizing = {
+			Layout = "cclLeftToRightThenTopToBottom",
+			EnlargeHorizontal = "crsScaleChilds",
+			LeftRightSpacing = 5,
+		}})
+	self:create("TCheckBox", "MapList", {AllowGrayed = true, State = 2, OnChange = changeAllCheckboxes}, "CheckAll")
+	self.Checkboxes = {}
+	for i,v in ipairs(self.PlayRegions) do
+		if v.Map == self.Maps[1] then table.insert(self.Checkboxes, self:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
 	end
-	win:initialize("MapList",{ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", EnlargeHorizontal = "crsScaleChilds", LeftRightSpacing = 5}})
-	win:create("TButton", formName, {Caption = "Save Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 8, OnClick = saveTemplate}, "Save")
-	win:create("TButton", formName, {Caption = "Load Template", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = 38, OnClick = loadTemplate}, "Load")
-	win:create("TGroupBox", formName, {Caption = "Region Types", Width = 130, Left = win.ctrl["Map"].Width + 20, Top = 68, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}}, "Regions")
-	win:create("TCheckBox", "Regions", {Caption = "All", Name = "All", AllowGrayed = true, State = 2, OnChange = selectRegions})
-	win:create("TCheckBox", "Regions", {Caption = "Open World",	Name = "isOpenWorld", AllowGrayed = true, State = 2, OnChange = selectRegions})
-	win:create("TCheckBox", "Regions", {Caption = "Dungeons",	Name = "isDungeon", AllowGrayed = true, State = 2, OnChange = selectRegions})
-	win:create("TCheckBox", "Regions", {Caption = "Bosses",	Name = "isBoss", AllowGrayed = true, State = 2, OnChange = selectRegions})
-	win:create("TGroupBox", formName, {Caption = "Options", Width = 130, Left = win.ctrl["Map"].Width + 20, Height = 50, Top = win.ctrl["Regions"].Height + 73, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}})
-	win:create("TCheckBox", "Options", {Caption = "Also Toggle Graces", Checked = false, OnChange = function(t) wex.ToggleGraces = t.State == 1 end})
-	win:create("TButton", formName, {Caption = "Usage Guide", Width = 130, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 65, OnClick = showGuide})
-	win:create("TButton", formName, {Caption = "OK", Width = 60, Height = 25, Left = win.ctrl["Map"].Width + 20, Top = win.ctrl[formName].Height - 35, OnClick = writeRegions})
-	win:create("TButton", formName, {Caption = "Cancel", Width = 60, Height = 25, Left = win.ctrl["OK"].y + 40, Top = win.ctrl[formName].Height - 35, OnClick = cancel})
+	self:batchCreate("TButton", formName, {
+		{
+			Caption = "Save Template",
+			Top = 8,
+			OnClick = saveTemplate,
+			customName = "Save",
+		},
+		{
+			Caption = "Load Template",
+			Top = 38,
+			OnClick = loadTemplate,
+			customName = "Load",
+		},
+	},
+	{
+		Width = 130,
+		Height = 25,
+		Left = self.ctrl["Map"].Width + 20,
+	})
+	self:create("TGroupBox", formName, {Caption = "Region Types", Width = 130, Left = self.ctrl["Map"].Width + 20, Top = 68, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}}, "Regions")
+	self:batchCreate("TCheckBox", "Regions", {
+		{Caption = "All", Name = "All"},
+		{Caption = "Open World", Name = "isOpenWorld"},
+		{Caption = "Dungeons",Name = "isDungeon"},
+		{Caption = "Bosses",Name = "isBoss"},
+	},
+	{
+		AllowGrayed = true,
+		State = 2,
+		OnChange = selectRegions,
+	})
+	self:create("TGroupBox", formName, {Caption = "Options", Width = 130, Left = self.ctrl["Map"].Width + 20, Height = 50, Top = self.ctrl["Regions"].Height + 73, ChildSizing = {Layout = "cclLeftToRightThenTopToBottom", LeftRightSpacing = 5}})
+	self:create("TCheckBox", "Options", {Caption = "Also Toggle Graces", Checked = false, OnChange = function(t) wex.ToggleGraces = t.State == 1 end})
+	self:batchCreate("TButton", formName, {
+		{Caption = "Usage Guide", Width = 130, Top = self.ctrl[formName].Height - 65, OnClick = showGuide},
+		{Caption = "OK", OnClick = writeRegions},
+		{Caption = "Cancel", Left = self.ctrl["Map"].x + 80, OnClick = self.Window.close},
+	},
+	{
+		Width = 60,
+		Height = 25,
+		Left = self.ctrl["Map"].Width + 20,
+		Top = self.ctrl[formName].Height - 35,
+	})
+	self:applyScaling(self.Window)
 end
 
 wex.Guide = [[
@@ -595,7 +567,7 @@ if isOwnDlc(1) then
 	for k,v in pairs(wex.PlayRegionsDLC1) do table.insert(wex.PlayRegions, v) end
 end
 
-if wex.Window then wex.Window.close() end
+if wex.Main and wex.Main.Window then wex.Main.Window.close() end
 
 wex.Maps = {}
 wex.IndexedRegions = {}
@@ -636,8 +608,8 @@ writeByte(wex.SaveDisablePtr, 0)
 writeByte(wex.DisableControlsPtr, 0)
 readRegions()
 wex.Main = wex:new()
-wex:createWindow(wex.Main, "Main")
+wex.Main:createWindow("Main")
 tga:runOnce("wex_guide", showGuide)
 
 [DISABLE]
-wex.Window.destroy()
+wex.Main.Window.destroy()
