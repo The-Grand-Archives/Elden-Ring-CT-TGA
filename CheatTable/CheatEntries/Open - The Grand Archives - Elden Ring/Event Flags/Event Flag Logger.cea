@@ -135,4 +135,5 @@ dealloc(setEventFlagBitHook)
 
 {$lua}
 if syntaxcheck then return end
-eventLog.Main.Window.destroy()
+pcall(eventLog.Main.Window.destroy)
+eventLog = nil
