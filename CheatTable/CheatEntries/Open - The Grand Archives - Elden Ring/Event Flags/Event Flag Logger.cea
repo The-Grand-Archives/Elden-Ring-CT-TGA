@@ -26,6 +26,45 @@ function eventLog:insertRow(columns)
 	if shouldMakeVisible then listItem.makeVisible() end
 end
 
+function eventLog:showError(error)
+	messageDialog(self.Window.Caption, 'Failed to write event log:' .. error, mtError, mbOk)
+end
+
+function eventLog:saveLog()
+	listBox = self.ListBox
+	listItems = listBox.Items
+	if listItems.Count == 0 then
+		self:showError('nothing to do')
+		return
+	end
+	local saveDialog = createSaveDialog(eventLog.Main.Window)
+	saveDialog.InitialDir = TrainerOrigin
+	saveDialog.DefaultExt = '.csv'
+	if not saveDialog:execute() then return end
+	local file = io.open(saveDialog.FileName, "w+")
+	if not file then
+		self:showError('unable to open file stream')
+		return
+	end
+	local textLine = ''
+	-- write CSV header
+	for i = 0, listBox.Columns.Count - 1 do
+		textLine = textLine .. string.gsub(listBox.Columns[i].Caption, '%s', "")
+		if i ~= listBox.Columns.Count - 1 then textLine = textLine .. ',' end
+	end
+	file:write(string.format("%s\n", textLine))
+	for i = 0, listItems.Count - 1 do
+		textLine = ''
+		listItem = listItems[i]
+		textLine = textLine .. listItem.Caption
+		for i = 0, listItem.SubItems.Count - 1 do
+			if i ~= listItem.SubItems.Count then textLine = textLine .. ',' end
+			textLine = textLine .. listItem.SubItems[i]
+		end
+		file:write(string.format("%s\n", textLine))
+	end
+end
+
 function eventLog:onResize()
 	local window = self.Window
 	local buttons = self.Buttons
@@ -71,7 +110,8 @@ function eventLog:createWindow()
 	})
 	self:initListBox({'Time', 'Event Flag', 'State'})
 	self.Buttons = self:batchCreate('TButton', formName, {
-		{Caption = 'Clear',	OnClick = self.ListBox.clear},
+		{Caption = 'Save', OnClick = function() self:saveLog() end},
+		{Caption = 'Clear', OnClick = self.ListBox.clear},
 		{Caption = 'Close', OnClick = self.Window.close},
 	},
 	{
