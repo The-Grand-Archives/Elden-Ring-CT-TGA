@@ -5,6 +5,7 @@ Added
  - by [Umgak](https://github.com/Umgak):
    - uiBase scripts for CE Form creation and modification
    - Invasion Regions script converted to use uiBase, added automatic UI scaling which should help users of high DPI monitors use the script
+   - Configure Table script converted to use uiBase, added automatic UI scaling
 ## [v1.18.0] - 2025-08-04
 ### Added
  - by [Umgak](https://github.com/Umgak):
