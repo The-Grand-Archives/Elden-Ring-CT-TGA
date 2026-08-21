@@ -2,66 +2,7 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-eventLog = {}
-function eventLog:new()
-	o = {
-		ctrl = {}
-	}
-	setmetatable(o, self)
-	self.__index = self
-	return o
-end
-
-function eventLog:create(typ, parent, properties, customName)
-	parent = self.ctrl[parent]
-	local control = createComponentClass(typ, parent)
-	control.Parent = parent
-	self:initialize(control, properties)
-	control.x = control.Left + control.Width
-	control.y = control.Top + control.Height
-	local name = customName or properties.Caption
-	if name then
-		name = string.gsub(name, "%s", "")
-		self.ctrl[name] = control
-	end
-	return control
-end
-
-function eventLog:initialize(control, properties)
-	if(type(control) == "string") then control = self.ctrl[control] end
-	for propertyName, property in pairs(properties) do
-		if (type(property) == "table") then
-			for subPropertyName, subProperty in pairs(property) do
-				control[propertyName][subPropertyName] = subProperty
-			end
-		else
-			control[propertyName] = property
-		end
-	end
-end
-
-function eventLog:initDefaultForm(formName)
-	self.ctrl[formName].show()
-	self.ctrl[formName].centerScreen()
-	self.ctrl[formName].OnClose = function(sender)
-		disableMemrec(memrec)
-		return caFree
-	end
-end
-
-function eventLog:batchAdd(win, typ, parent, props, sharedprops)
-	local created = {}
-	for _,prop in ipairs(props) do
-		local properties = {}
-		if sharedprops then
-			for k,v in pairs(sharedprops) do properties[k] = v end
-		end
-		for k,v in pairs(prop) do properties[k] = v end
-		local elem = win:create(typ, parent, properties)
-		table.insert(created, elem)
-	end
-	return created
-end
+eventLog = uiBase:new(memrec)
 
 function eventLog:initListBox(columns)
 	local listBox = self.ListBox
@@ -96,7 +37,7 @@ function eventLog:onResize()
 		button.Width = width
 	end
 	local listBox = self.ListBox
-	--[[ 
+	--[[
 		pascal arrays are 0-base and I didn't store the columns
 		explicitly in a table because this is the only place they're
 		accessed directly, so this unfortunately can't be a nice lua-y
@@ -107,11 +48,15 @@ function eventLog:onResize()
 	end
 end
 
-function eventLog:createWindow(win)
+function eventLog:createWindow()
 	local formName = 'EventLog'
-	self.Window = win:create('TCEForm', nil, {Caption = 'Event Flag Log'}, formName)
-	win:initDefaultForm(formName)
-	self.ListBox = win:create('TCEListView', formName, {
+	self.Window = self:create('TCEForm', nil, {
+		Caption = 'Event Flag Log',
+		Width = 300,
+		Height = 720,
+		OnResize = function(sender) self:onResize() end,
+	}, formName)
+	self.ListBox = self:create('TCEListView', formName, {
 		Caption = 'Event Flags',
 		Anchors = '[akTop, akBottom, akLeft, akRight]',
 		Width = self.Window.Width - 20,
@@ -124,20 +69,14 @@ function eventLog:createWindow(win)
 		ShowColumnHeaders = true,
 		GridLines = true,
 	})
-	win:initListBox(self.ListBox, {'Time', 'Event Flag', 'State'})
-	self.Buttons = self:batchAdd(win, 'TButton', formName, {
-		{
-			Caption = 'Clear',
-			OnClick = self.ListBox.clear,
-		},
-		{
-			Caption = 'Close',
-			OnClick = self.Window.close,
-		}
+	self:initListBox({'Time', 'Event Flag', 'State'})
+	self.Buttons = self:batchCreate('TButton', formName, {
+		{Caption = 'Clear',	OnClick = self.ListBox.clear},
+		{Caption = 'Close', OnClick = self.Window.close},
 	},
 	{
 		Anchors = '[akLeft,akBottom]',
-		--[[ 
+		--[[
 			defining a Left here really only matters for the first button
 				as it defines the spacing between buttons for onResize,
 				which will reset all of the rest automatically
@@ -146,19 +85,17 @@ function eventLog:createWindow(win)
 		Height = 40,
 		Top = self.Window.Height - 50,
 	})
-	self.Window.OnResize = function(sender) self:onResize() end
-	self.Window.Width = 300
-	self.Window.Height = 720
-end
-
-function eventLog:logFlag(flag, state)
-	local stateStr
-	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
-	eventLog:insertRow({os.date('%H:%M:%S'), flag, stateStr})
+	self:applyScaling(self.Window)
 end
 
 eventLog.Main = eventLog:new()
-eventLog:createWindow(eventLog.Main)
+eventLog.Main:createWindow()
+
+function logFlag(flag, state)
+	local stateStr
+	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
+	eventLog.Main:insertRow({os.date('%H:%M:%S'), flag, stateStr})
+end
 
 {$asm}
 // cheat engine is stupid, if this asm block isn't here it fails to compile
@@ -168,7 +105,7 @@ eventLog:createWindow(eventLog.Main)
 
 void printFlag(unsigned int flag, int value) {
 	char buff[1024];
-	snprintf(buff, sizeof(buff), "eventLog:logFlag(%d, %d)", flag, value);
+	snprintf(buff, sizeof(buff), "logFlag(%d, %d)", flag, value);
 	CELUA_ExecuteFunctionAsync(buff, 0);
 	return;
 }
@@ -198,4 +135,4 @@ dealloc(setEventFlagBitHook)
 
 {$lua}
 if syntaxcheck then return end
-eventLog.Window.destroy()
+eventLog.Main.Window.destroy()
