@@ -1,6 +1,9 @@
 # Changelog
 ## [Unreleased]
-
+###
+Added
+ - by [Umgak](https://github.com/Umgak):
+   - uiBase scripts for CE Form creation and modification
 ## [v1.18.0] - 2025-08-04
 ### Added
  - by [Umgak](https://github.com/Umgak):

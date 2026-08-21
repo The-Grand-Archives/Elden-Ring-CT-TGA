@@ -1,0 +1,320 @@
+// Author: Umgak
+// Original UI base by Grish
+// UI base with common helper functions for lua-created CE Forms
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+-- internal helper function forward-declarations. Nothing to see here.
+local __initialize, __initDefaultForm, __backupProps
+
+--[[ BEGIN uiBase heritable components ]]
+-- Your class will inherit copies of everything here,
+-- and will be able to create forms with it.
+uiBase = {}
+
+--[[
+	Returns a copy of the uiBase object to inherit
+	Invoke as yourClass = uiBase:new(memrec), then add your own funcs
+		Example:
+			yourClass = uiBase:new(memrec)
+		@param memrec | memrec (optional) - your memory record. If specified, your
+			memrec will be disabled when your form is.
+]]
+function uiBase:new(childmemrec)
+	o = {
+		ctrl = {},
+		-- stash memrec of caller
+		-- used for auto-kill
+		memrec = childmemrec or self.memrec,
+		--[[
+			autoScale features
+			Set self.autoScale.designTimeDPI to your getScreenDPI() result during init
+			if you want to use this
+		]]
+		autoScale = {
+			-- design time DPI. Defaults to 96, override with your DPI if yours is different
+			-- you can get your DPI with the getScreenDPI() builtin
+			designTimeDPI = 96,
+			-- debug override DPI
+			-- If set, scaleFactor will be overriden with debug DPI / design DPI
+			-- use it to simulate a different DPI for autoScale
+			debug_runTimeDPI = nil,
+		},
+	}
+	setmetatable(o, self)
+	setmetatable(o.autoScale, {
+		__index = function(t, key)
+			if key == 'scaleFactor' then
+				local runTimeDPI = t.debug_runTimeDPI or getScreenDPI()
+				return runTimeDPI / t.designTimeDPI
+			end
+		end
+	})
+	self.__index = self
+	return o
+end
+
+--[[
+	uiBase:create
+	Creates a form object and adds it to the parent form
+	Returns the created form object and automatically adds it to the 'ctrl'
+		table with its name as a keyvalue pair.	If no custom name is specified then
+		it will be created using the caption with whitespace trimmed
+	Examples:
+		yourInstance:create('TCEForm', nil, {Caption = 'titlebar'}, formName, 'yourCustomObjectName')
+		yourInstance:create('TCEListView', formName, {Caption = 'name', Width = 10, Height = 20}, 'custom Name')
+	@param typ | string, the type of Pascal form object to create.
+	@param parent | string - the parent object of the form.
+		Pass nil to have no parent form, such as when you are trying to create
+		an independent window.
+	@param properties | table - a table containing properties such as height,
+		width, caption, OnClick events, etc.
+	@param customName | string - overrides the default name. If not specified,
+		will be derived from Caption. If neither are present, throws an error.
+]]
+function uiBase:create(typ, parent, properties, customName)
+	parent = self.ctrl[parent]
+	local control = createComponentClass(typ, parent)
+	control.Parent = parent
+	__initialize(self, control, properties)
+	control.x = control.Left + control.Width
+	control.y = control.Top + control.Height
+	local name = customName or properties.Caption
+	if name then
+		name = string.gsub(name, "%s", "")
+		self.ctrl[name] = control
+		else
+			error("FATAL: No customName or Caption were specified to uiBase:create")
+	end
+	if parent == nil then __initDefaultForm(self, name) end
+	return control
+end
+
+--[[
+	uiBase:batchCreate
+	Creates multiple form objects of the same type with shared properties
+	Useful for creating lots of similar objects at once
+	Returns a table of created objects which can be stored in your table for loops
+	For custom named forms, pass a customName attribute in the unique props table
+	Examples:
+		yourInstance:batchCreate('TButton', 'yourFormName', {
+			{
+				Caption = 'Cool Button 1',
+				OnClick = self:myCoolFunction,
+			},
+			{
+				Caption = 'Cool Button 2',
+				OnClick = self:myCoolOtherFunction,
+			},
+			{
+				Caption = 'Close',
+				OnClick = self.yourFormName.close,
+				customName = 'closeButton'
+			},
+		},
+		{
+			Height = 50,
+			Width = 35,
+		})
+	@param typ | string - the type of Pascal form object to create
+	@param parent | string - the parent object of the forms
+	@param properties | table - properties unique to each form.
+		If you have a customName, put it here.
+	@param sharedprops | table - properties shared across all cforms
+]]
+function uiBase:batchCreate(typ, parent, properties, sharedprops)
+	local created = {}
+	for _, prop in ipairs(properties) do
+		local props = {}
+		local customName
+		if sharedprops then
+			for propertyName, property in pairs(sharedprops) do
+				-- do not pass customNames passed as shared props
+				-- as each object will overwrite the last
+				if propertyName ~= 'customName' then props[propertyName] = property end
+			end
+		end
+		for propertyName, property in pairs(prop) do
+			if propertyName == 'customName' then
+				customName = property
+			else
+				props[propertyName] = property
+			end
+		end
+		local elem = self:create(typ, parent, props, customName)
+		table.insert(created, elem)
+	end
+	return created
+end
+
+--[[
+	uiBase::fixSize
+	Sets the size of your object, and resizes any children that are too large to fit
+	Call during form setup to set your width and height (or just pass a Width and Height
+	to your initial :create call. Do that instead, actually).
+	Left as-is for legacy compatibility.
+	Example:
+		yourInstance:fixSize('yourFormName', 400, 300)
+	@param parentName | string, the name of the form to set.
+	@param x | number - the width of the form
+	@param y | number - the height of the form
+]]
+function uiBase:fixSize(parentName, x, y)
+	x = x or 0
+	y = y or 0
+	local parent = self.ctrl[parentName]
+	local width, height = 0,0
+	local tempWidth, tempHeight
+	for i = 0, parent.ComponentCount - 1 do
+		tempWidth = parent.Component[i].Left + parent.Component[i].Width
+		if (tempWidth > width) then
+			width = tempWidth
+		end
+		tempHeight = parent.Component[i].Top + parent.Component[i].Height
+		if (tempHeight > height) then
+			height = tempHeight
+		end
+	end
+	parent.Width = width + x
+	parent.x = parent.Width + parent.Left
+	parent.Height = height + y
+	parent.y = parent.Height + parent.Top
+end
+
+--[[
+	uiBase:fillGap
+	Resizes an object to fill the space between its own left/top parameter,
+	and the right/bottom edges of two other elements whose identities are given in a table.
+
+	Originally by Grish, I have no idea what he used it for, frankly.
+	Left as-is for legacy compatibility.
+	Example:
+		yourInstance:fillGap('yourFormName', {x = 'rightForm', y = 'bottomForm'})
+	@param controlName | string - key of form name to resize
+	@param targetName | table - containing x,y string keys for the forms to use as the size
+]]
+function uiBase:fillGap(controlName, targetName)
+	local control = self.ctrl[controlName]
+	print(self.ctrl[targetName].x)
+	local target = {
+		x = self.ctrl[targetName.x] or nil,
+		y = self.ctrl[targetName.y] or nil
+	}
+	if(target.x) then control.Width = target.x.Width + target.x.Left - control.Left end
+	if(target.y) then control.Height = target.y.Height + target.y.Top - control.Top end
+end
+
+--[[
+	uiBase:applyScaling
+	Resizes the specified form, and all of its children, to fit the user's DPI at runtime
+		automatically. Should help to reduce issues caused by fonts being larger on larger
+		monitors while the rest of the UI elements are not, causing things to spill over.
+		NB: If your DPI is NOT 96, make sure to set instance.autoScale.designTimeDPI to fit!
+		For testing, you can set instance.autoScale.debug_runTimeDPI as well.
+	Example:
+		yourInstance.autoScale.designTimeDPI = 120
+		yourInstance:applyScaling(yourWindow)
+]]
+function uiBase:applyScaling(control)
+	local sf = self.autoScale.scaleFactor
+	if sf == nil or sf == 1.0 then return end -- no point trying to scale if it's 1.0
+	local propertyCache = {}
+	__backupProps(control, propertyCache)
+	for _, orig in ipairs(propertyCache) do
+		local ctrl = orig.control
+		for property, value in pairs(orig.properties) do
+			if property ~= 'Anchors' then
+				ctrl[property] = value * sf
+			end
+		end
+		-- special handling for root form
+		-- keeps the form centered in the middle of the screen
+		if ctrl.Parent == nil then
+			ctrl.Top = orig.properties.Top - ((ctrl.Height - orig.properties.Height) / 2)
+			ctrl.Left = orig.properties.Left - ((ctrl.Width - orig.properties.Width) / 2)
+		end
+	end
+	for _, obj in ipairs(propertyCache) do
+		local ctrl = obj.control
+		ctrl.Anchors = obj.properties.Anchors
+	end
+end
+-- [[ END uiBase heritable components ]]
+
+-- [[ BEGIN uiBase internal components ]]
+-- you do not need to know or care about these to use uiBase.
+-- they are for internal use only.
+
+--[[
+	__initialize
+	Internal function used by uiBase:create
+	Sets up the new form object with the specified properties
+		Not externally callable.
+	@param self | uiBase object (or child class) - the self pointer from the caller
+	@param control | table - a newly created object to add properties to
+	@param properties | table - a table of properties to insert into the newly created object
+]]
+__initialize = function(self, control, properties)
+	if(type(control) == "string") then control = self.ctrl[control] end
+	for propertyName, property in pairs(properties) do
+		if (type(property) == "table") then
+			for subPropertyName, subProperty in pairs(property) do
+				control[propertyName][subPropertyName] = subProperty
+			end
+		else
+			control[propertyName] = property
+		end
+	end
+end
+
+--[[
+	__initDefaultForm
+	Internal function used by uiBase:create
+	Makes your base form visible, centers it, and ensures its form is freed on
+		close and its memrec disabled. Called automatically on forms with no parent.
+		Not externally callable.
+	@param self | uiBase object (or child class) - the self pointer from the caller
+	@param formName | string - the name of your form to initialize
+]]
+__initDefaultForm = function(self, formName)
+	self.ctrl[formName].show()
+	self.ctrl[formName].centerScreen()
+	self.ctrl[formName].OnClose = function(sender)
+		if self.memrec then disableMemrec(self.memrec) end
+		return caFree
+	end
+end
+
+--[[
+	__backupProps
+	Internal function used by uiBase:applyScaling
+	Backs up position and anchor values from 'control' and all of its children
+		into a table recursively for use in scaling math, then wipes the Anchors
+		to ensure that objects being resized do not affect the positions of other
+		objects temporarily. applyScaling will restore the Anchors after.
+		Not externally callable.
+	@param control | Form - the root control to apply scaling to
+	@param propertyCache | table - a table to cache properties in
+]]
+__backupProps = function(control, propertyCache)
+	local ctrlProps = {
+		control = control,
+		properties = {
+			Width = control.Width,
+			Height = control.Height,
+			Left = control.Left,
+			Top = control.Top,
+			Anchors = control.Anchors,
+		}
+	}
+	table.insert(propertyCache, ctrlProps)
+	control.Anchors = '[]'
+	if control.ComponentCount then
+		for i = 0, control.ComponentCount - 1 do
+			__backupProps(control.Component[i], propertyCache)
+		end
+	end
+end
+
+[DISABLE]
+uiBase = nil
