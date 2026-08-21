@@ -612,4 +612,4 @@ wex.Main:createWindow("Main")
 tga:runOnce("wex_guide", showGuide)
 
 [DISABLE]
-wex.Main.Window.destroy()
+if wex.Main and wex.Main.Window then wex.Main.Window.destroy() end

@@ -54,4 +54,4 @@ cfgForm.Main = cfgForm:new()
 cfgForm.Main:createWindow()
 
 [DISABLE]
-cfgForm.Main.Window.destroy()
+if cfgForm.Main and cfgForm.Main.Window then cfgForm.Main.Window.destroy() end
