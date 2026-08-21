@@ -149,10 +149,11 @@ end
 
 --[[
 	uiBase::fixSize
-	Sets the size of your object, and resizes any children that are too large to fit
-	Call during form setup to set your width and height (or just pass a Width and Height
-	to your initial :create call. Do that instead, actually).
-	Left as-is for legacy compatibility.
+	Resizes the Frm object to fit all of its children, and adds padding
+		of x and y pixels to the right and bottom edges. For fixed size forms,
+		pass a Width and Height at initial creation. Useful mainly when trying to
+		automatically scale forms	that have a dynamic element, such as checkboxes
+		inserted in a loop.
 	Example:
 		yourInstance:fixSize('yourFormName', 400, 300)
 	@param parentName | string, the name of the form to set.
