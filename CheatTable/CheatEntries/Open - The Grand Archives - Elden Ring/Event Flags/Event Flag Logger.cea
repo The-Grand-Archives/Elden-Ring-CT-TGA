@@ -49,18 +49,6 @@ function eventLog:initDefaultForm(formName)
 	end
 end
 
-function eventLog:initListBox(columns)
-	local listBox = self.ListBox
-	listBox.ViewStyle = 'vsReport'
-	listBox.ReadOnly = true
-	listBox.RowSelect = true
-	listBox.ShowColumnHeaders = true
-	listBox.GridLines = true
-	for _,name in ipairs(columns) do
-		listBox.Columns.add().Caption = name
-	end
-end
-
 function eventLog:batchAdd(win, typ, parent, props, sharedprops)
 	local created = {}
 	for _,prop in ipairs(props) do
@@ -73,6 +61,13 @@ function eventLog:batchAdd(win, typ, parent, props, sharedprops)
 		table.insert(created, elem)
 	end
 	return created
+end
+
+function eventLog:initListBox(columns)
+	local listBox = self.ListBox
+	for _,name in ipairs(columns) do
+		listBox.Columns.add().Caption = name
+	end
 end
 
 function eventLog:insertRow(columns)
@@ -123,20 +118,25 @@ function eventLog:createWindow(win)
 		Height = self.Window.Height - 70,
 		Left = 10,
 		Top = 10,
+		ViewStyle = 'vsReport',
+		ReadOnly = true,
+		RowSelect = true,
+		ShowColumnHeaders = true,
+		GridLines = true,
 	})
-	win:initListBox({'Time', 'Event Flag', 'State'})
+	win:initListBox(self.ListBox, {'Time', 'Event Flag', 'State'})
 	self.Buttons = self:batchAdd(win, 'TButton', formName, {
 		{
 			Caption = 'Clear',
-			onClick = self.ListBox.clear,
+			OnClick = self.ListBox.clear,
 		},
 		{
 			Caption = 'Close',
-			onClick = self.Window.close,
+			OnClick = self.Window.close,
 		}
 	},
 	{
-		Anchors = '[akLeft,akRight,akBottom]',
+		Anchors = '[akLeft,akBottom]',
 		--[[ 
 			defining a Left here really only matters for the first button
 				as it defines the spacing between buttons for onResize,
