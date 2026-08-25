@@ -1,7 +1,7 @@
 # Changelog
 ## [Unreleased]
 
-## [v1.18.0] - 2025-08-04
+## [v1.18.0] - 2026-06-06
 ### Added
  - by [Umgak](https://github.com/Umgak):
    - Missing Romina Fix script for players with broken event flags
@@ -14,7 +14,7 @@
 ### Fixed
  - Removed ID `3252` (Loretta) from "Kill all mobs"
  - "Remove Seamless Co-op items" script
- - by [Axd1x8a](https://github.com/FeeeeK):
+ - by [Axd1x8a](https://github.com/axd1x8a):
    - Kill all mobs not working in some cases
  - by [Umgak](https://github.com/Umgak):
    - Fix "Reload Character" always loading slot 0
