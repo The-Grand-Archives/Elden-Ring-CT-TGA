@@ -1,0 +1,179 @@
+// author: Umgak
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+eventLog = uiBase:new(memrec)
+
+function eventLog:initListBox(columns)
+	local listBox = self.ListBox
+	for _,name in ipairs(columns) do
+		listBox.Columns.add().Caption = name
+	end
+end
+
+function eventLog:insertRow(columns)
+	local listBox = self.ListBox
+	local shouldMakeVisible = true
+	if listBox.TopItem then
+		shouldMakeVisible = (listBox.TopItem.Index == listBox.Items.Count - listBox.VisibleRowCount) and true or false
+	end
+	local listItem = listBox.Items.add()
+	listItem.Caption = columns[1]
+	table.remove(columns, 1)
+	for _,value in ipairs(columns) do
+		listItem.SubItems.add(value)
+	end
+	if shouldMakeVisible then listItem.makeVisible() end
+end
+
+function eventLog:showError(error)
+	messageDialog(self.Window.Caption, 'Failed to write event log:' .. error, mtError, mbOk)
+end
+
+function eventLog:saveLog()
+	listBox = self.ListBox
+	listItems = listBox.Items
+	if listItems.Count == 0 then
+		self:showError('nothing to do')
+		return
+	end
+	local saveDialog = createSaveDialog(eventLog.Main.Window)
+	saveDialog.InitialDir = TrainerOrigin
+	saveDialog.DefaultExt = '.csv'
+	if not saveDialog:execute() then return end
+	local file = io.open(saveDialog.FileName, "w+")
+	if not file then
+		self:showError('unable to open file stream')
+		return
+	end
+	local textLine = ''
+	-- write CSV header
+	for i = 0, listBox.Columns.Count - 1 do
+		textLine = textLine .. string.gsub(listBox.Columns[i].Caption, '%s', "")
+		if i ~= listBox.Columns.Count - 1 then textLine = textLine .. ',' end
+	end
+	file:write(string.format("%s\n", textLine))
+	for i = 0, listItems.Count - 1 do
+		textLine = ''
+		listItem = listItems[i]
+		textLine = textLine .. listItem.Caption
+		for i = 0, listItem.SubItems.Count - 1 do
+			if i ~= listItem.SubItems.Count then textLine = textLine .. ',' end
+			textLine = textLine .. listItem.SubItems[i]
+		end
+		file:write(string.format("%s\n", textLine))
+	end
+end
+
+function eventLog:onResize()
+	local window = self.Window
+	local buttons = self.Buttons
+	local spacing = buttons[1].Left
+	local trim = (spacing * (#buttons + 1)) / #buttons
+	local width = window.Width / #buttons - trim
+	for i,button in ipairs(buttons) do
+		button.Left = buttons[1].Left + (width + spacing) * (i-1)
+		button.Width = width
+	end
+	local listBox = self.ListBox
+	--[[
+		pascal arrays are 0-base and I didn't store the columns
+		explicitly in a table because this is the only place they're
+		accessed directly, so this unfortunately can't be a nice lua-y
+		for i,v in ipairs(y) loop
+	]]
+	for i = 0, listBox.Columns.Count - 1 do
+		listBox.Columns[i].Width = listBox.Width / listBox.Columns.Count
+	end
+end
+
+function eventLog:createWindow()
+	local formName = 'EventLog'
+	self.Window = self:create('TCEForm', nil, {
+		Caption = 'Event Flag Log',
+		Width = 300,
+		Height = 720,
+		OnResize = function(sender) self:onResize() end,
+	}, formName)
+	self.ListBox = self:create('TCEListView', formName, {
+		Caption = 'Event Flags',
+		Anchors = '[akTop, akBottom, akLeft, akRight]',
+		Width = self.Window.Width - 20,
+		Height = self.Window.Height - 70,
+		Left = 10,
+		Top = 10,
+		ViewStyle = 'vsReport',
+		ReadOnly = true,
+		RowSelect = true,
+		ShowColumnHeaders = true,
+		GridLines = true,
+	})
+	self:initListBox({'Time', 'Event Flag', 'State'})
+	self.Buttons = self:batchCreate('TButton', formName, {
+		{Caption = 'Save', OnClick = function() self:saveLog() end},
+		{Caption = 'Clear', OnClick = self.ListBox.clear},
+		{Caption = 'Close', OnClick = self.Window.close},
+	},
+	{
+		Anchors = '[akLeft,akBottom]',
+		--[[
+			defining a Left here really only matters for the first button
+				as it defines the spacing between buttons for onResize,
+				which will reset all of the rest automatically
+		]]
+		Left = 10,
+		Height = 40,
+		Top = self.Window.Height - 50,
+	})
+	self:applyScaling(self.Window)
+end
+
+eventLog.Main = eventLog:new()
+eventLog.Main:createWindow()
+
+function logFlag(flag, state)
+	local stateStr
+	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
+	eventLog.Main:insertRow({os.date('%H:%M:%S'), flag, stateStr})
+end
+
+{$asm}
+// cheat engine is stupid, if this asm block isn't here it fails to compile
+// no I'm not kidding
+{$c}
+#include <tga/celua.h>
+
+void printFlag(unsigned int flag, int value) {
+	char buff[1024];
+	snprintf(buff, sizeof(buff), "logFlag(%d, %d)", flag, value);
+	CELUA_ExecuteFunctionAsync(buff, 0);
+	return;
+}
+
+{$asm}
+aobscanModule(setEventFlagBit, $process, 33 d2 41 8b c2 41 f7 f1 41 8b d8)
+alloc(setEventFlagBitHook, $1000, $process)
+
+setEventFlagBitHook:
+xor edx,edx
+mov eax,r10d
+{$ccode flag=r10 value=r8}
+printFlag(flag, value)
+{$asm}
+jmp setEventFlagBit+5
+
+setEventFlagBit:
+jmp setEventFlagBitHook
+
+[DISABLE]
+{$asm}
+// similarly this {$asm} has to be here or it doesn't work.
+// despite the last keyword above this also being {$asm}
+setEventFlagBit:
+db 33 d2 41 8b c2 // cheat engine encodes this xor as a 31, which breaks the aob scan
+dealloc(setEventFlagBitHook)
+
+{$lua}
+if syntaxcheck then return end
+pcall(eventLog.Main.Window.destroy)
+eventLog = nil
