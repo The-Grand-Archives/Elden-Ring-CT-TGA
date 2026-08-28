@@ -1,10 +1,11 @@
 <CheatEntry>
-  <ID>100677</ID>
-  <Description>"EyeSlant"</Description>
+  <ID>100882</ID>
+  <Description>""</Description>
+  <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>740+49</Offset>
+    <Offset>760+116</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>

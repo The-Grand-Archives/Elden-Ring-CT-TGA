@@ -8,7 +8,7 @@
   <ByteLength>264</ByteLength>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>754</Offset>
+    <Offset>760+14</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>
