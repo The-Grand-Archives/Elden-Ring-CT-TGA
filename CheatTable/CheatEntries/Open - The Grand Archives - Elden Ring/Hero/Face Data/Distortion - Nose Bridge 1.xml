@@ -1,6 +1,6 @@
 <CheatEntry>
   <ID>100774</ID>
-  <Description>""</Description>
+  <Description>"Distortion - Nose Bridge 1"</Description>
   <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

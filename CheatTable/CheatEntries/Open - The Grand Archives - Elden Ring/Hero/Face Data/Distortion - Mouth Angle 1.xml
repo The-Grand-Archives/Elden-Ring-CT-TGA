@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>100768</ID>
-  <Description>""</Description>
+  <ID>100759</ID>
+  <Description>"Distortion - Mouth Angle 1"</Description>
   <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>760+A4</Offset>
+    <Offset>760+9B</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>
