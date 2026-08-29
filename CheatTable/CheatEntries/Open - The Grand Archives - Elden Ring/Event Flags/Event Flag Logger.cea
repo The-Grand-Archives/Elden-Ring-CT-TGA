@@ -131,7 +131,13 @@ end
 eventLog.Main = eventLog:new()
 eventLog.Main:createWindow()
 
+-- empty table for storing current state of flags
+local currState = {}
+
 function logFlag(flag, state)
+	-- suppress repeated writes of the same flag to the same value
+	if currState[flag] == state then return end
+	currState[flag] = state
 	local stateStr
 	if state == 0 then stateStr = 'OFF' else stateStr = 'ON' end
 	eventLog.Main:insertRow({os.date('%H:%M:%S'), flag, stateStr})
