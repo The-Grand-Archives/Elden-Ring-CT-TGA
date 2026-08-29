@@ -22,6 +22,6 @@
   <VariableType>8 Bytes</VariableType>
   <Address>CSWindow</Address>
   <Offsets>
-    <Offset>CC</Offset>
+    <Offset>D0</Offset>
   </Offsets>
 </CheatEntry>

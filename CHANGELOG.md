@@ -2,6 +2,12 @@
 ## [Unreleased]
 ### Added
  - by [Umgak](https://github.com/Umgak):
+   - Support for ELDEN RING App Ver. 1.17
+     - Fix offsets for Noclip
+     - Fix offsets for debug flags
+     - Fix offsets for several config settings
+     - Add several missing config settings
+     - Rename CsDlc[3] to Tarnished Pack
    - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
      - mergeDropdown function inserts entries into a dropdown
      - constructDropdown function builds a full dropdown list from formatted data

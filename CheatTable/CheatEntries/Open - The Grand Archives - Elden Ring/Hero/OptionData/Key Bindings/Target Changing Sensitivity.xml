@@ -1,6 +1,6 @@
 <CheatEntry>
-  <ID>101023</ID>
-  <Description>"Mouse Sensitivity"</Description>
+  <ID>106160</ID>
+  <Description>"Target Changing Sensitivity"</Description>
   <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:0
 1:1
 2:2
@@ -17,6 +17,6 @@
   <VariableType>Byte</VariableType>
   <Address>CSPcKeyConfig</Address>
   <Offsets>
-    <Offset>880</Offset>
+    <Offset>884</Offset>
   </Offsets>
 </CheatEntry>

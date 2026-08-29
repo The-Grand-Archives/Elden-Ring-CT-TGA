@@ -1,9 +1,13 @@
 <CheatEntry>
   <ID>101011</ID>
   <Description>"Device for On-Screen Prompts"</Description>
-  <DropDownListLink>ON_OFF</DropDownListLink>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Controller
+  1:Keyboard and Mouse
+  </DropDownList>
   <ShowAsSigned>0</ShowAsSigned>
-  <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
-  <Address/>
+  <Address>CSPcKeyConfig</Address>
+  <Offsets>
+    <Offset>4</Offset>
+  </Offsets>
 </CheatEntry>
