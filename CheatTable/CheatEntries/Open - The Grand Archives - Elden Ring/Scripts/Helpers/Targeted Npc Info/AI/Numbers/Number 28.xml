@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337273149</ID>
+  <Description>"Number 28"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>73C</Offset>
+    <Offset>C0</Offset>
+    <Offset>18</Offset>
+    <Offset>58</Offset>
+  </Offsets>
+</CheatEntry>

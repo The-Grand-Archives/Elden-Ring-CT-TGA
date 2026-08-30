@@ -1,0 +1,11 @@
+<CheatEntry>
+  <ID>1337273513</ID>
+  <Description>"String Indexed Number 120"</Description>
+  <VariableType>Float</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>4790</Offset>
+    <Offset>C0</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

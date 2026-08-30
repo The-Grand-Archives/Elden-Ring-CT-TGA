@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337273235</ID>
+  <Description>"Number 45"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Float</VariableType>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>780</Offset>
+    <Offset>C0</Offset>
+    <Offset>18</Offset>
+    <Offset>58</Offset>
+  </Offsets>
+</CheatEntry>

@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>1337273398</ID>
+  <Description>"String Index 63"</Description>
+  <VariableType>String</VariableType>
+  <Length>128</Length>
+  <Unicode>1</Unicode>
+  <CodePage>0</CodePage>
+  <ZeroTerminate>1</ZeroTerminate>
+  <Address>LastHitNpcAddr</Address>
+  <Offsets>
+    <Offset>294C</Offset>
+    <Offset>C0</Offset>
+    <Offset>580</Offset>
+  </Offsets>
+</CheatEntry>

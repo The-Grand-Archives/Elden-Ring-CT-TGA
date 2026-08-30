@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>1337271490</ID>
+  <Description>"Last Action"</Description>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>TargetedNpcInfo_Data</Address>
+  <Offsets>
+    <Offset>E9C2</Offset>
+    <Offset>C0</Offset>
+    <Offset>18</Offset>
+    <Offset>58</Offset>
+  </Offsets>
+</CheatEntry>
