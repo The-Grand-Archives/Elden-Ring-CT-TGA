@@ -64,7 +64,7 @@ local bonfireId = {
 
 local dropdowns = {
   itemDropdown,
-  itemDropdownForcedAll,
+  itemDropdownAll,
   itemGem,
   bonfireId,
 }
