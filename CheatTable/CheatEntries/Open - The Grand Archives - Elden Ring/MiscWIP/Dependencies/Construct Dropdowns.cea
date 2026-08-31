@@ -16,6 +16,8 @@ local itemDropdown = {
     {data = getMemrec("ItemDropdownBase")},
     {data = getMemrec("ItemDropdownDLC1Tradeable"), dlcNum = 1, allowIgnoreDlc = true},
     {data = getMemrec("ItemDropdownDLC1Untradeable"), dlcNum = 1},
+    {data = getMemrec("ItemDropdownDLC3Tradeable"), dlcNum = 3, allowIgnoreDlc = true},
+    {data = getMemrec("ItemDropdownDLC3Untradeable"), dlcNum = 3}
   }
 }
 

@@ -1,0 +1,33 @@
+<CheatEntry>
+  <ID>108310</ID>
+  <Description>"ItemDropdownDLC3Tradeable"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">00365240:Lentiel's Greatsword
+00822850:Heavy Scimitar
+00CE2570:Golden Order Flail
+01E14320:Silver Grooved Shield
+03B9FAC0:Ritual Thrusting Shield
+03D8A650:Reverse-Bladed Sword
+03F72AD0:Reed Great Katana
+04066D10:Idus Sword
+10517B60:Broken Gold Mask
+10517BC4:Gold Tattoo (Chest)
+10517C28:Gold Tattoo (Arm)
+10517C8C:Told Tattoo (Leg)
+1051A270:Silver Grooved Helm
+1051A2D4:Silver Grooved Armor
+1051A338:Silver Grooved Gauntlets
+1051A39C:Silver Grooved Greaves
+1051A6BC:Silver Grooved Armor (Altered)
+1051C980:Leontiel's Hat
+1051C9E4:Leontiel's Armor
+1051CA48:Leontiel's Leather Gloves
+1051CAAC:Leontiel's Boots
+1051CD68:Leontiel's Hat (Altered)
+1051F090:Steel Helm
+1051F0F4:Steel Armor
+1051F158:Steel Gauntlets
+1051F1BC:Steel Greaves
+1098967F:Steel Greaves
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>
