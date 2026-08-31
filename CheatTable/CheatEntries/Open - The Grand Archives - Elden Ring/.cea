@@ -232,7 +232,7 @@ cdesc.checkGameVersion = "Check game version"
 cdesc.checkCEVersion = "Check Cheat Engine version"
 cdesc.checkTableVersion = "Check table version (Github)"
 cdesc.printProgress = "Output progress of scripts to Lua Engine"
-cdesc.ignoreDlcReq = "Ignore DLC requirement for tradeable DLC items"
+cdesc.ignoreDlcReq = "Ignore DLC requirement for tradeable items"
 
 --[[END TGA default config]]--
 
