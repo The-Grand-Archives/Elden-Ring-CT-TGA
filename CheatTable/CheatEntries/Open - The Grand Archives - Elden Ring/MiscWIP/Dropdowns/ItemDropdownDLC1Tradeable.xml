@@ -1,0 +1,416 @@
+<CheatEntry>
+  <ID>108200</ID>
+  <Description>"ItemDropdownDLC1Tradeable"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0090F560:Sword of Night
+0016E360:Main-gauche
+00170A70:Fire Knight's Shortsword
+00264CB0:Velvet Sword of St. Trina
+002673C0:Star-Lined Sword
+00269AD0:Carian Sorcery Sword
+0026C1E0:Stone-Sheathed Sword
+0026E8F0:Sword of Light
+00271000:Sword of Darkness
+003567E0:Sword Lance
+00358EF0:Greatsword of Damnation
+0035B600:Lizard Greatsword
+00362B30:Greatsword of Solitude
+0044AA20:Ancient Meteoric Ore Greatsword
+0044F840:Fire Knight's Greatsword
+00451F50:Greatsword of Radahn (Lord)
+00454660:Moonrithyll's Knight Sword
+00456D70:Greatsword of Radahn (Light)
+00632EA0:Queelign's Greatsword
+007270E0:Spirit Sword
+007297F0:Falx
+0072BF00:Dancing Blade of Ranah
+0072E610:Horned Warrior's Sword
+0081B320:Putrescence Cleaver
+0081DA30:Freyja's Greatsword
+00820140:Horned Warrior's Greatsword
+00A037A0:Euporia
+00A05EB0:Black Steel Twinblade
+00AF79E0:Flowerstone Gavel
+00BEBC20:Smithscript Greathammer
+00BEE330:Anvil Hammer
+00BF0A40:Black Steel Greathammer
+00BF3150:Bloodfiend's Arm
+00CDFE60:Serpent Flail
+00DD40A0:Smithscript Axe
+00DD67B0:Death Knight's Twin Axes
+00DD8EC0:Messmer Soldier's Axe
+00DDDCE0:Forked-Tongue Hatchet
+00EC82E0:Death Knight's Longhaft Axe
+00ECA9F0:Bonny Butchering Knife
+00FBC520:Smithscript Spear
+00FC1340:Swift Spear
+00FC6160:Bloodfiend's Fork
+010B0760:Spear of the Impaler
+00FC8870:Bloodfiend's Sacred Spear
+010B2E70:Messmer Soldier's Spear
+010B5580:Barbed Staff-Spear
+011A49A0:Spirit Glaive
+011A70B0:Poleblade of the Bud
+01298BE0:Obsidian Lamina
+0138CE20:Tooth Whip
+01481060:Thiollier's Hidden Needle
+01483770:Pata
+01485E80:Poisoned Hand
+01488590:Madding Hand
+0148ACA0:Golem Fist
+0148D3B0:Shield of Night
+015752A0:Claws of Night
+016694E0:Devonia's Hammer
+0166BBF0:Shadow Sunflower Blossom
+0166E300:Gazing Finger
+0175D720:Nanaya's Torch
+0175FE30:Lamenting Visage
+01D18BB0:Smithscript Shield
+01E0A6E0:Messmer Soldier Shield
+01E0CDF0:Wolf Crest Shield
+01E0F500:Serpent Crest Shield
+01E11C10:Golden Lion Shield
+01EFE920:Black Steel Greatshield
+01F03740:Verdigris Greatshield
+01FF5270:Staff of the Great Beyond
+01FF7980:Maternal Staff
+020E6DA0:Dryleaf Seal
+020E94B0:Fire Knight's Seal
+020EBBC0:Spiraltree Seal
+0269FB20:Bone Bow
+02796470:Ansbach's Longbow
+02887FA0:Igon's Greatbow
+0297C1E0:Repeating Crossbow
+0297E8F0:Spread Crossbow
+02A70420:Rabbath's Cannon
+03032DE0:Piquebone Arrow (Fletched)
+030354F0:Piquebone Arrow
+0311D3E0:Igon's Harpoon
+03216440:Piquebone Bolt
+03305860:Rabbath's Greatbolt
+039B2820:Dryleaf Arts
+039B4F30:Dane's Footwork
+03AA6A60:Firespark Perfume Bottle
+03AA9170:Chilling Perfume Bottle
+03AAB880:Frenzyflame Perfume Bottle
+03AADF90:Lightning Perfume Bottle
+03AB06A0:Deadly Poison Perfume Bottle
+03B9ACA0:Dueling Shield
+03B9D3B0:Carian Thrusting Shield
+03C8EEE0:Smithscript Dagger
+03D83120:Backhand Blade
+03D85830:Smithscript Cirque
+03D87F40:Curseblade's Cirque
+03F6B5A0:Great Katana
+03F6DCB0:Dragon-Hunter's Great Katana
+03F703C0:Rakshasa's Great Katana
+0405F7E0:Milady
+04061EF0:Leda's Sword
+04064600:Rellana's Twin Blades
+04153A20:Beast Claw
+04156130:Red Bear's Claw
+102DC6C0:Dane's Hat
+102DC724:Dryleaf Robe
+102DC788:Dryleaf Arm Wraps
+102DC7EC:Dryleaf Cuissardes
+102DCB0C:Dryleaf Robe (Altered)
+102DEDD0:Gaius's Helm
+102DEE34:Gaius's Armor
+102DEE98:Gaius's Gauntlets
+102DEEFC:Gaius's Greaves
+104C4B40:Oathseeker Knight Helm
+104C4BA4:Leda's Armor
+104C4C08:Oathseeker Knight Gauntlets
+104C4C6C:Oathseeker Knight Greaves
+104C5374:Oathseeker Knight Armor
+104C7250:Verdigris Helm
+104C72B4:Verdigris Armor
+104C7318:Verdigris Gauntlets
+104C737C:Verdigris Greaves
+104C9960:Pelt of Ralva
+104C99C4:Iron Rivet Armor
+104C9A28:Iron Rivet Gauntlets
+104C9A8C:Iron Rivet Greaves
+104C9D48:Fang Helm
+104CC070:Thiollier's Mask
+104CC0D4:Thiollier's Garb
+104CC138:Thiollier's Gloves
+104CC19C:Thiollier's Trousers
+104CC4BC:Thiollier's Garb (Altered)
+104D35A0:High Priest Hat
+104D3604:High Priest Robe
+104D3668:High Priest Gloves
+104D36CC:High Priest Undergarments
+104D3DD4:Finger Robe
+104D5CB0:Caterpillar Mask
+104D5D14:Braided Cord Robe
+104D5D78:Braided Arm Wraps
+104D5DDC:Soiled Loincloth
+104D83C0:Dancer's Hood
+104D8424:Dancer's Dress
+104D8488:Dancer's Bracer
+104D84EC:Dancer's Trousers
+104D880C:Dancer's Dress (Altered)
+104DAAD0:Helm of Night
+104DAB34:Armor of Night
+104DAB98:Gauntlets of Night
+104DABFC:Greaves of Night
+104DD1E0:Igon's Helm
+104DD244:Igon's Armor
+104DD2A8:Igon's Gauntlets
+104DD30C:Igon's Loincloth
+104DD5C8:Igon's Helm (Altered)
+104DD62C:Igon's Armor (Altered)
+104DF8F0:Wise Man's Mask
+104DF954:Ansbach's Attire
+104DF9B8:Ansbach's Manchettes
+104DFA1C:Ansbach's Boots
+104DFD3C:Ansbach's Attire (Altered)
+104E2000:Freyja's Helm
+104E2064:Freyja's Armor
+104E20C8:Freyja's Gauntlets
+104E212C:Freyja's Greaves
+104E244C:Freyja's Armor (Altered)
+104E4710:Helm of Solitude
+104E4774:Armor of Solitude
+104E47D8:Gauntlets of Solitude
+104E483C:Greaves of Solitude
+104E4B5C:Armor of Solitude (Altered)
+104E6E20:Messmer Soldier Helm
+104E6E84:Messmer Soldier Armor
+104E6EE8:Messmer Soldier Gauntlets
+104E6F4C:Messmer Soldier Greaves
+104E726C:Messmer Soldier Armor (Altered)
+104E9530:Black Knight Helm
+104E9594:Black Knight Armor
+104E95F8:Black Knight Gauntlets
+104E965C:Black Knight Greaves
+104EBC40:Rakshasa Helm
+104EBCA4:Rakshasa Armor
+104EBD08:Rakshasa Gauntlets
+104EBD6C:Rakshasa Greaves
+104F0A60:Fire Knight Helm
+104F0AC4:Fire Knight Armor
+104F0B28:Fire Knight Gauntlets
+104F0B8C:Fire Knight Greaves
+104F0EAC:Fire Knight Armor (Altered)
+104F1230:Death Mask Helm
+104F1618:Winged Serpent Helm
+104F1A00:Salza's Hood
+104F3170:Leather Headband
+104F31D4:Gloried Attire
+104F3238:Leather Arm Wraps
+104F329C:Leather Leg Wraps
+104F3558:Leather Crown
+104F35BC:Highland Attire
+104F5880:Death Knight Helm
+104F58E4:Death Knight Armor
+104F5948:Death Knight Gauntlets
+104F59AC:Death Knight Greaves
+104F7F90:Curseblade Mask
+104F7FF4:Ascetic's Loincloth
+104F8058:Ascetic's Wrist Guards
+104F80BC:Ascetic's Ankle Guards
+104FA6A0:Messmer's Helm
+104FA704:Messmer's Armor
+104FA768:Messmer's Gauntlets
+104FA7CC:Messmer's Greaves
+104FAA88:Messmer's Helm (Altered)
+104FCDB0:Gravebird Helm
+104FCE14:Gravebird's Blackquill Armor
+104FCE78:Gravebird Bracelets
+104FCEDC:Gravebird Anklets
+104FD1FC:Gravebird Armor
+104FF4C0:Common Soldier Helm
+104FF524:Common Soldier Cloth Armor
+104FF588:Common Soldier Gauntlets
+104FF5EC:Common Soldier Greaves
+10501BD0:Horned Warrior Helm
+10501C34:Horned Warrior Armor
+10501C98:Horned Warrior Gauntlets
+10501CFC:Horned Warrior Greaves
+105023A0:Divine Beast Helm
+10502404:Divine Beast Warrior Armor
+10502788:Divine Bird Helm
+105027EC:Divine Bird Warrior Armor
+10502850:Divine Bird Warrior Gauntlets
+105028B4:Divine Bird Warrior Greaves
+105042E0:Rellana's Helm
+10504344:Rellana's Armor
+105043A8:Rellana's Gloves
+1050440C:Rellana's Greaves
+105069F0:Young Lion's Helm
+10506A54:Young Lion's Armor
+10506AB8:Young Lion's Gauntlets
+10506B1C:Young Lion's Greaves
+10506E3C:Young Lion's Armor (Altered)
+105071C0:Circlet of Light
+10509100:Shadow Militiaman Helm
+10509164:Shadow Militiaman Armor
+105091C8:Shadow Militiaman Gauntlets
+1050922C:Shadow Militiaman Greaves
+1050B810:Divine Beast Head
+1050DF20:St. Trina's Blossom
+10510630:Crucible Hammer-Helm
+10512D40:Greatjar
+10515450:Imp Head (Lion)
+20001B58:Crimson Amber Medallion +3
+20001B62:Cerulean Amber Medallion +3
+20001B6C:Viridian Amber Medallion +3
+20001B76:Two-Headed Turtle Talisman
+20001B80:Stalwart Horn Charm +2
+20001B8A:Immunizing Horn Charm +2
+20001B94:Clarifying Horn Charm +2
+20001BA8:Mottled Necklace +2
+20001BB2:Spelldrake Talisman +3
+20001BBC:Flamedrake Talisman +3
+20001BC6:Boltdrake Talisman +3
+20001BD0:Golden Braid
+20001BDA:Pearldrake Talisman +3
+20001BE4:Crimson Seed Talisman +1
+20001BEE:Cerulean Seed Talisman +1
+20001F40:Blessed Blue Dew Talisman
+20001F4A:Fine Crucible Feather Talisman
+20001F54:Outer God Heirloom
+20001F5E:Shattered Stone Talisman
+20001F68:Two-Handed Sword Talisman
+20001F72:Crusade Insignia
+20001F7C:Aged One's Exultation
+20001F86:Arrow's Soaring Sting Talisman
+20001F9A:Pearl Shield Talisman
+20001FA4:Dried Bouquet
+20001FAE:Smithing Talisman
+20001FB8:Ailment Talisman
+20001FC2:Retaliatory Crossed-Tree
+20001FCC:Lacerating Crossed-Tree
+20001FD6:Sharpshot Talisman
+20001FE0:St. Trina's Smile
+20001FEA:Talisman of the Dread
+20001FF4:Enraged Divine Beast
+20001FFE:Beloved Stardust
+20002008:Talisman of Lord's Bestowal
+20002012:Verdigris Discus
+2000201C:Rellana's Cameo
+20002026:Blade of Mercy
+20002030:Talisman of All Crucibles
+401E87A0:Spirit Raisin
+401E8804:Blessing of Marika
+401E880E:Lulling Branch
+401E88CC:Dragon Communion Flesh
+401E88D1:Dragonscale Flesh
+401E88D6:Fingerprint Nostrum
+401E88E0:Spellproof Pickled Liver
+401E88EA:Fireproof Pickled Liver
+401E88F4:Lightningproof Pickled Liver
+401E88FE:Holyproof Pickled Liver
+401E8908:Opaline Pickled Liver
+401E8912:Well-Pickled Turtle Neck
+401E8930:Scorpion Stew
+401E8931:Gourmet Scorpion Stew
+401E8932:Scorpion Stew
+401E8933:Gourmet Scorpion Stew
+401E893A:Sacred Bloody Flesh
+401E8944:Silver Horn Tender
+401E894E:Golden Horn Tender
+401E89F8:Messmerfire Grease
+401E8A02:Dragonbolt Grease
+401E8A0C:Royal Magic Grease
+401E8A16:Golden Grease
+401E8A2A:Eternal Sleep Grease
+401E8A48:Dragon Communion Grease
+401E8A5C:Drawstring Messmerfire Grease
+401E8A66:Drawstring Dragonbolt Grease
+401E8A70:Drawstring Royal Magic Grease
+401E8A7A:Drawstring Golden Grease
+401E8A8E:Drawstring Eternal Sleep Grease
+401E8AC0:Festive Grease
+401E8B24:Innard Meat
+401E8B2E:Dragon Communion Harpoon
+401E8C50:Polter Stone
+401E9006:Leda's Rune
+401E9007:Broken Rune
+401E9008:Shadow Realm Rune [1]
+401E9009:Shadow Realm Rune [2]
+401E900A:Shadow Realm Rune [3]
+401E900B:Shadow Realm Rune [4]
+401E900C:Shadow Realm Rune [5]
+401E900D:Shadow Realm Rune [6]
+401E900E:Shadow Realm Rune [7]
+401E900F:Rune of an Unsung Hero
+401E9010:Marika's Rune
+401E9039:Spritestone
+401E90CE:Call of Tibia
+401E90D8:Surging Frenzied Flame
+401E90E2:Golden Vow
+401E90EC:Fire Coil
+401E90F6:Fire Spritestone
+401E9100:Glinting Nail
+401E916E:Sunwarmth Stone
+401E9196:Charming Branch
+401EBF18:Beast Horn
+401EBF22:Spirit Calculus
+401EBF2C:Pearlescent Scale
+401EBF36:Scorpion Liver
+401EBF40:Fly Mold
+401ED2A1:Rada Fruit
+401ED2A2:Redflesh Mushroom
+401ED2A3:Whiteflesh Mushroom
+401ED2A4:Knot Resin
+401ED2A5:Dewgem
+401ED2A6:Black Pyrefly
+401ED2A7:Glintslab Firefly
+401ED2A8:Yellow Fulgurbloom
+401ED2A9:Shadow Sunflower
+401ED2AA:Toxic Mossling
+401ED2AB:Scarlet Bud
+401ED2AC:Sanguine Amaryllis
+401ED2AD:Frozen Maggot
+401ED2AE:Deep-Purple Lily
+401ED2AF:Nectarblood Burgeon
+401ED2B0:Winter-Lantern Fly
+401ED2B1:Swollen Grape
+401ED2B2:Grave Keeper's Brainpan
+401ED2B3:Horn-Strewn Excrement
+401ED2B4:Gas Stone
+401ED2B5:Ghostflame Bloom
+401ED2B6:Grave Cricket
+401ED2B7:Dragon's Calorbloom
+401ED2B8:Finger Mimic
+401ED2B9:Empyrean-Blood Burgeon
+401ED2BA:Congealed Putrescence
+401ED2BB:Roundrock
+401ED2BC:Spiritgrave Stone
+401ED2BD:Rauh Burrow
+401ED2BE:Ember of Messmer
+401ED2BF:Blessed Bone Shard
+401ED2C0:Red Fulgurbloom
+401ED2C1:Nailstone
+401ED2C2:Sharp Gravel Stone
+401ED2C3:Furnace Visage
+80030D40:Ash of War: Dryleaf Whirlwind
+80030DA4:Ash of War: Aspects of the Crucible: Wings
+80061A80:Ash of War: Spinning Gravity Thrust
+80061E68:Ash of War: Palm Blast
+80062250:Ash of War: Piercing Throw
+80062638:Ash of War: Scattershot Throw
+80062A20:Ash of War: Wall of Sparks
+80062E08:Ash of War: Rolling Sparks
+800631F0:Ash of War: Raging Beast
+800635D8:Ash of War: Savage Claws
+80063DA8:Ash of War: Blind Spot
+80064190:Ash of War: Swift Slash
+80064578:Ash of War: Overhead Stance
+80064960:Ash of War: Wing Stance
+80064D48:Ash of War: Blinkbolt
+80065130:Ash of War: Flame Skewer
+80065518:Ash of War: Savage Lion's Claw
+80065900:Ash of War: Divine Beast Frost Stomp
+80065CE8:Ash of War: Flame Spear
+800660D0:Ash of War: Carian Sovereignty
+800664B8:Ash of War: Shriek of Sorrow
+80067070:Ash of War: Ghostflame Call
+8007B4A8:Ash of War: The Poison Flower Blooms Twice
+80085CA0:Ash of War: Igon's Drake Hunt
+800C3500:Ash of War: Shield Strike
+</DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

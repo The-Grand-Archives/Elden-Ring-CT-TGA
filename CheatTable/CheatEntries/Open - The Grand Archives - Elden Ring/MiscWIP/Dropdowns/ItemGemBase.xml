@@ -1,6 +1,6 @@
 <CheatEntry>
-  <ID>108204</ID>
-  <Description>"ItemGemDLC"</Description>
+  <ID>108203</ID>
+  <Description>"ItemGemBase"</Description>
   <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">FFFFFFFF:Default
 80002710:Lion's Claw
 80002774:Impaling Thrust
@@ -93,31 +93,6 @@
 800138E4:Bloodhound's Step
 80013948:Raptor of the Mists
 80014C08:White Shadow's Lure
-80030D40:Dryleaf Whirlwind
-80030DA4:Aspects of the Crucible: Wings
-80061A80:Spinning Gravity Thrust
-80061E68:Palm Blast
-80062250:Piercing Throw
-80062638:Scattershot Throw
-80062A20:Wall of Sparks
-80062E08:Rolling Sparks
-800631F0:Raging Beast
-800635D8:Savage Claws
-80063DA8:Blind Spot
-80064190:Swift Slash
-80064578:Overhead Stance
-80064960:Wing Stance
-80064D48:Blinkbolt
-80065130:Flame Skewer
-80065518:Savage Lion's Claw
-80065900:Divine Beast Frost Stomp
-80065CE8:Flame Spear
-800660D0:Carian Sovereignty
-800664B8:Shriek of Sorrow
-80067070:Ghostflame Call
-8007B4A8:The Poison Flower Blooms Twice
-80085CA0:Igon's Drake Hunt
-800C3500:Shield Strike
 </DropDownList>
   <GroupHeader>1</GroupHeader>
 </CheatEntry>
