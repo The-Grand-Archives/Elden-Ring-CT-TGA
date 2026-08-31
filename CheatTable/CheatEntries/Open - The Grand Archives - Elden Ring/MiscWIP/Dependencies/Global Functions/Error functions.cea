@@ -14,7 +14,8 @@ function missingDlc(dlc)
 	local dlcNames = {
 		[0] = "ELDEN RING Bonus Gesture",
 		[1] = "ELDEN RING Shadow of the Erdtree",
-		[2] = "ELDEN RING Shadow of the Erdtree Bonus Gesture"
+		[2] = "ELDEN RING Shadow of the Erdtree Bonus Gesture",
+		[3] = "ELDEN RING Tarnished Pack"
 	}
 
 	local e = "You do not own "..dlcNames[dlc]

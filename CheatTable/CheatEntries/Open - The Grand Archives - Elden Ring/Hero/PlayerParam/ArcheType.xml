@@ -11,6 +11,8 @@
 8:Prisoner
 6:Confessor
 9:Wretch
+10:Idus Knight
+11:Heavy Knight
 </DropDownList>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Byte</VariableType>
