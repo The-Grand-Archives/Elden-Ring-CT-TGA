@@ -62,11 +62,20 @@ local bonfireId = {
   }
 }
 
+local archeType = {
+  targetMemrec = getMemrec("ArcheTypeId"),
+  dropdowns = {
+    {data = getMemrec("ArcheTypeIdBase")},
+    {data = getMemrec("ArcheTypeIdDLC3"), dlcNum = 3}
+  }
+}
+
 local dropdowns = {
   itemDropdown,
   itemDropdownAll,
   itemGem,
   bonfireId,
+  archeType,
 }
 
 for _, dropdown in pairs(dropdowns) do

@@ -1,0 +1,8 @@
+<CheatEntry>
+  <ID>108309</ID>
+  <Description>"ArcheTypeIdDLC3"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">10:Idus Knight
+11:Heavy Knight
+  </DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>

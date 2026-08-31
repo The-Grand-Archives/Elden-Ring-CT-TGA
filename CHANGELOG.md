@@ -8,6 +8,9 @@
      - Fix offsets for several config settings
      - Add several missing config settings
      - Rename CsDlc[3] to Tarnished Pack
+     - Add Tarnished Pack to Error Functions
+     - Add Tarnished Pack new ArcheTypes
+       - Convert ArcheType to use Dropdown Utils
    - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
      - mergeDropdown function inserts entries into a dropdown
      - constructDropdown function builds a full dropdown list from formatted data
