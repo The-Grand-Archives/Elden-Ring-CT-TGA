@@ -225,12 +225,14 @@ config.checkGameVersion = true
 config.checkCEVersion = true
 config.checkTableVersion = false
 config.printProgress = false
+config.ignoreDlcReq = false
 cdesc.cacheSymbols = "Save symbols (speeds up lookup)"
 cdesc.checkGameLaunched = "Prevent opening table if game is not running"
 cdesc.checkGameVersion = "Check game version"
 cdesc.checkCEVersion = "Check Cheat Engine version"
 cdesc.checkTableVersion = "Check table version (Github)"
 cdesc.printProgress = "Output progress of scripts to Lua Engine"
+cdesc.ignoreDlcReq = "Ignore DLC requirement for tradeable DLC items"
 
 --[[END TGA default config]]--
 
@@ -1191,6 +1193,7 @@ asyncEnableTimer.OnTimer = function()
         enableRecord(1003, 10) -- enable CParamUtils
         enableRecord(251, 10) -- enable ParamUtils
         enableRecord(300) -- enable Shared Functions
+        enableRecord(1004) -- enable Construct Dropdowns
     end
 end
 
