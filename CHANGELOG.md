@@ -12,6 +12,7 @@
      - Add Tarnished Pack new starting classes to ArcheType
        - Convert ArcheType to use Dropdown Utils
      - Add Tarnished Pack item support
+     - Add Spectral Steed Regalia to Event Flag Manager
    - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
      - mergeDropdown function inserts entries into a dropdown
      - constructDropdown function builds a full dropdown list from formatted data
