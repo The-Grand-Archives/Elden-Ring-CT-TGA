@@ -1,6 +1,5 @@
 {$lua}
 if syntaxcheck then return end
-local dropdown_memrec = getAddressList().getMemoryRecordByID(1103)
 [ENABLE]
 if ItemDrop == nil then
     getAddressList().getMemoryRecordByDescription("ItemDrop_code").active = true
@@ -13,17 +12,9 @@ writeInteger(ItemDrop_data +  4, 0x00000001) -- Quantity
 --writeInteger(ItemDrop_data +  8, 0x00000000) -- unk
 writeInteger(ItemDrop_data + 12, 0xFFFFFFFF) -- Gem
 
-if isOwnDlc(1) then
-    dropdown_memrec.DropDownLinkedMemrec = "ItemDropdownDLC"
-else
-    dropdown_memrec.DropDownLinkedMemrec = "ItemDropdown"
-end
-
 -- Actual code is located in Misc/WIP -> Dependencies -> Global Functions
-
 -- ItemDrop(item, quantity, gem, isMultiDropShare, isScatter)
 
 [DISABLE]
 deAlloc(ItemDrop_data)
 ItemDrop_data = nil
-dropdown_memrec.DropDownLinkedMemrec = "ItemDropdown"
