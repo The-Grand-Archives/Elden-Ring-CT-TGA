@@ -1,40 +1,49 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.19.0] - 2026-09-01
 ### Added
- - by [Umgak](https://github.com/Umgak):
-   - Support for ELDEN RING App Ver. 1.17
-     - Fix offsets for Noclip
-     - Fix offsets for debug flags
-     - Fix offsets for several config settings
-     - Add several missing config settings
-     - Rename CsDlc[3] to Tarnished Pack
-     - Add Tarnished Pack to Error Functions
-     - Add Tarnished Pack new starting classes to ArcheType
-       - Convert ArcheType to use Dropdown Utils
-     - Add Tarnished Pack item support
-     - Add Spectral Steed Regalia to Event Flag Manager
-     - Add new items and weapon arts to:
-       - GOODS_ID
-       - PROTECTOR_ID
-       - SWORD_ARTS_ID
-       - WEAPON_ID
-   - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
-     - mergeDropdown function inserts entries into a dropdown
-     - constructDropdown function builds a full dropdown list from formatted data
-   - The following scripts have been converted to use Dropdown Utils:
-     - Inventory List
-     - ItemGib
-     - ItemDrop
-     - RemoveItem
-     - Warp
-   - Config setting to allow spawning of tradeable DLC content without requiring DLC ownership
-   - uiBase scripts for CE Form creation and modification
-   - Invasion Regions script converted to use uiBase, added automatic UI scaling which should help users of high DPI monitors use the script
-   - Configure Table script converted to use uiBase, added automatic UI scaling
-   - Event Flag Logger for easy logging of event changes
-   - Fixed offsets for Face Data (thank you [Axd1x8a](https://github.com/axd1x8a) for the heads up)
-   - Add Facial Distortion sliders. These are unused in DS3 and ER and have no official names.
-   - Fixed GetThingName outputting the wrong output value for params with no names
+- Support for ELDEN RING App Ver. 1.17
+  - Added Tarnished Pack to Error Functions
+  - Added Tarnished Pack new starting classes to ArcheType
+  - Added Tarnished Pack item support
+  - Added Spectral Steed Regalia to Event Flag Manager
+  - Added new IDs to:
+    - GOODS_ID
+    - PROTECTOR_ID
+    - SWORD_ARTS_ID
+    - WEAPON_ID
+ - Added Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime:
+   - `mergeDropdown` function inserts entries into a dropdown
+   - `constructDropdown` function builds a full dropdown list from formatted data
+ - Config setting to allow spawning of tradeable DLC content without requiring DLC ownership
+ - Added uiBase script for easier CE Form creation and modification
+ - Event Flag Logger for easy logging of event changes
+ - Added Facial Distortion sliders in `Hero/Face Data`. These are unused in DS3/ER and have no official names, but are fully functional
+ - Added several missing options in `Hero/OptionData`
+### Changed
+ - The following scripts have been converted to use Dropdown Utils:
+   - Inventory List
+   - ItemGib
+   - ItemDrop
+   - RemoveItem
+   - Warp
+ - The following dropdowns have been converted to use Dropdown Utils:
+   - ArcheType
+   - BonfireId
+   - ItemDropdown
+   - ItemGem
+ - The following scripts have been converted to use uiBase:
+   - Invasion Regions
+   - Configure Table
+ - Rename CsDlc[3] to Tarnished Pack
+### Fixed
+ - For ELDEN RING App Ver 1.17:
+   - Fixed offsets for Noclip
+   - Fixed offsets for debug flags
+   - Fixed offsets for many options in `Hero/OptionData` and `Debug Stuff/GRAPHICS`
+ - Fixed offsets for Face Data (thank you [Axd1x8a](https://github.com/axd1x8a) for the heads up)
+ - Fixed GetThingName outputting the previous ID's name if the new ID has no name
 
 ## [v1.18.0] - 2026-06-06
 ### Added
