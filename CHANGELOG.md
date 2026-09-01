@@ -27,6 +27,7 @@
    - Invasion Regions script converted to use uiBase, added automatic UI scaling which should help users of high DPI monitors use the script
    - Configure Table script converted to use uiBase, added automatic UI scaling
    - Event Flag Logger for easy logging of event changes
+   - Fixed GetThingName outputting the wrong output value for params with no names
 
 ## [v1.18.0] - 2026-06-06
 ### Added
