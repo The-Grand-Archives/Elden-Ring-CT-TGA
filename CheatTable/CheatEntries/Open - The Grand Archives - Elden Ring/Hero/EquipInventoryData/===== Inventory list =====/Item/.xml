@@ -1,7 +1,7 @@
 <CheatEntry>
   <ID>100591</ID>
   <Description>"Item"</Description>
-  <DropDownListLink>ItemDropdownDLC</DropDownListLink>
+  <DropDownListLink>ItemDropdownAll</DropDownListLink>
   <ShowAsHex>1</ShowAsHex>
   <ShowAsSigned>1</ShowAsSigned>
   <VariableType>4 Bytes</VariableType>

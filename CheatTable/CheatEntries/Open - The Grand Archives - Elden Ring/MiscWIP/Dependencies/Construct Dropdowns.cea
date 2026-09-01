@@ -1,0 +1,75 @@
+{
+  Author: Umgak
+  Constructs dropdowns for DLC-dependent data
+} 
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local function getMemrec(name)
+  return getAddressList().getMemoryRecordByDescription(name)
+end
+
+local itemDropdown = {
+  targetMemrec = getMemrec("ItemDropdown"),
+  isHex = true,
+  dropdowns = {
+    {data = getMemrec("ItemDropdownBase")},
+    {data = getMemrec("ItemDropdownDLC1Tradeable"), dlcNum = 1, allowIgnoreDlc = true},
+    {data = getMemrec("ItemDropdownDLC1Untradeable"), dlcNum = 1},
+  }
+}
+
+local seamlessDropdown = {
+  data = {
+    [0x407FDE61] = "Tiny Great Pot",
+    [0x407FDE62] = "Effigy of Malenia",
+    [0x407FDE63] = "Challenger's Lynchpin",
+    [0x407FDE64] = "Separation Mist",
+    [0x407FDE65] = "Judicator's Rulebook",
+    [0x407FDE66] = "Rune Decanter",
+    [0x407FDE67] = "Rot Essence: Emaciation",
+    [0x407FDE68] = "Rot Essence: Hopelessness",
+    [0x407FDE69] = "Rot Essence: Decay",
+    [0x407FDE6A] = "Rot Essence: Vulnerability",
+    [0x407FDE6B] = "Rot Essence: Despair",
+    [0x407FDE6C] = "Dried Fingers",
+  }
+}
+if getAddressSafe("ersc.dll") then table.insert(itemDropdown.dropdowns, seamlessDropdown) end
+
+local itemDropdownAll = {
+  targetMemrec = getMemrec("ItemDropdownAll"),
+  isHex = true,
+  forceAll = true,
+  dropdowns = itemDropdown.dropdowns
+}
+
+local itemGem = {
+	targetMemrec = getMemrec("ItemGem"),
+	isHex = true,
+	defaultEntry = "Default",
+	dropdowns = {
+		{data = getMemrec("ItemGemBase")},
+		{data = getMemrec("ItemGemDLC1"), dlcNum = 1, allowIgnoreDlc = true}
+	}
+}
+
+local bonfireId = {
+  targetMemrec = getMemrec("BonfireId"),
+  dropdowns = {
+    {data = getMemrec("BonfireIdBase")},
+    {data = getMemrec("BonfireIdDLC1"), dlcNum = 1}
+  }
+}
+
+local dropdowns = {
+  itemDropdown,
+  itemDropdownAll,
+  itemGem,
+  bonfireId,
+}
+
+for _, dropdown in pairs(dropdowns) do
+  constructDropdown(dropdown)
+end
+[DISABLE]

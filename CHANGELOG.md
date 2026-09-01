@@ -2,6 +2,16 @@
 ## [Unreleased]
 ### Added
  - by [Umgak](https://github.com/Umgak):
+   - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
+     - mergeDropdown function inserts entries into a dropdown
+     - constructDropdown function builds a full dropdown list from formatted data
+   - The following scripts have been converted to use Dropdown Utils:
+     - Inventory List
+     - ItemGib
+     - ItemDrop
+     - RemoveItem
+     - Warp
+   - Config setting to allow spawning of tradeable DLC content without requiring DLC ownership
    - uiBase scripts for CE Form creation and modification
    - Invasion Regions script converted to use uiBase, added automatic UI scaling which should help users of high DPI monitors use the script
    - Configure Table script converted to use uiBase, added automatic UI scaling
