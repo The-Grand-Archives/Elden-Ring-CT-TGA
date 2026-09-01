@@ -5,6 +5,6 @@
   <VariableType>4 Bytes</VariableType>
   <Address>CSWindow</Address>
   <Offsets>
-    <Offset>D8</Offset>
+    <Offset>DC</Offset>
   </Offsets>
 </CheatEntry>

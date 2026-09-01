@@ -2965,7 +2965,7 @@ local stateGroups = {
     }},]]
 }
 
-local stateGroupsDlc = {
+local stateGroupsDlc1 = {
     -- Graces (DLC)
     {category = "Grace", subcategory = "Gravesite Plain", name = "Gravesite Plain | Unlocked", flags = {
         FLAG(76800)
@@ -3840,15 +3840,48 @@ local stateGroupsDlc = {
         FLAG(128, ALWAYS_FALSE),        -- Touch Memory
         FLAG(20017981, ALWAYS_FALSE)    -- Circlet of Light from the memory
     }},
-
+}
+local stateGroupsDlc3 = {
+    {category = "Spectral Steed Regalia", name = "Original Appearance", flags = {
+        FLAG(6700, ALWAYS_TRUE),     -- Original Appearance
+        FLAG(6701, ALWAYS_FALSE),    -- Tree Sentinel
+        FLAG(6702, ALWAYS_FALSE),    -- Carian Silver
+        FLAG(6703, ALWAYS_FALSE),    -- Funereal Night
+    }},
+    {category = "Spectral Steed Regalia", name = "Tree Sentinel", flags = {
+        FLAG(6701),                  -- Tree Sentinel
+        FLAG(6700, INVERSE),         -- Original Appearance
+        FLAG(6702, ALWAYS_FALSE),    -- Carian Silver
+        FLAG(6703, ALWAYS_FALSE),    -- Funereal Night
+    }},
+    {category = "Spectral Steed Regalia", name = "Carian Silver", flags = {
+        FLAG(6702),                 -- Carian Silver
+        FLAG(6700, INVERSE),        -- Original Appearance
+        FLAG(6701, ALWAYS_FALSE),   -- Tree Sentinel
+        FLAG(6703, ALWAYS_FALSE),   -- Funereal Night
+    }},
+    {category = "Spectral Steed Regalia", name = "Funereal Night", flags = {
+        FLAG(6703),                 -- Funereal Night
+        FLAG(6700, INVERSE),        -- Original Appearance
+        FLAG(6701, ALWAYS_FALSE),   -- Tree Sentinel
+        FLAG(6702, ALWAYS_FALSE),   -- Carian Silver
+    }},
 }
 
 
-if isOwnDlc(1) then
-    for _, v in pairs(stateGroupsDlc) do
-        table.insert(stateGroups, v)
+local stateGroupsDlc = {
+    [1] = stateGroupsDlc1,
+    [3] = stateGroupsDlc3,
+}
+
+for k, v in pairs(stateGroupsDlc) do
+    if isOwnDlc(k) then
+        for _, v in pairs(v) do
+            table.insert(stateGroups, v)
+        end
     end
 end
+
 local result, stateGroupEnum = pcall(function()
     local stateGroupEnum = {}
     local categories = {}

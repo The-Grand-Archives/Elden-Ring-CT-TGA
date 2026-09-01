@@ -83,7 +83,7 @@ function uiBase:create(typ, parent, properties, customName)
 	if name then
 		name = string.gsub(name, "%s", "")
 		self.ctrl[name] = control
-		else
+	else
 			error("FATAL: No customName or Caption were specified to uiBase:create")
 	end
 	if parent == nil then __initDefaultForm(self, name) end

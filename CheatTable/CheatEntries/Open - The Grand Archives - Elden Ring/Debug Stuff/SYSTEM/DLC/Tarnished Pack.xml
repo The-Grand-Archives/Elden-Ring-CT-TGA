@@ -1,6 +1,6 @@
 <CheatEntry>
   <ID>108149</ID>
-  <Description>"3"</Description>
+  <Description>"Tarnished Pack"</Description>
   <Options moHideChildren="1" moRecursiveSetValue="1"/>
   <VariableType>Byte</VariableType>
   <Address>CsDlc</Address>

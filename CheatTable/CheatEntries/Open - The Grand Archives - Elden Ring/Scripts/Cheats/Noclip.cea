@@ -1,8 +1,8 @@
 // author: Dasaav
-// 1.16.2 offsets: Umgak
+// updated offsets: Umgak
 {$lua}
 if syntaxcheck then return end
-address_version("1.16.2")
+address_version("1.17")
 {$asm}
 [ENABLE]
 {$c}
@@ -20,20 +20,20 @@ extern void* WorldChrMan;
 
 // Represents a 2D vector in the direction of the held movement input.
 typedef struct {
-    float x;
-    float y;
+	float x;
+	float y;
 } MoveInputXY;
 
 typedef void* (*FD4PadManager_get_pad_interface)(void*, int);
 
 // Returns the main in-game input interface.
 void* get_cs_pad_interface() {
-    if (FD4PadManager == NULL) {
-        return NULL;
-    }
+	if (FD4PadManager == NULL) {
+		return NULL;
+	}
 
-    return ((FD4PadManager_get_pad_interface)((uintptr_t)GetModuleHandle(NULL)
-        + 0x2413f0))(FD4PadManager, 0);
+	return ((FD4PadManager_get_pad_interface)((uintptr_t)GetModuleHandle(NULL)
+		+ 0x2413f0))(FD4PadManager, 0);
 }
 
 typedef void (*CSPad_get_xy_movement_input)(void*, MoveInputXY*, int, int);
@@ -41,103 +41,103 @@ typedef void (*CSPad_get_xy_movement_input)(void*, MoveInputXY*, int, int);
 // Returns the movement input vector regardless of input device.
 // At this level, gamepad and keyboard input is abstracted away.
 MoveInputXY get_xy_movement_input(void* cs_pad) {
-    MoveInputXY input = { 0.0f, 0.0f };
+	MoveInputXY input = { 0.0f, 0.0f };
 
-    if (cs_pad != NULL) {
-        // Call into virtual function index 4 in the virtual function table.
-        void** cs_pad_vtable = *(void***)(cs_pad);
+	if (cs_pad != NULL) {
+		// Call into virtual function index 4 in the virtual function table.
+		void** cs_pad_vtable = *(void***)(cs_pad);
 
-        // Get right and forward input.
-        ((CSPad_get_xy_movement_input)(cs_pad_vtable[4]))(
-            cs_pad, &input, 420, 417);
+		// Get right and forward input.
+		((CSPad_get_xy_movement_input)(cs_pad_vtable[4]))(
+			cs_pad, &input, 420, 417);
 
-        // Get left and backward input.
-        MoveInputXY opposite_input = { 0.0f, 0.0f };
-        ((CSPad_get_xy_movement_input)(cs_pad_vtable[4]))(
-            cs_pad, &opposite_input, 419, 418);
+		// Get left and backward input.
+		MoveInputXY opposite_input = { 0.0f, 0.0f };
+		((CSPad_get_xy_movement_input)(cs_pad_vtable[4]))(
+			cs_pad, &opposite_input, 419, 418);
 
-        input.x += opposite_input.x;
-        input.y += opposite_input.y;
-    }
+		input.x += opposite_input.x;
+		input.y += opposite_input.y;
+	}
 
-    return input;
+	return input;
 }
 
 typedef bool (*CSPad_is_key_pressed)(void*, int);
 
 // Returns the dpad/arrow key up and down input.
 float get_up_down_input(void* cs_pad) {
-    float input = 0.0f;
+	float input = 0.0f;
 
-    if (cs_pad != NULL) {
-        CSPad_is_key_pressed is_key_pressed =
-            (CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x2665060);
+	if (cs_pad != NULL) {
+		CSPad_is_key_pressed is_key_pressed =
+			(CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x2667870);
 
-        if (is_key_pressed(cs_pad, 16)) {
-            input += 1.0f;
-        }
+		if (is_key_pressed(cs_pad, 16)) {
+			input += 1.0f;
+		}
 
-        if (is_key_pressed(cs_pad, 19)) {
-            input -= 1.0f;
-        }
-    }
+		if (is_key_pressed(cs_pad, 19)) {
+			input -= 1.0f;
+		}
+	}
 
-    return input;
+	return input;
 }
 
 // Simple linalg stuff for transforming noclip movement to camera space.
 typedef struct {
-    float x;
-    float y;
-    float z;
-    float w;
+	float x;
+	float y;
+	float z;
+	float w;
 } Vector4;
 
 typedef struct {
-    Vector4 r0;
-    Vector4 r1;
-    Vector4 r2;
-    Vector4 r3;
+	Vector4 r0;
+	Vector4 r1;
+	Vector4 r2;
+	Vector4 r3;
 } Matrix44;
 
 Vector4 mv_product_ignore_w(Matrix44* m, Vector4* v) {
-    Vector4 result;
+	Vector4 result;
 
-    result.x = m->r0.x * v->x + m->r1.x * v->y + m->r2.x * v->z;
-    result.y = m->r0.y * v->x + m->r1.y * v->y + m->r2.y * v->z;
-    result.z = m->r0.z * v->x + m->r1.z * v->y + m->r2.z * v->z;
-    result.w = 0.0f;
+	result.x = m->r0.x * v->x + m->r1.x * v->y + m->r2.x * v->z;
+	result.y = m->r0.y * v->x + m->r1.y * v->y + m->r2.y * v->z;
+	result.z = m->r0.z * v->x + m->r1.z * v->y + m->r2.z * v->z;
+	result.w = 0.0f;
 
-    return result;
+	return result;
 }
 
 // Returns the view matrix (regardless of camera type).
 Matrix44* get_view_matrix() {
-    if (FieldArea != NULL) {
-        void* chr_cam = *(void**)((uintptr_t)FieldArea + 0x98);
+	if (FieldArea != NULL) {
+		void* chr_cam = *(void**)((uintptr_t)FieldArea + 0x98);
 
-        if (chr_cam != NULL) {
-            return (Matrix44*)((uintptr_t)chr_cam + 0x10);
-        }
-    }
+		if (chr_cam != NULL) {
+			return (Matrix44*)((uintptr_t)chr_cam + 0x10);
+		}
+	}
 
-    return NULL;
+	return NULL;
 }
 
 float get_delta_time() {
-    if (CSFlipper != NULL) {
-        return *(float*)((uintptr_t)CSFlipper + 0x268);
-    }
+	if (CSFlipper != NULL) {
+		return *(float*)((uintptr_t)CSFlipper + 0x268);
+	}
 
-    return 0.01666666f;
+	return 0.01666666f;
 }
 
 bool is_main_player(void* player_ins) {
-    if (player_ins == NULL || WorldChrMan == NULL) {
-        return false;
-    }
+	if (player_ins == NULL || WorldChrMan == NULL) {
+		return false;
+	}
 
-    return player_ins == *(void**)((uintptr_t)WorldChrMan + 0x1E508);
+	return player_ins == *(void**)((uintptr_t)WorldChrMan + 0x1E508);
 }
 {$asm}
 alloc(physics_update_hook, $1000, $process)
@@ -146,43 +146,43 @@ physics_update_hook:
 {$ccode physics_module=rbx}
 // Filter non-player entities.
 if (is_main_player(*(void**)((uintptr_t)physics_module + 0x08))) {
-    Matrix44* view_matrix = get_view_matrix();
+	Matrix44* view_matrix = get_view_matrix();
 
-    if (view_matrix != NULL) {
-        void* cs_pad = get_cs_pad_interface();
+	if (view_matrix != NULL) {
+		void* cs_pad = get_cs_pad_interface();
 
-        // Get up/down movement.
-        float ud_input = get_up_down_input(cs_pad);
+		// Get up/down movement.
+		float ud_input = get_up_down_input(cs_pad);
 
-        // Get 2D movement vector.
-        MoveInputXY input = get_xy_movement_input(cs_pad);
+		// Get 2D movement vector.
+		MoveInputXY input = get_xy_movement_input(cs_pad);
 
-        // Map movement to world coordinates.
-        Vector4 input_vec4 = { input.x, 0.0f, input.y, 0.0f };
+		// Map movement to world coordinates.
+		Vector4 input_vec4 = { input.x, 0.0f, input.y, 0.0f };
 
-        // Scale movement to approx. 10 m/s.
-        float scale = 10.0f * get_delta_time();
-        input_vec4.x *= scale;
-        ud_input *= 0.7f * scale;
-        input_vec4.z *= scale;
+		// Scale movement to approx. 10 m/s.
+		float scale = 10.0f * get_delta_time();
+		input_vec4.x *= scale;
+		ud_input *= 0.7f * scale;
+		input_vec4.z *= scale;
 
-        // Transform movement to camera space.
-        Vector4 product = mv_product_ignore_w(view_matrix, &input_vec4);
+		// Transform movement to camera space.
+		Vector4 product = mv_product_ignore_w(view_matrix, &input_vec4);
 
-        // Offset player position.
-        Vector4* player_pos = (Vector4*)((uintptr_t)physics_module + 0x70);
-        player_pos->x += product.x;
-        player_pos->y += product.y + ud_input;
-        player_pos->z += product.z;
+		// Offset player position.
+		Vector4* player_pos = (Vector4*)((uintptr_t)physics_module + 0x70);
+		player_pos->x += product.x;
+		player_pos->y += product.y + ud_input;
+		player_pos->z += product.z;
 
-        // Disable gravity.
-        *(char*)((uintptr_t)physics_module + 0x1d3) = 1;
-    }
+		// Disable gravity.
+		*(char*)((uintptr_t)physics_module + 0x1d3) = 1;
+	}
 }
 {$asm}
-jmp $process+467899
+jmp $process+467df9
 
-$process+467894:
+$process+467df4:
 jmp physics_update_hook
 nop 4
 
@@ -190,7 +190,7 @@ nop 4
 [[[[WorldChrMan]+1E508]+190]+68]+1D3:
 db 0
 
-$process+467894:
+$process+467df4:
 movaps xmm0,[rsp+40]
 movups [rbx+70],xmm0
 

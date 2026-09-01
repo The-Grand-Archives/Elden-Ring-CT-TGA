@@ -2,59 +2,59 @@
   <ID>108214</ID>
   <Description>"GOODS_ID"</Description>
   <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">-1:None
-0:
-10:?GoodsName?
-11:?GoodsName?
-12:?GoodsName?
-13:?GoodsName?
-14:?GoodsName?
-15:?GoodsName?
-16:?GoodsName?
-20:?GoodsName?
-21:?GoodsName?
-22:?GoodsName?
-23:?GoodsName?
-24:?GoodsName?
-25:?GoodsName?
-26:?GoodsName?
-27:?GoodsName?
-28:?GoodsName?
-29:?GoodsName?
-30:?GoodsName?
-31:?GoodsName?
-35:?GoodsName?
-40:?GoodsName?
-41:?GoodsName?
-42:?GoodsName?
-43:?GoodsName?
-44:?GoodsName?
-60:?GoodsName?
-61:?GoodsName?
-62:?GoodsName?
-63:?GoodsName?
-64:?GoodsName?
-65:?GoodsName?
-66:?GoodsName?
-67:?GoodsName?
-68:?GoodsName?
-69:?GoodsName?
-70:?GoodsName?
-71:?GoodsName?
-72:?GoodsName?
-73:?GoodsName?
-74:?GoodsName?
-75:?GoodsName?
-76:?GoodsName?
-77:?GoodsName?
-78:?GoodsName?
-79:?GoodsName?
-90:?GoodsName?
-91:?GoodsName?
-92:?GoodsName?
-93:?GoodsName?
-94:?GoodsName?
-98:?GoodsName?
-99:?GoodsName?
+0:?GoodsName?
+10:[ERROR]
+11:[ERROR]
+12:[ERROR]
+13:[ERROR]
+14:[ERROR]
+15:[ERROR]
+16:[ERROR]
+20:[ERROR]
+21:[ERROR]
+22:[ERROR]
+23:[ERROR]
+24:[ERROR]
+25:[ERROR]
+26:[ERROR]
+27:[ERROR]
+28:[ERROR]
+29:[ERROR]
+30:[ERROR]
+31:[ERROR]
+35:[ERROR]
+40:[ERROR]
+41:[ERROR]
+42:[ERROR]
+43:[ERROR]
+44:[ERROR]
+60:[ERROR]
+61:[ERROR]
+62:[ERROR]
+63:[ERROR]
+64:[ERROR]
+65:[ERROR]
+66:[ERROR]
+67:[ERROR]
+68:[ERROR]
+69:[ERROR]
+70:[ERROR]
+71:[ERROR]
+72:[ERROR]
+73:[ERROR]
+74:[ERROR]
+75:[ERROR]
+76:[ERROR]
+77:[ERROR]
+78:[ERROR]
+79:[ERROR]
+90:[ERROR]
+91:[ERROR]
+92:[ERROR]
+93:[ERROR]
+94:[ERROR]
+98:[ERROR]
+99:[ERROR]
 100:Tarnished's Furled Finger
 101:Duelist's Furled Finger
 102:Bloody Finger
@@ -117,7 +117,7 @@
 450:Roped Oil Pot
 460:Roped Magic Pot
 470:Roped Fly Pot
-480:Roped Freezing Pot
+480:[ERROR]Roped Freezing Pot
 490:Roped Volcano Pot
 510:Roped Holy Water Pot
 600:Volcano Pot
@@ -204,7 +204,7 @@
 1190:Silver-Pickled Fowl Foot
 1200:Gold-Pickled Fowl Foot
 1210:Exalted Flesh
-1220:Deathsbane Jerky
+1220:[ERROR]Deathsbane Jerky
 1235:Raw Meat Dumpling
 1240:Shabriri Grape
 1290:Starlight Shards
@@ -212,7 +212,7 @@
 1320:Invigorating White Cured Meat
 1330:Clarifying White Cured Meat
 1340:Dappled White Cured Meat
-1350:Deathsbane White Jerky
+1350:[ERROR]Deathsbane White Jerky
 1400:Fire Grease
 1410:Lightning Grease
 1420:Magic Grease
@@ -230,7 +230,7 @@
 1540:Drawstring Blood Grease
 1550:Drawstring Soporific Grease
 1560:Drawstring Poison Grease
-1570:Drawstring Freezing Grease
+1570:[ERROR]Drawstring Freezing Grease
 1590:Drawstring Rot Grease
 1690:Shield Grease
 1700:Throwing Dagger
@@ -305,7 +305,7 @@
 3000:Ancestral Infant's Head
 3010:Omen Bairn
 3011:Regal Omen Bairn
-3020:Miranda's Prayer
+3020:[ERROR]Miranda's Prayer
 3030:Cuckoo Glintstone
 3040:Mimic's Veil
 3050:Glintstone Scrap
@@ -313,7 +313,7 @@
 3060:Gravity Stone Fan
 3070:Gravity Stone Chunk
 3080:Wraith Calling Bell
-3300:Holy Water Grease
+3300:[ERROR]Holy Water Grease
 3310:Warming Stone
 3311:Frenzyflame Stone
 3320:Scriptstone
@@ -341,7 +341,7 @@
 4100:Shatter Earth
 4110:Rock Blaster
 4120:Gavel of Haima
-4130:Terra Magicus
+4130:Terra Magica
 4140:Starlight
 4200:Comet Azur
 4210:Founding Rain of Stars
@@ -499,7 +499,7 @@
 7903:Golden Lightning Fortification
 8000:Stonesword Key
 8010:Rusty Key
-8102:Lucent Baldachin's Blessing
+8102:[ERROR]Lucent Baldachin's Blessing
 8105:Dectus Medallion (Left)
 8106:Dectus Medallion (Right)
 8107:Rold Medallion
@@ -510,7 +510,7 @@
 8127:Letter from Volcano Manor
 8128:Tonic of Forgetfulness
 8129:Serpent's Amnion
-8130:Rya's Necklace
+8130:[ERROR]Rya's Necklace
 8131:Irina's Letter
 8132:Letter from Volcano Manor
 8133:Red Letter
@@ -521,7 +521,7 @@
 8143:Seluvis's Introduction
 8144:Sellen's Primal Glintstone
 8146:Miniature Ranni
-8147:Asimi, Silver Tear
+8147:[ERROR]Asimi, Silver Tear
 8148:Godrick's Great Rune
 8149:Radahn's Great Rune
 8150:Morgott's Great Rune
@@ -530,14 +530,14 @@
 8153:Malenia's Great Rune
 8154:Lord of Blood's Favor
 8155:Lord of Blood's Favor
-8156:Burial Crow's Letter
+8156:[ERROR]Burial Crow's Letter
 8158:Spirit Calling Bell
 8159:Fingerslayer Blade
 8161:Sewing Needle
 8162:Gold Sewing Needle
 8163:Tailoring Tools
 8164:Seluvis's Potion
-8165:?GoodsName?
+8165:[ERROR]
 8166:Amber Draught
 8167:Letter to Patches
 8168:Dancer's Castanets
@@ -548,7 +548,7 @@
 8174:Academy Glintstone Key
 8175:Haligtree Secret Medallion (Left)
 8176:Haligtree Secret Medallion (Right)
-8181:Burial Crow's Letter
+8181:[ERROR]Burial Crow's Letter
 8182:Mending Rune of Perfect Order
 8183:Mending Rune of the Death-Prince
 8184:Mending Rune of the Fell Curse
@@ -556,13 +556,13 @@
 8186:Imbued Sword Key
 8187:Miniature Ranni
 8188:Golden Tailoring Tools
-8189:Iji's Confession
+8189:[ERROR]Iji's Confession
 8190:Knifeprint Clue
 8191:Cursemark of Death
-8192:Asimi's Husk
+8192:[ERROR]Asimi's Husk
 8193:Seedbed Curse
 8194:The Stormhawk King
-8195:Asimi, Silver Chrysalid
+8195:[ERROR]Asimi, Silver Chrysalid
 8196:Unalloyed Gold Needle
 8197:Sewer-Gaol Key
 8198:Meeting Place Map
@@ -577,10 +577,10 @@
 8221:Zorayas's Letter
 8222:Alexander's Innards
 8223:Rogier's Letter
-8224:?GoodsName?
-8225:?GoodsName?
-8226:?GoodsName?
-8227:?GoodsName?
+8224:Note: The Preceptor's Secret
+8225:Weathered Map
+8226:Note: The Preceptor's Secret
+8227:Weathered Map
 8500:Crafting Kit
 8590:Whetstone Knife
 8600:Map: Limgrave, West
@@ -607,9 +607,9 @@
 8701:Note: Imp Shades
 8702:Note: Flask of Wondrous Physick
 8703:Note: Stonedigger Trolls
-8704:Note: Walking Mausoleum
+8704:Note: Wandering Mausoleum
 8705:Note: Unseen Assassins
-8706:Note: Great Coffins
+8706:[ERROR]Note: Great Coffins
 8707:Note: Flame Chariots
 8708:Note: Demi-human Mobs
 8709:Note: Land Squirts
@@ -620,14 +620,14 @@
 8714:Note: Miquella's Needle
 8715:Note: Frenzied Flame Village
 8716:Note: The Lord of Frenzied Flame
-8717:?GoodsName?
+8717:Note: Below the Capital
 8750:Note: Hidden Cave
 8751:Note: Imp Shades
 8752:Note: Flask of Wondrous Physick
 8753:Note: Stonedigger Trolls
-8754:Note: Walking Mausoleum
+8754:Note: Wandering Mausoleum
 8755:Note: Unseen Assassins
-8756:Note: Great Coffins
+8756:[ERROR]Note: Great Coffins
 8757:Note: Flame Chariots
 8758:Note: Demi-human Mobs
 8759:Note: Land Squirts
@@ -636,12 +636,12 @@
 8762:Note: Waypoint Ruins
 8763:Note: Gateway
 8765:Note: Frenzied Flame Village
-8767:?GoodsName?
+8767:Note: Below the Capital
 8850:Conspectus Scroll
 8851:Royal House Scroll
-8852:?GoodsName?
-8853:?GoodsName?
-8854:?GoodsName?
+8852:[ERROR]
+8853:[ERROR]
+8854:[ERROR]
 8855:Fire Monks' Prayerbook
 8856:Giant's Prayerbook
 8857:Godskin Prayerbook
@@ -650,7 +650,7 @@
 8860:Erdtree Prayerbook
 8861:Erdtree Codex
 8862:Golden Order Principia
-8863:Golden Order Principles
+8863:[ERROR]Golden Order Principles
 8864:Dragon Cult Prayerbook
 8865:Ancient Dragon Prayerbook
 8866:Academy Scroll
@@ -658,7 +658,7 @@
 8911:Seluvis's Bell Bearing
 8912:Patches' Bell Bearing
 8913:Sellen's Bell Bearing
-8914:?GoodsName?
+8914:[ERROR]
 8915:D's Bell Bearing
 8916:Bernahl's Bell Bearing
 8917:Miriel's Bell Bearing
@@ -678,7 +678,7 @@
 8931:Nomadic Merchant's Bell Bearing [8]
 8932:Nomadic Merchant's Bell Bearing [9]
 8933:Nomadic Merchant's Bell Bearing [10]
-8934:Nomadic Merchant's Bell Bearing [11]
+8934:[ERROR]Nomadic Merchant's Bell Bearing [11]
 8935:Isolated Merchant's Bell Bearing [3]
 8936:Hermit Merchant's Bell Bearing [2]
 8937:Abandoned Merchant's Bell Bearing
@@ -693,8 +693,8 @@
 8946:Meat Peddler's Bell Bearing
 8947:Medicine Peddler's Bell Bearing
 8948:Gravity Stone Peddler's Bell Bearing
-8949:?GoodsName?
-8950:?GoodsName?
+8949:[ERROR]
+8950:[ERROR]
 8951:Smithing-Stone Miner's Bell Bearing [1]
 8952:Smithing-Stone Miner's Bell Bearing [2]
 8953:Smithing-Stone Miner's Bell Bearing [3]
@@ -807,13 +807,18 @@
 9137:About Pouches
 9138:About Dodging
 9140:About Wielding Armaments
-9141:?GoodsName?
-9195:About Multiplayer
+9141:About Great Runes
+9142:About the Cave of Knowledge
+9150:About Duels
+9151:About United Combat and Combat Ordeals
+9152:About Combat with Spirit Ashes
+9153:About Marika's Effigy at the Roundtable
+9195:[ERROR]About Multiplayer
 9300:Nomadic Warrior's Cookbook [1]
 9301:Nomadic Warrior's Cookbook [3]
 9302:Nomadic Warrior's Cookbook [6]
 9303:Nomadic Warrior's Cookbook [10]
-9304:Fugitive Warrior's Recipe [5]
+9304:[ERROR]Fugitive Warrior's Recipe [5]
 9305:Nomadic Warrior's Cookbook [7]
 9306:Nomadic Warrior's Cookbook [12]
 9307:Nomadic Warrior's Cookbook [19]
@@ -823,17 +828,17 @@
 9311:Nomadic Warrior's Cookbook [2]
 9312:Nomadic Warrior's Cookbook [21]
 9313:Missionary's Cookbook [6]
-9314:?GoodsName?
-9315:?GoodsName?
-9316:?GoodsName?
-9317:?GoodsName?
-9318:?GoodsName?
-9319:?GoodsName?
+9314:[ERROR]
+9315:[ERROR]
+9316:[ERROR]
+9317:[ERROR]
+9318:[ERROR]
+9319:[ERROR]
 9320:Armorer's Cookbook [1]
 9321:Armorer's Cookbook [2]
 9322:Nomadic Warrior's Cookbook [11]
 9323:Nomadic Warrior's Cookbook [20]
-9324:Armorer's Cookbook (5)
+9324:[ERROR]Armorer's Cookbook (5)
 9325:Armorer's Cookbook [7]
 9326:Armorer's Cookbook [4]
 9327:Nomadic Warrior's Cookbook [18]
@@ -841,14 +846,14 @@
 9329:Nomadic Warrior's Cookbook [16]
 9330:Armorer's Cookbook [6]
 9331:Armorer's Cookbook [5]
-9332:?GoodsName?
-9333:?GoodsName?
-9334:?GoodsName?
-9335:?GoodsName?
-9336:?GoodsName?
-9337:?GoodsName?
-9338:?GoodsName?
-9339:?GoodsName?
+9332:[ERROR]
+9333:[ERROR]
+9334:[ERROR]
+9335:[ERROR]
+9336:[ERROR]
+9337:[ERROR]
+9338:[ERROR]
+9339:[ERROR]
 9340:Glintstone Craftsman's Cookbook [4]
 9341:Glintstone Craftsman's Cookbook [1]
 9342:Glintstone Craftsman's Cookbook [5]
@@ -858,31 +863,31 @@
 9346:Glintstone Craftsman's Cookbook [6]
 9347:Glintstone Craftsman's Cookbook [7]
 9348:Glintstone Craftsman's Cookbook [3]
-9349:?GoodsName?
-9350:?GoodsName?
-9351:?GoodsName?
-9352:?GoodsName?
-9353:?GoodsName?
-9354:?GoodsName?
-9355:?GoodsName?
-9356:?GoodsName?
-9357:?GoodsName?
-9358:?GoodsName?
-9359:?GoodsName?
+9349:[ERROR]
+9350:[ERROR]
+9351:[ERROR]
+9352:[ERROR]
+9353:[ERROR]
+9354:[ERROR]
+9355:[ERROR]
+9356:[ERROR]
+9357:[ERROR]
+9358:[ERROR]
+9359:[ERROR]
 9360:Missionary's Cookbook [2]
 9361:Missionary's Cookbook [1]
-9362:Missionary's Cookbook (3)
+9362:[ERROR]Missionary's Cookbook (3)
 9363:Missionary's Cookbook [5]
 9364:Missionary's Cookbook [4]
 9365:Missionary's Cookbook [3]
-9366:?GoodsName?
-9367:?GoodsName?
-9368:?GoodsName?
-9369:?GoodsName?
-9370:?GoodsName?
+9366:[ERROR]
+9367:[ERROR]
+9368:[ERROR]
+9369:[ERROR]
+9370:[ERROR]
 9380:Nomadic Warrior's Cookbook [4]
-9381:Perfumer's Cookbook (1)
-9382:Perfumer's Cookbook (2)
+9381:[ERROR]Perfumer's Cookbook (1)
+9382:[ERROR]Perfumer's Cookbook (2)
 9383:Nomadic Warrior's Cookbook [5]
 9384:Perfumer's Cookbook [1]
 9385:Perfumer's Cookbook [2]
@@ -893,46 +898,46 @@
 9390:Nomadic Warrior's Cookbook [15]
 9391:Nomadic Warrior's Cookbook [24]
 9392:Perfumer's Cookbook [4]
-9393:Perfumer's Cookbook (13)
-9394:?GoodsName?
-9395:?GoodsName?
-9396:?GoodsName?
-9397:?GoodsName?
-9398:?GoodsName?
-9399:?GoodsName?
+9393:[ERROR]Perfumer's Cookbook (13)
+9394:[ERROR]
+9395:[ERROR]
+9396:[ERROR]
+9397:[ERROR]
+9398:[ERROR]
+9399:[ERROR]
 9400:Ancient Dragon Apostle's Cookbook [1]
 9401:Ancient Dragon Apostle's Cookbook [2]
 9402:Ancient Dragon Apostle's Cookbook [4]
 9403:Ancient Dragon Apostle's Cookbook [3]
-9404:?GoodsName?
-9405:?GoodsName?
-9406:?GoodsName?
-9407:?GoodsName?
-9408:?GoodsName?
-9409:?GoodsName?
-9410:?GoodsName?
+9404:[ERROR]
+9405:[ERROR]
+9406:[ERROR]
+9407:[ERROR]
+9408:[ERROR]
+9409:[ERROR]
+9410:[ERROR]
 9420:Fevor's Cookbook [1]
 9421:Fevor's Cookbook [3]
 9422:Fevor's Cookbook [2]
 9423:Missionary's Cookbook [7]
-9424:?GoodsName?
-9425:?GoodsName?
-9426:?GoodsName?
-9427:?GoodsName?
-9428:?GoodsName?
-9429:?GoodsName?
-9430:?GoodsName?
+9424:[ERROR]
+9425:[ERROR]
+9426:[ERROR]
+9427:[ERROR]
+9428:[ERROR]
+9429:[ERROR]
+9430:[ERROR]
 9440:Frenzied's Cookbook [1]
 9441:Frenzied's Cookbook [2]
-9442:?GoodsName?
-9443:?GoodsName?
-9444:?GoodsName?
-9445:?GoodsName?
-9446:?GoodsName?
-9447:?GoodsName?
-9448:?GoodsName?
-9449:?GoodsName?
-9450:?GoodsName?
+9442:[ERROR]
+9443:[ERROR]
+9444:[ERROR]
+9445:[ERROR]
+9446:[ERROR]
+9447:[ERROR]
+9448:[ERROR]
+9449:[ERROR]
+9450:[ERROR]
 9500:Cracked Pot
 9501:Ritual Pot
 9510:Perfume Bottle
@@ -1086,7 +1091,7 @@
 50201:?GoodsName?
 50202:?GoodsName?
 50203:?GoodsName?
-51760:?GoodsName?
+51760:[ERROR]
 53090:?GoodsName?
 53230:?GoodsName?
 53400:?GoodsName?
@@ -1166,17 +1171,17 @@
 205008:Nomad Ashes +8
 205009:Nomad Ashes +9
 205010:Nomad Ashes +10
-206000:Nightmaiden &amp; Swordstress Puppets
-206001:Nightmaiden &amp; Swordstress Puppets +1
-206002:Nightmaiden &amp; Swordstress Puppets +2
-206003:Nightmaiden &amp; Swordstress Puppets +3
-206004:Nightmaiden &amp; Swordstress Puppets +4
-206005:Nightmaiden &amp; Swordstress Puppets +5
-206006:Nightmaiden &amp; Swordstress Puppets +6
-206007:Nightmaiden &amp; Swordstress Puppets +7
-206008:Nightmaiden &amp; Swordstress Puppets +8
-206009:Nightmaiden &amp; Swordstress Puppets +9
-206010:Nightmaiden &amp; Swordstress Puppets +10
+206000:Nightmaiden & Swordstress Puppets
+206001:Nightmaiden & Swordstress Puppets +1
+206002:Nightmaiden & Swordstress Puppets +2
+206003:Nightmaiden & Swordstress Puppets +3
+206004:Nightmaiden & Swordstress Puppets +4
+206005:Nightmaiden & Swordstress Puppets +5
+206006:Nightmaiden & Swordstress Puppets +6
+206007:Nightmaiden & Swordstress Puppets +7
+206008:Nightmaiden & Swordstress Puppets +8
+206009:Nightmaiden & Swordstress Puppets +9
+206010:Nightmaiden & Swordstress Puppets +10
 207000:Mimic Tear Ashes
 207001:Mimic Tear Ashes +1
 207002:Mimic Tear Ashes +2
@@ -1596,7 +1601,7 @@
 244009:Land Squirt Ashes +9
 244010:Land Squirt Ashes +10
 245000:Miranda Sprout Ashes
-245001:Miranda Sprout Ashes +1
+245001:Miranda Sprout Ashes +1 
 245002:Miranda Sprout Ashes +2
 245003:Miranda Sprout Ashes +3
 245004:Miranda Sprout Ashes +4
@@ -1901,6 +1906,7 @@
 2004300:Miriam's Vanishing
 2004310:Glintblade Trio
 2004320:Rellana's Twin Moons
+2004330:?GoodsName?
 2004500:Glintstone Nail
 2004510:Glintstone Nails
 2004700:Blades of Stone
@@ -2042,6 +2048,9 @@
 2009344:Grave Keeper's Cookbook [1]
 2009345:St. Trina Disciple's Cookbook [2]
 2009500:Hefty Cracked Pot
+2009600:Spectral Steed Regalia: Tree Sentinel
+2009610:Spectral Steed Regalia: Carian Silver
+2009620:Spectral Steed Regalia: Funereal Night
 2010000:Scadutree Fragment
 2010100:Revered Spirit Ash
 2011000:Viridian Hidden Tear
@@ -2092,28 +2101,236 @@
 2020033:Nailstone
 2020034:Sharp Gravel Stone
 2020035:Furnace Visage
+2050301:?GoodsName?
+2051004:?GoodsName?
+2051005:?GoodsName?
+2052030:?GoodsName?
+2053140:?GoodsName?
+2053480:?GoodsName?
+2053490:?GoodsName?
+2053700:?GoodsName?
+2053701:?GoodsName?
 2200000:Curseblade Meera
+2200001:Curseblade Meera +1
+2200002:Curseblade Meera +2
+2200003:Curseblade Meera +3
+2200004:Curseblade Meera +4
+2200005:Curseblade Meera +5
+2200006:Curseblade Meera +6
+2200007:Curseblade Meera +7
+2200008:Curseblade Meera +8
+2200009:Curseblade Meera +9
+2200010:Curseblade Meera +10
 2201000:Bloodfiend Hexer's Ashes
+2201001:Bloodfiend Hexer's Ashes +1
+2201002:Bloodfiend Hexer's Ashes +2
+2201003:Bloodfiend Hexer's Ashes +3
+2201004:Bloodfiend Hexer's Ashes +4
+2201005:Bloodfiend Hexer's Ashes +5
+2201006:Bloodfiend Hexer's Ashes +6
+2201007:Bloodfiend Hexer's Ashes +7
+2201008:Bloodfiend Hexer's Ashes +8
+2201009:Bloodfiend Hexer's Ashes +9
+2201010:Bloodfiend Hexer's Ashes +10
 2202000:Gravebird Ashes
+2202001:Gravebird Ashes +1
+2202002:Gravebird Ashes +2
+2202003:Gravebird Ashes +3
+2202004:Gravebird Ashes +4
+2202005:Gravebird Ashes +5
+2202006:Gravebird Ashes +6
+2202007:Gravebird Ashes +7
+2202008:Gravebird Ashes +8
+2202009:Gravebird Ashes +9
+2202010:Gravebird Ashes +10
 2203000:Fire Knight Hilde
+2203001:Fire Knight Hilde +1
+2203002:Fire Knight Hilde +2
+2203003:Fire Knight Hilde +3
+2203004:Fire Knight Hilde +4
+2203005:Fire Knight Hilde +5
+2203006:Fire Knight Hilde +6
+2203007:Fire Knight Hilde +7
+2203008:Fire Knight Hilde +8
+2203009:Fire Knight Hilde +9
+2203010:Fire Knight Hilde +10
 2204000:Spider Scorpion Ashes
+2204001:Spider Scorpion Ashes +1
+2204002:Spider Scorpion Ashes +2
+2204003:Spider Scorpion Ashes +3
+2204004:Spider Scorpion Ashes +4
+2204005:Spider Scorpion Ashes +5
+2204006:Spider Scorpion Ashes +6
+2204007:Spider Scorpion Ashes +7
+2204008:Spider Scorpion Ashes +8
+2204009:Spider Scorpion Ashes +9
+2204010:Spider Scorpion Ashes +10
 2205000:Inquisitor Ashes
+2205001:Inquisitor Ashes +1
+2205002:Inquisitor Ashes +2
+2205003:Inquisitor Ashes +3
+2205004:Inquisitor Ashes +4
+2205005:Inquisitor Ashes +5
+2205006:Inquisitor Ashes +6
+2205007:Inquisitor Ashes +7
+2205008:Inquisitor Ashes +8
+2205009:Inquisitor Ashes +9
+2205010:Inquisitor Ashes +10
 2206000:Demi-Human Swordsman Yosh
+2206001:Demi-Human Swordsman Yosh +1
+2206002:Demi-Human Swordsman Yosh +2
+2206003:Demi-Human Swordsman Yosh +3
+2206004:Demi-Human Swordsman Yosh +4
+2206005:Demi-Human Swordsman Yosh +5
+2206006:Demi-Human Swordsman Yosh +6
+2206007:Demi-Human Swordsman Yosh +7
+2206008:Demi-Human Swordsman Yosh +8
+2206009:Demi-Human Swordsman Yosh +9
+2206010:Demi-Human Swordsman Yosh +10
 2207000:Messmer Soldier Ashes
+2207001:Messmer Soldier Ashes +1
+2207002:Messmer Soldier Ashes +2
+2207003:Messmer Soldier Ashes +3
+2207004:Messmer Soldier Ashes +4
+2207005:Messmer Soldier Ashes +5
+2207006:Messmer Soldier Ashes +6
+2207007:Messmer Soldier Ashes +7
+2207008:Messmer Soldier Ashes +8
+2207009:Messmer Soldier Ashes +9
+2207010:Messmer Soldier Ashes +10
 2208000:Black Knight Commander Andreas
+2208001:Black Knight Commander Andreas +1
+2208002:Black Knight Commander Andreas +2
+2208003:Black Knight Commander Andreas +3
+2208004:Black Knight Commander Andreas +4
+2208005:Black Knight Commander Andreas +5
+2208006:Black Knight Commander Andreas +6
+2208007:Black Knight Commander Andreas +7
+2208008:Black Knight Commander Andreas +8
+2208009:Black Knight Commander Andreas +9
+2208010:Black Knight Commander Andreas +10
 2209000:Black Knight Captain Huw
+2209001:Black Knight Captain Huw +1
+2209002:Black Knight Captain Huw +2
+2209003:Black Knight Captain Huw +3
+2209004:Black Knight Captain Huw +4
+2209005:Black Knight Captain Huw +5
+2209006:Black Knight Captain Huw +6
+2209007:Black Knight Captain Huw +7
+2209008:Black Knight Captain Huw +8
+2209009:Black Knight Captain Huw +9
+2209010:Black Knight Captain Huw +10
 2210000:Bigmouth Imp Ashes
+2210001:Bigmouth Imp Ashes +1
+2210002:Bigmouth Imp Ashes +2
+2210003:Bigmouth Imp Ashes +3
+2210004:Bigmouth Imp Ashes +4
+2210005:Bigmouth Imp Ashes +5
+2210006:Bigmouth Imp Ashes +6
+2210007:Bigmouth Imp Ashes +7
+2210008:Bigmouth Imp Ashes +8
+2210009:Bigmouth Imp Ashes +9
+2210010:Bigmouth Imp Ashes +10
 2211000:Man-Fly Ashes
+2211001:Man-Fly Ashes +1
+2211002:Man-Fly Ashes +2
+2211003:Man-Fly Ashes +3
+2211004:Man-Fly Ashes +4
+2211005:Man-Fly Ashes +5
+2211006:Man-Fly Ashes +6
+2211007:Man-Fly Ashes +7
+2211008:Man-Fly Ashes +8
+2211009:Man-Fly Ashes +9
+2211010:Man-Fly Ashes +10
 2212000:Taylew the Golem Smith
+2212001:Taylew the Golem Smith +1
+2212002:Taylew the Golem Smith +2
+2212003:Taylew the Golem Smith +3
+2212004:Taylew the Golem Smith +4
+2212005:Taylew the Golem Smith +5
+2212006:Taylew the Golem Smith +6
+2212007:Taylew the Golem Smith +7
+2212008:Taylew the Golem Smith +8
+2212009:Taylew the Golem Smith +9
+2212010:Taylew the Golem Smith +10
 2213000:Divine Bird Warrior Ornis
+2213001:Divine Bird Warrior Ornis +1
+2213002:Divine Bird Warrior Ornis +2
+2213003:Divine Bird Warrior Ornis +3
+2213004:Divine Bird Warrior Ornis +4
+2213005:Divine Bird Warrior Ornis +5
+2213006:Divine Bird Warrior Ornis +6
+2213007:Divine Bird Warrior Ornis +7
+2213008:Divine Bird Warrior Ornis +8
+2213009:Divine Bird Warrior Ornis +9
+2213010:Divine Bird Warrior Ornis +10
 2214000:Horned Warrior Ashes
+2214001:Horned Warrior Ashes +1
+2214002:Horned Warrior Ashes +2
+2214003:Horned Warrior Ashes +3
+2214004:Horned Warrior Ashes +4
+2214005:Horned Warrior Ashes +5
+2214006:Horned Warrior Ashes +6
+2214007:Horned Warrior Ashes +7
+2214008:Horned Warrior Ashes +8
+2214009:Horned Warrior Ashes +9
+2214010:Horned Warrior Ashes +10
 2215000:Ancient Dragon Florissax
+2215001:Ancient Dragon Florissax +1
+2215002:Ancient Dragon Florissax +2
+2215003:Ancient Dragon Florissax +3
+2215004:Ancient Dragon Florissax +4
+2215005:Ancient Dragon Florissax +5
+2215006:Ancient Dragon Florissax +6
+2215007:Ancient Dragon Florissax +7
+2215008:Ancient Dragon Florissax +8
+2215009:Ancient Dragon Florissax +9
+2215010:Ancient Dragon Florissax +10
 2217000:Fingercreeper Ashes
+2217001:Fingercreeper Ashes +1
+2217002:Fingercreeper Ashes +2
+2217003:Fingercreeper Ashes +3
+2217004:Fingercreeper Ashes +4
+2217005:Fingercreeper Ashes +5
+2217006:Fingercreeper Ashes +6
+2217007:Fingercreeper Ashes +7
+2217008:Fingercreeper Ashes +8
+2217009:Fingercreeper Ashes +9
+2217010:Fingercreeper Ashes +10
 2218000:Fire Knight Queelign
+2218001:Fire Knight Queelign +1
+2218002:Fire Knight Queelign +2
+2218003:Fire Knight Queelign +3
+2218004:Fire Knight Queelign +4
+2218005:Fire Knight Queelign +5
+2218006:Fire Knight Queelign +6
+2218007:Fire Knight Queelign +7
+2218008:Fire Knight Queelign +8
+2218009:Fire Knight Queelign +9
+2218010:Fire Knight Queelign +10
 2219000:Swordhand of Night Jolán
+2219001:Swordhand of Night Jolán +1
+2219002:Swordhand of Night Jolán +2
+2219003:Swordhand of Night Jolán +3
+2219004:Swordhand of Night Jolán +4
+2219005:Swordhand of Night Jolán +5
+2219006:Swordhand of Night Jolán +6
+2219007:Swordhand of Night Jolán +7
+2219008:Swordhand of Night Jolán +8
+2219009:Swordhand of Night Jolán +9
+2219010:Swordhand of Night Jolán +10
 2220000:Jolán and Anna
+2220001:Jolán and Anna +1
+2220002:Jolán and Anna +2
+2220003:Jolán and Anna +3
+2220004:Jolán and Anna +4
+2220005:Jolán and Anna +5
+2220006:Jolán and Anna +6
+2220007:Jolán and Anna +7
+2220008:Jolán and Anna +8
+2220009:Jolán and Anna +9
+2220010:Jolán and Anna +10
 999999999:?GoodsName?
-268435455:
 </DropDownList>
   <GroupHeader>1</GroupHeader>
 </CheatEntry>

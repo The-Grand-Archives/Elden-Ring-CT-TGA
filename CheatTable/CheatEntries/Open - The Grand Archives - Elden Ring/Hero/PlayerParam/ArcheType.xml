@@ -1,17 +1,7 @@
 <CheatEntry>
   <ID>100641</ID>
   <Description>"ArcheType"</Description>
-  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Vagabond
-1:Warrior
-2:Hero
-3:Bandit
-4:Astrologer
-5:Prophet
-7:Samurai
-8:Prisoner
-6:Confessor
-9:Wretch
-</DropDownList>
+  <DropDownListLink>ArcheTypeId</DropDownListLink>
   <ShowAsSigned>0</ShowAsSigned>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>

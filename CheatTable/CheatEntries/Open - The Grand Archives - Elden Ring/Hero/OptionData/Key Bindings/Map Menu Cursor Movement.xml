@@ -1,0 +1,13 @@
+<CheatEntry>
+  <ID>106161</ID>
+  <Description>"Map Menu Cursor Movement"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Keyboard Only
+1:Keyboard and Mouse
+</DropDownList>
+  <ShowAsSigned>0</ShowAsSigned>
+  <VariableType>Byte</VariableType>
+  <Address>CSPcKeyConfig</Address>
+  <Offsets>
+    <Offset>883</Offset>
+  </Offsets>
+</CheatEntry>

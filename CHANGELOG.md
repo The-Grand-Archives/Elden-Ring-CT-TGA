@@ -2,6 +2,22 @@
 ## [Unreleased]
 ### Added
  - by [Umgak](https://github.com/Umgak):
+   - Support for ELDEN RING App Ver. 1.17
+     - Fix offsets for Noclip
+     - Fix offsets for debug flags
+     - Fix offsets for several config settings
+     - Add several missing config settings
+     - Rename CsDlc[3] to Tarnished Pack
+     - Add Tarnished Pack to Error Functions
+     - Add Tarnished Pack new starting classes to ArcheType
+       - Convert ArcheType to use Dropdown Utils
+     - Add Tarnished Pack item support
+     - Add Spectral Steed Regalia to Event Flag Manager
+     - Add new items and weapon arts to:
+       - GOODS_ID
+       - PROTECTOR_ID
+       - SWORD_ARTS_ID
+       - WEAPON_ID
    - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
      - mergeDropdown function inserts entries into a dropdown
      - constructDropdown function builds a full dropdown list from formatted data
@@ -18,6 +34,7 @@
    - Event Flag Logger for easy logging of event changes
    - Fixed offsets for Face Data (thank you [Axd1x8a](https://github.com/axd1x8a) for the heads up)
    - Add Facial Distortion sliders. These are unused in DS3 and ER and have no official names.
+   - Fixed GetThingName outputting the wrong output value for params with no names
 
 ## [v1.18.0] - 2026-06-06
 ### Added

@@ -1,0 +1,28 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local items = {
+  { 0x10517B60, 1, 0, 0, -1}, -- Broken Gold Mask
+  { 0x10517BC4, 1, 0, 0, -1}, -- Gold Tattoo (Chest)
+  { 0x10517C28, 1, 0, 0, -1}, -- Gold Tattoo (Arm)
+  { 0x10517C8C, 1, 0, 0, -1}, -- Told Tattoo (Leg)
+  { 0x1051A270, 1, 0, 0, -1}, -- Silver Grooved Helm
+  { 0x1051A2D4, 1, 0, 0, -1}, -- Silver Grooved Armor
+  { 0x1051A338, 1, 0, 0, -1}, -- Silver Grooved Gauntlets
+  { 0x1051A39C, 1, 0, 0, -1}, -- Silver Grooved Greaves
+  { 0x1051A6BC, 1, 0, 0, -1}, -- Silver Grooved Armor (Altered)
+  { 0x1051C980, 1, 0, 0, -1}, -- Leontiel's Hat
+  { 0x1051C9E4, 1, 0, 0, -1}, -- Leontiel's Armor
+  { 0x1051CA48, 1, 0, 0, -1}, -- Leontiel's Leather Gloves
+  { 0x1051CAAC, 1, 0, 0, -1}, -- Leontiel's Boots
+  { 0x1051CD68, 1, 0, 0, -1}, -- Leontiel's Hat (Altered)
+  { 0x1051F090, 1, 0, 0, -1}, -- Steel Helm
+  { 0x1051F0F4, 1, 0, 0, -1}, -- Steel Armor
+  { 0x1051F158, 1, 0, 0, -1}, -- Steel Gauntlets
+  { 0x1051F1BC, 1, 0, 0, -1}, -- Steel Greaves
+  { 0x1098967F, 1, 0, 0, -1}, -- Steel Greaves
+}
+
+ItemGive(items)
+disableMemrec(memrec)
+[DISABLE]

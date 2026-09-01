@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>108308</ID>
+  <Description>"ArcheTypeIdBase"</Description>
+  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Vagabond
+1:Warrior
+2:Hero
+3:Bandit
+4:Astrologer
+5:Prophet
+7:Samurai
+8:Prisoner
+6:Confessor
+9:Wretch
+  </DropDownList>
+  <GroupHeader>1</GroupHeader>
+</CheatEntry>
