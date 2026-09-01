@@ -1,10 +1,11 @@
 <CheatEntry>
-  <ID>100882</ID>
-  <Description>"Frenzied Flame"</Description>
+  <ID>100768</ID>
+  <Description>"Distortion - Mouth Angle 2"</Description>
+  <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>740+116</Offset>
+    <Offset>760+A4</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>
