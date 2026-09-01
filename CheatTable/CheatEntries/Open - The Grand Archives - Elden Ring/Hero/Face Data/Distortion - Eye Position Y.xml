@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>100763</ID>
-  <Description>""</Description>
+  <ID>100765</ID>
+  <Description>"Distortion - Eye Position Y"</Description>
   <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>740+9F</Offset>
+    <Offset>760+A1</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>

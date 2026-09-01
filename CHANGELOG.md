@@ -6,6 +6,8 @@
    - Invasion Regions script converted to use uiBase, added automatic UI scaling which should help users of high DPI monitors use the script
    - Configure Table script converted to use uiBase, added automatic UI scaling
    - Event Flag Logger for easy logging of event changes
+   - Fixed offsets for Face Data (thank you [Axd1x8a](https://github.com/axd1x8a) for the heads up)
+   - Add Facial Distortion sliders. These are unused in DS3 and ER and have no official names.
 
 ## [v1.18.0] - 2026-06-06
 ### Added

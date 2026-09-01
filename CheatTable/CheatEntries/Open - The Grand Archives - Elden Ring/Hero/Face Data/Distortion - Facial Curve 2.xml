@@ -1,11 +1,11 @@
 <CheatEntry>
-  <ID>100774</ID>
-  <Description>""</Description>
+  <ID>100773</ID>
+  <Description>"Distortion - Facial Curve 2"</Description>
   <Color>C0C0C0</Color>
   <VariableType>Byte</VariableType>
   <Address>GameDataMan</Address>
   <Offsets>
-    <Offset>740+AA</Offset>
+    <Offset>760+A9</Offset>
     <Offset>08</Offset>
   </Offsets>
 </CheatEntry>
