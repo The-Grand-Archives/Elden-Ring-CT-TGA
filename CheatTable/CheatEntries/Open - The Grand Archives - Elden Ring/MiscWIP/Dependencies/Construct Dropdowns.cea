@@ -80,7 +80,23 @@ local dropdowns = {
   archeType,
 }
 
-for _, dropdown in pairs(dropdowns) do
-  constructDropdown(dropdown)
+local function init()
+  for _, dropdown in pairs(dropdowns) do
+    constructDropdown(dropdown)
+  end
 end
+
+-- wait until CsDlc is populated before initializing
+constructDropdownsTimer = createTimer(getMainForm())
+constructDropdownsTimer.Interval = 100
+constructDropdownsTimer.OnTimer = function(timer)
+  if getAddressSafe("CsDlc") then
+    if readByte("[CsDlc]+0x45") == 1 then
+      init()
+      timer.destroy()
+    end
+  end
+end
+
 [DISABLE]
+constructDropdownsTimer.destroy()
