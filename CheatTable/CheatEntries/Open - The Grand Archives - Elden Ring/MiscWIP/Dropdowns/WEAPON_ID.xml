@@ -1,41 +1,41 @@
 <CheatEntry>
   <ID>108211</ID>
   <Description>"WEAPON_ID"</Description>
-  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1000:?WeaponName?
-1100:?WeaponName?
-1200:?WeaponName?
-1210:?WeaponName?
-1220:?WeaponName?
-1230:?WeaponName?
-1240:?WeaponName?
-1250:?WeaponName?
-1260:?WeaponName?
-1400:?WeaponName?
-1410:?WeaponName?
-1420:?WeaponName?
-1430:?WeaponName?
-1500:?WeaponName?
-1600:?WeaponName?
-1700:?WeaponName?
-1800:?WeaponName?
-1900:?WeaponName?
-2000:?WeaponName?
-2100:?WeaponName?
-2200:?WeaponName?
-11000:?WeaponName?
-12000:?WeaponName?
-13000:?WeaponName?
-100000:?WeaponName?
-100100:?WeaponName?
-100200:?WeaponName?
-100300:?WeaponName?
-100400:?WeaponName?
-100500:?WeaponName?
-100600:?WeaponName?
-100700:?WeaponName?
-100800:?WeaponName?
-100900:?WeaponName?
-101000:?WeaponName?
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1000:[ERROR]
+1100:[ERROR]
+1200:[ERROR]
+1210:[ERROR]
+1220:[ERROR]
+1230:[ERROR]
+1240:[ERROR]
+1250:[ERROR]
+1260:[ERROR]
+1400:[ERROR]
+1410:[ERROR]
+1420:[ERROR]
+1430:[ERROR]
+1500:[ERROR]
+1600:[ERROR]
+1700:[ERROR]
+1800:[ERROR]
+1900:[ERROR]
+2000:[ERROR]
+2100:[ERROR]
+2200:[ERROR]
+11000:[ERROR]
+12000:[ERROR]
+13000:[ERROR]
+100000:[ERROR]
+100100:[ERROR]
+100200:[ERROR]
+100300:[ERROR]
+100400:[ERROR]
+100500:[ERROR]
+100600:[ERROR]
+100700:[ERROR]
+100800:[ERROR]
+100900:[ERROR]
+101000:[ERROR]
 110000:Unarmed
 170000:?WeaponName?
 171000:?WeaponName?
@@ -61,6 +61,18 @@
 351000:?WeaponName?
 358000:?WeaponName?
 361000:?WeaponName?
+470000:?WeaponName?
+471000:?WeaponName?
+472000:?WeaponName?
+502000:?WeaponName?
+600000:?WeaponName?
+613000:?WeaponName?
+614000:?WeaponName?
+615000:?WeaponName?
+616000:?WeaponName?
+618000:?WeaponName?
+619000:?WeaponName?
+620000:?WeaponName?
 830000:?WeaponName?
 830100:?WeaponName?
 830200:?WeaponName?
@@ -87,6 +99,22 @@
 866000:?WeaponName?
 866100:?WeaponName?
 867000:?WeaponName?
+930000:?WeaponName?
+931000:?WeaponName?
+932000:?WeaponName?
+933000:?WeaponName?
+934000:?WeaponName?
+937000:?WeaponName?
+960000:?WeaponName?
+962000:?WeaponName?
+965000:?WeaponName?
+966000:?WeaponName?
+968000:?WeaponName?
+969000:?WeaponName?
+970000:?WeaponName?
+971000:?WeaponName?
+974000:?WeaponName?
+976000:?WeaponName?
 1000000:Dagger
 1000100:Heavy Dagger
 1000200:Keen Dagger
@@ -199,10 +227,35 @@
 1151100:Blood Erdsteel Dagger
 1151200:Occult Erdsteel Dagger
 1160000:Blade of Calling
-1190000:?WeaponName?
+1190000:[ERROR]
 1500000:Main-gauche
+1500100:Heavy Main-gauche
+1500200:Keen Main-gauche
+1500300:Quality Main-gauche
+1500400:Fire Main-gauche
+1500500:Flame Art Main-gauche
+1500600:Lightning Main-gauche
+1500700:Sacred Main-gauche
+1500800:Magic Main-gauche
+1500900:Cold Main-gauche
+1501000:Poison Main-gauche
+1501100:Blood Main-gauche
+1501200:Occult Main-gauche
 1510000:Fire Knight's Shortsword
-1910000:?WeaponName?
+1510100:Fire Knight's Heavy Shortsword
+1510200:Fire Knight's Keen Shortsword
+1510300:Fire Knight's Quality Shortsword
+1510400:Fire Knight's Fire Shortsword
+1510500:Fire Knight's Flame Art Shortsword
+1510600:Fire Knight's Lightning Shortsword
+1510700:Fire Knight's Sacred Shortsword
+1510800:Fire Knight's Magic Shortsword
+1510900:Fire Knight's Cold Shortsword
+1511000:Fire Knight's Poison Shortsword
+1511100:Fire Knight's Blood Shortsword
+1511200:Fire Knight's Occult Shortsword
+1690000:?WeaponName?
+1910000:[ERROR]
 2000000:Longsword
 2000100:Heavy Longsword
 2000200:Keen Longsword
@@ -274,7 +327,6 @@
 2090000:Inseparable Sword
 2092000:?WeaponName?
 2110000:Coded Sword
-9500000:Sword of Night
 2140000:Sword of Night and Flame
 2150000:Crystal Sword
 2180000:Carian Knight's Sword
@@ -456,12 +508,39 @@
 3191200:Gargoyle's Occult Greatsword
 3200000:Death's Poker
 3210000:Gargoyle's Blackblade
-3220000:?WeaponName?
+3220000:[ERROR]
 3500000:Sword Lance
+3500100:Heavy Sword Lance
+3500200:Keen Sword Lance
+3500300:Quality Sword Lance
+3500400:Fire Sword Lance
+3500500:Flame Art Sword Lance
+3500600:Lightning Sword Lance
+3500700:Sacred Sword Lance
+3500800:Magic Sword Lance
+3500900:Cold Sword Lance
+3501000:Poison Sword Lance
+3501100:Blood Sword Lance
+3501200:Occult Sword Lance
 3510000:Greatsword of Damnation
 3520000:Lizard Greatsword
+3520100:Heavy Lizard Greatsword
+3520200:Keen Lizard Greatsword
+3520300:Quality Lizard Greatsword
+3520400:Fire Lizard Greatsword
+3520500:Flame Art Lizard Greatsword
+3520600:Lightning Lizard Greatsword
+3520700:Sacred Lizard Greatsword
+3520800:Magic Lizard Greatsword
+3520900:Cold Lizard Greatsword
+3521000:Poison Lizard Greatsword
+3521100:Blood Lizard Greatsword
+3521200:Occult Lizard Greatsword
 3550000:Greatsword of Solitude
-3900000:?WeaponName?
+3560000:Leontiel's Greatsword
+3690000:?WeaponName?
+3900000:[ERROR]
+3910000:?WeaponName?
 4000000:Greatsword
 4000100:Heavy Greatsword
 4000200:Keen Greatsword
@@ -523,11 +602,24 @@
 4110000:Troll Knight's Sword
 4500000:Ancient Meteoric Ore Greatsword
 4520000:Fire Knight's Greatsword
+4520100:Fire Knight's Heavy Greatsword
+4520200:Fire Knight's Keen Greatsword
+4520300:Fire Knight's Quality Greatsword
+4520400:Fire Knight's Fire Greatsword
+4520500:Fire Knight's Flame Art Greatsword
+4520600:Fire Knight's Lightning Greatsword
+4520700:Fire Knight's Sacred Greatsword
+4520800:Fire Knight's Magic Greatsword
+4520900:Fire Knight's Cold Greatsword
+4521000:Fire Knight's Poison Greatsword
+4521100:Fire Knight's Blood Greatsword
+4521200:Fire Knight's Occult Greatsword
 4530000:Greatsword of Radahn (Lord)
 4540000:Moonrithyll's Knight Sword
 4550000:Greatsword of Radahn (Light)
-4900000:?WeaponName?
-4910000:?WeaponName?
+4690000:?WeaponName?
+4900000:[ERROR]
+4910000:[ERROR]
 5000000:Estoc
 5000100:Heavy Estoc
 5000200:Keen Estoc
@@ -607,6 +699,7 @@
 5061000:Noble's Poison Estoc
 5061100:Noble's Blood Estoc
 5061200:Noble's Occult Estoc
+5690000:?WeaponName?
 6000000:Bloody Helice
 6010000:Godskin Stitcher
 6010100:Heavy Godskin Stitcher
@@ -636,7 +729,20 @@
 6021200:Occult Great Épée
 6040000:Dragon King's Cragblade
 6500000:Queelign's Greatsword
-6900000:?WeaponName?
+6500100:Queelign's Heavy Greatsword
+6500200:Queelign's Keen Greatsword
+6500300:Queelign's Quality Greatsword
+6500400:Queelign's Fire Greatsword
+6500500:Queelign's Flame Art Greatsword
+6500600:Queelign's Lightning Greatsword
+6500700:Queelign's Sacred Greatsword
+6500800:Queelign's Magic Greatsword
+6500900:Queelign's Cold Greatsword
+6501000:Queelign's Poison Greatsword
+6501100:Queelign's Blood Greatsword
+6501200:Queelign's Occult Greatsword
+6690000:?WeaponName?
+6900000:[ERROR]
 7000000:Falchion
 7000100:Heavy Falchion
 7000200:Keen Falchion
@@ -787,6 +893,9 @@
 7510000:Falx
 7520000:Dancing Blade of Ranah
 7530000:Horned Warrior's Sword
+7670000:?WeaponName?
+7680000:?WeaponName?
+7690000:?WeaponName?
 8010000:Onyx Lord's Greatsword
 8020000:Dismounter
 8020100:Heavy Dismounter
@@ -846,8 +955,34 @@
 8100000:Morgott's Cursed Sword
 8500000:Putrescence Cleaver
 8510000:Freyja's Greatsword
+8510100:Freyja's Heavy Greatsword
+8510200:Freyja's Keen Greatsword
+8510300:Freyja's Quality Greatsword
+8510400:Freyja's Fire Greatsword
+8510500:Freyja's Flame Art Greatsword
+8510600:Freyja's Lightning Greatsword
+8510700:Freyja's Sacred Greatsword
+8510800:Freyja's Magic Greatsword
+8510900:Freyja's Cold Greatsword
+8511000:Freyja's Poison Greatsword
+8511100:Freyja's Blood Greatsword
+8511200:Freyja's Occult Greatsword
 8520000:Horned Warrior's Greatsword
-8900000:?WeaponName?
+8530000:Hefty Scimitar
+8530100:Hefty Heavy Scimitar
+8530200:Hefty Keen Scimitar
+8530300:Hefty Quality Scimitar
+8530400:Hefty Fire Scimitar
+8530500:Hefty Flame Art Scimitar
+8530600:Hefty Lightning Scimitar
+8530700:Hefty Sacred Scimitar
+8530800:Hefty Magic Scimitar
+8530900:Hefty Cold Scimitar
+8531000:Hefty Poison Scimitar
+8531100:Hefty Blood Scimitar
+8531200:Hefty Occult Scimitar
+8690000:?WeaponName?
+8900000:[ERROR]
 9000000:Uchigatana
 9000100:Heavy Uchigatana
 9000200:Keen Uchigatana
@@ -880,23 +1015,26 @@
 9060000:Moonveil
 9070000:Dragonscale Blade
 9080000:Serpentbone Blade
-9080100:Heavy Serpentbone Blade
-9080200:Keen Serpentbone Blade
-9080300:Quality Serpentbone Blade
-9080400:Fire Serpentbone Blade
-9080500:Flame Art Serpentbone Blade
-9080600:Lightning Serpentbone Blade
-9080700:Sacred Serpentbone Blade
-9080800:Magic Serpentbone Blade
-9080900:Cold Serpentbone Blade
-9081000:Poison Serpentbone Blade
-9081100:Blood Serpentbone Blade
-9081200:Occult Serpentbone Blade
-9900000:?WeaponName?
-9910000:?WeaponName?
-9911000:?WeaponName?
-9920000:?WeaponName?
-9930000:?WeaponName?
+9080100:[ERROR]Heavy Serpentbone Blade
+9080200:[ERROR]Keen Serpentbone Blade
+9080300:[ERROR]Quality Serpentbone Blade
+9080400:[ERROR]Fire Serpentbone Blade
+9080500:[ERROR]Flame Art Serpentbone Blade
+9080600:[ERROR]Lightning Serpentbone Blade
+9080700:[ERROR]Sacred Serpentbone Blade
+9080800:[ERROR]Magic Serpentbone Blade
+9080900:[ERROR]Cold Serpentbone Blade
+9081000:[ERROR]Poison Serpentbone Blade
+9081100:[ERROR]Blood Serpentbone Blade
+9081200:[ERROR]Occult Serpentbone Blade
+9500000:Sword of Night
+9680000:?WeaponName?
+9690000:?WeaponName?
+9900000:[ERROR]
+9910000:[ERROR]
+9911000:[ERROR]
+9920000:[ERROR]
+9930000:[ERROR]
 10000000:Twinblade
 10000100:Heavy Twinblade
 10000200:Keen Twinblade
@@ -953,6 +1091,18 @@
 10090000:Gargoyle's Black Blades
 10500000:Euporia
 10510000:Black Steel Twinblade
+10510100:Heavy Black Steel Twinblade
+10510200:Keen Black Steel Twinblade
+10510300:Quality Black Steel Twinblade
+10510400:Fire Black Steel Twinblade
+10510500:Flame Art Black Steel Twinblade
+10510600:Lightning Black Steel Twinblade
+10510700:Sacred Black Steel Twinblade
+10510800:Magic Black Steel Twinblade
+10510900:Cold Black Steel Twinblade
+10511000:Poison Black Steel Twinblade
+10511100:Blood Black Steel Twinblade
+10511200:Occult Black Steel Twinblade
 11000000:Mace
 11000100:Heavy Mace
 11000200:Keen Mace
@@ -1076,8 +1226,9 @@
 11141100:Blood Stone Club
 11141200:Occult Stone Club
 11150000:Marika's Hammer
-11170000:?WeaponName?
+11170000:[ERROR]
 11500000:Flowerstone Gavel
+11690000:?WeaponName?
 12000000:Large Club
 12000100:Heavy Large Club
 12000200:Keen Large Club
@@ -1213,11 +1364,47 @@
 12211100:Blood Rotten Battle Hammer
 12211200:Occult Rotten Battle Hammer
 12500000:Smithscript Greathammer
+12500100:Heavy Smithscript Greathammer
+12500200:Keen Smithscript Greathammer
+12500300:Quality Smithscript Greathammer
+12500400:Fire Smithscript Greathammer
+12500500:Flame Art Smithscript Greathammer
+12500600:Lightning Smithscript Greathammer
+12500700:Sacred Smithscript Greathammer
+12500800:Magic Smithscript Greathammer
+12500900:Cold Smithscript Greathammer
+12501000:Poison Smithscript Greathammer
+12501100:Blood Smithscript Greathammer
+12501200:Occult Smithscript Greathammer
 12510000:Anvil Hammer
 12520000:Black Steel Greathammer
+12520100:Heavy Black Steel Greathammer
+12520200:Keen Black Steel Greathammer
+12520300:Quality Black Steel Greathammer
+12520400:Fire Black Steel Greathammer
+12520500:Flame Art Black Steel Greathammer
+12520600:Lightning Black Steel Greathammer
+12520700:Sacred Black Steel Greathammer
+12520800:Magic Black Steel Greathammer
+12520900:Cold Black Steel Greathammer
+12521000:Poison Black Steel Greathammer
+12521100:Blood Black Steel Greathammer
+12521200:Occult Black Steel Greathammer
 12530000:Bloodfiend's Arm
-12900000:?WeaponName?
-12910000:?WeaponName?
+12530100:Bloodfiend's Heavy Arm
+12530200:Bloodfiend's Keen Arm
+12530300:Bloodfiend's Quality Arm
+12530400:Bloodfiend's Fire Arm
+12530500:Bloodfiend's Flame Art Arm
+12530600:Bloodfiend's Lightning Arm
+12530700:Bloodfiend's Sacred Arm
+12530800:Bloodfiend's Magic Arm
+12530900:Bloodfiend's Cold Arm
+12531000:Bloodfiend's Poison Arm
+12531100:Bloodfiend's Blood Arm
+12531200:Bloodfiend's Occult Arm
+12900000:[ERROR]
+12910000:[ERROR]
 13000000:Nightrider Flail
 13000100:Heavy Nightrider Flail
 13000200:Keen Nightrider Flail
@@ -1260,6 +1447,8 @@
 13041100:Blood Chainlink Flail
 13041200:Occult Chainlink Flail
 13500000:Serpent Flail
+13510000:Golden Order Flail
+13900000:?WeaponName?
 14000000:Battle Axe
 14000100:Heavy Battle Axe
 14000200:Keen Battle Axe
@@ -1331,7 +1520,7 @@
 14060200:Celebrant's Keen Cleaver
 14060300:Celebrant's Quality Cleaver
 14060400:Celebrant's Fire Cleaver
-14060500:Celebrant's Flame Art Cleaver Blades
+14060500:Celebrant's Flame Art Cleaver
 14060600:Celebrant's Lightning Cleaver
 14060700:Celebrant's Sacred Cleaver
 14060800:Celebrant's Magic Cleaver
@@ -1369,8 +1558,32 @@
 14120000:Rosus' Axe
 14140000:Stormhawk Axe
 14500000:Smithscript Axe
+14500100:Heavy Smithscript Axe
+14500200:Keen Smithscript Axe
+14500300:Quality Smithscript Axe
+14500400:Fire Smithscript Axe
+14500500:Flame Art Smithscript Axe
+14500600:Lightning Smithscript Axe
+14500700:Sacred Smithscript Axe
+14500800:Magic Smithscript Axe
+14500900:Cold Smithscript Axe
+14501000:Poison Smithscript Axe
+14501100:Blood Smithscript Axe
+14501200:Occult Smithscript Axe
 14510000:Death Knight's Twin Axes
 14520000:Messmer Soldier's Axe
+14520100:Messmer Soldier's Heavy Axe
+14520200:Messmer Soldier's Keen Axe
+14520300:Messmer Soldier's Quality Axe
+14520400:Messmer Soldier's Fire Axe
+14520500:Messmer Soldier's Flame Art Axe
+14520600:Messmer Soldier's Lightning Axe
+14520700:Messmer Soldier's Sacred Axe
+14520800:Messmer Soldier's Magic Axe
+14520900:Messmer Soldier's Cold Axe
+14521000:Messmer Soldier's Poison Axe
+14521100:Messmer Soldier's Blood Axe
+14521200:Messmer Soldier's Occult Axe
 14540000:Forked-Tongue Hatchet
 15000000:Greataxe
 15000100:Heavy Greataxe
@@ -1494,7 +1707,8 @@
 15140000:Gargoyle's Black Axe
 15500000:Death Knight's Longhaft Axe
 15510000:Bonny Butchering Knife
-15900000:?WeaponName?
+15690000:?WeaponName?
+15900000:[ERROR]
 16000000:Short Spear
 16000100:Heavy Short Spear
 16000200:Keen Short Spear
@@ -1620,8 +1834,44 @@
 16151200:Occult Iron Spear
 16160000:Rotten Crystal Spear
 16500000:Smithscript Spear
+16500100:Heavy Smithscript Spear
+16500200:Keen Smithscript Spear
+16500300:Quality Smithscript Spear
+16500400:Fire Smithscript Spear
+16500500:Flame Art Smithscript Spear
+16500600:Lightning Smithscript Spear
+16500700:Sacred Smithscript Spear
+16500800:Magic Smithscript Spear
+16500900:Cold Smithscript Spear
+16501000:Poison Smithscript Spear
+16501100:Blood Smithscript Spear
+16501200:Occult Smithscript Spear
 16520000:Swift Spear
+16520100:Heavy Swift Spear
+16520200:Keen Swift Spear
+16520300:Quality Swift Spear
+16520400:Fire Swift Spear
+16520500:Flame Art Swift Spear
+16520600:Lightning Swift Spear
+16520700:Sacred Swift Spear
+16520800:Magic Swift Spear
+16520900:Cold Swift Spear
+16521000:Poison Swift Spear
+16521100:Blood Swift Spear
+16521200:Occult Swift Spear
 16540000:Bloodfiend's Fork
+16540100:Bloodfiend's Heavy Fork
+16540200:Bloodfiend's Keen Fork
+16540300:Bloodfiend's Quality Fork
+16540400:Bloodfiend's Fire Fork
+16540500:Bloodfiend's Flame Art Fork
+16540600:Bloodfiend's Lightning Fork
+16540700:Bloodfiend's Sacred Fork
+16540800:Bloodfiend's Magic Fork
+16540900:Bloodfiend's Cold Fork
+16541000:Bloodfiend's Poison Fork
+16541100:Bloodfiend's Blood Fork
+16541200:Bloodfiend's Occult Fork
 16550000:Bloodfiend's Sacred Spear
 17010000:Mohgwyn's Sacred Spear
 17020000:Siluria's Tree
@@ -1641,23 +1891,35 @@
 17061100:Bloody Lance
 17061200:Occult Lance
 17070000:Treespear
-17070100:Heavy Treespear
-17070200:Keen Treespear
-17070300:Quality Treespear
-17070400:Fire Treespear
-17070500:Flame Art Treespear
-17070600:Lightning Treespear
-17070700:Sacred Treespear
-17070800:Magic Treespear
-17070900:Cold Treespear
-17071000:Poison Treespear
-17071100:Blood Treespear
-17071200:Occult Treespear
+17070100:[ERROR]Heavy Treespear
+17070200:[ERROR]Keen Treespear
+17070300:[ERROR]Quality Treespear
+17070400:[ERROR]Fire Treespear
+17070500:[ERROR]Flame Art Treespear
+17070600:[ERROR]Lightning Treespear
+17070700:[ERROR]Sacred Treespear
+17070800:[ERROR]Magic Treespear
+17070900:[ERROR]Cold Treespear
+17071000:[ERROR]Poison Treespear
+17071100:[ERROR]Blood Treespear
+17071200:[ERROR]Occult Treespear
 17500000:Spear of the Impaler
 17510000:Messmer Soldier's Spear
+17510100:Messmer Soldier's Heavy Spear
+17510200:Messmer Soldier's Keen Spear
+17510300:Messmer Soldier's Quality Spear
+17510400:Messmer Soldier's Fire Spear
+17510500:Messmer Soldier's Flame Art Spear
+17510600:Messmer Soldier's Lightning Spear
+17510700:Messmer Soldier's Sacred Spear
+17510800:Messmer Soldier's Magic Spear
+17510900:Messmer Soldier's Cold Spear
+17511000:Messmer Soldier's Poison Spear
+17511100:Messmer Soldier's Blood Spear
+17511200:Messmer Soldier's Occult Spear
 17520000:Barbed Staff-Spear
-17900000:?WeaponName?
-17910000:?WeaponName?
+17900000:[ERROR]
+17910000:[ERROR]
 18000000:Halberd
 18000100:Heavy Halberd
 18000200:Keen Halberd
@@ -1825,6 +2087,7 @@
 19020000:Halo Scythe
 19060000:Winged Scythe
 19500000:Obsidian Lamina
+19690000:?WeaponName?
 20000000:Whip
 20000100:Heavy Whip
 20000200:Keen Whip
@@ -1951,10 +2214,37 @@
 21130000:Cipher Pata
 21500000:Thiollier's Hidden Needle
 21510000:Pata
+21510100:Heavy Pata
+21510200:Keen Pata
+21510300:Quality Pata
+21510400:Fire Pata
+21510500:Flame Art Pata
+21510600:Lightning Pata
+21510700:Sacred Pata
+21510800:Magic Pata
+21510900:Cold Pata
+21511000:Poison Pata
+21511100:Blood Pata
+21511200:Occult Pata
 21520000:Poisoned Hand
 21530000:Madding Hand
 21540000:Golem Fist
+21540100:Heavy Golem Fist
+21540200:Keen Golem Fist
+21540300:Quality Golem Fist
+21540400:Fire Golem Fist
+21540500:Flame Art Golem Fist
+21540600:Lightning Golem Fist
+21540700:Sacred Golem Fist
+21540800:Magic Golem Fist
+21540900:Cold Golem Fist
+21541000:Poison Golem Fist
+21541100:Blood Golem Fist
+21541200:Occult Golem Fist
 21550000:Shield of Night
+21670000:?WeaponName?
+21680000:?WeaponName?
+21690000:?WeaponName?
 22000000:Hookclaws
 22000100:Heavy Hookclaws
 22000200:Keen Hookclaws
@@ -2008,6 +2298,7 @@
 22031100:Blood Raptor Talons
 22031200:Occult Raptor Talons
 22500000:Claws of Night
+22690000:?WeaponName?
 23000000:Prelate's Inferno Crozier
 23000100:Prelate's Heavy Inferno Crozier
 23000200:Prelate's Keen Inferno Crozier
@@ -2023,18 +2314,18 @@
 23001200:Prelate's Occult Inferno Crozier
 23010000:Watchdog's Staff
 23020000:Great Club
-23020100:Heavy Great Club
-23020200:Keen Great Club
-23020300:Quality Great Club
-23020400:Fire Great Club
-23020500:Flame Art Great Club
-23020600:Lightning Great Club
-23020700:Sacred Great Club
-23020800:Magic Great Club
-23020900:Cold Great Club
-23021000:Poison Great Club
-23021100:Blood Great Club
-23021200:Occult Great Club
+23020100:[ERROR]Heavy Great Club
+23020200:[ERROR]Keen Great Club
+23020300:[ERROR]Quality Great Club
+23020400:[ERROR]Fire Great Club
+23020500:[ERROR]Flame Art Great Club
+23020600:[ERROR]Lightning Great Club
+23020700:[ERROR]Sacred Great Club
+23020800:[ERROR]Magic Great Club
+23020900:[ERROR]Cold Great Club
+23021000:[ERROR]Poison Great Club
+23021100:[ERROR]Blood Great Club
+23021200:[ERROR]Occult Great Club
 23030000:Envoy's Greathorn
 23040000:Duelist Greataxe
 23040100:Heavy Duelist Greataxe
@@ -2081,18 +2372,18 @@
 23121100:Golem's Blood Halberd
 23121200:Golem's Occult Halberd
 23130000:Troll's Hammer
-23130100:Troll's Heavy Hammer
-23130200:Troll's Keen Hammer
-23130300:Troll's Quality Hammer
-23130400:Troll's Fire Hammer
-23130500:Troll's Flame Art Hammer
-23130600:Troll's Lightning Hammer
-23130700:Troll's Sacred Hammer
-23130800:Troll's Magic Hammer
-23130900:Troll's Cold Hammer
-23131000:Troll's Poison Hammer
-23131100:Troll's Blood Hammer
-23131200:Troll's Occult Hammer
+23130100:[ERROR]Troll's Heavy Hammer
+23130200:[ERROR]Troll's Keen Hammer
+23130300:[ERROR]Troll's Quality Hammer
+23130400:[ERROR]Troll's Fire Hammer
+23130500:[ERROR]Troll's Flame Art Hammer
+23130600:[ERROR]Troll's Lightning Hammer
+23130700:[ERROR]Troll's Sacred Hammer
+23130800:[ERROR]Troll's Magic Hammer
+23130900:[ERROR]Troll's Cold Hammer
+23131000:[ERROR]Troll's Poison Hammer
+23131100:[ERROR]Troll's Blood Hammer
+23131200:[ERROR]Troll's Occult Hammer
 23140000:Rotten Staff
 23150000:Rotten Greataxe
 23150100:Heavy Rotten Greataxe
@@ -2110,10 +2401,10 @@
 23500000:Devonia's Hammer
 23510000:Shadow Sunflower Blossom
 23520000:Gazing Finger
-23900000:?WeaponName?
-23910000:?WeaponName?
-23920000:?WeaponName?
-23930000:?WeaponName?
+23900000:[ERROR]
+23910000:[ERROR]
+23920000:[ERROR]
+23930000:[ERROR]
 24000000:Torch
 24020000:Steel-Wire Torch
 24040000:St. Trina's Torch
@@ -2122,6 +2413,7 @@
 24070000:Sentry's Torch
 24500000:Nanaya's Torch
 24510000:Lamenting Visage
+24590000:?WeaponName?
 30000000:Buckler
 30000100:Heavy Buckler
 30000200:Keen Buckler
@@ -2149,18 +2441,18 @@
 30011100:Perfumer's Blood Shield
 30011200:Perfumer's Occult Shield
 30020000:Man-Serpent's Shield
-30020100:Man-serpent's Heavy Shield
-30020200:Man-serpent's Keen Shield
-30020300:Man-serpent's Quality Shield
-30020400:Man-serpent's Fire Shield
-30020500:Man-serpent's Flame Art Shield
-30020600:Man-serpent's Lightning Shield
-30020700:Man-serpent's Sacred Shield
-30020800:Man-serpent's Magic Shield
-30020900:Man-serpent's Cold Shield
-30021000:Man-serpent's Poison Shield
-30021100:Man-serpent's Blood Shield
-30021200:Man-serpent's Occult Shield
+30020100:Man-Serpent's Heavy Shield
+30020200:Man-Serpent's Keen Shield
+30020300:Man-Serpent's Quality Shield
+30020400:Man-Serpent's Fire Shield
+30020500:Man-Serpent's Flame Art Shield
+30020600:Man-Serpent's Lightning Shield
+30020700:Man-Serpent's Sacred Shield
+30020800:Man-Serpent's Magic Shield
+30020900:Man-Serpent's Cold Shield
+30021000:Man-Serpent's Poison Shield
+30021100:Man-Serpent's Blood Shield
+30021200:Man-Serpent's Occult Shield
 30030000:Rickety Shield
 30030100:Heavy Rickety Shield
 30030200:Keen Rickety Shield
@@ -2660,9 +2952,59 @@
 31341100:Blood Black Leather Shield
 31341200:Occult Black Leather Shield
 31500000:Messmer Soldier Shield
+31500100:Heavy Messmer Soldier Shield
+31500200:Keen Messmer Soldier Shield
+31500300:Quality Messmer Soldier Shield
+31500400:Fire Messmer Soldier Shield
+31500500:Flame Art Messmer Soldier Shield
+31500600:Lightning Messmer Soldier Shield
+31500700:Sacred Messmer Soldier Shield
+31500800:Magic Messmer Soldier Shield
+31500900:Cold Messmer Soldier Shield
+31501000:Poison Messmer Soldier Shield
+31501100:Blood Messmer Soldier Shield
+31501200:Occult Messmer Soldier Shield
 31510000:Wolf Crest Shield
+31510100:Heavy Wolf Crest Shield
+31510200:Keen Wolf Crest Shield
+31510300:Quality Wolf Crest Shield
+31510400:Fire Wolf Crest Shield
+31510500:Flame Art Wolf Crest Shield
+31510600:Lightning Wolf Crest Shield
+31510700:Sacred Wolf Crest Shield
+31510800:Magic Wolf Crest Shield
+31510900:Cold Wolf Crest Shield
+31511000:Poison Wolf Crest Shield
+31511100:Blood Wolf Crest Shield
+31511200:Occult Wolf Crest Shield
 31520000:Serpent Crest Shield
+31520100:Heavy Serpent Crest Shield
+31520200:Keen Serpent Crest Shield
+31520300:Quality Serpent Crest Shield
+31520400:Fire Serpent Crest Shield
+31520500:Flame Art Serpent Crest Shield
+31520600:Lightning Serpent Crest Shield
+31520700:Sacred Serpent Crest Shield
+31520800:Magic Serpent Crest Shield
+31520900:Cold Serpent Crest Shield
+31521000:Poison Serpent Crest Shield
+31521100:Blood Serpent Crest Shield
+31521200:Occult Serpent Crest Shield
 31530000:Golden Lion Shield
+31540000:Silver Grooved Shield
+31540100:Heavy Silver Grooved Shield
+31540200:Keen Silver Grooved Shield
+31540300:Quality Silver Grooved Shield
+31540400:Fire Silver Grooved Shield
+31540500:Flame Art Silver Grooved Shield
+31540600:Lightning Silver Grooved Shield
+31540700:Sacred Silver Grooved Shield
+31540800:Magic Silver Grooved Shield
+31540900:Cold Silver Grooved Shield
+31541000:Poison Silver Grooved Shield
+31541100:Blood Silver Grooved Shield
+31541200:Occult Silver Grooved Shield
+31690000:?WeaponName?
 32000000:Dragon Towershield
 32000100:Heavy Dragon Towershield
 32000200:Keen Dragon Towershield
@@ -2893,10 +3235,23 @@
 32301100:Blood Lordsworn's Shield
 32301200:Occult Lordsworn's Shield
 32500000:Black Steel Greatshield
+32500100:Heavy Black Steel Greatshield
+32500200:Keen Black Steel Greatshield
+32500300:Quality Black Steel Greatshield
+32500400:Fire Black Steel Greatshield
+32500500:Flame Art Black Steel Greatshield
+32500600:Lightning Black Steel Greatshield
+32500700:Sacred Black Steel Greatshield
+32500800:Magic Black Steel Greatshield
+32500900:Cold Black Steel Greatshield
+32501000:Poison Black Steel Greatshield
+32501100:Blood Black Steel Greatshield
+32501200:Occult Black Steel Greatshield
 32520000:Verdigris Greatshield
-32900000:?WeaponName?
-32910000:?WeaponName?
-32920000:?WeaponName?
+32690000:?WeaponName?
+32900000:[ERROR]
+32910000:[ERROR]
+32920000:[ERROR]
 33000000:Glintstone Staff
 33040000:Crystal Staff
 33050000:Gelmir Glintstone Staff
@@ -2917,15 +3272,16 @@
 33280000:Staff of Loss
 33510000:Staff of the Great Beyond
 33520000:Maternal Staff
-33900000:?WeaponName?
-33910000:?WeaponName?
-33920000:?WeaponName?
-33930000:?WeaponName?
-33940000:?WeaponName?
-33950000:?WeaponName?
-33960000:?WeaponName?
-33970000:?WeaponName?
-33980000:?WeaponName?
+33690000:?WeaponName?
+33900000:[ERROR]
+33910000:[ERROR]
+33920000:[ERROR]
+33930000:[ERROR]
+33940000:[ERROR]
+33950000:[ERROR]
+33960000:[ERROR]
+33970000:[ERROR]
+33980000:[ERROR]
 34000000:Finger Seal
 34010000:Godslayer's Seal
 34020000:Giant's Seal
@@ -2938,16 +3294,25 @@
 34500000:Dryleaf Seal
 34510000:Fire Knight's Seal
 34520000:Spiraltree Seal
-34900000:?WeaponName?
-34910000:?WeaponName?
-34920000:?WeaponName?
-34930000:?WeaponName?
-34940000:?WeaponName?
-34950000:?WeaponName?
-34960000:?WeaponName?
-34970000:?WeaponName?
-34980000:?WeaponName?
-34990000:?WeaponName?
+34610000:?WeaponName?
+34620000:?WeaponName?
+34630000:?WeaponName?
+34640000:?WeaponName?
+34650000:?WeaponName?
+34660000:?WeaponName?
+34670000:?WeaponName?
+34680000:?WeaponName?
+34690000:?WeaponName?
+34900000:[ERROR]
+34910000:[ERROR]
+34920000:[ERROR]
+34930000:[ERROR]
+34940000:[ERROR]
+34950000:[ERROR]
+34960000:[ERROR]
+34970000:[ERROR]
+34980000:[ERROR]
+34990000:[ERROR]
 40000000:Shortbow
 40010000:Misbegotten Shortbow
 40020000:Red Branch Shortbow
@@ -2962,11 +3327,13 @@
 41060000:Pulley Bow
 41070000:Black Bow
 41510000:Ansbach's Longbow
+41690000:?WeaponName?
 42000000:Lion Greatbow
 42010000:Golem Greatbow
 42030000:Erdtree Greatbow
 42040000:Greatbow
 42500000:Igon's Greatbow
+42690000:?WeaponName?
 43000000:Soldier's Crossbow
 43020000:Light Crossbow
 43030000:Heavy Crossbow
@@ -2976,7 +3343,8 @@
 43110000:Crepus's Black-Key Crossbow
 43500000:Repeating Crossbow
 43510000:Spread Crossbow
-43900000:?WeaponName?
+43690000:?WeaponName?
+43900000:[ERROR]
 44000000:Hand Ballista
 44010000:Jar Cannon
 44500000:Rabbath's Cannon
@@ -3045,34 +3413,221 @@
 52180000:Sleepbone Bolt
 52190000:Flaming Bolt
 52520000:Piquebone Bolt
-52900000:?WeaponName?
-52910000:?WeaponName?
+52690000:?WeaponName?
+52900000:[ERROR]
+52910000:[ERROR]
 53000000:Ballista Bolt
 53010000:Lightning Greatbolt
 53020000:Explosive Greatbolt
 53030000:Bone Ballista Bolt
 53500000:Rabbath's Greatbolt
 60500000:Dryleaf Arts
+60500100:Heavy Dryleaf Arts
+60500200:Keen Dryleaf Arts
+60500300:Quality Dryleaf Arts
+60500400:Fire Dryleaf Arts
+60500500:Flame Art Dryleaf Arts
+60500600:Lightning Dryleaf Arts
+60500700:Sacred Dryleaf Arts
+60500800:Magic Dryleaf Arts
+60500900:Cold Dryleaf Arts
+60501000:Poison Dryleaf Arts
+60501100:Blood Dryleaf Arts
+60501200:Occult Dryleaf Arts
 60510000:Dane's Footwork
+60510100:Dane's Heavy Footwork
+60510200:Dane's Keen Footwork
+60510300:Dane's Quality Footwork
+60510400:Dane's Fire Footwork
+60510500:Dane's Flame Art Footwork
+60510600:Dane's Lightning Footwork
+60510700:Dane's Sacred Footwork
+60510800:Dane's Magic Footwork
+60510900:Dane's Cold Footwork
+60511000:Dane's Poison Footwork
+60511100:Dane's Blood Footwork
+60511200:Dane's Occult Footwork
+60680000:?WeaponName?
+60690000:?WeaponName?
 61500000:Firespark Perfume Bottle
 61510000:Chilling Perfume Bottle
 61520000:Frenzyflame Perfume Bottle
 61530000:Lightning Perfume Bottle
 61540000:Deadly Poison Perfume Bottle
+61690000:?WeaponName?
 62500000:Dueling Shield
+62500100:Heavy Dueling Shield
+62500200:Keen Dueling Shield
+62500300:Quality Dueling Shield
+62500400:Fire Dueling Shield
+62500500:Flame Art Dueling Shield
+62500600:Lightning Dueling Shield
+62500700:Sacred Dueling Shield
+62500800:Magic Dueling Shield
+62500900:Cold Dueling Shield
+62501000:Poison Dueling Shield
+62501100:Blood Dueling Shield
+62501200:Occult Dueling Shield
 62510000:Carian Thrusting Shield
+62510100:Heavy Carian Thrusting Shield
+62510200:Keen Carian Thrusting Shield
+62510300:Quality Carian Thrusting Shield
+62510400:Fire Carian Thrusting Shield
+62510500:Flame Art Carian Thrusting Shield
+62510600:Lightning Carian Thrusting Shield
+62510700:Sacred Carian Thrusting Shield
+62510800:Magic Carian Thrusting Shield
+62510900:Cold Carian Thrusting Shield
+62511000:Poison Carian Thrusting Shield
+62511100:Blood Carian Thrusting Shield
+62511200:Occult Carian Thrusting Shield
+62520000:Ritual Thrusting Shield
+62520100:Heavy Ritual Thrusting Shield
+62520200:Keen Ritual Thrusting Shield
+62520300:Quality Ritual Thrusting Shield
+62520400:Fire Ritual Thrusting Shield
+62520500:Flame Art Ritual Thrusting Shield
+62520600:Lightning Ritual Thrusting Shield
+62520700:Sacred Ritual Thrusting Shield
+62520800:Magic Ritual Thrusting Shield
+62520900:Cold Ritual Thrusting Shield
+62521000:Poison Ritual Thrusting Shield
+62521100:Blood Ritual Thrusting Shield
+62521200:Occult Ritual Thrusting Shield
 63500000:Smithscript Dagger
+63500100:Heavy Smithscript Dagger
+63500200:Keen Smithscript Dagger
+63500300:Quality Smithscript Dagger
+63500400:Fire Smithscript Dagger
+63500500:Flame Art Smithscript Dagger
+63500600:Lightning Smithscript Dagger
+63500700:Sacred Smithscript Dagger
+63500800:Magic Smithscript Dagger
+63500900:Cold Smithscript Dagger
+63501000:Poison Smithscript Dagger
+63501100:Blood Smithscript Dagger
+63501200:Occult Smithscript Dagger
 64500000:Backhand Blade
+64500100:Heavy Backhand Blade
+64500200:Keen Backhand Blade
+64500300:Quality Backhand Blade
+64500400:Fire Backhand Blade
+64500500:Flame Art Backhand Blade
+64500600:Lightning Backhand Blade
+64500700:Sacred Backhand Blade
+64500800:Magic Backhand Blade
+64500900:Cold Backhand Blade
+64501000:Poison Backhand Blade
+64501100:Blood Backhand Blade
+64501200:Occult Backhand Blade
 64510000:Smithscript Cirque
+64510100:Heavy Smithscript Cirque
+64510200:Keen Smithscript Cirque
+64510300:Quality Smithscript Cirque
+64510400:Fire Smithscript Cirque
+64510500:Flame Art Smithscript Cirque
+64510600:Lightning Smithscript Cirque
+64510700:Sacred Smithscript Cirque
+64510800:Magic Smithscript Cirque
+64510900:Cold Smithscript Cirque
+64511000:Poison Smithscript Cirque
+64511100:Blood Smithscript Cirque
+64511200:Occult Smithscript Cirque
 64520000:Curseblade's Cirque
+64530000:Reverse-Bladed Sword
+64530100:Heavy Reverse-Bladed Sword
+64530200:Keen Reverse-Bladed Sword
+64530300:Quality Reverse-Bladed Sword
+64530400:Fire Reverse-Bladed Sword
+64530500:Flame Art Reverse-Bladed Sword
+64530600:Lightning Reverse-Bladed Sword
+64530700:Sacred Reverse-Bladed Sword
+64530800:Magic Reverse-Bladed Sword
+64530900:Cold Reverse-Bladed Sword
+64531000:Poison Reverse-Bladed Sword
+64531100:Blood Reverse-Bladed Sword
+64531200:Occult Reverse-Bladed Sword
 66500000:Great Katana
+66500100:Heavy Great Katana
+66500200:Keen Great Katana
+66500300:Quality Great Katana
+66500400:Fire Great Katana
+66500500:Flame Art Great Katana
+66500600:Lightning Great Katana
+66500700:Sacred Great Katana
+66500800:Magic Great Katana
+66500900:Cold Great Katana
+66501000:Poison Great Katana
+66501100:Blood Great Katana
+66501200:Occult Great Katana
 66510000:Dragon-Hunter's Great Katana
 66520000:Rakshasa's Great Katana
+66530000:Reed Great Katana
+66530100:Heavy Reed Great Katana
+66530200:Keen Reed Great Katana
+66530300:Quality Reed Great Katana
+66530400:Fire Reed Great Katana
+66530500:Flame Art Reed Great Katana
+66530600:Lightning Reed Great Katana
+66530700:Sacred Reed Great Katana
+66530800:Magic Reed Great Katana
+66530900:Cold Reed Great Katana
+66531000:Poison Reed Great Katana
+66531100:Blood Reed Great Katana
+66531200:Occult Reed Great Katana
+66680000:?WeaponName?
+66690000:?WeaponName?
 67500000:Milady
+67500100:Heavy Milady
+67500200:Keen Milady
+67500300:Quality Milady
+67500400:Fire Milady
+67500500:Flame Art Milady
+67500600:Lightning Milady
+67500700:Sacred Milady
+67500800:Magic Milady
+67500900:Cold Milady
+67501000:Poison Milady
+67501100:Blood Milady
+67501200:Occult Milady
 67510000:Leda's Sword
 67520000:Rellana's Twin Blades
+67530000:Idus Sword
+67530100:Heavy Idus Sword
+67530200:Keen Idus Sword
+67530300:Quality Idus Sword
+67530400:Fire Idus Sword
+67530500:Flame Art Idus Sword
+67530600:Lightning Idus Sword
+67530700:Sacred Idus Sword
+67530800:Magic Idus Sword
+67530900:Cold Idus Sword
+67531000:Poison Idus Sword
+67531100:Blood Idus Sword
+67531200:Occult Idus Sword
+67690000:?WeaponName?
 68500000:Beast Claw
+68500100:Heavy Beast Claw
+68500200:Keen Beast Claw
+68500300:Quality Beast Claw
+68500400:Fire Beast Claw
+68500500:Flame Art Beast Claw
+68500600:Lightning Beast Claw
+68500700:Sacred Beast Claw
+68500800:Magic Beast Claw
+68500900:Cold Beast Claw
+68501000:Poison Beast Claw
+68501100:Blood Beast Claw
+68501200:Occult Beast Claw
 68510000:Red Bear's Claw
+68520000:?WeaponName?
+68530000:?WeaponName?
+68680000:?WeaponName?
+68690000:?WeaponName?
+90000000:?WeaponName?
+90010000:?WeaponName?
+90020000:?WeaponName?
+90030000:?WeaponName?
 98990000:?WeaponName?
 99000000:?WeaponName?
 99010000:?WeaponName?
@@ -3081,6 +3636,7 @@
 99040000:?WeaponName?
 99050000:?WeaponName?
 99060000:?WeaponName?
+99999999:?WeaponName?
 </DropDownList>
   <GroupHeader>1</GroupHeader>
 </CheatEntry>

@@ -8,15 +8,15 @@ function ThingName:new(pName, length, fallback)
     setmetatable(o, self)
     self.__index = self
     local str = fallback and tostring(fallback) or "?ThingName?"
-    self.fallback = str
+    o.fallback = str
     if pName ~= nil then
         local read = readString(pName, length, true)
         if read ~= nil then
             str = read
-            self.ptr = pName
+            o.ptr = pName
         end
     end
-    self.length = str:len()
+    o.length = str:len()
     return o
 end
 

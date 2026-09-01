@@ -1,47 +1,47 @@
 <CheatEntry>
   <ID>108212</ID>
   <Description>"PROTECTOR_ID"</Description>
-  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1000:Type 1
-1100:Type 2
-1200:Type 3
-1300:Type 4
-1400:Type 5
-1500:Type 6
-1600:Type 7
-1700:Type 8
-1800:Type 9
-1900:Type 10
-2000:Type 11
-2100:Type 12
-2200:Type 13
-2300:Type 14
-2400:Type 15
-2500:Type 16
-2600:Type 17
-2700:Type 18
-2800:Type 19
-2900:Type 20
-3000:Type 1
-3100:Type 2
-3200:Type 3
-3300:Type 4
-3400:Type 5
-3500:Type 6
-3600:Type 7
-3700:Type 8
-3800:Type 9
-3900:Type 10
-4000:Type 11
-4100:Type 12
-4200:Type 13
-4300:Type 14
-4400:Type 15
-4500:Type 16
-4600:Type 17
-4700:Type 18
-4800:Type 19
-4900:Type 20
-5000:Travel Hairstyle
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1000:[ERROR]Type 1
+1100:[ERROR]Type 2
+1200:[ERROR]Type 3
+1300:[ERROR]Type 4
+1400:[ERROR]Type 5
+1500:[ERROR]Type 6
+1600:[ERROR]Type 7
+1700:[ERROR]Type 8
+1800:[ERROR]Type 9
+1900:[ERROR]Type 10
+2000:[ERROR]Type 11
+2100:[ERROR]Type 12
+2200:[ERROR]Type 13
+2300:[ERROR]Type 14
+2400:[ERROR]Type 15
+2500:[ERROR]Type 16
+2600:[ERROR]Type 17
+2700:[ERROR]Type 18
+2800:[ERROR]Type 19
+2900:[ERROR]Type 20
+3000:[ERROR]Type 1
+3100:[ERROR]Type 2
+3200:[ERROR]Type 3
+3300:[ERROR]Type 4
+3400:[ERROR]Type 5
+3500:[ERROR]Type 6
+3600:[ERROR]Type 7
+3700:[ERROR]Type 8
+3800:[ERROR]Type 9
+3900:[ERROR]Type 10
+4000:[ERROR]Type 11
+4100:[ERROR]Type 12
+4200:[ERROR]Type 13
+4300:[ERROR]Type 14
+4400:[ERROR]Type 15
+4500:[ERROR]Type 16
+4600:[ERROR]Type 17
+4700:[ERROR]Type 18
+4800:[ERROR]Type 19
+4900:[ERROR]Type 20
+5000:[ERROR]Travel Hairstyle
 10000:Head
 10100:Body
 10200:Arms
@@ -118,7 +118,7 @@
 200300:Banished Knight Greaves
 201000:Banished Knight Helm (Altered)
 201100:Banished Knight Armor (Altered)
-202100:?ProtectorName?
+202100:[ERROR]
 210000:Briar Helm
 210100:Briar Armor
 210200:Briar Gauntlets
@@ -159,8 +159,8 @@
 281100:Royal Knight Armor (Altered)
 290000:Nox Monk Hood
 290100:Nox Monk Armor
-290200:Nox Monk Bracelets
-290300:Nox Monk Greaves
+290200:Nox Bracelets
+290300:Nox Greaves
 291000:Nox Monk Hood (Altered)
 291100:Nox Monk Armor (Altered)
 292000:Nox Swordstress Crown
@@ -322,12 +322,12 @@
 690100:Royal Remains Armor
 690200:Royal Remains Gauntlets
 690300:Royal Remains Greaves
-700000:Brave's Cord Circlet
-700100:Brave's Battlewear
-700200:Brave's Bracer
-700300:Brave's Legwraps
-701000:Brave's Leather Helm
-702000:Brave's Battlewear (Altered)
+700000:[ERROR]Brave's Cord Circlet
+700100:[ERROR]Brave's Battlewear
+700200:[ERROR]Brave's Bracer
+700300:[ERROR]Brave's Legwraps
+701000:[ERROR]Brave's Leather Helm
+702000:[ERROR]Brave's Battlewear (Altered)
 720000:Beast Champion Helm
 720100:Beast Champion Armor
 720200:Beast Champion Gauntlets
@@ -342,7 +342,7 @@
 740200:Noble's Gloves
 740300:Noble's Trousers
 741000:Navy Hood
-742000:?ProtectorName?
+742000:[ERROR]
 760000:Maliketh's Helm
 760100:Maliketh's Armor
 760200:Maliketh's Gauntlets
@@ -385,11 +385,11 @@
 832000:Lazuli Glintstone Crown
 833000:Karolos Glintstone Crown
 834000:Witch's Glintstone Crown
-834100:?ProtectorName?
-835000:?ProtectorName?
-835100:?ProtectorName?
-835200:?ProtectorName?
-835300:?ProtectorName?
+834100:[ERROR]
+835000:[ERROR]
+835100:[ERROR]
+835200:[ERROR]
+835300:[ERROR]
 836000:?ProtectorName?
 840000:Marionette Soldier Helm
 840100:Marionette Soldier Armor
@@ -408,7 +408,7 @@
 872100:White Reed Armor
 872200:White Reed Gauntlets
 872300:White Reed Greaves
-873000:?ProtectorName?
+873000:[ERROR]
 880000:Confessor Hood
 880100:Confessor Armor
 880200:Confessor Gloves
@@ -419,31 +419,31 @@
 890100:Prisoner Clothing
 890300:Prisoner Trousers
 891000:Blackguard's Iron Mask
-892100:?ProtectorName?
+892100:[ERROR]
 900000:Traveling Maiden Hood
 900100:Traveling Maiden Robe
 900200:Traveling Maiden Gloves
 900300:Traveling Maiden Boots
 901100:Traveling Maiden Robe (Altered)
-901200:?ProtectorName?
-901600:?ProtectorName?
+901200:[ERROR]
+901600:[ERROR]
 902000:Finger Maiden Fillet
 902100:Finger Maiden Robe
 902300:Finger Maiden Shoes
 903100:Finger Maiden Robe (Altered)
-904100:?ProtectorName?
+904100:[ERROR]
 910000:Preceptor's Big Hat
 910100:Preceptor's Long Gown
 910200:Preceptor's Gloves
 910300:Preceptor's Trousers
 911000:Mask of Confidence
 911100:Preceptor's Long Gown (Altered)
-912000:?ProtectorName?
-912100:?ProtectorName?
-912200:?ProtectorName?
-912300:?ProtectorName?
-913000:?ProtectorName?
-920000:Grass Hair Ornament
+912000:[ERROR]
+912100:[ERROR]
+912200:[ERROR]
+912300:[ERROR]
+913000:[ERROR]
+920000:[ERROR]Grass Hair Ornament
 930000:Skeletal Mask
 930100:Raptor's Black Feathers
 930200:Bandit Manchettes
@@ -470,11 +470,11 @@
 963200:Bloodsoaked Manchettes
 964000:Bloodsoaked Mask
 964100:Official's Attire
-965000:?ProtectorName?
-965100:?ProtectorName?
-965300:?ProtectorName?
-966000:?ProtectorName?
-967000:?ProtectorName?
+965000:[ERROR]
+965100:[ERROR]
+965300:[ERROR]
+966000:[ERROR]
+967000:[ERROR]
 970000:Omen Helm
 970100:Omen Armor
 970200:Omen Gauntlets
@@ -489,7 +489,7 @@
 990200:Errant Sorcerer Manchettes
 990300:Errant Sorcerer Boots
 991100:Errant Sorcerer Robe (Altered)
-992000:?ProtectorName?
+992000:[ERROR]
 1000000:Haima Glintstone Crown
 1000100:Battlemage Robe
 1000200:Battlemage Manchettes
@@ -523,7 +523,7 @@
 1090000:Silver Tear Mask
 1100000:Chain Coif
 1100100:Chain Armor
-1100200:Chain Gauntlets
+1100200:Gauntlets
 1100300:Chain Leggings
 1101000:Greathelm
 1101100:Eye Surcoat
@@ -546,7 +546,7 @@
 1500200:Knight Gauntlets
 1500300:Knight Greaves
 1600000:Greathood
-1610000:?ProtectorName?
+1610000:[ERROR]
 1700000:Godrick Soldier Helm
 1700100:Tree-and-Beast Surcoat
 1700200:Godrick Soldier Gauntlets
@@ -627,20 +627,20 @@
 1910000:Crimson Tear Scarab
 1920000:Cerulean Tear Scarab
 1930100:Deathbed Dress
-1930300:Deathbed Smalls
-1932100:?ProtectorName?
+1930300:[ERROR]Deathbed Smalls
+1932100:[ERROR]
 1940000:Fia's Hood
 1940100:Fia's Robe
 1941100:Fia's Robe (Altered)
-1950100:Millicent's Robe
-1950200:Millicent's Gloves
-1950300:Millicent's Boots
-1960100:?ProtectorName?
-1960200:?ProtectorName?
-1970100:Millicent's Tunic
-1970200:Golden Prosthetic
-1971100:?ProtectorName?
-1971200:?ProtectorName?
+1950100:[ERROR]Millicent's Robe
+1950200:[ERROR]Millicent's Gloves
+1950300:[ERROR]Millicent's Boots
+1960100:[ERROR]
+1960200:[ERROR]
+1970100:[ERROR]Millicent's Tunic
+1970200:[ERROR]Golden Prosthetic
+1971100:[ERROR]
+1971200:[ERROR]
 1980000:Highwayman Hood
 1980100:Highwayman Cloth Armor
 1980200:Highwayman Gauntlets
@@ -682,6 +682,15 @@
 5030200:Thiollier's Gloves
 5030300:Thiollier's Trousers
 5031100:Thiollier's Garb (Altered)
+5032100:?ProtectorName?
+5040000:?ProtectorName?
+5040100:?ProtectorName?
+5040200:?ProtectorName?
+5040300:?ProtectorName?
+5050000:?ProtectorName?
+5050100:?ProtectorName?
+5050200:?ProtectorName?
+5050300:?ProtectorName?
 5060000:High Priest Hat
 5060100:High Priest Robe
 5060200:High Priest Gloves
@@ -706,6 +715,9 @@
 5100300:Igon's Loincloth
 5101000:Igon's Helm (Altered)
 5101100:Igon's Armor (Altered)
+5102100:?ProtectorName?
+5102200:?ProtectorName?
+5102300:?ProtectorName?
 5110000:Wise Man's Mask
 5110100:Ansbach's Attire
 5110200:Ansbach's Manchettes
@@ -716,6 +728,7 @@
 5120200:Freyja's Gauntlets
 5120300:Freyja's Greaves
 5121100:Freyja's Armor (Altered)
+5122000:?ProtectorName?
 5130000:Helm of Solitude
 5130100:Armor of Solitude
 5130200:Gauntlets of Solitude
@@ -734,6 +747,14 @@
 5160100:Rakshasa Armor
 5160200:Rakshasa Gauntlets
 5160300:Rakshasa Greaves
+5170000:?ProtectorName?
+5170100:?ProtectorName?
+5170200:?ProtectorName?
+5170300:?ProtectorName?
+5172000:?ProtectorName?
+5172100:?ProtectorName?
+5172200:?ProtectorName?
+5172300:?ProtectorName?
 5180000:Fire Knight Helm
 5180100:Fire Knight Armor
 5180200:Fire Knight Gauntlets
@@ -799,6 +820,25 @@
 5310000:Crucible Hammer-Helm
 5320000:Greatjar
 5330000:Imp Head (Lion)
+5340000:Broken Gold Mask
+5340100:Gold Tattoo (Chest)
+5340200:Gold Tattoo (Arm)
+5340300:Gold Tattoo (Leg)
+5350000:Silver Grooved Helm
+5350100:Silver Grooved Armor
+5350200:Silver Grooved Gauntlets
+5350300:Silver Grooved Greaves
+5351100:Silver Grooved Armor (Altered)
+5360000:Leontiel's Hat
+5360100:Leontiel's Armor
+5360200:Leontiel's Leather Gloves
+5360300:Leontiel's Boots
+5361000:Leontiel's Hat (Altered)
+5370000:Steel Helm
+5370100:Steel Armor
+5370200:Steel Gauntlets
+5370300:Steel Greaves
+9999999:?ProtectorName?
 </DropDownList>
   <GroupHeader>1</GroupHeader>
 </CheatEntry>
