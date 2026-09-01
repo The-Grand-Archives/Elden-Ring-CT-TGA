@@ -13,6 +13,11 @@
        - Convert ArcheType to use Dropdown Utils
      - Add Tarnished Pack item support
      - Add Spectral Steed Regalia to Event Flag Manager
+     - Add new items and weapon arts to:
+       - GOODS_ID
+       - PROTECTOR_ID
+       - SWORD_ARTS_ID
+       - WEAPON_ID
    - Dropdown Utils functions which enable dynamic construction of dropdown lists at runtime
      - mergeDropdown function inserts entries into a dropdown
      - constructDropdown function builds a full dropdown list from formatted data
