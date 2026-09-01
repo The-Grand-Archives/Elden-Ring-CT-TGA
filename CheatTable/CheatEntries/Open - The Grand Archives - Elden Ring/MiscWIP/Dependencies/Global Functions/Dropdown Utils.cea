@@ -1,0 +1,156 @@
+// Author: Umgak
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+--[[
+	ddstotbl
+	Converts an input string formatted for use as a DropDownList into an associative table
+		Internal
+	@param inputString | string - the formatted string to convert into a table
+	@param isHex | bool - whether to treat the input as hexadecimal, else decimal
+	@return table
+]]
+local function ddstotbl(inputString, isHex)
+	local base = isHex and 16 or 10
+	local partFmt = isHex and "%x" or "%d"
+	fmt = "(["..partFmt.."]+):(.+)"
+	local dropdown = {}
+	for line in string.gmatch(inputString, "[^\r\n]+") do
+		for k,v in string.gmatch(line, fmt) do
+			key = tonumber(k, base)
+			dropdown[key]=v
+		end
+	end
+	return dropdown
+end
+
+--[[
+	tbltodds
+	Converts a table into a sorted dropdown string for use as a DropDownList
+		Internal
+	@param dropdown | table - an associative table to convert into a dropdown string
+	@param isHex | bool - whether to treat the input as hexadecimal, else decimal
+	@param defaultEntry | string - value for an entry to set as the first, overriding its natural order
+	@return string
+]]
+local function tbltodds(dropdown, isHex, defaultEntry)
+	local fmt = isHex and "%08X:%s" or "%d:%s"
+	-- converts a dropdown table into a DropDownList string for use in a memrec
+	-- avoid lua hashtable order by sorting keys
+	local keys = {}
+	for k, _ in pairs(dropdown) do
+		table.insert(keys, k)
+	end
+	table.sort(keys)
+	-- insert sorted keys into table
+	local sorted_dropdown = {}
+	for _, k in ipairs(keys) do
+		local ddsEntry = string.format(fmt, k, dropdown[k])
+		if dropdown[k] ~= defaultEntry then
+			table.insert(sorted_dropdown, ddsEntry)
+		else
+			table.insert(sorted_dropdown, 1, ddsEntry)
+		end
+	end
+	-- concatenate and return
+	return table.concat(sorted_dropdown, "\n")
+end
+
+--[[
+	mrtotbl
+	Extracts the DropDownList from a memrec and converts it to a table
+		Wrapper of ddstotbl, just for convenience
+		Internal
+	@param memrec | memrec - a memory record to convert into a table
+	@param isHex | bool - whether to treat the input as hexadecimal, else decimal
+	@return table
+]]
+local function mrtotbl(memrec, isHex)
+	return ddstotbl(memrec.DropDownList.getText(), isHex)
+end
+
+--[[
+	mergeDropdown
+	Merges two dropdowns, allowing for deduplication of dropdown entries
+		I didn't want to have 99% the same data 4 times to support multiple DLC setups
+		Returns nothing, mutates the targetMemrec
+	Examples:
+		mergeDropdown(yourMemrec, yourOtherMemrec) 
+		mergeDropdown(yourMemrec, yourOtherMemrec, true) - if your input is hex
+		mergeDropdown(yourMemrec, yourOtherMemrec, false, "Default") - if you have a value called "Default" 
+			you want to override the order of.
+		mergeDropdown(yourMemrec, [[1:One
+		2:Two
+		3:Three\]\]) - if your input is a formatted string.
+		mergeDropdown(yourMemrec, {1 = "One", 2 = "Two", 3 = "Three"}) - if you want to merge a table.
+		Ideally construct your inserted dropdown in your favorite format, then pass it as a variable. 
+			Otherwise it gets ugly.
+	@param targetMemrec | memrec - the memory record to insert the new dropdowns into
+	@param newDropdown | memrec, string, or table - the new data to insert into the target
+	@param isHex | bool, optional - whether to treat the input as hexadecimal, else decimal
+	@param defaultEntry | string, optional - override the first value of the dropdown with a specific value
+]]
+function mergeDropdown(targetMemrec, newDropdown, isHex, defaultEntry)
+	local origddt = mrtotbl(targetMemrec, isHex)
+	local insertddt = {}
+
+	local switch = {
+		['userdata'] = mrtotbl,
+		['string'] = ddstotbl,
+		['table'] = function(t) return t end -- nothing to do
+	}
+	local t = type(newDropdown)
+	local func = switch[t]
+	if func then
+		insertddt = func(newDropdown, isHex)
+	else
+		error('mergeDropdown: newDropdown was not a supported type', 2)
+	end
+	if not next(insertddt) then
+		error('mergeDropdown: newDropdown was invalid or empty', 2)
+	end
+	-- merge the two tables together, overwriting collisions
+	for k,v in pairs(insertddt) do origddt[k]=v	end
+	targetMemrec.DropDownList.setText(tbltodds(origddt, isHex, defaultEntry))
+end
+
+--[[
+	constructDropdown
+	Constructs a dropdown out of a formatted table
+	DESTROYS any data in the target memrec prior to construction. This is deliberate. You have been warned.
+	Example:
+		itemGem = {
+  		targetMemrec = getMemrec("ItemGem"),
+  		isHex = true,
+  		defaultEntry = "Default",
+  		dropdowns = {
+    		{data = getMemrec("ItemGemBase")},
+    		{data = getMemrec("ItemGemDLC"), dlcNum = 1, allowIgnoreDlc = true}
+  		}
+		}
+		constructDropdown(itemGem)
+	@param tbl | table - a formatted table containing the following keys:
+		@param tbl.targetMemrec | memrec - the memrec to overwrite. This memrec's existing dropdown
+			will be cleared prior to parsing.
+		@param tbl.isHex | bool, optional - whether to treat the input as hexadecimal, else decimal
+		@param tbl.defaultEntry | string, optional - override the first value of the dropdown with a specific value
+		@param tbl.dropdowns | table - a nested table which contains the following keys:
+			@param dropdown.data | memrec, string, or table - the new data to insert into the targetMemrec
+			@param dropdown.dlcNum | number, optional - the DLC that is required for this data to be inserted.
+			@param dropdown.allowIgnoreDlc | bool, optional - allow players to ignore the DLC requirement check with
+				the "Ignore DLC requirement for tradeable DLC items" toggle. Only set if your items are tradeable in the base game.
+]]
+function constructDropdown(tbl)
+	assert(type(tbl) == 'table', 'constructDropdown: input was not a table')
+	assert(type(tbl.targetMemrec) == 'userdata', 'constructDropdown: target memrec was not a memrec')
+	assert(type(tbl.dropdowns) == 'table', 'constructDropdown: dropdowns to insert were not a table')
+	tbl.targetMemrec.DropDownList.clear()
+	for _, dropdown in pairs(tbl.dropdowns) do
+		local isOwned = dropdown.dlcNum == nil or isOwnDlc(dropdown.dlcNum)
+		local isInsert = isOwned or dropdown.allowIgnoreDlc and tga.config.ignoreDlcReq or tbl.forceAll
+		if isInsert then mergeDropdown(tbl.targetMemrec, dropdown.data, tbl.isHex, tbl.defaultEntry) end
+	end
+end
+
+[DISABLE]
+mergeDropdown = nil

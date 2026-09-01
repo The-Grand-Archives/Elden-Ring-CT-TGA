@@ -4,13 +4,18 @@
   <Options moHideChildren="1"/>
   <GroupHeader>1</GroupHeader>
   <x-ce2fs-child-order>
+    <id id="108301"/>
     <id id="108199"/>
     <id id="108200"/>
+    <id id="108302"/>
+    <id id="108306"/>
     <id id="108201"/>
     <id id="108202"/>
+    <id id="108304"/>
     <id id="108203"/>
     <id id="108204"/>
     <id id="108205"/>
+    <id id="108305"/>
     <id id="108206"/>
     <id id="108207"/>
     <id id="108208"/>

@@ -1,6 +1,6 @@
 <CheatEntry>
-  <ID>108305</ID>
-  <Description>"BonfireId"</Description>
+  <ID>108306</ID>
+  <Description>"ItemDropdownAll"</Description>
   <DropDownList DescriptionOnly="1" DisplayValueAsItem="1"/>
   <GroupHeader>1</GroupHeader>
 </CheatEntry>
