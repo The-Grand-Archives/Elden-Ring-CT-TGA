@@ -2,6 +2,8 @@
 ## [Unreleased]
 ### Fixed
  - "Invasion Regions" throwing MapList errors
+ - Custom FPS Limit script offsets
+  - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
 ## [v1.19.0] - 2026-09-01
 ### Added
  - Support for ELDEN RING App Ver. 1.17
