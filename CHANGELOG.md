@@ -1,9 +1,11 @@
 # Changelog
 ## [Unreleased]
-
+### Fixed
+ - Custom FPS Limit script offsets
+  - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
 ## [v1.19.0] - 2026-09-01
 ### Added
-- Support for ELDEN RING App Ver. 1.17
+ - Support for ELDEN RING App Ver. 1.17
   - Added Tarnished Pack to Error Functions
   - Added Tarnished Pack new starting classes to ArcheType
   - Added Tarnished Pack item support
