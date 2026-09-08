@@ -1,6 +1,9 @@
 # Changelog
 ## [Unreleased]
-
+### Changed
+ - Supported version to ELDEN RING App Ver. 1.17.1
+### Fixed
+ - Noclip offsets
 ## [v1.19.0] - 2026-09-01
 ### Added
 - Support for ELDEN RING App Ver. 1.17
