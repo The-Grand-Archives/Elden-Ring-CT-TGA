@@ -1,8 +1,9 @@
 // author: Dasaav
 // updated offsets: Umgak
+// todo: switch this to AOB scans, CE is finnicky with this because of mixed asm/c/ccode
 {$lua}
 if syntaxcheck then return end
-address_version("1.17")
+address_version("1.17.1")
 {$asm}
 [ENABLE]
 {$c}
@@ -71,7 +72,7 @@ float get_up_down_input(void* cs_pad) {
 
 	if (cs_pad != NULL) {
 		CSPad_is_key_pressed is_key_pressed =
-			(CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x2667870);
+			(CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x26678e0);
 
 		if (is_key_pressed(cs_pad, 16)) {
 			input += 1.0f;
