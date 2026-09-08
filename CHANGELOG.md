@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - New param rows for 1.17+
 ### Fixed
  - "Invasion Regions" throwing MapList errors
  - Custom FPS Limit script offsets
