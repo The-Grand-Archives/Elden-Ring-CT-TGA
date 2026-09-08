@@ -1,6 +1,7 @@
 # Changelog
 ## [Unreleased]
-
+### Added
+ - New param rows for 1.17+
 ## [v1.19.0] - 2026-09-01
 ### Added
 - Support for ELDEN RING App Ver. 1.17
