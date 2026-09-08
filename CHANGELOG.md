@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.19.1] - 2026-09-08
 ### Changed
  - Supported version to ELDEN RING App Ver. 1.17.1
 ### Added
@@ -9,6 +11,7 @@
  - Custom FPS Limit script offsets
   - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
  - Noclip offsets for 1.17.1
+
 ## [v1.19.0] - 2026-09-01
 ### Added
  - Support for ELDEN RING App Ver. 1.17
