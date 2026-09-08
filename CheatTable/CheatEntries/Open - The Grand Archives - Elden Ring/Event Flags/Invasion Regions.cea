@@ -6,7 +6,7 @@
 {$lua}
 if syntaxcheck then return end
 [ENABLE]
-local wex = uiBase:new(memrec)
+wex = uiBase:new(memrec)
 
 function wex:addItems(control, items, checked)
 	checked = checked or false
@@ -25,9 +25,9 @@ end
 
 local function setMapPool(t)
 	t = t.getItemIndex() + 1
-	wex.MapList.Visible = false
-	for i,v in ipairs(wex.Checkboxes) do v.destroy() end
-	wex.Checkboxes = {}
+	wex.Main.MapList.Visible = false
+	for i,v in ipairs(wex.Main.Checkboxes) do v.destroy() end
+	wex.Main.Checkboxes = {}
 	for i,v in ipairs(wex.PlayRegions) do
 		if v.Map == wex.Maps[t] then table.insert(wex.Main.Checkboxes, wex.Main:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
 	end
@@ -117,7 +117,7 @@ local function selectRegions(t)
 			v.Active = false
 		end
 	end
-	for i,v in ipairs(wex.Checkboxes) do
+	for i,v in ipairs(wex.Main.Checkboxes) do
 		v.Checked = wex.PlayRegions[wex.IndexedRegionNames[v.Caption]].Active
 	end
 end
