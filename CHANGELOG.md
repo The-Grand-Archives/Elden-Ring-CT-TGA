@@ -1,11 +1,14 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - Supported version to ELDEN RING App Ver. 1.17.1
 ### Added
  - New param rows for 1.17+
 ### Fixed
  - "Invasion Regions" throwing MapList errors
  - Custom FPS Limit script offsets
   - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
+ - Noclip offsets for 1.17.1
 ## [v1.19.0] - 2026-09-01
 ### Added
  - Support for ELDEN RING App Ver. 1.17
