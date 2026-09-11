@@ -31,7 +31,7 @@ local function setMapPool(t)
 	for i,v in ipairs(wex.PlayRegions) do
 		if v.Map == wex.Maps[t] then table.insert(wex.Main.Checkboxes, wex.Main:create("TCheckBox", "MapList", {Caption = v.Name, Checked = v.Active, OnChange = changeRegionCheckbox})) end
 	end
-	wex.MapList.Visible = true
+	wex.Main.MapList.Visible = true
 end
 
 local function changeAllCheckboxes(t)
