@@ -2,6 +2,11 @@
 ## [Unreleased]
 ### Changed
  - Supported version to ELDEN RING App Ver. 1.17.2
+### Added
+ - `initializeDropdowns` function
+   - This is run automatically once on start, and re-generates drop down lists based on the current table settings & DLC ownership.
+### Changed
+ - Modifying the settings in `Table Tools/Configure Table` will automatically regenerate dropdowns.
 ### Fixed
  - "Invasion Regions" MapList errors (again)
  - Noclip support for 1.17.2

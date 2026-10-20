@@ -11,6 +11,7 @@ function cfgForm:configure()
 		config[i] = checkBoxes[desc:gsub("%s+", "")].Checked
 	end
 	tga:saveConfig()
+	initializeDropdowns()
 	self.Window.close()
 end
 
