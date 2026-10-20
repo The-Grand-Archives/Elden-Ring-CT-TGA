@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - "Invasion Regions" MapList errors (again)
 
 ## [v1.19.1] - 2026-09-08
 ### Changed
@@ -9,7 +11,7 @@
 ### Fixed
  - "Invasion Regions" throwing MapList errors
  - Custom FPS Limit script offsets
-  - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
+   - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
  - Noclip offsets for 1.17.1
 
 ## [v1.19.0] - 2026-09-01
