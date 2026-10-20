@@ -87,6 +87,8 @@ local function init()
 end
 
 function initializeDropdowns()
+  -- don't create extra copies of the timer
+  if constructDropdownsTimer.Enabled then return end
   -- wait until CsDlc is populated before initializing
   constructDropdownsTimer = createTimer(getMainForm())
   constructDropdownsTimer.Interval = 100
