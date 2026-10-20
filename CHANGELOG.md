@@ -10,6 +10,8 @@
 ### Fixed
  - "Invasion Regions" MapList errors (again)
  - Noclip support for 1.17.2
+ - "Damage management" dropdown offsets
+ - "Party Member Info" offsets
 
 ## [v1.19.1] - 2026-09-08
 ### Changed
