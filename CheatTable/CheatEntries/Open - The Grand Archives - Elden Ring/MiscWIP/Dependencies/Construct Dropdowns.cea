@@ -86,17 +86,26 @@ local function init()
   end
 end
 
--- wait until CsDlc is populated before initializing
-constructDropdownsTimer = createTimer(getMainForm())
-constructDropdownsTimer.Interval = 100
-constructDropdownsTimer.OnTimer = function(timer)
-  if getAddressSafe("CsDlc") then
-    if readByte("[CsDlc]+0x45") == 1 then
-      init()
-      timer.destroy()
+function initializeDropdowns()
+  -- don't create extra copies of the timer
+  if constructDropdownsTimer.Enabled then return end
+  -- wait until CsDlc is populated before initializing
+  constructDropdownsTimer = createTimer(getMainForm())
+  constructDropdownsTimer.Interval = 100
+  constructDropdownsTimer.OnTimer = function(timer)
+    if getAddressSafe("CsDlc") then
+      if readByte("[CsDlc]+0x45") == 1 then
+        init()
+        timer.destroy()
+      end
     end
   end
 end
+
+-- run this once on launch
+-- having this here means I can easily toggle the script on/off for testing
+-- but also other scripts can call it to regenerate on demand
+initializeDropdowns()
 
 [DISABLE]
 constructDropdownsTimer.destroy()

@@ -1,6 +1,20 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.19.2] - 2026-10-20
+### Changed
+ - Supported version to ELDEN RING App Ver. 1.17.2
+### Added
+ - `initializeDropdowns` function
+   - This is run automatically once on start, and re-generates drop down lists based on the current table settings & DLC ownership.
+### Changed
+ - Modifying the settings in `Table Tools/Configure Table` will automatically regenerate dropdowns.
+### Fixed
+ - "Invasion Regions" MapList errors (again)
+ - Noclip support for 1.17.2
+ - "Damage management" dropdown offsets
+ - "Party Member Info" offsets
+
 ## [v1.19.1] - 2026-09-08
 ### Changed
  - Supported version to ELDEN RING App Ver. 1.17.1
@@ -9,7 +23,7 @@
 ### Fixed
  - "Invasion Regions" throwing MapList errors
  - Custom FPS Limit script offsets
-  - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
+   - This is broken on modern versions of Elden Ring anyway - it's more of a curiosity than anything.
  - Noclip offsets for 1.17.1
 
 ## [v1.19.0] - 2026-09-01
