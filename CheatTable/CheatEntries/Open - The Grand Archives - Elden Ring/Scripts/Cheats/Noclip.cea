@@ -3,7 +3,7 @@
 // todo: switch this to AOB scans, CE is finnicky with this because of mixed asm/c/ccode
 {$lua}
 if syntaxcheck then return end
-address_version("1.17.1")
+address_version("1.17.2")
 {$asm}
 [ENABLE]
 {$c}
@@ -72,7 +72,7 @@ float get_up_down_input(void* cs_pad) {
 
 	if (cs_pad != NULL) {
 		CSPad_is_key_pressed is_key_pressed =
-			(CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x26678e0);
+			(CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x2669010);
 
 		if (is_key_pressed(cs_pad, 16)) {
 			input += 1.0f;
@@ -181,9 +181,9 @@ if (is_main_player(*(void**)((uintptr_t)physics_module + 0x08))) {
 	}
 }
 {$asm}
-jmp $process+467df9
+jmp $process+467ed9
 
-$process+467df4:
+$process+467ed4:
 jmp physics_update_hook
 nop 4
 
@@ -191,7 +191,7 @@ nop 4
 [[[[WorldChrMan]+1E508]+190]+68]+1D3:
 db 0
 
-$process+467df4:
+$process+467ed4:
 movaps xmm0,[rsp+40]
 movups [rbx+70],xmm0
 

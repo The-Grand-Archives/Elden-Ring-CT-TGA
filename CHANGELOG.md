@@ -1,7 +1,10 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - Supported version to ELDEN RING App Ver. 1.17.2
 ### Fixed
  - "Invasion Regions" MapList errors (again)
+ - Noclip support for 1.17.2
 
 ## [v1.19.1] - 2026-09-08
 ### Changed
