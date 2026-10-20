@@ -8,6 +8,6 @@
   <VariableType>Byte</VariableType>
   <Address>DamageCtrl</Address>
   <Offsets>
-    <Offset>A4</Offset>
+    <Offset>AC</Offset>
   </Offsets>
 </CheatEntry>

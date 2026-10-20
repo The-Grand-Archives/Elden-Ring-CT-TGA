@@ -2,7 +2,7 @@
 ## [Unreleased]
 ### Fixed
  - "Invasion Regions" MapList errors (again)
-
+ - "Damage management" dropdown offsets
 ## [v1.19.1] - 2026-09-08
 ### Changed
  - Supported version to ELDEN RING App Ver. 1.17.1
