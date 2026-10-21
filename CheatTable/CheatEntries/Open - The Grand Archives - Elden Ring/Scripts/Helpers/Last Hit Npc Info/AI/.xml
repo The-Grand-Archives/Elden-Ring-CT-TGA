@@ -1,0 +1,14 @@
+<CheatEntry>
+  <ID>1337273186</ID>
+  <Description>"AI"</Description>
+  <Options moHideChildren="1"/>
+  <LastState Value="" RealAddress="00000000"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="1337273187"/>
+    <id id="1337273188"/>
+    <id id="1337273189"/>
+    <id id="1337273254"/>
+    <id id="1337273271"/>
+  </x-ce2fs-child-order>
+</CheatEntry>
