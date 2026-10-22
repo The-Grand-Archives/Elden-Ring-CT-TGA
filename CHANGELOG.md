@@ -1,5 +1,7 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.19.3] - 2026-10-22
 ### Fixed
  - Dropdown Builder failing to apply
 
