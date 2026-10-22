@@ -1,6 +1,10 @@
 # Changelog
 ## [Unreleased]
 
+## [v1.19.3] - 2026-10-22
+### Fixed
+ - Dropdown Builder failing to apply
+
 ## [v1.19.2] - 2026-10-20
 ### Changed
  - Supported version to ELDEN RING App Ver. 1.17.2
